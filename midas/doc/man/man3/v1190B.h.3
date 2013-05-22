@@ -1,0 +1,391 @@
+.TH "v1190B.h" 3 "31 May 2012" "Version 2.3.0-0" "Midas" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+v1190B.h \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "int \fBv1190_EventRead\fP (\fBMVME_INTERFACE\fP *mvme, \fBDWORD\fP base, \fBDWORD\fP *pdest, int *nentry)"
+.br
+.ti -1c
+.RI "int \fBv1190_DataRead\fP (\fBMVME_INTERFACE\fP *mvme, \fBDWORD\fP base, \fBDWORD\fP *pdest, int nentry)"
+.br
+.ti -1c
+.RI "void \fBv1190_WidthSet\fP (\fBMVME_INTERFACE\fP *mvme, \fBDWORD\fP base, \fBWORD\fP \fBwidth\fP)"
+.br
+.ti -1c
+.RI "void \fBv1190_OffsetSet\fP (\fBMVME_INTERFACE\fP *mvme, \fBDWORD\fP base, \fBWORD\fP offset)"
+.br
+.ti -1c
+.RI "int \fBv1190_Setup\fP (\fBMVME_INTERFACE\fP *mvme, \fBDWORD\fP base, int mode)"
+.br
+.ti -1c
+.RI "int \fBv1190_Status\fP (\fBMVME_INTERFACE\fP *mvme, \fBDWORD\fP base)"
+.br
+.in -1c
+.SH "Define Documentation"
+.PP 
+.SS "#define LE_RESOLUTION_100   (\fBWORD\fP) (0x10)"
+.PP
+Definition at line 54 of file v1190B.h.
+.PP
+Referenced by begin_of_run(), and v1190_LEResolutionSet().
+.SS "#define LE_RESOLUTION_200   (\fBWORD\fP) (0x01)"
+.PP
+Definition at line 55 of file v1190B.h.
+.PP
+Referenced by begin_of_run(), and v1190_LEResolutionSet().
+.SS "#define LE_RESOLUTION_800   (\fBWORD\fP) (0x00)"
+.PP
+Definition at line 56 of file v1190B.h.
+.PP
+Referenced by begin_of_run(), and v1190_LEResolutionSet().
+.SS "#define V1190_ACQ_MODE_RO   (\fBWORD\fP) (0x0200)"
+.PP
+Definition at line 52 of file v1190B.h.
+.PP
+Referenced by v1190_AcqModeRead().
+.SS "#define V1190_ALMOST_FULL   (\fBDWORD\fP) (0x0002)"
+.PP
+Definition at line 26 of file v1190B.h.
+.SS "#define V1190_CONTINUOUS_WO   (\fBWORD\fP) (0x0100)"
+.PP
+Definition at line 51 of file v1190B.h.
+.PP
+Referenced by v1190_ContinuousSet().
+.SS "#define V1190_CR_RW   (\fBDWORD\fP) (0x1000)"
+.PP
+Definition at line 23 of file v1190B.h.
+.SS "#define V1190_DATA_READY   (\fBDWORD\fP) (0x0001)"
+.PP
+Definition at line 25 of file v1190B.h.
+.PP
+Referenced by v1190_DataReady().
+.SS "#define V1190_EDGE_DETECTION_WO   (\fBWORD\fP) (0x2200)"
+.PP
+Definition at line 46 of file v1190B.h.
+.PP
+Referenced by v1190_SetEdgeDetection().
+.SS "#define V1190_EVT_CNT_RO   (\fBDWORD\fP) (0x101C)"
+.PP
+Definition at line 35 of file v1190B.h.
+.PP
+Referenced by v1190_EvtCounter().
+.SS "#define V1190_EVT_STORED_RO   (\fBDWORD\fP) (0x1020)"
+.PP
+Definition at line 36 of file v1190B.h.
+.PP
+Referenced by v1190_EvtStored().
+.SS "#define V1190_FIRM_REV_RO   (\fBDWORD\fP) (0x1026)"
+.PP
+Definition at line 37 of file v1190B.h.
+.PP
+Referenced by begin_of_run().
+.SS "#define V1190_FULL   (\fBDWORD\fP) (0x0004)"
+.PP
+Definition at line 27 of file v1190B.h.
+.SS "#define V1190_GEO_REG_RW   (\fBDWORD\fP) (0x001E)"
+.PP
+Definition at line 30 of file v1190B.h.
+.PP
+Referenced by v1190_GeoWrite().
+.SS "#define V1190_HEADER_ENABLE   (\fBDWORD\fP) (0x0010)"
+.PP
+Definition at line 29 of file v1190B.h.
+.SS "#define V1190_LE_RESOLUTION_WO   (\fBWORD\fP) (0x2400)"
+.PP
+Definition at line 47 of file v1190B.h.
+.PP
+Referenced by v1190_LEResolutionSet().
+.SS "#define V1190_LEW_RESOLUTION_WO   (\fBWORD\fP) (0x2500)"
+.PP
+Definition at line 48 of file v1190B.h.
+.SS "#define V1190_MAX_CHANNELS   (\fBDWORD\fP) 64"
+.PP
+Definition at line 21 of file v1190B.h.
+.SS "#define V1190_MICRO_HAND_RO   (\fBDWORD\fP) (0x1030)"
+.PP
+Definition at line 38 of file v1190B.h.
+.PP
+Referenced by v1190_MicroRead(), and v1190_MicroWrite().
+.SS "#define V1190_MICRO_RD_OK   (\fBWORD\fP) (0x0002)"
+.PP
+Definition at line 44 of file v1190B.h.
+.PP
+Referenced by v1190_MicroRead().
+.SS "#define V1190_MICRO_RW   (\fBDWORD\fP) (0x102E)"
+.PP
+Definition at line 39 of file v1190B.h.
+.PP
+Referenced by v1190_MicroRead(), and v1190_MicroWrite().
+.SS "#define V1190_MICRO_TDCID   (\fBWORD\fP) (0x6000)"
+.PP
+Definition at line 45 of file v1190B.h.
+.PP
+Referenced by v1190_TdcIdList().
+.SS "#define V1190_MICRO_WR_OK   (\fBWORD\fP) (0x0001)"
+.PP
+Definition at line 43 of file v1190B.h.
+.PP
+Referenced by v1190_MicroWrite().
+.SS "#define V1190_MODULE_RESET_WO   (\fBDWORD\fP) (0x1014)"
+.PP
+Definition at line 31 of file v1190B.h.
+.PP
+Referenced by v1190_SoftReset().
+.SS "#define V1190_REG_BASE   (\fBDWORD\fP) (0x1000)"
+.PP
+Definition at line 22 of file v1190B.h.
+.SS "#define V1190_RESOLUTION_RO   (\fBWORD\fP) (0x2600)"
+.PP
+Definition at line 49 of file v1190B.h.
+.PP
+Referenced by v1190_ResolutionRead().
+.SS "#define V1190_SOFT_CLEAR_WO   (\fBDWORD\fP) (0x1016)"
+.PP
+Definition at line 32 of file v1190B.h.
+.PP
+Referenced by v1190_SoftClear().
+.SS "#define V1190_SOFT_EVT_RESET_WO   (\fBDWORD\fP) (0x1018)"
+.PP
+Definition at line 33 of file v1190B.h.
+.SS "#define V1190_SOFT_TRIGGER_WO   (\fBDWORD\fP) (0x101A)"
+.PP
+Definition at line 34 of file v1190B.h.
+.PP
+Referenced by v1190_SoftTrigger().
+.SS "#define V1190_SR_RO   (\fBDWORD\fP) (0x1002)"
+.PP
+Definition at line 24 of file v1190B.h.
+.PP
+Referenced by v1190_DataReady().
+.SS "#define V1190_TRIGGER_MATCH   (\fBDWORD\fP) (0x0008)"
+.PP
+Definition at line 28 of file v1190B.h.
+.SS "#define V1190_TRIGGER_MATCH_WO   (\fBWORD\fP) (0x0000)"
+.PP
+Definition at line 50 of file v1190B.h.
+.PP
+Referenced by v1190_TriggerMatchingSet().
+.SS "#define V1190_WINDOW_OFFSET_WO   (\fBWORD\fP) (0x1100)"
+.PP
+Definition at line 42 of file v1190B.h.
+.PP
+Referenced by v1190_OffsetSet().
+.SS "#define V1190_WINDOW_WIDTH_WO   (\fBWORD\fP) (0x1000)"
+.PP
+Definition at line 41 of file v1190B.h.
+.PP
+Referenced by v1190_WidthSet().
+.SH "Function Documentation"
+.PP 
+.SS "int udelay (int usec)"
+.PP
+Definition at line 623 of file v1190B.c.
+.PP
+Referenced by v1190_MicroRead(), and v1190_MicroWrite().
+.SS "void v1190_AcqModeRead (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base)"
+.PP
+Definition at line 273 of file v1190B.c.
+.SS "void v1190_ContinuousSet (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base)"
+.PP
+Definition at line 301 of file v1190B.c.
+.SS "int v1190_DataRead (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base, \fBDWORD\fP * pdest, int nentry)"Read data buffer for nentry data. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fI*mvme\fP VME structure 
+.br
+\fIbase\fP Module base address 
+.br
+\fI*pdest\fP destination pointer address 
+.br
+\fI*nentry\fP number of entries requested and returned. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 99 of file v1190B.c.
+.PP
+Referenced by read_tdc().
+.SS "int v1190_DataReady (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base)"
+.PP
+Definition at line 171 of file v1190B.c.
+.PP
+Referenced by v1190_EventRead().
+.SS "void v1190_DataReset (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base)"
+.SS "int v1190_EventRead (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base, \fBDWORD\fP * pdest, int * nentry)"Read Data buffer for single event (check delimiters) 0x4... and 0xC... 
+.PP
+\fBParameters:\fP
+.RS 4
+\fI*mvme\fP VME structure 
+.br
+\fIbase\fP Module base address 
+.br
+\fI*pdest\fP destination pointer address 
+.br
+\fI*nentry\fP number of entries requested and returned. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 45 of file v1190B.c.
+.PP
+Referenced by read_trigger_event().
+.SS "int v1190_EvtCounter (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base)"
+.PP
+Definition at line 195 of file v1190B.c.
+.SS "int v1190_EvtStored (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base)"
+.PP
+Definition at line 183 of file v1190B.c.
+.SS "int v1190_GeoWrite (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base, int geo)"
+.PP
+Definition at line 124 of file v1190B.c.
+.SS "void v1190_LEResolutionSet (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base, \fBWORD\fP le)"
+.PP
+Definition at line 245 of file v1190B.c.
+.PP
+Referenced by begin_of_run().
+.SS "void v1190_LEWResolutionSet (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base, \fBWORD\fP le, \fBWORD\fP width)"
+.PP
+Definition at line 267 of file v1190B.c.
+.SS "int v1190_MicroCheck (\fBMVME_INTERFACE\fP * mvme, const \fBDWORD\fP base, int what)"
+.SS "int v1190_MicroFlush (\fBMVME_INTERFACE\fP * mvme, const \fBDWORD\fP base)"
+.PP
+Definition at line 430 of file v1190B.c.
+.SS "int v1190_MicroRead (\fBMVME_INTERFACE\fP * mvme, const \fBDWORD\fP base)"
+.PP
+Definition at line 408 of file v1190B.c.
+.PP
+Referenced by v1190_AcqModeRead(), v1190_MicroFlush(), v1190_ResolutionRead(), v1190_Status(), and v1190_TdcIdList().
+.SS "int v1190_MicroWrite (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base, \fBWORD\fP data)"
+.PP
+Definition at line 384 of file v1190B.c.
+.PP
+Referenced by v1190_AcqModeRead(), v1190_ContinuousSet(), v1190_LEResolutionSet(), v1190_OffsetSet(), v1190_ResolutionRead(), v1190_SetEdgeDetection(), v1190_Setup(), v1190_Status(), v1190_TdcIdList(), v1190_TriggerMatchingSet(), and v1190_WidthSet().
+.SS "void v1190_OffsetSet (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base, \fBWORD\fP offset)"Set the offset of the matching window with respect to the trigger. The offset parameter should be in 25ns units. The range is from -2048(0x800) to +40(0x28). Example 0xFE8 == 600ns. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fI*mvme\fP VME structure 
+.br
+\fIbase\fP Module base address 
+.br
+\fIoffset\fP offset in ns units 
+.RE
+.PP
+
+.PP
+Definition at line 347 of file v1190B.c.
+.PP
+Referenced by begin_of_run().
+.SS "\fBWORD\fP v1190_Read16 (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base, int offset)"
+.PP
+Definition at line 15 of file v1190B.c.
+.SS "\fBDWORD\fP v1190_Read32 (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base, int offset)"
+.PP
+Definition at line 22 of file v1190B.c.
+.SS "int v1190_ResolutionRead (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base)"
+.PP
+Definition at line 226 of file v1190B.c.
+.SS "void v1190_SetEdgeDetection (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base, int eLeading, int eTrailing)"
+.PP
+Definition at line 363 of file v1190B.c.
+.SS "int v1190_Setup (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base, int mode)"Sets all the necessary paramters for a given configuration. The configuration is provided by the mode argument. Add your own configuration in the case statement. Let me know your setting if you want to include it in the distribution. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fI*mvme\fP VME structure 
+.br
+\fIbase\fP Module base address 
+.br
+\fImode\fP Configuration mode number 
+.br
+\fI*nentry\fP number of entries requested and returned. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+MVME_SUCCESS 
+.RE
+.PP
+
+.PP
+Definition at line 461 of file v1190B.c.
+.PP
+Referenced by begin_of_run().
+.SS "void v1190_SoftClear (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base)"
+.PP
+Definition at line 149 of file v1190B.c.
+.PP
+Referenced by init_vme_modules(), and read_tdc().
+.SS "void v1190_SoftReset (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base)"
+.PP
+Definition at line 138 of file v1190B.c.
+.SS "void v1190_SoftTrigger (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base)"
+.PP
+Definition at line 160 of file v1190B.c.
+.SS "int v1190_Status (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base)"Read and display the curent status of the TDC. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fI*mvme\fP VME structure 
+.br
+\fIbase\fP Module base address 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+MVME_SUCCESS, MicroCode error 
+.RE
+.PP
+
+.PP
+Definition at line 510 of file v1190B.c.
+.PP
+Referenced by begin_of_run(), init_vme_modules(), and v1190_Setup().
+.SS "void v1190_TdcIdList (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base)"
+.PP
+Definition at line 207 of file v1190B.c.
+.SS "void v1190_TriggerMatchingSet (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base)"
+.PP
+Definition at line 287 of file v1190B.c.
+.SS "void v1190_WidthSet (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base, \fBWORD\fP width)"Set the width of the matching Window. The width parameter should be in the range of 1 to 4095 (0xFFF). Example 0x14 == 500ns. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fI*mvme\fP VME structure 
+.br
+\fIbase\fP Module base address 
+.br
+\fIwidth\fP window width in ns units 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 323 of file v1190B.c.
+.PP
+Referenced by begin_of_run().
+.SS "void v1190_Write16 (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base, int offset, \fBWORD\fP value)"
+.PP
+Definition at line 29 of file v1190B.c.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Midas from the source code.

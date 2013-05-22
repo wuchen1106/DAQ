@@ -1,0 +1,700 @@
+.TH "esone.c" 3 "31 May 2012" "Version 2.3.0-0" "Midas" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+esone.c \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "INLINE void \fBccinit\fP (void)"
+.br
+.ti -1c
+.RI "INLINE int \fBfccinit\fP (void)"
+.br
+.ti -1c
+.RI "INLINE void \fBcdreg\fP (int *ext, const int b, const int c, const int n, const int a)"
+.br
+.ti -1c
+.RI "INLINE void \fBcssa\fP (const int f, int ext, unsigned short *d, int *q)"
+.br
+.ti -1c
+.RI "INLINE void \fBcfsa\fP (const int f, const int ext, unsigned long *d, int *q)"
+.br
+.ti -1c
+.RI "INLINE void \fBcccc\fP (const int ext)"
+.br
+.ti -1c
+.RI "INLINE void \fBcccz\fP (const int ext)"
+.br
+.ti -1c
+.RI "INLINE void \fBccci\fP (const int ext, int l)"
+.br
+.ti -1c
+.RI "INLINE void \fBctci\fP (const int ext, int *l)"
+.br
+.ti -1c
+.RI "INLINE void \fBcccd\fP (const int ext, int l)"
+.br
+.ti -1c
+.RI "INLINE void \fBctcd\fP (const int ext, int *l)"
+.br
+.ti -1c
+.RI "INLINE void \fBcdlam\fP (int *lam, const int b, const int c, const int n, const int a, const int inta[2])"
+.br
+.ti -1c
+.RI "INLINE void \fBctgl\fP (const int ext, int *l)"
+.br
+.ti -1c
+.RI "INLINE void \fBcclm\fP (const int lam, int l)"
+.br
+.ti -1c
+.RI "INLINE void \fBcclnk\fP (const int lam, void(*isr)(void))"
+.br
+.ti -1c
+.RI "INLINE void \fBcculk\fP (const int lam)"
+.br
+.ti -1c
+.RI "INLINE void \fBccrgl\fP (const int lam)"
+.br
+.ti -1c
+.RI "INLINE void \fBcclc\fP (const int lam)"
+.br
+.ti -1c
+.RI "INLINE void \fBctlm\fP (const int lam, int *l)"
+.br
+.ti -1c
+.RI "INLINE void \fBcfga\fP (int f[], int exta[], int intc[], int qa[], int cb[])"
+.br
+.ti -1c
+.RI "INLINE void \fBcsga\fP (int f[], int exta[], int intc[], int qa[], int cb[])"
+.br
+.ti -1c
+.RI "INLINE void \fBcfmad\fP (int f, int extb[], int intc[], int cb[])"
+.br
+.ti -1c
+.RI "INLINE void \fBcsmad\fP (int f, int extb[], int intc[], int cb[])"
+.br
+.ti -1c
+.RI "INLINE void \fBcfubc\fP (const int f, int ext, int intc[], int cb[])"
+.br
+.ti -1c
+.RI "INLINE void \fBcsubc\fP (const int f, int ext, int intc[], int cb[])"
+.br
+.ti -1c
+.RI "INLINE void \fBcfubr\fP (const int f, int ext, int intc[], int cb[])"
+.br
+.ti -1c
+.RI "INLINE void \fBcsubr\fP (const int f, int ext, int intc[], int cb[])"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+dox The ESONE CAMAC standard call file 
+.PP
+Definition in file \fBesone.c\fP.
+.SH "Function Documentation"
+.PP 
+.SS "INLINE void cccc (const int ext)"Control Crate Clear.
+.PP
+Generate Crate Clear function. Execute \fBcam_crate_clear()\fP
+.PP
+\fBParameters:\fP
+.RS 4
+\fIext\fP external address 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 194 of file esone.c.
+.SS "INLINE void cccd (const int ext, int l)"Control Crate D.
+.PP
+Enable or Disable Crate Demand.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIext\fP external address 
+.br
+\fIl\fP action l=0 -> Clear D, l=1 -> Set D 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 268 of file esone.c.
+.SS "INLINE void ccci (const int ext, int l)"Control Crate I.
+.PP
+Set or Clear Dataway Inhibit, Execute cam_inhinit_set() /clear()
+.PP
+\fBParameters:\fP
+.RS 4
+\fIext\fP external address 
+.br
+\fIl\fP action l=0 -> Clear I, l=1 -> Set I 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 229 of file esone.c.
+.SS "INLINE void cccz (const int ext)"Control Crate Z.
+.PP
+Generate Dataway Initialize. Execute \fBcam_crate_zinit()\fP
+.PP
+\fBParameters:\fP
+.RS 4
+\fIext\fP external address 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 211 of file esone.c.
+.SS "INLINE void ccinit (void)"dox CAMAC initialization
+.PP
+CAMAC initialization must be called before any other ESONE subroutine call.
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 73 of file esone.c.
+.SS "INLINE void cclc (const int lam)"Control Clear LAM.
+.PP
+Clear the LAM of the station pointer by the lam address.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlam\fP external address 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 429 of file esone.c.
+.SS "INLINE void cclm (const int lam, int l)"Control Crate LAM.
+.PP
+Enable or Disable LAM. Execute F24 for disable, F26 for enable.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlam\fP external address 
+.br
+\fIl\fP action l=0 -> disable LAM , l=1 -> enable LAM 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 349 of file esone.c.
+.SS "INLINE void cclnk (const int lam, void(*)(void) isr)"Link LAM to service procedure
+.PP
+Link a specific service routine to a LAM. Since this routine is executed asynchronously, care must be taken on re-entrancy.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlam\fP external address 
+.br
+\fIisr\fP name of service procedure 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 372 of file esone.c.
+.SS "INLINE void ccrgl (const int lam)"Relink LAM
+.PP
+Re-enable LAM in the controller
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlam\fP external address 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 409 of file esone.c.
+.SS "INLINE void cculk (const int lam)"Unlink LAM from service procedure
+.PP
+Performs complementary operation to cclnk.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlam\fP external address 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 392 of file esone.c.
+.SS "INLINE void cdlam (int * lam, const int b, const int c, const int n, const int a, const int inta[2])"Control Declare LAM.
+.PP
+Declare LAM, Identical to cdreg.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlam\fP external LAM address 
+.br
+\fIb\fP branch number (0..7) 
+.br
+\fIc\fP crate number (0..) 
+.br
+\fIn\fP station number (0..30) 
+.br
+\fIa\fP sub-address (0..15) 
+.br
+\fIinta\fP implementation dependent 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 312 of file esone.c.
+.SS "INLINE void cdreg (int * ext, const int b, const int c, const int n, const int a)"Control Declaration REGister.
+.PP
+Compose an external address from BCNA for later use. Accessing CAMAC through ext could be faster if the external address is memory mapped to the processor (hardware dependent). Some CAMAC controller do not have this option see \fBAppendixB\fP. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIext\fP external address 
+.br
+\fIb\fP branch number (0..7) 
+.br
+\fIc\fP crate number (0..) 
+.br
+\fIn\fP station number (0..30) 
+.br
+\fIa\fP sub-address (0..15) 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 110 of file esone.c.
+.PP
+Referenced by cdlam().
+.SS "INLINE void cfga (int f[], int exta[], int intc[], int qa[], int cb[])"Control Full (24bit) word General Action.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIf\fP function code 
+.br
+\fIexta[]\fP external address array 
+.br
+\fIintc[]\fP data array 
+.br
+\fIqa[]\fP Q response array 
+.br
+\fIcb[]\fP control block array
+.br
+ cb[0] : number of function to perform
+.br
+ cb[1] : returned number of function performed 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 468 of file esone.c.
+.SS "INLINE void cfmad (int f, int extb[], int intc[], int cb[])"Control Full (24bit) Address Q scan.
+.PP
+Scan all sub-address while Q=1 from a0..a15 max from address extb[0] and store corresponding data in intc[]. If Q=0 while A<15 or A=15 then cross station boundary is applied (n-> n+1) and sub-address is reset (a=0). Perform action until either cb[0] action are performed or current external address exceeds extb[1].
+.PP
+\fBimplementation of cb[2] for LAM recognition is not implemented.\fP
+.PP
+\fBParameters:\fP
+.RS 4
+\fIf\fP function code 
+.br
+\fIextb[]\fP external address array
+.br
+ extb[0] : first valid external address 
+.br
+ extb[1] : last valid external address 
+.br
+\fIintc[]\fP data array 
+.br
+\fIcb[]\fP control block array 
+.br
+ cb[0] : number of function to perform 
+.br
+ cb[1] : returned number of function performed 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 522 of file esone.c.
+.SS "INLINE void cfsa (const int f, const int ext, unsigned long * d, int * q)"Control Full Operation.
+.PP
+24 bit operation on a given external CAMAC address.
+.PP
+The range of the f is hardware dependent. The number indicated below are for standard ANSI/IEEE Std (758-1979) Execute cam24i for f<8, cam24o for f>15, camc_q for (f>7 or f>23)
+.PP
+\fBParameters:\fP
+.RS 4
+\fIf\fP function code (0..31) 
+.br
+\fIext\fP external address 
+.br
+\fId\fP data long word 
+.br
+\fIq\fP Q response 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 166 of file esone.c.
+.PP
+Referenced by cfga(), cfubc(), and cfubr().
+.SS "INLINE void cfubc (const int f, int ext, int intc[], int cb[])"Control Full (24bit) Block Repeat with Q-stop.
+.PP
+Execute function f on address ext with data intc[] while Q.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIf\fP function code 
+.br
+\fIext\fP external address array 
+.br
+\fIintc[]\fP data array 
+.br
+\fIcb[]\fP control block array 
+.br
+ cb[0] : number of function to perform 
+.br
+ cb[1] : returned number of function performed 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 619 of file esone.c.
+.SS "INLINE void cfubr (const int f, int ext, int intc[], int cb[])"Repeat Mode Block Transfer (24bit).
+.PP
+Execute function f on address ext with data intc[] if Q. If noQ keep current intc[] data. Repeat cb[0] times.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIf\fP function code 
+.br
+\fIext\fP external address array 
+.br
+\fIintc[]\fP data array 
+.br
+\fIcb[]\fP control block array 
+.br
+ cb[0] : number of function to perform 
+.br
+ cb[1] : returned number of function performed 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 682 of file esone.c.
+.SS "INLINE void csga (int f[], int exta[], int intc[], int qa[], int cb[])"Control (16bit) word General Action.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIf\fP function code 
+.br
+\fIexta[]\fP external address array 
+.br
+\fIintc[]\fP data array 
+.br
+\fIqa[]\fP Q response array 
+.br
+\fIcb[]\fP control block array 
+.br
+ cb[0] : number of function to perform
+.br
+ cb[1] : returned number of function performed 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 491 of file esone.c.
+.SS "INLINE void csmad (int f, int extb[], int intc[], int cb[])"Control (16bit) Address Q scan.
+.PP
+Scan all sub-address while Q=1 from a0..a15 max from address extb[0] and store corresponding data in intc[]. If Q=0 while A<15 or A=15 then cross station boundary is applied (n-> n+1) and sub-address is reset (a=0). Perform action until either cb[0] action are performed or current external address exceeds extb[1].
+.PP
+\fBimplementation of cb[2] for LAM recognition is not implemented.\fP
+.PP
+\fBParameters:\fP
+.RS 4
+\fIf\fP function code 
+.br
+\fIextb[]\fP external address array
+.br
+ extb[0] : first valid external address 
+.br
+ extb[1] : last valid external address 
+.br
+\fIintc[]\fP data array 
+.br
+\fIcb[]\fP control block array 
+.br
+ cb[0] : number of function to perform 
+.br
+ cb[1] : returned number of function performed 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 574 of file esone.c.
+.SS "INLINE void cssa (const int f, int ext, unsigned short * d, int * q)"Control Short Operation.
+.PP
+16 bit operation on a given external CAMAC address.
+.PP
+The range of the f is hardware dependent. The number indicated below are for standard ANSI/IEEE Std (758-1979) Execute cam16i for f<8, cam16o for f>15, camc_q for (f>7 or f>23)
+.PP
+\fBParameters:\fP
+.RS 4
+\fIf\fP function code (0..31) 
+.br
+\fIext\fP external address 
+.br
+\fId\fP data word 
+.br
+\fIq\fP Q response 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 131 of file esone.c.
+.PP
+Referenced by csga(), csubc(), and csubr().
+.SS "INLINE void csubc (const int f, int ext, int intc[], int cb[])"Control (16bit) Block Repeat with Q-stop.
+.PP
+Execute function f on address ext with data intc[] while Q.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIf\fP function code 
+.br
+\fIext\fP external address array 
+.br
+\fIintc[]\fP data array 
+.br
+\fIcb[]\fP control block array 
+.br
+ cb[0] : number of function to perform 
+.br
+ cb[1] : returned number of function performed 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 650 of file esone.c.
+.SS "INLINE void csubr (const int f, int ext, int intc[], int cb[])"Repeat Mode Block Transfer (16bit).
+.PP
+Execute function f on address ext with data intc[] if Q. If noQ keep current intc[] data. Repeat cb[0] times.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIf\fP function code 
+.br
+\fIext\fP external address array 
+.br
+\fIintc[]\fP data array 
+.br
+\fIcb[]\fP control block array 
+.br
+ cb[0] : number of function to perform 
+.br
+ cb[1] : returned number of function performed 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 713 of file esone.c.
+.SS "INLINE void ctcd (const int ext, int * l)"Control Test Crate D.
+.PP
+Test Crate Demand.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIext\fP external address 
+.br
+\fIl\fP D cleared -> l=0, D set -> l=1 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 290 of file esone.c.
+.SS "INLINE void ctci (const int ext, int * l)"Test Crate I.
+.PP
+Test Crate Inhibit, Execute \fBcam_inhibit_test()\fP
+.PP
+\fBParameters:\fP
+.RS 4
+\fIext\fP external address 
+.br
+\fIl\fP action l=0 -> Clear I, l=1 -> Set I 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 250 of file esone.c.
+.SS "INLINE void ctgl (const int ext, int * l)"Control Test Demand Present.
+.PP
+Test the LAM register.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIext\fP external LAM register address 
+.br
+\fIl\fP l !=0 if any LAM is set. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 329 of file esone.c.
+.SS "INLINE void ctlm (const int lam, int * l)"Test LAM.
+.PP
+Test the LAM of the station pointed by lam. Performs an F8
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlam\fP external address 
+.br
+\fIl\fP No LAM-> l=0, LAM present-> l=1 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 447 of file esone.c.
+.SS "INLINE int fccinit (void)"CAMAC initialization with return status
+.PP
+fccinit can be called instead of ccinit to determine if the initialization was successful
+.PP
+\fBReturns:\fP
+.RS 4
+1 for success, 0 for failure 
+.RE
+.PP
+
+.PP
+Definition at line 87 of file esone.c.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Midas from the source code.

@@ -1,0 +1,155 @@
+.TH "Q_Windows" 3 "31 May 2012" "Version 2.3.0-0" "Midas" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Q_Windows \- Quickstart Windows 
+
+.br
+ 
+.PP
+
+.br
+.SH "System Requirements"
+.PP
+not yet specified
+.SH "Installation"
+.PP
+Throughout the following description the MIDAS package is assumed to be found under the directory \fB %SystemDrive%\\midas \fP 
+.br
+The experiment-specific directory is \fB%SystemDrive%\\online\fP. The user name is \fIjohnfoo\fP.
+.PP
+.IP "\(bu" 2
+The package extraction under Windows is similar to the Linux. The \fBSVN\fP site is used to gather the midas and mxml. The method can be the tarball or the \fBsvn\fP using the \fCTortoise package\fP.
+.PP
+.PP
+.IP "\(bu" 2
+Using the tarball mechanism: 
+.PP
+.nf
+ - Go to http://savannah.psi.ch/viewcvs/trunk/?root=midas
+ - Click 'Download tarball'
+ - Extract trunk to %SystemDrive%
+ - Rename trunk to midas
+ - Go to http://savannah.psi.ch/viewcvs/trunk/?root=mxml
+ - Click 'Download tarball'
+ - Extract trunk to %SystemDrive%
+ - Rename trunk to mxml
+
+.fi
+.PP
+
+.PP
+.PP
+.IP "\(bu" 2
+Using the svn command under cygwin (pwd 'svn' will be asked twice): 
+.PP
+.nf
+ cd %SystemDrive%\
+ svn co svn+ssh://svn@savannah.psi.ch/afs/psi.ch/project/meg/svn/midas/trunk midas
+ svn co svn+ssh://svn@savannah.psi.ch/afs/psi.ch/project/meg/svn/mxml/trunk mxml
+
+.fi
+.PP
+
+.PP
+.PP
+.IP "\(bu" 2
+Using the Tortoise package under windows (pwd 'svn' will be requested twice)
+.IP "  \(bu" 4
+Using the file browser go to the %SystemDrive%
+.IP "  \(bu" 4
+right click and select 'SVN checkout'
+.IP "  \(bu" 4
+Fill the 'URL of Repository:' with svn+ssh://svn@savannah.psi.ch/afs/psi.ch/project/meg/svn/midas/trunk
+.IP "  \(bu" 4
+Fill the 'Checkout directory' with C:\\midas
+.IP "  \(bu" 4
+Start transfer.
+.IP "  \(bu" 4
+Do the same for mxml
+.IP "  \(bu" 4
+right click and select 'SVN checkout'
+.IP "  \(bu" 4
+Fill the URL of Repository: with svn+ssh://svn@savannah.psi.ch/afs/psi.ch/project/meg/svn/mxml/trunk
+.IP "  \(bu" 4
+Fill the 'Checkout directory' with C:\\mxml
+.IP "  \(bu" 4
+Start transfer.
+.PP
+
+.PP
+.SS "Environment Variables"
+Environment variables needs to be setup prior the MIDAS build;
+.IP "\(bu" 2
+from the 'system properties' -> advanced -> Environment Variables, define new system variables \fBMIDASSYS\fP to \fBc:\\midas\fP (installation location).
+.IP "\(bu" 2
+from the 'system properties' -> advanced -> Environment Variables, add to PATH system variables \fB'%MIDASSYS%\\nt\\bin'\fP 
+.IP "\(bu" 2
+create file \fB%SystemRoot%\\system32\\exptab\fP with the following content. 
+.PP
+.nf
+  test c:\online johnfoo 
+
+.fi
+.PP
+
+.PP
+.PP
+.IP "\(bu" 2
+The MIDAS build requires the Microsoft Visual C++ (200x) or .NET. the corresponding environment variables for the compiler need to be set prior the MIDAS build. A batch file can be found under C:\\Program Files\\Microsoft Visual Studio 5\\Common7\\Tools\\vsvar32.bat or similar... The build then can be started as follow. 
+.PP
+.nf
+  cd %MIDASSYS%
+  nmake -f makefile.nt
+
+.fi
+.PP
+ 
+.br
+
+.PP
+.PP
+.PP
+ 
+.SH "Basic test"
+.PP
+.SS "Hardware Requirements"
+These instructions assume that accessibility to hardware such as VME or CAMAC is available.
+.SS "Software Requirements"
+MIDAS packages has been installed.
+.SS "How to Setup the MIDAS Experiment"
+.IP "\(bu" 2
+Open three 'Command Prompt' windows. 
+.PP
+.nf
+  -w1 cd \
+  -w1 mkdir online
+  -w1 copy %MIDASSYS%\examples\experiement\frontend.exe .
+  -w1 frontend.exe
+  -w2 start mhttpd 
+  -w3 start odbedit
+  -w3 odbedit> scl
+      Name                Host
+      Sample Frontend     yourhost
+      ODBEdit             yourhost
+
+.fi
+.PP
+
+.IP "\(bu" 2
+Start a web brower and go to http://localhost
+.IP "\(bu" 2
+Click Start, confirm run number, click refresh... Stop run.
+.PP
+.PP
+.IP "\(bu" 2
+Please refer to the rest of this \fBmanual\fP for further description of the system operation. 
+.br
+ 
+.PP
+.PP
+
+.br
+  
+.br
+ 

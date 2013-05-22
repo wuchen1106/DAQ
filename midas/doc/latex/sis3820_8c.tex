@@ -1,0 +1,55 @@
+\subsection{sis3820.c File Reference}
+\label{sis3820_8c}\index{sis3820.c@{sis3820.c}}
+
+
+\subsubsection{Function Documentation}
+\index{sis3820.c@{sis3820.c}!regRead@{regRead}}
+\index{regRead@{regRead}!sis3820.c@{sis3820.c}}
+\paragraph[{regRead}]{\setlength{\rightskip}{0pt plus 5cm}static uint32\_\-t regRead ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  {\bf DWORD} {\em base}, \/  int {\em offset})\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}\hfill\label{sis3820_8c_ae725ca307cd6f4fdfdd5476249d31e59}
+
+
+Definition at line 25 of file sis3820.c.
+
+Referenced by sis3820\_\-DataReady(), sis3820\_\-RegisterRead(), sis3820\_\-ScalerRead(), and sis3820\_\-Status().\index{sis3820.c@{sis3820.c}!regWrite@{regWrite}}
+\index{regWrite@{regWrite}!sis3820.c@{sis3820.c}}
+\paragraph[{regWrite}]{\setlength{\rightskip}{0pt plus 5cm}static void regWrite ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  {\bf DWORD} {\em base}, \/  int {\em offset}, \/  uint32\_\-t {\em value})\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}\hfill\label{sis3820_8c_a339b5d8afd6890a2c3c6c659701170e3}
+
+
+Definition at line 36 of file sis3820.c.
+
+Referenced by sis3820\_\-RegisterWrite(), and sis3820\_\-Reset().\index{sis3820.c@{sis3820.c}!sis3820\_\-DataReady@{sis3820\_\-DataReady}}
+\index{sis3820\_\-DataReady@{sis3820\_\-DataReady}!sis3820.c@{sis3820.c}}
+\paragraph[{sis3820\_\-DataReady}]{\setlength{\rightskip}{0pt plus 5cm}int sis3820\_\-DataReady ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  {\bf DWORD} {\em base})}\hfill\label{sis3820_8c_ade83db7a833268f5f3942062cb5c8fe0}
+
+
+Definition at line 93 of file sis3820.c.\index{sis3820.c@{sis3820.c}!sis3820\_\-FifoRead@{sis3820\_\-FifoRead}}
+\index{sis3820\_\-FifoRead@{sis3820\_\-FifoRead}!sis3820.c@{sis3820.c}}
+\paragraph[{sis3820\_\-FifoRead}]{\setlength{\rightskip}{0pt plus 5cm}int sis3820\_\-FifoRead ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  {\bf DWORD} {\em base}, \/  void $\ast$ {\em pdest}, \/  int {\em wcount})}\hfill\label{sis3820_8c_a4c633bebb10ba1fb3c9a68567c7fb3bf}
+
+
+Definition at line 69 of file sis3820.c.\index{sis3820.c@{sis3820.c}!sis3820\_\-RegisterRead@{sis3820\_\-RegisterRead}}
+\index{sis3820\_\-RegisterRead@{sis3820\_\-RegisterRead}!sis3820.c@{sis3820.c}}
+\paragraph[{sis3820\_\-RegisterRead}]{\setlength{\rightskip}{0pt plus 5cm}uint32\_\-t sis3820\_\-RegisterRead ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  {\bf DWORD} {\em base}, \/  int {\em offset})}\hfill\label{sis3820_8c_aecea42f29316112f54ecae314d105ff1}
+
+
+Definition at line 44 of file sis3820.c.\index{sis3820.c@{sis3820.c}!sis3820\_\-RegisterWrite@{sis3820\_\-RegisterWrite}}
+\index{sis3820\_\-RegisterWrite@{sis3820\_\-RegisterWrite}!sis3820.c@{sis3820.c}}
+\paragraph[{sis3820\_\-RegisterWrite}]{\setlength{\rightskip}{0pt plus 5cm}void sis3820\_\-RegisterWrite ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  {\bf DWORD} {\em base}, \/  int {\em offset}, \/  uint32\_\-t {\em value})}\hfill\label{sis3820_8c_a1465b6dba20d7efb0409783498376680}
+
+
+Definition at line 50 of file sis3820.c.\index{sis3820.c@{sis3820.c}!sis3820\_\-Reset@{sis3820\_\-Reset}}
+\index{sis3820\_\-Reset@{sis3820\_\-Reset}!sis3820.c@{sis3820.c}}
+\paragraph[{sis3820\_\-Reset}]{\setlength{\rightskip}{0pt plus 5cm}void sis3820\_\-Reset ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  {\bf DWORD} {\em base})}\hfill\label{sis3820_8c_a50fd26e58f02c571c2a6a3bfda4b5946}
+
+
+Definition at line 87 of file sis3820.c.\index{sis3820.c@{sis3820.c}!sis3820\_\-ScalerRead@{sis3820\_\-ScalerRead}}
+\index{sis3820\_\-ScalerRead@{sis3820\_\-ScalerRead}!sis3820.c@{sis3820.c}}
+\paragraph[{sis3820\_\-ScalerRead}]{\setlength{\rightskip}{0pt plus 5cm}uint32\_\-t sis3820\_\-ScalerRead ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  {\bf DWORD} {\em base}, \/  int {\em ch})}\hfill\label{sis3820_8c_aded2977e93622bfb2ef2bd271ea6695f}
+
+
+Definition at line 56 of file sis3820.c.\index{sis3820.c@{sis3820.c}!sis3820\_\-Status@{sis3820\_\-Status}}
+\index{sis3820\_\-Status@{sis3820\_\-Status}!sis3820.c@{sis3820.c}}
+\paragraph[{sis3820\_\-Status}]{\setlength{\rightskip}{0pt plus 5cm}void sis3820\_\-Status ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  {\bf DWORD} {\em base})}\hfill\label{sis3820_8c_aea6d182191767b9bac21254ef208e9f1}
+
+
+Definition at line 99 of file sis3820.c.

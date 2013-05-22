@@ -1,0 +1,94 @@
+\subsection{Equipment related}
+\label{group__mequipment}\index{Equipment related@{Equipment related}}
+\subsubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structBUS__DRIVER}{BUS\_\-DRIVER}
+\item 
+struct \hyperlink{structDD__MT__CHANNEL}{DD\_\-MT\_\-CHANNEL}
+\item 
+struct \hyperlink{structDD__MT__BUFFER}{DD\_\-MT\_\-BUFFER}
+\item 
+struct \hyperlink{structEQUIPMENT__INFO}{EQUIPMENT\_\-INFO}
+\item 
+struct \hyperlink{structDEVICE__DRIVER}{DEVICE\_\-DRIVER}
+\item 
+struct \hyperlink{structEQUIPMENT__STATS}{EQUIPMENT\_\-STATS}
+\item 
+struct \hyperlink{structeqpmnt}{eqpmnt}
+\end{DoxyCompactItemize}
+\subsubsection*{Defines}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{group__mequipment_gace7257be62c3d56a883e4ad1dff6fdda}{DF\_\-INPUT}~(1$<$$<$0)
+\item 
+\#define \hyperlink{group__mequipment_ga9a302762256e89a266256dcadd31b90b}{DF\_\-OUTPUT}~(1$<$$<$1)
+\item 
+\#define \hyperlink{group__mequipment_ga14cf699d29a6edd2088b83e17cda6744}{DF\_\-PRIO\_\-DEVICE}~(1$<$$<$2)
+\item 
+\#define \hyperlink{group__mequipment_ga4dc67d22ff12f3b0e6daff496f870a7f}{DF\_\-READ\_\-ONLY}~(1$<$$<$3)
+\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+dox dox 
+
+\subsubsection{Define Documentation}
+\index{mequipment@{mequipment}!DF\_\-HW\_\-RAMP@{DF\_\-HW\_\-RAMP}}
+\index{DF\_\-HW\_\-RAMP@{DF\_\-HW\_\-RAMP}!mequipment@{mequipment}}
+\paragraph[{DF\_\-HW\_\-RAMP}]{\setlength{\rightskip}{0pt plus 5cm}\#define DF\_\-HW\_\-RAMP~(1$<$$<$5)}\hfill\label{group__mequipment_ga2bc66eaec0c3f864e8e3fb89992857d5}
+
+
+Definition at line 946 of file midas.h.
+
+Referenced by hv\_\-demand().\index{mequipment@{mequipment}!DF\_\-INPUT@{DF\_\-INPUT}}
+\index{DF\_\-INPUT@{DF\_\-INPUT}!mequipment@{mequipment}}
+\paragraph[{DF\_\-INPUT}]{\setlength{\rightskip}{0pt plus 5cm}\#define DF\_\-INPUT~(1$<$$<$0)}\hfill\label{group__mequipment_gace7257be62c3d56a883e4ad1dff6fdda}
+channel is input 
+
+Definition at line 941 of file midas.h.\index{mequipment@{mequipment}!DF\_\-MULTITHREAD@{DF\_\-MULTITHREAD}}
+\index{DF\_\-MULTITHREAD@{DF\_\-MULTITHREAD}!mequipment@{mequipment}}
+\paragraph[{DF\_\-MULTITHREAD}]{\setlength{\rightskip}{0pt plus 5cm}\#define DF\_\-MULTITHREAD~(1$<$$<$4)}\hfill\label{group__mequipment_ga2499f0abd1f0577de72d1d5645fc7713}
+
+
+Definition at line 945 of file midas.h.
+
+Referenced by device\_\-driver(), hv\_\-idle(), hv\_\-read(), hv\_\-start(), hv\_\-stop(), and main().\index{mequipment@{mequipment}!DF\_\-OUTPUT@{DF\_\-OUTPUT}}
+\index{DF\_\-OUTPUT@{DF\_\-OUTPUT}!mequipment@{mequipment}}
+\paragraph[{DF\_\-OUTPUT}]{\setlength{\rightskip}{0pt plus 5cm}\#define DF\_\-OUTPUT~(1$<$$<$1)}\hfill\label{group__mequipment_ga9a302762256e89a266256dcadd31b90b}
+channel is output 
+
+Definition at line 942 of file midas.h.\index{mequipment@{mequipment}!DF\_\-PRIO\_\-DEVICE@{DF\_\-PRIO\_\-DEVICE}}
+\index{DF\_\-PRIO\_\-DEVICE@{DF\_\-PRIO\_\-DEVICE}!mequipment@{mequipment}}
+\paragraph[{DF\_\-PRIO\_\-DEVICE}]{\setlength{\rightskip}{0pt plus 5cm}\#define DF\_\-PRIO\_\-DEVICE~(1$<$$<$2)}\hfill\label{group__mequipment_ga14cf699d29a6edd2088b83e17cda6744}
+get demand values from device instead of ODB 
+
+Definition at line 943 of file midas.h.
+
+Referenced by hv\_\-init().\index{mequipment@{mequipment}!DF\_\-READ\_\-ONLY@{DF\_\-READ\_\-ONLY}}
+\index{DF\_\-READ\_\-ONLY@{DF\_\-READ\_\-ONLY}!mequipment@{mequipment}}
+\paragraph[{DF\_\-READ\_\-ONLY}]{\setlength{\rightskip}{0pt plus 5cm}\#define DF\_\-READ\_\-ONLY~(1$<$$<$3)}\hfill\label{group__mequipment_ga4dc67d22ff12f3b0e6daff496f870a7f}
+never write demand values to device 
+
+Definition at line 944 of file midas.h.
+
+\subsubsection{Typedef Documentation}
+\index{mequipment@{mequipment}!EQUIPMENT@{EQUIPMENT}}
+\index{EQUIPMENT@{EQUIPMENT}!mequipment@{mequipment}}
+\paragraph[{EQUIPMENT}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf eqpmnt}  {\bf EQUIPMENT}}\hfill\label{group__mequipment_ga7607314ed24f38585cb42adcb60efd4e}
+\index{mequipment@{mequipment}!PEQUIPMENT@{PEQUIPMENT}}
+\index{PEQUIPMENT@{PEQUIPMENT}!mequipment@{mequipment}}
+\paragraph[{PEQUIPMENT}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf eqpmnt}$\ast$ {\bf PEQUIPMENT}}\hfill\label{group__mequipment_gac5b19f8245eb22101dcb9ca46d0d797d}
+
+
+Definition at line 1009 of file midas.h.
+
+\subsubsection{Function Documentation}
+\index{mequipment@{mequipment}!device\_\-driver@{device\_\-driver}}
+\index{device\_\-driver@{device\_\-driver}!mequipment@{mequipment}}
+\paragraph[{device\_\-driver}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} device\_\-driver ({\bf DEVICE\_\-DRIVER} $\ast$ {\em device\_\-driver}, \/  {\bf INT} {\em cmd}, \/   {\em ...})}\hfill\label{group__mequipment_gab0636870de45a7b8a7bcb625c0ac7582}
+
+
+Definition at line 404 of file mfe.c.
+
+Referenced by hv\_\-demand(), hv\_\-exit(), hv\_\-init(), hv\_\-ramp(), hv\_\-read(), hv\_\-set\_\-current\_\-limit(), hv\_\-set\_\-rampdown(), hv\_\-set\_\-rampup(), hv\_\-set\_\-trip\_\-time(), hv\_\-set\_\-voltage\_\-limit(), hv\_\-start(), hv\_\-stop(), hv\_\-update\_\-label(), and validate\_\-odb\_\-array().

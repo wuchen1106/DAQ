@@ -1,0 +1,11 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$a00047.html#a639fc8d0c6f4b634af11463d063331c8" title="Same as FindPath(), but also index into an array." alt="" coords="433,139,609,168"/>
+<area shape="rect" id="node17" href="$a00047.html#ab39b6f75496f16bb0a9a1906fc5c31be" title="Follow the ODB path through the XML DOM tree." alt="" coords="229,177,371,207"/>
+<area shape="rect" id="node20" href="$a00047.html#a72954ab906dbfc71b6d349f240707752" title="Read size of an array." alt="" coords="419,204,624,233"/>
+<area shape="rect" id="node5" href="$a00047.html#a8ac466a22f4eb80a9e88cdb59a0e1e39" title="Read a boolean value, midas type TID_BOOL." alt="" coords="681,5,852,35"/>
+<area shape="rect" id="node7" href="$a00047.html#a2b824fc6d1e34c6dbbc10f1f76c9aef0" title="Read an 64&#45;bit floating point value, midas type TID_DOUBLET." alt="" coords="672,59,861,88"/>
+<area shape="rect" id="node9" href="$a00047.html#aa9369c5ef6a9374fd553796e9df56083" title="Read an 32&#45;bit floating point value, midas type TID_FLOAT." alt="" coords="679,112,855,141"/>
+<area shape="rect" id="node11" href="$a00047.html#a5d67d3720593039104bbeedbd80a00c1" title="Read an integer value, midas type TID_INT." alt="" coords="687,165,847,195"/>
+<area shape="rect" id="node13" href="$a00047.html#ad29382650eaa6453a372d44f1b9983c0" title="Read a string value, midas type TID_STRING." alt="" coords="676,219,857,248"/>
+<area shape="rect" id="node15" href="$a00047.html#a89c8474e8e68741d723cf5520bda3e66" title="Read an unsigned 32&#45;bit integer value, midas type TID_DWORD." alt="" coords="675,272,859,301"/>
+</map>

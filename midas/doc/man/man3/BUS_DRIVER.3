@@ -1,0 +1,37 @@
+.TH "BUS_DRIVER" 3 "31 May 2012" "Version 2.3.0-0" "Midas" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+BUS_DRIVER \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "char \fBname\fP [NAME_LENGTH]"
+.br
+.ti -1c
+.RI "\fBINT\fP(* \fBbd\fP )(\fBINT\fP cmd,...)"
+.br
+.ti -1c
+.RI "void * \fBbd_info\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 948 of file midas.h.
+.SH "Field Documentation"
+.PP 
+.SS "\fBINT\fP(* \fBBUS_DRIVER::bd\fP)(\fBINT\fP cmd,...)"Device driver entry point 
+.SS "void* \fBBUS_DRIVER::bd_info\fP"Private info for bus driver 
+.PP
+Definition at line 951 of file midas.h.
+.SS "char \fBBUS_DRIVER::name\fP[NAME_LENGTH]"Driver name 
+.PP
+Definition at line 949 of file midas.h.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Midas from the source code.

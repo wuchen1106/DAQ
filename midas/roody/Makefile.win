@@ -1,0 +1,85 @@
+#
+# Make for Window using:
+# VC++7.1
+# mxml from the Midas/Rome package 
+# Root Version 5.06/00
+#
+#
+rootlibs = $(ROOTSYS)/lib/gdk-1.3.lib $(ROOTSYS)/lib/glib-1.3.lib $(ROOTSYS)/lib/libCint.lib $(ROOTSYS)/lib/libCore.lib $(ROOTSYS)/lib/libGpad.lib $(ROOTSYS)/lib/libGraf.lib $(ROOTSYS)/lib/libGraf3d.lib $(ROOTSYS)/lib/libGui.lib $(ROOTSYS)/lib/libHist.lib $(ROOTSYS)/lib/libHistPainter.lib $(ROOTSYS)/lib/libHtml.lib $(ROOTSYS)/lib/libMatrix.lib $(ROOTSYS)/lib/libMinuit.lib $(ROOTSYS)/lib/libPhysics.lib $(ROOTSYS)/lib/libPostscript.lib $(ROOTSYS)/lib/libRint.lib $(ROOTSYS)/lib/libTree.lib $(ROOTSYS)/lib/libTreePlayer.lib $(ROOTSYS)/lib/libTreeViewer.lib $(ROOTSYS)/lib/libWin32gdk.lib 
+clibs = wsock32.lib gdi32.lib user32.lib kernel32.lib
+Libraries = $(rootlibs) $(clibs) $(sqllibs) $(midaslibs)
+Flags = /D "OS_WINNT" /GX /GR $(p3auserflags)
+FortranFlags = $(p3auserflags)
+MXML_DIR=$(ROODYSYS)\..\mxml
+Includes = /I$(ROODYSYS)\include /I$(MXML_DIR) /I$(ROOTSYS)\include /I. 
+objects = obj/MTGListTree.obj \
+          obj/Roody.obj \
+          obj/RoodyXML.obj \
+          obj/TAxisLimitsDialog.obj \
+          obj/TGTextDialog.obj \
+          obj/TNetFolder.obj \
+          obj/TPeakFindPanel.obj \
+          obj/dict.obj \
+          obj/mxml.obj \
+          obj/strlcpy.obj \
+          obj/main.obj
+
+all: lib obj bin bin/roody.exe
+
+src/dict.cpp:  include/MTGListTree.h include/TAxisLimitsDialog.h include/TGTextDialog.h include/TPeakFindPanel.h include/TNetFolder.h include/Roody.h
+  $(ROOTSYS)\bin\rootcint -f src/dict.cpp -c -I$(ROODYSYS)/src -I$(ROODYSYS)/include MTGListTree.h \
+                                                               TAxisLimitsDialog.h \
+                                                               TGTextDialog.h \
+                                                               TPeakFindPanel.h \
+                                                               TNetFolder.h \
+                                                               Roody.h
+include/rootsys.h:
+  echo const char* rootsys = ""; > include/rootsys.h
+
+lib:
+  if not exist lib mkdir lib
+  
+obj:
+  if not exist obj mkdir obj
+  
+bin:
+  if not exist bin mkdir bin
+
+bin/roody.exe: $(objects)
+  cl $(Flags) $(Includes) /Febin/roody.exe $(objects) $(Libraries)
+  
+obj/MTGListTree.obj: src/MTGListTree.cxx 
+  cl $(Flags) $(Includes) /c /Foobj/MTGListTree.obj src/MTGListTree.cxx
+
+obj/Roody.obj: src/Roody.cxx 
+  cl $(Flags) $(Includes) /c /Foobj/Roody.obj src/Roody.cxx
+
+obj/RoodyXML.obj: src/RoodyXML.cxx 
+  cl $(Flags) $(Includes) /c /Foobj/RoodyXML.obj src/RoodyXML.cxx
+
+obj/TAxisLimitsDialog.obj: src/TAxisLimitsDialog.cxx 
+  cl $(Flags) $(Includes) /c /Foobj/TAxisLimitsDialog.obj src/TAxisLimitsDialog.cxx
+
+obj/TGTextDialog.obj: src/TGTextDialog.cxx 
+  cl $(Flags) $(Includes) /c /Foobj/TGTextDialog.obj src/TGTextDialog.cxx
+
+obj/TNetFolder.obj: src/TNetFolder.cpp 
+  cl $(Flags) $(Includes) /c /Foobj/TNetFolder.obj src/TNetFolder.cpp
+
+obj/mxml.obj: $(MXML_DIR)/mxml.c 
+  cl $(Flags) $(Includes) /c /Foobj/mxml.obj $(MXML_DIR)/mxml.c
+
+obj/strlcpy.obj: $(MXML_DIR)/strlcpy.c 
+  cl $(Flags) $(Includes) /c /Foobj/strlcpy.obj $(MXML_DIR)/strlcpy.c
+
+obj/TPeakFindPanel.obj: src/TPeakFindPanel.cxx 
+  cl $(Flags) $(Includes) /c /Foobj/TPeakFindPanel.obj src/TPeakFindPanel.cxx
+
+obj/dict.obj: src/dict.cpp 
+  cl $(Flags) $(Includes) /c /Foobj/dict.obj src/dict.cpp
+
+obj/main.obj: src/main.cxx include/rootsys.h
+  cl $(Flags) $(Includes) /c /Foobj/main.obj src/main.cxx
+
+clean:
+  rm -rf obj bin include\rootsys.h

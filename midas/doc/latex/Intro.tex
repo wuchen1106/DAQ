@@ -1,0 +1,84 @@
+\par
+  \par
+
+
+\label{Intro_idx_MIDAS}
+\hypertarget{Intro_idx_MIDAS}{}
+ \hypertarget{Intro_I_WhatIsMidas}{}\subsection{What is MIDAS?}\label{Intro_I_WhatIsMidas}
+\char`\"{}MIDAS\char`\"{} is an acronym for {\bfseries M}aximum {\bfseries I}ntegrated {\bfseries D}ata {\bfseries A}cquisition {\bfseries S}ystem. \par
+\par
+ MIDAS is a general-\/purpose system for event-\/based data acquisition in small and medium scale Physics experiments. It is an on-\/going development at the Paul Scherrer Institute (Switzerland) and at TRIUMF (Canada), since 1993. Presently, on-\/going development is focused on the interfacing capability of the MIDAS package to external applications such as ROOT for data analysis (see \hyperlink{DataAnalysis_DA_Data_analyzers}{Data Analyzers}).
+
+MIDAS is based on a {\bfseries modular networking capability} and a {\bfseries central database system}. MIDAS consists of a C library and several applications, which can run on many different platforms (i.e. operating systems) such as UNIX-\/like, Windows NT, VxWorks etc. While the system is already in use in many laboratories, the development continues with addition of new features and tools. Recent developments involve multi-\/threading, FGPA/Linux support, MSCB extension. For the latest status, check the MIDAS home page: \href{http://midas.psi.ch}{\tt Switzerland }, \href{http://midas.triumf.ca}{\tt Canada }\hypertarget{Intro_I_Midas_exp}{}\subsection{MIDAS is for small and medium sized experiments}\label{Intro_I_Midas_exp}
+MIDAS has been designed for small and medium experiments. It can be used in {\itshape distributed environments\/} where one or more {\itshape frontends\/} are connected to the {\itshape backend\/} via the network (i.e.Ethernet).
+
+\label{Intro_idx_frontend}
+\hypertarget{Intro_idx_frontend}{}
+ \label{Intro_idx_backend}
+\hypertarget{Intro_idx_backend}{}
+ \hypertarget{Intro_I_FE_and_BE}{}\subsubsection{Frontend(s) and Backend(s)}\label{Intro_I_FE_and_BE}
+A {\itshape \char`\"{}frontend\char`\"{}\/} is usually concerned with acquiring data, e.g. from various hardware modules monitoring an experiment. {\bfseries A frontend has direct access to the hardware concerned}. The frontend might be an embedded system such as a VME CPU running Linux or VxWorks, or a PC running Windows NT or Linux. Thus the frontend is a computer running the frontend application (or program). For example, it might be programmed to read data from several TDC and ADC modules.
+
+The data is transferred from the frontend to the {\itshape \char`\"{}backend\char`\"{}\/}. MIDAS transfer data rate capabilities are close to the type of hardware limits used.
+
+A {\itshape \char`\"{}backend\char`\"{}\/} is usually concerned with storage and/or analysis of this data. It is often a PC running Windows NT or Linux. It may receive data from one or multiple \char`\"{}frontends\char`\"{}. Thus the backend is a computer running the backend application(s) ( i.e. program(s) ).
+
+For small experiments and test setups, the frontend and backend computers can be one and the same, i.e. the frontend program can also run on the backend computer, thus eliminating the need for network transfer, (assuming of course this computer has direct access to the hardware).
+
+For larger experiments, a backend computer may receive data from several frontends, and may send the data to another backend computer for analysis.
+
+
+
+\label{Intro_idx_device-driver}
+\hypertarget{Intro_idx_device-driver}{}
+ \hypertarget{Intro_I_device_drivers}{}\subsubsection{Device Drivers for MIDAS}\label{Intro_I_device_drivers}
+Frontends require Device Drivers to access and acquire data from the various hardware modules available. Device drivers for common PC-\/CAMAC interfaces have been written for Windows NT and Linux. Drivers for PC-\/VME interfaces are commercially available for Windows NT and for Linux as well. {\bfseries MIDAS provides a large variety of drivers} based on their use within the physics community. See \hyperlink{FE_Hardware}{MIDAS driver library} .
+
+As CAMAC modules are slowly phased out, VME based modules replace them. No cPCI modules have yet been included in our physics experiments.
+
+\label{Intro_idx_data_analysis}
+\hypertarget{Intro_idx_data_analysis}{}
+ \hypertarget{Intro_I_Analysis}{}\subsubsection{Analysis of MIDAS data}\label{Intro_I_Analysis}
+For data analysis, users can write their own analyser using simple MIDAS calls to retrieve the necessary data, or they can use one of the standard MIDAS analysers:
+\begin{DoxyItemize}
+\item HBOOK based routines for histogramming and PAW for histogram display (currently being phased out)
+\item ROOT based with {\bfseries analyser} (part of the MIDAS package)
+\item \href{http://midas.psi.ch/rome}{\tt ROME} analyser framework using XML description
+\item \href{http://ladd00.triumf.ca/%7Eolchansk/rootana/}{\tt Rootana} C++ standalone application.
+\end{DoxyItemize}\hypertarget{Intro_I_slow_controls}{}\subsubsection{Slow controls}\label{Intro_I_slow_controls}
+The MIDAS package also contains a {\bfseries slow control system} which can be used for all sorts of slow controls, such as high voltage supplies, temperature control units, GPIB, serial devices such as \href{http://midas.psi.ch/mscb}{\tt MSCB} (MIDAS Slow Control Bus), RS232 or Ethernet-\/based modules. The term \char`\"{}slow controls\char`\"{} refers to hardware that does not need high speed access. The MIDAS slow control system is fully integrated into the main data acquisition, and acts as a front-\/end with particular built-\/in control mechanisms. Slow control values can be saved together with event data (written to tape or disk). \par
+
+
+
+\begin{DoxyItemize}
+\item \hyperlink{I_Midas_system_picture}{Diagram of the MIDAS system}
+\end{DoxyItemize}
+
+\par
+ 
+
+\par
+
+
+\label{index_end}
+\hypertarget{index_end}{}
+ \subsection{Diagram of the MIDAS system}\label{I_Midas_system_picture}
+\par
+ 
+
+\par
+
+
+\label{I_Midas_system_picture_idx_midas_overview}
+\hypertarget{I_Midas_system_picture_idx_midas_overview}{}
+ A general picture of the MIDAS system is displayed below. The \hyperlink{F_MainElements}{main elements} of the system will be described in \hyperlink{Features}{SECTION 4: Features} .
+
+\begin{center}  \end{center} 
+
+For information on the MIDAS features shown here, see the \hyperlink{F_MainElements}{overview} . \label{index_end}
+\hypertarget{index_end}{}
+
+
+\par
+  \par
+ 

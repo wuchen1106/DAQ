@@ -1,0 +1,238 @@
+.TH "F_Elog" 3 "31 May 2012" "Version 2.3.0-0" "Midas" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+F_Elog \- Electronic logbook (Elog) 
+
+.br
+ 
+.PP
+
+.br
+   
+.SH "Introduction"
+.PP
+The Electronic logbook (Elog) is an alternative way of recording experiment information. This is implemented through the MIDAS web server \fBmhttpd\fP (see \fBElog page\fP).
+.SH "Location of Elog Files"
+.PP
+  By default, \fBelog\fP files are written into the directory path given by the ODB key \fBData Dir\fP in \fB/Logger ODB tree\fP .
+.PP
+This location can be changed by use of the ODB Key Elog dir in the \fB/Logger ODB tree\fP . This key is optional and doesn't appear by default in the /Logger tree. 
+.br
+ If this key \fBis\fP present, the location of the \fBElectronic logbook (Elog)\fP files is reassigned to the defined path.
+.SS "Creation of ODB Key Elog Dir"
+Using the \fBmhttpd ODB editor\fP or the \fBodbedit command create\fP as shown below, the user may add this key: 
+.PP
+.nf
+[local:Default:S]/Logger>create string 'Elog dir'
+String length [32]:128
+[local:Default:S]/Logger>set 'Elog dir' /mypath/elog/2009
+
+.fi
+.PP
+.PP
+
+.br
+ 
+.PP
+ 
+.br
+.SH "Customizing the Elog"
+.PP
+The Electronic logbook (Elog) is an alternative way of recording experiment information. This is implemented through the MIDAS web server \fBmhttpd\fP (see \fBElog page\fP ). The /Elog tree is created automatically when the MIDAS Logger (mlogger) is started for the first time. The definition of the options are described in \fBThe ODB /Elog Tree\fP.
+.PP
+ 
+.SS "The ODB /Elog Tree"
+This tree describes the Elog settings used through the MIDAS web server. See \fBmhttpd Elog page\fP for setting up the different Elog page displays. The meaning of each key is described in the \fBtable below\fP.
+.PP
+.PP
+.nf
+[local:midas:S]/Elog>ls -lr
+Key name                        Type    #Val  Size  Last Opn Mode Value
+---------------------------------------------------------------------------
+Elog                            DIR
+   Email                       STRING  1     64    25h  0   RWD  midas@triumf.ca
+    Display run number          BOOL    1     4     25h  0   RWD  y
+    Allow delete                BOOL    1     4     25h  0   RWD  n
+    Types                       STRING  20    32    25h  0   RWD  
+                                        [0]             Routine
+                                        [1]             Shift summary
+                                        [2]             Minor error
+                                        [3]             Severe error
+                                        [4]             Fix
+                                        [5]             Question
+                                        [6]             Info
+                                        [7]             Modification
+                                        [8]             Reply
+                                        [9]             Alarm
+                                        [10]            Test
+                                        [11]            Other
+                                        [12]            
+                                        [13]            
+                                        [14]            
+                                        [15]            
+                                        [16]            
+                                        [17]            
+                                        [18]            
+                                        [19]            
+    Systems                     STRING  20    32    25h  0   RWD  
+                                        [0]             General
+                                        [1]             DAQ
+                                        [2]             Detector
+                                        [3]             Electronics
+                                        [4]             Target
+                                        [5]             Beamline
+                                        [6]             
+                                        [7]             
+                                        [8]             
+                                        [9]             
+                                        [10]            
+                                        [11]            
+                                        [12]            
+                                        [13]            
+                                        [14]            
+                                        [15]            
+                                        [16]            
+                                        [17]            
+                                        [18]            
+                                        [19]  
+Buttons                         STRING  4     32    >99d 0   RWD  
+                                        [0]             8h
+                                        [1]             24h
+                                        [2]             3d
+                                        [3]             7d
+Host name                       STRING  1     256   >99d 0   RWD  myhost.triumf.ca
+Email DAQ                       STRING  1     45    >99d 0   RWD  daq@triumf.ca,johndoe@triumf.ca
+Email Detector                  STRING  1     32    >99d 0   RWD  janedoe@triumf.ca
+SMTP host                       STRING  1     32    >99d 0   RWD  localhost
+.fi
+.PP
+.SS "Meaning of the keys in the /Elog tree"
+Keys in ODB /Elog tree
+.br
+  
+.PP
+Key
+.br
+  Type
+.br
+  Explanation
+.br
+  
+.PP
+Elog  
+.br
+  DIR
+.br
+  Directory containing information for the Elog (Electronic log book)  
+.PP
+
+.br
+    Email  STRING
+.br
+  Defines the Email address for the Elog reply. When a user replies to an Elog message, the message with be sent to this address.  
+.PP
+
+.br
+   Display run number  BOOL
+.br
+  Enable/disable the run number display in the Elog entries.  
+.PP
+
+.br
+   Allow delete  BOOL
+.br
+  Permits or prevents Elog entries from being deleted  
+.PP
+
+.br
+   Types  STRING
+.br
+  Pre-defined array of allowed types displayed when composing an Elog entry. A maximum of 20 types are available. The list will be terminated by the encounter of the first blank type. Users can adjust this list as desired.  
+.PP
+
+.br
+   Systems  STRING
+.br
+  Pre-defined array of categories displayed when composing an Elog entry. A maximum of 20 types are available. The list will be terminated by the encounter of the first blank type. Users can adjust this list as desired.  
+.PP
+
+.br
+   Buttons  STRING
+.br
+  Permits the user to easily recall Elog messages for up to four possible time spans. The example above shows that all messages in the last 8 hours, 24 hours, 3 days or 7 days can be recalled by pressing the appropriate button.  
+.PP
+
+.br
+   Host name  STRING
+.br
+  Host name  
+.PP
+
+.br
+   Email DAQ  STRING
+.br
+  Optional field(s) created by user. It may be desirable that a person receives an email copy of all elog messages sent under a particular system type. The example shows that email copies of messages sent under the System types of 'DAQ' and 'Detector' will be sent to the addresses listed.  
+.PP
+
+.br
+   SMTP host  STRING
+.br
+  Mail server address for routing the composed Elog message to the destination.  
+.PP
+Above: Explanation of keys in ODB /Elog tree 
+.PP
+The optional subtree /Elog/Forms is described on the \fBmhttpd Elog page\fP.
+.PP
+
+.br
+ 
+.PP
+ 
+.br
+.PP
+  
+.SH "melog        - submits an entry to the Elog"
+.PP
+Electronic Log utility. Submit full Elog entry to the specified Elog port.
+.PP
+.IP "\(bu" 2
+\fB Arguments \fP
+.IP "  \(bu" 4
+[-h ] : help
+.IP "  \(bu" 4
+[-h hostname ] : host name
+.IP "  \(bu" 4
+[-l exptname or logbook ]
+.IP "  \(bu" 4
+[-u username password ]
+.IP "  \(bu" 4
+[-f <attachment> ] : up to 10 files.
+.IP "  \(bu" 4
+-a <attribute>=<value> : up to 20 attributes. The attribute 'Author=...' must at least be present for submission of Elog.
+.IP "  \(bu" 4
+-m <textfile> | text> Arguments with blanks must be enclosed in quotes. The elog message can either be submitted on the command line or in a file with the -m flag. Multiple attributes and attachments can be supplied.
+.PP
+
+.PP
+.PP
+.IP "\(bu" 2
+\fB Usage \fP By default the attributes are 'Author', 'Type', 'System' and 'Subject'. The 'Author' attribute has to be present in the elog command in order to successfully submit the message. If multiple attributes are required append before 'text' field the full specification of the attribute. In case of multiple attachements, only one '-f' is required followed by up to 10 file names. 
+.PP
+.nf
+ >melog -h myhost -p 8081 -l myexpt -a author=pierre 'Just a elog message'
+ >melog -h myhost -p 8081 -l myexpt -a author=pierre -f file2attach.txt \
+                 'Just this message with an attachement'
+ >melog -h myhost -p 8081 -l myexpt -a author=pierre -m file_containing_the_message.txt
+ >melog -h myhost -p 8081 -l myexpt -a Author=pierre -a Type=routine -a system=general \
+                 -a Subject='my test' 'A full Elog message'
+
+.fi
+.PP
+
+.IP "\(bu" 2
+\fB Remarks \fP none so far
+.PP
+.PP
+.PP
+ 

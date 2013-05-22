@@ -1,0 +1,131 @@
+.TH "MTGListTree" 3 "Thu Apr 26 2012" "Roody" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+MTGListTree \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <MTGListTree.h>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBMTGListTree\fP (TGWindow *, UInt_t, UInt_t, UInt_t, ULong_t=GetWhitePixel())"
+.br
+.ti -1c
+.RI "\fBMTGListTree\fP (TGCanvas *, UInt_t, ULong_t=GetWhitePixel())"
+.br
+.ti -1c
+.RI "Bool_t \fBHandleButton\fP (Event_t *)"
+.br
+.ti -1c
+.RI "Bool_t \fBHandleKey\fP (Event_t *)"
+.br
+.ti -1c
+.RI "void \fBGetSelectedItems\fP (std::vector< TGListTreeItem * > &)"
+.br
+.ti -1c
+.RI "void \fBGetSelectedItemsRecursive\fP (TGListTreeItem *, std::vector< TGListTreeItem * > &)"
+.br
+.ti -1c
+.RI "Int_t \fBMDeleteItem\fP (TGListTreeItem *)"
+.br
+.ti -1c
+.RI "void \fBMPDeleteChildren\fP (TGListTreeItem *)"
+.br
+.in -1c
+.SS "Private Types"
+
+.in +1c
+.ti -1c
+.RI "typedef std::vector< TGListTreeItem * >::\fBiterator\fP \fBiterator\fP"
+.br
+.in -1c
+.SS "Private Member Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBinit\fP ()"
+.br
+.in -1c
+.SS "Private Attributes"
+
+.in +1c
+.ti -1c
+.RI "Bool_t \fBfControlPressed\fP"
+.br
+.in -1c
+.SS "Friends"
+
+.in +1c
+.ti -1c
+.RI "class \fBTGListTreeItem\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 17 of file MTGListTree.h.
+.SH "Member Typedef Documentation"
+.PP 
+.SS "typedef std::vector<TGListTreeItem*>::\fBiterator\fP \fBMTGListTree::iterator\fP\fC [private]\fP"
+.PP
+Definition at line 22 of file MTGListTree.h.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "MTGListTree::MTGListTree (TGWindow *p, UInt_tw, UInt_th, UInt_toptions, ULong_tback = \fCGetWhitePixel()\fP)"
+.PP
+Definition at line 42 of file MTGListTree.cxx.
+.SS "MTGListTree::MTGListTree (TGCanvas *p, UInt_toptions, ULong_tback = \fCGetWhitePixel()\fP)"
+.PP
+Definition at line 47 of file MTGListTree.cxx.
+.SH "Member Function Documentation"
+.PP 
+.SS "void MTGListTree::GetSelectedItems (std::vector< TGListTreeItem * > &items)"
+.PP
+Definition at line 146 of file MTGListTree.cxx.
+.PP
+Referenced by Roody::ProcessMessage().
+.SS "void MTGListTree::GetSelectedItemsRecursive (TGListTreeItem *item, std::vector< TGListTreeItem * > &items)"
+.PP
+Definition at line 153 of file MTGListTree.cxx.
+.PP
+Referenced by GetSelectedItems().
+.SS "Bool_t MTGListTree::HandleButton (Event_t *event)"
+.PP
+Definition at line 91 of file MTGListTree.cxx.
+.SS "Bool_t MTGListTree::HandleKey (Event_t *event)"
+.PP
+Definition at line 164 of file MTGListTree.cxx.
+.SS "void MTGListTree::init ()\fC [private]\fP"
+.PP
+Referenced by MTGListTree().
+.SS "Int_t MTGListTree::MDeleteItem (TGListTreeItem *item)"
+.PP
+Definition at line 58 of file MTGListTree.cxx.
+.PP
+Referenced by Roody::CloseSource(), and Roody::DeleteGroup().
+.SS "void MTGListTree::MPDeleteChildren (TGListTreeItem *item)"
+.PP
+Definition at line 71 of file MTGListTree.cxx.
+.PP
+Referenced by MDeleteItem().
+.SH "Friends And Related Function Documentation"
+.PP 
+.SS "friend class TGListTreeItem\fC [friend]\fP"
+.PP
+Definition at line 19 of file MTGListTree.h.
+.PP
+Referenced by GetSelectedItems(), GetSelectedItemsRecursive(), HandleButton(), MDeleteItem(), and MPDeleteChildren().
+.SH "Member Data Documentation"
+.PP 
+.SS "Bool_t \fBMTGListTree::fControlPressed\fP\fC [private]\fP"
+.PP
+Definition at line 23 of file MTGListTree.h.
+.PP
+Referenced by HandleButton(), and HandleKey().
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Roody from the source code.

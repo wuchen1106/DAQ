@@ -1,0 +1,206 @@
+.TH "experim.h" 3 "31 May 2012" "Version 2.3.0-0" "Midas" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+experim.h \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Data Structures"
+
+.in +1c
+.ti -1c
+.RI "struct \fBEXP_PARAM\fP"
+.br
+.ti -1c
+.RI "struct \fBADC_CALIBRATION_PARAM\fP"
+.br
+.ti -1c
+.RI "struct \fBADC_SUMMING_PARAM\fP"
+.br
+.ti -1c
+.RI "struct \fBGLOBAL_PARAM\fP"
+.br
+.ti -1c
+.RI "struct \fBASUM_BANK\fP"
+.br
+.ti -1c
+.RI "struct \fBTRIGGER_COMMON\fP"
+.br
+.ti -1c
+.RI "struct \fBTRIGGER_SETTINGS\fP"
+.br
+.ti -1c
+.RI "struct \fBSCALER_COMMON\fP"
+.br
+.in -1c
+.SH "Define Documentation"
+.PP 
+.SS "#define ADC_CALIBRATION_PARAM_DEFINED"
+.PP
+Definition at line 38 of file experim.h.
+.SS "#define ADC_CALIBRATION_PARAM_STR(_name)"\fBValue:\fP
+.PP
+.nf
+char *_name[] = {\
+'[.]',\
+'Pedestal = INT[8] :',\
+'[0] 174',\
+'[1] 194',\
+'[2] 176',\
+'[3] 182',\
+'[4] 185',\
+'[5] 215',\
+'[6] 202',\
+'[7] 202',\
+'Software Gain = FLOAT[8] :',\
+'[0] 1',\
+'[1] 1',\
+'[2] 1',\
+'[3] 1',\
+'[4] 1',\
+'[5] 1',\
+'[6] 1',\
+'[7] 1',\
+'Histo threshold = DOUBLE : 20',\
+'',\
+NULL }
+.fi
+.PP
+Definition at line 46 of file experim.h.
+.SS "#define ADC_SUMMING_PARAM_DEFINED"
+.PP
+Definition at line 74 of file experim.h.
+.SS "#define ADC_SUMMING_PARAM_STR(_name)"\fBValue:\fP
+.PP
+.nf
+char *_name[] = {\
+'[.]',\
+'ADC threshold = FLOAT : 5',\
+'',\
+NULL }
+.fi
+.PP
+Definition at line 80 of file experim.h.
+.SS "#define ASUM_BANK_DEFINED"
+.PP
+Definition at line 106 of file experim.h.
+.SS "#define ASUM_BANK_STR(_name)"\fBValue:\fP
+.PP
+.nf
+char *_name[] = {\
+'[.]',\
+'Sum = FLOAT : 0',\
+'Average = FLOAT : 0',\
+'',\
+NULL }
+.fi
+.PP
+Definition at line 113 of file experim.h.
+.SS "#define EXP_PARAM_DEFINED"
+.PP
+Definition at line 24 of file experim.h.
+.SS "#define EXP_PARAM_STR(_name)"\fBValue:\fP
+.PP
+.nf
+char *_name[] = {\
+'[.]',\
+'Comment = STRING : [80] Test',\
+'',\
+NULL }
+.fi
+.PP
+Definition at line 30 of file experim.h.
+.PP
+Referenced by analyzer_init().
+.SS "#define GLOBAL_PARAM_DEFINED"
+.PP
+Definition at line 90 of file experim.h.
+.SS "#define GLOBAL_PARAM_STR(_name)"\fBValue:\fP
+.PP
+.nf
+char *_name[] = {\
+'[.]',\
+'ADC Threshold = FLOAT : 5',\
+'',\
+NULL }
+.fi
+.PP
+Definition at line 96 of file experim.h.
+.PP
+Referenced by analyzer_init().
+.SS "#define SCALER_COMMON_DEFINED"
+.PP
+Definition at line 176 of file experim.h.
+.SS "#define SCALER_COMMON_STR(_name)"\fBValue:\fP
+.PP
+.nf
+char *_name[] = {\
+'[.]',\
+'Event ID = WORD : 2',\
+'Trigger mask = WORD : 0',\
+'Buffer = STRING : [32] SYSTEM',\
+'Type = INT : 17',\
+'Source = INT : 0',\
+'Format = STRING : [8] MIDAS',\
+'Enabled = BOOL : y',\
+'Read on = INT : 377',\
+'Period = INT : 10000',\
+'Event limit = DOUBLE : 0',\
+'Num subevents = DWORD : 0',\
+'Log history = INT : 0',\
+'Frontend host = STRING : [32] pc810',\
+'Frontend name = STRING : [32] Sample Frontend',\
+'Frontend file name = STRING : [256] C:\Midas\examples\experiment\frontend.c',\
+'',\
+NULL }
+.fi
+.PP
+Definition at line 196 of file experim.h.
+.SS "#define TRIGGER_COMMON_DEFINED"
+.PP
+Definition at line 120 of file experim.h.
+.SS "#define TRIGGER_COMMON_STR(_name)"\fBValue:\fP
+.PP
+.nf
+char *_name[] = {\
+'[.]',\
+'Event ID = WORD : 1',\
+'Trigger mask = WORD : 0',\
+'Buffer = STRING : [32] SYSTEM',\
+'Type = INT : 2',\
+'Source = INT : 16777215',\
+'Format = STRING : [8] MIDAS',\
+'Enabled = BOOL : y',\
+'Read on = INT : 257',\
+'Period = INT : 500',\
+'Event limit = DOUBLE : 0',\
+'Num subevents = DWORD : 0',\
+'Log history = INT : 0',\
+'Frontend host = STRING : [32] pc810',\
+'Frontend name = STRING : [32] Sample Frontend',\
+'Frontend file name = STRING : [256] C:\Midas\examples\experiment\frontend.c',\
+'',\
+NULL }
+.fi
+.PP
+Definition at line 140 of file experim.h.
+.SS "#define TRIGGER_SETTINGS_DEFINED"
+.PP
+Definition at line 160 of file experim.h.
+.SS "#define TRIGGER_SETTINGS_STR(_name)"\fBValue:\fP
+.PP
+.nf
+char *_name[] = {\
+'[.]',\
+'IO506 = BYTE : 7',\
+'',\
+NULL }
+.fi
+.PP
+Definition at line 166 of file experim.h.
+.PP
+Referenced by analyzer_init(), and frontend_init().
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Midas from the source code.

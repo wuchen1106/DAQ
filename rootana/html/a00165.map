@@ -1,0 +1,18 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$a00066.html" title="include/TComplicatedExampleCanvas.hxx" alt="" coords="5,83,304,112"/>
+<area shape="rect" id="node5" href="$a00072.html" title="include/TFancyHistogramCanvas.hxx" alt="" coords="328,83,595,112"/>
+<area shape="rect" id="node7" href="$a00098.html" title="include/TRootanaDisplay.hxx" alt="" coords="619,83,829,112"/>
+<area shape="rect" id="node9" href="$a00104.html" title="include/TSimpleExampleCanvas.hxx" alt="" coords="853,83,1112,112"/>
+<area shape="rect" id="node11" href="$a00067.html" title="libAnalyzerDisplay/TComplicatedExampleCanvas.hxx" alt="" coords="1800,83,2173,112"/>
+<area shape="rect" id="node17" href="$a00073.html" title="libAnalyzerDisplay/TFancyHistogramCanvas.hxx" alt="" coords="2512,83,2851,112"/>
+<area shape="rect" id="node23" href="$a00099.html" title="libAnalyzerDisplay/TRootanaDisplay.hxx" alt="" coords="1136,83,1419,112"/>
+<area shape="rect" id="node33" href="$a00105.html" title="libAnalyzerDisplay/TSimpleExampleCanvas.hxx" alt="" coords="1443,83,1776,112"/>
+<area shape="rect" id="node13" href="$a00124.html" title="libAnalyzerDisplay/display_example.cxx" alt="" coords="1451,160,1733,189"/>
+<area shape="rect" id="node15" href="$a00126.html" title="libAnalyzerDisplay/TComplicatedExampleCanvas.cxx" alt="" coords="2115,160,2488,189"/>
+<area shape="rect" id="node19" href="$a00127.html" title="libAnalyzerDisplay/TFancyHistogramCanvas.cxx" alt="" coords="2512,160,2851,189"/>
+<area shape="rect" id="node21" href="$a00128.html" title="libAnalyzerDisplay/TFancyHistogramCanvasDict.h" alt="" coords="2875,160,3227,189"/>
+<area shape="rect" id="node25" href="$a00064.html" title="include/TCanvasHandleBase.hxx" alt="" coords="560,160,797,189"/>
+<area shape="rect" id="node29" href="$a00131.html" title="libAnalyzerDisplay/TRootanaDisplay.cxx" alt="" coords="821,160,1104,189"/>
+<area shape="rect" id="node31" href="$a00132.html" title="libAnalyzerDisplay/TRootanaDisplayDict.h" alt="" coords="1128,160,1427,189"/>
+<area shape="rect" id="node36" href="$a00133.html" title="libAnalyzerDisplay/TSimpleExampleCanvas.cxx" alt="" coords="1757,160,2091,189"/>
+</map>

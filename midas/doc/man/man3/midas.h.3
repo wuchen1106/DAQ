@@ -1,0 +1,885 @@
+.TH "midas.h" 3 "31 May 2012" "Version 2.3.0-0" "Midas" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+midas.h \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Data Structures"
+
+.in +1c
+.ti -1c
+.RI "struct \fBEVENT_HEADER\fP"
+.br
+.ti -1c
+.RI "struct \fBEVENT_REQUEST\fP"
+.br
+.ti -1c
+.RI "struct \fBBUFFER_CLIENT\fP"
+.br
+.ti -1c
+.RI "struct \fBBUFFER_HEADER\fP"
+.br
+.ti -1c
+.RI "struct \fBBUFFER\fP"
+.br
+.ti -1c
+.RI "struct \fBKEY\fP"
+.br
+.ti -1c
+.RI "struct \fBKEYLIST\fP"
+.br
+.ti -1c
+.RI "struct \fBBUS_DRIVER\fP"
+.br
+.ti -1c
+.RI "struct \fBDD_MT_CHANNEL\fP"
+.br
+.ti -1c
+.RI "struct \fBDD_MT_BUFFER\fP"
+.br
+.ti -1c
+.RI "struct \fBEQUIPMENT_INFO\fP"
+.br
+.ti -1c
+.RI "struct \fBDEVICE_DRIVER\fP"
+.br
+.ti -1c
+.RI "struct \fBEQUIPMENT_STATS\fP"
+.br
+.ti -1c
+.RI "struct \fBeqpmnt\fP"
+.br
+.ti -1c
+.RI "struct \fBBANK_HEADER\fP"
+.br
+.ti -1c
+.RI "struct \fBBANK\fP"
+.br
+.ti -1c
+.RI "struct \fBBANK32\fP"
+.br
+.ti -1c
+.RI "struct \fBTAG\fP"
+.br
+.ti -1c
+.RI "struct \fBBANK_LIST\fP"
+.br
+.ti -1c
+.RI "struct \fBANA_MODULE\fP"
+.br
+.ti -1c
+.RI "struct \fBAR_INFO\fP"
+.br
+.ti -1c
+.RI "struct \fBAR_STATS\fP"
+.br
+.ti -1c
+.RI "struct \fBANALYZE_REQUEST\fP"
+.br
+.ti -1c
+.RI "struct \fBANA_OUTPUT_INFO\fP"
+.br
+.ti -1c
+.RI "struct \fBANA_TEST\fP"
+.br
+.ti -1c
+.RI "struct \fBHIST_RECORD\fP"
+.br
+.ti -1c
+.RI "struct \fBDEF_RECORD\fP"
+.br
+.ti -1c
+.RI "struct \fBINDEX_RECORD\fP"
+.br
+.ti -1c
+.RI "struct \fBHISTORY\fP"
+.br
+.ti -1c
+.RI "struct \fBRUNINFO\fP"
+.br
+.ti -1c
+.RI "struct \fBPROGRAM_INFO\fP"
+.br
+.ti -1c
+.RI "struct \fBALARM_CLASS\fP"
+.br
+.ti -1c
+.RI "struct \fBALARM\fP"
+.br
+.in -1c
+.SS "Defines"
+
+.in +1c
+.ti -1c
+.RI "#define \fBMAX_EVENT_SIZE\fP   0x400000"
+.br
+.ti -1c
+.RI "#define \fBTAPE_BUFFER_SIZE\fP   0x8000"
+.br
+.ti -1c
+.RI "#define \fBNET_TCP_SIZE\fP   0xFFFF"
+.br
+.ti -1c
+.RI "#define \fBOPT_TCP_SIZE\fP   8192"
+.br
+.ti -1c
+.RI "#define \fBNET_UDP_SIZE\fP   8192"
+.br
+.ti -1c
+.RI "#define \fBEVENT_BUFFER_NAME\fP   'SYSTEM'"
+.br
+.ti -1c
+.RI "#define \fBDEFAULT_ODB_SIZE\fP   0x100000"
+.br
+.ti -1c
+.RI "#define \fBNAME_LENGTH\fP   32"
+.br
+.ti -1c
+.RI "#define \fBHOST_NAME_LENGTH\fP   256"
+.br
+.ti -1c
+.RI "#define \fBMAX_CLIENTS\fP   64"
+.br
+.ti -1c
+.RI "#define \fBMAX_EVENT_REQUESTS\fP   10"
+.br
+.ti -1c
+.RI "#define \fBMAX_OPEN_RECORDS\fP   256"
+.br
+.ti -1c
+.RI "#define \fBMAX_ODB_PATH\fP   256"
+.br
+.ti -1c
+.RI "#define \fBMAX_EXPERIMENT\fP   32"
+.br
+.ti -1c
+.RI "#define \fBBANKLIST_MAX\fP   1024"
+.br
+.ti -1c
+.RI "#define \fBSTRING_BANKLIST_MAX\fP   BANKLIST_MAX * 4"
+.br
+.ti -1c
+.RI "#define \fBDEFAULT_RPC_TIMEOUT\fP   10000"
+.br
+.ti -1c
+.RI "#define \fBDEFAULT_WATCHDOG_TIMEOUT\fP   10000"
+.br
+.ti -1c
+.RI "#define \fBSTATE_STOPPED\fP   1"
+.br
+.ti -1c
+.RI "#define \fBSTATE_PAUSED\fP   2"
+.br
+.ti -1c
+.RI "#define \fBSTATE_RUNNING\fP   3"
+.br
+.ti -1c
+.RI "#define \fBFORMAT_MIDAS\fP   1"
+.br
+.ti -1c
+.RI "#define \fBFORMAT_YBOS\fP   2"
+.br
+.ti -1c
+.RI "#define \fBFORMAT_ASCII\fP   3"
+.br
+.ti -1c
+.RI "#define \fBFORMAT_FIXED\fP   4"
+.br
+.ti -1c
+.RI "#define \fBFORMAT_DUMP\fP   5"
+.br
+.ti -1c
+.RI "#define \fBFORMAT_HBOOK\fP   6"
+.br
+.ti -1c
+.RI "#define \fBFORMAT_ROOT\fP   7"
+.br
+.ti -1c
+.RI "#define \fBGET_ALL\fP   (1<<0)"
+.br
+.ti -1c
+.RI "#define \fBGET_NONBLOCKING\fP   (1<<1)"
+.br
+.ti -1c
+.RI "#define \fBGET_RECENT\fP   (1<<2)"
+.br
+.ti -1c
+.RI "#define \fBTID_BYTE\fP   1"
+.br
+.ti -1c
+.RI "#define \fBTID_SBYTE\fP   2"
+.br
+.ti -1c
+.RI "#define \fBTID_CHAR\fP   3"
+.br
+.ti -1c
+.RI "#define \fBTID_WORD\fP   4"
+.br
+.ti -1c
+.RI "#define \fBTID_SHORT\fP   5"
+.br
+.ti -1c
+.RI "#define \fBTID_DWORD\fP   6"
+.br
+.ti -1c
+.RI "#define \fBTID_INT\fP   7"
+.br
+.ti -1c
+.RI "#define \fBTID_BOOL\fP   8"
+.br
+.ti -1c
+.RI "#define \fBTID_FLOAT\fP   9"
+.br
+.ti -1c
+.RI "#define \fBTID_DOUBLE\fP   10"
+.br
+.ti -1c
+.RI "#define \fBTID_BITFIELD\fP   11"
+.br
+.ti -1c
+.RI "#define \fBTID_STRING\fP   12"
+.br
+.ti -1c
+.RI "#define \fBTID_ARRAY\fP   13"
+.br
+.ti -1c
+.RI "#define \fBTID_STRUCT\fP   14"
+.br
+.ti -1c
+.RI "#define \fBTID_KEY\fP   15"
+.br
+.ti -1c
+.RI "#define \fBTID_LINK\fP   16"
+.br
+.ti -1c
+.RI "#define \fBTID_LAST\fP   17"
+.br
+.ti -1c
+.RI "#define \fBSYNC\fP   0"
+.br
+.ti -1c
+.RI "#define \fBMODE_READ\fP   (1<<0)"
+.br
+.ti -1c
+.RI "#define \fBRPC_OTIMEOUT\fP   1"
+.br
+.ti -1c
+.RI "#define \fBWF_WATCH_ME\fP   (1<<0)"
+.br
+.ti -1c
+.RI "#define \fBTR_START\fP   (1<<0)"
+.br
+.ti -1c
+.RI "#define \fBTR_STOP\fP   (1<<1)"
+.br
+.ti -1c
+.RI "#define \fBTR_PAUSE\fP   (1<<2)"
+.br
+.ti -1c
+.RI "#define \fBTR_RESUME\fP   (1<<3)"
+.br
+.ti -1c
+.RI "#define \fBTR_STARTABORT\fP   (1<<4)"
+.br
+.ti -1c
+.RI "#define \fBEQ_PERIODIC\fP   (1<<0)"
+.br
+.ti -1c
+.RI "#define \fBEQ_POLLED\fP   (1<<1)"
+.br
+.ti -1c
+.RI "#define \fBEQ_INTERRUPT\fP   (1<<2)"
+.br
+.ti -1c
+.RI "#define \fBEQ_MULTITHREAD\fP   (1<<3)"
+.br
+.ti -1c
+.RI "#define \fBEQ_SLOW\fP   (1<<4)"
+.br
+.ti -1c
+.RI "#define \fBEQ_MANUAL_TRIG\fP   (1<<5)"
+.br
+.ti -1c
+.RI "#define \fBEQ_FRAGMENTED\fP   (1<<6)"
+.br
+.ti -1c
+.RI "#define \fBEQ_EB\fP   (1<<7)"
+.br
+.ti -1c
+.RI "#define \fBRO_RUNNING\fP   (1<<0)"
+.br
+.ti -1c
+.RI "#define \fBRO_STOPPED\fP   (1<<1)"
+.br
+.ti -1c
+.RI "#define \fBRO_PAUSED\fP   (1<<2)"
+.br
+.ti -1c
+.RI "#define \fBRO_BOR\fP   (1<<3)"
+.br
+.ti -1c
+.RI "#define \fBRO_EOR\fP   (1<<4)"
+.br
+.ti -1c
+.RI "#define \fBRO_PAUSE\fP   (1<<5)"
+.br
+.ti -1c
+.RI "#define \fBRO_RESUME\fP   (1<<6)"
+.br
+.ti -1c
+.RI "#define \fBRO_TRANSITIONS\fP   (RO_BOR|RO_EOR|RO_PAUSE|RO_RESUME)"
+.br
+.ti -1c
+.RI "#define \fBRO_ALWAYS\fP   (0xFF)"
+.br
+.ti -1c
+.RI "#define \fBRO_ODB\fP   (1<<8)"
+.br
+.ti -1c
+.RI "#define \fBCH_BS\fP   8"
+.br
+.ti -1c
+.RI "#define \fBLAM_SOURCE\fP(c, s)   (c<<24 | ((s) & 0xFFFFFF))"
+.br
+.ti -1c
+.RI "#define \fBLAM_STATION\fP(s)   (1<<(s-1))"
+.br
+.ti -1c
+.RI "#define \fBLAM_SOURCE_CRATE\fP(c)   (c>>24)"
+.br
+.ti -1c
+.RI "#define \fBLAM_SOURCE_STATION\fP(s)   ((s) & 0xFFFFFF)"
+.br
+.ti -1c
+.RI "#define \fBCNAF\fP   0x1"
+.br
+.ti -1c
+.RI "#define \fBMAX\fP(a, b)   (((a) > (b)) ? (a) : (b))"
+.br
+.ti -1c
+.RI "#define \fBMIN\fP(a, b)   (((a) < (b)) ? (a) : (b))"
+.br
+.ti -1c
+.RI "#define \fBALIGN8\fP(x)   (((x)+7) & ~7)"
+.br
+.ti -1c
+.RI "#define \fBVALIGN\fP(adr, align)   (((POINTER_T) (adr)+align-1) & ~(align-1))"
+.br
+.ti -1c
+.RI "#define \fBMT_ERROR\fP   (1<<0)"
+.br
+.ti -1c
+.RI "#define \fBMT_INFO\fP   (1<<1)"
+.br
+.ti -1c
+.RI "#define \fBMT_DEBUG\fP   (1<<2)"
+.br
+.ti -1c
+.RI "#define \fBMT_USER\fP   (1<<3)"
+.br
+.ti -1c
+.RI "#define \fBMT_LOG\fP   (1<<4)"
+.br
+.ti -1c
+.RI "#define \fBMT_TALK\fP   (1<<5)"
+.br
+.ti -1c
+.RI "#define \fBMT_CALL\fP   (1<<6)"
+.br
+.ti -1c
+.RI "#define \fBMT_ALL\fP   0xFF"
+.br
+.ti -1c
+.RI "#define \fBMERROR\fP   MT_ERROR, __FILE__, __LINE__"
+.br
+.ti -1c
+.RI "#define \fBMINFO\fP   MT_INFO,  __FILE__, __LINE__"
+.br
+.ti -1c
+.RI "#define \fBMDEBUG\fP   MT_DEBUG, __FILE__, __LINE__"
+.br
+.ti -1c
+.RI "#define \fBMUSER\fP   MT_USER,  __FILE__, __LINE__"
+.br
+.ti -1c
+.RI "#define \fBMLOG\fP   MT_LOG,   __FILE__, __LINE__"
+.br
+.ti -1c
+.RI "#define \fBMTALK\fP   MT_TALK,  __FILE__, __LINE__"
+.br
+.ti -1c
+.RI "#define \fBMCALL\fP   MT_CALL,  __FILE__, __LINE__"
+.br
+.ti -1c
+.RI "#define \fBSUCCESS\fP   1"
+.br
+.ti -1c
+.RI "#define \fBCM_SUCCESS\fP   1"
+.br
+.ti -1c
+.RI "#define \fBCM_SET_ERROR\fP   102"
+.br
+.ti -1c
+.RI "#define \fBCM_NO_CLIENT\fP   103"
+.br
+.ti -1c
+.RI "#define \fBCM_DB_ERROR\fP   104"
+.br
+.ti -1c
+.RI "#define \fBCM_UNDEF_EXP\fP   105"
+.br
+.ti -1c
+.RI "#define \fBCM_VERSION_MISMATCH\fP   106"
+.br
+.ti -1c
+.RI "#define \fBCM_SHUTDOWN\fP   107"
+.br
+.ti -1c
+.RI "#define \fBCM_WRONG_PASSWORD\fP   108"
+.br
+.ti -1c
+.RI "#define \fBCM_UNDEF_ENVIRON\fP   109"
+.br
+.ti -1c
+.RI "#define \fBCM_DEFERRED_TRANSITION\fP   110"
+.br
+.ti -1c
+.RI "#define \fBCM_TRANSITION_IN_PROGRESS\fP   111"
+.br
+.ti -1c
+.RI "#define \fBCM_TIMEOUT\fP   112"
+.br
+.ti -1c
+.RI "#define \fBCM_INVALID_TRANSITION\fP   113"
+.br
+.ti -1c
+.RI "#define \fBCM_TOO_MANY_REQUESTS\fP   114"
+.br
+.ti -1c
+.RI "#define \fBBM_SUCCESS\fP   1"
+.br
+.ti -1c
+.RI "#define \fBBM_CREATED\fP   202"
+.br
+.ti -1c
+.RI "#define \fBBM_NO_MEMORY\fP   203"
+.br
+.ti -1c
+.RI "#define \fBBM_INVALID_NAME\fP   204"
+.br
+.ti -1c
+.RI "#define \fBBM_INVALID_HANDLE\fP   205"
+.br
+.ti -1c
+.RI "#define \fBBM_NO_SLOT\fP   206"
+.br
+.ti -1c
+.RI "#define \fBBM_NO_SEMAPHORE\fP   207"
+.br
+.ti -1c
+.RI "#define \fBBM_NOT_FOUND\fP   208"
+.br
+.ti -1c
+.RI "#define \fBBM_ASYNC_RETURN\fP   209"
+.br
+.ti -1c
+.RI "#define \fBBM_TRUNCATED\fP   210"
+.br
+.ti -1c
+.RI "#define \fBBM_MULTIPLE_HOSTS\fP   211"
+.br
+.ti -1c
+.RI "#define \fBBM_MEMSIZE_MISMATCH\fP   212"
+.br
+.ti -1c
+.RI "#define \fBBM_CONFLICT\fP   213"
+.br
+.ti -1c
+.RI "#define \fBBM_EXIT\fP   214"
+.br
+.ti -1c
+.RI "#define \fBBM_INVALID_PARAM\fP   215"
+.br
+.ti -1c
+.RI "#define \fBBM_MORE_EVENTS\fP   216"
+.br
+.ti -1c
+.RI "#define \fBBM_INVALID_MIXING\fP   217"
+.br
+.ti -1c
+.RI "#define \fBBM_NO_SHM\fP   218"
+.br
+.ti -1c
+.RI "#define \fBDB_SUCCESS\fP   1"
+.br
+.ti -1c
+.RI "#define \fBDB_CREATED\fP   302"
+.br
+.ti -1c
+.RI "#define \fBDB_NO_MEMORY\fP   303"
+.br
+.ti -1c
+.RI "#define \fBDB_INVALID_NAME\fP   304"
+.br
+.ti -1c
+.RI "#define \fBDB_INVALID_HANDLE\fP   305"
+.br
+.ti -1c
+.RI "#define \fBDB_NO_SLOT\fP   306"
+.br
+.ti -1c
+.RI "#define \fBDB_NO_SEMAPHORE\fP   307"
+.br
+.ti -1c
+.RI "#define \fBDB_MEMSIZE_MISMATCH\fP   308"
+.br
+.ti -1c
+.RI "#define \fBDB_INVALID_PARAM\fP   309"
+.br
+.ti -1c
+.RI "#define \fBDB_FULL\fP   310"
+.br
+.ti -1c
+.RI "#define \fBDB_KEY_EXIST\fP   311"
+.br
+.ti -1c
+.RI "#define \fBDB_NO_KEY\fP   312"
+.br
+.ti -1c
+.RI "#define \fBDB_KEY_CREATED\fP   313"
+.br
+.ti -1c
+.RI "#define \fBDB_TRUNCATED\fP   314"
+.br
+.ti -1c
+.RI "#define \fBDB_TYPE_MISMATCH\fP   315"
+.br
+.ti -1c
+.RI "#define \fBDB_NO_MORE_SUBKEYS\fP   316"
+.br
+.ti -1c
+.RI "#define \fBDB_FILE_ERROR\fP   317"
+.br
+.ti -1c
+.RI "#define \fBDB_NO_ACCESS\fP   318"
+.br
+.ti -1c
+.RI "#define \fBDB_STRUCT_SIZE_MISMATCH\fP   319"
+.br
+.ti -1c
+.RI "#define \fBDB_OPEN_RECORD\fP   320"
+.br
+.ti -1c
+.RI "#define \fBDB_OUT_OF_RANGE\fP   321"
+.br
+.ti -1c
+.RI "#define \fBDB_INVALID_LINK\fP   322"
+.br
+.ti -1c
+.RI "#define \fBDB_CORRUPTED\fP   323"
+.br
+.ti -1c
+.RI "#define \fBDB_STRUCT_MISMATCH\fP   324"
+.br
+.ti -1c
+.RI "#define \fBDB_TIMEOUT\fP   325"
+.br
+.ti -1c
+.RI "#define \fBDB_VERSION_MISMATCH\fP   326"
+.br
+.ti -1c
+.RI "#define \fBSS_SUCCESS\fP   1"
+.br
+.ti -1c
+.RI "#define \fBSS_CREATED\fP   402"
+.br
+.ti -1c
+.RI "#define \fBSS_NO_MEMORY\fP   403"
+.br
+.ti -1c
+.RI "#define \fBSS_INVALID_NAME\fP   404"
+.br
+.ti -1c
+.RI "#define \fBSS_INVALID_HANDLE\fP   405"
+.br
+.ti -1c
+.RI "#define \fBSS_INVALID_ADDRESS\fP   406"
+.br
+.ti -1c
+.RI "#define \fBSS_FILE_ERROR\fP   407"
+.br
+.ti -1c
+.RI "#define \fBSS_NO_SEMAPHORE\fP   408"
+.br
+.ti -1c
+.RI "#define \fBSS_NO_PROCESS\fP   409"
+.br
+.ti -1c
+.RI "#define \fBSS_NO_THREAD\fP   410"
+.br
+.ti -1c
+.RI "#define \fBSS_SOCKET_ERROR\fP   411"
+.br
+.ti -1c
+.RI "#define \fBSS_TIMEOUT\fP   412"
+.br
+.ti -1c
+.RI "#define \fBSS_SERVER_RECV\fP   413"
+.br
+.ti -1c
+.RI "#define \fBSS_CLIENT_RECV\fP   414"
+.br
+.ti -1c
+.RI "#define \fBSS_ABORT\fP   415"
+.br
+.ti -1c
+.RI "#define \fBSS_EXIT\fP   416"
+.br
+.ti -1c
+.RI "#define \fBSS_NO_TAPE\fP   417"
+.br
+.ti -1c
+.RI "#define \fBSS_DEV_BUSY\fP   418"
+.br
+.ti -1c
+.RI "#define \fBSS_IO_ERROR\fP   419"
+.br
+.ti -1c
+.RI "#define \fBSS_TAPE_ERROR\fP   420"
+.br
+.ti -1c
+.RI "#define \fBSS_NO_DRIVER\fP   421"
+.br
+.ti -1c
+.RI "#define \fBSS_END_OF_TAPE\fP   422"
+.br
+.ti -1c
+.RI "#define \fBSS_END_OF_FILE\fP   423"
+.br
+.ti -1c
+.RI "#define \fBSS_FILE_EXISTS\fP   424"
+.br
+.ti -1c
+.RI "#define \fBSS_NO_SPACE\fP   425"
+.br
+.ti -1c
+.RI "#define \fBSS_INVALID_FORMAT\fP   426"
+.br
+.ti -1c
+.RI "#define \fBSS_NO_ROOT\fP   427"
+.br
+.ti -1c
+.RI "#define \fBSS_SIZE_MISMATCH\fP   428"
+.br
+.ti -1c
+.RI "#define \fBSS_NO_MUTEX\fP   429"
+.br
+.ti -1c
+.RI "#define \fBRPC_SUCCESS\fP   1"
+.br
+.ti -1c
+.RI "#define \fBRPC_ABORT\fP   SS_ABORT"
+.br
+.ti -1c
+.RI "#define \fBRPC_NO_CONNECTION\fP   502"
+.br
+.ti -1c
+.RI "#define \fBRPC_NET_ERROR\fP   503"
+.br
+.ti -1c
+.RI "#define \fBRPC_TIMEOUT\fP   504"
+.br
+.ti -1c
+.RI "#define \fBRPC_EXCEED_BUFFER\fP   505"
+.br
+.ti -1c
+.RI "#define \fBRPC_NOT_REGISTERED\fP   506"
+.br
+.ti -1c
+.RI "#define \fBRPC_CONNCLOSED\fP   507"
+.br
+.ti -1c
+.RI "#define \fBRPC_INVALID_ID\fP   508"
+.br
+.ti -1c
+.RI "#define \fBRPC_SHUTDOWN\fP   509"
+.br
+.ti -1c
+.RI "#define \fBRPC_NO_MEMORY\fP   510"
+.br
+.ti -1c
+.RI "#define \fBRPC_DOUBLE_DEFINED\fP   511"
+.br
+.ti -1c
+.RI "#define \fBRPC_MUTEX_TIMEOUT\fP   512"
+.br
+.ti -1c
+.RI "#define \fBFE_SUCCESS\fP   1"
+.br
+.ti -1c
+.RI "#define \fBFE_ERR_ODB\fP   602"
+.br
+.ti -1c
+.RI "#define \fBFE_ERR_HW\fP   603"
+.br
+.ti -1c
+.RI "#define \fBFE_ERR_DISABLED\fP   604"
+.br
+.ti -1c
+.RI "#define \fBFE_ERR_DRIVER\fP   605"
+.br
+.ti -1c
+.RI "#define \fBHS_SUCCESS\fP   1"
+.br
+.ti -1c
+.RI "#define \fBHS_FILE_ERROR\fP   702"
+.br
+.ti -1c
+.RI "#define \fBHS_NO_MEMORY\fP   703"
+.br
+.ti -1c
+.RI "#define \fBHS_TRUNCATED\fP   704"
+.br
+.ti -1c
+.RI "#define \fBHS_WRONG_INDEX\fP   705"
+.br
+.ti -1c
+.RI "#define \fBHS_UNDEFINED_EVENT\fP   706"
+.br
+.ti -1c
+.RI "#define \fBHS_UNDEFINED_VAR\fP   707"
+.br
+.ti -1c
+.RI "#define \fBFTP_SUCCESS\fP   1"
+.br
+.ti -1c
+.RI "#define \fBFTP_NET_ERROR\fP   802"
+.br
+.ti -1c
+.RI "#define \fBFTP_FILE_ERROR\fP   803"
+.br
+.ti -1c
+.RI "#define \fBFTP_RESPONSE_ERROR\fP   804"
+.br
+.ti -1c
+.RI "#define \fBFTP_INVALID_ARG\fP   805"
+.br
+.ti -1c
+.RI "#define \fBEL_SUCCESS\fP   1"
+.br
+.ti -1c
+.RI "#define \fBEL_FILE_ERROR\fP   902"
+.br
+.ti -1c
+.RI "#define \fBEL_NO_MESSAGE\fP   903"
+.br
+.ti -1c
+.RI "#define \fBEL_TRUNCATED\fP   904"
+.br
+.ti -1c
+.RI "#define \fBEL_FIRST_MSG\fP   905"
+.br
+.ti -1c
+.RI "#define \fBEL_LAST_MSG\fP   906"
+.br
+.ti -1c
+.RI "#define \fBAL_SUCCESS\fP   1"
+.br
+.ti -1c
+.RI "#define \fBAL_INVALID_NAME\fP   1002"
+.br
+.ti -1c
+.RI "#define \fBAL_ERROR_ODB\fP   1003"
+.br
+.ti -1c
+.RI "#define \fBAL_RESET\fP   1004"
+.br
+.ti -1c
+.RI "#define \fBCMD_INIT\fP   1"
+.br
+.ti -1c
+.RI "#define \fBCMD_WRITE\fP   100"
+.br
+.ti -1c
+.RI "#define \fBCMD_INTERRUPT_ENABLE\fP   100"
+.br
+.ti -1c
+.RI "#define \fBBD_GETS\fP(s, z, \fBp\fP, t)   info->bd(CMD_GETS, info->bd_info, s, z, \fBp\fP, t)"
+.br
+.ti -1c
+.RI "#define \fBANA_CONTINUE\fP   1"
+.br
+.ti -1c
+.RI "#define \fBTRIGGER_MASK\fP(e)   ((((\fBEVENT_HEADER\fP *) e)-1)->trigger_mask)"
+.br
+.ti -1c
+.RI "#define \fBEVENT_ID\fP(e)   ((((\fBEVENT_HEADER\fP *) e)-1)->event_id)"
+.br
+.ti -1c
+.RI "#define \fBSERIAL_NUMBER\fP(e)   ((((\fBEVENT_HEADER\fP *) e)-1)->serial_number)"
+.br
+.ti -1c
+.RI "#define \fBTIME_STAMP\fP(e)   ((((\fBEVENT_HEADER\fP *) e)-1)->time_stamp)"
+.br
+.ti -1c
+.RI "#define \fBDATA_SIZE\fP(e)   ((((\fBEVENT_HEADER\fP *) e)-1)->data_size)"
+.br
+.ti -1c
+.RI "#define \fBEVENTID_BOR\fP   ((short int) 0x8000)"
+.br
+.ti -1c
+.RI "#define \fBEVENTID_EOR\fP   ((short int) 0x8001)"
+.br
+.ti -1c
+.RI "#define \fBEVENTID_MESSAGE\fP   ((short int) 0x8002)"
+.br
+.ti -1c
+.RI "#define \fBEVENTID_FRAG1\fP   ((unsigned short) 0xC000)"
+.br
+.ti -1c
+.RI "#define \fBMIDAS_MAGIC\fP   0x494d"
+.br
+.ti -1c
+.RI "#define \fBDF_INPUT\fP   (1<<0)"
+.br
+.ti -1c
+.RI "#define \fBDF_OUTPUT\fP   (1<<1)"
+.br
+.ti -1c
+.RI "#define \fBDF_PRIO_DEVICE\fP   (1<<2)"
+.br
+.ti -1c
+.RI "#define \fBDF_READ_ONLY\fP   (1<<3)"
+.br
+.ti -1c
+.RI "#define \fBBANK_FORMAT_VERSION\fP   1"
+.br
+.ti -1c
+.RI "#define \fBBANK_FORMAT_32BIT\fP   (1<<4)"
+.br
+.ti -1c
+.RI "#define \fBAT_INTERNAL\fP   1"
+.br
+.ti -1c
+.RI "#define \fBAT_PROGRAM\fP   2"
+.br
+.ti -1c
+.RI "#define \fBAT_EVALUATED\fP   3"
+.br
+.ti -1c
+.RI "#define \fBAT_PERIODIC\fP   4"
+.br
+.ti -1c
+.RI "#define \fBAT_LAST\fP   4"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+dox The main include file 
+.PP
+Definition in file \fBmidas.h\fP.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Midas from the source code.

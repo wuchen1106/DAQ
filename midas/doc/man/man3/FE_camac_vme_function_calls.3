@@ -1,0 +1,73 @@
+.TH "FE_camac_vme_function_calls" 3 "31 May 2012" "Version 2.3.0-0" "Midas" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+FE_camac_vme_function_calls \- CAMAC and VME access function calls 
+
+.br
+ 
+.PP
+
+.br
+  MIDAS defines its own set of CAMAC and VME calls in order to unify the different hardware modules that it supports. This interface method permits code to be totally \fI hardware as well as OS independent \fP. For example, the same user code developed on a system can be used as a template for another application on a different operating system.
+.PP
+MIDAS provides \fBStandard\fP \fBInterfaces\fP for VME and CAMAC
+.IP "\(bu" 2
+\fB\fBmcstd.h\fP\fP for \fBCAMAC\fP access
+.IP "\(bu" 2
+\fB\fBmvmestd.h\fP\fP for \fBVME\fP access
+.PP
+.PP
+An extra CAMAC interface built on top of \fBmcstd\fP provides the ESONE standard CAMAC calls (\fBesone.c\fP).
+.PP
+Refer to the corresponding directories under $(\fBMIDASSYS\fP)\fI/drivers\fP to find out what module of each family is already supported by the current MIDAS distribution. The directory $(\fBMIDASSYS\fP)\fI/drivers/divers\fP contains older drivers which have not yet been converted to the latest API.
+.PP
+ 
+.PP
+ 
+.SH "MIDAS CAMAC standard functions"
+.PP
+Please refer to \fBCamac Functions (camxxx)\fP for function description.
+.PP
+ 
+.PP
+ 
+.SH "ESONE CAMAC standard functions"
+.PP
+\fBNot all the functionality of ESONE standard has been fully tested\fP
+.PP
+Please refer to \fBCamac Functions (Esone)\fP for function description.
+.PP
+ 
+.PP
+ 
+.SH "MIDAS VME standard functions"
+.PP
+This API provides basic VME access through a \fBsimple\fP set of functions. Refer to \fBVME Functions (mvme_xxx)\fP for more specific information. \fBmvme_open()\fP contains a general access code sample summarizing most of the mvme commands.
+.PP
+ 
+.PP
+ 
+.SH "Computer Busy Logic"
+.PP
+A 'computer busy logic' has to be implemented for a front-end to work properly. The reason for this is that some ADC modules can be re-triggered. If they receive more than one gate pulse before being read out, they accumulate the input charge that leads to incorrect results. Therefore only one gate pulse should be sent to the ADCs, and additional pulses must be blocked before the event is read out by the front-end. This operation is usually performed by a latch module, which is set by the trigger signal and reset by the computer after it has read out the event.
+.PP
+The output of this latch is shaped (limited in its pulse width to match the ADC gate width) and distributed to the ADCs. This scheme has two problems. The computer generates the reset signal, usually by two CAMAC output functions to a CAMAC IO unit. Therefore the duration of the pulse is a couple of ms. There is a non-negligible probability that during the reset pulse there is another hardware trigger. If this happens and both inputs of the latch are active, its function is undefined. Usually it generates several output pulses that lead to erroneous ADC values. The second problem lies in the fact that the latch can be just reset when a trigger input is active. This can happen since trigger signals usually have a width of a few tens of nanoseconds. In this case the latch output signal does not carry the timing of the trigger signal, but the timing of the reset signal. The incorrect timing of the output can lead to false ADC and TDC signals. To overcome this problem, a more elaborate scheme is necessary. One possible solution is the use of a latch module with edge-sensitive input and veto input. At PSI, the module 'D. TRIGGER / DT102' can be used. The veto input is also connected to the computer:
+.PP
+ Latched trigger layout.  
+.PP
+To reset this latch, the following bit sequence is applied to the computer output (signals are displayed active low):
+.PP
+ Improved Latched trigger layout.  
+.PP
+The active veto signal during the reset pulse avoids the case where the latch can receive a 'set' and a 'reset' simultaneously. The edge-sensitive input ensures that the latch can only trigger on a leading edge of a trigger signal, and not when the veto signal is removed. This ensures that the timing of the trigger is always carried at the ADC/TDC gate signal.
+.PP
+ Veto Timing.  
+.PP
+
+.br
+ 
+.PP
+
+.br
+  

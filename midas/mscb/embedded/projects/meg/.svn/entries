@@ -1,0 +1,52 @@
+10
+
+dir
+5363
+svn+ssh://svn@savannah.psi.ch/afs/psi.ch/project/meg/svn/midas/trunk/mscb/embedded/projects/meg
+svn+ssh://svn@savannah.psi.ch/afs/psi.ch/project/meg/svn/midas
+
+
+
+2013-04-04T15:06:19.411978Z
+5354
+ritt
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+050218f5-8902-0410-8d0e-8a15d521e4f2
+
+scs_1000_dev
+dir
+
+scs_1001_dev
+dir
+
+scs_2001_dev
+dir
+
+scs_210_dev
+dir
+
+scs_220_dev
+dir
+
+scs_260_dev
+dir
+
+led_pulser
+dir
+
+scs_900_dev
+dir
+

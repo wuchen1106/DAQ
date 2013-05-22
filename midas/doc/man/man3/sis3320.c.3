@@ -1,0 +1,65 @@
+.TH "sis3320.c" 3 "31 May 2012" "Version 2.3.0-0" "Midas" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+sis3320.c \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "int \fBsis3320_Setup\fP (\fBMVME_INTERFACE\fP *mvme, uint32_t base, int mode)"
+.br
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "static uint32_t regRead (\fBMVME_INTERFACE\fP * mvme, uint32_t base, int offset)\fC [static]\fP"
+.PP
+Definition at line 24 of file sis3320.c.
+.PP
+Referenced by sis3320_RegisterRead(), and sis3320_Status().
+.SS "static void regWrite (\fBMVME_INTERFACE\fP * mvme, uint32_t base, int offset, uint32_t value)\fC [static]\fP"
+.PP
+Definition at line 35 of file sis3320.c.
+.PP
+Referenced by sis3320_RegisterWrite(), sis3320_Reset(), and sis3320_Setup().
+.SS "uint32_t sis3320_RegisterRead (\fBMVME_INTERFACE\fP * mvme, uint32_t base, int offset)"
+.PP
+Definition at line 43 of file sis3320.c.
+.SS "void sis3320_RegisterWrite (\fBMVME_INTERFACE\fP * mvme, uint32_t base, int offset, uint32_t value)"
+.PP
+Definition at line 49 of file sis3320.c.
+.SS "void sis3320_Reset (\fBMVME_INTERFACE\fP * mvme, uint32_t base)"
+.PP
+Definition at line 55 of file sis3320.c.
+.SS "int sis3320_Setup (\fBMVME_INTERFACE\fP * mvme, uint32_t base, int mode)"Sets all the necessary paramters for a given configuration. The configuration is provided by the mode argument. Add your own configuration in the case statement. Let me know your setting if you want to include it in the distribution. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fI*mvme\fP VME structure 
+.br
+\fIbase\fP Module base address 
+.br
+\fImode\fP Configuration mode number 
+.br
+\fI*nentry\fP number of entries requested and returned. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+MVME_SUCCESS 
+.RE
+.PP
+
+.PP
+Definition at line 83 of file sis3320.c.
+.SS "void sis3320_Status (\fBMVME_INTERFACE\fP * mvme, uint32_t base)"
+.PP
+Definition at line 61 of file sis3320.c.
+.PP
+Referenced by sis3320_Setup().
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Midas from the source code.

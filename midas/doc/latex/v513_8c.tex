@@ -1,0 +1,60 @@
+\subsection{v513.c File Reference}
+\label{v513_8c}\index{v513.c@{v513.c}}
+
+
+\subsubsection{Function Documentation}
+\index{v513.c@{v513.c}!regRead@{regRead}}
+\index{regRead@{regRead}!v513.c@{v513.c}}
+\paragraph[{regRead}]{\setlength{\rightskip}{0pt plus 5cm}static uint16\_\-t regRead ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  {\bf DWORD} {\em base}, \/  int {\em offset})\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}\hfill\label{v513_8c_a2356559ea09bb1038060090b3526cc09}
+
+
+Definition at line 20 of file v513.c.
+
+Referenced by v513\_\-GetChannelMode(), v513\_\-Read(), v513\_\-RegisterRead(), v513\_\-Reset(), and v513\_\-Status().\index{v513.c@{v513.c}!regWrite@{regWrite}}
+\index{regWrite@{regWrite}!v513.c@{v513.c}}
+\paragraph[{regWrite}]{\setlength{\rightskip}{0pt plus 5cm}static void regWrite ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  {\bf DWORD} {\em base}, \/  int {\em offset}, \/  uint16\_\-t {\em value})\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}\hfill\label{v513_8c_a9ef4dda4884da2045dbb6d441deaf8fe}
+
+
+Definition at line 31 of file v513.c.
+
+Referenced by v513\_\-RegisterWrite(), v513\_\-Reset(), v513\_\-SetChannelMode(), and v513\_\-Write().\index{v513.c@{v513.c}!v513\_\-GetChannelMode@{v513\_\-GetChannelMode}}
+\index{v513\_\-GetChannelMode@{v513\_\-GetChannelMode}!v513.c@{v513.c}}
+\paragraph[{v513\_\-GetChannelMode}]{\setlength{\rightskip}{0pt plus 5cm}int v513\_\-GetChannelMode ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  {\bf DWORD} {\em base}, \/  int {\em channel})}\hfill\label{v513_8c_a1a0c8a9ed02f747a1555d88719b4ff28}
+
+
+Definition at line 78 of file v513.c.\index{v513.c@{v513.c}!v513\_\-Read@{v513\_\-Read}}
+\index{v513\_\-Read@{v513\_\-Read}!v513.c@{v513.c}}
+\paragraph[{v513\_\-Read}]{\setlength{\rightskip}{0pt plus 5cm}uint16\_\-t v513\_\-Read ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  {\bf DWORD} {\em base})}\hfill\label{v513_8c_a3852c38688f99443a74359b32e795196}
+
+
+Definition at line 48 of file v513.c.\index{v513.c@{v513.c}!v513\_\-RegisterRead@{v513\_\-RegisterRead}}
+\index{v513\_\-RegisterRead@{v513\_\-RegisterRead}!v513.c@{v513.c}}
+\paragraph[{v513\_\-RegisterRead}]{\setlength{\rightskip}{0pt plus 5cm}uint16\_\-t v513\_\-RegisterRead ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  {\bf DWORD} {\em base}, \/  int {\em offset})}\hfill\label{v513_8c_aa3b74d0b3e46110157c2e1a794cd776e}
+
+
+Definition at line 38 of file v513.c.\index{v513.c@{v513.c}!v513\_\-RegisterWrite@{v513\_\-RegisterWrite}}
+\index{v513\_\-RegisterWrite@{v513\_\-RegisterWrite}!v513.c@{v513.c}}
+\paragraph[{v513\_\-RegisterWrite}]{\setlength{\rightskip}{0pt plus 5cm}void v513\_\-RegisterWrite ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  {\bf DWORD} {\em base}, \/  int {\em offset}, \/  uint16\_\-t {\em value})}\hfill\label{v513_8c_a06b9ab73791fd1ce7a8fdf26a8a229dd}
+
+
+Definition at line 43 of file v513.c.\index{v513.c@{v513.c}!v513\_\-Reset@{v513\_\-Reset}}
+\index{v513\_\-Reset@{v513\_\-Reset}!v513.c@{v513.c}}
+\paragraph[{v513\_\-Reset}]{\setlength{\rightskip}{0pt plus 5cm}void v513\_\-Reset ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  {\bf DWORD} {\em base})}\hfill\label{v513_8c_a0e4ce80f6a7cdc07e4aae15cd970b457}
+
+
+Definition at line 59 of file v513.c.\index{v513.c@{v513.c}!v513\_\-SetChannelMode@{v513\_\-SetChannelMode}}
+\index{v513\_\-SetChannelMode@{v513\_\-SetChannelMode}!v513.c@{v513.c}}
+\paragraph[{v513\_\-SetChannelMode}]{\setlength{\rightskip}{0pt plus 5cm}void v513\_\-SetChannelMode ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  {\bf DWORD} {\em base}, \/  int {\em channel}, \/  int {\em mode})}\hfill\label{v513_8c_aab9cddf392795f3f9e744bb4d0ef9236}
+
+
+Definition at line 73 of file v513.c.\index{v513.c@{v513.c}!v513\_\-Status@{v513\_\-Status}}
+\index{v513\_\-Status@{v513\_\-Status}!v513.c@{v513.c}}
+\paragraph[{v513\_\-Status}]{\setlength{\rightskip}{0pt plus 5cm}void v513\_\-Status ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  {\bf DWORD} {\em base})}\hfill\label{v513_8c_ab0b49bcd59c5d1a7225a8b2dc65078ab}
+
+
+Definition at line 68 of file v513.c.\index{v513.c@{v513.c}!v513\_\-Write@{v513\_\-Write}}
+\index{v513\_\-Write@{v513\_\-Write}!v513.c@{v513.c}}
+\paragraph[{v513\_\-Write}]{\setlength{\rightskip}{0pt plus 5cm}void v513\_\-Write ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  {\bf DWORD} {\em base}, \/  uint16\_\-t {\em data})}\hfill\label{v513_8c_aeb673802fc74239f08841a9dee0921d6}
+
+
+Definition at line 53 of file v513.c.

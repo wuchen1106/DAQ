@@ -1,0 +1,49 @@
+.TH "Midas Macros" 3 "31 May 2012" "Version 2.3.0-0" "Midas" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Midas Macros \- 
+.SS "Defines"
+
+.in +1c
+.ti -1c
+.RI "#define \fBMAX\fP(a, b)   (((a) > (b)) ? (a) : (b))"
+.br
+.ti -1c
+.RI "#define \fBMIN\fP(a, b)   (((a) < (b)) ? (a) : (b))"
+.br
+.ti -1c
+.RI "#define \fBALIGN8\fP(x)   (((x)+7) & ~7)"
+.br
+.ti -1c
+.RI "#define \fBVALIGN\fP(adr, align)   (((POINTER_T) (adr)+align-1) & ~(align-1))"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+dox 
+.SH "Define Documentation"
+.PP 
+.SS "#define ALIGN8(x)   (((x)+7) & ~7)"Align macro for data alignment on 8-byte boundary 
+.PP
+Definition at line 462 of file midas.h.
+.PP
+Referenced by bk_close(), bk_find(), bk_iterate(), bk_locate(), bk_swap(), bm_copy_from_cache(), bm_dispatch_from_cache(), bm_flush_cache(), bm_push_event(), bm_receive_event(), bm_send_event(), bm_wait_for_free_space(), db_open_database(), and rpc_send_event().
+.SS "#define MAX(a, b)   (((a) > (b)) ? (a) : (b))"MAX 
+.PP
+Definition at line 449 of file midas.h.
+.PP
+Referenced by cm_execute(), hv_ramp(), and scheduler().
+.SS "#define MIN(a, b)   (((a) < (b)) ? (a) : (b))"MIN 
+.PP
+Definition at line 455 of file midas.h.
+.PP
+Referenced by hv_init(), hv_ramp(), and update_odb().
+.SS "#define VALIGN(adr, align)   (((POINTER_T) (adr)+align-1) & ~(align-1))"Align macro for variable data alignment 
+.PP
+Definition at line 466 of file midas.h.
+.PP
+Referenced by db_get_record_size(), and update_odb().
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Midas from the source code.

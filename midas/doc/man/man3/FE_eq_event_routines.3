@@ -1,0 +1,638 @@
+.TH "FE_eq_event_routines" 3 "31 May 2012" "Version 2.3.0-0" "Midas" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+FE_eq_event_routines \- Frontend Routines associated with Equipments 
+ 
+.br
+  
+.br
+ 
+.br
+  
+.SH "Polled event"
+.PP
+If the \fBEquipment Type\fP is \fBEQ_POLLED\fP, the \fB\fBpoll_event()\fP\fP routine will be called as often as possible over the corresponding \fBpoll time\fP (e.g. 500ms) given by each polling equipment.
+.PP
+In this case, the \fBEquipment declaration\fP would have this form:
+.PP
+.PP
+.nf
+    EQUIPMENT equipment[] = {
+
+      { 'Trigger',            // equipment name
+        {
+          ...
+          EQ_POLLED,          // equipment type
+          ...
+          500,                // poll for 500ms 
+          ...
+          '', '', '',},
+       read_trigger_event,    // readout routine 
+       ...
+.fi
+.PP
+.PP
+The user must provide suitable code in the routine \fB\fBpoll_event()\fP\fP.
+.PP
+The code below shows a typical LAM polling loop.
+.br
+ In the case of CAMAC, the \fBsource\fP corresponds to a bitwise LAM station able to generate LAM for that particular equipment. If the LAM is ORed for several stations and is independent of the equipment, the LAM test can be simplified (see example below) VME :  CAMAC :  
+.PP
+.nf
+INT poll_event(INT source, INT count, BOOL test)
+{
+/* Polling routine for events. 
+   Returns TRUE if event is available. 
+   If test equals TRUE, don't return. 
+   The test flag is used to time the polling.
+*/
+
+  int i;
+  int lam = 0;
+
+  for (i = 0; i < count; i++, lam++) {
+    lam = vmeio_CsrRead(myvme, VMEIO_BASE);
+    if (lam)
+      if (!test)
+        return lam;
+  }
+
+  return 0;
+}
+
+.fi
+.PP
+ 
+.PP
+.PP
+.nf
+INT poll_event(INT source, INT count, BOOL test)
+{
+/* Polling routine for events. 
+   Returns TRUE if event is available. 
+   If test equals TRUE, don't return. 
+   The test flag is used to time the polling.
+ */
+   int   i;
+   DWORD lam;
+ 
+   for (i=0 ; i<count ; i++)
+   {
+     cam_lam_read(LAM_SOURCE_CRATE(source), &lam);
+     // Either ... any of the equipment LAM
+     if (lam & LAM_SOURCE_STATION(source))
+     //  
+     // Or ... any LAM (independent of the equipment)
+     if (lam)                             
+
+       if (!test)
+         return lam;
+   }
+   return 0;
+} 
+.fi
+.PP
+ Examples of poll_event routines 
+.PP
+An \fBevent readout routine\fP must also be provided by the user (see below).
+.PP
+
+.br
+.PP
+
+.br
+  
+.SH "Interrupt event"
+.PP
+If the Equipment type is \fBEQ_INTERRUPT\fP, an interrupt configuration routine called \fBinterrupt_configure()\fP must be provided in the \fBfrontend.c\fP by the user.
+.PP
+The interrupt configuration routine has the following declaration: VME :  CAMAC :  
+.PP
+.nf
+/*-- Interrupt configuration --------------------------*/
+INT interrupt_configure(INT cmd, INT source, PTYPE adr)
+{
+  int vec = 0;
+  switch (cmd) 
+  {
+    case CMD_INTERRUPT_ENABLE:
+      if (inRun) mvme_write_value(myvme, VLAM_BASE+4, 0x1);
+      break;
+
+    case CMD_INTERRUPT_DISABLE:
+      if (inRun) mvme_write_value(myvme, VLAM_BASE+4, 0x0);
+      break;
+
+    case CMD_INTERRUPT_ATTACH:
+      mvme_set_dmode(myvme, MVME_DMODE_D32);
+      mvme_interrupt_attach(myvme, INT_LEVEL, INT_VECTOR, 
+                (void *)adr, &myinfo);
+      mvme_write_value(myvme, VLAM_BASE+0x10, INT_VECTOR);
+      vec = mvme_read_value(myvme, VLAM_BASE+0x10);
+      printf('Interrupt Attached to 0x%x for vector:0x%x\n',
+                     adr, vec&0xFF);
+      break;
+
+    case CMD_INTERRUPT_DETACH:
+      printf('Interrupt Detach\n');
+      break;
+   }
+   return SUCCESS;
+}
+
+.fi
+.PP
+ 
+.PP
+.nf
+INT interrupt_configure(INT cmd, INT source [], PTYPE adr)
+{
+   switch(cmd)
+     {
+      case CMD_INTERRUPT_ENABLE:
+        cam_interrupt_enable();
+        break;
+
+      case CMD_INTERRUPT_DISABLE:
+        cam_interrupt_disable();
+        break;
+
+      case CMD_INTERRUPT_ATTACH:
+        cam_interrupt_attach((void (*)())adr);
+        break;
+
+      case CMD_INTERRUPT_DETACH:
+        cam_interrupt_detach();
+        break;
+
+      }
+  return CM_SUCCESS; 
+}
+
+.fi
+.PP
+ Examples of interrupt_configure routines 
+.PP
+Under the four commands listed above, the user must implement the hardware operation needed to perform the requested action. In the Midas \fB drivers \fP directory examples can be found of such an interrupt code for CAMAC. See source code such as hyt1331.c,ces8210.c .
+.PP
+An event readout routine must also be provided by the user in \fBfrontend.c\fP . In the case of POLLED or INTERRUPT events, the event readout routine is called an \fBinterrupt readout routine\fP. An example is shown below.
+.PP
+
+.br
+.PP
+
+.br
+.SH "Event Readout routines"
+.PP
+An event readout routine (called when an event occurs) is usually of the form 
+.PP
+.nf
+INT function_name ( char *pevent ... )
+{
+   INT event_size;
+
+   ........  // read data from hardware
+   ........  // pack into banks depending on format
+   ........
+   return (event_size);
+}
+
+.fi
+.PP
+ where the first argument of the readout function (pevent)  provides the pointer to the newly constructed event, and points to the first valid location for storing the data. 
+.br
+ \fBNOTE:\fP 
+.PD 0
+
+.IP "\(bu" 2
+The return value is the event size, and must be the number of bytes collected in this function.  
+.IP "\(bu" 2
+The \fBevent serial number\fP will be incremented by one for every call to the readout routine, as long as the returned size is non-zero.  
+.IP "\(bu" 2
+If the \fBreturned value is set to zero\fP, the event will be dismissed and the serial number to that event will be decremented by one.  
+.PP
+
+.br
+.PP
+
+.br
+ 
+.SS "Polled or Interrupt readout routine"
+In the case of an Interrupt or Polled event, the content of the memory location pointed to by \fBpevent\fP prior to its use in the readout function, contains the interrupt source bitwise register. This feature can be exploited in order to identify which hardware module has triggered the readout when multiple interrupts have been assigned to the same readout function.
+.PP
+The examples below show a VME interrupt source and a CAMAC multiple LAM interrupt source for a given equipment. Depending whether USE_INT is defined, the Equipment will either use a \fBPolled\fP or an \fBInterrupt\fP mechanism. 
+.br
+ The Equipment declaration is of the form: VME :  CAMAC :  
+.PP
+.nf
+EQUIPMENT equipment[] = {
+
+   {'Trigger',  /* equipment name */
+     ...
+#ifdef USE_INT
+     EQ_INTERRUPT, /* equipment type */
+#else
+     EQ_POLLED,    /* equipment type */
+#endif
+ /* interrupt source: crate 0, all stations */
+     LAM_SOURCE(0, 0x0),
+     ....
+     '', '', '',},
+    read_trigger_event, /* readout routine */
+    NULL, NULL,
+    trigger_bank_list,
+    }
+
+.fi
+.PP
+ 
+.PP
+.nf
+    EQUIPMENT equipment[] = {
+      { 'Trigger',  // equipment name
+         {    
+            ...
+// the same readout code will be used for
+// either Interrupt or Polled equipment
+#ifdef USE_INT
+            EQ_INTERRUPT,
+#else                     
+            EQ_POLLED,
+#endif
+            LAM_SOURCE(JW_C,  LAM_STATION(GE_N)
+                   | LAM_STATION(JW_N)), // interrupt source 
+            ...
+            '', '', '',},
+       read_trigger_event,   // event readout routine 
+       ...
+
+.fi
+.PP
+ Examples of POLLED or INTERRUPT Equipment list 
+.PP
+Note that the LAM_SOURCE macro is used in both cases. It simply codes the \fBparameters\fP into a bitwise register.
+.PP
+The readout routine would contains code such as VME :  CAMAC :  
+.PP
+.nf
+INT read_trigger_event(char *pevent, INT off)
+{
+#if defined VADC0_CODE
+  DWORD  *pdata;
+#endif
+
+#if defined VADC0_CODE
+  /* read ADC0 data */
+  v792_EvtCntRead(myvme, VADC0_BASE, &evtcnt);
+  ........
+  /* Read Event */
+  v792_EventRead(myvme, VADC0_BASE, pdata, &nentry);
+  ........
+  v792_DataClear(myvme, VADC0_BASE);
+#endif
+
+  ........
+  return (size);
+}
+
+.fi
+.PP
+  
+.PP
+.nf
+  INT read_trigger_event(char *pevent, INT off)
+  {
+    DWORD lam;
+
+    lam = *((DWORD *)pevent);
+
+    // check LAM versus MCS station
+    // The clear is performed at the end of the readout function
+    if (lam & LAM_STATION(JW_N))
+    {
+       // read MCS event 
+       size = read_mcs_event(pevent);
+       ...
+    }
+    else if (lam & LAM_STATION(GE_N))
+    {
+       ...
+       // read GE event
+       size = read_ge_event(pevent);
+       ...
+     }
+     clear_LAM(); // clear all LAMs
+  return size;
+} 
+
+.fi
+.PP
+  Examples of readout routines \fBNOTE:\fP 
+.br
+ In the CAMAC example above, the Midas Event Header contains the same Event ID as the Trigger mask for both LAM. The examples \fBfevmemodules.c\fP (VME) and \fBfrontend.c\fP (CAMAC) contain a complete example of \fBread_trigger_event()\fP.
+.PP
+
+.br
+.PP
+
+.br
+ 
+.SS "General readout function"
+If the \fBEquipment type\fP is \fBnot\fP EQ_INTERRUPT or EQ_POLLED, the readout routine is the only event routine that the user needs to provide in \fBfrontend.c\fP .
+.PP
+In this case (e.g. a \fBperiodic\fP event) the \fBEquipment declaration\fP may have this form: 
+.PP
+.nf
+    EQUIPMENT equipment[] = {
+      { 'Scaler',           // equipment name
+         {    
+            ...
+            EQ_PERIODIC     // equipment type
+            0,              // interrupt source (ignored) 
+            ...
+            10000,          // period (read every 10s)
+            ...
+            '', '', '',},
+       read_scaler_event,   // readout routine 
+       ...
+
+.fi
+.PP
+.PP
+An example of a scaler readout routine \fBread_scaler_event()\fP where the data is read out into \fBdata banks\fP is shown below. 
+.PP
+.nf
+INT read_scaler_event(char *pevent, INT off)
+{
+   DWORD *pdata, a;
+
+   /* init bank structure */
+   bk_init(pevent);
+
+   /* create SCLR bank */
+   bk_create(pevent, 'SCLR', TID_DWORD, &pdata);
+
+   /* read scaler bank (CAMAC) */
+   for (a = 0; a < N_SCLR; a++)
+      cam24i(CRATE, SLOT_SCLR, a, 0, pdata++);
+    
+   /* close SCLR bank */
+   bk_close(pevent, pdata);
+
+   /* return event size in bytes */
+   return bk_size(pevent);
+}
+
+.fi
+.PP
+.PP
+
+.br
+ 
+.PP
+ 
+.br
+.PP
+ 
+.SS "Fragmented Event"
+A \fBfragmented\fP event enables very large events (e.g. beyond the Midas configuration limit) to be handled by the system. This is not to be confused with the use of the Event Builder, where 'event fragments' are combined by an \fBevent-builder\fP.
+.PP
+The event is sent out by the frontend in smaller fragments, and reassembled by the Midas system into one event. This option is useful in experiments where the event rate is not an issue, but the size of the data needs to be extremely large. The Equipment flag \fBEQ_FRAGMENTED\fP indicates that the event is fragmented. The \fBfragment size\fP is determined by 'max_event_size' in the frontend code \fB(see below)\fP.
+.PP
+The example used \fBbelow\fP is taken from the TRIUMF TD-MUSR experiment, where a VME PowerPC (PPC) running VxWorks is used as the frontend cpu, and acts as a Histogramming Memory (HM). The backend computer is a Linux PC.
+.PP
+Depending on the time range (i.e. number of bins selected) the histograms may be very large. The memory of the PPC is limited, and most of the free memory is needed for the HM, so the event buffer size is set to be relatively small. Therefore the histograms can only be sent out in fragments.
+.PP
+ 
+.SS "Manual Trigger"
+Another feature illustrated in this example \fBbelow\fP is the \fB Manual Trigger\fP, indicated by the Equipment flag \fBEQ_MANUAL_TRIG\fP. This flag causes an extra button to be present on the mhttpd web interface to enable the user to trigger the event. The following image is of the main status page of the MUSR experiment, where two manual trigger buttons are shown, labelled
+.IP "\(bu" 2
+'Trigger Histo event' and
+.IP "\(bu" 2
+'Trigger Camp event'.
+.PP
+.PP
+These have been generated for the Histo and Camp Equipments which were both set up with the EQ_MANUAL_TRIG flag. 
+.br
+  mhttpd status page showing Manual Trigger Buttons   
+.br
+.PP
+It is also possible for a \fBclient to trigger a manual trigger event\fP. The MUSR custom data archiver (a backend Midas client) controls when an event is sent, by means of a \fBroutine\fP that requests an event by triggering the event sending mechanism with a RPC call.
+.SS "How to determine if trigger was a manual trigger"
+In some cases, the same readout code may be used for two types of event: a manual trigger and (say) a poll event. It is possible to determine whether the readout of an event was triggered by a manual trigger or a regular trigger by adding the following call to the readout routine: 
+.PP
+.nf
+  flag = DATA_SIZE(pevent);
+
+.fi
+.PP
+.PP
+
+.br
+ If the result is
+.IP "\(bu" 2
+flag = 0 normal call
+.IP "\(bu" 2
+flag = 1 manual trigger
+.PP
+.SS "Equipment declaration for manually-triggered and fragmented event"
+The Equipment declaration for the manually triggered fragmented histogram event (named Histo) is as follows:
+.PP
+.PP
+.nf
+ { 'Histo',             /* equipment name */
+    2, 0,                 /* event ID, trigger mask */
+    'SYSTEM',             /* event buffer */
+    EQ_MANUAL_TRIG |     /* equipment type */
+    EQ_FRAGMENTED,        /*    manual trigger, fragmented (no longer periodic)
+ */
+    0,                    /* interrupt source */
+    'MIDAS',               /* format */
+    TRUE,                 /* enabled */
+    RO_RUNNING | RO_EOR |
+    RO_PAUSE | RO_RESUME, /* read when running and on end run,pause,resume tran
+sition */
+    0,                    /* not polled */
+    0,                    /* stop run after this event limit */
+    0,                    /* number of sub event */
+    0,                    /* log history */
+   '', '', '',
+    histo_read,     /* readout routine */
+    NULL,NULL,NULL       /* keep null */
+  },
+.fi
+.PP
+.PP
+The Histo event can be manually triggered only \fBwhen running\fP, and is also triggered by the transitions \fBSTOP, PAUSE\fP and \fBRESUME\fP, 
+.br
+indicated by the \fBRead-On Event flags\fP : 
+.br
+ \fBRO_RUNNING | RO_EOR | RO_PAUSE | RO_RESUME\fP.
+.PP
+ 
+.SS "Event size adjustments for fragmented event"
+The buffer sizes in the frontend must be adjusted to suit the available memory for the event buffer (used for sending out the event fragments) and to determine the maximum fragment size.
+.PP
+The standard sizes in \fBfrontend.c\fP are 
+.PP
+.nf
+    //maximum event size produced by this frontend
+    INT max_event_size = 200000; /* must be less than MAX_EVENT_SIZE in midas.h */ 
+
+    // maximum event size for fragmented events (ignored unless flag EQ_FRAGMENTED is true) 
+    INT max_event_size_frag = 5 * 1024 * 1024;
+
+    //buffer size to hold events
+    INT event_buffer_size = 10*10000;
+
+.fi
+.PP
+.PP
+The frontend code under VxWorks uses the following sizes to accomodate the fragmented events: 
+.PP
+.nf
+    INT max_event_size = 10000; /* maximum size of event fragments */
+
+    INT max_event_size_frag = 4300000  ; /* maximum size of event (assembled from fragments) */
+
+    INT event_buffer_size = 2*10000; /* buffer size to hold events; must be  >= 2*max_event_size  */
+
+.fi
+.PP
+.PP
+.IP "\(bu" 2
+The value of \fBmax_event_size\fP is set much smaller than the standard size, and determines the size of the event fragments.
+.IP "\(bu" 2
+The maximum size of the final event is given by \fBmax_event_size_frag\fP.
+.PP
+.SS "Readout routine for fragmented event"
+The readout routine packs the event into \fBMidas data banks\fP, and is no different to a readout routine for a non-fragmented event. Sending the event as fragments and reassembling it is transparent to the user, as it is handled by the system routine \fBmfe.c\fP .
+.PP
+.PP
+.nf
+INT histo_read (char *pevent, INT off)
+{
+  DWORD *pdata, *pmem;
+  INT i;
+  char hist_name[10];
+  DWORD offset; /* offset in words into HM */
+
+  /* init bank structure */
+  bk_init32(pevent);
+
+  for (i=0; i<max_channels; i++)   /* for each histogram */
+
+  {
+    sprintf(hist_name, 'HI%02d', i);
+    offset = HM_word_offset[i]; /* find offset into HM for this histo */
+
+    /* create HIxx bank */
+
+      bk_create(pevent, hist_name , TID_DWORD, &pdata);
+      pmem = pmemBase + offset; /* add offset */
+
+
+
+      /* send out the number of bins requested */
+      memcpy(pdata, pmem, number_of_bins * sizeof(DWORD));
+      pdata +=  number_of_bins; /* do not cast no. bins! */
+     
+      bk_close(pevent, pdata);
+    
+  } /* end of loop on all channels (histograms) */
+
+  return bk_size(pevent);
+}
+.fi
+.PP
+.PP
+ 
+.SS "A Client that Manually Triggers the Equipment"
+If the frontend equipment declares a \fBManual Trigger\fP, in addition to the event being triggered by pressing a button on the web interface, a \fBbackend program can be used to trigger the event\fP. 
+.br
+ In the case of the \fBexample above\fP where a PPC acts as a Histogramming Memory (HM), a \fB custom data logger \fP is used to save the contents of the HM periodically during the run, to guard against data loss in the event of failure, and to allow an analyzer to display the histograms during the run. At the end of run (and on Pause/Continue transitions) the Histo event is sent automatically due to the \fBEquipment flags\fP RO_PAUSE, RO_CONTINUE and RO_EOR. 
+.br
+ During the run, when it is time to save the contents of the HM, the custom data logger needs to send a manual trigger in order to request a histogram event. This is done by with the Midas library call rpc_client_call in the function 'trigger_histo_event' below. The main program uses the Midas library call bm_request_event to place an event request for the desired Histo event(event ID = 2). The following code illustrates the technique:
+.PP
+.PP
+.nf
+/*-------- Custom data logger code fragment  ------------------*/
+
+int main(unsigned int argc,char **argv)
+{
+
+   ............
+   /* connect to experiment */
+   status = cm_connect_experiment(host_name, expt_name, ClientName, 0);
+
+   /* turn on message display, turn on message logging */
+    cm_set_msg_print(MT_ALL, MT_ALL, msg_print);
+
+ 
+   /* set the buffer cache size */
+    bm_set_cache_size(hBufEvent, 100000, 0);
+
+   /* TD-MUSR uses fragmented events so needs GET_ALL  */
+   bm_request_event(hBufEvent, 2, TRIGGER_ALL, GET_ALL, &request_id, process_event_TD);
+
+   .....................
+   .....................
+}
+.fi
+.PP
+.PP
+When it is time to save the data during the run, the funtion below (trigger_histo_event) is called:
+.PP
+.PP
+.nf
+/*-----------------------------------------------------------------------------------------------*/
+BOOL trigger_histo_event(void)
+/*-----------------------------------------------------------------------------------------------*/
+{
+  HNDLE hconn;
+  BOOL event_triggered;
+
+  event_triggered = FALSE;
+
+  ...................
+
+  if (run_state == STATE_RUNNING)
+    {
+     // Check the frontend client exists
+     if( cm_exist(ClientName,TRUE))      
+        { 
+          status = cm_connect_client (ClientName, &hconn);
+          if(status != RPC_SUCCESS)
+            cm_msg(MERROR,'trigger_histo_event','Cannot connect to frontend \'%s\' (%d)',
+                   ClientName,status);
+      else      
+         {  // successfully connected to frontend client
+            rpc_client_call(hconn, RPC_MANUAL_TRIG, 2); // trigger a histo event
+            if (status != CM_SUCCESS)
+              cm_msg(MERROR,'trigger_histo_event','Error triggering event from frontend (%d)',status);
+            else
+              {  // successfully triggered event
+                event_triggered=TRUE;
+                status =cm_disconnect_client(hconn, FALSE);
+                if (status != CM_SUCCESS)
+                  cm_msg(MERROR,'trigger_histo_event','Error disconnecting client after event trigger(%d)',status)
+;
+              }
+          }
+       } // end of cm_exist
+      else
+        cm_msg(MERROR,'trigger_histo_event','Frontend client %s not running; not triggering an event (%d)',
+               ClientName,status);
+    } // end of if running
+  return(event_triggered);
+}
+.fi
+.PP
+ 
+.br
+ 
+.br
+  
+.br
+  

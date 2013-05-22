@@ -1,0 +1,235 @@
+.TH "v1190B.c" 3 "31 May 2012" "Version 2.3.0-0" "Midas" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+v1190B.c \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "int \fBv1190_EventRead\fP (\fBMVME_INTERFACE\fP *mvme, \fBDWORD\fP base, \fBDWORD\fP *pdest, int *nentry)"
+.br
+.ti -1c
+.RI "int \fBv1190_DataRead\fP (\fBMVME_INTERFACE\fP *mvme, \fBDWORD\fP base, \fBDWORD\fP *pdest, int nentry)"
+.br
+.ti -1c
+.RI "void \fBv1190_WidthSet\fP (\fBMVME_INTERFACE\fP *mvme, \fBDWORD\fP base, \fBWORD\fP \fBwidth\fP)"
+.br
+.ti -1c
+.RI "void \fBv1190_OffsetSet\fP (\fBMVME_INTERFACE\fP *mvme, \fBDWORD\fP base, \fBWORD\fP offset)"
+.br
+.ti -1c
+.RI "int \fBv1190_Setup\fP (\fBMVME_INTERFACE\fP *mvme, \fBDWORD\fP base, int mode)"
+.br
+.ti -1c
+.RI "int \fBv1190_Status\fP (\fBMVME_INTERFACE\fP *mvme, \fBDWORD\fP base)"
+.br
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "int udelay (int usec)"
+.PP
+Definition at line 623 of file v1190B.c.
+.PP
+Referenced by v1190_MicroRead(), and v1190_MicroWrite().
+.SS "void v1190_AcqModeRead (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base)"
+.PP
+Definition at line 273 of file v1190B.c.
+.SS "void v1190_ContinuousSet (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base)"
+.PP
+Definition at line 301 of file v1190B.c.
+.SS "int v1190_DataRead (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base, \fBDWORD\fP * pdest, int nentry)"Read data buffer for nentry data. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fI*mvme\fP VME structure 
+.br
+\fIbase\fP Module base address 
+.br
+\fI*pdest\fP destination pointer address 
+.br
+\fI*nentry\fP number of entries requested and returned. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 99 of file v1190B.c.
+.PP
+Referenced by read_tdc().
+.SS "int v1190_DataReady (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base)"
+.PP
+Definition at line 171 of file v1190B.c.
+.PP
+Referenced by v1190_EventRead().
+.SS "int v1190_EventRead (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base, \fBDWORD\fP * pdest, int * nentry)"Read Data buffer for single event (check delimiters) 0x4... and 0xC... 
+.PP
+\fBParameters:\fP
+.RS 4
+\fI*mvme\fP VME structure 
+.br
+\fIbase\fP Module base address 
+.br
+\fI*pdest\fP destination pointer address 
+.br
+\fI*nentry\fP number of entries requested and returned. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 45 of file v1190B.c.
+.PP
+Referenced by read_trigger_event().
+.SS "int v1190_EvtCounter (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base)"
+.PP
+Definition at line 195 of file v1190B.c.
+.SS "int v1190_EvtStored (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base)"
+.PP
+Definition at line 183 of file v1190B.c.
+.SS "int v1190_GeoWrite (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base, int geo)"
+.PP
+Definition at line 124 of file v1190B.c.
+.SS "void v1190_LEResolutionSet (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base, \fBWORD\fP le)"
+.PP
+Definition at line 245 of file v1190B.c.
+.PP
+Referenced by begin_of_run().
+.SS "void v1190_LEWResolutionSet (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base, \fBWORD\fP le, \fBWORD\fP width)"
+.PP
+Definition at line 267 of file v1190B.c.
+.SS "int v1190_MicroFlush (\fBMVME_INTERFACE\fP * mvme, const \fBDWORD\fP base)"
+.PP
+Definition at line 430 of file v1190B.c.
+.SS "int v1190_MicroRead (\fBMVME_INTERFACE\fP * mvme, const \fBDWORD\fP base)"
+.PP
+Definition at line 408 of file v1190B.c.
+.PP
+Referenced by v1190_AcqModeRead(), v1190_MicroFlush(), v1190_ResolutionRead(), v1190_Status(), and v1190_TdcIdList().
+.SS "int v1190_MicroWrite (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base, \fBWORD\fP data)"
+.PP
+Definition at line 384 of file v1190B.c.
+.PP
+Referenced by v1190_AcqModeRead(), v1190_ContinuousSet(), v1190_LEResolutionSet(), v1190_OffsetSet(), v1190_ResolutionRead(), v1190_SetEdgeDetection(), v1190_Setup(), v1190_Status(), v1190_TdcIdList(), v1190_TriggerMatchingSet(), and v1190_WidthSet().
+.SS "void v1190_OffsetSet (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base, \fBWORD\fP offset)"Set the offset of the matching window with respect to the trigger. The offset parameter should be in 25ns units. The range is from -2048(0x800) to +40(0x28). Example 0xFE8 == 600ns. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fI*mvme\fP VME structure 
+.br
+\fIbase\fP Module base address 
+.br
+\fIoffset\fP offset in ns units 
+.RE
+.PP
+
+.PP
+Definition at line 347 of file v1190B.c.
+.PP
+Referenced by begin_of_run().
+.SS "\fBWORD\fP v1190_Read16 (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base, int offset)"
+.PP
+Definition at line 15 of file v1190B.c.
+.SS "\fBDWORD\fP v1190_Read32 (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base, int offset)"
+.PP
+Definition at line 22 of file v1190B.c.
+.SS "int v1190_ResolutionRead (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base)"
+.PP
+Definition at line 226 of file v1190B.c.
+.SS "void v1190_SetEdgeDetection (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base, int eLeading, int eTrailing)"
+.PP
+Definition at line 363 of file v1190B.c.
+.SS "int v1190_Setup (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base, int mode)"Sets all the necessary paramters for a given configuration. The configuration is provided by the mode argument. Add your own configuration in the case statement. Let me know your setting if you want to include it in the distribution. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fI*mvme\fP VME structure 
+.br
+\fIbase\fP Module base address 
+.br
+\fImode\fP Configuration mode number 
+.br
+\fI*nentry\fP number of entries requested and returned. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+MVME_SUCCESS 
+.RE
+.PP
+
+.PP
+Definition at line 461 of file v1190B.c.
+.PP
+Referenced by begin_of_run().
+.SS "void v1190_SoftClear (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base)"
+.PP
+Definition at line 149 of file v1190B.c.
+.PP
+Referenced by init_vme_modules(), and read_tdc().
+.SS "void v1190_SoftReset (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base)"
+.PP
+Definition at line 138 of file v1190B.c.
+.SS "void v1190_SoftTrigger (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base)"
+.PP
+Definition at line 160 of file v1190B.c.
+.SS "int v1190_Status (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base)"Read and display the curent status of the TDC. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fI*mvme\fP VME structure 
+.br
+\fIbase\fP Module base address 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+MVME_SUCCESS, MicroCode error 
+.RE
+.PP
+
+.PP
+Definition at line 510 of file v1190B.c.
+.PP
+Referenced by begin_of_run(), init_vme_modules(), and v1190_Setup().
+.SS "void v1190_TdcIdList (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base)"
+.PP
+Definition at line 207 of file v1190B.c.
+.SS "void v1190_TriggerMatchingSet (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base)"
+.PP
+Definition at line 287 of file v1190B.c.
+.SS "void v1190_WidthSet (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base, \fBWORD\fP width)"Set the width of the matching Window. The width parameter should be in the range of 1 to 4095 (0xFFF). Example 0x14 == 500ns. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fI*mvme\fP VME structure 
+.br
+\fIbase\fP Module base address 
+.br
+\fIwidth\fP window width in ns units 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 323 of file v1190B.c.
+.PP
+Referenced by begin_of_run().
+.SS "void v1190_Write16 (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base, int offset, \fBWORD\fP value)"
+.PP
+Definition at line 29 of file v1190B.c.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Midas from the source code.

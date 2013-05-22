@@ -1,0 +1,222 @@
+\subsection{experim.h File Reference}
+\label{experim_8h}\index{experim.h@{experim.h}}
+\subsubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structEXP__PARAM}{EXP\_\-PARAM}
+\item 
+struct \hyperlink{structADC__CALIBRATION__PARAM}{ADC\_\-CALIBRATION\_\-PARAM}
+\item 
+struct \hyperlink{structADC__SUMMING__PARAM}{ADC\_\-SUMMING\_\-PARAM}
+\item 
+struct \hyperlink{structGLOBAL__PARAM}{GLOBAL\_\-PARAM}
+\item 
+struct \hyperlink{structASUM__BANK}{ASUM\_\-BANK}
+\item 
+struct \hyperlink{structTRIGGER__COMMON}{TRIGGER\_\-COMMON}
+\item 
+struct \hyperlink{structTRIGGER__SETTINGS}{TRIGGER\_\-SETTINGS}
+\item 
+struct \hyperlink{structSCALER__COMMON}{SCALER\_\-COMMON}
+\end{DoxyCompactItemize}
+
+
+\subsubsection{Define Documentation}
+\index{experim.h@{experim.h}!ADC\_\-CALIBRATION\_\-PARAM\_\-DEFINED@{ADC\_\-CALIBRATION\_\-PARAM\_\-DEFINED}}
+\index{ADC\_\-CALIBRATION\_\-PARAM\_\-DEFINED@{ADC\_\-CALIBRATION\_\-PARAM\_\-DEFINED}!experim.h@{experim.h}}
+\paragraph[{ADC\_\-CALIBRATION\_\-PARAM\_\-DEFINED}]{\setlength{\rightskip}{0pt plus 5cm}\#define ADC\_\-CALIBRATION\_\-PARAM\_\-DEFINED}\hfill\label{experim_8h_ae46770bb923aa37c57ac68d9100f0296}
+
+
+Definition at line 38 of file experim.h.\index{experim.h@{experim.h}!ADC\_\-CALIBRATION\_\-PARAM\_\-STR@{ADC\_\-CALIBRATION\_\-PARAM\_\-STR}}
+\index{ADC\_\-CALIBRATION\_\-PARAM\_\-STR@{ADC\_\-CALIBRATION\_\-PARAM\_\-STR}!experim.h@{experim.h}}
+\paragraph[{ADC\_\-CALIBRATION\_\-PARAM\_\-STR}]{\setlength{\rightskip}{0pt plus 5cm}\#define ADC\_\-CALIBRATION\_\-PARAM\_\-STR(\_\-name)}\hfill\label{experim_8h_a875fd22707dc840a9789287c0f294f79}
+{\bfseries Value:}
+\begin{DoxyCode}
+char *_name[] = {\
+"[.]",\
+"Pedestal = INT[8] :",\
+"[0] 174",\
+"[1] 194",\
+"[2] 176",\
+"[3] 182",\
+"[4] 185",\
+"[5] 215",\
+"[6] 202",\
+"[7] 202",\
+"Software Gain = FLOAT[8] :",\
+"[0] 1",\
+"[1] 1",\
+"[2] 1",\
+"[3] 1",\
+"[4] 1",\
+"[5] 1",\
+"[6] 1",\
+"[7] 1",\
+"Histo threshold = DOUBLE : 20",\
+"",\
+NULL }
+\end{DoxyCode}
+
+
+Definition at line 46 of file experim.h.\index{experim.h@{experim.h}!ADC\_\-SUMMING\_\-PARAM\_\-DEFINED@{ADC\_\-SUMMING\_\-PARAM\_\-DEFINED}}
+\index{ADC\_\-SUMMING\_\-PARAM\_\-DEFINED@{ADC\_\-SUMMING\_\-PARAM\_\-DEFINED}!experim.h@{experim.h}}
+\paragraph[{ADC\_\-SUMMING\_\-PARAM\_\-DEFINED}]{\setlength{\rightskip}{0pt plus 5cm}\#define ADC\_\-SUMMING\_\-PARAM\_\-DEFINED}\hfill\label{experim_8h_acaf6dc3c1c4700a71b1b5a8468d71b85}
+
+
+Definition at line 74 of file experim.h.\index{experim.h@{experim.h}!ADC\_\-SUMMING\_\-PARAM\_\-STR@{ADC\_\-SUMMING\_\-PARAM\_\-STR}}
+\index{ADC\_\-SUMMING\_\-PARAM\_\-STR@{ADC\_\-SUMMING\_\-PARAM\_\-STR}!experim.h@{experim.h}}
+\paragraph[{ADC\_\-SUMMING\_\-PARAM\_\-STR}]{\setlength{\rightskip}{0pt plus 5cm}\#define ADC\_\-SUMMING\_\-PARAM\_\-STR(\_\-name)}\hfill\label{experim_8h_a4f1a1d296a8ed305cdc1f77cc93bf5bf}
+{\bfseries Value:}
+\begin{DoxyCode}
+char *_name[] = {\
+"[.]",\
+"ADC threshold = FLOAT : 5",\
+"",\
+NULL }
+\end{DoxyCode}
+
+
+Definition at line 80 of file experim.h.\index{experim.h@{experim.h}!ASUM\_\-BANK\_\-DEFINED@{ASUM\_\-BANK\_\-DEFINED}}
+\index{ASUM\_\-BANK\_\-DEFINED@{ASUM\_\-BANK\_\-DEFINED}!experim.h@{experim.h}}
+\paragraph[{ASUM\_\-BANK\_\-DEFINED}]{\setlength{\rightskip}{0pt plus 5cm}\#define ASUM\_\-BANK\_\-DEFINED}\hfill\label{experim_8h_ad4f790537b6740b7cb27c88c46c2bb29}
+
+
+Definition at line 106 of file experim.h.\index{experim.h@{experim.h}!ASUM\_\-BANK\_\-STR@{ASUM\_\-BANK\_\-STR}}
+\index{ASUM\_\-BANK\_\-STR@{ASUM\_\-BANK\_\-STR}!experim.h@{experim.h}}
+\paragraph[{ASUM\_\-BANK\_\-STR}]{\setlength{\rightskip}{0pt plus 5cm}\#define ASUM\_\-BANK\_\-STR(\_\-name)}\hfill\label{experim_8h_a3e5abf7a004a8a60750eee96a235a32b}
+{\bfseries Value:}
+\begin{DoxyCode}
+char *_name[] = {\
+"[.]",\
+"Sum = FLOAT : 0",\
+"Average = FLOAT : 0",\
+"",\
+NULL }
+\end{DoxyCode}
+
+
+Definition at line 113 of file experim.h.\index{experim.h@{experim.h}!EXP\_\-PARAM\_\-DEFINED@{EXP\_\-PARAM\_\-DEFINED}}
+\index{EXP\_\-PARAM\_\-DEFINED@{EXP\_\-PARAM\_\-DEFINED}!experim.h@{experim.h}}
+\paragraph[{EXP\_\-PARAM\_\-DEFINED}]{\setlength{\rightskip}{0pt plus 5cm}\#define EXP\_\-PARAM\_\-DEFINED}\hfill\label{experim_8h_ac5e0f130c2a4f9407f7cd746e35ac4e9}
+
+
+Definition at line 24 of file experim.h.\index{experim.h@{experim.h}!EXP\_\-PARAM\_\-STR@{EXP\_\-PARAM\_\-STR}}
+\index{EXP\_\-PARAM\_\-STR@{EXP\_\-PARAM\_\-STR}!experim.h@{experim.h}}
+\paragraph[{EXP\_\-PARAM\_\-STR}]{\setlength{\rightskip}{0pt plus 5cm}\#define EXP\_\-PARAM\_\-STR(\_\-name)}\hfill\label{experim_8h_a71c259065113884e6324e46c807d0967}
+{\bfseries Value:}
+\begin{DoxyCode}
+char *_name[] = {\
+"[.]",\
+"Comment = STRING : [80] Test",\
+"",\
+NULL }
+\end{DoxyCode}
+
+
+Definition at line 30 of file experim.h.
+
+Referenced by analyzer\_\-init().\index{experim.h@{experim.h}!GLOBAL\_\-PARAM\_\-DEFINED@{GLOBAL\_\-PARAM\_\-DEFINED}}
+\index{GLOBAL\_\-PARAM\_\-DEFINED@{GLOBAL\_\-PARAM\_\-DEFINED}!experim.h@{experim.h}}
+\paragraph[{GLOBAL\_\-PARAM\_\-DEFINED}]{\setlength{\rightskip}{0pt plus 5cm}\#define GLOBAL\_\-PARAM\_\-DEFINED}\hfill\label{experim_8h_ad1502f935fae9ec2ade70451d3cc1fdb}
+
+
+Definition at line 90 of file experim.h.\index{experim.h@{experim.h}!GLOBAL\_\-PARAM\_\-STR@{GLOBAL\_\-PARAM\_\-STR}}
+\index{GLOBAL\_\-PARAM\_\-STR@{GLOBAL\_\-PARAM\_\-STR}!experim.h@{experim.h}}
+\paragraph[{GLOBAL\_\-PARAM\_\-STR}]{\setlength{\rightskip}{0pt plus 5cm}\#define GLOBAL\_\-PARAM\_\-STR(\_\-name)}\hfill\label{experim_8h_a9ec317a7e9b2c6bbe11279b5c63d3596}
+{\bfseries Value:}
+\begin{DoxyCode}
+char *_name[] = {\
+"[.]",\
+"ADC Threshold = FLOAT : 5",\
+"",\
+NULL }
+\end{DoxyCode}
+
+
+Definition at line 96 of file experim.h.
+
+Referenced by analyzer\_\-init().\index{experim.h@{experim.h}!SCALER\_\-COMMON\_\-DEFINED@{SCALER\_\-COMMON\_\-DEFINED}}
+\index{SCALER\_\-COMMON\_\-DEFINED@{SCALER\_\-COMMON\_\-DEFINED}!experim.h@{experim.h}}
+\paragraph[{SCALER\_\-COMMON\_\-DEFINED}]{\setlength{\rightskip}{0pt plus 5cm}\#define SCALER\_\-COMMON\_\-DEFINED}\hfill\label{experim_8h_ad1a222c59c26edabcd363cf10bf57eb3}
+
+
+Definition at line 176 of file experim.h.\index{experim.h@{experim.h}!SCALER\_\-COMMON\_\-STR@{SCALER\_\-COMMON\_\-STR}}
+\index{SCALER\_\-COMMON\_\-STR@{SCALER\_\-COMMON\_\-STR}!experim.h@{experim.h}}
+\paragraph[{SCALER\_\-COMMON\_\-STR}]{\setlength{\rightskip}{0pt plus 5cm}\#define SCALER\_\-COMMON\_\-STR(\_\-name)}\hfill\label{experim_8h_ab86bef23967c3431a65a1bd292253a39}
+{\bfseries Value:}
+\begin{DoxyCode}
+char *_name[] = {\
+"[.]",\
+"Event ID = WORD : 2",\
+"Trigger mask = WORD : 0",\
+"Buffer = STRING : [32] SYSTEM",\
+"Type = INT : 17",\
+"Source = INT : 0",\
+"Format = STRING : [8] MIDAS",\
+"Enabled = BOOL : y",\
+"Read on = INT : 377",\
+"Period = INT : 10000",\
+"Event limit = DOUBLE : 0",\
+"Num subevents = DWORD : 0",\
+"Log history = INT : 0",\
+"Frontend host = STRING : [32] pc810",\
+"Frontend name = STRING : [32] Sample Frontend",\
+"Frontend file name = STRING : [256] C:\Midas\examples\experiment\frontend.c",\
+"",\
+NULL }
+\end{DoxyCode}
+
+
+Definition at line 196 of file experim.h.\index{experim.h@{experim.h}!TRIGGER\_\-COMMON\_\-DEFINED@{TRIGGER\_\-COMMON\_\-DEFINED}}
+\index{TRIGGER\_\-COMMON\_\-DEFINED@{TRIGGER\_\-COMMON\_\-DEFINED}!experim.h@{experim.h}}
+\paragraph[{TRIGGER\_\-COMMON\_\-DEFINED}]{\setlength{\rightskip}{0pt plus 5cm}\#define TRIGGER\_\-COMMON\_\-DEFINED}\hfill\label{experim_8h_a500447a964955e0bffe75b25adee040b}
+
+
+Definition at line 120 of file experim.h.\index{experim.h@{experim.h}!TRIGGER\_\-COMMON\_\-STR@{TRIGGER\_\-COMMON\_\-STR}}
+\index{TRIGGER\_\-COMMON\_\-STR@{TRIGGER\_\-COMMON\_\-STR}!experim.h@{experim.h}}
+\paragraph[{TRIGGER\_\-COMMON\_\-STR}]{\setlength{\rightskip}{0pt plus 5cm}\#define TRIGGER\_\-COMMON\_\-STR(\_\-name)}\hfill\label{experim_8h_aa9d6f27a46ec04dc00e9bfe0309cc27a}
+{\bfseries Value:}
+\begin{DoxyCode}
+char *_name[] = {\
+"[.]",\
+"Event ID = WORD : 1",\
+"Trigger mask = WORD : 0",\
+"Buffer = STRING : [32] SYSTEM",\
+"Type = INT : 2",\
+"Source = INT : 16777215",\
+"Format = STRING : [8] MIDAS",\
+"Enabled = BOOL : y",\
+"Read on = INT : 257",\
+"Period = INT : 500",\
+"Event limit = DOUBLE : 0",\
+"Num subevents = DWORD : 0",\
+"Log history = INT : 0",\
+"Frontend host = STRING : [32] pc810",\
+"Frontend name = STRING : [32] Sample Frontend",\
+"Frontend file name = STRING : [256] C:\Midas\examples\experiment\frontend.c",\
+"",\
+NULL }
+\end{DoxyCode}
+
+
+Definition at line 140 of file experim.h.\index{experim.h@{experim.h}!TRIGGER\_\-SETTINGS\_\-DEFINED@{TRIGGER\_\-SETTINGS\_\-DEFINED}}
+\index{TRIGGER\_\-SETTINGS\_\-DEFINED@{TRIGGER\_\-SETTINGS\_\-DEFINED}!experim.h@{experim.h}}
+\paragraph[{TRIGGER\_\-SETTINGS\_\-DEFINED}]{\setlength{\rightskip}{0pt plus 5cm}\#define TRIGGER\_\-SETTINGS\_\-DEFINED}\hfill\label{experim_8h_a9eae7c028c0d28d22a070549a5b8d9e9}
+
+
+Definition at line 160 of file experim.h.\index{experim.h@{experim.h}!TRIGGER\_\-SETTINGS\_\-STR@{TRIGGER\_\-SETTINGS\_\-STR}}
+\index{TRIGGER\_\-SETTINGS\_\-STR@{TRIGGER\_\-SETTINGS\_\-STR}!experim.h@{experim.h}}
+\paragraph[{TRIGGER\_\-SETTINGS\_\-STR}]{\setlength{\rightskip}{0pt plus 5cm}\#define TRIGGER\_\-SETTINGS\_\-STR(\_\-name)}\hfill\label{experim_8h_aba8c5b4adf8180aae43451def4ed3c0c}
+{\bfseries Value:}
+\begin{DoxyCode}
+char *_name[] = {\
+"[.]",\
+"IO506 = BYTE : 7",\
+"",\
+NULL }
+\end{DoxyCode}
+
+
+Definition at line 166 of file experim.h.
+
+Referenced by analyzer\_\-init(), and frontend\_\-init().

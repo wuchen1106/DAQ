@@ -1,0 +1,152 @@
+.TH "FE_utils" 3 "31 May 2012" "Version 2.3.0-0" "Midas" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+FE_utils \- Hardware Access utilities 
+
+.br
+ 
+.PP
+
+.br
+.PP
+.IP "\(bu" 2
+\fBmcnaf - CAMAC hardware access\fP
+.IP "\(bu" 2
+\fBdio - direct I/O driver\fP
+.PP
+.SH "mcnaf        - CAMAC hardware access"
+.PP
+\fBmcnaf\fP is an interactive CAMAC tool which allows 'direct' access to the CAMAC hardware. This application is operational under either of the two following conditions:
+.IP "1." 4
+\fBmcnaf\fP has been built against a particular CAMAC driver (see \fBCAMAC drivers\fP).
+.IP "2." 4
+A user frontend code using a valid CAMAC driver is currently active. In this case the frontend acts as a RPC CAMAC server and will handle the CAMAC request. This last option is only available if the frontend code (\fBmfe.c\fP) from the \fBBuilding Options\fP has included the \fBHAVE_CAMAC\fP pre-compiler flag.
+.PP
+.PP
+.IP "\(bu" 2
+\fB Arguments \fP
+.IP "  \(bu" 4
+[-h ] : help
+.IP "  \(bu" 4
+[-h hostname ] : host name
+.IP "  \(bu" 4
+[-e exptname ] : experiment name
+.IP "  \(bu" 4
+[-f frontend name] : Frontend name to connect to.
+.IP "  \(bu" 4
+[-s RPC server name] : CAMAC RPC server name for remote connection.
+.PP
+
+.PP
+.PP
+.IP "\(bu" 2
+\fB Building application \fP The \fBmidas/utils/makefile.mcnaf\fP will build a collection of \fBmcnaf\fP applications which are hardware dependent, see \fB Example \fP below:
+.IP "  \(bu" 4
+\fB[miocnaf]\fP cnaf application using the declared CAMAC hardware DRIVER (kcs2927 in this case). To be used with \fBdio\fP CAMAC application starter (see \fBdio - direct I/O driver\fP).
+.IP "  \(bu" 4
+\fB[mwecnaf]\fP cnaf application using the WI-E-N-ER PCI/CAMAC interface (see \fBCAMAC drivers\fP). Please contact: midas@triumf.ca for further information.
+.IP "  \(bu" 4
+\fB[mcnaf]\fP cnaf application using the CAMAC RPC capability of any MIDAS frontend program having CAMAC access.
+.IP "  \(bu" 4
+\fB[mdrvcnaf]\fP cnaf application using the Linux CAMAC driver for either kcs2927, kcs2926, dsp004. This application would require to have the proper Linux module loaded in the system first. Please contact mailto:midas@triumf.ca for further information.
+.PP
+
+.PP
+.PP
+.PP
+.nf
+Thu> cd /midas/utils
+Thu> make -f makefile.mcnaf DRIVER=kcs2927
+gcc -O3 -I../include -DOS_LINUX -c -o mcnaf.o mcnaf.c
+gcc -O3 -I../include -DOS_LINUX -c -o kcs2927.o ../drivers/bus/kcs2927.c
+gcc -O3 -I../include -DOS_LINUX -o miocnaf mcnaf.o kcs2927.o  ../linux/lib/libmidas.a -lutil
+gcc -O3 -I../include -DOS_LINUX -c -o wecc32.o ../drivers/bus/wecc32.c
+gcc -O3 -I../include -DOS_LINUX -o mwecnaf mcnaf.o wecc32.o  ../linux/lib/libmidas.a -lutil 
+gcc -O3 -I../include -DOS_LINUX -c -o camacrpc.o ../drivers/bus/camacrpc.c
+gcc -O3 -I../include -DOS_LINUX -o mcnaf mcnaf.o camacrpc.o  ../linux/lib/libmidas.a -lutil 
+gcc -O3 -I../include -DOS_LINUX -c -o camaclx.o ../drivers/bus/camaclx.c
+gcc -O3 -I../include -DOS_LINUX -o mdrvcnaf mcnaf.o camaclx.o  ../linux/lib/libmidas.a -lutil 
+rm *.o
+.fi
+.PP
+.PP
+.IP "\(bu" 2
+\fB Running application \fP
+.IP "  \(bu" 4
+Direct CAMAC access: This requires the computer to have the proper CAMAC interface installed and the \fBBASE\fP ADDRESS matching the value defined in the corresponding CAMAC driver. For kcs2926.c, kcs2927.c, dsp004.c, hyt1331.c, the base address (CAMAC_BASE) is set to 0x280. 
+.PP
+.nf
+   >dio miocnaf
+
+.fi
+.PP
+
+.IP "  \(bu" 4
+RPC CAMAC through frontend: This requires to have a frontend running which will be able to serve the CAMAC RPC request. Any MIDAS frontend has that capability built-in but it has to have the proper CAMAC driver included in it. 
+.PP
+.nf
+     >mcnaf -e <expt> -h <host> -f <fe_name>
+
+.fi
+.PP
+
+.PP
+
+.PP
+.PP
+.IP "\(bu" 2
+\fB Usage \fP 
+.PP
+.nf
+  ........
+
+.fi
+.PP
+
+.PP
+.PP
+.PP
+ 
+.SH "dio          - direct I/O driver"
+.PP
+Direct I/O task provider (LINUX).
+.PP
+If no particular Linux driver is installed for the CAMAC access, the \fBdio-\fP program will allow you to access the I/O ports to which the CAMAC interface card is connected to.
+.PP
+.IP "\(bu" 2
+\fB Arguments \fP
+.IP "  \(bu" 4
+[application name ] : Program name requiring I/O permission.
+.PP
+
+.IP "\(bu" 2
+\fB Usage \fP 
+.PP
+.nf
+ >dio miocnaf
+ >dio frontend 
+
+.fi
+.PP
+
+.IP "\(bu" 2
+\fB Remark \fP
+.IP "\(bu" 2
+This 'hacking' utility restricts the access to a range of I/O ports from 0x200 to 0x3FF.
+.PP
+.PP
+.IP "\(bu" 2
+As this mode if I/O access by-passes the driver (if any), concurrent access to the same I/O port may produce unexpected result and in the worst case it will freeze the computer. It is therefore important to ensure to run one and only one dio application to a given port in order to prevent potential hangup problem.
+.PP
+.PP
+.IP "\(bu" 2
+Interrupt handling, DMA capabilities of the interface will not be accessible under this mode of operation.
+.PP
+.PP
+ 
+.br
+.PP
+ 
+.br
+ 

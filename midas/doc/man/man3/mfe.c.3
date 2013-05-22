@@ -1,0 +1,447 @@
+.TH "mfe.c" 3 "31 May 2012" "Version 2.3.0-0" "Midas" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+mfe.c \- 
+.SH SYNOPSIS
+.br
+.PP
+.SH "Define Documentation"
+.PP 
+.SS "#define DEFAULT_FE_TIMEOUT   60000"
+.PP
+Definition at line 50 of file mfe.c.
+.PP
+Referenced by main().
+.SS "#define EQUIPMENT_COMMON_STR   '\\Event ID = \fBWORD\fP : 0\\n\\Trigger mask = \fBWORD\fP : 0\\n\\Buffer = STRING : [32] SYSTEM\\n\\Type = \fBINT\fP : 0\\n\\Source = \fBINT\fP : 0\\n\\Format = STRING : [8] FIXED\\n\\Enabled = \fBBOOL\fP : 0\\n\\Read on = \fBINT\fP : 0\\n\\Period = \fBINT\fP : 0\\n\\Event limit = DOUBLE : 0\\n\\Num subevents = \fBDWORD\fP : 0\\n\\Log history = \fBINT\fP : 0\\n\\Frontend host = STRING : [32] \\n\\Frontend name = STRING : [32] \\n\\Frontend file name = STRING : [256] \\n\\Status = STRING : [256] \\n\\Status color = STRING : [32] \\n\\'"
+.PP
+Definition at line 103 of file mfe.c.
+.PP
+Referenced by register_equipment().
+.SS "#define EQUIPMENT_STATISTICS_STR   '\\Events sent = DOUBLE : 0\\n\\Events per sec. = DOUBLE : 0\\n\\kBytes per sec. = DOUBLE : 0\\n\\'"
+.PP
+Definition at line 123 of file mfe.c.
+.PP
+Referenced by register_equipment().
+.SS "#define MFE_ERROR_SIZE   10"
+.PP
+Definition at line 2435 of file mfe.c.
+.PP
+Referenced by mfe_error(), and mfe_error_check().
+.SS "#define ODB_UPDATE_TIME   1000"
+.PP
+Definition at line 48 of file mfe.c.
+.PP
+Referenced by scheduler().
+.SS "#define SERVER_CACHE_SIZE   100000"
+.PP
+Definition at line 46 of file mfe.c.
+.PP
+Referenced by register_equipment(), and scheduler().
+.SH "Function Documentation"
+.PP 
+.SS "\fBINT\fP begin_of_run (\fBINT\fP run_number, char * error)"
+.PP
+Definition at line 285 of file fevmemodules.c.
+.PP
+Referenced by tr_start().
+.SS "\fBINT\fP check_polled_events (void)"
+.PP
+Definition at line 1626 of file mfe.c.
+.PP
+Referenced by tr_stop().
+.SS "void display (\fBBOOL\fP bInit)"
+.PP
+Definition at line 1510 of file mfe.c.
+.PP
+Referenced by main(), and scheduler().
+.SS "\fBINT\fP end_of_run (\fBINT\fP run_number, char * error)"
+.PP
+Definition at line 574 of file fevmemodules.c.
+.PP
+Referenced by tr_stop().
+.SS "\fBINT\fP frontend_exit (void)"
+.PP
+Definition at line 278 of file fevmemodules.c.
+.PP
+Referenced by main().
+.SS "\fBINT\fP frontend_init (void)"
+.PP
+Definition at line 233 of file fevmemodules.c.
+.PP
+Referenced by main().
+.SS "\fBINT\fP frontend_loop (void)"
+.PP
+Definition at line 621 of file fevmemodules.c.
+.PP
+Referenced by scheduler().
+.SS "\fBINT\fP get_frontend_index ()"
+.PP
+Definition at line 2426 of file mfe.c.
+.SS "int get_rate_period ()"
+.PP
+Definition at line 136 of file mfe.c.
+.PP
+Referenced by scheduler().
+.SS "\fBINT\fP initialize_equipment (void)"
+.PP
+Definition at line 765 of file mfe.c.
+.PP
+Referenced by main().
+.SS "\fBINT\fP interrupt_configure (\fBINT\fP cmd, \fBINT\fP source, POINTER_T adr)"
+.PP
+Definition at line 252 of file frontend.c.
+.PP
+Referenced by initialize_equipment(), main(), and readout_enable().
+.SS "void interrupt_routine (void)"
+.PP
+Definition at line 1306 of file mfe.c.
+.PP
+Referenced by initialize_equipment().
+.SS "\fBBOOL\fP logger_root ()"
+.PP
+Definition at line 1599 of file mfe.c.
+.PP
+Referenced by check_polled_events(), receive_trigger_event(), and scheduler().
+.SS "int main (int argc, char * argv[])"
+.PP
+Definition at line 2485 of file mfe.c.
+.SS "\fBINT\fP manual_trigger (\fBINT\fP idx, void * prpc_param[])"
+.PP
+Definition at line 299 of file mfe.c.
+.PP
+Referenced by initialize_equipment().
+.SS "int message_print (const char * msg)"
+.PP
+Definition at line 1492 of file mfe.c.
+.PP
+Referenced by main().
+.SS "void mfe_error (const char * error)"
+.PP
+Definition at line 2456 of file mfe.c.
+.SS "void mfe_error_check (void)"
+.PP
+Definition at line 2467 of file mfe.c.
+.PP
+Referenced by scheduler().
+.SS "void mfe_set_error (void(*)(const char *) dispatcher)"
+.PP
+Definition at line 2440 of file mfe.c.
+.SS "\fBINT\fP pause_run (\fBINT\fP run_number, char * error)"
+.PP
+Definition at line 591 of file fevmemodules.c.
+.PP
+Referenced by tr_pause().
+.SS "\fBINT\fP poll_event (\fBINT\fP source, \fBINT\fP count, \fBBOOL\fP test)"
+.PP
+Definition at line 650 of file fevmemodules.c.
+.PP
+Referenced by check_polled_events(), initialize_equipment(), readout_thread(), and scheduler().
+.SS "void readout_enable (\fBBOOL\fP flag)"
+.PP
+Definition at line 1285 of file mfe.c.
+.PP
+Referenced by initialize_equipment(), main(), scheduler(), tr_pause(), tr_resume(), tr_start(), and tr_stop().
+.SS "int readout_enabled (void)"
+.PP
+Definition at line 1280 of file mfe.c.
+.PP
+Referenced by readout_thread(), and scheduler().
+.SS "int readout_thread (void * param)"
+.PP
+Definition at line 1342 of file mfe.c.
+.PP
+Referenced by initialize_equipment().
+.SS "int receive_trigger_event (\fBEQUIPMENT\fP * eq)"
+.PP
+Definition at line 1429 of file mfe.c.
+.PP
+Referenced by scheduler(), and tr_stop().
+.SS "\fBINT\fP register_equipment (void)"
+.PP
+Definition at line 544 of file mfe.c.
+.PP
+Referenced by main().
+.SS "\fBINT\fP resume_run (\fBINT\fP run_number, char * error)"
+.PP
+Definition at line 604 of file fevmemodules.c.
+.PP
+Referenced by tr_resume().
+.SS "void rotate_wheel (void)"
+.PP
+Definition at line 1583 of file mfe.c.
+.PP
+Referenced by check_polled_events(), receive_trigger_event(), and scheduler().
+.SS "int sc_thread (void * info)"
+.PP
+Definition at line 310 of file mfe.c.
+.PP
+Referenced by device_driver().
+.SS "\fBINT\fP scheduler (void)"
+.PP
+Definition at line 1853 of file mfe.c.
+.PP
+Referenced by main().
+.SS "void send_all_periodic_events (\fBINT\fP transition)"
+.PP
+Definition at line 1252 of file mfe.c.
+.PP
+Referenced by tr_pause(), tr_resume(), tr_start(), and tr_stop().
+.SS "int send_event (\fBINT\fP idx, \fBBOOL\fP manual_trig)"
+.PP
+Definition at line 1097 of file mfe.c.
+.PP
+Referenced by scheduler(), and send_all_periodic_events().
+.SS "int set_equipment_status (const char * name, const char * eqipment_status, const char * status_color)"
+.PP
+Definition at line 975 of file mfe.c.
+.PP
+Referenced by initialize_equipment().
+.SS "void set_event_rb (\fBINT\fP rb)"
+.PP
+Definition at line 1424 of file mfe.c.
+.SS "void set_rate_period (int ms)"
+.PP
+Definition at line 131 of file mfe.c.
+.PP
+Referenced by main().
+.SS "\fBINT\fP tr_pause (\fBINT\fP rn, char * error)"
+.PP
+Definition at line 250 of file mfe.c.
+.PP
+Referenced by main().
+.SS "\fBINT\fP tr_resume (\fBINT\fP rn, char * error)"
+.PP
+Definition at line 275 of file mfe.c.
+.PP
+Referenced by main().
+.SS "\fBINT\fP tr_start (\fBINT\fP rn, char * error)"
+.PP
+Definition at line 145 of file mfe.c.
+.PP
+Referenced by main().
+.SS "\fBINT\fP tr_stop (\fBINT\fP rn, char * error)"
+.PP
+Definition at line 187 of file mfe.c.
+.PP
+Referenced by main().
+.SS "void update_odb (\fBEVENT_HEADER\fP * pevent, HNDLE hKey, \fBINT\fP format)"
+.PP
+Definition at line 1001 of file mfe.c.
+.PP
+Referenced by check_polled_events(), receive_trigger_event(), scheduler(), and send_event().
+.SH "Variable Documentation"
+.PP 
+.SS "int \fB_readout_enabled_flag\fP = 0\fC [static]\fP"
+.PP
+Definition at line 1278 of file mfe.c.
+.PP
+Referenced by readout_enable(), and readout_enabled().
+.SS "\fBDWORD\fP \fBactual_millitime\fP"
+.PP
+Definition at line 55 of file mfe.c.
+.PP
+Referenced by check_polled_events(), scan_fragment(), and scheduler().
+.SS "\fBDWORD\fP \fBactual_time\fP"
+.PP
+Definition at line 54 of file mfe.c.
+.PP
+Referenced by check_polled_events(), interrupt_routine(), readout_thread(), and scheduler().
+.SS "\fBDWORD\fP \fBauto_restart\fP = 0"
+.PP
+Definition at line 66 of file mfe.c.
+.PP
+Referenced by main(), and scheduler().
+.SS "\fBBOOL\fP \fBdebug\fP"
+.PP
+Definition at line 65 of file mfe.c.
+.PP
+Referenced by eb_user(), handFlush(), load_fragment(), main(), scan_fragment(), source_booking(), source_scan(), source_unbooking(), tr_start(), and tr_stop().
+.SS "\fBINT\fP \fBdisplay_period\fP"
+.PP
+Definition at line 66 of file fevmemodules.c.
+.PP
+Referenced by initialize_equipment(), main(), rotate_wheel(), scheduler(), tr_pause(), tr_resume(), tr_start(), and tr_stop().
+.SS "\fBEQUIPMENT\fP \fBequipment\fP[]"
+.PP
+Definition at line 150 of file fevmemodules.c.
+.SS "void* \fBevent_buffer\fP"
+.PP
+Definition at line 78 of file mfe.c.
+.PP
+Referenced by check_polled_events(), main(), receive_trigger_event(), scheduler(), and send_event().
+.SS "\fBINT\fP \fBevent_buffer_size\fP"
+.PP
+Definition at line 75 of file fevmemodules.c.
+.PP
+Referenced by initialize_equipment(), and main().
+.SS "char \fBexp_name\fP[NAME_LENGTH]"
+.PP
+Definition at line 59 of file mfe.c.
+.PP
+Referenced by main().
+.SS "\fBINT\fP \fBfe_stop\fP = 0"
+.PP
+Definition at line 64 of file mfe.c.
+.PP
+Referenced by scheduler().
+.SS "void* \fBfrag_buffer\fP = NULL"
+.PP
+Definition at line 79 of file mfe.c.
+.PP
+Referenced by check_polled_events(), register_equipment(), scheduler(), and send_event().
+.SS "\fBBOOL\fP \fBfrontend_call_loop\fP"
+.PP
+Definition at line 63 of file fevmemodules.c.
+.PP
+Referenced by scheduler().
+.SS "char* \fBfrontend_file_name\fP"
+.PP
+Definition at line 60 of file fevmemodules.c.
+.PP
+Referenced by register_equipment().
+.SS "\fBINT\fP \fBfrontend_index\fP = -1"
+.PP
+Definition at line 68 of file mfe.c.
+.PP
+Referenced by get_frontend_index(), main(), and register_equipment().
+.SS "char* \fBfrontend_name\fP"
+.PP
+Definition at line 58 of file fevmemodules.c.
+.PP
+Referenced by load_fragment(), main(), odbReadUint32(), register_equipment(), scan_fragment(), source_scan(), tr_pause(), tr_resume(), and tr_start().
+.SS "char \fBfull_frontend_name\fP[256]"
+.PP
+Definition at line 60 of file mfe.c.
+.PP
+Referenced by display(), main(), and register_equipment().
+.SS "HNDLE \fBhDB\fP"
+.PP
+Definition at line 71 of file mfe.c.
+.PP
+Referenced by ana_end_of_run(), analyzer_init(), begin_of_run(), cm_connect_client(), cm_connect_experiment1(), cm_disconnect_experiment(), cm_get_client_info(), cm_msg_log(), cm_msg_log1(), cm_msg_retrieve(), cm_set_watchdog_params(), el_submit(), frontend_init(), frontend_loop(), hv_read(), load_fragment(), logger_root(), main(), odbReadUint32(), register_equipment(), scheduler(), set_equipment_status(), tr_start(), and update_odb().
+.SS "char \fBhost_name\fP[HOST_NAME_LENGTH]"
+.PP
+Definition at line 58 of file mfe.c.
+.PP
+Referenced by display(), and main().
+.SS "\fBEQUIPMENT\fP* \fBinterrupt_eq\fP = NULL"
+.PP
+Definition at line 75 of file mfe.c.
+.SS "\fBBOOL\fP \fBlockout_readout_thread\fP = TRUE"
+.PP
+Definition at line 69 of file mfe.c.
+.PP
+Referenced by scheduler().
+.SS "\fBINT\fP \fBmanual_trigger_event_id\fP = 0"
+.PP
+Definition at line 67 of file mfe.c.
+.PP
+Referenced by manual_trigger(), and scheduler().
+.SS "\fBINT\fP \fBmax_bytes_per_sec\fP"
+.PP
+Definition at line 62 of file mfe.c.
+.PP
+Referenced by scheduler().
+.SS "\fBINT\fP \fBmax_event_size\fP"
+.PP
+Definition at line 69 of file fevmemodules.c.
+.PP
+Referenced by check_polled_events(), handFlush(), initialize_equipment(), load_fragment(), main(), readout_thread(), scheduler(), send_event(), source_booking(), and source_scan().
+.SS "\fBINT\fP \fBmax_event_size_frag\fP"
+.PP
+Definition at line 72 of file fevmemodules.c.
+.PP
+Referenced by check_polled_events(), main(), register_equipment(), scheduler(), and send_event().
+.SS "void(* \fBmfe_error_dispatcher\fP)(const char *) = NULL"
+.PP
+Referenced by mfe_error_check(), and mfe_set_error().
+.SS "int \fBmfe_error_r\fP"
+.PP
+Definition at line 2437 of file mfe.c.
+.PP
+Referenced by mfe_error_check(), and mfe_set_error().
+.SS "char \fBmfe_error_str\fP[MFE_ERROR_SIZE][256]"
+.PP
+Definition at line 2436 of file mfe.c.
+.PP
+Referenced by mfe_error(), mfe_error_check(), and mfe_set_error().
+.SS "int \fBmfe_error_w\fP"
+.PP
+Definition at line 2437 of file mfe.c.
+.PP
+Referenced by mfe_error(), mfe_error_check(), and mfe_set_error().
+.SS "MUTEX_T* \fBmfe_mutex\fP = NULL"
+.PP
+Definition at line 2438 of file mfe.c.
+.PP
+Referenced by mfe_error(), mfe_error_check(), and mfe_set_error().
+.SS "\fBEQUIPMENT\fP* \fBmultithread_eq\fP = NULL"
+.PP
+Definition at line 76 of file mfe.c.
+.SS "int* \fBn_events\fP"
+.PP
+Definition at line 81 of file mfe.c.
+.PP
+Referenced by main(), register_equipment(), scheduler(), tr_start(), and tr_stop().
+.SS "\fBINT\fP \fBoptimize\fP = 0"
+.PP
+Definition at line 63 of file mfe.c.
+.PP
+Referenced by scheduler().
+.SS "\fBDWORD\fP \fBrate_period\fP"
+.PP
+Definition at line 56 of file mfe.c.
+.PP
+Referenced by get_rate_period(), and set_rate_period().
+.SS "int \fBrbh1\fP = 0"
+.PP
+Definition at line 84 of file mfe.c.
+.PP
+Referenced by initialize_equipment(), interrupt_routine(), and readout_thread().
+.SS "int \fBrbh1_next\fP = 0"
+.PP
+Definition at line 84 of file mfe.c.
+.PP
+Referenced by readout_thread().
+.SS "int \fBrbh2\fP = 0"
+.PP
+Definition at line 84 of file mfe.c.
+.PP
+Referenced by initialize_equipment(), receive_trigger_event(), and set_event_rb().
+.SS "int \fBrbh2_next\fP = 0"
+.PP
+Definition at line 84 of file mfe.c.
+.SS "volatile int \fBreadout_thread_active\fP = 0"
+.PP
+Definition at line 87 of file mfe.c.
+.PP
+Referenced by main(), readout_enable(), and readout_thread().
+.SS "\fBINT\fP \fBrpc_mode\fP = 1"
+.PP
+Definition at line 44 of file mfe.c.
+.PP
+Referenced by check_polled_events(), receive_trigger_event(), scheduler(), and send_event().
+.SS "\fBINT\fP \fBrun_number\fP"
+.PP
+Definition at line 53 of file mfe.c.
+.PP
+Referenced by close_buffers(), display(), el_submit(), main(), register_equipment(), scheduler(), tr_pause(), tr_resume(), tr_start(), and tr_stop().
+.SS "\fBINT\fP \fBrun_state\fP"
+.PP
+Definition at line 52 of file mfe.c.
+.PP
+Referenced by close_buffers(), display(), handFlush(), main(), register_equipment(), scan_fragment(), scheduler(), tr_pause(), tr_resume(), tr_start(), and tr_stop().
+.SS "\fBBOOL\fP \fBslowcont_eq\fP = FALSE"
+.PP
+Definition at line 77 of file mfe.c.
+.PP
+Referenced by initialize_equipment(), and scheduler().
+.SS "volatile int \fBstop_all_threads\fP = 0"
+.PP
+Definition at line 85 of file mfe.c.
+.PP
+Referenced by main(), and readout_thread().
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Midas from the source code.

@@ -1,0 +1,12 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$a00037.html#ab3d4f01956c85900707079ad09b31868" title="Method to initialize the Main display window." alt="" coords="255,219,535,248"/>
+<area shape="rect" id="node5" href="$a00037.html#a88fb71ed33f522d6e3b34981788de42c" title="User must." alt="" coords="616,5,864,35"/>
+<area shape="rect" id="node7" href="$a00024.html#ac107330b5e1554cb93b5500e0018b749" title="TMainDisplayWindow::BuildWindow" alt="" coords="615,59,865,88"/>
+<area shape="rect" id="node9" href="$a00037.html#aa6680d736ac16cd6f55e050d02dcfb5f" title="TRootanaDisplay::GetDisplayWindow" alt="" coords="607,112,873,141"/>
+<area shape="rect" id="node11" href="$a00024.html#aa405bc960f7d1d5c82086bf6b86c168f" title="TMainDisplayWindow::GetNextButton" alt="" coords="601,165,879,195"/>
+<area shape="rect" id="node13" href="$a00024.html#aa11fa58afa06505ff564ef694cbbdf41" title="TMainDisplayWindow::GetResetButton" alt="" coords="599,219,881,248"/>
+<area shape="rect" id="node15" href="$a00024.html#ae7bee9dc085e050b727e5b8d88e7f189" title="TMainDisplayWindow::GetSkipEventButton" alt="" coords="585,272,895,301"/>
+<area shape="rect" id="node17" href="$a00024.html#ae3acfe7545856c62210ef2c47812dcdf" title="TMainDisplayWindow::GetTab" alt="" coords="632,325,848,355"/>
+<area shape="rect" id="node19" href="$a00038.html#a9157ed25b82028066221b620c95a57d5" title="Are we processing offline data?" alt="" coords="628,379,852,408"/>
+<area shape="rect" id="node21" href="$a00038.html#a924fce568d61d499154590e8c1c564a8" title="Are we processing online data?" alt="" coords="629,432,851,461"/>
+</map>

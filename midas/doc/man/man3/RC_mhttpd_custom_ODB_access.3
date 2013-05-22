@@ -1,0 +1,300 @@
+.TH "RC_mhttpd_custom_ODB_access" 3 "31 May 2012" "Version 2.3.0-0" "Midas" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+RC_mhttpd_custom_ODB_access \- Access to the ODB from a Custom page 
+
+.br
+.PP
+.PP
+
+.br
+.PP
+Access to the ODB is available \fBusing HTML tags\fP and using \fBJavaScript functions\fP with the \fBJavaScript built-in library mhttpd.js\fP . Both methods are described in the following sections:
+.PP
+.IP "\(bu" 2
+\fBODB access using HTML tags\fP
+.IP "\(bu" 2
+\fBODB Access using mhttpd JavaScript built-in functions\fP
+.IP "\(bu" 2
+\fBExamples of accessing ODB from a Custom page\fP
+.IP "\(bu" 2
+\fBFeatures using ODB access from a Custom page\fP
+.PP
+.PP
+ 
+.SH "ODB access using HTML tags"
+.PP
+The <odb...> tag has been defined for read/write access to the ODB under HTML. Also shown in the table below is the equivalent JavaScript function.
+.PP
+that the <odb...> tags and JavaScript equivalent must be declared within enclosing HTML <form...>....</form>  tags (see \fBabove\fP).
+.PP
+HTML ODB tag  Meaning  Equivalent JS function  
+.PP
+ <odb src='odb path'>   Display ODB field (read only)   ODBGet  
+.PP
+  <odb src='odb path' edit=1 pwd='CustomPwd'>   Display an Editable ODB field (inline style). Optional \fBpassword protection\fP with \fBpwd\fP .  
+.br
+ 
+.PP
+ <odb src='odb path' edit=2 pwd='CustomPwd' >   Display an Editable ODB field (popup style). Optional \fBpassword protection\fP with \fBpwd\fP .   ODBEdit   Above: Access to ODB from HTML 
+.PP
+\fBUsage:\fP 
+.PP
+.nf
+Experiment Name: <odb src='/Experiment/Name'>
+Run Number: <odb src='/runinfo/run number' edit=1>
+
+.fi
+.PP
+.PP
+ \fBExamples\fP 
+.PD 0
+
+.IP "1." 4
+The following image shows the status of the ODB key /logger/write data:
+.br
+  ODB access using <odb..> tag 
+.br
+  
+.PP
+The HTML code fragment producing the image above is shown below:
+.PP
+.PP
+.nf
+<table style='text-align: center; width: 40%;' border='1' cellpadding='2'
+cellspacing='2'>
+<tr><td style='vertical-align: top; background-color: lightyellow; text-align: center;'>
+Logging data</td>
+<td><odb src='/logger/write data'>
+</td></tr</table>
+.fi
+.PP
+.PP
+
+.IP "2." 4
+\fBExample of ODB access with HTML and JavaScript equivalent\fP 
+.PP
+
+.br
+.PP
+
+.br
+.SH "ODB Access using mhttpd JavaScript built-in functions"
+.PP
+The following \fBmhttpd JS built-in functions\fP are defined for ODB access:
+.IP "\(bu" 2
+\fBODBGet\fP
+.IP "\(bu" 2
+\fBODBEdit\fP
+.IP "\(bu" 2
+\fBODBSet\fP
+.IP "\(bu" 2
+\fBODBKey\fP
+.PP
+.PP
+\fBExamples:\fP 
+.PD 0
+
+.IP "1." 4
+As in the HTML example \fBabove\fP, the status of the ODB key /logger/write data is displayed in the following image, but in this case the background colour is changed (using Javascript) depending on the value of the key:
+.PP
+ ODB access using ODBGet showing colour change depending on state of ODB variable  
+.br
+   
+.br
+ The code fragment for the above images is shown below: 
+.PP
+.nf
+<script>
+var wd= ODBGet('/logger/write data')
+alert ('wd = '+wd);
+</script>
+<table style='text-align: center; width: 40%;' border='1' cellpadding='2'
+cellspacing='2'>
+<tr>
+<td style='vertical-align: top; background-color:  lightyellow; text-align: center;'>Logging data</td>
+<script>
+if (wd == 'y')
+   document.write('<td style='vertical-align: top; background-color: lime; text-align: center;'>'+wd);
+else
+   document.write('<td style='vertical-align: top; background-color: red; text-align: center;'>'+wd);
+</script>
+</td></tr></table>
+
+.fi
+.PP
+.PP
+
+.IP "2." 4
+\fBExample of ODB access with HTML and JavaScript equivalent\fP 
+.IP "3." 4
+\fBExample of ODB access with JavaScript functions ODBSet and ODBKey\fP 
+.PP
+.PP
+\fBNote:\fP
+.RS 4
+The built-in library must be \fBincluded\fP in your custom page when using any of the JS built-in functions.
+.RE
+.PP
+
+.br
+.PP
+
+.br
+.PP
+ 
+.SS "ODBGet JavaScript function"
+JavaScript Function  Purpose  Parameters  
+.PP
+ ODBGet(path, format, defval, len, type)   Retrieves individual or array values from the ODB.  
+.PP
+path ODB path  
+.PP
+format optional format to write out value read from ODB. Do not include spaces.  
+.PP
+defval Value to write if creating the key.  
+.PP
+len Key length to use if creating the key.  
+.PP
+type Type to use if creating the key. One of the MIDAS Type definitions (see \fBMIDAS Data Types\fP).   Above: Access to ODB from JavaScript 
+.PP
+\fBUsage:\fP ODBGet works in a similar way to \fBdb_set_value()\fP . If the path does not exist, it will be created and set to the supplied value (providing the last 3 \fBparameters\fP are supplied). 
+.br
+ For example, use ODBGet(<\fIpath\fP>) to obtain a value. If <\fIpath\fP> points to an array in the ODB, an individual value can be retrieved by using an index, e.g. 
+.PP
+.nf
+  ODBGet('/Equipment/Environment/Variables/Input[3]');
+
+.fi
+.PP
+ or the complete array can be obtained with 
+.PP
+.nf
+  ODBGet('/Equipment/Environment/Variables/Input[*]');
+
+.fi
+.PP
+ The function then returns a JavaScript array which can be used like 
+.PP
+.nf
+  var a = ODBGet('/Equipment/Environment/Variables/Input[*]');
+
+  for (i=0 ; i<a.length ; i++)
+    alert(a[i]);
+
+.fi
+.PP
+.PP
+If no <\fIformat\fP> parameter is supplied, a default format is used. The following shows the use of a format parameter: 
+.PP
+.nf
+path='/runinfo/run number';
+rn = ODBGet(path,'%4.4d\n');
+
+.fi
+.PP
+.PP
+\fBExample\fP 
+.IP "\(bu" 2
+\fBExample of ODB access with HTML and JavaScript equivalent\fP
+.PP
+.PP
+
+.br
+.PP
+
+.br
+.PP
+ 
+.SS "ODBEdit  JavaScript function"
+JavaScript Function  Purpose  Parameters  
+.PP
+ ODBEdit(path)   Display an Editable ODB field (popup style)
+.PP
+.PP
+path ODB path  
+.PP
+Above: Access to ODB from JavaScript 
+.PP
+\fBUsage:\fP 
+.PP
+.nf
+document.writeln('Edit Run Number:')
+document.writeln('<a href='#' onclick='ODBEdit(path)' >')
+document.writeln(rn)
+document.writeln('</a>');
+
+.fi
+.PP
+.PP
+\fBExample\fP 
+.IP "\(bu" 2
+\fBExample of ODB access with HTML and JavaScript equivalent\fP
+.PP
+.PP
+
+.br
+.PP
+
+.br
+.PP
+ 
+.SS "ODBSet JavaScript function"
+JavaScript Function  Purpose  Parameters  
+.PP
+ ODBSet(path, value, pwdname)   Set one ODB value or an array of values (see \fBnote\fP)  path ODB path  
+.PP
+value Set value or array of values  
+.PP
+pwdname Password (needed if web security is set up).   Above: Access to ODB from JavaScript 
+.PP
+ Writing arrays with ODBSet has been available since \fBMay 2010\fP . 
+.br
+ \fBUsage:\fP Individual ODB values can be set in the background with ODBSet(\fI<path>,<value>\fP or ODBSet(\fI<path>,<value>,<password_name>\fP)
+.PP
+If using a password, the <\fIpassword_name\fP> must be defined as an ODB entry (see \fBPassword protection of ODB variables accessed from a custom page\fP)
+.PP
+\fBExample\fP 
+.IP "\(bu" 2
+\fBExample of ODB access with HTML and JavaScript equivalent\fP
+.IP "\(bu" 2
+\fBExample of ODB access with arrays\fP
+.PP
+.PP
+
+.br
+.PP
+
+.br
+.PP
+ 
+.SS "ODBKey   JavaScript function"
+JavaScript Function  Purpose  Parameters  
+.PP
+ ODBKey(path)   Get the structure of an ODB key. Returns the key name,type,number of values and size.  path ODB path   Above: Access to ODB from JavaScript 
+.PP
+\fBUsage:\fP 
+.PP
+.nf
+key = ODBKey('/Experiment/Name');
+document.write('key array : '+key+'<br>');
+
+.fi
+.PP
+.PP
+\fBExample:\fP 
+.IP "\(bu" 2
+\fBExample of ODB access with JavaScript functions ODBSet and ODBKey\fP
+.IP "\(bu" 2
+\fBExamples of accessing ODB from a Custom page\fP
+.PP
+.PP
+
+.br
+ 
+.PP
+.PP
+
+.br
+ 

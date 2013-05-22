@@ -1,0 +1,47 @@
+.TH "scaler.c" 3 "31 May 2012" "Version 2.3.0-0" "Midas" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+scaler.c \- 
+.SH SYNOPSIS
+.br
+.PP
+.SH "Function Documentation"
+.PP 
+.SS "\fBINT\fP scaler_accum (\fBEVENT_HEADER\fP * pheader, void * pevent)"
+.PP
+Definition at line 66 of file scaler.c.
+.SS "\fBINT\fP scaler_clear (\fBINT\fP run_number)"
+.PP
+Definition at line 51 of file scaler.c.
+.SS "\fBINT\fP scaler_eor (\fBINT\fP run_number)"
+.PP
+Definition at line 59 of file scaler.c.
+.SH "Variable Documentation"
+.PP 
+.SS "double \fBscaler\fP[32]"
+.PP
+Definition at line 47 of file scaler.c.
+.PP
+Referenced by scaler_accum(), and scaler_clear().
+.SS "\fBANA_MODULE\fP \fBscaler_accum_module\fP"\fBInitial value:\fP
+.PP
+.nf
+ {
+   'Scaler accumulation',       
+   'Stefan Ritt',               
+   scaler_accum,                
+   scaler_clear,                
+   scaler_eor,                  
+   NULL,                        
+   NULL,                        
+   NULL,                        
+   0,                           
+   NULL,                        
+}
+.fi
+.PP
+Definition at line 32 of file scaler.c.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Midas from the source code.

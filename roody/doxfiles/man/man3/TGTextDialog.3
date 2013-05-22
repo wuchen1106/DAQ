@@ -1,0 +1,151 @@
+.TH "TGTextDialog" 3 "Thu Apr 26 2012" "Roody" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+TGTextDialog \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <TGTextDialog.h>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBTGTextDialog\fP (TGWindow const *, TGWindow const *, UInt_t, UInt_t, char *, char const *, TObjString *, UInt_t=kVerticalFrame)"
+.br
+.ti -1c
+.RI "virtual \fB~TGTextDialog\fP ()"
+.br
+.ti -1c
+.RI "virtual void \fBCloseWindow\fP ()"
+.br
+.ti -1c
+.RI "virtual Bool_t \fBProcessMessage\fP (Long_t, Long_t, Long_t)"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "TGCompositeFrame * \fBfF1\fP"
+.br
+.ti -1c
+.RI "TGCompositeFrame * \fBfF2\fP"
+.br
+.ti -1c
+.RI "TGButton * \fBfOkButton\fP"
+.br
+.ti -1c
+.RI "TGButton * \fBfCancelButton\fP"
+.br
+.ti -1c
+.RI "TGLayoutHints * \fBfL1\fP"
+.br
+.ti -1c
+.RI "TGLayoutHints * \fBfL5\fP"
+.br
+.ti -1c
+.RI "TGLayoutHints * \fBfL6\fP"
+.br
+.ti -1c
+.RI "TGLayoutHints * \fBfL21\fP"
+.br
+.ti -1c
+.RI "TGTextEntry * \fBfText\fP"
+.br
+.ti -1c
+.RI "TGTextBuffer * \fBfBLabel\fP"
+.br
+.ti -1c
+.RI "TGLabel * \fBfLabel\fP"
+.br
+.ti -1c
+.RI "TObjString * \fBfRetObjStr\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 35 of file TGTextDialog.h.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "TGTextDialog::TGTextDialog (TGWindow const *, TGWindow const *, UInt_t, UInt_t, char *, char const *, TObjString *, UInt_t = \fCkVerticalFrame\fP)"
+.SS "TGTextDialog::~TGTextDialog ()\fC [virtual]\fP"
+.PP
+Definition at line 101 of file TGTextDialog.cxx.
+.SH "Member Function Documentation"
+.PP 
+.SS "void TGTextDialog::CloseWindow ()\fC [virtual]\fP"
+.PP
+Definition at line 112 of file TGTextDialog.cxx.
+.PP
+Referenced by ProcessMessage().
+.SS "Bool_t TGTextDialog::ProcessMessage (Long_tmsg, Long_tparm1, Long_tdummy)\fC [virtual]\fP"
+.PP
+Definition at line 120 of file TGTextDialog.cxx.
+.SH "Member Data Documentation"
+.PP 
+.SS "TGTextBuffer* \fBTGTextDialog::fBLabel\fP\fC [protected]\fP"
+.PP
+Definition at line 43 of file TGTextDialog.h.
+.PP
+Referenced by ProcessMessage().
+.SS "TGButton* \fBTGTextDialog::fCancelButton\fP\fC [protected]\fP"
+.PP
+Definition at line 40 of file TGTextDialog.h.
+.PP
+Referenced by ~TGTextDialog().
+.SS "TGCompositeFrame* \fBTGTextDialog::fF1\fP\fC [protected]\fP"
+.PP
+Definition at line 38 of file TGTextDialog.h.
+.PP
+Referenced by ~TGTextDialog().
+.SS "TGCompositeFrame * \fBTGTextDialog::fF2\fP\fC [protected]\fP"
+.PP
+Definition at line 38 of file TGTextDialog.h.
+.PP
+Referenced by ~TGTextDialog().
+.SS "TGLayoutHints* \fBTGTextDialog::fL1\fP\fC [protected]\fP"
+.PP
+Definition at line 41 of file TGTextDialog.h.
+.PP
+Referenced by ~TGTextDialog().
+.SS "TGLayoutHints * \fBTGTextDialog::fL21\fP\fC [protected]\fP"
+.PP
+Definition at line 41 of file TGTextDialog.h.
+.PP
+Referenced by ~TGTextDialog().
+.SS "TGLayoutHints * \fBTGTextDialog::fL5\fP\fC [protected]\fP"
+.PP
+Definition at line 41 of file TGTextDialog.h.
+.PP
+Referenced by ~TGTextDialog().
+.SS "TGLayoutHints * \fBTGTextDialog::fL6\fP\fC [protected]\fP"
+.PP
+Definition at line 41 of file TGTextDialog.h.
+.PP
+Referenced by ~TGTextDialog().
+.SS "TGLabel* \fBTGTextDialog::fLabel\fP\fC [protected]\fP"
+.PP
+Definition at line 44 of file TGTextDialog.h.
+.PP
+Referenced by ~TGTextDialog().
+.SS "TGButton* \fBTGTextDialog::fOkButton\fP\fC [protected]\fP"
+.PP
+Definition at line 39 of file TGTextDialog.h.
+.PP
+Referenced by ProcessMessage(), and ~TGTextDialog().
+.SS "TObjString* \fBTGTextDialog::fRetObjStr\fP\fC [protected]\fP"
+.PP
+Definition at line 45 of file TGTextDialog.h.
+.PP
+Referenced by ProcessMessage().
+.SS "TGTextEntry* \fBTGTextDialog::fText\fP\fC [protected]\fP"
+.PP
+Definition at line 42 of file TGTextDialog.h.
+.PP
+Referenced by ProcessMessage(), and ~TGTextDialog().
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Roody from the source code.

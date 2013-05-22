@@ -1,0 +1,134 @@
+\subsection{v1740drv.h File Reference}
+\label{v1740drv_8h}\index{v1740drv.h@{v1740drv.h}}
+\subsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{v1740drv_8h_a023699754aec7c0d004358fffe10d4c2}{v1740\_\-Setup} (\hyperlink{structMVME__INTERFACE}{MVME\_\-INTERFACE} $\ast$mvme, uint32\_\-t a32base, int mode)
+\item 
+uint32\_\-t \hyperlink{v1740drv_8h_ac188fa4c584e5e969ee1d37592d0ba62}{v1740\_\-DataBlockRead} (\hyperlink{structMVME__INTERFACE}{MVME\_\-INTERFACE} $\ast$mvme, uint32\_\-t a32base, uint32\_\-t $\ast$pdest, uint32\_\-t $\ast$nentry)
+\end{DoxyCompactItemize}
+
+
+\subsubsection{Function Documentation}
+\index{v1740drv.h@{v1740drv.h}!v1740\_\-AcqCtl@{v1740\_\-AcqCtl}}
+\index{v1740\_\-AcqCtl@{v1740\_\-AcqCtl}!v1740drv.h@{v1740drv.h}}
+\paragraph[{v1740\_\-AcqCtl}]{\setlength{\rightskip}{0pt plus 5cm}void v1740\_\-AcqCtl ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  uint32\_\-t {\em a32base}, \/  uint32\_\-t {\em operation})}\hfill\label{v1740drv_8h_a68e89804f180e6ff440feeb59ff25ad4}
+
+
+Definition at line 98 of file v1740.c.\index{v1740drv.h@{v1740drv.h}!v1740\_\-Align64Set@{v1740\_\-Align64Set}}
+\index{v1740\_\-Align64Set@{v1740\_\-Align64Set}!v1740drv.h@{v1740drv.h}}
+\paragraph[{v1740\_\-Align64Set}]{\setlength{\rightskip}{0pt plus 5cm}void v1740\_\-Align64Set ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  uint32\_\-t {\em base})}\hfill\label{v1740drv_8h_a009fe603a3ff4a4b9d0c31e2e8e4d129}
+\index{v1740drv.h@{v1740drv.h}!v1740\_\-BufferFree@{v1740\_\-BufferFree}}
+\index{v1740\_\-BufferFree@{v1740\_\-BufferFree}!v1740drv.h@{v1740drv.h}}
+\paragraph[{v1740\_\-BufferFree}]{\setlength{\rightskip}{0pt plus 5cm}uint32\_\-t v1740\_\-BufferFree ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  uint32\_\-t {\em base}, \/  int {\em nbuffer})}\hfill\label{v1740drv_8h_aac2f1a0ff0d9d81afe98cfe0f6837c45}
+
+
+Definition at line 191 of file v1740.c.\index{v1740drv.h@{v1740drv.h}!v1740\_\-BufferFreeRead@{v1740\_\-BufferFreeRead}}
+\index{v1740\_\-BufferFreeRead@{v1740\_\-BufferFreeRead}!v1740drv.h@{v1740drv.h}}
+\paragraph[{v1740\_\-BufferFreeRead}]{\setlength{\rightskip}{0pt plus 5cm}uint32\_\-t v1740\_\-BufferFreeRead ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  uint32\_\-t {\em a32base})}\hfill\label{v1740drv_8h_a9a0c9bb6f67b76de3f955a4419cd99fb}
+
+
+Definition at line 204 of file v1740.c.\index{v1740drv.h@{v1740drv.h}!v1740\_\-BufferOccupancy@{v1740\_\-BufferOccupancy}}
+\index{v1740\_\-BufferOccupancy@{v1740\_\-BufferOccupancy}!v1740drv.h@{v1740drv.h}}
+\paragraph[{v1740\_\-BufferOccupancy}]{\setlength{\rightskip}{0pt plus 5cm}uint32\_\-t v1740\_\-BufferOccupancy ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  uint32\_\-t {\em a32base}, \/  uint32\_\-t {\em channel})}\hfill\label{v1740drv_8h_a54a497d64719bf5eeb1e2faa557d40f7}
+
+
+Definition at line 182 of file v1740.c.\index{v1740drv.h@{v1740drv.h}!v1740\_\-DataBlockRead@{v1740\_\-DataBlockRead}}
+\index{v1740\_\-DataBlockRead@{v1740\_\-DataBlockRead}!v1740drv.h@{v1740drv.h}}
+\paragraph[{v1740\_\-DataBlockRead}]{\setlength{\rightskip}{0pt plus 5cm}uint32\_\-t v1740\_\-DataBlockRead ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  uint32\_\-t {\em base}, \/  uint32\_\-t $\ast$ {\em pdest}, \/  uint32\_\-t $\ast$ {\em nentry})}\hfill\label{v1740drv_8h_ac188fa4c584e5e969ee1d37592d0ba62}
+v1740\_\-DataBlockRead Read N entries (32bit) 
+\begin{DoxyParams}{Parameters}
+\item[{\em mvme}]vme structure \item[{\em base}]base address \item[{\em pdest}]Destination pointer \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+nentry 
+\end{DoxyReturn}
+
+
+Definition at line 235 of file v1740.c.\index{v1740drv.h@{v1740drv.h}!v1740\_\-DataRead@{v1740\_\-DataRead}}
+\index{v1740\_\-DataRead@{v1740\_\-DataRead}!v1740drv.h@{v1740drv.h}}
+\paragraph[{v1740\_\-DataRead}]{\setlength{\rightskip}{0pt plus 5cm}uint32\_\-t v1740\_\-DataRead ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  uint32\_\-t {\em a32base}, \/  uint32\_\-t $\ast$ {\em pdata}, \/  uint32\_\-t {\em n32w})}\hfill\label{v1740drv_8h_a8cd52c7b8687a75689b8896284bd5f85}
+
+
+Definition at line 210 of file v1740.c.\index{v1740drv.h@{v1740drv.h}!v1740\_\-GroupConfig@{v1740\_\-GroupConfig}}
+\index{v1740\_\-GroupConfig@{v1740\_\-GroupConfig}!v1740drv.h@{v1740drv.h}}
+\paragraph[{v1740\_\-GroupConfig}]{\setlength{\rightskip}{0pt plus 5cm}void v1740\_\-GroupConfig ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  uint32\_\-t {\em base}, \/  uint32\_\-t {\em operation})}\hfill\label{v1740drv_8h_a4366f9498ad2c7a493ae8ef0ae47e79f}
+
+
+Definition at line 140 of file v1740.c.\index{v1740drv.h@{v1740drv.h}!v1740\_\-GroupCtl@{v1740\_\-GroupCtl}}
+\index{v1740\_\-GroupCtl@{v1740\_\-GroupCtl}!v1740drv.h@{v1740drv.h}}
+\paragraph[{v1740\_\-GroupCtl}]{\setlength{\rightskip}{0pt plus 5cm}void v1740\_\-GroupCtl ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  uint32\_\-t {\em a32base}, \/  uint32\_\-t {\em reg}, \/  uint32\_\-t {\em mask})}\hfill\label{v1740drv_8h_a91587cd957c8fb678a94921b3e03a5ef}
+
+
+Definition at line 67 of file v1740.c.\index{v1740drv.h@{v1740drv.h}!v1740\_\-GroupDACGet@{v1740\_\-GroupDACGet}}
+\index{v1740\_\-GroupDACGet@{v1740\_\-GroupDACGet}!v1740drv.h@{v1740drv.h}}
+\paragraph[{v1740\_\-GroupDACGet}]{\setlength{\rightskip}{0pt plus 5cm}int v1740\_\-GroupDACGet ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  uint32\_\-t {\em base}, \/  uint32\_\-t {\em channel}, \/  uint32\_\-t $\ast$ {\em dac})}\hfill\label{v1740drv_8h_aedb4a49b616447e088e37a8c551b02d4}
+\index{v1740drv.h@{v1740drv.h}!v1740\_\-GroupDACSet@{v1740\_\-GroupDACSet}}
+\index{v1740\_\-GroupDACSet@{v1740\_\-GroupDACSet}!v1740drv.h@{v1740drv.h}}
+\paragraph[{v1740\_\-GroupDACSet}]{\setlength{\rightskip}{0pt plus 5cm}void v1740\_\-GroupDACSet ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  uint32\_\-t {\em base}, \/  uint32\_\-t {\em channel}, \/  uint32\_\-t {\em dac})}\hfill\label{v1740drv_8h_ae411bb9ddc1747fd523e08b062d69d65}
+\index{v1740drv.h@{v1740drv.h}!v1740\_\-GroupGet@{v1740\_\-GroupGet}}
+\index{v1740\_\-GroupGet@{v1740\_\-GroupGet}!v1740drv.h@{v1740drv.h}}
+\paragraph[{v1740\_\-GroupGet}]{\setlength{\rightskip}{0pt plus 5cm}uint32\_\-t v1740\_\-GroupGet ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  uint32\_\-t {\em base}, \/  uint32\_\-t {\em channel}, \/  uint32\_\-t {\em what})}\hfill\label{v1740drv_8h_a944b30b0d5a1020671125ffca5a73420}
+
+
+Definition at line 87 of file v1740.c.\index{v1740drv.h@{v1740drv.h}!v1740\_\-GroupOUThresholdSet@{v1740\_\-GroupOUThresholdSet}}
+\index{v1740\_\-GroupOUThresholdSet@{v1740\_\-GroupOUThresholdSet}!v1740drv.h@{v1740drv.h}}
+\paragraph[{v1740\_\-GroupOUThresholdSet}]{\setlength{\rightskip}{0pt plus 5cm}void v1740\_\-GroupOUThresholdSet ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  uint32\_\-t {\em base}, \/  uint32\_\-t {\em channel}, \/  uint32\_\-t {\em threshold})}\hfill\label{v1740drv_8h_a4117afdb72935222ea66d56b85e3acc6}
+\index{v1740drv.h@{v1740drv.h}!v1740\_\-GroupSet@{v1740\_\-GroupSet}}
+\index{v1740\_\-GroupSet@{v1740\_\-GroupSet}!v1740drv.h@{v1740drv.h}}
+\paragraph[{v1740\_\-GroupSet}]{\setlength{\rightskip}{0pt plus 5cm}void v1740\_\-GroupSet ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  uint32\_\-t {\em base}, \/  uint32\_\-t {\em channel}, \/  uint32\_\-t {\em what}, \/  uint32\_\-t {\em that})}\hfill\label{v1740drv_8h_aa7ab1ae041ccb35fea9b5174e1290a2e}
+
+
+Definition at line 73 of file v1740.c.\index{v1740drv.h@{v1740drv.h}!v1740\_\-GroupThresholdSet@{v1740\_\-GroupThresholdSet}}
+\index{v1740\_\-GroupThresholdSet@{v1740\_\-GroupThresholdSet}!v1740drv.h@{v1740drv.h}}
+\paragraph[{v1740\_\-GroupThresholdSet}]{\setlength{\rightskip}{0pt plus 5cm}void v1740\_\-GroupThresholdSet ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  uint32\_\-t {\em base}, \/  uint32\_\-t {\em channel}, \/  uint32\_\-t {\em threshold})}\hfill\label{v1740drv_8h_ad0871283c1dbefac475a840cf1fce79c}
+\index{v1740drv.h@{v1740drv.h}!v1740\_\-info@{v1740\_\-info}}
+\index{v1740\_\-info@{v1740\_\-info}!v1740drv.h@{v1740drv.h}}
+\paragraph[{v1740\_\-info}]{\setlength{\rightskip}{0pt plus 5cm}void v1740\_\-info ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  uint32\_\-t {\em a32base}, \/  int $\ast$ {\em nch}, \/  uint32\_\-t $\ast$ {\em n32w})}\hfill\label{v1740drv_8h_a8f83806dffbf00db238e1049f825050d}
+
+
+Definition at line 161 of file v1740.c.
+
+Referenced by v1740\_\-DataBlockRead().\index{v1740drv.h@{v1740drv.h}!v1740\_\-RegisterRead@{v1740\_\-RegisterRead}}
+\index{v1740\_\-RegisterRead@{v1740\_\-RegisterRead}!v1740drv.h@{v1740drv.h}}
+\paragraph[{v1740\_\-RegisterRead}]{\setlength{\rightskip}{0pt plus 5cm}uint32\_\-t v1740\_\-RegisterRead ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  uint32\_\-t {\em a32base}, \/  int {\em offset})}\hfill\label{v1740drv_8h_a1b36b0118dab8df824d20ec8c7fb53a2}
+
+
+Definition at line 43 of file v1740.c.\index{v1740drv.h@{v1740drv.h}!v1740\_\-RegisterWrite@{v1740\_\-RegisterWrite}}
+\index{v1740\_\-RegisterWrite@{v1740\_\-RegisterWrite}!v1740drv.h@{v1740drv.h}}
+\paragraph[{v1740\_\-RegisterWrite}]{\setlength{\rightskip}{0pt plus 5cm}void v1740\_\-RegisterWrite ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  uint32\_\-t {\em a32base}, \/  int {\em offset}, \/  uint32\_\-t {\em value})}\hfill\label{v1740drv_8h_a614a54fec1372f260060e8b0f4f6cf5c}
+
+
+Definition at line 49 of file v1740.c.\index{v1740drv.h@{v1740drv.h}!v1740\_\-Reset@{v1740\_\-Reset}}
+\index{v1740\_\-Reset@{v1740\_\-Reset}!v1740drv.h@{v1740drv.h}}
+\paragraph[{v1740\_\-Reset}]{\setlength{\rightskip}{0pt plus 5cm}void v1740\_\-Reset ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  uint32\_\-t {\em a32base})}\hfill\label{v1740drv_8h_a8f33b34d42f09d14dd4e6b3c2a7a33cb}
+
+
+Definition at line 55 of file v1740.c.\index{v1740drv.h@{v1740drv.h}!v1740\_\-Setup@{v1740\_\-Setup}}
+\index{v1740\_\-Setup@{v1740\_\-Setup}!v1740drv.h@{v1740drv.h}}
+\paragraph[{v1740\_\-Setup}]{\setlength{\rightskip}{0pt plus 5cm}int v1740\_\-Setup ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  uint32\_\-t {\em base}, \/  int {\em mode})}\hfill\label{v1740drv_8h_a023699754aec7c0d004358fffe10d4c2}
+Sets all the necessary paramters for a given configuration. The configuration is provided by the mode argument. Add your own configuration in the case statement. Let me know your setting if you want to include it in the distribution.
+\begin{DoxyItemize}
+\item {\bfseries Mode 1} :
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em $\ast$mvme}]VME structure \item[{\em base}]Module base address \item[{\em mode}]Configuration mode number \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0: OK. -\/1: Bad 
+\end{DoxyReturn}
+
+
+Definition at line 292 of file v1740.c.\index{v1740drv.h@{v1740drv.h}!v1740\_\-Status@{v1740\_\-Status}}
+\index{v1740\_\-Status@{v1740\_\-Status}!v1740drv.h@{v1740drv.h}}
+\paragraph[{v1740\_\-Status}]{\setlength{\rightskip}{0pt plus 5cm}void v1740\_\-Status ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  uint32\_\-t {\em a32base})}\hfill\label{v1740drv_8h_aa425ee4506bc04eab05967b376c8189f}
+
+
+Definition at line 257 of file v1740.c.
+
+Referenced by v1740\_\-Setup().\index{v1740drv.h@{v1740drv.h}!v1740\_\-TrgCtl@{v1740\_\-TrgCtl}}
+\index{v1740\_\-TrgCtl@{v1740\_\-TrgCtl}!v1740drv.h@{v1740drv.h}}
+\paragraph[{v1740\_\-TrgCtl}]{\setlength{\rightskip}{0pt plus 5cm}void v1740\_\-TrgCtl ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  uint32\_\-t {\em a32base}, \/  uint32\_\-t {\em reg}, \/  uint32\_\-t {\em mask})}\hfill\label{v1740drv_8h_af0f4f58da598a724e573272ba44f6fad}
+
+
+Definition at line 61 of file v1740.c.

@@ -1,0 +1,159 @@
+.TH "Status and error codes" 3 "31 May 2012" "Version 2.3.0-0" "Midas" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Status and error codes \- 
+.SS "Defines"
+
+.in +1c
+.ti -1c
+.RI "#define \fBSUCCESS\fP   1"
+.br
+.ti -1c
+.RI "#define \fBCM_SUCCESS\fP   1"
+.br
+.ti -1c
+.RI "#define \fBCM_SET_ERROR\fP   102"
+.br
+.ti -1c
+.RI "#define \fBCM_NO_CLIENT\fP   103"
+.br
+.ti -1c
+.RI "#define \fBCM_DB_ERROR\fP   104"
+.br
+.ti -1c
+.RI "#define \fBCM_UNDEF_EXP\fP   105"
+.br
+.ti -1c
+.RI "#define \fBCM_VERSION_MISMATCH\fP   106"
+.br
+.ti -1c
+.RI "#define \fBCM_SHUTDOWN\fP   107"
+.br
+.ti -1c
+.RI "#define \fBCM_WRONG_PASSWORD\fP   108"
+.br
+.ti -1c
+.RI "#define \fBCM_UNDEF_ENVIRON\fP   109"
+.br
+.ti -1c
+.RI "#define \fBCM_DEFERRED_TRANSITION\fP   110"
+.br
+.ti -1c
+.RI "#define \fBCM_TRANSITION_IN_PROGRESS\fP   111"
+.br
+.ti -1c
+.RI "#define \fBCM_TIMEOUT\fP   112"
+.br
+.ti -1c
+.RI "#define \fBCM_INVALID_TRANSITION\fP   113"
+.br
+.ti -1c
+.RI "#define \fBCM_TOO_MANY_REQUESTS\fP   114"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+dox 
+.SH "Define Documentation"
+.PP 
+.SS "#define CM_DB_ERROR   104"db access error 
+.PP
+Definition at line 525 of file midas.h.
+.SS "#define CM_DEFERRED_TRANSITION   110".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 531 of file midas.h.
+.PP
+Referenced by cm_transition1().
+.SS "#define CM_INVALID_TRANSITION   113".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 534 of file midas.h.
+.PP
+Referenced by cm_deregister_transition(), cm_register_transition(), cm_set_transition_sequence(), and cm_transition1().
+.SS "#define CM_NO_CLIENT   103"nobody 
+.PP
+Definition at line 524 of file midas.h.
+.PP
+Referenced by al_check(), cm_check_client(), cm_connect_client(), cm_exist(), cm_get_watchdog_info(), cm_set_client_info(), cm_shutdown(), and cm_transition1().
+.SS "#define CM_SET_ERROR   102"set 
+.PP
+Definition at line 523 of file midas.h.
+.PP
+Referenced by cm_transition1().
+.SS "#define CM_SHUTDOWN   107".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 528 of file midas.h.
+.SS "#define CM_SUCCESS   1"Same 
+.PP
+Definition at line 522 of file midas.h.
+.PP
+Referenced by ana_begin_of_run(), ana_end_of_run(), ana_pause_run(), ana_resume_run(), analyzer_exit(), analyzer_loop(), bk_swap(), cm_asctime(), cm_check_client(), cm_check_deferred_transition(), cm_cleanup(), cm_connect_experiment(), cm_connect_experiment1(), cm_delete_client_info(), cm_deregister_transition(), cm_disconnect_experiment(), cm_execute(), cm_exist(), cm_get_client_info(), cm_get_environment(), cm_get_error(), cm_get_experiment_database(), cm_get_experiment_name(), cm_get_path(), cm_get_path1(), cm_get_watchdog_info(), cm_get_watchdog_params(), cm_list_experiments(), cm_msg(), cm_msg1(), cm_msg_buffer(), cm_msg_flush_buffer(), cm_msg_format(), cm_msg_log(), cm_msg_log1(), cm_msg_send_event(), cm_register_deferred_transition(), cm_register_transition(), cm_scan_experiments(), cm_select_experiment(), cm_set_client_info(), cm_set_experiment_database(), cm_set_experiment_name(), cm_set_path(), cm_set_transition_sequence(), cm_set_watchdog_params(), cm_shutdown(), cm_synchronize(), cm_time(), cm_transition(), cm_transition1(), eb_mfragment_add(), eb_yfragment_add(), frontend_loop(), main(), md_event_swap(), scan_fragment(), scheduler(), send_event(), tr_pause(), tr_resume(), tr_start(), and tr_stop().
+.SS "#define CM_TIMEOUT   112".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 533 of file midas.h.
+.SS "#define CM_TOO_MANY_REQUESTS   114".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 535 of file midas.h.
+.PP
+Referenced by cm_register_transition().
+.SS "#define CM_TRANSITION_IN_PROGRESS   111".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 532 of file midas.h.
+.PP
+Referenced by cm_transition1().
+.SS "#define CM_UNDEF_ENVIRON   109".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 530 of file midas.h.
+.PP
+Referenced by cm_scan_experiments().
+.SS "#define CM_UNDEF_EXP   105".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 526 of file midas.h.
+.PP
+Referenced by cm_connect_experiment1(), and cm_get_client_info().
+.SS "#define CM_VERSION_MISMATCH   106".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 527 of file midas.h.
+.SS "#define CM_WRONG_PASSWORD   108".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 529 of file midas.h.
+.PP
+Referenced by cm_connect_experiment1(), and cm_set_client_info().
+.SS "#define SUCCESS   1"Success 
+.PP
+Definition at line 521 of file midas.h.
+.PP
+Referenced by adc_calib(), adc_calib_bor(), adc_calib_eor(), adc_calib_init(), adc_summing(), adc_summing_init(), al_check(), analyzer_init(), begin_of_run(), bm_open_buffer(), bm_receive_event(), check_polled_events(), cm_check_deferred_transition(), cm_msg_buffer(), cm_msg_flush_buffer(), cm_transition1(), el_submit(), end_of_run(), fccinit(), frontend_exit(), frontend_init(), frontend_loop(), init_vme_modules(), initialize_equipment(), interrupt_configure(), main(), manual_trigger(), odbReadUint32(), pause_run(), receive_trigger_event(), register_equipment(), resume_run(), sc_thread(), scaler_accum(), scaler_clear(), scaler_eor(), scheduler(), set_equipment_status(), source_booking(), and tr_start().
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Midas from the source code.

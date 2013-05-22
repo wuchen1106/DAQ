@@ -1,0 +1,513 @@
+.TH "vppg.c" 3 "31 May 2012" "Version 2.3.0-0" "Midas" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+vppg.c \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBVPPGPolzSet\fP (\fBMVME_INTERFACE\fP *mvme, const \fBDWORD\fP base_adr, \fBBYTE\fP value)"
+.br
+.ti -1c
+.RI "\fBBYTE\fP \fBVPPGPolzRead\fP (\fBMVME_INTERFACE\fP *mvme, const \fBDWORD\fP base_adr)"
+.br
+.ti -1c
+.RI "\fBBYTE\fP \fBVPPGPolzFlip\fP (\fBMVME_INTERFACE\fP *mvme, const \fBDWORD\fP base_adr)"
+.br
+.ti -1c
+.RI "\fBBYTE\fP \fBVPPGRegWrite\fP (\fBMVME_INTERFACE\fP *mvme, const \fBDWORD\fP base_adr, \fBDWORD\fP reg_offset, \fBBYTE\fP value)"
+.br
+.ti -1c
+.RI "\fBBYTE\fP \fBVPPGRegRead\fP (\fBMVME_INTERFACE\fP *mvme, const \fBDWORD\fP base_adr, \fBDWORD\fP reg_offset)"
+.br
+.ti -1c
+.RI "void \fBVPPGInit\fP (\fBMVME_INTERFACE\fP *mvme, const \fBDWORD\fP base_adr)"
+.br
+.ti -1c
+.RI "\fBBYTE\fP \fBVPPGStatusRead\fP (\fBMVME_INTERFACE\fP *mvme, const \fBDWORD\fP base_adr)"
+.br
+.ti -1c
+.RI "void \fBVPPGBeamOn\fP (\fBMVME_INTERFACE\fP *mvme, const \fBDWORD\fP base_adr)"
+.br
+.ti -1c
+.RI "void \fBVPPGBeamOff\fP (\fBMVME_INTERFACE\fP *mvme, const \fBDWORD\fP base_adr)"
+.br
+.ti -1c
+.RI "void \fBVPPGBeamCtlPPG\fP (\fBMVME_INTERFACE\fP *mvme, const \fBDWORD\fP base_adr)"
+.br
+.ti -1c
+.RI "void \fBVPPGPolzCtlVME\fP (\fBMVME_INTERFACE\fP *mvme, const \fBDWORD\fP base_adr)"
+.br
+.ti -1c
+.RI "void \fBVPPGPolzCtlPPG\fP (\fBMVME_INTERFACE\fP *mvme, const \fBDWORD\fP base_adr)"
+.br
+.ti -1c
+.RI "\fBBYTE\fP \fBVPPGBeamCtlRegRead\fP (\fBMVME_INTERFACE\fP *mvme, const \fBDWORD\fP base_adr)"
+.br
+.ti -1c
+.RI "void \fBVPPGStartSequencer\fP (\fBMVME_INTERFACE\fP *mvme, const \fBDWORD\fP base_adr)"
+.br
+.ti -1c
+.RI "void \fBVPPGStopSequencer\fP (\fBMVME_INTERFACE\fP *mvme, const \fBDWORD\fP base_adr)"
+.br
+.ti -1c
+.RI "\fBBYTE\fP \fBVPPGEnableExtTrig\fP (\fBMVME_INTERFACE\fP *mvme, const \fBDWORD\fP base_adr)"
+.br
+.ti -1c
+.RI "\fBBYTE\fP \fBVPPGDisableExtTrig\fP (\fBMVME_INTERFACE\fP *mvme, const \fBDWORD\fP base_adr)"
+.br
+.ti -1c
+.RI "\fBBYTE\fP \fBVPPGExtTrigRegRead\fP (\fBMVME_INTERFACE\fP *mvme, const \fBDWORD\fP base_adr)"
+.br
+.ti -1c
+.RI "\fBDWORD\fP \fBVPPGPolmskWrite\fP (\fBMVME_INTERFACE\fP *mvme, const \fBDWORD\fP base_adr, const \fBDWORD\fP pol)"
+.br
+.ti -1c
+.RI "\fBDWORD\fP \fBVPPGPolmskRead\fP (\fBMVME_INTERFACE\fP *mvme, const \fBDWORD\fP base_adr)"
+.br
+.ti -1c
+.RI "\fBDWORD\fP \fBVPPGStartpatternWrite\fP (\fBMVME_INTERFACE\fP *mvme, const \fBDWORD\fP base_adr, const \fBDWORD\fP pol)"
+.br
+.ti -1c
+.RI "void \fBbyteOutputOrder\fP (\fBPARAM\fP data, char *array)"
+.br
+.ti -1c
+.RI "\fBPARAM\fP \fBlineRead\fP (FILE *infile)"
+.br
+.ti -1c
+.RI "int \fBVPPGLoad\fP (\fBMVME_INTERFACE\fP *mvme, const \fBDWORD\fP base_adr, char *file)"
+.br
+.in -1c
+.SH "Define Documentation"
+.PP 
+.SS "#define BRANCH1_MASK   0X000FF000"
+.PP
+Referenced by byteOutputOrder().
+.SS "#define BRANCH2_MASK   0X00000FF0"
+.PP
+Referenced by byteOutputOrder().
+.SS "#define BRANCH3_MASK   0X0000000F"
+.PP
+Referenced by byteOutputOrder().
+.SS "#define HIGH_MASK   0xFF000000"
+.PP
+Referenced by byteOutputOrder().
+.SS "#define HIGH_MID_MASK   0x00FF0000"
+.PP
+Referenced by byteOutputOrder().
+.SS "#define LOW_MASK   0x000000FF"
+.PP
+Referenced by byteOutputOrder().
+.SS "#define LOW_MID_MASK   0x0000FF00"
+.PP
+Referenced by byteOutputOrder().
+.SH "Function Documentation"
+.PP 
+.SS "void byteOutputOrder (\fBPARAM\fP data, char * array)"byteOutputOrder byte swap for output  byte swap for PPG. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIdata\fP 
+.br
+\fIarray\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 490 of file vppg.c.
+.PP
+Referenced by VPPGLoad().
+.SS "\fBPARAM\fP lineRead (FILE * infile)"lineRead Read line of input file  read line. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fI*input\fP FILE pointer 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+PARAM data structure 
+.RE
+.PP
+
+.PP
+Definition at line 530 of file vppg.c.
+.PP
+Referenced by VPPGLoad().
+.SS "void ppg (void)"
+.PP
+Definition at line 24 of file vppg.c.
+.SS "void VPPGBeamCtlPPG (\fBMVME_INTERFACE\fP * mvme, const \fBDWORD\fP base_adr)"VPPGBeamCtlPPG PPG controls the Beam On/Off signal.  Give PPG script control of Beam On/Off signal (ch14) 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIbase\\_adr\fP PPG VME base address 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 267 of file vppg.c.
+.PP
+Referenced by VPPGInit().
+.SS "\fBBYTE\fP VPPGBeamCtlRegRead (\fBMVME_INTERFACE\fP * mvme, const \fBDWORD\fP base_adr)"VPPGBeamCtlRegRead Read the Beam Control Register  Read the Beam Control Register 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIbase\\_adr\fP PPG VME base address 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 307 of file vppg.c.
+.SS "void VPPGBeamOff (\fBMVME_INTERFACE\fP * mvme, const \fBDWORD\fP base_adr)"VPPGBeamOff Directly set Beam Off signal.  Set Beam Off (independent of PPG script) 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIbase\\_adr\fP PPG VME base address 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 253 of file vppg.c.
+.SS "void VPPGBeamOn (\fBMVME_INTERFACE\fP * mvme, const \fBDWORD\fP base_adr)"VPPGBeamOn Directly set Beam On signal.  Set Beam On (independent of ppg script) 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIbase\\_adr\fP PPG VME base address 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 237 of file vppg.c.
+.SS "\fBBYTE\fP VPPGDisableExtTrig (\fBMVME_INTERFACE\fP * mvme, const \fBDWORD\fP base_adr)"VPPGDisableExtTrig(ppg_base) Disable front panel trigger input so external inputs cannot start the sequence  Disable external trigger input so external inputs cannot start the sequence 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIbase\\_adr\fP PPG VME base address 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+data 
+.RE
+.PP
+
+.PP
+Definition at line 373 of file vppg.c.
+.PP
+Referenced by VPPGInit().
+.SS "\fBBYTE\fP VPPGEnableExtTrig (\fBMVME_INTERFACE\fP * mvme, const \fBDWORD\fP base_adr)"VPPGEnableExtTrig(ppg_base) Enable front panel trigger input so external inputs can start the sequence  Enable external trigger input so external inputs can start the sequence 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIbase\\_adr\fP PPG VME base address 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+data 
+.RE
+.PP
+
+.PP
+Definition at line 357 of file vppg.c.
+.SS "\fBBYTE\fP VPPGExtTrigRegRead (\fBMVME_INTERFACE\fP * mvme, const \fBDWORD\fP base_adr)"VPPGExtTrigRegRead Read external trig register (bit 0 int/ext trigger is enabled bit 1 trigger active/inactive)  Read PPG. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIbase\\_adr\fP PPG VME base addroless 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+value (8bit) 
+.RE
+.PP
+
+.PP
+Definition at line 386 of file vppg.c.
+.SS "void VPPGInit (\fBMVME_INTERFACE\fP * mvme, const \fBDWORD\fP base_adr)"VPPGInit Initialize the PPG  Initialize PPG 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIbase\\_adr\fP PPG VME base address 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 173 of file vppg.c.
+.SS "int VPPGLoad (\fBMVME_INTERFACE\fP * mvme, const \fBDWORD\fP base_adr, char * file)"ppgLoad Load PPG file into sequencer.  Load file PPG. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIbase\\_adr\fP PPG VME base address 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+1=SUCCESS, -1=file not found 
+.RE
+.PP
+
+.PP
+Definition at line 557 of file vppg.c.
+.SS "\fBDWORD\fP VPPGPolmskRead (\fBMVME_INTERFACE\fP * mvme, const \fBDWORD\fP base_adr)"VPPGPolmskRead Read the Polarity mask.  Read polarity mask. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIbase\\_adr\fP PPG VME base address 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+polarity (24bit) 
+.RE
+.PP
+
+.PP
+Definition at line 431 of file vppg.c.
+.PP
+Referenced by VPPGPolmskWrite(), and VPPGStartpatternWrite().
+.SS "\fBDWORD\fP VPPGPolmskWrite (\fBMVME_INTERFACE\fP * mvme, const \fBDWORD\fP base_adr, const \fBDWORD\fP pol)"VPPG Write the Polarity mask.  Write and read back polarity mask. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIbase\\_adr\fP PPG VME base address 
+.br
+\fIpol\fP polarity (24bit) 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+polarity (24bit) 
+.RE
+.PP
+
+.PP
+Definition at line 405 of file vppg.c.
+.PP
+Referenced by VPPGInit(), and VPPGStartSequencer().
+.SS "void VPPGPolzCtlPPG (\fBMVME_INTERFACE\fP * mvme, const \fBDWORD\fP base_adr)"VPPGPolzCtlPPG PPG controls the Pol On/Off signal for helicity  Give PPG script control of Pol On/Off signal (DRV POL) which now follows ch15 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIbase\\_adr\fP PPG VME base address 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 294 of file vppg.c.
+.PP
+Referenced by VPPGInit().
+.SS "void VPPGPolzCtlVME (\fBMVME_INTERFACE\fP * mvme, const \fBDWORD\fP base_adr)"VPPGPolzCtlVME VME controls the Pol On/Off signal for helicity  Give VME control of Pol On/Off signal (DRV POL) (PPG script ignored) 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIbase\\_adr\fP PPG VME base address 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 281 of file vppg.c.
+.SS "\fBBYTE\fP VPPGPolzFlip (\fBMVME_INTERFACE\fP * mvme, const \fBDWORD\fP base_adr)"VPPGPolzFlip Flip the polarization bit.  Read PPG. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIbase\\_adr\fP PPG VME base address 
+.RE
+.PP
+
+.PP
+Definition at line 81 of file vppg.c.
+.SS "\fBBYTE\fP VPPGPolzRead (\fBMVME_INTERFACE\fP * mvme, const \fBDWORD\fP base_adr)"ppgPolzRead Read Polarization bit.  Read PPG. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIbase\\_adr\fP PPG VME base addroless 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+value (8bit) 
+.RE
+.PP
+
+.PP
+Definition at line 64 of file vppg.c.
+.PP
+Referenced by VPPGPolzFlip().
+.SS "void VPPGPolzSet (\fBMVME_INTERFACE\fP * mvme, const \fBDWORD\fP base_adr, \fBBYTE\fP value)"ppgPolzSet Set Polarization bit to a given value.  Write PPG. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIbase\\_adr\fP PPG VME base addroless 
+.br
+\fIvalue\fP (8bit) 
+.RE
+.PP
+
+.PP
+Definition at line 51 of file vppg.c.
+.PP
+Referenced by VPPGPolzFlip().
+.SS "\fBBYTE\fP VPPGRegRead (\fBMVME_INTERFACE\fP * mvme, const \fBDWORD\fP base_adr, \fBDWORD\fP reg_offset)"VPPGRegRead Read PPG register.  Read PPG. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIbase\\_adr\fP PPG VME base addroless 
+.br
+\fIreg\\_offset\fP PPG register 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+status register (8 bit) 
+.RE
+.PP
+
+.PP
+Definition at line 145 of file vppg.c.
+.PP
+Referenced by VPPGBeamCtlRegRead(), VPPGExtTrigRegRead(), VPPGPolmskRead(), VPPGPolzRead(), and VPPGStatusRead().
+.SS "\fBBYTE\fP VPPGRegWrite (\fBMVME_INTERFACE\fP * mvme, const \fBDWORD\fP base_adr, \fBDWORD\fP reg_offset, \fBBYTE\fP value)"VPPGRegWrite Write into PPG register.  Write PPG. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIbase\\_adr\fP PPG VME base address 
+.br
+\fIreg\\_offset\fP PPG register 
+.br
+\fIvalue\fP (8bit) 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+status register 
+.RE
+.PP
+
+.PP
+Definition at line 111 of file vppg.c.
+.PP
+Referenced by VPPGBeamCtlPPG(), VPPGBeamOff(), VPPGBeamOn(), VPPGDisableExtTrig(), VPPGEnableExtTrig(), VPPGLoad(), VPPGPolmskWrite(), VPPGPolzCtlPPG(), VPPGPolzCtlVME(), VPPGPolzSet(), VPPGStartpatternWrite(), VPPGStartSequencer(), and VPPGStopSequencer().
+.SS "\fBDWORD\fP VPPGStartpatternWrite (\fBMVME_INTERFACE\fP * mvme, const \fBDWORD\fP base_adr, const \fBDWORD\fP pol)"ppg ????????????????????? Write the Start(Power up or Reset)Pattern.  Write and read back startup pattern. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIbase\\_adr\fP PPG VME base address 
+.br
+\fIpol\fP polarity (24bit) 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+polarity (24bit) 
+.RE
+.PP
+
+.PP
+Definition at line 462 of file vppg.c.
+.SS "void VPPGStartSequencer (\fBMVME_INTERFACE\fP * mvme, const \fBDWORD\fP base_adr)"VPPGStartSequencer Start the PPG sequencer (internal trigger)  start the PPG sequencer. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIbase\\_adr\fP PPG VME base address 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 328 of file vppg.c.
+.SS "\fBBYTE\fP VPPGStatusRead (\fBMVME_INTERFACE\fP * mvme, const \fBDWORD\fP base_adr)"VPPGStatusRead Read Status register.  Read status. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIbase\\_adr\fP PPG VME base address 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+status register 
+.RE
+.PP
+
+.PP
+Definition at line 194 of file vppg.c.
+.SS "void VPPGStopSequencer (\fBMVME_INTERFACE\fP * mvme, const \fBDWORD\fP base_adr)"VPPGStopSequencer Stop the PPG sequencer.  Stop the PPG sequencer. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIbase\\_adr\fP PPG VME base address 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 343 of file vppg.c.
+.SH "Variable Documentation"
+.PP 
+.SS "int \fBddd\fP = 1"
+.PP
+Definition at line 18 of file vppg.c.
+.PP
+Referenced by byteOutputOrder(), VPPGBeamCtlRegRead(), VPPGLoad(), VPPGPolmskRead(), VPPGPolmskWrite(), VPPGPolzFlip(), VPPGPolzRead(), VPPGRegRead(), and VPPGRegWrite().
+.SS "FILE* \fBppginput\fP"
+.PP
+Definition at line 19 of file vppg.c.
+.PP
+Referenced by VPPGLoad().
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Midas from the source code.

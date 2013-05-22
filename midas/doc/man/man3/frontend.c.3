@@ -1,0 +1,143 @@
+.TH "frontend.c" 3 "31 May 2012" "Version 2.3.0-0" "Midas" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+frontend.c \- 
+.SH SYNOPSIS
+.br
+.PP
+.SH "Define Documentation"
+.PP 
+.SS "#define CRATE   0"
+.PP
+Definition at line 56 of file frontend.c.
+.PP
+Referenced by frontend_init(), read_scaler_event(), and read_trigger_event().
+.SS "#define N_ADC   4"
+.PP
+Definition at line 51 of file frontend.c.
+.SS "#define N_SCLR   4"
+.PP
+Definition at line 53 of file frontend.c.
+.SS "#define N_TDC   4"
+.PP
+Definition at line 52 of file frontend.c.
+.SS "#define SLOT_ADC   1"
+.PP
+Definition at line 58 of file frontend.c.
+.PP
+Referenced by read_trigger_event().
+.SS "#define SLOT_IO   23"
+.PP
+Definition at line 57 of file frontend.c.
+.PP
+Referenced by frontend_init(), and read_trigger_event().
+.SS "#define SLOT_SCLR   3"
+.PP
+Definition at line 60 of file frontend.c.
+.PP
+Referenced by read_scaler_event().
+.SS "#define SLOT_TDC   2"
+.PP
+Definition at line 59 of file frontend.c.
+.PP
+Referenced by read_trigger_event().
+.SH "Function Documentation"
+.PP 
+.SS "\fBINT\fP begin_of_run (\fBINT\fP run_number, char * error)"
+.PP
+Definition at line 184 of file frontend.c.
+.PP
+Referenced by tr_start().
+.SS "\fBINT\fP end_of_run (\fBINT\fP run_number, char * error)"
+.PP
+Definition at line 193 of file frontend.c.
+.PP
+Referenced by tr_stop().
+.SS "\fBINT\fP frontend_exit (void)"
+.PP
+Definition at line 177 of file frontend.c.
+.PP
+Referenced by main().
+.SS "\fBINT\fP frontend_init (void)"
+.PP
+Definition at line 149 of file frontend.c.
+.PP
+Referenced by main().
+.SS "\fBINT\fP frontend_loop (void)"
+.PP
+Definition at line 214 of file frontend.c.
+.PP
+Referenced by scheduler().
+.SS "\fBINT\fP interrupt_configure (\fBINT\fP cmd, \fBINT\fP source, POINTER_T adr)"
+.PP
+Definition at line 252 of file frontend.c.
+.PP
+Referenced by initialize_equipment(), main(), and readout_enable().
+.SS "\fBINT\fP pause_run (\fBINT\fP run_number, char * error)"
+.PP
+Definition at line 200 of file frontend.c.
+.PP
+Referenced by tr_pause().
+.SS "\fBINT\fP poll_event (\fBINT\fP source, \fBINT\fP count, \fBBOOL\fP test)"
+.PP
+Definition at line 231 of file frontend.c.
+.PP
+Referenced by check_polled_events(), initialize_equipment(), readout_thread(), and scheduler().
+.SS "\fBINT\fP read_scaler_event (char * pevent, \fBINT\fP off)"
+.PP
+Definition at line 339 of file frontend.c.
+.SS "\fBINT\fP read_trigger_event (char * pevent, \fBINT\fP off)"
+.PP
+Definition at line 269 of file frontend.c.
+.SS "void register_cnaf_callback (int debug)"
+.PP
+Definition at line 124 of file cnaf_callback.c.
+.SS "\fBINT\fP resume_run (\fBINT\fP run_number, char * error)"
+.PP
+Definition at line 207 of file frontend.c.
+.PP
+Referenced by tr_resume().
+.SH "Variable Documentation"
+.PP 
+.SS "\fBINT\fP \fBdisplay_period\fP = 3000"
+.PP
+Definition at line 39 of file frontend.c.
+.PP
+Referenced by initialize_equipment(), main(), rotate_wheel(), scheduler(), tr_pause(), tr_resume(), tr_start(), and tr_stop().
+.SS "\fBEQUIPMENT\fP \fBequipment\fP[]"
+.PP
+Definition at line 79 of file frontend.c.
+.SS "\fBINT\fP \fBevent_buffer_size\fP = 100 * 10000"
+.PP
+Definition at line 48 of file frontend.c.
+.PP
+Referenced by initialize_equipment(), and main().
+.SS "\fBBOOL\fP \fBfrontend_call_loop\fP = FALSE"
+.PP
+Definition at line 36 of file frontend.c.
+.PP
+Referenced by scheduler().
+.SS "char* \fBfrontend_file_name\fP = __FILE__"
+.PP
+Definition at line 33 of file frontend.c.
+.PP
+Referenced by register_equipment().
+.SS "char* \fBfrontend_name\fP = 'Sample Frontend'"
+.PP
+Definition at line 31 of file frontend.c.
+.PP
+Referenced by load_fragment(), main(), odbReadUint32(), register_equipment(), scan_fragment(), source_scan(), tr_pause(), tr_resume(), and tr_start().
+.SS "\fBINT\fP \fBmax_event_size\fP = 10000"
+.PP
+Definition at line 42 of file frontend.c.
+.PP
+Referenced by check_polled_events(), handFlush(), initialize_equipment(), load_fragment(), main(), readout_thread(), scheduler(), send_event(), source_booking(), and source_scan().
+.SS "\fBINT\fP \fBmax_event_size_frag\fP = 5 * 1024 * 1024"
+.PP
+Definition at line 45 of file frontend.c.
+.PP
+Referenced by check_polled_events(), main(), register_equipment(), scheduler(), and send_event().
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Midas from the source code.

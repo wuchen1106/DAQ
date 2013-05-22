@@ -1,0 +1,9 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$a00144.html#a97cd2fd5714753ff4e960707a1bc4b79" title="SendHttpReply" alt="" coords="151,57,273,87"/>
+<area shape="rect" id="node5" href="$a00144.html#ae83e9ccf20e9cde693b374c17a56c69f" title="SendFile" alt="" coords="347,5,424,35"/>
+<area shape="rect" id="node7" href="$a00144.html#abdd83f68f9a66cea6b4ee2b2058acd90" title="xroot_server_thread" alt="" coords="496,32,656,61"/>
+<area shape="rect" id="node15" href="$a00144.html#aac9e84c9ab73812ce74b8df4cd6e997e" title="SendHttpReply" alt="" coords="324,109,447,139"/>
+<area shape="rect" id="node9" href="$a00144.html#a83a76a4595c89afdc909f166074de672" title="xsocket_listener" alt="" coords="705,32,839,61"/>
+<area shape="rect" id="node11" href="$a00048.html#af7d8699ca08edc3142c9b1339c4d92d6" title="XmlServer::Start" alt="" coords="888,32,1024,61"/>
+<area shape="rect" id="node13" href="$a00049.html#a0ddf1224851353fc92bfbff6f499fa97" title="main" alt="" coords="1073,32,1127,61"/>
+</map>

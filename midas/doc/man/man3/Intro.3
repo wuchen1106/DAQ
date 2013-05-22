@@ -1,0 +1,71 @@
+.TH "Intro" 3 "31 May 2012" "Version 2.3.0-0" "Midas" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Intro \- SECTION 2: Introduction 
+
+.br
+  
+.br
+.PP
+ 
+.SH "What is MIDAS?"
+.PP
+'MIDAS' is an acronym for \fBM\fPaximum \fBI\fPntegrated \fBD\fPata \fBA\fPcquisition \fBS\fPystem. 
+.br
+
+.br
+ MIDAS is a general-purpose system for event-based data acquisition in small and medium scale Physics experiments. It is an on-going development at the Paul Scherrer Institute (Switzerland) and at TRIUMF (Canada), since 1993. Presently, on-going development is focused on the interfacing capability of the MIDAS package to external applications such as ROOT for data analysis (see \fBData Analyzers\fP).
+.PP
+MIDAS is based on a \fBmodular networking capability\fP and a \fBcentral database system\fP. MIDAS consists of a C library and several applications, which can run on many different platforms (i.e. operating systems) such as UNIX-like, Windows NT, VxWorks etc. While the system is already in use in many laboratories, the development continues with addition of new features and tools. Recent developments involve multi-threading, FGPA/Linux support, MSCB extension. For the latest status, check the MIDAS home page: \fCSwitzerland \fP, \fCCanada \fP
+.SH "MIDAS is for small and medium sized experiments"
+.PP
+MIDAS has been designed for small and medium experiments. It can be used in \fIdistributed environments\fP where one or more \fIfrontends\fP are connected to the \fIbackend\fP via the network (i.e.Ethernet).
+.PP
+  
+.SS "Frontend(s) and Backend(s)"
+A \fI'frontend'\fP is usually concerned with acquiring data, e.g. from various hardware modules monitoring an experiment. \fBA frontend has direct access to the hardware concerned\fP. The frontend might be an embedded system such as a VME CPU running Linux or VxWorks, or a PC running Windows NT or Linux. Thus the frontend is a computer running the frontend application (or program). For example, it might be programmed to read data from several TDC and ADC modules.
+.PP
+The data is transferred from the frontend to the \fI'backend'\fP. MIDAS transfer data rate capabilities are close to the type of hardware limits used.
+.PP
+A \fI'backend'\fP is usually concerned with storage and/or analysis of this data. It is often a PC running Windows NT or Linux. It may receive data from one or multiple 'frontends'. Thus the backend is a computer running the backend application(s) ( i.e. program(s) ).
+.PP
+For small experiments and test setups, the frontend and backend computers can be one and the same, i.e. the frontend program can also run on the backend computer, thus eliminating the need for network transfer, (assuming of course this computer has direct access to the hardware).
+.PP
+For larger experiments, a backend computer may receive data from several frontends, and may send the data to another backend computer for analysis.
+.PP
+.PP
+ 
+.SS "Device Drivers for MIDAS"
+Frontends require Device Drivers to access and acquire data from the various hardware modules available. Device drivers for common PC-CAMAC interfaces have been written for Windows NT and Linux. Drivers for PC-VME interfaces are commercially available for Windows NT and for Linux as well. \fBMIDAS provides a large variety of drivers\fP based on their use within the physics community. See \fBMIDAS driver library\fP .
+.PP
+As CAMAC modules are slowly phased out, VME based modules replace them. No cPCI modules have yet been included in our physics experiments.
+.PP
+ 
+.SS "Analysis of MIDAS data"
+For data analysis, users can write their own analyser using simple MIDAS calls to retrieve the necessary data, or they can use one of the standard MIDAS analysers:
+.IP "\(bu" 2
+HBOOK based routines for histogramming and PAW for histogram display (currently being phased out)
+.IP "\(bu" 2
+ROOT based with \fBanalyser\fP (part of the MIDAS package)
+.IP "\(bu" 2
+\fCROME\fP analyser framework using XML description
+.IP "\(bu" 2
+\fCRootana\fP C++ standalone application.
+.PP
+.SS "Slow controls"
+The MIDAS package also contains a \fBslow control system\fP which can be used for all sorts of slow controls, such as high voltage supplies, temperature control units, GPIB, serial devices such as \fCMSCB\fP (MIDAS Slow Control Bus), RS232 or Ethernet-based modules. The term 'slow controls' refers to hardware that does not need high speed access. The MIDAS slow control system is fully integrated into the main data acquisition, and acts as a front-end with particular built-in control mechanisms. Slow control values can be saved together with event data (written to tape or disk). 
+.br
+.PP
+.IP "\(bu" 2
+\fBDiagram of the MIDAS system\fP
+.PP
+.PP
+
+.br
+ 
+.PP
+
+.br
+.PP
+ 

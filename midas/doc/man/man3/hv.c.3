@@ -1,0 +1,113 @@
+.TH "hv.c" 3 "31 May 2012" "Version 2.3.0-0" "Midas" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+hv.c \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Data Structures"
+
+.in +1c
+.ti -1c
+.RI "struct \fBHV_INFO\fP"
+.br
+.in -1c
+.SH "Define Documentation"
+.PP 
+.SS "#define abs(a)   (((a) < 0)   ? -(a) : (a))"
+.PP
+Definition at line 59 of file hv.c.
+.PP
+Referenced by begin_of_run(), hs_dump(), and hv_read().
+.SH "Function Documentation"
+.PP 
+.SS "\fBINT\fP cd_hv (\fBINT\fP cmd, \fBPEQUIPMENT\fP pequipment)"
+.PP
+Definition at line 865 of file hv.c.
+.SS "\fBINT\fP cd_hv_read (char * pevent, int offset)"
+.PP
+Definition at line 780 of file hv.c.
+.SS "static void free_mem (\fBHV_INFO\fP * hv_info)\fC [static]\fP"
+.PP
+Definition at line 64 of file hv.c.
+.PP
+Referenced by hv_exit(), and hv_init().
+.SS "void hv_demand (\fBINT\fP hDB, \fBINT\fP hKey, void * info)"
+.PP
+Definition at line 289 of file hv.c.
+.PP
+Referenced by hv_init().
+.SS "\fBINT\fP hv_exit (\fBEQUIPMENT\fP * pequipment)"
+.PP
+Definition at line 724 of file hv.c.
+.PP
+Referenced by cd_hv().
+.SS "\fBINT\fP hv_idle (\fBEQUIPMENT\fP * pequipment)"
+.PP
+Definition at line 739 of file hv.c.
+.PP
+Referenced by cd_hv().
+.SS "\fBINT\fP hv_init (\fBEQUIPMENT\fP * pequipment)"
+.PP
+Definition at line 463 of file hv.c.
+.PP
+Referenced by cd_hv().
+.SS "\fBINT\fP hv_ramp (\fBHV_INFO\fP * hv_info)"
+.PP
+Definition at line 227 of file hv.c.
+.PP
+Referenced by hv_demand(), and hv_idle().
+.SS "\fBINT\fP hv_read (\fBEQUIPMENT\fP * pequipment, int channel)"
+.PP
+Definition at line 124 of file hv.c.
+.PP
+Referenced by hv_idle().
+.SS "void hv_set_current_limit (\fBINT\fP hDB, \fBINT\fP hKey, void * info)"
+.PP
+Definition at line 347 of file hv.c.
+.PP
+Referenced by hv_init().
+.SS "void hv_set_rampdown (\fBINT\fP hDB, \fBINT\fP hKey, void * info)"
+.PP
+Definition at line 385 of file hv.c.
+.PP
+Referenced by hv_init().
+.SS "void hv_set_rampup (\fBINT\fP hDB, \fBINT\fP hKey, void * info)"
+.PP
+Definition at line 366 of file hv.c.
+.PP
+Referenced by hv_init().
+.SS "void hv_set_trip_time (\fBINT\fP hDB, \fBINT\fP hKey, void * info)"
+.PP
+Definition at line 328 of file hv.c.
+.PP
+Referenced by hv_init().
+.SS "void hv_set_voltage_limit (\fBINT\fP hDB, \fBINT\fP hKey, void * info)"
+.PP
+Definition at line 404 of file hv.c.
+.PP
+Referenced by hv_init().
+.SS "\fBINT\fP hv_start (\fBEQUIPMENT\fP * pequipment)"
+.PP
+Definition at line 94 of file hv.c.
+.PP
+Referenced by cd_hv().
+.SS "\fBINT\fP hv_stop (\fBEQUIPMENT\fP * pequipment)"
+.PP
+Definition at line 110 of file hv.c.
+.PP
+Referenced by cd_hv().
+.SS "void hv_update_label (\fBINT\fP hDB, \fBINT\fP hKey, void * info)"
+.PP
+Definition at line 423 of file hv.c.
+.PP
+Referenced by hv_init().
+.SS "void validate_odb_array (HNDLE hDB, \fBHV_INFO\fP * hv_info, char * path, double default_value, int cmd, float * array, void(*)(\fBINT\fP, \fBINT\fP, void *) callback, \fBEQUIPMENT\fP * pequipment)"
+.PP
+Definition at line 441 of file hv.c.
+.PP
+Referenced by hv_init().
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Midas from the source code.

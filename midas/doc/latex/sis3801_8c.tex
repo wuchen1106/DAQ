@@ -1,0 +1,184 @@
+\subsection{sis3801.c File Reference}
+\label{sis3801_8c}\index{sis3801.c@{sis3801.c}}
+\subsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} \hyperlink{sis3801_8c_a751981870df7a28736f574b7679c5a7e}{sis3801\_\-module\_\-ID} (\hyperlink{structMVME__INTERFACE}{MVME\_\-INTERFACE} $\ast$mvme, \hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} base)
+\item 
+\hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} \hyperlink{sis3801_8c_ab2680838fe73b65e48def0018ffbe04e}{sis3801\_\-IRQ\_\-REG\_\-read} (\hyperlink{structMVME__INTERFACE}{MVME\_\-INTERFACE} $\ast$mvme, \hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} base)
+\item 
+\hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} \hyperlink{sis3801_8c_a6d4c4e75a50958ca3bf22363f5f63617}{sis3801\_\-IRQ\_\-REG\_\-write} (\hyperlink{structMVME__INTERFACE}{MVME\_\-INTERFACE} $\ast$mvme, \hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} base, \hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} vector)
+\item 
+\hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} \hyperlink{sis3801_8c_a80d78bb85d728329fb2f5c32bca9b258}{sis3801\_\-input\_\-mode} (\hyperlink{structMVME__INTERFACE}{MVME\_\-INTERFACE} $\ast$mvme, \hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} base, \hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} mode)
+\item 
+\hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} \hyperlink{sis3801_8c_ab88587ea5cc0122596e5e5674293ba01}{sis3801\_\-dwell\_\-time} (\hyperlink{structMVME__INTERFACE}{MVME\_\-INTERFACE} $\ast$mvme, \hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} base, \hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} dwell)
+\item 
+int \hyperlink{sis3801_8c_a78cc82cf4b2ad2a12f8603dba54b78fc}{sis3801\_\-ref1} (\hyperlink{structMVME__INTERFACE}{MVME\_\-INTERFACE} $\ast$mvme, \hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} base, \hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} endis)
+\item 
+void \hyperlink{sis3801_8c_ace2bca482a33ec77baf90ddadc42b3e4}{sis3801\_\-channel\_\-enable} (\hyperlink{structMVME__INTERFACE}{MVME\_\-INTERFACE} $\ast$mvme, \hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} base, \hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} nch)
+\item 
+\hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} \hyperlink{sis3801_8c_adcfb24a5d2030571cd363fb0d88a3f1e}{sis3801\_\-CSR\_\-read} (\hyperlink{structMVME__INTERFACE}{MVME\_\-INTERFACE} $\ast$mvme, \hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} base, const \hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} what)
+\item 
+\hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} \hyperlink{sis3801_8c_aa9c33c651f53e2fe7bc8f3e38bb33495}{sis3801\_\-CSR\_\-write} (\hyperlink{structMVME__INTERFACE}{MVME\_\-INTERFACE} $\ast$mvme, \hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} base, const \hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} what)
+\item 
+void \hyperlink{sis3801_8c_aee9b0f8f5e70dcaab5443c4e2e533dad}{sis3801\_\-FIFO\_\-clear} (\hyperlink{structMVME__INTERFACE}{MVME\_\-INTERFACE} $\ast$mvme, \hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} base)
+\item 
+int \hyperlink{sis3801_8c_a1b473f4e9a07343d020798be54dcf54b}{sis3801\_\-HFIFO\_\-read} (\hyperlink{structMVME__INTERFACE}{MVME\_\-INTERFACE} $\ast$mvme, \hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} base, \hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} $\ast$pfifo)
+\item 
+int \hyperlink{sis3801_8c_abcf16fa0ffafda6f1fa5c219d31f7630}{sis3801\_\-FIFO\_\-flush} (\hyperlink{structMVME__INTERFACE}{MVME\_\-INTERFACE} $\ast$mvme, \hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} base, \hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} $\ast$pfifo)
+\item 
+void \hyperlink{sis3801_8c_a5058a04d28f3bd2aa05e7c1f2f91c871}{sis3801\_\-int\_\-source\_\-enable} (\hyperlink{structMVME__INTERFACE}{MVME\_\-INTERFACE} $\ast$mvme, \hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} base, const int intnum)
+\item 
+void \hyperlink{sis3801_8c_aa0ca70723ac84258800e438bee4af17e}{sis3801\_\-int\_\-source\_\-disable} (\hyperlink{structMVME__INTERFACE}{MVME\_\-INTERFACE} $\ast$mvme, \hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} base, const int intnum)
+\item 
+void \hyperlink{sis3801_8c_aebbdd78e2820274c740be5cb75546086}{sis3801\_\-int\_\-source} (\hyperlink{structMVME__INTERFACE}{MVME\_\-INTERFACE} $\ast$mvme, \hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} base, \hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} int\_\-source)
+\item 
+void \hyperlink{sis3801_8c_a7f43596a68de1d6fa6abe790cc58ca70}{sis3801\_\-int\_\-attach} (\hyperlink{structMVME__INTERFACE}{MVME\_\-INTERFACE} $\ast$mvme, \hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} base, \hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} base\_\-vect, int level, void($\ast$isr)(void))
+\item 
+void \hyperlink{sis3801_8c_afba204e4b4b5d65ed9ad844f61cd6e5f}{sis3801\_\-int\_\-detach} (\hyperlink{structMVME__INTERFACE}{MVME\_\-INTERFACE} $\ast$mvme, \hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} base, \hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} base\_\-vect, int level)
+\item 
+void \hyperlink{sis3801_8c_a9b524fa0921f6b80326dc3f94307e8be}{sis3801\_\-int\_\-clear} (\hyperlink{structMVME__INTERFACE}{MVME\_\-INTERFACE} $\ast$mvme, \hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} base, const int intnum)
+\item 
+int \hyperlink{sis3801_8c_a7d52fd729b9104f9fedce663a0ac0ca1}{sis3801\_\-Setup} (\hyperlink{structMVME__INTERFACE}{MVME\_\-INTERFACE} $\ast$mvme, \hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} base, int mode)
+\end{DoxyCompactItemize}
+
+
+\subsubsection{Function Documentation}
+\index{sis3801.c@{sis3801.c}!myisr@{myisr}}
+\index{myisr@{myisr}!sis3801.c@{sis3801.c}}
+\paragraph[{myisr}]{\setlength{\rightskip}{0pt plus 5cm}static void myisr (int {\em sig}, \/  siginfo\_\-t $\ast$ {\em siginfo}, \/  void $\ast$ {\em extra})\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}\hfill\label{sis3801_8c_aa61dddebb9f7a39b96e8f03e710e878f}
+
+
+Definition at line 612 of file sis3801.c.\index{sis3801.c@{sis3801.c}!sis3801\_\-channel\_\-enable@{sis3801\_\-channel\_\-enable}}
+\index{sis3801\_\-channel\_\-enable@{sis3801\_\-channel\_\-enable}!sis3801.c@{sis3801.c}}
+\paragraph[{sis3801\_\-channel\_\-enable}]{\setlength{\rightskip}{0pt plus 5cm}void sis3801\_\-channel\_\-enable ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  {\bf DWORD} {\em base}, \/  {\bf DWORD} {\em nch})}\hfill\label{sis3801_8c_ace2bca482a33ec77baf90ddadc42b3e4}
+Purpose: Enable nch channel for acquistion. blind command! 1..24 or 32 
+
+Definition at line 205 of file sis3801.c.\index{sis3801.c@{sis3801.c}!sis3801\_\-CSR\_\-read@{sis3801\_\-CSR\_\-read}}
+\index{sis3801\_\-CSR\_\-read@{sis3801\_\-CSR\_\-read}!sis3801.c@{sis3801.c}}
+\paragraph[{sis3801\_\-CSR\_\-read}]{\setlength{\rightskip}{0pt plus 5cm}{\bf DWORD} sis3801\_\-CSR\_\-read ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  {\bf DWORD} {\em base}, \/  const {\bf DWORD} {\em what})}\hfill\label{sis3801_8c_adcfb24a5d2030571cd363fb0d88a3f1e}
+Purpose: Read the CSR and return 1/0 based on what. except for what == CSR\_\-FULL where it returns current CSR 
+
+Definition at line 224 of file sis3801.c.
+
+Referenced by sis3801\_\-CSR\_\-write(), sis3801\_\-FIFO\_\-flush(), sis3801\_\-HFIFO\_\-read(), and sis3801\_\-Status().\index{sis3801.c@{sis3801.c}!sis3801\_\-CSR\_\-write@{sis3801\_\-CSR\_\-write}}
+\index{sis3801\_\-CSR\_\-write@{sis3801\_\-CSR\_\-write}!sis3801.c@{sis3801.c}}
+\paragraph[{sis3801\_\-CSR\_\-write}]{\setlength{\rightskip}{0pt plus 5cm}{\bf DWORD} sis3801\_\-CSR\_\-write ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  {\bf DWORD} {\em base}, \/  const {\bf DWORD} {\em what})}\hfill\label{sis3801_8c_aa9c33c651f53e2fe7bc8f3e38bb33495}
+Purpose: Write to the CSR and return CSR\_\-FULL. 
+
+Definition at line 250 of file sis3801.c.\index{sis3801.c@{sis3801.c}!sis3801\_\-dwell\_\-time@{sis3801\_\-dwell\_\-time}}
+\index{sis3801\_\-dwell\_\-time@{sis3801\_\-dwell\_\-time}!sis3801.c@{sis3801.c}}
+\paragraph[{sis3801\_\-dwell\_\-time}]{\setlength{\rightskip}{0pt plus 5cm}{\bf DWORD} sis3801\_\-dwell\_\-time ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  {\bf DWORD} {\em base}, \/  {\bf DWORD} {\em dwell})}\hfill\label{sis3801_8c_ab88587ea5cc0122596e5e5674293ba01}
+Purpose: Set dwell time in us DWORD dwell : dwell time in microseconds 
+
+Definition at line 128 of file sis3801.c.\index{sis3801.c@{sis3801.c}!sis3801\_\-FIFO\_\-clear@{sis3801\_\-FIFO\_\-clear}}
+\index{sis3801\_\-FIFO\_\-clear@{sis3801\_\-FIFO\_\-clear}!sis3801.c@{sis3801.c}}
+\paragraph[{sis3801\_\-FIFO\_\-clear}]{\setlength{\rightskip}{0pt plus 5cm}void sis3801\_\-FIFO\_\-clear ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  {\bf DWORD} {\em base})}\hfill\label{sis3801_8c_aee9b0f8f5e70dcaab5443c4e2e533dad}
+Purpose: Clear FIFO and logic 
+
+Definition at line 270 of file sis3801.c.\index{sis3801.c@{sis3801.c}!sis3801\_\-FIFO\_\-flush@{sis3801\_\-FIFO\_\-flush}}
+\index{sis3801\_\-FIFO\_\-flush@{sis3801\_\-FIFO\_\-flush}!sis3801.c@{sis3801.c}}
+\paragraph[{sis3801\_\-FIFO\_\-flush}]{\setlength{\rightskip}{0pt plus 5cm}int sis3801\_\-FIFO\_\-flush ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  {\bf DWORD} {\em base}, \/  {\bf DWORD} $\ast$ {\em pfifo})}\hfill\label{sis3801_8c_abcf16fa0ffafda6f1fa5c219d31f7630}
+Purpose: Test and read FIFO until empty This is done using while, if the dwelling time is short relative to the readout time, the pfifo can be overrun. No test on the max read yet! Function value: int : -\/1 FULL number of words read 
+
+Definition at line 323 of file sis3801.c.\index{sis3801.c@{sis3801.c}!sis3801\_\-HFIFO\_\-read@{sis3801\_\-HFIFO\_\-read}}
+\index{sis3801\_\-HFIFO\_\-read@{sis3801\_\-HFIFO\_\-read}!sis3801.c@{sis3801.c}}
+\paragraph[{sis3801\_\-HFIFO\_\-read}]{\setlength{\rightskip}{0pt plus 5cm}int sis3801\_\-HFIFO\_\-read ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  {\bf DWORD} {\em base}, \/  {\bf DWORD} $\ast$ {\em pfifo})}\hfill\label{sis3801_8c_a1b473f4e9a07343d020798be54dcf54b}
+Purpose: Reads 32KB (8K DWORD) of the FIFO Function value: int : -\/1 FULL 0 NOT 1/2 Full number of words read 
+
+Definition at line 291 of file sis3801.c.\index{sis3801.c@{sis3801.c}!sis3801\_\-input\_\-mode@{sis3801\_\-input\_\-mode}}
+\index{sis3801\_\-input\_\-mode@{sis3801\_\-input\_\-mode}!sis3801.c@{sis3801.c}}
+\paragraph[{sis3801\_\-input\_\-mode}]{\setlength{\rightskip}{0pt plus 5cm}{\bf DWORD} sis3801\_\-input\_\-mode ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  {\bf DWORD} {\em base}, \/  {\bf DWORD} {\em mode})}\hfill\label{sis3801_8c_a80d78bb85d728329fb2f5c32bca9b258}
+Purpose: Set input configuration mode DWORD mode : Mode 0-\/4 
+
+Definition at line 106 of file sis3801.c.
+
+Referenced by sis3801\_\-Status().\index{sis3801.c@{sis3801.c}!sis3801\_\-int\_\-attach@{sis3801\_\-int\_\-attach}}
+\index{sis3801\_\-int\_\-attach@{sis3801\_\-int\_\-attach}!sis3801.c@{sis3801.c}}
+\paragraph[{sis3801\_\-int\_\-attach}]{\setlength{\rightskip}{0pt plus 5cm}void sis3801\_\-int\_\-attach ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  {\bf DWORD} {\em base}, \/  {\bf DWORD} {\em base\_\-vect}, \/  int {\em level}, \/  void($\ast$)(void) {\em isr})}\hfill\label{sis3801_8c_a7f43596a68de1d6fa6abe790cc58ca70}
+Purpose: Book an ISR for a bitwise set of interrupt input (0xff). The interrupt vector is then the VECTOR\_\-BASE+intnum Input: DWORD $\ast$ base\_\-addr : base address of the sis3801 DWORD base\_\-vect : base vector of the module int level : IRQ level (1..7) DWORD isr\_\-routine : interrupt routine pointer 
+
+Definition at line 448 of file sis3801.c.\index{sis3801.c@{sis3801.c}!sis3801\_\-int\_\-clear@{sis3801\_\-int\_\-clear}}
+\index{sis3801\_\-int\_\-clear@{sis3801\_\-int\_\-clear}!sis3801.c@{sis3801.c}}
+\paragraph[{sis3801\_\-int\_\-clear}]{\setlength{\rightskip}{0pt plus 5cm}void sis3801\_\-int\_\-clear ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  {\bf DWORD} {\em base}, \/  const int {\em intnum})}\hfill\label{sis3801_8c_a9b524fa0921f6b80326dc3f94307e8be}
+Purpose: Disable the interrupt for the bitwise input intnum (0xff). The interrupt vector is then the VECTOR\_\-BASE+intnum Input: DWORD $\ast$ base\_\-addr : base address of the sis3801 int $\ast$ intnum : interrupt number (input 0..3) 
+
+Definition at line 494 of file sis3801.c.\index{sis3801.c@{sis3801.c}!sis3801\_\-int\_\-detach@{sis3801\_\-int\_\-detach}}
+\index{sis3801\_\-int\_\-detach@{sis3801\_\-int\_\-detach}!sis3801.c@{sis3801.c}}
+\paragraph[{sis3801\_\-int\_\-detach}]{\setlength{\rightskip}{0pt plus 5cm}void sis3801\_\-int\_\-detach ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  {\bf DWORD} {\em base}, \/  {\bf DWORD} {\em base\_\-vect}, \/  int {\em level})}\hfill\label{sis3801_8c_afba204e4b4b5d65ed9ad844f61cd6e5f}
+Purpose: Unbook an ISR for a bitwise set of interrupt input (0xff). The interrupt vector is then the VECTOR\_\-BASE+intnum Input: DWORD $\ast$ base\_\-addr : base address of the sis3801 DWORD base\_\-vect : base vector of the module int level : IRQ level (1..7) 
+
+Definition at line 475 of file sis3801.c.\index{sis3801.c@{sis3801.c}!sis3801\_\-int\_\-source@{sis3801\_\-int\_\-source}}
+\index{sis3801\_\-int\_\-source@{sis3801\_\-int\_\-source}!sis3801.c@{sis3801.c}}
+\paragraph[{sis3801\_\-int\_\-source}]{\setlength{\rightskip}{0pt plus 5cm}void sis3801\_\-int\_\-source ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  {\bf DWORD} {\em base}, \/  {\bf DWORD} {\em int\_\-source})}\hfill\label{sis3801_8c_aebbdd78e2820274c740be5cb75546086}
+Purpose: Enable the one of the 4 interrupt using the predefined \hyperlink{structparameters}{parameters} (see \hyperlink{sis3801_8h}{sis3801.h}) DWORD $\ast$ intnum : interrupt number (input 0..3) 
+
+Definition at line 422 of file sis3801.c.
+
+Referenced by sis3801\_\-int\_\-attach(), and sis3801\_\-int\_\-detach().\index{sis3801.c@{sis3801.c}!sis3801\_\-int\_\-source\_\-disable@{sis3801\_\-int\_\-source\_\-disable}}
+\index{sis3801\_\-int\_\-source\_\-disable@{sis3801\_\-int\_\-source\_\-disable}!sis3801.c@{sis3801.c}}
+\paragraph[{sis3801\_\-int\_\-source\_\-disable}]{\setlength{\rightskip}{0pt plus 5cm}void sis3801\_\-int\_\-source\_\-disable ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  {\bf DWORD} {\em base}, \/  const int {\em intnum})}\hfill\label{sis3801_8c_aa0ca70723ac84258800e438bee4af17e}
+Purpose: Enable the interrupt for the bitwise input intnum (0xff). The interrupt vector is then the VECTOR\_\-BASE 
+
+Definition at line 385 of file sis3801.c.\index{sis3801.c@{sis3801.c}!sis3801\_\-int\_\-source\_\-enable@{sis3801\_\-int\_\-source\_\-enable}}
+\index{sis3801\_\-int\_\-source\_\-enable@{sis3801\_\-int\_\-source\_\-enable}!sis3801.c@{sis3801.c}}
+\paragraph[{sis3801\_\-int\_\-source\_\-enable}]{\setlength{\rightskip}{0pt plus 5cm}void sis3801\_\-int\_\-source\_\-enable ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  {\bf DWORD} {\em base}, \/  const int {\em intnum})}\hfill\label{sis3801_8c_a5058a04d28f3bd2aa05e7c1f2f91c871}
+Purpose: Enable the interrupt for the bitwise input intnum (0xff). The interrupt vector is then the VECTOR\_\-BASE 
+
+Definition at line 349 of file sis3801.c.\index{sis3801.c@{sis3801.c}!sis3801\_\-IRQ\_\-REG\_\-read@{sis3801\_\-IRQ\_\-REG\_\-read}}
+\index{sis3801\_\-IRQ\_\-REG\_\-read@{sis3801\_\-IRQ\_\-REG\_\-read}!sis3801.c@{sis3801.c}}
+\paragraph[{sis3801\_\-IRQ\_\-REG\_\-read}]{\setlength{\rightskip}{0pt plus 5cm}{\bf DWORD} sis3801\_\-IRQ\_\-REG\_\-read ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  {\bf DWORD} {\em base})}\hfill\label{sis3801_8c_ab2680838fe73b65e48def0018ffbe04e}
+DWORD : 0xE(1)L(3)V(8) 
+
+Definition at line 68 of file sis3801.c.\index{sis3801.c@{sis3801.c}!sis3801\_\-IRQ\_\-REG\_\-write@{sis3801\_\-IRQ\_\-REG\_\-write}}
+\index{sis3801\_\-IRQ\_\-REG\_\-write@{sis3801\_\-IRQ\_\-REG\_\-write}!sis3801.c@{sis3801.c}}
+\paragraph[{sis3801\_\-IRQ\_\-REG\_\-write}]{\setlength{\rightskip}{0pt plus 5cm}{\bf DWORD} sis3801\_\-IRQ\_\-REG\_\-write ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  {\bf DWORD} {\em base}, \/  {\bf DWORD} {\em vector})}\hfill\label{sis3801_8c_a6d4c4e75a50958ca3bf22363f5f63617}
+Purpose: write irq (ELV) to the register and read back DWORD : 0xE(1)L(3)V(8) 
+
+Definition at line 86 of file sis3801.c.\index{sis3801.c@{sis3801.c}!sis3801\_\-module\_\-ID@{sis3801\_\-module\_\-ID}}
+\index{sis3801\_\-module\_\-ID@{sis3801\_\-module\_\-ID}!sis3801.c@{sis3801.c}}
+\paragraph[{sis3801\_\-module\_\-ID}]{\setlength{\rightskip}{0pt plus 5cm}{\bf DWORD} sis3801\_\-module\_\-ID ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  {\bf DWORD} {\em base})}\hfill\label{sis3801_8c_a751981870df7a28736f574b7679c5a7e}
+Module ID Purpose: return the Module ID number (I) version (V) IRQ level (L) IRQ vector\# (BB) 0xIIIIVLBB 
+
+Definition at line 37 of file sis3801.c.
+
+Referenced by sis3801\_\-Status().\index{sis3801.c@{sis3801.c}!sis3801\_\-module\_\-reset@{sis3801\_\-module\_\-reset}}
+\index{sis3801\_\-module\_\-reset@{sis3801\_\-module\_\-reset}!sis3801.c@{sis3801.c}}
+\paragraph[{sis3801\_\-module\_\-reset}]{\setlength{\rightskip}{0pt plus 5cm}void sis3801\_\-module\_\-reset ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  {\bf DWORD} {\em base})}\hfill\label{sis3801_8c_a29883baa5a1d5399ba47bfffad05e03e}
+
+
+Definition at line 52 of file sis3801.c.\index{sis3801.c@{sis3801.c}!sis3801\_\-next\_\-logic@{sis3801\_\-next\_\-logic}}
+\index{sis3801\_\-next\_\-logic@{sis3801\_\-next\_\-logic}!sis3801.c@{sis3801.c}}
+\paragraph[{sis3801\_\-next\_\-logic}]{\setlength{\rightskip}{0pt plus 5cm}int sis3801\_\-next\_\-logic ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  {\bf DWORD} {\em base}, \/  {\bf DWORD} {\em endis})}\hfill\label{sis3801_8c_a379a5301f86fafbd631e55e28699a49f}
+
+
+Definition at line 178 of file sis3801.c.\index{sis3801.c@{sis3801.c}!sis3801\_\-ref1@{sis3801\_\-ref1}}
+\index{sis3801\_\-ref1@{sis3801\_\-ref1}!sis3801.c@{sis3801.c}}
+\paragraph[{sis3801\_\-ref1}]{\setlength{\rightskip}{0pt plus 5cm}int sis3801\_\-ref1 ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  {\bf DWORD} {\em base}, \/  {\bf DWORD} {\em endis})}\hfill\label{sis3801_8c_a78cc82cf4b2ad2a12f8603dba54b78fc}
+Purpose: Enable/Disable Reference on Channel 1 DWORD endis : action either ENABLE\_\-REF\_\-CH1 DISABLE\_\-REF\_\-CH1 
+
+Definition at line 152 of file sis3801.c.\index{sis3801.c@{sis3801.c}!sis3801\_\-Setup@{sis3801\_\-Setup}}
+\index{sis3801\_\-Setup@{sis3801\_\-Setup}!sis3801.c@{sis3801.c}}
+\paragraph[{sis3801\_\-Setup}]{\setlength{\rightskip}{0pt plus 5cm}int sis3801\_\-Setup ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  {\bf DWORD} {\em base}, \/  int {\em mode})}\hfill\label{sis3801_8c_a7d52fd729b9104f9fedce663a0ac0ca1}
+Sets all the necessary \hyperlink{structparameters}{parameters} for a given configuration. The configuration is provided by the mode argument. Add your own configuration in the case statement. Let me know your setting if you want to include it in the distribution. 
+\begin{DoxyParams}{Parameters}
+\item[{\em $\ast$mvme}]VME structure \item[{\em base}]Module base address \item[{\em mode}]Configuration mode number \item[{\em $\ast$nentry}]number of entries requested and returned. \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+MVME\_\-SUCCESS 
+\end{DoxyReturn}
+
+
+Definition at line 544 of file sis3801.c.\index{sis3801.c@{sis3801.c}!sis3801\_\-Status@{sis3801\_\-Status}}
+\index{sis3801\_\-Status@{sis3801\_\-Status}!sis3801.c@{sis3801.c}}
+\paragraph[{sis3801\_\-Status}]{\setlength{\rightskip}{0pt plus 5cm}void sis3801\_\-Status ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  {\bf DWORD} {\em base})}\hfill\label{sis3801_8c_a4473c083ae5a19014277e1c3f556a0ef}
+
+
+Definition at line 572 of file sis3801.c.
+
+\subsubsection{Variable Documentation}
+\index{sis3801.c@{sis3801.c}!intflag@{intflag}}
+\index{intflag@{intflag}!sis3801.c@{sis3801.c}}
+\paragraph[{intflag}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf intflag} = 0}\hfill\label{sis3801_8c_af04b8670f9eb7a42f73148ced267ab35}
+
+
+Definition at line 610 of file sis3801.c.

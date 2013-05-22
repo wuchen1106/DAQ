@@ -1,0 +1,6 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$a00008.html#a030bda5de4b8e1793e650001f4debc07" title="MainWindow::CloseWindow" alt="" coords="139,5,339,35"/>
+<area shape="rect" id="node5" href="$a00008.html#ab059a23977448a23ac90a17d76c90572" title="MainWindow::ProcessMessage" alt="" coords="125,59,352,88"/>
+<area shape="rect" id="node7" href="$a00049.html#a6973be6408175a61a9cb696648b4959c" title="ProcessMidasFile" alt="" coords="172,112,305,141"/>
+<area shape="rect" id="node9" href="$a00049.html#a0ddf1224851353fc92bfbff6f499fa97" title="main" alt="" coords="401,112,455,141"/>
+</map>

@@ -1,0 +1,141 @@
+\subsection{vmeio.c File Reference}
+\label{vmeio_8c}\index{vmeio.c@{vmeio.c}}
+\subsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{vmeio_8c_a411b07826fc5b2a611b6f4f9b8e4cc9d}{vmeio\_\-OutputSet} (\hyperlink{structMVME__INTERFACE}{MVME\_\-INTERFACE} $\ast$\hyperlink{fevmemodules_8c_aeab89db2ad759342a32dcd50a0a0156c}{myvme}, \hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} base, \hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} data)
+\item 
+void \hyperlink{vmeio_8c_a703cba2e78c649e71061f29f56aea517}{vmeio\_\-SyncWrite} (\hyperlink{structMVME__INTERFACE}{MVME\_\-INTERFACE} $\ast$\hyperlink{fevmemodules_8c_aeab89db2ad759342a32dcd50a0a0156c}{myvme}, \hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} base, \hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} data)
+\item 
+void \hyperlink{vmeio_8c_a55bfbc8acc81f96641ce87521deb9f53}{vmeio\_\-AsyncWrite} (\hyperlink{structMVME__INTERFACE}{MVME\_\-INTERFACE} $\ast$\hyperlink{fevmemodules_8c_aeab89db2ad759342a32dcd50a0a0156c}{myvme}, \hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} base, \hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} data)
+\item 
+int \hyperlink{vmeio_8c_af6e6d51d02e674a8a2f313c12bf98a1b}{vmeio\_\-CsrRead} (\hyperlink{structMVME__INTERFACE}{MVME\_\-INTERFACE} $\ast$\hyperlink{fevmemodules_8c_aeab89db2ad759342a32dcd50a0a0156c}{myvme}, \hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} base)
+\item 
+int \hyperlink{vmeio_8c_a430d0ca0a0601d0f445fbc4e12f13af5}{vmeio\_\-AsyncRead} (\hyperlink{structMVME__INTERFACE}{MVME\_\-INTERFACE} $\ast$\hyperlink{fevmemodules_8c_aeab89db2ad759342a32dcd50a0a0156c}{myvme}, \hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} base)
+\item 
+int \hyperlink{vmeio_8c_a32066d5e2fc78836d5ac3dc4a70ac9af}{vmeio\_\-SyncRead} (\hyperlink{structMVME__INTERFACE}{MVME\_\-INTERFACE} $\ast$\hyperlink{fevmemodules_8c_aeab89db2ad759342a32dcd50a0a0156c}{myvme}, \hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} base)
+\item 
+void \hyperlink{vmeio_8c_a43ffc35999b9aebb9948bb7b7dd7e162}{vmeio\_\-StrobeClear} (\hyperlink{structMVME__INTERFACE}{MVME\_\-INTERFACE} $\ast$\hyperlink{fevmemodules_8c_aeab89db2ad759342a32dcd50a0a0156c}{myvme}, \hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} base)
+\item 
+void \hyperlink{vmeio_8c_a435b8c9a42cccfa95a10ae2b6030f416}{vmeio\_\-IntEnable} (\hyperlink{structMVME__INTERFACE}{MVME\_\-INTERFACE} $\ast$\hyperlink{fevmemodules_8c_aeab89db2ad759342a32dcd50a0a0156c}{myvme}, \hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} base, int input)
+\item 
+void \hyperlink{vmeio_8c_a5d16a82b1b6620fc8c2622682c32182b}{vmeio\_\-IntRearm} (\hyperlink{structMVME__INTERFACE}{MVME\_\-INTERFACE} $\ast$\hyperlink{fevmemodules_8c_aeab89db2ad759342a32dcd50a0a0156c}{myvme}, \hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} base, int input)
+\end{DoxyCompactItemize}
+
+
+\subsubsection{Function Documentation}
+\index{vmeio.c@{vmeio.c}!myisrvmeio@{myisrvmeio}}
+\index{myisrvmeio@{myisrvmeio}!vmeio.c@{vmeio.c}}
+\paragraph[{myisrvmeio}]{\setlength{\rightskip}{0pt plus 5cm}static void myisrvmeio (int {\em sig}, \/  siginfo\_\-t $\ast$ {\em siginfo}, \/  void $\ast$ {\em extra})\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}\hfill\label{vmeio_8c_a0344e38a36347690a82b4b03dd9b17d0}
+
+
+Definition at line 160 of file vmeio.c.\index{vmeio.c@{vmeio.c}!vmeio\_\-AsyncRead@{vmeio\_\-AsyncRead}}
+\index{vmeio\_\-AsyncRead@{vmeio\_\-AsyncRead}!vmeio.c@{vmeio.c}}
+\paragraph[{vmeio\_\-AsyncRead}]{\setlength{\rightskip}{0pt plus 5cm}int vmeio\_\-AsyncRead ({\bf MVME\_\-INTERFACE} $\ast$ {\em myvme}, \/  {\bf DWORD} {\em base})}\hfill\label{vmeio_8c_a430d0ca0a0601d0f445fbc4e12f13af5}
+Read from the Async register 
+\begin{DoxyParams}{Parameters}
+\item[{\em myvme}]vme structure \item[{\em base}]VMEIO base address \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Async\_\-Reg 
+\end{DoxyReturn}
+
+
+Definition at line 84 of file vmeio.c.\index{vmeio.c@{vmeio.c}!vmeio\_\-AsyncWrite@{vmeio\_\-AsyncWrite}}
+\index{vmeio\_\-AsyncWrite@{vmeio\_\-AsyncWrite}!vmeio.c@{vmeio.c}}
+\paragraph[{vmeio\_\-AsyncWrite}]{\setlength{\rightskip}{0pt plus 5cm}void vmeio\_\-AsyncWrite ({\bf MVME\_\-INTERFACE} $\ast$ {\em myvme}, \/  {\bf DWORD} {\em base}, \/  {\bf DWORD} {\em data})}\hfill\label{vmeio_8c_a55bfbc8acc81f96641ce87521deb9f53}
+Writee to the Async output (latch mode) 
+\begin{DoxyParams}{Parameters}
+\item[{\em myvme}]vme structure \item[{\em base}]VMEIO base address \item[{\em data}]data to be written \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 54 of file vmeio.c.
+
+Referenced by end\_\-of\_\-run(), pause\_\-run(), and resume\_\-run().\index{vmeio.c@{vmeio.c}!vmeio\_\-CsrRead@{vmeio\_\-CsrRead}}
+\index{vmeio\_\-CsrRead@{vmeio\_\-CsrRead}!vmeio.c@{vmeio.c}}
+\paragraph[{vmeio\_\-CsrRead}]{\setlength{\rightskip}{0pt plus 5cm}int vmeio\_\-CsrRead ({\bf MVME\_\-INTERFACE} $\ast$ {\em myvme}, \/  {\bf DWORD} {\em base})}\hfill\label{vmeio_8c_af6e6d51d02e674a8a2f313c12bf98a1b}
+Read the CSR register 
+\begin{DoxyParams}{Parameters}
+\item[{\em myvme}]vme structure \item[{\em base}]VMEIO base address \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+CSR status 
+\end{DoxyReturn}
+
+
+Definition at line 68 of file vmeio.c.
+
+Referenced by init\_\-vme\_\-modules(), and poll\_\-event().\index{vmeio.c@{vmeio.c}!vmeio\_\-IntEnable@{vmeio\_\-IntEnable}}
+\index{vmeio\_\-IntEnable@{vmeio\_\-IntEnable}!vmeio.c@{vmeio.c}}
+\paragraph[{vmeio\_\-IntEnable}]{\setlength{\rightskip}{0pt plus 5cm}void vmeio\_\-IntEnable ({\bf MVME\_\-INTERFACE} $\ast$ {\em myvme}, \/  {\bf DWORD} {\em base}, \/  int {\em input})}\hfill\label{vmeio_8c_a435b8c9a42cccfa95a10ae2b6030f416}
+Enable Interrupt source. Only any of the first 8 inputs can generate interrupt. 
+\begin{DoxyParams}{Parameters}
+\item[{\em myvme}]vme structure \item[{\em base}]VMEIO base address \item[{\em input}]inputs 0..7 (LSB) \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 132 of file vmeio.c.\index{vmeio.c@{vmeio.c}!vmeio\_\-IntRearm@{vmeio\_\-IntRearm}}
+\index{vmeio\_\-IntRearm@{vmeio\_\-IntRearm}!vmeio.c@{vmeio.c}}
+\paragraph[{vmeio\_\-IntRearm}]{\setlength{\rightskip}{0pt plus 5cm}void vmeio\_\-IntRearm ({\bf MVME\_\-INTERFACE} $\ast$ {\em myvme}, \/  {\bf DWORD} {\em base}, \/  int {\em input})}\hfill\label{vmeio_8c_a5d16a82b1b6620fc8c2622682c32182b}
+Select Interrupt source and arm interrupt The CSR should be reset before this operation. In Sync mode the strobe and the input have to be in coincidence. In Async mode a logical level on the input will trigger the interrupt. 
+\begin{DoxyParams}{Parameters}
+\item[{\em myvme}]vme structure \item[{\em base}]VMEIO base address \item[{\em input}]inputs 0..7 if 1=$>$ Sync, 0=$>$ Async \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 150 of file vmeio.c.\index{vmeio.c@{vmeio.c}!vmeio\_\-OutputSet@{vmeio\_\-OutputSet}}
+\index{vmeio\_\-OutputSet@{vmeio\_\-OutputSet}!vmeio.c@{vmeio.c}}
+\paragraph[{vmeio\_\-OutputSet}]{\setlength{\rightskip}{0pt plus 5cm}void vmeio\_\-OutputSet ({\bf MVME\_\-INTERFACE} $\ast$ {\em myvme}, \/  {\bf DWORD} {\em base}, \/  {\bf DWORD} {\em data})}\hfill\label{vmeio_8c_a411b07826fc5b2a611b6f4f9b8e4cc9d}
+Set output in pulse mode 
+\begin{DoxyParams}{Parameters}
+\item[{\em myvme}]vme structure \item[{\em base}]VMEIO base address \item[{\em data}]data to be written \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 24 of file vmeio.c.
+
+Referenced by begin\_\-of\_\-run(), disable\_\-trigger(), enable\_\-trigger(), and init\_\-vme\_\-modules().\index{vmeio.c@{vmeio.c}!vmeio\_\-StrobeClear@{vmeio\_\-StrobeClear}}
+\index{vmeio\_\-StrobeClear@{vmeio\_\-StrobeClear}!vmeio.c@{vmeio.c}}
+\paragraph[{vmeio\_\-StrobeClear}]{\setlength{\rightskip}{0pt plus 5cm}void vmeio\_\-StrobeClear ({\bf MVME\_\-INTERFACE} $\ast$ {\em myvme}, \/  {\bf DWORD} {\em base})}\hfill\label{vmeio_8c_a43ffc35999b9aebb9948bb7b7dd7e162}
+Clear Strobe input 
+\begin{DoxyParams}{Parameters}
+\item[{\em myvme}]vme structure \item[{\em base}]VMEIO base address \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 116 of file vmeio.c.
+
+Referenced by init\_\-vme\_\-modules().\index{vmeio.c@{vmeio.c}!vmeio\_\-SyncRead@{vmeio\_\-SyncRead}}
+\index{vmeio\_\-SyncRead@{vmeio\_\-SyncRead}!vmeio.c@{vmeio.c}}
+\paragraph[{vmeio\_\-SyncRead}]{\setlength{\rightskip}{0pt plus 5cm}int vmeio\_\-SyncRead ({\bf MVME\_\-INTERFACE} $\ast$ {\em myvme}, \/  {\bf DWORD} {\em base})}\hfill\label{vmeio_8c_a32066d5e2fc78836d5ac3dc4a70ac9af}
+Read from the Sync register 
+\begin{DoxyParams}{Parameters}
+\item[{\em myvme}]vme structure \item[{\em base}]VMEIO base address \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Sync\_\-Reg 
+\end{DoxyReturn}
+
+
+Definition at line 100 of file vmeio.c.\index{vmeio.c@{vmeio.c}!vmeio\_\-SyncWrite@{vmeio\_\-SyncWrite}}
+\index{vmeio\_\-SyncWrite@{vmeio\_\-SyncWrite}!vmeio.c@{vmeio.c}}
+\paragraph[{vmeio\_\-SyncWrite}]{\setlength{\rightskip}{0pt plus 5cm}void vmeio\_\-SyncWrite ({\bf MVME\_\-INTERFACE} $\ast$ {\em myvme}, \/  {\bf DWORD} {\em base}, \/  {\bf DWORD} {\em data})}\hfill\label{vmeio_8c_a703cba2e78c649e71061f29f56aea517}
+Write to the sync output (pulse mode) 
+\begin{DoxyParams}{Parameters}
+\item[{\em myvme}]vme structure \item[{\em base}]VMEIO base address \item[{\em data}]data to be written \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 39 of file vmeio.c.
+
+Referenced by resume\_\-run().

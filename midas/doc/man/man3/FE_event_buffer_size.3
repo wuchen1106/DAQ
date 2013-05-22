@@ -1,0 +1,62 @@
+.TH "FE_event_buffer_size" 3 "31 May 2012" "Version 2.3.0-0" "Midas" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+FE_event_buffer_size \- Increase the Event Buffer Size(s) 
+
+.br
+ 
+.PP
+
+.br
+   By default the event buffer (used to contain the data from the event) is named \fISYSTEM\fP. Its default size is 2MB. The memory usage can be optimized at the frontend level in case large data transfer is needed. This method works for all MIDAS buffers, except for the ODB buffer, where the size has to be specified at creation time (see \fBODB Creation\fP). 
+.br
+ There is no need to increase the SYSMSG.SHM buffer as it is used only for messages. 
+.br
+ To increase the size of the event buffer(s):
+.PP
+.IP "1." 4
+Shutdown all MIDAS programs, and \fBsave the ODB contents\fP if necessary.
+.IP "2." 4
+Delete the old .SYSTEM.SHM files located in the directory specified by the \fBexptab file\fP for your experiment. (use \fBipcrm\fP (linux) for shared memory segment removal).
+.IP "3." 4
+Run odbedit (which \fBcreates the ODB\fP). 
+.PP
+.nf
+$odbedit
+[local:midas:Stopped]/>cd /Experiment
+[local:midas:Stopped]/>ls 'Buffer Sizes'
+
+.fi
+.PP
+
+.PP
+.PP
+.IP "\(bu" 2
+If the Key 'Buffer Sizes' does not exist, create this key, then create a DWORD key of the buffer name to be increased, and set it to the desired value, e.g. 
+.PP
+.nf
+[local:midas:S]/Experiment>mkdir 'Buffer Sizes'
+[local:midas:S]/Experiment>cd 'Buffer Sizes'
+[local:midas:S]/Buffer Sizes>create DWORD SYSTEM
+[local:midas:S]/Buffer Sizes>set SYSTEM 0x1000000
+
+.fi
+.PP
+
+.IP "\(bu" 2
+If the SYSTEM key exists already, just set it to the desired size.
+.PP
+.PP
+.IP "1." 4
+\fBReload the ODB contents\fP if necessary.
+.PP
+.PP
+
+.br
+.PP
+
+.br
+ 
+.PP
+ 

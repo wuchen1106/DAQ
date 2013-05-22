@@ -1,0 +1,1685 @@
+.TH "Midas ODB Functions (db_xxx)" 3 "31 May 2012" "Version 2.3.0-0" "Midas" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Midas ODB Functions (db_xxx) \- 
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBINT\fP \fBdb_open_database\fP (const char *xdatabase_name, \fBINT\fP database_size, HNDLE *\fBhDB\fP, const char *client_name)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBdb_close_database\fP (HNDLE \fBhDB\fP)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBdb_lock_database\fP (HNDLE \fBhDB\fP)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBdb_unlock_database\fP (HNDLE \fBhDB\fP)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBdb_protect_database\fP (HNDLE \fBhDB\fP)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBdb_create_key\fP (HNDLE \fBhDB\fP, HNDLE \fBhKey\fP, const char *key_name, \fBDWORD\fP type)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBdb_create_link\fP (HNDLE \fBhDB\fP, HNDLE \fBhKey\fP, const char *link_name, const char *destination)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBdb_delete_key1\fP (HNDLE \fBhDB\fP, HNDLE \fBhKey\fP, \fBINT\fP level, \fBBOOL\fP follow_links)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBdb_delete_key\fP (HNDLE \fBhDB\fP, HNDLE \fBhKey\fP, \fBBOOL\fP follow_links)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBdb_find_key\fP (HNDLE \fBhDB\fP, HNDLE \fBhKey\fP, const char *key_name, HNDLE *subhKey)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBdb_set_value\fP (HNDLE \fBhDB\fP, HNDLE hKeyRoot, const char *key_name, const void *data, \fBINT\fP data_size, \fBINT\fP num_values, \fBDWORD\fP type)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBdb_set_value_index\fP (HNDLE \fBhDB\fP, HNDLE hKeyRoot, const char *key_name, const void *data, \fBINT\fP data_size, \fBINT\fP idx, \fBDWORD\fP type, \fBBOOL\fP trunc)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBdb_get_value\fP (HNDLE \fBhDB\fP, HNDLE hKeyRoot, const char *key_name, void *data, \fBINT\fP *buf_size, \fBDWORD\fP type, \fBBOOL\fP create)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBdb_enum_key\fP (HNDLE \fBhDB\fP, HNDLE \fBhKey\fP, \fBINT\fP idx, HNDLE *subkey_handle)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBdb_get_key\fP (HNDLE \fBhDB\fP, HNDLE \fBhKey\fP, \fBKEY\fP *key)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBdb_get_link\fP (HNDLE \fBhDB\fP, HNDLE \fBhKey\fP, \fBKEY\fP *key)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBdb_get_key_time\fP (HNDLE \fBhDB\fP, HNDLE \fBhKey\fP, \fBDWORD\fP *delta)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBdb_get_key_info\fP (HNDLE \fBhDB\fP, HNDLE \fBhKey\fP, char *name, \fBINT\fP name_size, \fBINT\fP *type, \fBINT\fP *num_values, \fBINT\fP *item_size)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBdb_get_data\fP (HNDLE \fBhDB\fP, HNDLE \fBhKey\fP, void *data, \fBINT\fP *buf_size, \fBDWORD\fP type)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBdb_get_link_data\fP (HNDLE \fBhDB\fP, HNDLE \fBhKey\fP, void *data, \fBINT\fP *buf_size, \fBDWORD\fP type)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBdb_get_data_index\fP (HNDLE \fBhDB\fP, HNDLE \fBhKey\fP, void *data, \fBINT\fP *buf_size, \fBINT\fP idx, \fBDWORD\fP type)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBdb_set_data\fP (HNDLE \fBhDB\fP, HNDLE \fBhKey\fP, const void *data, \fBINT\fP buf_size, \fBINT\fP num_values, \fBDWORD\fP type)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBdb_set_link_data\fP (HNDLE \fBhDB\fP, HNDLE \fBhKey\fP, const void *data, \fBINT\fP buf_size, \fBINT\fP num_values, \fBDWORD\fP type)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBdb_set_data_index\fP (HNDLE \fBhDB\fP, HNDLE \fBhKey\fP, const void *data, \fBINT\fP data_size, \fBINT\fP idx, \fBDWORD\fP type)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBdb_set_link_data_index\fP (HNDLE \fBhDB\fP, HNDLE \fBhKey\fP, const void *data, \fBINT\fP data_size, \fBINT\fP idx, \fBDWORD\fP type)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBdb_load\fP (HNDLE \fBhDB\fP, HNDLE hKeyRoot, const char *filename, \fBBOOL\fP bRemote)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBdb_copy\fP (HNDLE \fBhDB\fP, HNDLE \fBhKey\fP, char *buffer, \fBINT\fP *buffer_size, char *path)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBdb_paste\fP (HNDLE \fBhDB\fP, HNDLE hKeyRoot, const char *buffer)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBdb_paste_xml\fP (HNDLE \fBhDB\fP, HNDLE hKeyRoot, const char *buffer)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBdb_copy_xml\fP (HNDLE \fBhDB\fP, HNDLE \fBhKey\fP, char *buffer, \fBINT\fP *buffer_size)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBdb_save\fP (HNDLE \fBhDB\fP, HNDLE \fBhKey\fP, const char *filename, \fBBOOL\fP bRemote)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBdb_save_xml\fP (HNDLE \fBhDB\fP, HNDLE \fBhKey\fP, const char *filename)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBdb_save_struct\fP (HNDLE \fBhDB\fP, HNDLE \fBhKey\fP, const char *file_name, const char *struct_name, \fBBOOL\fP append)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBdb_sprintf\fP (char *string, const void *data, \fBINT\fP data_size, \fBINT\fP idx, \fBDWORD\fP type)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBdb_sprintff\fP (char *string, const char *format, const void *data, \fBINT\fP data_size, \fBINT\fP idx, \fBDWORD\fP type)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBdb_get_record_size\fP (HNDLE \fBhDB\fP, HNDLE \fBhKey\fP, \fBINT\fP align, \fBINT\fP *buf_size)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBdb_get_record\fP (HNDLE \fBhDB\fP, HNDLE \fBhKey\fP, void *data, \fBINT\fP *buf_size, \fBINT\fP align)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBdb_set_record\fP (HNDLE \fBhDB\fP, HNDLE \fBhKey\fP, void *data, \fBINT\fP buf_size, \fBINT\fP align)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBdb_create_record\fP (HNDLE \fBhDB\fP, HNDLE \fBhKey\fP, const char *orig_key_name, const char *init_str)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBdb_check_record\fP (HNDLE \fBhDB\fP, HNDLE \fBhKey\fP, const char *keyname, const char *rec_str, \fBBOOL\fP correct)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBdb_open_record\fP (HNDLE \fBhDB\fP, HNDLE \fBhKey\fP, void *ptr, \fBINT\fP rec_size, \fBWORD\fP access_mode, void(*dispatcher)(\fBINT\fP, \fBINT\fP, void *), void *info)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBdb_close_record\fP (HNDLE \fBhDB\fP, HNDLE \fBhKey\fP)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBdb_close_all_records\fP ()"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBdb_update_record\fP (\fBINT\fP \fBhDB\fP, \fBINT\fP \fBhKey\fP, int s)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBdb_send_changed_records\fP ()"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+dox 
+.SH "Function Documentation"
+.PP 
+.SS "\fBINT\fP db_check_record (HNDLE hDB, HNDLE hKey, const char * keyname, const char * rec_str, \fBBOOL\fP correct)"This function ensures that a certain ODB subtree matches a given C structure, by comparing the init_str with the current ODB structure. If the record does not exist at all, it is created with the default values in init_str. If it does exist but does not match the variables in init_str, the function returns an error if correct=FALSE or calls \fBdb_create_record()\fP if correct=TRUE. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIhDB\fP ODB handle obtained via \fBcm_get_experiment_database()\fP. 
+.br
+\fIhKey\fP Handle for key where search starts, zero for root. 
+.br
+\fIkeyname\fP Name of key to search, can contain directories. 
+.br
+\fIrec_str\fP ASCII representation of ODB record in the format 
+.br
+\fIcorrect\fP If TRUE, correct ODB record if necessary 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+DB_SUCCESS, DB_INVALID_HANDLE, DB_NO_KEY, DB_STRUCT_MISMATCH 
+.RE
+.PP
+
+.PP
+Definition at line 8190 of file odb.c.
+.PP
+Referenced by al_check(), al_trigger_alarm(), cm_connect_experiment1(), and register_equipment().
+.SS "\fBINT\fP db_close_all_records ()"Release local memory for open records. This routines is called by db_close_all_databases() and \fBcm_disconnect_experiment()\fP 
+.PP
+\fBReturns:\fP
+.RS 4
+DB_SUCCESS, DB_INVALID_HANDLE 
+.RE
+.PP
+
+.PP
+Definition at line 8661 of file odb.c.
+.PP
+Referenced by cm_disconnect_experiment().
+.SS "\fBINT\fP db_close_database (HNDLE hDB)"Close a database 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIhDB\fP ODB handle obtained via \fBcm_get_experiment_database()\fP. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+DB_SUCCESS, DB_INVALID_HANDLE, RPC_NET_ERROR 
+.RE
+.PP
+
+.PP
+Definition at line 1105 of file odb.c.
+.SS "\fBINT\fP db_close_record (HNDLE hDB, HNDLE hKey)"Close a record previously opend with db_open_record. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIhDB\fP ODB handle obtained via \fBcm_get_experiment_database()\fP. 
+.br
+\fIhKey\fP Handle for key where search starts, zero for root. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+DB_SUCCESS, DB_INVALID_HANDLE 
+.RE
+.PP
+
+.PP
+Definition at line 8624 of file odb.c.
+.SS "\fBINT\fP db_copy (HNDLE hDB, HNDLE hKey, char * buffer, \fBINT\fP * buffer_size, char * path)"Copy an ODB subtree in ASCII format to a buffer
+.PP
+This function converts the binary ODB contents to an ASCII. The function \fBdb_paste()\fP can be used to convert the ASCII representation back to binary ODB contents. The functions \fBdb_load()\fP and \fBdb_save()\fP internally use \fBdb_copy()\fP and \fBdb_paste()\fP. This function converts the binary ODB contents to an ASCII representation of the form:
+.IP "\(bu" 2
+For single value: 
+.PP
+.nf
+[ODB path]
+ key name = type : value
+
+.fi
+.PP
+
+.IP "\(bu" 2
+For strings: 
+.PP
+.nf
+key name = STRING : [size] string contents
+
+.fi
+.PP
+
+.IP "\(bu" 2
+For arrayes (type can be BYTE, SBYTE, CHAR, WORD, SHORT, DWORD, INT, BOOL, FLOAT, DOUBLE, STRING or LINK): 
+.PP
+.nf
+key name = type[size] :
+ [0] value0
+ [1] value1
+ [2] value2
+ ...
+
+.fi
+.PP
+ 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIhDB\fP ODB handle obtained via \fBcm_get_experiment_database()\fP. 
+.br
+\fIhKey\fP Handle for key where search starts, zero for root. 
+.br
+\fIbuffer\fP ASCII buffer which receives ODB contents. 
+.br
+\fIbuffer_size\fP Size of buffer, returns remaining space in buffer. 
+.br
+\fIpath\fP Internal use only, must be empty (''). 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+DB_SUCCESS, DB_TRUNCATED, DB_NO_MEMORY 
+.RE
+.PP
+
+.PP
+
+.PP
+Definition at line 5662 of file odb.c.
+.PP
+Referenced by db_create_record(), and db_save().
+.SS "\fBINT\fP db_copy_xml (HNDLE hDB, HNDLE hKey, char * buffer, \fBINT\fP * buffer_size)"Copy an ODB subtree in XML format to a buffer
+.PP
+\fBParameters:\fP
+.RS 4
+\fIhDB\fP ODB handle obtained via \fBcm_get_experiment_database()\fP. 
+.br
+\fIhKey\fP Handle for key where search starts, zero for root. 
+.br
+\fIbuffer\fP ASCII buffer which receives ODB contents. 
+.br
+\fIbuffer_size\fP Size of buffer, returns remaining space in buffer. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+DB_SUCCESS, DB_TRUNCATED, DB_NO_MEMORY 
+.RE
+.PP
+
+.PP
+Definition at line 6373 of file odb.c.
+.SS "\fBINT\fP db_create_key (HNDLE hDB, HNDLE hKey, const char * key_name, \fBDWORD\fP type)"Create a new key in a database 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIhDB\fP ODB handle obtained via \fBcm_get_experiment_database()\fP. 
+.br
+\fIhKey\fP Key handle to start with, 0 for root 
+.br
+\fIkey_name\fP Name of key in the form '/key/key/key' 
+.br
+\fItype\fP Type of key, one of TID_xxx (see \fBMidas_Data_Types\fP) 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+DB_SUCCESS, DB_INVALID_HANDLE, DB_INVALID_PARAM, DB_FULL, DB_KEY_EXIST, DB_NO_ACCESS 
+.RE
+.PP
+
+.PP
+Definition at line 1590 of file odb.c.
+.PP
+Referenced by db_create_record(), db_get_value(), db_paste(), db_paste_node(), db_set_value(), db_set_value_index(), hv_init(), and register_equipment().
+.SS "\fBINT\fP db_create_link (HNDLE hDB, HNDLE hKey, const char * link_name, const char * destination)"Create a link to a key or set the destination of and existing link. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIhDB\fP ODB handle obtained via \fBcm_get_experiment_database()\fP. 
+.br
+\fIhKey\fP Key handle to start with, 0 for root 
+.br
+\fIlink_name\fP Name of key in the form '/key/key/key' 
+.br
+\fIdestination\fP Destination of link in the form '/key/key/key' 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+DB_SUCCESS, DB_INVALID_HANDLE, DB_FULL, DB_KEY_EXIST, DB_NO_ACCESS 
+.RE
+.PP
+
+.PP
+Definition at line 1830 of file odb.c.
+.SS "\fBINT\fP db_create_record (HNDLE hDB, HNDLE hKey, const char * orig_key_name, const char * init_str)"dox Create a record. If a part of the record exists alreay, merge it with the init_str (use values from the init_str only when they are not in the existing record).
+.PP
+This functions creates a ODB sub-tree according to an ASCII representation of that tree. See \fBdb_copy()\fP for a description. It can be used to create a sub-tree which exactly matches a C structure. The sub-tree can then later mapped to the C structure ('hot-link') via the function \fBdb_open_record()\fP.
+.PP
+If a sub-tree exists already which exactly matches the ASCII representation, it is not modified. If part of the tree exists, it is merged with the ASCII representation where the ODB values have priority, only values not present in the ODB are created with the default values of the ASCII representation. It is therefore recommended that before creating an ODB hot-link the function \fBdb_create_record()\fP is called to insure that the ODB tree and the C structure contain exactly the same values in the same order.
+.PP
+Following example creates a record under /Equipment/Trigger/Settings, opens a hot-link between that record and a local C structure trigger_settings and registers a callback function trigger_update() which gets called each time the record is changed. 
+.PP
+.nf
+struct {
+  INT level1;
+  INT level2;
+} trigger_settings;
+char *trigger_settings_str =
+'[Settings]\n\
+level1 = INT : 0\n\
+level2 = INT : 0';
+void trigger_update(INT hDB, INT hkey, void *info)
+{
+  printf('New levels: %d %d\n',
+    trigger_settings.level1,
+    trigger_settings.level2);
+}
+main()
+{
+  HNDLE hDB, hkey;
+  char[128] info;
+  ...
+  cm_get_experiment_database(&hDB, NULL);
+  db_create_record(hDB, 0, '/Equipment/Trigger', trigger_settings_str);
+  db_find_key(hDB, 0,'/Equipment/Trigger/Settings', &hkey);
+  db_open_record(hDB, hkey, &trigger_settings,
+    sizeof(trigger_settings), MODE_READ, trigger_update, info);
+  ...
+}
+
+.fi
+.PP
+ 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIhDB\fP ODB handle obtained via \fBcm_get_experiment_database()\fP. 
+.br
+\fIhKey\fP Handle for key where search starts, zero for root. 
+.br
+\fIorig_key_name\fP Name of key to search, can contain directories. 
+.br
+\fIinit_str\fP Initialization string in the format of the db_copy/db_save functions. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+DB_SUCCESS, DB_INVALID_HANDLE, DB_FULL, DB_NO_ACCESS, DB_OPEN_RECORD 
+.RE
+.PP
+
+.PP
+Definition at line 8021 of file odb.c.
+.PP
+Referenced by al_check(), al_trigger_alarm(), analyzer_init(), cm_set_client_info(), db_check_record(), frontend_init(), main(), register_equipment(), and tr_start().
+.SS "\fBINT\fP db_delete_key (HNDLE hDB, HNDLE hKey, \fBBOOL\fP follow_links)"Delete a subtree in a database starting from a key (including this key). 
+.PP
+.nf
+...
+    status = db_find_link(hDB, 0, str, &hkey);
+    if (status != DB_SUCCESS)
+    {
+      cm_msg(MINFO,'my_delete',' 'Cannot find key %s', str);
+      return;
+    }
+
+    status = db_delete_key(hDB, hkey, FALSE);
+    if (status != DB_SUCCESS)
+    {
+      cm_msg(MERROR,'my_delete',' 'Cannot delete key %s', str);
+      return;
+    }
+  ...
+
+.fi
+.PP
+ 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIhDB\fP ODB handle obtained via \fBcm_get_experiment_database()\fP. 
+.br
+\fIhKey\fP for key where search starts, zero for root. 
+.br
+\fIfollow_links\fP Follow links when TRUE. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+DB_SUCCESS, DB_INVALID_HANDLE, DB_NO_ACCESS, DB_OPEN_RECORD 
+.RE
+.PP
+
+.PP
+Definition at line 2032 of file odb.c.
+.PP
+Referenced by cm_deregister_transition(), cm_set_client_info(), and db_create_record().
+.SS "\fBINT\fP db_delete_key1 (HNDLE hDB, HNDLE hKey, \fBINT\fP level, \fBBOOL\fP follow_links)"Delete a subtree, using level information (only called internally by \fBdb_delete_key()\fP) 
+.PP
+\fBFor internal use only.\fP
+.RS 4
+
+.PP
+\fBParameters:\fP
+.RS 4
+\fIhDB\fP ODB handle obtained via \fBcm_get_experiment_database()\fP. 
+.br
+\fIhKey\fP Key handle to start with, 0 for root 
+.br
+\fIlevel\fP Recursion level, must be zero when 
+.br
+\fIfollow_links\fP Follow links when TRUE called from a user routine 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+DB_SUCCESS, DB_INVALID_HANDLE, DB_OPEN_RECORD 
+.RE
+.PP
+.RE
+.PP
+
+.PP
+Definition at line 1858 of file odb.c.
+.PP
+Referenced by cm_delete_client_info(), and db_delete_key().
+.SS "\fBINT\fP db_enum_key (HNDLE hDB, HNDLE hKey, \fBINT\fP idx, HNDLE * subkey_handle)"Enumerate subkeys from a key, follow links.
+.PP
+hkey must correspond to a valid ODB directory. The index is usually incremented in a loop until the last key is reached. Information about the sub-keys can be obtained with \fBdb_get_key()\fP. If a returned key is of type TID_KEY, it contains itself sub-keys. To scan a whole ODB sub-tree, the function db_scan_tree() can be used. 
+.PP
+.nf
+INT   i;
+HNDLE hkey, hsubkey;
+KEY   key;
+  db_find_key(hdb, 0, '/Runinfo', &hkey);
+  for (i=0 ; ; i++)
+  {
+   db_enum_key(hdb, hkey, i, &hsubkey);
+   if (!hSubkey)
+    break; // end of list reached
+   // print key name
+   db_get_key(hdb, hkey, &key);
+   printf('%s\n', key.name);
+  }
+
+.fi
+.PP
+ 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIhDB\fP ODB handle obtained via \fBcm_get_experiment_database()\fP. 
+.br
+\fIhKey\fP Handle for key where search starts, zero for root. 
+.br
+\fIidx\fP Subkey index, sould be initially 0, then incremented in each call until subhKey becomes zero and the function returns DB_NO_MORE_SUBKEYS 
+.br
+\fIsubkey_handle\fP Handle of subkey which can be used in \fBdb_get_key()\fP and \fBdb_get_data()\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+DB_SUCCESS, DB_INVALID_HANDLE, DB_NO_MORE_SUBKEYS 
+.RE
+.PP
+
+.PP
+Definition at line 3342 of file odb.c.
+.PP
+Referenced by al_check(), cm_connect_client(), cm_exist(), cm_set_client_info(), cm_shutdown(), cm_transition1(), load_fragment(), logger_root(), and update_odb().
+.SS "\fBINT\fP db_find_key (HNDLE hDB, HNDLE hKey, const char * key_name, HNDLE * subhKey)"Returns key handle for a key with a specific name.
+.PP
+Keys can be accessed by their name including the directory or by a handle. A key handle is an internal offset to the shared memory where the ODB lives and allows a much faster access to a key than via its name.
+.PP
+The function \fBdb_find_key()\fP must be used to convert a key name to a handle. Most other database functions use this key handle in various operations. 
+.PP
+.nf
+HNDLE hkey, hsubkey;
+// use full name, start from root
+db_find_key(hDB, 0, '/Runinfo/Run number', &hkey);
+// start from subdirectory
+db_find_key(hDB, 0, '/Runinfo', &hkey);
+db_find_key(hdb, hkey, 'Run number', &hsubkey);
+
+.fi
+.PP
+ 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIhDB\fP ODB handle obtained via \fBcm_get_experiment_database()\fP. 
+.br
+\fIhKey\fP Handle for key where search starts, zero for root. 
+.br
+\fIkey_name\fP Name of key to search, can contain directories. 
+.br
+\fIsubhKey\fP Returned handle of key, zero if key cannot be found. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+DB_SUCCESS, DB_INVALID_HANDLE, DB_NO_ACCESS, DB_NO_KEY 
+.RE
+.PP
+
+.PP
+Definition at line 2065 of file odb.c.
+.PP
+Referenced by al_check(), al_get_alarms(), al_reset_alarm(), al_trigger_alarm(), analyzer_init(), cm_connect_client(), cm_deregister_transition(), cm_exist(), cm_get_client_info(), cm_msg_log(), cm_msg_log1(), cm_msg_retrieve(), cm_register_deferred_transition(), cm_register_transition(), cm_set_client_info(), cm_shutdown(), cm_transition1(), db_check_record(), db_create_link(), db_create_record(), db_enum_key(), db_get_data(), db_get_key(), db_get_value(), db_paste(), db_paste_xml(), db_set_data(), db_set_data_index(), db_set_value(), db_set_value_index(), frontend_init(), hv_init(), load_fragment(), logger_root(), main(), register_equipment(), set_equipment_status(), tr_start(), update_odb(), and validate_odb_array().
+.SS "\fBINT\fP db_get_data (HNDLE hDB, HNDLE hKey, void * data, \fBINT\fP * buf_size, \fBDWORD\fP type)"dox Get key data from a handle
+.PP
+The function returns single values or whole arrays which are contained in an ODB key. Since the data buffer is of type void, no type checking can be performed by the compiler. Therefore the type has to be explicitly supplied, which is checked against the type stored in the ODB. 
+.PP
+.nf
+  HNLDE hkey;
+  INT   run_number, size;
+  // get key handle for run number
+  db_find_key(hDB, 0, '/Runinfo/Run number', &hkey);
+  // return run number
+  size = sizeof(run_number);
+  db_get_data(hDB, hkey, &run_number, &size,TID_INT);
+
+.fi
+.PP
+ 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIhDB\fP ODB handle obtained via \fBcm_get_experiment_database()\fP. 
+.br
+\fIhKey\fP Handle for key where search starts, zero for root. 
+.br
+\fIdata\fP Pointer to the return data. 
+.br
+\fIbuf_size\fP Size of data buffer. 
+.br
+\fItype\fP Type of key, one of TID_xxx (see \fBMidas_Data_Types\fP). 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+DB_SUCCESS, DB_INVALID_HANDLE, DB_TRUNCATED, DB_TYPE_MISMATCH 
+.RE
+.PP
+
+.PP
+Definition at line 4196 of file odb.c.
+.PP
+Referenced by cm_connect_client(), cm_get_client_info(), cm_set_client_info(), db_get_record(), and tr_start().
+.SS "\fBINT\fP db_get_data_index (HNDLE hDB, HNDLE hKey, void * data, \fBINT\fP * buf_size, \fBINT\fP idx, \fBDWORD\fP type)"dox returns a single value of keys containing arrays of values.
+.PP
+The function returns a single value of keys containing arrays of values. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIhDB\fP ODB handle obtained via \fBcm_get_experiment_database()\fP. 
+.br
+\fIhKey\fP Handle for key where search starts, zero for root. 
+.br
+\fIdata\fP Size of data buffer. 
+.br
+\fIbuf_size\fP Return size of the record. 
+.br
+\fIidx\fP Index of array [0..n-1]. 
+.br
+\fItype\fP Type of key, one of TID_xxx (see \fBMidas_Data_Types\fP). 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+DB_SUCCESS, DB_INVALID_HANDLE, DB_TRUNCATED, DB_OUT_OF_RANGE 
+.RE
+.PP
+
+.PP
+Definition at line 4547 of file odb.c.
+.PP
+Referenced by cm_transition1(), db_get_data(), and odbReadUint32().
+.SS "\fBINT\fP db_get_key (HNDLE hDB, HNDLE hKey, \fBKEY\fP * key)"dox Get key structure from a handle.
+.PP
+\fBKEY\fP structure has following format: 
+.PP
+.nf
+typedef struct {
+  DWORD         type;                 // TID_xxx type
+  INT           num_values;           // number of values
+  char          name[NAME_LENGTH];    // name of variable
+  INT           data;                 // Address of variable (offset)
+  INT           total_size;           // Total size of data block
+  INT           item_size;            // Size of single data item
+  WORD          access_mode;          // Access mode
+  WORD          notify_count;         // Notify counter
+  INT           next_key;             // Address of next key
+  INT           parent_keylist;       // keylist to which this key belongs
+  INT           last_written;         // Time of last write action
+} KEY;
+
+.fi
+.PP
+ Most of these values are used for internal purposes, the values which are of public interest are type, num_values, and name. For keys which contain a single value, num_values equals to one and total_size equals to item_size. For keys which contain an array of strings (TID_STRING), item_size equals to the length of one string. 
+.PP
+.nf
+KEY   key;
+HNDLE hkey;
+db_find_key(hDB, 0, '/Runinfo/Run number', &hkey);
+db_get_key(hDB, hkey, &key);
+printf('The run number is of type %s\n', rpc_tid_name(key.type));
+
+.fi
+.PP
+ 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIhDB\fP ODB handle obtained via \fBcm_get_experiment_database()\fP. 
+.br
+\fIhKey\fP Handle for key where search starts, zero for root. 
+.br
+\fIkey\fP Pointer to \fBKEY\fP stucture. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+DB_SUCCESS, DB_INVALID_HANDLE 
+.RE
+.PP
+
+.PP
+Definition at line 3681 of file odb.c.
+.PP
+Referenced by al_check(), al_reset_alarm(), cm_check_client(), cm_register_transition(), cm_shutdown(), cm_transition1(), db_check_record(), db_get_data(), db_get_record(), db_get_record_size(), db_open_record(), db_paste(), db_save_struct(), db_set_record(), load_fragment(), tr_start(), and update_odb().
+.SS "\fBINT\fP db_get_key_info (HNDLE hDB, HNDLE hKey, char * name, \fBINT\fP name_size, \fBINT\fP * type, \fBINT\fP * num_values, \fBINT\fP * item_size)"Get key info (separate values instead of structure) 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIhDB\fP ODB handle obtained via \fBcm_get_experiment_database()\fP. 
+.br
+\fIhKey\fP Handle of key to operate on 
+.br
+\fIname\fP Key name 
+.br
+\fIname_size\fP Size of the give name (done with sizeof()) 
+.br
+\fItype\fP Key type (see \fBMidas_Data_Types\fP). 
+.br
+\fInum_values\fP Number of values in key. 
+.br
+\fIitem_size\fP Size of individual key value (used for strings) 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+DB_SUCCESS, DB_INVALID_HANDLE 
+.RE
+.PP
+
+.PP
+Definition at line 3884 of file odb.c.
+.SS "\fBINT\fP db_get_key_time (HNDLE hDB, HNDLE hKey, \fBDWORD\fP * delta)"Get time when key was last modified 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIhDB\fP ODB handle obtained via \fBcm_get_experiment_database()\fP. 
+.br
+\fIhKey\fP Handle of key to operate on 
+.br
+\fIdelta\fP Seconds since last update 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+DB_SUCCESS, DB_INVALID_HANDLE 
+.RE
+.PP
+
+.PP
+Definition at line 3826 of file odb.c.
+.SS "\fBINT\fP db_get_link (HNDLE hDB, HNDLE hKey, \fBKEY\fP * key)"Same as db_get_key, but it does not follow a link to an array index 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIhDB\fP ODB handle obtained via \fBcm_get_experiment_database()\fP. 
+.br
+\fIhKey\fP Handle for key where search starts, zero for root. 
+.br
+\fIkey\fP Pointer to \fBKEY\fP stucture. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+DB_SUCCESS, DB_INVALID_HANDLE 
+.RE
+.PP
+
+.PP
+Definition at line 3762 of file odb.c.
+.PP
+Referenced by db_copy(), and db_save_xml_key().
+.SS "\fBINT\fP db_get_link_data (HNDLE hDB, HNDLE hKey, void * data, \fBINT\fP * buf_size, \fBDWORD\fP type)"Same as db_get_data, but do not follow a link to an array index
+.PP
+\fBParameters:\fP
+.RS 4
+\fIhDB\fP ODB handle obtained via \fBcm_get_experiment_database()\fP. 
+.br
+\fIhKey\fP Handle for key where search starts, zero for root. 
+.br
+\fIdata\fP Pointer to the return data. 
+.br
+\fIbuf_size\fP Size of data buffer. 
+.br
+\fItype\fP Type of key, one of TID_xxx (see \fBMidas_Data_Types\fP). 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+DB_SUCCESS, DB_INVALID_HANDLE, DB_TRUNCATED, DB_TYPE_MISMATCH 
+.RE
+.PP
+
+.PP
+Definition at line 4322 of file odb.c.
+.PP
+Referenced by db_copy(), and db_save_xml_key().
+.SS "\fBINT\fP db_get_lock_cnt (HNDLE hDB)"
+.PP
+Definition at line 1503 of file odb.c.
+.SS "\fBINT\fP db_get_record (HNDLE hDB, HNDLE hKey, void * data, \fBINT\fP * buf_size, \fBINT\fP align)"Copy a set of keys to local memory.
+.PP
+An ODB sub-tree can be mapped to a C structure automatically via a hot-link using the function \fBdb_open_record()\fP or manually with this function. Problems might occur if the ODB sub-tree contains values which don't match the C structure. Although the structure size is checked against the sub-tree size, no checking can be done if the type and order of the values in the structure are the same than those in the ODB sub-tree. Therefore it is recommended to use the function \fBdb_create_record()\fP before \fBdb_get_record()\fP is used which ensures that both are equivalent. 
+.PP
+.nf
+struct {
+  INT level1;
+  INT level2;
+} trigger_settings;
+char *trigger_settings_str =
+'[Settings]\n\
+level1 = INT : 0\n\
+level2 = INT : 0';
+
+main()
+{
+  HNDLE hDB, hkey;
+  INT   size;
+  ...
+  cm_get_experiment_database(&hDB, NULL);
+  db_create_record(hDB, 0, '/Equipment/Trigger', trigger_settings_str);
+  db_find_key(hDB, 0, '/Equipment/Trigger/Settings', &hkey);
+  size = sizeof(trigger_settings);
+  db_get_record(hDB, hkey, &trigger_settings, &size, 0);
+  ...
+}
+
+.fi
+.PP
+ 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIhDB\fP ODB handle obtained via \fBcm_get_experiment_database()\fP. 
+.br
+\fIhKey\fP Handle for key where search starts, zero for root. 
+.br
+\fIdata\fP Pointer to the retrieved data. 
+.br
+\fIbuf_size\fP Size of data structure, must be obtained via sizeof(RECORD-NAME). 
+.br
+\fIalign\fP Byte alignment calculated by the stub and passed to the rpc side to align data according to local machine. Must be zero when called from user level. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+DB_SUCCESS, DB_INVALID_HANDLE, DB_STRUCT_SIZE_MISMATCH 
+.RE
+.PP
+
+.PP
+Definition at line 7516 of file odb.c.
+.PP
+Referenced by al_check(), al_reset_alarm(), al_trigger_alarm(), begin_of_run(), cm_transition1(), db_open_record(), db_update_record(), register_equipment(), and tr_start().
+.SS "\fBINT\fP db_get_record_size (HNDLE hDB, HNDLE hKey, \fBINT\fP align, \fBINT\fP * buf_size)"dox Calculates the size of a record. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIhDB\fP ODB handle obtained via \fBcm_get_experiment_database()\fP. 
+.br
+\fIhKey\fP Handle for key where search starts, zero for root. 
+.br
+\fIalign\fP Byte alignment calculated by the stub and passed to the rpc side to align data according to local machine. Must be zero when called from user level 
+.br
+\fIbuf_size\fP Size of record structure 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+DB_SUCCESS, DB_INVALID_HANDLE, DB_TYPE_MISMATCH, DB_STRUCT_SIZE_MISMATCH, DB_NO_KEY 
+.RE
+.PP
+
+.PP
+Definition at line 7430 of file odb.c.
+.PP
+Referenced by db_get_record(), db_open_record(), and db_set_record().
+.SS "\fBINT\fP db_get_value (HNDLE hDB, HNDLE hKeyRoot, const char * key_name, void * data, \fBINT\fP * buf_size, \fBDWORD\fP type, \fBBOOL\fP create)"Get value of a single key.
+.PP
+The function returns single values or whole arrays which are contained in an ODB key. Since the data buffer is of type void, no type checking can be performed by the compiler. Therefore the type has to be explicitly supplied, which is checked against the type stored in the ODB. key_name can contain the full path of a key (like: '/Equipment/Trigger/Settings/Level1') while hkey is zero which refers to the root, or hkey can refer to a sub-directory (like: /Equipment/Trigger) and key_name is interpreted relative to that directory like 'Settings/Level1'. 
+.PP
+.nf
+INT level1, size;
+  size = sizeof(level1);
+  db_get_value(hDB, 0, '/Equipment/Trigger/Settings/Level1',
+                                   &level1, &size, TID_INT, 0);
+
+.fi
+.PP
+ 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIhDB\fP ODB handle obtained via \fBcm_get_experiment_database()\fP. 
+.br
+\fIhKeyRoot\fP Handle for key where search starts, zero for root. 
+.br
+\fIkey_name\fP Name of key to search, can contain directories. 
+.br
+\fIdata\fP Address of data. 
+.br
+\fIbuf_size\fP Maximum buffer size on input, number of written bytes on return. 
+.br
+\fItype\fP Type of key, one of TID_xxx (see \fBMidas_Data_Types\fP) 
+.br
+\fIcreate\fP If TRUE, create key if not existing 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+DB_SUCCESS, DB_INVALID_HANDLE, DB_NO_ACCESS, DB_TYPE_MISMATCH, DB_TRUNCATED, DB_NO_KEY 
+.RE
+.PP
+
+.PP
+Definition at line 3190 of file odb.c.
+.PP
+Referenced by al_check(), al_get_alarms(), al_trigger_alarm(), ana_end_of_run(), bm_open_buffer(), cm_check_client(), cm_connect_experiment1(), cm_exist(), cm_msg_log(), cm_msg_log1(), cm_msg_retrieve(), cm_register_deferred_transition(), cm_set_client_info(), cm_shutdown(), cm_transition1(), el_submit(), hv_init(), load_fragment(), logger_root(), main(), register_equipment(), scheduler(), and tr_start().
+.SS "\fBINT\fP db_load (HNDLE hDB, HNDLE hKeyRoot, const char * filename, \fBBOOL\fP bRemote)"dox Load a branch of a database from an .ODB file.
+.PP
+This function is used by the ODBEdit command load. For a description of the ASCII format, see \fBdb_copy()\fP. Data can be loaded relative to the root of the ODB (hkey equal zero) or relative to a certain key. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIhDB\fP ODB handle obtained via \fBcm_get_experiment_database()\fP. 
+.br
+\fIhKeyRoot\fP Handle for key where search starts, zero for root. 
+.br
+\fIfilename\fP Filename of .ODB file. 
+.br
+\fIbRemote\fP If TRUE, the file is loaded by the server process on the back-end, if FALSE, it is loaded from the current process 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+DB_SUCCESS, DB_INVALID_HANDLE, DB_FILE_ERROR 
+.RE
+.PP
+
+.PP
+Definition at line 5577 of file odb.c.
+.SS "\fBINT\fP db_lock_database (HNDLE hDB)"dox Lock a database for exclusive access via system semaphore calls. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIhDB\fP Handle to the database to lock 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+DB_SUCCESS, DB_INVALID_HANDLE, DB_TIMEOUT 
+.RE
+.PP
+
+.PP
+Definition at line 1394 of file odb.c.
+.PP
+Referenced by cm_check_client(), cm_cleanup(), cm_delete_client_info(), cm_exist(), cm_get_watchdog_info(), cm_set_client_info(), cm_set_watchdog_params(), db_close_database(), db_create_key(), db_create_record(), db_delete_key1(), db_enum_key(), db_find_key(), db_get_data(), db_get_data_index(), db_get_key(), db_get_key_info(), db_get_key_time(), db_get_link(), db_get_link_data(), db_get_record(), db_get_record_size(), db_get_value(), db_open_database(), db_set_data(), db_set_data_index(), db_set_link_data(), db_set_link_data_index(), db_set_record(), and db_set_value().
+.SS "\fBINT\fP db_open_database (const char * xdatabase_name, \fBINT\fP database_size, HNDLE * hDB, const char * client_name)"dox Open an online database 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIdatabase_name\fP Database name. 
+.br
+\fIdatabase_size\fP Initial size of database if not existing 
+.br
+\fIclient_name\fP Name of this application 
+.br
+\fIhDB\fP ODB handle obtained via \fBcm_get_experiment_database()\fP. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+DB_SUCCESS, DB_CREATED, DB_INVALID_NAME, DB_NO_MEMORY, DB_MEMSIZE_MISMATCH, DB_NO_SEMAPHORE, DB_INVALID_PARAM, RPC_NET_ERROR 
+.RE
+.PP
+
+.PP
+Definition at line 788 of file odb.c.
+.PP
+Referenced by cm_connect_experiment1().
+.SS "\fBINT\fP db_open_record (HNDLE hDB, HNDLE hKey, void * ptr, \fBINT\fP rec_size, \fBWORD\fP access_mode, void(*)(\fBINT\fP, \fBINT\fP, void *) dispatcher, void * info)"Open a record. Create a local copy and maintain an automatic update.
+.PP
+This function opens a hot-link between an ODB sub-tree and a local structure. The sub-tree is copied to the structure automatically every time it is modified by someone else. Additionally, a callback function can be declared which is called after the structure has been updated. The callback function receives the database handle and the key handle as \fBparameters\fP.
+.PP
+Problems might occur if the ODB sub-tree contains values which don't match the C structure. Although the structure size is checked against the sub-tree size, no checking can be done if the type and order of the values in the structure are the same than those in the ODB sub-tree. Therefore it is recommended to use the function \fBdb_create_record()\fP before \fBdb_open_record()\fP is used which ensures that both are equivalent.
+.PP
+The access mode might either be MODE_READ or MODE_WRITE. In read mode, the ODB sub-tree is automatically copied to the local structure when modified by other clients. In write mode, the local structure is copied to the ODB sub-tree if it has been modified locally. This update has to be manually scheduled by calling \fBdb_send_changed_records()\fP periodically in the main loop. The system keeps a copy of the local structure to determine if its contents has been changed.
+.PP
+If MODE_ALLOC is or'ed with the access mode, the memory for the structure is allocated internally. The structure pointer must contain a pointer to a pointer to the structure. The internal memory is released when \fBdb_close_record()\fP is called.
+.IP "\(bu" 2
+To open a record in write mode. 
+.PP
+.nf
+struct {
+  INT level1;
+  INT level2;
+} trigger_settings;
+char *trigger_settings_str =
+'[Settings]\n\
+level1 = INT : 0\n\
+level2 = INT : 0';
+main()
+{
+  HNDLE hDB, hkey, i=0;
+  ...
+  cm_get_experiment_database(&hDB, NULL);
+  db_create_record(hDB, 0, '/Equipment/Trigger', trigger_settings_str);
+  db_find_key(hDB, 0,'/Equipment/Trigger/Settings', &hkey);
+  db_open_record(hDB, hkey, &trigger_settings, sizeof(trigger_settings)
+                  , MODE_WRITE, NULL);
+  do
+  {
+    trigger_settings.level1 = i++;
+    db_send_changed_records()
+    status = cm_yield(1000);
+  } while (status != RPC_SHUTDOWN && status != SS_ABORT);
+  ...
+}
+
+.fi
+.PP
+ 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIhDB\fP ODB handle obtained via \fBcm_get_experiment_database()\fP. 
+.br
+\fIhKey\fP Handle for key where search starts, zero for root. 
+.br
+\fIptr\fP If access_mode includes MODE_ALLOC: Address of pointer which points to the record data after the call if access_mode includes not MODE_ALLOC: Address of record if ptr==NULL, only the dispatcher is called. 
+.br
+\fIrec_size\fP Record size in bytes 
+.br
+\fIaccess_mode\fP Mode for opening record, either MODE_READ or MODE_WRITE. May be or'ed with MODE_ALLOC to let db_open_record allocate the memory for the record. 
+.br
+\fI(*dispatcher)\fP Function which gets called when record is updated.The argument list composed of: HNDLE hDB, HNDLE hKey, void *info 
+.br
+\fIinfo\fP Additional info passed to the dispatcher. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+DB_SUCCESS, DB_INVALID_HANDLE, DB_NO_MEMORY, DB_NO_ACCESS, DB_STRUCT_SIZE_MISMATCH 
+.RE
+.PP
+
+.PP
+
+.PP
+Definition at line 8495 of file odb.c.
+.PP
+Referenced by analyzer_init(), cm_register_deferred_transition(), frontend_init(), hv_init(), register_equipment(), and validate_odb_array().
+.SS "\fBINT\fP db_paste (HNDLE hDB, HNDLE hKeyRoot, const char * buffer)"Copy an ODB subtree in ASCII format from a buffer 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIhDB\fP ODB handle obtained via \fBcm_get_experiment_database()\fP. 
+.br
+\fIhKeyRoot\fP Handle for key where search starts, zero for root. 
+.br
+\fIbuffer\fP NULL-terminated buffer 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+DB_SUCCESS, DB_TRUNCATED, DB_NO_MEMORY 
+.RE
+.PP
+
+.PP
+Definition at line 5927 of file odb.c.
+.PP
+Referenced by db_create_record(), and db_load().
+.SS "int db_paste_node (HNDLE hDB, HNDLE hKeyRoot, PMXML_NODE node)"
+.PP
+Definition at line 6204 of file odb.c.
+.PP
+Referenced by db_paste_xml().
+.SS "\fBINT\fP db_paste_xml (HNDLE hDB, HNDLE hKeyRoot, const char * buffer)"Paste an ODB subtree in XML format from a buffer 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIhDB\fP ODB handle obtained via \fBcm_get_experiment_database()\fP. 
+.br
+\fIhKeyRoot\fP Handle for key where search starts, zero for root. 
+.br
+\fIbuffer\fP NULL-terminated buffer 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+DB_SUCCESS, DB_INVALID_PARAM, DB_NO_MEMORY, DB_TYPE_MISMATCH 
+.RE
+.PP
+
+.PP
+Definition at line 6334 of file odb.c.
+.PP
+Referenced by db_load().
+.SS "\fBINT\fP db_protect_database (HNDLE hDB)"Protect a database for read/write access outside of the \fBdb_xxx\fP functions 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIhDB\fP ODB handle obtained via \fBcm_get_experiment_database()\fP. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+DB_SUCCESS, DB_INVALID_HANDLE 
+.RE
+.PP
+
+.PP
+Definition at line 1529 of file odb.c.
+.SS "\fBINT\fP db_save (HNDLE hDB, HNDLE hKey, const char * filename, \fBBOOL\fP bRemote)"dox Save a branch of a database to an .ODB file
+.PP
+This function is used by the ODBEdit command save. For a description of the ASCII format, see \fBdb_copy()\fP. Data of the whole ODB can be saved (hkey equal zero) or only a sub-tree. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIhDB\fP ODB handle obtained via \fBcm_get_experiment_database()\fP. 
+.br
+\fIhKey\fP Handle for key where search starts, zero for root. 
+.br
+\fIfilename\fP Filename of .ODB file. 
+.br
+\fIbRemote\fP Flag for saving database on remote server. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+DB_SUCCESS, DB_FILE_ERROR 
+.RE
+.PP
+
+.PP
+Definition at line 6547 of file odb.c.
+.SS "\fBINT\fP db_save_struct (HNDLE hDB, HNDLE hKey, const char * file_name, const char * struct_name, \fBBOOL\fP append)"Save a branch of a database to a C structure .H file 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIhDB\fP ODB handle obtained via \fBcm_get_experiment_database()\fP. 
+.br
+\fIhKey\fP Handle for key where search starts, zero for root. 
+.br
+\fIfile_name\fP Filename of .ODB file. 
+.br
+\fIstruct_name\fP Name of structure. If struct_name == NULL, the name of the key is used. 
+.br
+\fIappend\fP If TRUE, append to end of existing file 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+DB_SUCCESS, DB_INVALID_HANDLE, DB_FILE_ERROR 
+.RE
+.PP
+
+.PP
+Definition at line 6801 of file odb.c.
+.SS "\fBINT\fP db_save_xml (HNDLE hDB, HNDLE hKey, const char * filename)"Save a branch of a database to an .xml file
+.PP
+This function is used by the ODBEdit command save to write the contents of the ODB into a XML file. Data of the whole ODB can be saved (hkey equal zero) or only a sub-tree. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIhDB\fP ODB handle obtained via \fBcm_get_experiment_database()\fP. 
+.br
+\fIhKey\fP Handle for key where search starts, zero for root. 
+.br
+\fIfilename\fP Filename of .XML file. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+DB_SUCCESS, DB_FILE_ERROR 
+.RE
+.PP
+
+.PP
+Definition at line 6749 of file odb.c.
+.SS "\fBINT\fP db_save_xml_key (HNDLE hDB, HNDLE hKey, \fBINT\fP level, MXML_WRITER * writer)"
+.PP
+Definition at line 6646 of file odb.c.
+.PP
+Referenced by db_copy_xml(), and db_save_xml().
+.SS "\fBINT\fP db_send_changed_records ()"Send all records to the ODB which were changed locally since the last call to this function.
+.PP
+This function is valid if used in conjunction with \fBdb_open_record()\fP under the condition the record is open as MODE_WRITE access code.
+.PP
+.IP "\(bu" 2
+Full example dbchange.c which can be compiled as follow 
+.PP
+.nf
+gcc -DOS_LINUX -I/midas/include -o dbchange dbchange.c
+/midas/linux/lib/libmidas.a -lutil}
+
+\begin{verbatim}
+//------- dbchange.c
+#include 'midas.h'
+#include 'msystem.h'
+
+.fi
+.PP
+
+.PP
+.PP
+.PP
+.nf
+//-------- BOF dbchange.c
+typedef struct {
+    INT    my_number;
+    float   my_rate;
+} MY_STATISTICS;
+
+MY_STATISTICS myrec;
+
+#define MY_STATISTICS(_name) char *_name[] = {\
+'My Number = INT : 0',\
+'My Rate = FLOAT : 0',\
+'',\
+NULL }
+
+HNDLE hDB, hKey;
+
+// Main
+int main(unsigned int argc,char **argv)
+{
+  char      host_name[HOST_NAME_LENGTH];
+  char      expt_name[HOST_NAME_LENGTH];
+  INT       lastnumber, status, msg;
+  BOOL      debug=FALSE;
+  char      i, ch;
+  DWORD     update_time, mainlast_time;
+  MY_STATISTICS (my_stat);
+
+  // set default
+  host_name[0] = 0;
+  expt_name[0] = 0;
+
+  // get default
+  cm_get_environment(host_name, sizeof(host_name), expt_name, sizeof(expt_name));
+
+  // get parameters
+  for (i=1 ; i<argc ; i++)
+  {
+    if (argv[i][0] == '-' && argv[i][1] == 'd')
+      debug = TRUE;
+    else if (argv[i][0] == '-')
+    {
+      if (i+1 >= argc || argv[i+1][0] == '-')
+        goto usage;
+      if (strncmp(argv[i],'-e',2) == 0)
+        strcpy(expt_name, argv[++i]);
+      else if (strncmp(argv[i],'-h',2)==0)
+        strcpy(host_name, argv[++i]);
+    }
+    else
+    {
+   usage:
+      printf('usage: dbchange [-h <Hostname>] [-e <Experiment>]\n');
+      return 0;
+    }
+  }
+
+  // connect to experiment
+  status = cm_connect_experiment(host_name, expt_name, 'dbchange', 0);
+  if (status != CM_SUCCESS)
+    return 1;
+
+  // Connect to DB
+  cm_get_experiment_database(&hDB, &hKey);
+
+  // Create a default structure in ODB
+  db_create_record(hDB, 0, 'My statistics', strcomb(my_stat));
+
+  // Retrieve key for that strucutre in ODB
+  if (db_find_key(hDB, 0, 'My statistics', &hKey) != DB_SUCCESS)
+  {
+    cm_msg(MERROR, 'mychange', 'cannot find My statistics');
+    goto error;
+  }
+
+  // Hot link this structure in Write mode
+  status = db_open_record(hDB, hKey, &myrec
+                          , sizeof(MY_STATISTICS), MODE_WRITE, NULL, NULL);
+  if (status != DB_SUCCESS)
+  {
+    cm_msg(MERROR, 'mychange', 'cannot open My statistics record');
+    goto error;
+  }
+
+  // initialize ss_getchar()
+  ss_getchar(0);
+
+  // Main loop
+  do
+  {
+    // Update local structure
+    if ((ss_millitime() - update_time) > 100)
+    {
+      myrec.my_number += 1;
+      if (myrec.my_number - lastnumber) {
+        myrec.my_rate = 1000.f * (float) (myrec.my_number - lastnumber)
+          / (float) (ss_millitime() - update_time);
+      }
+      update_time = ss_millitime();
+      lastnumber = myrec.my_number;
+    }
+
+    // Publish local structure to ODB (db_send_changed_record)
+    if ((ss_millitime() - mainlast_time) > 5000)
+    {
+      db_send_changed_records();                   // <------- Call
+      mainlast_time = ss_millitime();
+    }
+
+    // Check for keyboard interaction
+    ch = 0;
+    while (ss_kbhit())
+    {
+      ch = ss_getchar(0);
+      if (ch == -1)
+        ch = getchar();
+      if ((char) ch == '!')
+        break;
+    }
+    msg = cm_yield(20);
+  } while (msg != RPC_SHUTDOWN && msg != SS_ABORT && ch != '!');
+
+ error:
+  cm_disconnect_experiment();
+  return 1;
+}
+//-------- EOF dbchange.c
+.fi
+.PP
+ 
+.PP
+\fBReturns:\fP
+.RS 4
+DB_SUCCESS 
+.RE
+.PP
+
+.PP
+Definition at line 8902 of file odb.c.
+.PP
+Referenced by scan_fragment(), scheduler(), tr_start(), and tr_stop().
+.SS "\fBINT\fP db_set_data (HNDLE hDB, HNDLE hKey, const void * data, \fBINT\fP buf_size, \fBINT\fP num_values, \fBDWORD\fP type)"Set key data from a handle. Adjust number of values if previous data has different size. 
+.PP
+.nf
+HNLDE hkey;
+ INT   run_number;
+ // get key handle for run number
+ db_find_key(hDB, 0, '/Runinfo/Run number', &hkey);
+ // set run number
+ db_set_data(hDB, hkey, &run_number, sizeof(run_number),TID_INT);
+
+.fi
+.PP
+ 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIhDB\fP ODB handle obtained via \fBcm_get_experiment_database()\fP. 
+.br
+\fIhKey\fP Handle for key where search starts, zero for root. 
+.br
+\fIdata\fP Buffer from which data gets copied to. 
+.br
+\fIbuf_size\fP Size of data buffer. 
+.br
+\fInum_values\fP Number of data values (for arrays). 
+.br
+\fItype\fP Type of key, one of TID_xxx (see \fBMidas_Data_Types\fP). 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+DB_SUCCESS, DB_INVALID_HANDLE, DB_TRUNCATED 
+.RE
+.PP
+
+.PP
+Definition at line 4670 of file odb.c.
+.PP
+Referenced by db_paste_node(), db_set_record(), hv_init(), hv_read(), and update_odb().
+.SS "\fBINT\fP db_set_data_index (HNDLE hDB, HNDLE hKey, const void * data, \fBINT\fP data_size, \fBINT\fP idx, \fBDWORD\fP type)"dox Set key data for a key which contains an array of values.
+.PP
+This function sets individual values of a key containing an array. If the index is larger than the array size, the array is extended and the intermediate values are set to zero. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIhDB\fP ODB handle obtained via \fBcm_get_experiment_database()\fP. 
+.br
+\fIhKey\fP Handle for key where search starts, zero for root. 
+.br
+\fIdata\fP Pointer to single value of data. 
+.br
+\fIdata_size\fP 
+.br
+\fIidx\fP Size of single data element. 
+.br
+\fItype\fP Type of key, one of TID_xxx (see \fBMidas_Data_Types\fP). 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+DB_SUCCESS, DB_INVALID_HANDLE, DB_NO_ACCESS, DB_TYPE_MISMATCH 
+.RE
+.PP
+
+.PP
+Definition at line 5033 of file odb.c.
+.PP
+Referenced by cm_register_transition(), db_paste_node(), db_set_data(), and db_set_value_index().
+.SS "\fBINT\fP db_set_link_data (HNDLE hDB, HNDLE hKey, const void * data, \fBINT\fP buf_size, \fBINT\fP num_values, \fBDWORD\fP type)"Same as db_set_data, but it does not follow a link to an array index 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIhDB\fP ODB handle obtained via \fBcm_get_experiment_database()\fP. 
+.br
+\fIhKey\fP Handle for key where search starts, zero for root. 
+.br
+\fIdata\fP Buffer from which data gets copied to. 
+.br
+\fIbuf_size\fP Size of data buffer. 
+.br
+\fInum_values\fP Number of data values (for arrays). 
+.br
+\fItype\fP Type of key, one of TID_xxx (see \fBMidas_Data_Types\fP). 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+DB_SUCCESS, DB_INVALID_HANDLE, DB_TRUNCATED 
+.RE
+.PP
+
+.PP
+Definition at line 4796 of file odb.c.
+.PP
+Referenced by db_paste().
+.SS "\fBINT\fP db_set_link_data_index (HNDLE hDB, HNDLE hKey, const void * data, \fBINT\fP data_size, \fBINT\fP idx, \fBDWORD\fP type)"Same as db_set_data_index, but does not follow links.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIhDB\fP ODB handle obtained via \fBcm_get_experiment_database()\fP. 
+.br
+\fIhKey\fP Handle for key where search starts, zero for root. 
+.br
+\fIdata\fP Pointer to single value of data. 
+.br
+\fIdata_size\fP 
+.br
+\fIidx\fP Size of single data element. 
+.br
+\fItype\fP Type of key, one of TID_xxx (see \fBMidas_Data_Types\fP). 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+DB_SUCCESS, DB_INVALID_HANDLE, DB_NO_ACCESS, DB_TYPE_MISMATCH 
+.RE
+.PP
+
+.PP
+Definition at line 5172 of file odb.c.
+.SS "\fBINT\fP db_set_record (HNDLE hDB, HNDLE hKey, void * data, \fBINT\fP buf_size, \fBINT\fP align)"Copy a set of keys from local memory to the database.
+.PP
+An ODB sub-tree can be mapped to a C structure automatically via a hot-link using the function \fBdb_open_record()\fP or manually with this function. Problems might occur if the ODB sub-tree contains values which don't match the C structure. Although the structure size is checked against the sub-tree size, no checking can be done if the type and order of the values in the structure are the same than those in the ODB sub-tree. Therefore it is recommended to use the function \fBdb_create_record()\fP before using this function. 
+.PP
+.nf
+...
+  memset(&lazyst,0,size);
+  if (db_find_key(hDB, pLch->hKey, 'Statistics',&hKeyst) == DB_SUCCESS)
+    status = db_set_record(hDB, hKeyst, &lazyst, size, 0);
+  else
+    cm_msg(MERROR,'task','record %s/statistics not found', pLch->name)
+...
+
+.fi
+.PP
+ 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIhDB\fP ODB handle obtained via \fBcm_get_experiment_database()\fP. 
+.br
+\fIhKey\fP Handle for key where search starts, zero for root. 
+.br
+\fIdata\fP Pointer where data is stored. 
+.br
+\fIbuf_size\fP Size of data structure, must be obtained via sizeof(RECORD-NAME). 
+.br
+\fIalign\fP Byte alignment calculated by the stub and passed to the rpc side to align data according to local machine. Must be zero when called from user level. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+DB_SUCCESS, DB_INVALID_HANDLE, DB_TYPE_MISMATCH, DB_STRUCT_SIZE_MISMATCH 
+.RE
+.PP
+
+.PP
+Definition at line 7619 of file odb.c.
+.PP
+Referenced by al_check(), al_reset_alarm(), al_trigger_alarm(), db_open_record(), db_send_changed_records(), hv_init(), register_equipment(), and update_odb().
+.SS "\fBINT\fP db_set_value (HNDLE hDB, HNDLE hKeyRoot, const char * key_name, const void * data, \fBINT\fP data_size, \fBINT\fP num_values, \fBDWORD\fP type)"dox Set value of a single key.
+.PP
+The function sets a single value or a whole array to a ODB key. Since the data buffer is of type void, no type checking can be performed by the compiler. Therefore the type has to be explicitly supplied, which is checked against the type stored in the ODB. key_name can contain the full path of a key (like: '/Equipment/Trigger/Settings/Level1') while hkey is zero which refers to the root, or hkey can refer to a sub-directory (like /Equipment/Trigger) and key_name is interpreted relative to that directory like 'Settings/Level1'. 
+.PP
+.nf
+INT level1;
+  db_set_value(hDB, 0, '/Equipment/Trigger/Settings/Level1',
+                          &level1, sizeof(level1), 1, TID_INT);
+
+.fi
+.PP
+ 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIhDB\fP ODB handle obtained via \fBcm_get_experiment_database()\fP. 
+.br
+\fIhKeyRoot\fP Handle for key where search starts, zero for root. 
+.br
+\fIkey_name\fP Name of key to search, can contain directories. 
+.br
+\fIdata\fP Address of data. 
+.br
+\fIdata_size\fP Size of data (in bytes). 
+.br
+\fInum_values\fP Number of data elements. 
+.br
+\fItype\fP Type of key, one of TID_xxx (see \fBMidas_Data_Types\fP) 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+DB_SUCCESS, DB_INVALID_HANDLE, DB_NO_ACCESS, DB_TYPE_MISMATCH 
+.RE
+.PP
+
+.PP
+Definition at line 3021 of file odb.c.
+.PP
+Referenced by al_trigger_alarm(), cm_connect_experiment1(), cm_delete_client_info(), cm_register_deferred_transition(), cm_register_transition(), cm_set_client_info(), cm_set_transition_sequence(), cm_set_watchdog_params(), cm_transition1(), db_create_link(), db_get_value(), frontend_loop(), register_equipment(), set_equipment_status(), tr_start(), and update_odb().
+.SS "\fBINT\fP db_set_value_index (HNDLE hDB, HNDLE hKeyRoot, const char * key_name, const void * data, \fBINT\fP data_size, \fBINT\fP idx, \fBDWORD\fP type, \fBBOOL\fP trunc)"Set single value of an array.
+.PP
+The function sets a single value of an ODB key which is an array. key_name can contain the full path of a key (like: '/Equipment/Trigger/Settings/Level1') while hkey is zero which refers to the root, or hkey can refer to a sub-directory (like /Equipment/Trigger) and key_name is interpreted relative to that directory like 'Settings/Level1'. 
+.PP
+.nf
+INT level1;
+  db_set_value_index(hDB, 0, '/Equipment/Trigger/Settings/Level1',
+                          &level1, sizeof(level1), 15, TID_INT, FALSE);
+
+.fi
+.PP
+ 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIhDB\fP ODB handle obtained via \fBcm_get_experiment_database()\fP. 
+.br
+\fIhKeyRoot\fP Handle for key where search starts, zero for root. 
+.br
+\fIkey_name\fP Name of key to search, can contain directories. 
+.br
+\fIdata\fP Address of data. 
+.br
+\fIdata_size\fP Size of data (in bytes). 
+.br
+\fIindex\fP Array index of value. 
+.br
+\fItype\fP Type of key, one of TID_xxx (see \fBMidas_Data_Types\fP) 
+.br
+\fItruncate\fP Truncate array to current index if TRUE 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+<same as db_set_data_index> 
+.RE
+.PP
+
+.PP
+Definition at line 3145 of file odb.c.
+.SS "\fBINT\fP db_sprintf (char * string, const void * data, \fBINT\fP data_size, \fBINT\fP idx, \fBDWORD\fP type)"dox Convert a database value to a string according to its type.
+.PP
+This function is a convenient way to convert a binary ODB value into a string depending on its type if is not known at compile time. If it is known, the normal sprintf() function can be used. 
+.PP
+.nf
+...
+  for (j=0 ; j<key.num_values ; j++)
+  {
+    db_sprintf(pbuf, pdata, key.item_size, j, key.type);
+    strcat(pbuf, '\n');
+  }
+  ...
+
+.fi
+.PP
+ 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIstring\fP output ASCII string of data. 
+.br
+\fIdata\fP Value data. 
+.br
+\fIdata_size\fP Size of single data element. 
+.br
+\fIidx\fP Index for array data. 
+.br
+\fItype\fP Type of key, one of TID_xxx (see \fBMidas_Data_Types\fP). 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+DB_SUCCESS 
+.RE
+.PP
+
+.PP
+Definition at line 6975 of file odb.c.
+.PP
+Referenced by db_copy(), db_save_xml_key(), and hs_dump().
+.SS "\fBINT\fP db_sprintff (char * string, const char * format, const void * data, \fBINT\fP data_size, \fBINT\fP idx, \fBDWORD\fP type)"Same as db_sprintf, but with additional format parameter
+.PP
+\fBParameters:\fP
+.RS 4
+\fIstring\fP output ASCII string of data. 
+.br
+\fIformat\fP Format specifier passed to sprintf() 
+.br
+\fIdata\fP Value data. 
+.br
+\fIdata_size\fP Size of single data element. 
+.br
+\fIidx\fP Index for array data. 
+.br
+\fItype\fP Type of key, one of TID_xxx (see \fBMidas_Data_Types\fP). 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+DB_SUCCESS 
+.RE
+.PP
+
+.PP
+Definition at line 7045 of file odb.c.
+.SS "\fBINT\fP db_unlock_database (HNDLE hDB)"Unlock a database via system semaphore calls. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIhDB\fP Handle to the database to unlock 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+DB_SUCCESS, DB_INVALID_HANDLE 
+.RE
+.PP
+
+.PP
+Definition at line 1461 of file odb.c.
+.PP
+Referenced by cm_check_client(), cm_cleanup(), cm_delete_client_info(), cm_exist(), cm_get_watchdog_info(), cm_set_client_info(), cm_set_watchdog_params(), db_close_database(), db_create_key(), db_create_record(), db_delete_key1(), db_enum_key(), db_find_key(), db_get_data(), db_get_data_index(), db_get_key(), db_get_key_info(), db_get_key_time(), db_get_link(), db_get_link_data(), db_get_record(), db_get_record_size(), db_get_value(), db_open_database(), db_set_data(), db_set_data_index(), db_set_link_data(), db_set_link_data_index(), db_set_record(), and db_set_value().
+.SS "\fBINT\fP db_update_record (\fBINT\fP hDB, \fBINT\fP hKey, int s)"If called locally, update a record (hDB/hKey) and copy its new contents to the local copy of it.
+.PP
+If called from a server, send a network notification to the client. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIhDB\fP ODB handle obtained via \fBcm_get_experiment_database()\fP. 
+.br
+\fIhKey\fP Handle for key where search starts, zero for root. 
+.br
+\fIs\fP optional server socket 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+DB_SUCCESS, DB_INVALID_HANDLE 
+.RE
+.PP
+
+.PP
+Definition at line 8696 of file odb.c.
+.SS "\fBBOOL\fP equal_ustring (const char * str1, const char * str2)"
+.PP
+Definition at line 1560 of file odb.c.
+.PP
+Referenced by al_check(), bm_open_buffer(), cm_connect_client(), cm_connect_experiment1(), cm_exist(), cm_get_watchdog_info(), cm_list_experiments(), cm_set_client_info(), cm_shutdown(), db_check_record(), db_create_key(), db_find_key(), db_open_database(), db_paste(), db_paste_node(), hv_init(), initialize_equipment(), logger_root(), register_equipment(), and set_equipment_status().
+.SS "const char* extract_key (const char * key_list, char * key_name, int key_name_length)"
+.PP
+Definition at line 1546 of file odb.c.
+.PP
+Referenced by db_create_key(), and db_find_key().
+.SS "void xml_encode (char * src, int size)"
+.PP
+Definition at line 6603 of file odb.c.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Midas from the source code.

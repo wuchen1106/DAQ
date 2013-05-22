@@ -1,0 +1,141 @@
+\subsection{Midas Ring Buffer Functions (rb\_\-xxx)}
+\label{group__rbfunctionc}\index{Midas Ring Buffer Functions (rb\_\-xxx)@{Midas Ring Buffer Functions (rb\_\-xxx)}}
+\subsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{group__rbfunctionc_gaabc49ab7300eae65b5cbdbaa00921a5d}{rb\_\-set\_\-nonblocking} ()
+\item 
+int \hyperlink{group__rbfunctionc_gae447c0770b51e5e0e173905f8700ce0f}{rb\_\-create} (int size, int \hyperlink{frontend_8c_a13adb6e6b95ca2a62bbfe2453d71a1cd}{max\_\-event\_\-size}, int $\ast$handle)
+\item 
+int \hyperlink{group__rbfunctionc_ga215007fcea0c4786c38091fd793f4c4e}{rb\_\-delete} (int handle)
+\item 
+int \hyperlink{group__rbfunctionc_ga26333526532b367bfacce172d6adcfa6}{rb\_\-get\_\-wp} (int handle, void $\ast$$\ast$\hyperlink{sis3803_8c_afcb0609a0beab248bb3994a3368bd9ff}{p}, int millisec)
+\item 
+int \hyperlink{group__rbfunctionc_gad79588efc047402f5264e3ae9dc3bacc}{rb\_\-increment\_\-wp} (int handle, int size)
+\item 
+int \hyperlink{group__rbfunctionc_ga0335381f2ef26fd5251bc7b30d6d1e90}{rb\_\-get\_\-rp} (int handle, void $\ast$$\ast$\hyperlink{sis3803_8c_afcb0609a0beab248bb3994a3368bd9ff}{p}, int millisec)
+\item 
+int \hyperlink{group__rbfunctionc_ga4d2d9f33813530718f4b1f3d423a3b7b}{rb\_\-increment\_\-rp} (int handle, int size)
+\item 
+int \hyperlink{group__rbfunctionc_gae92c348180d666240c295b7c334b4ebe}{rb\_\-get\_\-buffer\_\-level} (int handle, int $\ast$n\_\-bytes)
+\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+dox dox 
+
+\subsubsection{Function Documentation}
+\index{rbfunctionc@{rbfunctionc}!rb\_\-create@{rb\_\-create}}
+\index{rb\_\-create@{rb\_\-create}!rbfunctionc@{rbfunctionc}}
+\paragraph[{rb\_\-create}]{\setlength{\rightskip}{0pt plus 5cm}int rb\_\-create (int {\em size}, \/  int {\em max\_\-event\_\-size}, \/  int $\ast$ {\em handle})}\hfill\label{group__rbfunctionc_gae447c0770b51e5e0e173905f8700ce0f}
+Create a ring buffer with a given size
+
+Provide an inter-\/thread buffer scheme for handling front-\/end events. This code allows concurrent data acquisition, calibration and network transfer on a multi-\/CPU machine. One thread reads out the data, passes it via the ring buffer functions to another thread running on the other CPU, which can then calibrate and/or send the data over the network.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em size}]Size of ring buffer, must be larger than 2$\ast$max\_\-event\_\-size \item[{\em max\_\-event\_\-size}]Maximum event size to be placed into \item[{\em $\ast$handle}]Handle to ring buffer \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+DB\_\-SUCCESS, DB\_\-NO\_\-MEMORY, DB\_\-INVALID\_\-PARAM 
+\end{DoxyReturn}
+
+
+Definition at line 13958 of file midas.c.
+
+Referenced by cm\_\-msg\_\-buffer(), and initialize\_\-equipment().\index{rbfunctionc@{rbfunctionc}!rb\_\-delete@{rb\_\-delete}}
+\index{rb\_\-delete@{rb\_\-delete}!rbfunctionc@{rbfunctionc}}
+\paragraph[{rb\_\-delete}]{\setlength{\rightskip}{0pt plus 5cm}int rb\_\-delete (int {\em handle})}\hfill\label{group__rbfunctionc_ga215007fcea0c4786c38091fd793f4c4e}
+Delete a ring buffer 
+\begin{DoxyParams}{Parameters}
+\item[{\em handle}]Handle of the ring buffer \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+DB\_\-SUCCESS 
+\end{DoxyReturn}
+
+
+Definition at line 14012 of file midas.c.
+
+Referenced by cm\_\-disconnect\_\-experiment().\index{rbfunctionc@{rbfunctionc}!rb\_\-get\_\-buffer\_\-level@{rb\_\-get\_\-buffer\_\-level}}
+\index{rb\_\-get\_\-buffer\_\-level@{rb\_\-get\_\-buffer\_\-level}!rbfunctionc@{rbfunctionc}}
+\paragraph[{rb\_\-get\_\-buffer\_\-level}]{\setlength{\rightskip}{0pt plus 5cm}int rb\_\-get\_\-buffer\_\-level (int {\em handle}, \/  int $\ast$ {\em n\_\-bytes})}\hfill\label{group__rbfunctionc_gae92c348180d666240c295b7c334b4ebe}
+Return number of bytes in a ring buffer
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em handle}]Handle of the buffer to get the info \item[{\em $\ast$n\_\-bytes}]Number of bytes in buffer \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+DB\_\-SUCCESS, DB\_\-INVALID\_\-HANDLE 
+\end{DoxyReturn}
+
+
+Definition at line 14300 of file midas.c.
+
+Referenced by cm\_\-msg\_\-flush\_\-buffer(), and receive\_\-trigger\_\-event().\index{rbfunctionc@{rbfunctionc}!rb\_\-get\_\-rp@{rb\_\-get\_\-rp}}
+\index{rb\_\-get\_\-rp@{rb\_\-get\_\-rp}!rbfunctionc@{rbfunctionc}}
+\paragraph[{rb\_\-get\_\-rp}]{\setlength{\rightskip}{0pt plus 5cm}int rb\_\-get\_\-rp (int {\em handle}, \/  void $\ast$$\ast$ {\em p}, \/  int {\em millisec})}\hfill\label{group__rbfunctionc_ga0335381f2ef26fd5251bc7b30d6d1e90}
+Obtain the current read pointer at which new data is available with optional timeout
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em handle}]Ring buffer handle \item[{\em millisec}]Optional timeout in milliseconds if buffer is full. Zero to not wait at all (non-\/blocking)\item[{\em $\ast$$\ast$p}]Address of pointer pointing to newly available data. If p == NULL, only return status. \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+DB\_\-SUCCESS, DB\_\-TIEMOUT, DB\_\-INVALID\_\-HANDLE 
+\end{DoxyReturn}
+
+
+Definition at line 14184 of file midas.c.
+
+Referenced by cm\_\-msg\_\-flush\_\-buffer(), and receive\_\-trigger\_\-event().\index{rbfunctionc@{rbfunctionc}!rb\_\-get\_\-wp@{rb\_\-get\_\-wp}}
+\index{rb\_\-get\_\-wp@{rb\_\-get\_\-wp}!rbfunctionc@{rbfunctionc}}
+\paragraph[{rb\_\-get\_\-wp}]{\setlength{\rightskip}{0pt plus 5cm}int rb\_\-get\_\-wp (int {\em handle}, \/  void $\ast$$\ast$ {\em p}, \/  int {\em millisec})}\hfill\label{group__rbfunctionc_ga26333526532b367bfacce172d6adcfa6}
+Retrieve write pointer where new data can be written 
+\begin{DoxyParams}{Parameters}
+\item[{\em handle}]Ring buffer handle \item[{\em millisec}]Optional timeout in milliseconds if buffer is full. Zero to not wait at all (non-\/blocking) \item[{\em $\ast$$\ast$p}]Write pointer \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+DB\_\-SUCCESS, DB\_\-TIMEOUT, DB\_\-INVALID\_\-HANDLE 
+\end{DoxyReturn}
+
+
+Definition at line 14048 of file midas.c.
+
+Referenced by cm\_\-msg\_\-buffer(), interrupt\_\-routine(), and readout\_\-thread().\index{rbfunctionc@{rbfunctionc}!rb\_\-increment\_\-rp@{rb\_\-increment\_\-rp}}
+\index{rb\_\-increment\_\-rp@{rb\_\-increment\_\-rp}!rbfunctionc@{rbfunctionc}}
+\paragraph[{rb\_\-increment\_\-rp}]{\setlength{\rightskip}{0pt plus 5cm}int rb\_\-increment\_\-rp (int {\em handle}, \/  int {\em size})}\hfill\label{group__rbfunctionc_ga4d2d9f33813530718f4b1f3d423a3b7b}
+Increment current read pointer, freeing up space for the writing thread.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em handle}]Ring buffer handle \item[{\em size}]Number of bytes to free up at current read pointer \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+DB\_\-SUCCESS, DB\_\-INVALID\_\-PARAM 
+\end{DoxyReturn}
+
+
+Definition at line 14246 of file midas.c.
+
+Referenced by cm\_\-msg\_\-flush\_\-buffer(), and receive\_\-trigger\_\-event().\index{rbfunctionc@{rbfunctionc}!rb\_\-increment\_\-wp@{rb\_\-increment\_\-wp}}
+\index{rb\_\-increment\_\-wp@{rb\_\-increment\_\-wp}!rbfunctionc@{rbfunctionc}}
+\paragraph[{rb\_\-increment\_\-wp}]{\setlength{\rightskip}{0pt plus 5cm}int rb\_\-increment\_\-wp (int {\em handle}, \/  int {\em size})}\hfill\label{group__rbfunctionc_gad79588efc047402f5264e3ae9dc3bacc}
+rb\_\-increment\_\-wp
+
+Increment current write pointer, making the data at the write pointer available to the receiving thread 
+\begin{DoxyParams}{Parameters}
+\item[{\em handle}]Ring buffer handle \item[{\em size}]Number of bytes placed at the WP \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+DB\_\-SUCCESS, DB\_\-INVALID\_\-PARAM, DB\_\-INVALID\_\-HANDLE 
+\end{DoxyReturn}
+
+
+Definition at line 14122 of file midas.c.
+
+Referenced by cm\_\-msg\_\-buffer(), interrupt\_\-routine(), and readout\_\-thread().\index{rbfunctionc@{rbfunctionc}!rb\_\-set\_\-nonblocking@{rb\_\-set\_\-nonblocking}}
+\index{rb\_\-set\_\-nonblocking@{rb\_\-set\_\-nonblocking}!rbfunctionc@{rbfunctionc}}
+\paragraph[{rb\_\-set\_\-nonblocking}]{\setlength{\rightskip}{0pt plus 5cm}int rb\_\-set\_\-nonblocking ()}\hfill\label{group__rbfunctionc_gaabc49ab7300eae65b5cbdbaa00921a5d}
+dox Set all rb\_\-get\_\-xx to nonblocking. Needed in multi-\/thread environments for stopping all theads without deadlock \begin{DoxyReturn}{Returns}
+DB\_\-SUCCESS 
+\end{DoxyReturn}
+
+
+Definition at line 13917 of file midas.c.
+
+Referenced by main().

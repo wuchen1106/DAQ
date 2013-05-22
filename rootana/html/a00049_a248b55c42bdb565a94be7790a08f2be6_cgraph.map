@@ -1,0 +1,6 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$a00030.html#a185596086a78015119f24c5e5132f2d0" title="return pointer to the event header" alt="" coords="168,5,403,35"/>
+<area shape="rect" id="node5" href="$a00049.html#a02459e0090feced3b21974cef795351a" title="HandleMidasEvent" alt="" coords="212,59,359,88"/>
+<area shape="rect" id="node7" href="$a00049.html#a1700345458ef0b50773df63aad4b9be9" title="HandleSample" alt="" coords="451,59,568,88"/>
+<area shape="rect" id="node9" href="$a00019.html#af65d6b86aa0f57f7ab7cc8fc60c6558a" title="TDirectory::Get" alt="" coords="617,59,745,88"/>
+</map>

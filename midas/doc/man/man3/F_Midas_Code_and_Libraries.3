@@ -1,0 +1,130 @@
+.TH "F_Midas_Code_and_Libraries" 3 "31 May 2012" "Version 2.3.0-0" "Midas" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+F_Midas_Code_and_Libraries \- MIDAS Code and Libraries 
+.PP
+
+.br
+.PP
+This section covers several aspects of the MIDAS system.
+.PP
+.IP "\(bu" 2
+\fBMIDAS State and Transition Codes\fP
+.IP "\(bu" 2
+\fBMIDAS Data Types\fP
+.IP "\(bu" 2
+\fBMIDAS Code and Libraries\fP
+.IP "\(bu" 2
+\fBMIDAS Macros\fP
+.PP
+.PP
+  
+.SH "MIDAS Data Types"
+.PP
+MIDAS defines its own data type for OS compatibility. It is suggested that you use them in order to ensure correct compilation when moving code from one OS to another. \fIfloat\fP and \fIdouble\fP retain OS definition.
+.PP
+.IP "\(bu" 2
+BYTE unsigned char
+.IP "\(bu" 2
+WORD unsigned short int (16bits word)
+.IP "\(bu" 2
+DWORD unsigned 32bits word
+.IP "\(bu" 2
+INT signed 32bits word
+.IP "\(bu" 2
+BOOL OS dependent.
+.PP
+.PP
+When defining a data type either in the frontend code for bank definition or in user code to define ODB variables, MIDAS requires the use of its own data type declaration. The list below shows the main Type IDentification to be used (refer to \fBMidas Define\fP for complete listing):
+.PP
+.IP "\(bu" 2
+TID_BYTE unsigned byte 0 255
+.IP "\(bu" 2
+TID_SBYTE signed BYTE -128 127
+.IP "\(bu" 2
+TID_CHAR single character 0 255
+.IP "\(bu" 2
+TID_WORD two BYTE 0 65535
+.IP "\(bu" 2
+TID_SHORT signed WORD -32768 32767
+.IP "\(bu" 2
+TID_DWORD four bytes 0 2**32-1
+.IP "\(bu" 2
+TID_INT signed DWORD -2**31 2**31-1
+.IP "\(bu" 2
+TID_BOOL four bytes bool 0 1
+.IP "\(bu" 2
+TID_FLOAT four bytes float format
+.IP "\(bu" 2
+TID_DOUBLE eight bytes float format
+.PP
+.PP
+.PP
+.PP
+.PP
+ 
+.SH "MIDAS Code and Libraries"
+.PP
+The MIDAS libraries are composed of 5 main source codes and their corresponding header files.
+.PP
+.IP "1." 4
+\fBThe midas.h & midas.c\fP : MIDAS abstract layer.
+.IP "2." 4
+\fBThe msystem.h & system.c\fP : MIDAS function implementation.
+.IP "3." 4
+\fBMidas Alarm Functions (al_xxx)\fP : MIDAS Alarm functions.
+.IP "4." 4
+\fBMidas History Functions (hs_xxx)\fP : MIDAS History functions.
+.IP "5." 4
+\fBMidas Elog Functions (el_xxx)\fP : MIDAS Elog functions.
+.IP "6." 4
+\fBThe mrpc.h & mrpc.c\fP : MIDAS RPC functions.
+.IP "7." 4
+\fBThe odb.c\fP : Online Database functions.
+.PP
+.PP
+Within these files, all the functions have been categorized depending on their scope.
+.PP
+.IP "\(bu" 2
+\fBal_xxx\fP(...) : Alarm system calls
+.IP "\(bu" 2
+\fBbk_xxx\fP(...) : MIDAS bank manipulation calls
+.IP "\(bu" 2
+\fBbm_xxx\fP(...) : Buffer management calls
+.IP "\(bu" 2
+\fBcm_xxx\fP(...) : Common system calls
+.IP "\(bu" 2
+\fBdb_xxx\fP(...) : Database management calls
+.IP "\(bu" 2
+\fBel_xxx\fP(...) : Electronic Log book calls
+.IP "\(bu" 2
+\fBhs_xxx\fP(...) : History manipulation calls
+.IP "\(bu" 2
+\fBss_xxx\fP(...) : System calls
+.IP "\(bu" 2
+\fBrb_xxx\fP(...) : Ring buffer calls
+.PP
+.PP
+ 
+.PP
+ 
+.SH "MIDAS Macros"
+.PP
+Several group of MACROs are available for simplifying the users' job on setting or getting MIDAS information. They are also listed in the \fBMIDAS Code and Libraries\fP. All of them are defined in the \fBMidas Macros\fP, \fBSystem Macros\fP header files.
+.PP
+.IP "\(bu" 2
+\fBMessage macros\fP
+.IP "\(bu" 2
+\fBEvent Header macros\fP
+.IP "\(bu" 2
+\fBByte Swap Macros\fP
+.IP "\(bu" 2
+\fBCAMAC DAQ Event LAM Macros\fP
+.PP
+.PP
+.PP
+.PP
+
+.br
+ 

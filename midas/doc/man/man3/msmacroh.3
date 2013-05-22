@@ -1,0 +1,77 @@
+.TH "System Macros" 3 "31 May 2012" "Version 2.3.0-0" "Midas" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+System Macros \- 
+.SS "Defines"
+
+.in +1c
+.ti -1c
+.RI "#define \fBWORD_SWAP\fP(x)"
+.br
+.ti -1c
+.RI "#define \fBDWORD_SWAP\fP(x)"
+.br
+.ti -1c
+.RI "#define \fBQWORD_SWAP\fP(x)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+dox dox 
+.SH "Define Documentation"
+.PP 
+.SS "#define DWORD_SWAP(x)"\fBValue:\fP
+.PP
+.nf
+{ BYTE _tmp;                              \
+                       _tmp= *((BYTE *)(x));                    \
+                       *((BYTE *)(x)) = *(((BYTE *)(x))+3);     \
+                       *(((BYTE *)(x))+3) = _tmp;               \
+                       _tmp= *(((BYTE *)(x))+1);                \
+                       *(((BYTE *)(x))+1) = *(((BYTE *)(x))+2); \
+                       *(((BYTE *)(x))+2) = _tmp; }
+.fi
+SWAP DWORD macro 
+.PP
+Definition at line 78 of file msystem.h.
+.PP
+Referenced by bk_swap().
+.SS "#define QWORD_SWAP(x)"\fBValue:\fP
+.PP
+.nf
+{ BYTE _tmp;                              \
+                       _tmp= *((BYTE *)(x));                    \
+                       *((BYTE *)(x)) = *(((BYTE *)(x))+7);     \
+                       *(((BYTE *)(x))+7) = _tmp;               \
+                       _tmp= *(((BYTE *)(x))+1);                \
+                       *(((BYTE *)(x))+1) = *(((BYTE *)(x))+6); \
+                       *(((BYTE *)(x))+6) = _tmp;               \
+                       _tmp= *(((BYTE *)(x))+2);                \
+                       *(((BYTE *)(x))+2) = *(((BYTE *)(x))+5); \
+                       *(((BYTE *)(x))+5) = _tmp;               \
+                       _tmp= *(((BYTE *)(x))+3);                \
+                       *(((BYTE *)(x))+3) = *(((BYTE *)(x))+4); \
+                       *(((BYTE *)(x))+4) = _tmp; }
+.fi
+SWAP QWORD macro 
+.PP
+Definition at line 90 of file msystem.h.
+.PP
+Referenced by bk_swap().
+.SS "#define WORD_SWAP(x)"\fBValue:\fP
+.PP
+.nf
+{ BYTE _tmp;                               \
+                       _tmp= *((BYTE *)(x));                    \
+                       *((BYTE *)(x)) = *(((BYTE *)(x))+1);     \
+                       *(((BYTE *)(x))+1) = _tmp; }
+.fi
+SWAP WORD macro 
+.PP
+Definition at line 69 of file msystem.h.
+.PP
+Referenced by bk_swap().
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Midas from the source code.

@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svn/rootana/!svn/ver/115/trunk/libNetDirectory
+END
+TNetDirectory.cxx
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/rootana/!svn/ver/72/trunk/libNetDirectory/TNetDirectory.cxx
+END
+RootLock.h
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/rootana/!svn/ver/42/trunk/libNetDirectory/RootLock.h
+END
+netDirectoryServer.cxx
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/rootana/!svn/ver/94/trunk/libNetDirectory/netDirectoryServer.cxx
+END
+TNetDirectory.h
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/rootana/!svn/ver/37/trunk/libNetDirectory/TNetDirectory.h
+END
+TDirectory-example.h
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/rootana/!svn/ver/31/trunk/libNetDirectory/TDirectory-example.h
+END
+netDirectoryServer.h
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/rootana/!svn/ver/42/trunk/libNetDirectory/netDirectoryServer.h
+END
+Makefile
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/rootana/!svn/ver/115/trunk/libNetDirectory/Makefile
+END
+RootLock.cxx
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/rootana/!svn/ver/42/trunk/libNetDirectory/RootLock.cxx
+END

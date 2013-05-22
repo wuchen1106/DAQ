@@ -1,0 +1,46 @@
+\subsection{Analyzer related}
+\label{group__manalyzer}\index{Analyzer related@{Analyzer related}}
+\subsubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structANA__MODULE}{ANA\_\-MODULE}
+\item 
+struct \hyperlink{structAR__INFO}{AR\_\-INFO}
+\item 
+struct \hyperlink{structAR__STATS}{AR\_\-STATS}
+\item 
+struct \hyperlink{structANALYZE__REQUEST}{ANALYZE\_\-REQUEST}
+\item 
+struct \hyperlink{structANA__OUTPUT__INFO}{ANA\_\-OUTPUT\_\-INFO}
+\item 
+struct \hyperlink{structANA__TEST}{ANA\_\-TEST}
+\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+dox dox 
+
+\subsubsection{Define Documentation}
+\index{manalyzer@{manalyzer}!ANA\_\-OUTPUT\_\-INFO\_\-STR@{ANA\_\-OUTPUT\_\-INFO\_\-STR}}
+\index{ANA\_\-OUTPUT\_\-INFO\_\-STR@{ANA\_\-OUTPUT\_\-INFO\_\-STR}!manalyzer@{manalyzer}}
+\paragraph[{ANA\_\-OUTPUT\_\-INFO\_\-STR}]{\setlength{\rightskip}{0pt plus 5cm}\#define ANA\_\-OUTPUT\_\-INFO\_\-STR~\char`\"{}$\backslash$Filename = STRING : \mbox{[}256\mbox{]} run\%05d.asc$\backslash$n$\backslash$RWNT = BOOL : 0$\backslash$n$\backslash$Histo Dump = BOOL : 0$\backslash$n$\backslash$Histo Dump Filename = STRING : \mbox{[}256\mbox{]} his\%05d.rz$\backslash$n$\backslash$Clear histos = BOOL : 1$\backslash$n$\backslash$Last Histo Filename = STRING : \mbox{[}256\mbox{]} last.rz$\backslash$n$\backslash$Events to ODB = BOOL : 1$\backslash$n$\backslash$Global Memory Name = STRING : \mbox{[}8\mbox{]} ONLN$\backslash$n$\backslash$\char`\"{}}\hfill\label{group__manalyzer_ga34cf6f828e54cb4c285909cd3879adb8}
+
+
+Definition at line 1157 of file midas.h.\index{manalyzer@{manalyzer}!DEF\_\-TEST@{DEF\_\-TEST}}
+\index{DEF\_\-TEST@{DEF\_\-TEST}!manalyzer@{manalyzer}}
+\paragraph[{DEF\_\-TEST}]{\setlength{\rightskip}{0pt plus 5cm}\#define DEF\_\-TEST(t)~extern {\bf ANA\_\-TEST} t;}\hfill\label{group__manalyzer_ga7d718f7e1f79e8400dbf4597502026e8}
+
+
+Definition at line 1184 of file midas.h.\index{manalyzer@{manalyzer}!SET\_\-TEST@{SET\_\-TEST}}
+\index{SET\_\-TEST@{SET\_\-TEST}!manalyzer@{manalyzer}}
+\paragraph[{SET\_\-TEST}]{\setlength{\rightskip}{0pt plus 5cm}\#define SET\_\-TEST(t, \/  v)~\{ if (!t.registered) test\_\-register(\&t); t.value = (v); \}}\hfill\label{group__manalyzer_ga1e5d03dfd4e2fe1c23fdd43fd94f74dd}
+
+
+Definition at line 1178 of file midas.h.
+
+Referenced by adc\_\-summing().\index{manalyzer@{manalyzer}!TEST@{TEST}}
+\index{TEST@{TEST}!manalyzer@{manalyzer}}
+\paragraph[{TEST}]{\setlength{\rightskip}{0pt plus 5cm}\#define TEST(t)~(t.value)}\hfill\label{group__manalyzer_gae6020b0d1d8e21377be3bc639332f4e5}
+
+
+Definition at line 1179 of file midas.h.

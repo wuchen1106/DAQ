@@ -1,0 +1,218 @@
+.TH "ebuser.c" 3 "31 May 2012" "Version 2.3.0-0" "Midas" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+ebuser.c \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBINT\fP \fBeb_begin_of_run\fP (\fBINT\fP, char *, char *)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBeb_end_of_run\fP (\fBINT\fP, char *)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBeb_user\fP (\fBINT\fP nfrag, \fBBOOL\fP mismatch, EBUILDER_CHANNEL *\fBebch\fP, \fBEVENT_HEADER\fP *pheader, void *pevent, \fBINT\fP *dest_size)"
+.br
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "\fBINT\fP \fBlModulo\fP = 100"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+The Event builder user file 
+.PP
+Definition in file \fBebuser.c\fP.
+.SH "Function Documentation"
+.PP 
+.SS "\fBINT\fP eb_begin_of_run (\fBINT\fP rn, char * UserField, char * error)"Hook to the event builder task at PreStart transition. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIrn\fP run number 
+.br
+\fIUserField\fP argument from /Ebuilder/Settings 
+.br
+\fIerror\fP error string to be passed back to the system. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+EB_SUCCESS 
+.RE
+.PP
+
+.PP
+Definition at line 108 of file ebuser.c.
+.PP
+Referenced by tr_start().
+.SS "\fBINT\fP eb_end_of_run (\fBINT\fP rn, char * error)"Hook to the event builder task at completion of event collection after receiving the Stop transition. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIrn\fP run number 
+.br
+\fIerror\fP error string to be passed back to the system. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+EB_SUCCESS 
+.RE
+.PP
+
+.PP
+Definition at line 123 of file ebuser.c.
+.PP
+Referenced by close_buffers().
+.SS "\fBINT\fP eb_user (\fBINT\fP nfrag, \fBBOOL\fP mismatch, EBUILDER_CHANNEL * ebch, \fBEVENT_HEADER\fP * pheader, void * pevent, \fBINT\fP * dest_size)"Hook to the event builder task after the reception of all fragments of the same serial number. The destination event has already the final \fBEVENT_HEADER\fP setup with the data size set to 0. It is than possible to add private data at this point using the proper bank calls. Therefore any new banks created within eb_user will be appearing before the collected banks from the fragments. When using the eb_user with the ODB flag 'user build=y' (equipments/EB/settings) the automatic event builder is skipped. This allow the user to extract selectively from the different fragments the appropriate banks and compose the final destination event. In order to do so, the function 'bk_copy(pevent, ebch[i].pfragment, bankname)' will copy a particular bank from a given fragment.
+.PP
+\fBNote:\fP It exists two Midas event format to address bank size less than 32KB and larger bank size <4GB. This distinction is done by the call bk_init(pevent) for the small bank size and bk_init32(pevent) for large bank size. Within an experiment, this declaration has to be consistant. Therefore the bk_init in the eb_user should follow as well the type of the frontends.
+.PP
+The ebch[] array structure points to nfragment channel structure with the following content: 
+.PP
+.nf
+typedef struct {
+    char  name[32];         // Fragment name (Buffer name).
+    DWORD serial;           // Serial fragment number.
+    char *pfragment;        // Pointer to fragment (EVENT_HEADER *)
+    ...
+} EBUILDER_CHANNEL;
+
+.fi
+.PP
+.PP
+The correct code for including your own MIDAS bank is shown below where \fBTID_xxx\fP is one of the valid Bank type starting with \fBTID_\fP for midas format \fBbank_name\fP is a 4 character descriptor. \fBpdata\fP has to be declared accordingly with the bank type. Refers to the \fBebuser.c\fP source code for further description.
+.PP
+\fB It is not possible to mix within the same destination event different event format! No bk_swap performed when user build is requested. \fP
+.PP
+.PP
+.nf
+  // Event is empty, fill it with BANK_HEADER
+  // If you need to add your own bank at this stage
+
+  // Need to match the decalration in the Frontends.
+  bk_init(pevent);  
+//  bk_init32(pevent);
+  bk_create(pevent, bank_name, TID_xxxx, &pdata);
+  *pdata++ = ...;
+  *dest_size = bk_close(pevent, pdata);
+  pheader->data_size = *dest_size + sizeof(EVENT_HEADER);
+.fi
+.PP
+.PP
+\fBParameters:\fP
+.RS 4
+\fInfrag\fP Number of fragment. 
+.br
+\fImismatch\fP Midas Serial number mismatch flag. 
+.br
+\fIebch\fP Structure to all the fragments. 
+.br
+\fIpheader\fP Destination pointer to the header. 
+.br
+\fIpevent\fP Destination pointer to the bank header. 
+.br
+\fIdest_size\fP Destination event size in bytes. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+EB_SUCCESS 
+.RE
+.PP
+
+.PP
+Definition at line 194 of file ebuser.c.
+.PP
+Referenced by source_scan().
+.SS "\fBINT\fP ebuilder_exit (void)"
+.PP
+Definition at line 89 of file ebuser.c.
+.PP
+Referenced by main().
+.SS "\fBINT\fP ebuilder_init (void)"
+.PP
+Definition at line 81 of file ebuser.c.
+.PP
+Referenced by main().
+.SS "\fBINT\fP ebuilder_loop (void)"
+.PP
+Definition at line 95 of file ebuser.c.
+.SS "\fBINT\fP ebuser (\fBINT\fP, \fBBOOL\fP mismatch, EBUILDER_CHANNEL *, \fBEVENT_HEADER\fP *, void *, \fBINT\fP *)"
+.SS "\fBINT\fP read_scaler_event (char * pevent, \fBINT\fP off)"
+.PP
+Definition at line 841 of file fevmemodules.c.
+.SH "Variable Documentation"
+.PP 
+.SS "\fBBOOL\fP \fBdebug\fP"
+.PP
+Definition at line 65 of file mfe.c.
+.PP
+Referenced by eb_user(), handFlush(), load_fragment(), main(), scan_fragment(), source_booking(), source_scan(), source_unbooking(), tr_start(), and tr_stop().
+.SS "\fBINT\fP \fBdisplay_period\fP = 3000"
+.PP
+Definition at line 34 of file ebuser.c.
+.SS "EBUILDER_SETTINGS \fBebset\fP"
+.PP
+Definition at line 33 of file mevb.c.
+.PP
+Referenced by eb_user(), handFlush(), main(), scan_fragment(), source_booking(), source_scan(), and tr_start().
+.SS "\fBBOOL\fP \fBebuilder_call_loop\fP = FALSE"
+.PP
+Definition at line 31 of file ebuser.c.
+.SS "\fBEQUIPMENT\fP \fBequipment\fP[]"\fBInitial value:\fP
+.PP
+.nf
+ {
+   {'EB',                
+    {1, 0,                   
+     'SYSTEM',               
+     0,                      
+     0,                      
+     'MIDAS',                
+     TRUE,                   
+     },
+    },
+
+  {''}
+}
+.fi
+.PP
+Definition at line 61 of file ebuser.c.
+.SS "\fBINT\fP \fBevent_buffer_size\fP = 20 * 50000"
+.PP
+Definition at line 43 of file ebuser.c.
+.SS "char* \fBfrontend_file_name\fP = __FILE__"
+.PP
+Definition at line 28 of file ebuser.c.
+.SS "char* \fBfrontend_name\fP = 'Ebuilder'"
+.PP
+Definition at line 25 of file ebuser.c.
+.SS "\fBINT\fP \fBlModulo\fP = 100"
+.PP
+Global var for testing passed at BOR. Globals 
+.PP
+Definition at line 47 of file ebuser.c.
+.PP
+Referenced by eb_begin_of_run().
+.SS "\fBINT\fP \fBmax_event_size\fP = 500000"
+.PP
+Definition at line 37 of file ebuser.c.
+.SS "\fBINT\fP \fBmax_event_size_frag\fP = 5 * 1024 * 1024"
+.PP
+Definition at line 40 of file ebuser.c.
+.SS "\fBINT\fP \fBtid_size\fP[]"
+.PP
+Referenced by bk_find(), and bk_locate().
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Midas from the source code.

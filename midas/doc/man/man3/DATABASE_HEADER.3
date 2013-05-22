@@ -1,0 +1,67 @@
+.TH "DATABASE_HEADER" 3 "31 May 2012" "Version 2.3.0-0" "Midas" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+DATABASE_HEADER \- 
+.SH SYNOPSIS
+.br
+.PP
+.SH "Detailed Description"
+.PP 
+Definition at line 372 of file msystem.h.
+.SH "Field Documentation"
+.PP 
+.SS "\fBDATABASE_CLIENT\fP \fBDATABASE_HEADER::client\fP[MAX_CLIENTS]"
+.PP
+Definition at line 383 of file msystem.h.
+.PP
+Referenced by cm_check_client(), cm_cleanup(), cm_get_watchdog_info(), cm_set_watchdog_params(), cm_update_last_activity(), db_close_database(), and db_open_database().
+.SS "\fBINT\fP \fBDATABASE_HEADER::data_size\fP"
+.PP
+Definition at line 378 of file msystem.h.
+.PP
+Referenced by db_close_database(), and db_open_database().
+.SS "\fBINT\fP \fBDATABASE_HEADER::first_free_data\fP"
+.PP
+Definition at line 381 of file msystem.h.
+.PP
+Referenced by db_open_database().
+.SS "\fBINT\fP \fBDATABASE_HEADER::first_free_key\fP"
+.PP
+Definition at line 380 of file msystem.h.
+.PP
+Referenced by db_open_database().
+.SS "\fBINT\fP \fBDATABASE_HEADER::key_size\fP"
+.PP
+Definition at line 377 of file msystem.h.
+.PP
+Referenced by db_open_database().
+.SS "\fBINT\fP \fBDATABASE_HEADER::max_client_index\fP"
+.PP
+Definition at line 376 of file msystem.h.
+.PP
+Referenced by cm_check_client(), cm_cleanup(), cm_get_watchdog_info(), db_close_database(), and db_open_database().
+.SS "char \fBDATABASE_HEADER::name\fP[NAME_LENGTH]"
+.PP
+Definition at line 373 of file msystem.h.
+.PP
+Referenced by cm_cleanup(), db_close_database(), and db_open_database().
+.SS "\fBINT\fP \fBDATABASE_HEADER::num_clients\fP"
+.PP
+Definition at line 375 of file msystem.h.
+.PP
+Referenced by cm_cleanup(), db_close_database(), and db_open_database().
+.SS "\fBINT\fP \fBDATABASE_HEADER::root_key\fP"
+.PP
+Definition at line 379 of file msystem.h.
+.PP
+Referenced by db_create_key(), db_delete_key1(), db_enum_key(), db_find_key(), db_get_key(), db_get_link(), and db_open_database().
+.SS "\fBINT\fP \fBDATABASE_HEADER::version\fP"
+.PP
+Definition at line 374 of file msystem.h.
+.PP
+Referenced by db_open_database().
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Midas from the source code.

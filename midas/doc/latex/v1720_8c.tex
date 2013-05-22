@@ -1,0 +1,169 @@
+\subsection{v1720.c File Reference}
+\label{v1720_8c}\index{v1720.c@{v1720.c}}
+\subsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+uint32\_\-t \hyperlink{v1720_8c_acdd23caf89523068021f92e2e5fc6f07}{v1720\_\-DataBlockRead} (\hyperlink{structMVME__INTERFACE}{MVME\_\-INTERFACE} $\ast$mvme, uint32\_\-t base, uint32\_\-t $\ast$pdest, uint32\_\-t $\ast$nentry)
+\item 
+int \hyperlink{v1720_8c_aa545f02c37aff141a08242cad65507e7}{v1720\_\-Setup} (\hyperlink{structMVME__INTERFACE}{MVME\_\-INTERFACE} $\ast$mvme, uint32\_\-t base, int mode)
+\end{DoxyCompactItemize}
+
+
+\subsubsection{Function Documentation}
+\index{v1720.c@{v1720.c}!regRead@{regRead}}
+\index{regRead@{regRead}!v1720.c@{v1720.c}}
+\paragraph[{regRead}]{\setlength{\rightskip}{0pt plus 5cm}static uint32\_\-t regRead ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  uint32\_\-t {\em base}, \/  int {\em offset})\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}\hfill\label{v1720_8c_a2296a7241a9fb55be401fb5c9845c7b7}
+
+
+Definition at line 24 of file v1720.c.
+
+Referenced by v1720\_\-AcqCtl(), v1720\_\-BufferFree(), v1720\_\-BufferFreeRead(), v1720\_\-BufferOccupancy(), v1720\_\-ChannelConfig(), v1720\_\-ChannelDACGet(), v1720\_\-ChannelGet(), v1720\_\-DataRead(), v1720\_\-info(), v1720\_\-RegisterRead(), and v1720\_\-Status().\index{v1720.c@{v1720.c}!regWrite@{regWrite}}
+\index{regWrite@{regWrite}!v1720.c@{v1720.c}}
+\paragraph[{regWrite}]{\setlength{\rightskip}{0pt plus 5cm}static void regWrite ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  uint32\_\-t {\em base}, \/  int {\em offset}, \/  uint32\_\-t {\em value})\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}\hfill\label{v1720_8c_af268fb97f4bcf3a3c0d4e2839c5a2a93}
+
+
+Definition at line 35 of file v1720.c.
+
+Referenced by v1720\_\-AcqCtl(), v1720\_\-Align64Set(), v1720\_\-BufferFree(), v1720\_\-ChannelConfig(), v1720\_\-ChannelCtl(), v1720\_\-ChannelDACSet(), v1720\_\-ChannelOUThresholdSet(), v1720\_\-ChannelSet(), v1720\_\-ChannelThresholdSet(), v1720\_\-RegisterWrite(), v1720\_\-Reset(), v1720\_\-Setup(), and v1720\_\-TrgCtl().\index{v1720.c@{v1720.c}!v1720\_\-AcqCtl@{v1720\_\-AcqCtl}}
+\index{v1720\_\-AcqCtl@{v1720\_\-AcqCtl}!v1720.c@{v1720.c}}
+\paragraph[{v1720\_\-AcqCtl}]{\setlength{\rightskip}{0pt plus 5cm}void v1720\_\-AcqCtl ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  uint32\_\-t {\em base}, \/  uint32\_\-t {\em operation})}\hfill\label{v1720_8c_a20269f7f5e904b3bf0d5b7d4f31d42b8}
+
+
+Definition at line 145 of file v1720.c.\index{v1720.c@{v1720.c}!v1720\_\-Align64Set@{v1720\_\-Align64Set}}
+\index{v1720\_\-Align64Set@{v1720\_\-Align64Set}!v1720.c@{v1720.c}}
+\paragraph[{v1720\_\-Align64Set}]{\setlength{\rightskip}{0pt plus 5cm}void v1720\_\-Align64Set ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  uint32\_\-t {\em base})}\hfill\label{v1720_8c_a962f78126c5bc0ef1d424d1c45c53c85}
+
+
+Definition at line 139 of file v1720.c.\index{v1720.c@{v1720.c}!v1720\_\-BufferFree@{v1720\_\-BufferFree}}
+\index{v1720\_\-BufferFree@{v1720\_\-BufferFree}!v1720.c@{v1720.c}}
+\paragraph[{v1720\_\-BufferFree}]{\setlength{\rightskip}{0pt plus 5cm}uint32\_\-t v1720\_\-BufferFree ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  uint32\_\-t {\em base}, \/  int {\em nbuffer})}\hfill\label{v1720_8c_a8e195a44d8038fe0e92cc5d52ad5420a}
+
+
+Definition at line 233 of file v1720.c.\index{v1720.c@{v1720.c}!v1720\_\-BufferFreeRead@{v1720\_\-BufferFreeRead}}
+\index{v1720\_\-BufferFreeRead@{v1720\_\-BufferFreeRead}!v1720.c@{v1720.c}}
+\paragraph[{v1720\_\-BufferFreeRead}]{\setlength{\rightskip}{0pt plus 5cm}uint32\_\-t v1720\_\-BufferFreeRead ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  uint32\_\-t {\em base})}\hfill\label{v1720_8c_a04f2b6ca069e84bd50ab62c8db2883df}
+
+
+Definition at line 246 of file v1720.c.\index{v1720.c@{v1720.c}!v1720\_\-BufferOccupancy@{v1720\_\-BufferOccupancy}}
+\index{v1720\_\-BufferOccupancy@{v1720\_\-BufferOccupancy}!v1720.c@{v1720.c}}
+\paragraph[{v1720\_\-BufferOccupancy}]{\setlength{\rightskip}{0pt plus 5cm}uint32\_\-t v1720\_\-BufferOccupancy ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  uint32\_\-t {\em base}, \/  uint32\_\-t {\em channel})}\hfill\label{v1720_8c_a2887e1a13eff57f887798358e6280d8a}
+
+
+Definition at line 224 of file v1720.c.\index{v1720.c@{v1720.c}!v1720\_\-ChannelConfig@{v1720\_\-ChannelConfig}}
+\index{v1720\_\-ChannelConfig@{v1720\_\-ChannelConfig}!v1720.c@{v1720.c}}
+\paragraph[{v1720\_\-ChannelConfig}]{\setlength{\rightskip}{0pt plus 5cm}void v1720\_\-ChannelConfig ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  uint32\_\-t {\em base}, \/  uint32\_\-t {\em operation})}\hfill\label{v1720_8c_a37472870e9201758095f83eba3feb99b}
+
+
+Definition at line 181 of file v1720.c.\index{v1720.c@{v1720.c}!v1720\_\-ChannelCtl@{v1720\_\-ChannelCtl}}
+\index{v1720\_\-ChannelCtl@{v1720\_\-ChannelCtl}!v1720.c@{v1720.c}}
+\paragraph[{v1720\_\-ChannelCtl}]{\setlength{\rightskip}{0pt plus 5cm}void v1720\_\-ChannelCtl ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  uint32\_\-t {\em base}, \/  uint32\_\-t {\em reg}, \/  uint32\_\-t {\em mask})}\hfill\label{v1720_8c_a8b262559130dc01afea23b3390f8af13}
+
+
+Definition at line 67 of file v1720.c.\index{v1720.c@{v1720.c}!v1720\_\-ChannelDACGet@{v1720\_\-ChannelDACGet}}
+\index{v1720\_\-ChannelDACGet@{v1720\_\-ChannelDACGet}!v1720.c@{v1720.c}}
+\paragraph[{v1720\_\-ChannelDACGet}]{\setlength{\rightskip}{0pt plus 5cm}int v1720\_\-ChannelDACGet ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  uint32\_\-t {\em base}, \/  uint32\_\-t {\em channel}, \/  uint32\_\-t $\ast$ {\em dac})}\hfill\label{v1720_8c_a39043d4544279b4b83d0c03b92c98d31}
+
+
+Definition at line 126 of file v1720.c.\index{v1720.c@{v1720.c}!v1720\_\-ChannelDACSet@{v1720\_\-ChannelDACSet}}
+\index{v1720\_\-ChannelDACSet@{v1720\_\-ChannelDACSet}!v1720.c@{v1720.c}}
+\paragraph[{v1720\_\-ChannelDACSet}]{\setlength{\rightskip}{0pt plus 5cm}void v1720\_\-ChannelDACSet ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  uint32\_\-t {\em base}, \/  uint32\_\-t {\em channel}, \/  uint32\_\-t {\em dac})}\hfill\label{v1720_8c_aa7e18074b708f4ce0a8530dd7c007caf}
+
+
+Definition at line 116 of file v1720.c.\index{v1720.c@{v1720.c}!v1720\_\-ChannelGet@{v1720\_\-ChannelGet}}
+\index{v1720\_\-ChannelGet@{v1720\_\-ChannelGet}!v1720.c@{v1720.c}}
+\paragraph[{v1720\_\-ChannelGet}]{\setlength{\rightskip}{0pt plus 5cm}uint32\_\-t v1720\_\-ChannelGet ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  uint32\_\-t {\em base}, \/  uint32\_\-t {\em channel}, \/  uint32\_\-t {\em what})}\hfill\label{v1720_8c_a9f2af1cbc3d42e6b13c84db35cf07c4f}
+
+
+Definition at line 86 of file v1720.c.\index{v1720.c@{v1720.c}!v1720\_\-ChannelOUThresholdSet@{v1720\_\-ChannelOUThresholdSet}}
+\index{v1720\_\-ChannelOUThresholdSet@{v1720\_\-ChannelOUThresholdSet}!v1720.c@{v1720.c}}
+\paragraph[{v1720\_\-ChannelOUThresholdSet}]{\setlength{\rightskip}{0pt plus 5cm}void v1720\_\-ChannelOUThresholdSet ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  uint32\_\-t {\em base}, \/  uint32\_\-t {\em channel}, \/  uint32\_\-t {\em threshold})}\hfill\label{v1720_8c_ad23d27240d4832dda63108a2642c8ac9}
+
+
+Definition at line 107 of file v1720.c.\index{v1720.c@{v1720.c}!v1720\_\-ChannelSet@{v1720\_\-ChannelSet}}
+\index{v1720\_\-ChannelSet@{v1720\_\-ChannelSet}!v1720.c@{v1720.c}}
+\paragraph[{v1720\_\-ChannelSet}]{\setlength{\rightskip}{0pt plus 5cm}void v1720\_\-ChannelSet ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  uint32\_\-t {\em base}, \/  uint32\_\-t {\em channel}, \/  uint32\_\-t {\em what}, \/  uint32\_\-t {\em that})}\hfill\label{v1720_8c_aaa370ced27664e48c762a4cb15ebd4bc}
+
+
+Definition at line 73 of file v1720.c.\index{v1720.c@{v1720.c}!v1720\_\-ChannelThresholdSet@{v1720\_\-ChannelThresholdSet}}
+\index{v1720\_\-ChannelThresholdSet@{v1720\_\-ChannelThresholdSet}!v1720.c@{v1720.c}}
+\paragraph[{v1720\_\-ChannelThresholdSet}]{\setlength{\rightskip}{0pt plus 5cm}void v1720\_\-ChannelThresholdSet ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  uint32\_\-t {\em base}, \/  uint32\_\-t {\em channel}, \/  uint32\_\-t {\em threshold})}\hfill\label{v1720_8c_a381761572642d5968887fc4a4af210b1}
+
+
+Definition at line 98 of file v1720.c.\index{v1720.c@{v1720.c}!v1720\_\-DataBlockRead@{v1720\_\-DataBlockRead}}
+\index{v1720\_\-DataBlockRead@{v1720\_\-DataBlockRead}!v1720.c@{v1720.c}}
+\paragraph[{v1720\_\-DataBlockRead}]{\setlength{\rightskip}{0pt plus 5cm}uint32\_\-t v1720\_\-DataBlockRead ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  uint32\_\-t {\em base}, \/  uint32\_\-t $\ast$ {\em pdest}, \/  uint32\_\-t $\ast$ {\em nentry})}\hfill\label{v1720_8c_acdd23caf89523068021f92e2e5fc6f07}
+v1720\_\-DataBlockRead Read N entries (32bit) 
+\begin{DoxyParams}{Parameters}
+\item[{\em mvme}]vme structure \item[{\em base}]base address \item[{\em pdest}]Destination pointer \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+nentry 
+\end{DoxyReturn}
+
+
+Definition at line 275 of file v1720.c.\index{v1720.c@{v1720.c}!v1720\_\-DataRead@{v1720\_\-DataRead}}
+\index{v1720\_\-DataRead@{v1720\_\-DataRead}!v1720.c@{v1720.c}}
+\paragraph[{v1720\_\-DataRead}]{\setlength{\rightskip}{0pt plus 5cm}uint32\_\-t v1720\_\-DataRead ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  uint32\_\-t {\em base}, \/  uint32\_\-t $\ast$ {\em pdata}, \/  uint32\_\-t {\em n32w})}\hfill\label{v1720_8c_a5e62dbe72aa8807386b6b297ca3d342d}
+
+
+Definition at line 252 of file v1720.c.\index{v1720.c@{v1720.c}!v1720\_\-info@{v1720\_\-info}}
+\index{v1720\_\-info@{v1720\_\-info}!v1720.c@{v1720.c}}
+\paragraph[{v1720\_\-info}]{\setlength{\rightskip}{0pt plus 5cm}void v1720\_\-info ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  uint32\_\-t {\em base}, \/  int $\ast$ {\em nchannels}, \/  uint32\_\-t $\ast$ {\em n32word})}\hfill\label{v1720_8c_a6fef2659a864d29134fbf7fcf004e5b2}
+
+
+Definition at line 202 of file v1720.c.\index{v1720.c@{v1720.c}!v1720\_\-RegisterRead@{v1720\_\-RegisterRead}}
+\index{v1720\_\-RegisterRead@{v1720\_\-RegisterRead}!v1720.c@{v1720.c}}
+\paragraph[{v1720\_\-RegisterRead}]{\setlength{\rightskip}{0pt plus 5cm}uint32\_\-t v1720\_\-RegisterRead ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  uint32\_\-t {\em base}, \/  int {\em offset})}\hfill\label{v1720_8c_a982011febfc8669a1661a55221097e62}
+
+
+Definition at line 43 of file v1720.c.\index{v1720.c@{v1720.c}!v1720\_\-RegisterWrite@{v1720\_\-RegisterWrite}}
+\index{v1720\_\-RegisterWrite@{v1720\_\-RegisterWrite}!v1720.c@{v1720.c}}
+\paragraph[{v1720\_\-RegisterWrite}]{\setlength{\rightskip}{0pt plus 5cm}void v1720\_\-RegisterWrite ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  uint32\_\-t {\em base}, \/  int {\em offset}, \/  uint32\_\-t {\em value})}\hfill\label{v1720_8c_a5012e18a8742d8175b95a354ba4cae21}
+
+
+Definition at line 49 of file v1720.c.\index{v1720.c@{v1720.c}!v1720\_\-Reset@{v1720\_\-Reset}}
+\index{v1720\_\-Reset@{v1720\_\-Reset}!v1720.c@{v1720.c}}
+\paragraph[{v1720\_\-Reset}]{\setlength{\rightskip}{0pt plus 5cm}void v1720\_\-Reset ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  uint32\_\-t {\em base})}\hfill\label{v1720_8c_a9c8bde659a10c005af8dc217731c11c8}
+
+
+Definition at line 55 of file v1720.c.\index{v1720.c@{v1720.c}!v1720\_\-Setup@{v1720\_\-Setup}}
+\index{v1720\_\-Setup@{v1720\_\-Setup}!v1720.c@{v1720.c}}
+\paragraph[{v1720\_\-Setup}]{\setlength{\rightskip}{0pt plus 5cm}int v1720\_\-Setup ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  uint32\_\-t {\em base}, \/  int {\em mode})}\hfill\label{v1720_8c_aa545f02c37aff141a08242cad65507e7}
+Sets all the necessary paramters for a given configuration. The configuration is provided by the mode argument. Add your own configuration in the case statement. Let me know your setting if you want to include it in the distribution.
+\begin{DoxyItemize}
+\item {\bfseries Mode 1} :
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em $\ast$mvme}]VME structure \item[{\em base}]Module base address \item[{\em mode}]Configuration mode number \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0: OK. -\/1: Bad 
+\end{DoxyReturn}
+
+
+Definition at line 319 of file v1720.c.\index{v1720.c@{v1720.c}!v1720\_\-Status@{v1720\_\-Status}}
+\index{v1720\_\-Status@{v1720\_\-Status}!v1720.c@{v1720.c}}
+\paragraph[{v1720\_\-Status}]{\setlength{\rightskip}{0pt plus 5cm}void v1720\_\-Status ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  uint32\_\-t {\em base})}\hfill\label{v1720_8c_a25d62c41a9b3c8046d3edccbb1886adf}
+
+
+Definition at line 296 of file v1720.c.
+
+Referenced by v1720\_\-Setup().\index{v1720.c@{v1720.c}!v1720\_\-TrgCtl@{v1720\_\-TrgCtl}}
+\index{v1720\_\-TrgCtl@{v1720\_\-TrgCtl}!v1720.c@{v1720.c}}
+\paragraph[{v1720\_\-TrgCtl}]{\setlength{\rightskip}{0pt plus 5cm}void v1720\_\-TrgCtl ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  uint32\_\-t {\em base}, \/  uint32\_\-t {\em reg}, \/  uint32\_\-t {\em mask})}\hfill\label{v1720_8c_a05efa4a61c378f60bdf2c74626d027d1}
+
+
+Definition at line 61 of file v1720.c.
+
+\subsubsection{Variable Documentation}
+\index{v1720.c@{v1720.c}!V1720\_\-NSAMPLES\_\-MODE@{V1720\_\-NSAMPLES\_\-MODE}}
+\index{V1720\_\-NSAMPLES\_\-MODE@{V1720\_\-NSAMPLES\_\-MODE}!v1720.c@{v1720.c}}
+\paragraph[{V1720\_\-NSAMPLES\_\-MODE}]{\setlength{\rightskip}{0pt plus 5cm}uint32\_\-t {\bf V1720\_\-NSAMPLES\_\-MODE}\mbox{[}11\mbox{]}}\hfill\label{v1720_8c_a9585ae4c07e118efaed53e2a5e4ae703}
+{\bfseries Initial value:}
+\begin{DoxyCode}
+ { (1<<20), (1<<19), (1<<18), (1<<17), (1<<16), (1<<15)
+                               ,(1<<14), (1<<13), (1<<12), (1<<11), (1<<10)}
+\end{DoxyCode}
+
+
+Definition at line 17 of file v1720.c.

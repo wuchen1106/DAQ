@@ -1,0 +1,393 @@
+.TH "sis3803.h" 3 "31 May 2012" "Version 2.3.0-0" "Midas" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+sis3803.h \- 
+.SH SYNOPSIS
+.br
+.PP
+.SH "Define Documentation"
+.PP 
+.SS "#define A32D24   0xf0000000"
+.PP
+Definition at line 62 of file sis3803.h.
+.PP
+Referenced by sis3803_all_clear(), sis3803_all_disable(), sis3803_all_enable(), sis3803_all_read(), sis3803_all_read_clear(), sis3803_channel_disable(), sis3803_channel_enable(), sis3803_counter_read(), sis3803_CSR_read(), sis3803_CSR_write(), sis3803_grp1_clear(), sis3803_grp1_read(), sis3803_grp2_clear(), sis3803_grp2_read(), sis3803_input_mode(), sis3803_int_attach(), sis3803_int_clear(), sis3803_int_source(), sis3803_int_source_disable(), sis3803_int_source_enable(), sis3803_IRQ_REG_read(), sis3803_IRQ_REG_write(), sis3803_module_ID(), sis3803_module_reset(), sis3803_OVFL_grp1_read(), sis3803_OVFL_grp2_read(), sis3803_ref1(), sis3803_single_clear(), sis3803_single_OVFL_clear(), sis3803_test_disable(), and sis3803_test_enable().
+.SS "#define ALL_CLEAR   0x020"
+.PP
+Definition at line 94 of file sis3803.h.
+.PP
+Referenced by sis3803_all_clear().
+.SS "#define COUNTER_CLEAR   0x100"
+.PP
+Definition at line 105 of file sis3803.h.
+.PP
+Referenced by sis3803_single_clear().
+.SS "#define COUNTER_GRP1_CLEAR   0x040"
+.PP
+Definition at line 98 of file sis3803.h.
+.PP
+Referenced by sis3803_grp1_clear().
+.SS "#define COUNTER_GRP2_CLEAR   0x044"
+.PP
+Definition at line 99 of file sis3803.h.
+.PP
+Referenced by sis3803_grp2_clear().
+.SS "#define COUNTER_GRP2_READ   0x2A0"
+.PP
+Definition at line 109 of file sis3803.h.
+.PP
+Referenced by sis3803_grp2_read().
+.SS "#define COUNTER_READ   0x280"
+.PP
+Definition at line 108 of file sis3803.h.
+.PP
+Referenced by sis3803_all_read(), sis3803_counter_read(), and sis3803_grp1_read().
+.SS "#define COUNTER_READ_CLEAR   0x300"
+.PP
+Definition at line 110 of file sis3803.h.
+.PP
+Referenced by sis3803_all_read_clear().
+.SS "#define CSR_FULL   0xffffffff"
+.PP
+Definition at line 66 of file sis3803.h.
+.SS "#define CSR_READ   0x0"
+.PP
+Definition at line 65 of file sis3803.h.
+.SS "#define CSR_WRITE   0x0"
+.PP
+Definition at line 67 of file sis3803.h.
+.SS "#define DISABLE_GBL_COUNT   0x02C"
+.PP
+Definition at line 97 of file sis3803.h.
+.PP
+Referenced by sis3803_all_disable().
+.SS "#define DISABLE_IRQ_DI_BS0   0x10000000"
+.PP
+Definition at line 86 of file sis3803.h.
+.PP
+Referenced by sis3803_int_clear(), sis3803_int_source(), and sis3803_int_source_disable().
+.SS "#define DISABLE_IRQ_DI_BS1   0x20000000"
+.PP
+Definition at line 87 of file sis3803.h.
+.PP
+Referenced by sis3803_int_clear(), sis3803_int_source(), and sis3803_int_source_disable().
+.SS "#define DISABLE_IRQ_DI_BS2   0x40000000"
+.PP
+Definition at line 88 of file sis3803.h.
+.PP
+Referenced by sis3803_int_clear(), sis3803_int_source(), and sis3803_int_source_disable().
+.SS "#define DISABLE_REF_CH1   0x054"
+.PP
+Definition at line 101 of file sis3803.h.
+.PP
+Referenced by sis3803_ref1().
+.SS "#define DISABLE_TEST_PULSE   0x00003000"
+.PP
+Definition at line 82 of file sis3803.h.
+.PP
+Referenced by sis3803_test_disable().
+.SS "#define ENABLE_GBL_COUNT   0x028"
+.PP
+Definition at line 96 of file sis3803.h.
+.PP
+Referenced by sis3803_all_enable().
+.SS "#define ENABLE_IRQ_EN_BS0   0x00100000"
+.PP
+Definition at line 83 of file sis3803.h.
+.PP
+Referenced by sis3803_int_clear(), sis3803_int_source(), and sis3803_int_source_enable().
+.SS "#define ENABLE_IRQ_EN_BS1   0x00200000"
+.PP
+Definition at line 84 of file sis3803.h.
+.PP
+Referenced by sis3803_int_clear(), sis3803_int_source(), and sis3803_int_source_enable().
+.SS "#define ENABLE_IRQ_EN_BS2   0x00400000"
+.PP
+Definition at line 85 of file sis3803.h.
+.PP
+Referenced by sis3803_int_clear(), sis3803_int_source(), and sis3803_int_source_enable().
+.SS "#define ENABLE_REF_CH1   0x050"
+.PP
+Definition at line 100 of file sis3803.h.
+.PP
+Referenced by sis3803_ref1().
+.SS "#define ENABLE_TEST_PULSE   0x00000030"
+.PP
+Definition at line 81 of file sis3803.h.
+.PP
+Referenced by sis3803_test_enable().
+.SS "#define EXTERNAL   extern"
+.PP
+Definition at line 43 of file sis3803.h.
+.SS "#define GET_MODE   0x0000000C"
+.PP
+Definition at line 68 of file sis3803.h.
+.SS "#define INLINE"
+.PP
+Definition at line 40 of file sis3803.h.
+.SS "#define IRQ_REG   0x004"
+.PP
+Definition at line 92 of file sis3803.h.
+.PP
+Referenced by sis3803_int_attach(), sis3803_IRQ_REG_read(), and sis3803_IRQ_REG_write().
+.SS "#define IS_GBL_ENABLE   0x00008000"
+.PP
+Definition at line 79 of file sis3803.h.
+.PP
+Referenced by SIS3803_CSR_read().
+.SS "#define IS_GBL_OVFL   0x00004000"
+.PP
+Definition at line 80 of file sis3803.h.
+.PP
+Referenced by SIS3803_CSR_read().
+.SS "#define IS_IRQ_BS0   0x10000000"
+.PP
+Definition at line 76 of file sis3803.h.
+.PP
+Referenced by SIS3803_CSR_read().
+.SS "#define IS_IRQ_BS1   0x20000000"
+.PP
+Definition at line 77 of file sis3803.h.
+.PP
+Referenced by SIS3803_CSR_read().
+.SS "#define IS_IRQ_BS2   0x40000000"
+.PP
+Definition at line 78 of file sis3803.h.
+.PP
+Referenced by SIS3803_CSR_read().
+.SS "#define IS_IRQ_EN_BS0   0x00100000"
+.PP
+Definition at line 73 of file sis3803.h.
+.PP
+Referenced by SIS3803_CSR_read().
+.SS "#define IS_IRQ_EN_BS1   0x00200000"
+.PP
+Definition at line 74 of file sis3803.h.
+.PP
+Referenced by SIS3803_CSR_read().
+.SS "#define IS_IRQ_EN_BS2   0x00400000"
+.PP
+Definition at line 75 of file sis3803.h.
+.PP
+Referenced by SIS3803_CSR_read().
+.SS "#define IS_LED   0x00000001"
+.PP
+Definition at line 72 of file sis3803.h.
+.SS "#define IS_REF1   0x00002000"
+.PP
+Definition at line 70 of file sis3803.h.
+.SS "#define MODULE_ID   0x004"
+.PP
+Definition at line 91 of file sis3803.h.
+.PP
+Referenced by sis3803_module_ID().
+.SS "#define MODULE_RESET   0x060"
+.PP
+Definition at line 102 of file sis3803.h.
+.PP
+Referenced by sis3803_module_reset().
+.SS "#define OVERFLOW_CLEAR   0x180"
+.PP
+Definition at line 106 of file sis3803.h.
+.PP
+Referenced by sis3803_single_OVFL_clear().
+.SS "#define OVERFLOW_REG1_8   0x380"
+.PP
+Definition at line 111 of file sis3803.h.
+.PP
+Referenced by sis3803_OVFL_grp1_read().
+.SS "#define OVERFLOW_REG9_16   0x3A0"
+.PP
+Definition at line 112 of file sis3803.h.
+.PP
+Referenced by sis3803_OVFL_grp2_read().
+.SS "#define PRESCALE_REG   0x080"
+.PP
+Definition at line 104 of file sis3803.h.
+.SS "#define SELECT_COUNT_DIS_REG   0x00C"
+.PP
+Definition at line 93 of file sis3803.h.
+.PP
+Referenced by sis3803_channel_disable(), and sis3803_channel_enable().
+.SS "#define SHADOW_CLK_REG   0x024"
+.PP
+Definition at line 95 of file sis3803.h.
+.SS "#define SHADOW_READ   0x200"
+.PP
+Definition at line 107 of file sis3803.h.
+.SS "#define SINGLE_TST_PULSE   0x068"
+.PP
+Definition at line 103 of file sis3803.h.
+.SS "#define SIS3803_VECT_BASE   0x6f"
+.PP
+Definition at line 119 of file sis3803.h.
+.SS "#define SOURCE_CIP   0"
+.PP
+Definition at line 114 of file sis3803.h.
+.SS "#define SOURCE_FIFO_ALFULL   3"
+.PP
+Definition at line 117 of file sis3803.h.
+.SS "#define SOURCE_FIFO_FULL   1"
+.PP
+Definition at line 115 of file sis3803.h.
+.SS "#define SOURCE_FIFO_HFULL   2"
+.PP
+Definition at line 116 of file sis3803.h.
+.SS "#define VME_IRQ_ENABLE   0x00000800"
+.PP
+Definition at line 89 of file sis3803.h.
+.SH "Typedef Documentation"
+.PP 
+.SS "typedef unsigned long int \fBDWORD\fP"
+.PP
+Definition at line 54 of file sis3803.h.
+.SS "typedef long int \fBINT\fP"
+.PP
+Definition at line 49 of file sis3803.h.
+.SS "typedef unsigned short int \fBWORD\fP"
+.PP
+Definition at line 48 of file sis3803.h.
+.SH "Function Documentation"
+.PP 
+.SS "void myStub_sis3803 (void)"
+.PP
+Definition at line 21 of file sis3803.c.
+.PP
+Referenced by sis3803_int_detach().
+.SS "INLINE void sis3803_all_clear (const \fBDWORD\fP b)"
+.PP
+Definition at line 242 of file sis3803.c.
+.SS "INLINE void sis3803_all_disable (const \fBDWORD\fP b)"
+.PP
+Definition at line 314 of file sis3803.c.
+.SS "INLINE void sis3803_all_enable (const \fBDWORD\fP b)"
+.PP
+Definition at line 296 of file sis3803.c.
+.PP
+Referenced by sis3803_setup().
+.SS "INLINE void sis3803_all_read (const \fBDWORD\fP b, \fBDWORD\fP * p)"
+.PP
+Definition at line 430 of file sis3803.c.
+.PP
+Referenced by SIS3803_all_bread().
+.SS "INLINE void sis3803_all_read_clear (const \fBDWORD\fP b, \fBDWORD\fP * p)"
+.PP
+Definition at line 496 of file sis3803.c.
+.PP
+Referenced by SIS3803_all_bcread().
+.SS "INLINE void sis3803_channel_disable (const \fBDWORD\fP b, \fBDWORD\fP pat)"
+.PP
+Definition at line 179 of file sis3803.c.
+.SS "INLINE void sis3803_channel_enable (const \fBDWORD\fP b, \fBDWORD\fP pat)"
+.PP
+Definition at line 158 of file sis3803.c.
+.PP
+Referenced by sis3803_setup().
+.SS "INLINE void sis3803_counter_read (const \fBDWORD\fP b, \fBINT\fP ch, \fBDWORD\fP * p)"
+.PP
+Definition at line 408 of file sis3803.c.
+.PP
+Referenced by SIS3803_all_read(), and SIS3803_all_read_clear().
+.SS "void SIS3803_CSR_read (const \fBDWORD\fP base_adr)"
+.PP
+Definition at line 848 of file sis3803.c.
+.PP
+Referenced by sis3803_setup().
+.SS "INLINE \fBDWORD\fP sis3803_CSR_read (const \fBDWORD\fP b, const \fBDWORD\fP what)"
+.PP
+Definition at line 199 of file sis3803.c.
+.PP
+Referenced by SIS3803_CSR_read(), and sis3803_CSR_write().
+.SS "INLINE \fBDWORD\fP sis3803_CSR_write (const \fBDWORD\fP b, const \fBDWORD\fP what)"
+.PP
+Definition at line 222 of file sis3803.c.
+.SS "INLINE void sis3803_grp1_clear (const \fBDWORD\fP b)"
+.PP
+Definition at line 332 of file sis3803.c.
+.SS "INLINE void sis3803_grp1_read (const \fBDWORD\fP base_adr, \fBDWORD\fP * pvalue)"
+.PP
+Definition at line 452 of file sis3803.c.
+.SS "INLINE void sis3803_grp2_clear (const \fBDWORD\fP b)"
+.PP
+Definition at line 350 of file sis3803.c.
+.SS "INLINE void sis3803_grp2_read (const \fBDWORD\fP base_adr, \fBDWORD\fP * pvalue)"
+.PP
+Definition at line 474 of file sis3803.c.
+.SS "INLINE \fBDWORD\fP sis3803_input_mode (const \fBDWORD\fP base_adr, \fBDWORD\fP mode)"
+.PP
+Definition at line 108 of file sis3803.c.
+.PP
+Referenced by SIS3803_CSR_read(), and sis3803_setup().
+.SS "INLINE void sis3803_int_attach (const \fBDWORD\fP base_adr, \fBDWORD\fP base_vect, int level, void(*)(void) isr)"
+.PP
+Definition at line 649 of file sis3803.c.
+.SS "INLINE void sis3803_int_clear (const \fBDWORD\fP base_adr, const int intnum)"
+.PP
+Definition at line 723 of file sis3803.c.
+.SS "INLINE void sis3803_int_detach (const \fBDWORD\fP base_adr, \fBDWORD\fP base_vect, int level)"
+.PP
+Definition at line 688 of file sis3803.c.
+.SS "INLINE void sis3803_int_source (const \fBDWORD\fP base_adr, \fBDWORD\fP int_source)"
+.PP
+Definition at line 625 of file sis3803.c.
+.SS "INLINE void sis3803_int_source_disable (const \fBDWORD\fP base_adr, const int intnum)"
+.PP
+Definition at line 590 of file sis3803.c.
+.PP
+Referenced by myStub_sis3803().
+.SS "INLINE void sis3803_int_source_enable (const \fBDWORD\fP base_adr, const int intnum)"
+.PP
+Definition at line 556 of file sis3803.c.
+.PP
+Referenced by myStub_sis3803().
+.SS "INLINE \fBDWORD\fP sis3803_IRQ_REG_read (const \fBDWORD\fP base_adr)"
+.PP
+Definition at line 69 of file sis3803.c.
+.SS "INLINE \fBDWORD\fP sis3803_IRQ_REG_write (const \fBDWORD\fP base_adr, \fBDWORD\fP irq)"
+.PP
+Definition at line 88 of file sis3803.c.
+.SS "INLINE \fBDWORD\fP sis3803_module_ID (const \fBDWORD\fP b)"
+.PP
+Definition at line 32 of file sis3803.c.
+.PP
+Referenced by SIS3803_CSR_read().
+.SS "INLINE void sis3803_module_reset (const \fBDWORD\fP b)"
+.PP
+Definition at line 51 of file sis3803.c.
+.PP
+Referenced by sis3803_setup().
+.SS "INLINE void sis3803_OVFL_grp1_read (const \fBDWORD\fP b, \fBDWORD\fP * p)"
+.PP
+Definition at line 518 of file sis3803.c.
+.SS "INLINE void sis3803_OVFL_grp2_read (const \fBDWORD\fP b, \fBDWORD\fP * p)"
+.PP
+Definition at line 537 of file sis3803.c.
+.SS "INLINE \fBDWORD\fP sis3803_ref1 (const \fBDWORD\fP b, \fBDWORD\fP endis)"
+.PP
+Definition at line 131 of file sis3803.c.
+.SS "void SIS3803_setup (const \fBDWORD\fP base_adr, int mode)"
+.PP
+Definition at line 843 of file sis3803.c.
+.SS "void sis3803_setup (const \fBDWORD\fP base_adr, int mode, int dsp)"
+.PP
+Definition at line 765 of file sis3803.c.
+.PP
+Referenced by SIS3803_setup().
+.SS "INLINE void sis3803_single_clear (const \fBDWORD\fP b, const \fBINT\fP ch)"
+.PP
+Definition at line 368 of file sis3803.c.
+.PP
+Referenced by SIS3803_all_read_clear().
+.SS "INLINE void sis3803_single_OVFL_clear (const \fBDWORD\fP b, const \fBINT\fP ch)"
+.PP
+Definition at line 388 of file sis3803.c.
+.SS "INLINE void sis3803_test_disable (const \fBDWORD\fP b)"
+.PP
+Definition at line 278 of file sis3803.c.
+.SS "INLINE void sis3803_test_enable (const \fBDWORD\fP b)"
+.PP
+Definition at line 260 of file sis3803.c.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Midas from the source code.

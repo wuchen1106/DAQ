@@ -1,0 +1,167 @@
+\subsection{EQUIPMENT\_\-INFO Struct Reference}
+\label{structEQUIPMENT__INFO}\index{EQUIPMENT\_\-INFO@{EQUIPMENT\_\-INFO}}
+\subsubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{vt2_8h_a2b0e863dadf920709ec53d9088ee7c91}{WORD} \hyperlink{structEQUIPMENT__INFO_a83d6e0d3f9bb5990400d40e84a2be378}{event\_\-id}
+\item 
+\hyperlink{vt2_8h_a2b0e863dadf920709ec53d9088ee7c91}{WORD} \hyperlink{structEQUIPMENT__INFO_a5744b359b07fc1963dd1a88210d28e6b}{trigger\_\-mask}
+\item 
+char \hyperlink{structEQUIPMENT__INFO_a0666cb14ec61ae2c4f535b76c9401ae1}{buffer} \mbox{[}NAME\_\-LENGTH\mbox{]}
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{structEQUIPMENT__INFO_a5d2b5c1a08c8312e86963499122d3c06}{eq\_\-type}
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{structEQUIPMENT__INFO_a345e65d8874f6b968bedc00e76d4f431}{source}
+\item 
+char \hyperlink{structEQUIPMENT__INFO_a60d08f3eadb2b1f809d06d7a64b0bc5e}{format} \mbox{[}8\mbox{]}
+\item 
+\hyperlink{vt2_8h_a239c7f0d40651c3e419c5b9651507d14}{BOOL} \hyperlink{structEQUIPMENT__INFO_a512d7966d5f96f8c75fec4ba1b1946c4}{enabled}
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{structEQUIPMENT__INFO_a5079d6cb8b770782e0bce5046f476996}{read\_\-on}
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{structEQUIPMENT__INFO_af7f674490636b6f9736fb680201001c2}{period}
+\item 
+double \hyperlink{structEQUIPMENT__INFO_a4f67b0a6bdc9fd382ea981f6a9dfdfcf}{event\_\-limit}
+\item 
+\hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} \hyperlink{structEQUIPMENT__INFO_ade7b61b85a73ed33545caf31b706acd3}{num\_\-subevents}
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{structEQUIPMENT__INFO_a2740dd481bbbb7c8e417b5818ff8e064}{history}
+\item 
+char \hyperlink{structEQUIPMENT__INFO_a0f7f20fef7826740571d2ffa82da4dfd}{frontend\_\-host} \mbox{[}NAME\_\-LENGTH\mbox{]}
+\item 
+char \hyperlink{structEQUIPMENT__INFO_a2cfd04e323109fe1cbb75ca8047aaa77}{frontend\_\-name} \mbox{[}NAME\_\-LENGTH\mbox{]}
+\item 
+char \hyperlink{structEQUIPMENT__INFO_a0788ebd106c11c952e09f99e142d8bbf}{frontend\_\-file\_\-name} \mbox{[}256\mbox{]}
+\item 
+char \hyperlink{structEQUIPMENT__INFO_a0c629c9353558e8f2f1759357608ebb6}{status} \mbox{[}256\mbox{]}
+\item 
+char \hyperlink{structEQUIPMENT__INFO_acfbe0f2e23fe95a1a06d55d6e0d3ac9c}{status\_\-color} \mbox{[}NAME\_\-LENGTH\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+
+
+Definition at line 967 of file midas.h.
+
+\subsubsection{Field Documentation}
+\index{EQUIPMENT\_\-INFO@{EQUIPMENT\_\-INFO}!buffer@{buffer}}
+\index{buffer@{buffer}!EQUIPMENT_INFO@{EQUIPMENT\_\-INFO}}
+\paragraph[{buffer}]{\setlength{\rightskip}{0pt plus 5cm}char {\bf EQUIPMENT\_\-INFO::buffer}\mbox{[}NAME\_\-LENGTH\mbox{]}}\hfill\label{structEQUIPMENT__INFO_a0666cb14ec61ae2c4f535b76c9401ae1}
+Event buffer to send events into 
+
+Definition at line 970 of file midas.h.
+
+Referenced by register\_\-equipment().\index{EQUIPMENT\_\-INFO@{EQUIPMENT\_\-INFO}!enabled@{enabled}}
+\index{enabled@{enabled}!EQUIPMENT_INFO@{EQUIPMENT\_\-INFO}}
+\paragraph[{enabled}]{\setlength{\rightskip}{0pt plus 5cm}{\bf BOOL} {\bf EQUIPMENT\_\-INFO::enabled}}\hfill\label{structEQUIPMENT__INFO_a512d7966d5f96f8c75fec4ba1b1946c4}
+Enable flag 
+
+Definition at line 974 of file midas.h.
+
+Referenced by check\_\-polled\_\-events(), initialize\_\-equipment(), scheduler(), send\_\-all\_\-periodic\_\-events(), and tr\_\-start().\index{EQUIPMENT\_\-INFO@{EQUIPMENT\_\-INFO}!eq\_\-type@{eq\_\-type}}
+\index{eq\_\-type@{eq\_\-type}!EQUIPMENT_INFO@{EQUIPMENT\_\-INFO}}
+\paragraph[{eq\_\-type}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} {\bf EQUIPMENT\_\-INFO::eq\_\-type}}\hfill\label{structEQUIPMENT__INFO_a5d2b5c1a08c8312e86963499122d3c06}
+One of EQ\_\-xxx 
+
+Definition at line 971 of file midas.h.
+
+Referenced by check\_\-polled\_\-events(), initialize\_\-equipment(), register\_\-equipment(), scheduler(), and send\_\-event().\index{EQUIPMENT\_\-INFO@{EQUIPMENT\_\-INFO}!event\_\-id@{event\_\-id}}
+\index{event\_\-id@{event\_\-id}!EQUIPMENT_INFO@{EQUIPMENT\_\-INFO}}
+\paragraph[{event\_\-id}]{\setlength{\rightskip}{0pt plus 5cm}{\bf WORD} {\bf EQUIPMENT\_\-INFO::event\_\-id}}\hfill\label{structEQUIPMENT__INFO_a83d6e0d3f9bb5990400d40e84a2be378}
+Event ID associated with equipm. 
+
+Definition at line 968 of file midas.h.
+
+Referenced by check\_\-polled\_\-events(), interrupt\_\-routine(), readout\_\-thread(), register\_\-equipment(), scheduler(), send\_\-event(), and source\_\-scan().\index{EQUIPMENT\_\-INFO@{EQUIPMENT\_\-INFO}!event\_\-limit@{event\_\-limit}}
+\index{event\_\-limit@{event\_\-limit}!EQUIPMENT_INFO@{EQUIPMENT\_\-INFO}}
+\paragraph[{event\_\-limit}]{\setlength{\rightskip}{0pt plus 5cm}double {\bf EQUIPMENT\_\-INFO::event\_\-limit}}\hfill\label{structEQUIPMENT__INFO_a4f67b0a6bdc9fd382ea981f6a9dfdfcf}
+Stop run when limit is reached 
+
+Definition at line 977 of file midas.h.
+
+Referenced by check\_\-polled\_\-events(), register\_\-equipment(), sc\_\-thread(), and scheduler().\index{EQUIPMENT\_\-INFO@{EQUIPMENT\_\-INFO}!format@{format}}
+\index{format@{format}!EQUIPMENT_INFO@{EQUIPMENT\_\-INFO}}
+\paragraph[{format}]{\setlength{\rightskip}{0pt plus 5cm}char {\bf EQUIPMENT\_\-INFO::format}\mbox{[}8\mbox{]}}\hfill\label{structEQUIPMENT__INFO_a60d08f3eadb2b1f809d06d7a64b0bc5e}
+Data format to produce 
+
+Definition at line 973 of file midas.h.
+
+Referenced by load\_\-fragment(), and register\_\-equipment().\index{EQUIPMENT\_\-INFO@{EQUIPMENT\_\-INFO}!frontend\_\-file\_\-name@{frontend\_\-file\_\-name}}
+\index{frontend\_\-file\_\-name@{frontend\_\-file\_\-name}!EQUIPMENT_INFO@{EQUIPMENT\_\-INFO}}
+\paragraph[{frontend\_\-file\_\-name}]{\setlength{\rightskip}{0pt plus 5cm}char {\bf EQUIPMENT\_\-INFO::frontend\_\-file\_\-name}\mbox{[}256\mbox{]}}\hfill\label{structEQUIPMENT__INFO_a0788ebd106c11c952e09f99e142d8bbf}
+Source file used for user FE 
+
+Definition at line 982 of file midas.h.
+
+Referenced by register\_\-equipment().\index{EQUIPMENT\_\-INFO@{EQUIPMENT\_\-INFO}!frontend\_\-host@{frontend\_\-host}}
+\index{frontend\_\-host@{frontend\_\-host}!EQUIPMENT_INFO@{EQUIPMENT\_\-INFO}}
+\paragraph[{frontend\_\-host}]{\setlength{\rightskip}{0pt plus 5cm}char {\bf EQUIPMENT\_\-INFO::frontend\_\-host}\mbox{[}NAME\_\-LENGTH\mbox{]}}\hfill\label{structEQUIPMENT__INFO_a0f7f20fef7826740571d2ffa82da4dfd}
+Host on which FE is running 
+
+Definition at line 980 of file midas.h.
+
+Referenced by register\_\-equipment().\index{EQUIPMENT\_\-INFO@{EQUIPMENT\_\-INFO}!frontend\_\-name@{frontend\_\-name}}
+\index{frontend\_\-name@{frontend\_\-name}!EQUIPMENT_INFO@{EQUIPMENT\_\-INFO}}
+\paragraph[{frontend\_\-name}]{\setlength{\rightskip}{0pt plus 5cm}char {\bf EQUIPMENT\_\-INFO::frontend\_\-name}\mbox{[}NAME\_\-LENGTH\mbox{]}}\hfill\label{structEQUIPMENT__INFO_a2cfd04e323109fe1cbb75ca8047aaa77}
+Frontend name 
+
+Definition at line 981 of file midas.h.
+
+Referenced by register\_\-equipment().\index{EQUIPMENT\_\-INFO@{EQUIPMENT\_\-INFO}!history@{history}}
+\index{history@{history}!EQUIPMENT_INFO@{EQUIPMENT\_\-INFO}}
+\paragraph[{history}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} {\bf EQUIPMENT\_\-INFO::history}}\hfill\label{structEQUIPMENT__INFO_a2740dd481bbbb7c8e417b5818ff8e064}
+Log history 
+
+Definition at line 979 of file midas.h.
+
+Referenced by scheduler(), and send\_\-event().\index{EQUIPMENT\_\-INFO@{EQUIPMENT\_\-INFO}!num\_\-subevents@{num\_\-subevents}}
+\index{num\_\-subevents@{num\_\-subevents}!EQUIPMENT_INFO@{EQUIPMENT\_\-INFO}}
+\paragraph[{num\_\-subevents}]{\setlength{\rightskip}{0pt plus 5cm}{\bf DWORD} {\bf EQUIPMENT\_\-INFO::num\_\-subevents}}\hfill\label{structEQUIPMENT__INFO_ade7b61b85a73ed33545caf31b706acd3}
+Number of events in super event 
+
+Definition at line 978 of file midas.h.
+
+Referenced by check\_\-polled\_\-events(), receive\_\-trigger\_\-event(), and scheduler().\index{EQUIPMENT\_\-INFO@{EQUIPMENT\_\-INFO}!period@{period}}
+\index{period@{period}!EQUIPMENT_INFO@{EQUIPMENT\_\-INFO}}
+\paragraph[{period}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} {\bf EQUIPMENT\_\-INFO::period}}\hfill\label{structEQUIPMENT__INFO_af7f674490636b6f9736fb680201001c2}
+Readout interval/Polling time in ms 
+
+Definition at line 976 of file midas.h.
+
+Referenced by check\_\-polled\_\-events(), initialize\_\-equipment(), and scheduler().\index{EQUIPMENT\_\-INFO@{EQUIPMENT\_\-INFO}!read\_\-on@{read\_\-on}}
+\index{read\_\-on@{read\_\-on}!EQUIPMENT_INFO@{EQUIPMENT\_\-INFO}}
+\paragraph[{read\_\-on}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} {\bf EQUIPMENT\_\-INFO::read\_\-on}}\hfill\label{structEQUIPMENT__INFO_a5079d6cb8b770782e0bce5046f476996}
+Combination of Read-\/On flags RO\_\-xxx 
+
+Definition at line 975 of file midas.h.
+
+Referenced by receive\_\-trigger\_\-event(), scheduler(), send\_\-all\_\-periodic\_\-events(), and send\_\-event().\index{EQUIPMENT\_\-INFO@{EQUIPMENT\_\-INFO}!source@{source}}
+\index{source@{source}!EQUIPMENT_INFO@{EQUIPMENT\_\-INFO}}
+\paragraph[{source}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} {\bf EQUIPMENT\_\-INFO::source}}\hfill\label{structEQUIPMENT__INFO_a345e65d8874f6b968bedc00e76d4f431}
+Event source (LAM/IRQ) 
+
+Definition at line 972 of file midas.h.
+
+Referenced by check\_\-polled\_\-events(), readout\_\-thread(), register\_\-equipment(), and scheduler().\index{EQUIPMENT\_\-INFO@{EQUIPMENT\_\-INFO}!status@{status}}
+\index{status@{status}!EQUIPMENT_INFO@{EQUIPMENT\_\-INFO}}
+\paragraph[{status}]{\setlength{\rightskip}{0pt plus 5cm}char {\bf EQUIPMENT\_\-INFO::status}\mbox{[}256\mbox{]}}\hfill\label{structEQUIPMENT__INFO_a0c629c9353558e8f2f1759357608ebb6}
+Current status of equipment 
+
+Definition at line 983 of file midas.h.
+
+Referenced by register\_\-equipment().\index{EQUIPMENT\_\-INFO@{EQUIPMENT\_\-INFO}!status\_\-color@{status\_\-color}}
+\index{status\_\-color@{status\_\-color}!EQUIPMENT_INFO@{EQUIPMENT\_\-INFO}}
+\paragraph[{status\_\-color}]{\setlength{\rightskip}{0pt plus 5cm}char {\bf EQUIPMENT\_\-INFO::status\_\-color}\mbox{[}NAME\_\-LENGTH\mbox{]}}\hfill\label{structEQUIPMENT__INFO_acfbe0f2e23fe95a1a06d55d6e0d3ac9c}
+Color to be used by mhttpd for status 
+
+Definition at line 984 of file midas.h.
+
+Referenced by register\_\-equipment().\index{EQUIPMENT\_\-INFO@{EQUIPMENT\_\-INFO}!trigger\_\-mask@{trigger\_\-mask}}
+\index{trigger\_\-mask@{trigger\_\-mask}!EQUIPMENT_INFO@{EQUIPMENT\_\-INFO}}
+\paragraph[{trigger\_\-mask}]{\setlength{\rightskip}{0pt plus 5cm}{\bf WORD} {\bf EQUIPMENT\_\-INFO::trigger\_\-mask}}\hfill\label{structEQUIPMENT__INFO_a5744b359b07fc1963dd1a88210d28e6b}
+Trigger mask 
+
+Definition at line 969 of file midas.h.
+
+Referenced by check\_\-polled\_\-events(), interrupt\_\-routine(), readout\_\-thread(), scheduler(), send\_\-event(), and source\_\-scan().

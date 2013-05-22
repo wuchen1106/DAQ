@@ -1,0 +1,1247 @@
+.TH "Camac Functions (camxxx)" 3 "31 May 2012" "Version 2.3.0-0" "Midas" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Camac Functions (camxxx) \- 
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "EXTERNAL INLINE void EXPRT \fBcam16i\fP (const int c, const int n, const int a, const int f, \fBWORD\fP *d)"
+.br
+.ti -1c
+.RI "EXTERNAL INLINE void EXPRT \fBcam24i\fP (const int c, const int n, const int a, const int f, \fBDWORD\fP *d)"
+.br
+.ti -1c
+.RI "EXTERNAL INLINE void EXPRT \fBcam8i_q\fP (const int c, const int n, const int a, const int f, \fBBYTE\fP *d, int *x, int *q)"
+.br
+.ti -1c
+.RI "EXTERNAL INLINE void EXPRT \fBcam16i_q\fP (const int c, const int n, const int a, const int f, \fBWORD\fP *d, int *x, int *q)"
+.br
+.ti -1c
+.RI "EXTERNAL INLINE void EXPRT \fBcam24i_q\fP (const int c, const int n, const int a, const int f, \fBDWORD\fP *d, int *x, int *q)"
+.br
+.ti -1c
+.RI "EXTERNAL INLINE void EXPRT \fBcam16i_r\fP (const int c, const int n, const int a, const int f, \fBWORD\fP **d, const int r)"
+.br
+.ti -1c
+.RI "EXTERNAL INLINE void EXPRT \fBcam24i_r\fP (const int c, const int n, const int a, const int f, \fBDWORD\fP **d, const int r)"
+.br
+.ti -1c
+.RI "EXTERNAL INLINE void EXPRT \fBcam8i_rq\fP (const int c, const int n, const int a, const int f, \fBBYTE\fP **d, const int r)"
+.br
+.ti -1c
+.RI "EXTERNAL INLINE void EXPRT \fBcam16i_rq\fP (const int c, const int n, const int a, const int f, \fBWORD\fP **d, const int r)"
+.br
+.ti -1c
+.RI "EXTERNAL INLINE void EXPRT \fBcam24i_rq\fP (const int c, const int n, const int a, const int f, \fBDWORD\fP **d, const int r)"
+.br
+.ti -1c
+.RI "EXTERNAL INLINE void EXPRT \fBcam8i_sa\fP (const int c, const int n, const int a, const int f, \fBBYTE\fP **d, const int r)"
+.br
+.ti -1c
+.RI "EXTERNAL INLINE void EXPRT \fBcam16i_sa\fP (const int c, const int n, const int a, const int f, \fBWORD\fP **d, const int r)"
+.br
+.ti -1c
+.RI "EXTERNAL INLINE void EXPRT \fBcam24i_sa\fP (const int c, const int n, const int a, const int f, \fBDWORD\fP **d, const int r)"
+.br
+.ti -1c
+.RI "EXTERNAL INLINE void EXPRT \fBcam8i_sn\fP (const int c, const int n, const int a, const int f, \fBBYTE\fP **d, const int r)"
+.br
+.ti -1c
+.RI "EXTERNAL INLINE void EXPRT \fBcam16i_sn\fP (const int c, const int n, const int a, const int f, \fBWORD\fP **d, const int r)"
+.br
+.ti -1c
+.RI "EXTERNAL INLINE void EXPRT \fBcam24i_sn\fP (const int c, const int n, const int a, const int f, \fBDWORD\fP **d, const int r)"
+.br
+.ti -1c
+.RI "EXTERNAL INLINE void EXPRT \fBcami\fP (const int c, const int n, const int a, const int f, \fBWORD\fP *d)"
+.br
+.ti -1c
+.RI "EXTERNAL INLINE void EXPRT \fBcam8o\fP (const int c, const int n, const int a, const int f, \fBBYTE\fP d)"
+.br
+.ti -1c
+.RI "EXTERNAL INLINE void EXPRT \fBcam16o\fP (const int c, const int n, const int a, const int f, \fBWORD\fP d)"
+.br
+.ti -1c
+.RI "EXTERNAL INLINE void EXPRT \fBcam24o\fP (const int c, const int n, const int a, const int f, \fBDWORD\fP d)"
+.br
+.ti -1c
+.RI "EXTERNAL INLINE void EXPRT \fBcam8o_q\fP (const int c, const int n, const int a, const int f, \fBBYTE\fP d, int *x, int *q)"
+.br
+.ti -1c
+.RI "EXTERNAL INLINE void EXPRT \fBcam16o_q\fP (const int c, const int n, const int a, const int f, \fBWORD\fP d, int *x, int *q)"
+.br
+.ti -1c
+.RI "EXTERNAL INLINE void EXPRT \fBcam24o_q\fP (const int c, const int n, const int a, const int f, \fBDWORD\fP d, int *x, int *q)"
+.br
+.ti -1c
+.RI "EXTERNAL INLINE void EXPRT \fBcam8o_r\fP (const int c, const int n, const int a, const int f, \fBBYTE\fP *d, const int r)"
+.br
+.ti -1c
+.RI "EXTERNAL INLINE void EXPRT \fBcam16o_r\fP (const int c, const int n, const int a, const int f, \fBWORD\fP *d, const int r)"
+.br
+.ti -1c
+.RI "EXTERNAL INLINE void EXPRT \fBcam24o_r\fP (const int c, const int n, const int a, const int f, \fBDWORD\fP *d, const int r)"
+.br
+.ti -1c
+.RI "EXTERNAL INLINE void EXPRT \fBcamo\fP (const int c, const int n, const int a, const int f, \fBWORD\fP d)"
+.br
+.ti -1c
+.RI "EXTERNAL INLINE int EXPRT \fBcamc_chk\fP (const int c)"
+.br
+.ti -1c
+.RI "EXTERNAL INLINE void EXPRT \fBcamc\fP (const int c, const int n, const int a, const int f)"
+.br
+.ti -1c
+.RI "EXTERNAL INLINE void EXPRT \fBcamc_q\fP (const int c, const int n, const int a, const int f, int *q)"
+.br
+.ti -1c
+.RI "EXTERNAL INLINE void EXPRT \fBcamc_sa\fP (const int c, const int n, const int a, const int f, const int r)"
+.br
+.ti -1c
+.RI "EXTERNAL INLINE void EXPRT \fBcamc_sn\fP (const int c, const int n, const int a, const int f, const int r)"
+.br
+.ti -1c
+.RI "EXTERNAL INLINE int EXPRT \fBcam_init\fP (void)"
+.br
+.ti -1c
+.RI "EXTERNAL INLINE int EXPRT \fBcam_init_rpc\fP (char *\fBhost_name\fP, char *\fBexp_name\fP, char *fe_name, char *client_name, char *rpc_server)"
+.br
+.ti -1c
+.RI "EXTERNAL INLINE void EXPRT \fBcam_exit\fP (void)"
+.br
+.ti -1c
+.RI "EXTERNAL INLINE void EXPRT \fBcam_inhibit_set\fP (const int c)"
+.br
+.ti -1c
+.RI "EXTERNAL INLINE void EXPRT \fBcam_inhibit_clear\fP (const int c)"
+.br
+.ti -1c
+.RI "EXTERNAL INLINE int EXPRT \fBcam_inhibit_test\fP (const int c)"
+.br
+.ti -1c
+.RI "EXTERNAL INLINE void EXPRT \fBcam_crate_clear\fP (const int c)"
+.br
+.ti -1c
+.RI "EXTERNAL INLINE void EXPRT \fBcam_crate_zinit\fP (const int c)"
+.br
+.ti -1c
+.RI "EXTERNAL INLINE void EXPRT \fBcam_lam_enable\fP (const int c, const int n)"
+.br
+.ti -1c
+.RI "EXTERNAL INLINE void EXPRT \fBcam_lam_disable\fP (const int c, const int n)"
+.br
+.ti -1c
+.RI "EXTERNAL void \fBcam_lam_read\fP (const int c, \fBDWORD\fP *lam)"
+.br
+.ti -1c
+.RI "EXTERNAL INLINE void EXPRT \fBcam_lam_clear\fP (const int c, const int n)"
+.br
+.ti -1c
+.RI "EXTERNAL INLINE int EXPRT \fBcam_lam_wait\fP (int *c, \fBDWORD\fP *n, const int millisec)"
+.br
+.ti -1c
+.RI "EXTERNAL INLINE void EXPRT \fBcam_interrupt_enable\fP (const int c)"
+.br
+.ti -1c
+.RI "EXTERNAL INLINE void EXPRT \fBcam_interrupt_disable\fP (const int c)"
+.br
+.ti -1c
+.RI "EXTERNAL INLINE int EXPRT \fBcam_interrupt_test\fP (const int c)"
+.br
+.ti -1c
+.RI "EXTERNAL INLINE void EXPRT \fBcam_interrupt_attach\fP (const int c, const int n, void(*isr)(void))"
+.br
+.ti -1c
+.RI "EXTERNAL INLINE void EXPRT \fBcam_interrupt_detach\fP (const int c, const int n)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+dox dox 
+.SH "Function Documentation"
+.PP 
+.SS "EXTERNAL INLINE void EXPRT cam16i (const int c, const int n, const int a, const int f, \fBWORD\fP * d)"16 bits input. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIc\fP crate number (0..) 
+.br
+\fIn\fP station number (0..30) 
+.br
+\fIa\fP sub-address (0..15) 
+.br
+\fIf\fP function (0..7) 
+.br
+\fId\fP data read out data 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.SS "EXTERNAL INLINE void EXPRT cam16i_q (const int c, const int n, const int a, const int f, \fBWORD\fP * d, int * x, int * q)"16 bits input with Q response. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIc\fP crate number (0..) 
+.br
+\fIn\fP station number (0..30) 
+.br
+\fIa\fP sub-address (0..15) 
+.br
+\fIf\fP function (0..7) 
+.br
+\fId\fP data read out data 
+.br
+\fIx\fP X response (0:failed,1:success) 
+.br
+\fIq\fP Q resonpse (0:no Q, 1: Q) 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Referenced by cnaf_callback(), csmad(), and cssa().
+.SS "EXTERNAL INLINE void EXPRT cam16i_r (const int c, const int n, const int a, const int f, \fBWORD\fP ** d, const int r)"Repeat 16 bits input. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIc\fP crate number (0..) 
+.br
+\fIn\fP station number (0..30) 
+.br
+\fIa\fP sub-address (0..15) 
+.br
+\fIf\fP function (0..7) 
+.br
+\fId\fP data read out data 
+.br
+\fIr\fP repeat time 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.SS "EXTERNAL INLINE void EXPRT cam16i_rq (const int c, const int n, const int a, const int f, \fBWORD\fP ** d, const int r)"Repeat 16 bits input with Q stop. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIc\fP crate number (0..) 
+.br
+\fIn\fP station number (0..30) 
+.br
+\fIa\fP sub-address (0..15) 
+.br
+\fIf\fP function (0..7) 
+.br
+\fId\fP pointer to data read out 
+.br
+\fIr\fP repeat time 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Referenced by cnaf_callback().
+.SS "EXTERNAL INLINE void EXPRT cam16i_sa (const int c, const int n, const int a, const int f, \fBWORD\fP ** d, const int r)"Read the given CAMAC address and increment the sub-address by one. Repeat r times.
+.PP
+.PP
+.nf
+WORD pbkdat[4];
+cam16i_sa(crate, 5, 0, 2, &pbkdat, 4);
+.fi
+.PP
+ equivalent to : 
+.PP
+.nf
+cam16i(crate, 5, 0, 2, &pbkdat[0]);
+cam16i(crate, 5, 1, 2, &pbkdat[1]);
+cam16i(crate, 5, 2, 2, &pbkdat[2]);
+cam16i(crate, 5, 3, 2, &pbkdat[3]);
+
+.fi
+.PP
+ 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIc\fP crate number (0..) 
+.br
+\fIn\fP station number (0..30) 
+.br
+\fIa\fP sub-address (0..15) 
+.br
+\fIf\fP function (0..7) 
+.br
+\fId\fP pointer to data read out 
+.br
+\fIr\fP number of consecutive sub-address to read 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.SS "EXTERNAL INLINE void EXPRT cam16i_sn (const int c, const int n, const int a, const int f, \fBWORD\fP ** d, const int r)"Read the given CAMAC address and increment the station number by one. Repeat r times.
+.PP
+.PP
+.nf
+WORD pbkdat[4];
+cam16i_sa(crate, 5, 0, 2, &pbkdat, 4);
+.fi
+.PP
+ equivalent to : 
+.PP
+.nf
+cam16i(crate, 5, 0, 2, &pbkdat[0]);
+cam16i(crate, 6, 0, 2, &pbkdat[1]);
+cam16i(crate, 7, 0, 2, &pbkdat[2]);
+cam16i(crate, 8, 0, 2, &pbkdat[3]);
+
+.fi
+.PP
+ 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIc\fP crate number (0..) 
+.br
+\fIn\fP station number (0..30) 
+.br
+\fIa\fP sub-address (0..15) 
+.br
+\fIf\fP function (0..7) 
+.br
+\fId\fP pointer to data read out 
+.br
+\fIr\fP number of consecutive station to read 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.SS "EXTERNAL INLINE void EXPRT cam16o (const int c, const int n, const int a, const int f, \fBWORD\fP d)"Write data to given CAMAC address. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIc\fP crate number (0..) 
+.br
+\fIn\fP station number (0..30) 
+.br
+\fIa\fP sub-address (0..15) 
+.br
+\fIf\fP function (16..31) 
+.br
+\fId\fP data to be written to CAMAC 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.SS "EXTERNAL INLINE void EXPRT cam16o_q (const int c, const int n, const int a, const int f, \fBWORD\fP d, int * x, int * q)"Write data to given CAMAC address with Q response. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIc\fP crate number (0..) 
+.br
+\fIn\fP station number (0..30) 
+.br
+\fIa\fP sub-address (0..15) 
+.br
+\fIf\fP function (16..31) 
+.br
+\fId\fP data to be written to CAMAC 
+.br
+\fIx\fP X response (0:failed,1:success) 
+.br
+\fIq\fP Q resonpse (0:no Q, 1: Q) 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Referenced by cnaf_callback(), and cssa().
+.SS "EXTERNAL INLINE void EXPRT cam16o_r (const int c, const int n, const int a, const int f, \fBWORD\fP * d, const int r)"Repeat write data to given CAMAC address r times. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIc\fP crate number (0..) 
+.br
+\fIn\fP station number (0..30) 
+.br
+\fIa\fP sub-address (0..15) 
+.br
+\fIf\fP function (16..31) 
+.br
+\fId\fP data to be written to CAMAC 
+.br
+\fIr\fP number of repeatition 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.SS "EXTERNAL INLINE void EXPRT cam24i (const int c, const int n, const int a, const int f, \fBDWORD\fP * d)"24 bits input. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIc\fP crate number (0..) 
+.br
+\fIn\fP station number (0..30) 
+.br
+\fIa\fP sub-address (0..15) 
+.br
+\fIf\fP function (0..7) 
+.br
+\fId\fP data read out data 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Referenced by read_scaler_event().
+.SS "EXTERNAL INLINE void EXPRT cam24i_q (const int c, const int n, const int a, const int f, \fBDWORD\fP * d, int * x, int * q)"24 bits input with Q response. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIc\fP crate number (0..) 
+.br
+\fIn\fP station number (0..30) 
+.br
+\fIa\fP sub-address (0..15) 
+.br
+\fIf\fP function (0..7) 
+.br
+\fId\fP data read out data 
+.br
+\fIx\fP X response (0:failed,1:success) 
+.br
+\fIq\fP Q resonpse (0:no Q, 1: Q) 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Referenced by cfmad(), cfsa(), and cnaf_callback().
+.SS "EXTERNAL INLINE void EXPRT cam24i_r (const int c, const int n, const int a, const int f, \fBDWORD\fP ** d, const int r)"Repeat 24 bits input. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIc\fP crate number (0..) 
+.br
+\fIn\fP station number (0..30) 
+.br
+\fIa\fP sub-address (0..15) 
+.br
+\fIf\fP function (0..7) 
+.br
+\fId\fP data read out 
+.br
+\fIr\fP repeat time 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.SS "EXTERNAL INLINE void EXPRT cam24i_rq (const int c, const int n, const int a, const int f, \fBDWORD\fP ** d, const int r)"Repeat 24 bits input with Q stop. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIc\fP crate number (0..) 
+.br
+\fIn\fP station number (0..30) 
+.br
+\fIa\fP sub-address (0..15) 
+.br
+\fIf\fP function (0..7) 
+.br
+\fId\fP pointer to data read out 
+.br
+\fIr\fP repeat time 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Referenced by cnaf_callback().
+.SS "EXTERNAL INLINE void EXPRT cam24i_sa (const int c, const int n, const int a, const int f, \fBDWORD\fP ** d, const int r)"Read the given CAMAC address and increment the sub-address by one. Repeat r times.
+.PP
+.PP
+.nf
+DWORD pbkdat[8];
+cam24i_sa(crate, 5, 0, 2, &pbkdat, 8);
+.fi
+.PP
+ equivalent to 
+.PP
+.nf
+cam24i(crate, 5, 0, 2, &pbkdat[0]);
+cam24i(crate, 6, 0, 2, &pbkdat[1]);
+cam24i(crate, 7, 0, 2, &pbkdat[2]);
+cam24i(crate, 8, 0, 2, &pbkdat[3]);
+
+.fi
+.PP
+ 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIc\fP crate number (0..) 
+.br
+\fIn\fP station number (0..30) 
+.br
+\fIa\fP sub-address (0..15) 
+.br
+\fIf\fP function (0..7) 
+.br
+\fId\fP pointer to data read out 
+.br
+\fIr\fP number of consecutive sub-address to read 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.SS "EXTERNAL INLINE void EXPRT cam24i_sn (const int c, const int n, const int a, const int f, \fBDWORD\fP ** d, const int r)"Read the given CAMAC address and increment the station number by one. Repeat r times.
+.PP
+.PP
+.nf
+DWORD pbkdat[4];
+cam24i_sa(crate, 5, 0, 2, &pbkdat, 4);
+.fi
+.PP
+ equivalent to : 
+.PP
+.nf
+cam24i(crate, 5, 0, 2, &pbkdat[0]);
+cam24i(crate, 6, 0, 2, &pbkdat[1]);
+cam24i(crate, 7, 0, 2, &pbkdat[2]);
+cam24i(crate, 8, 0, 2, &pbkdat[3]);
+
+.fi
+.PP
+ 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIc\fP crate number (0..) 
+.br
+\fIn\fP station number (0..30) 
+.br
+\fIa\fP sub-address (0..15) 
+.br
+\fIf\fP function (0..7) 
+.br
+\fId\fP pointer to data read out 
+.br
+\fIr\fP number of consecutive station to read 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.SS "EXTERNAL INLINE void EXPRT cam24o (const int c, const int n, const int a, const int f, \fBDWORD\fP d)"Write data to given CAMAC address. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIc\fP crate number (0..) 
+.br
+\fIn\fP station number (0..30) 
+.br
+\fIa\fP sub-address (0..15) 
+.br
+\fIf\fP function (16..31) 
+.br
+\fId\fP data to be written to CAMAC 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.SS "EXTERNAL INLINE void EXPRT cam24o_q (const int c, const int n, const int a, const int f, \fBDWORD\fP d, int * x, int * q)"Write data to given CAMAC address with Q response. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIc\fP crate number (0..) 
+.br
+\fIn\fP station number (0..30) 
+.br
+\fIa\fP sub-address (0..15) 
+.br
+\fIf\fP function (16..31) 
+.br
+\fId\fP data to be written to CAMAC 
+.br
+\fIx\fP X response (0:failed,1:success) 
+.br
+\fIq\fP Q response (0:no Q, 1: Q) 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Referenced by cfsa(), and cnaf_callback().
+.SS "EXTERNAL INLINE void EXPRT cam24o_r (const int c, const int n, const int a, const int f, \fBDWORD\fP * d, const int r)"Repeat write data to given CAMAC address r times. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIc\fP crate number (0..) 
+.br
+\fIn\fP station number (0..30) 
+.br
+\fIa\fP sub-address (0..15) 
+.br
+\fIf\fP function (16..31) 
+.br
+\fId\fP data to be written to CAMAC 
+.br
+\fIr\fP number of repeatition 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.SS "EXTERNAL INLINE void EXPRT cam8i_q (const int c, const int n, const int a, const int f, \fBBYTE\fP * d, int * x, int * q)"8 bits input with Q response. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIc\fP crate number (0..) 
+.br
+\fIn\fP station number (0..30) 
+.br
+\fIa\fP sub-address (0..15) 
+.br
+\fIf\fP function (0..7) 
+.br
+\fId\fP data read out data 
+.br
+\fIx\fP X response (0:failed,1:success) 
+.br
+\fIq\fP Q resonpse (0:no Q, 1: Q) 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.SS "EXTERNAL INLINE void EXPRT cam8i_rq (const int c, const int n, const int a, const int f, \fBBYTE\fP ** d, const int r)"Repeat 8 bits input with Q stop. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIc\fP crate number (0..) 
+.br
+\fIn\fP station number (0..30) 
+.br
+\fIa\fP sub-address (0..15) 
+.br
+\fIf\fP function (0..7) 
+.br
+\fId\fP pointer to data read out 
+.br
+\fIr\fP repeat time 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.SS "EXTERNAL INLINE void EXPRT cam8i_sa (const int c, const int n, const int a, const int f, \fBBYTE\fP ** d, const int r)"Read the given CAMAC address and increment the sub-address by one. Repeat r times.
+.PP
+.PP
+.nf
+BYTE pbkdat[4];
+cam8i_sa(crate, 5, 0, 2, &pbkdat, 4);
+.fi
+.PP
+ equivalent to : 
+.PP
+.nf
+cam8i(crate, 5, 0, 2, &pbkdat[0]);
+cam8i(crate, 5, 1, 2, &pbkdat[1]);
+cam8i(crate, 5, 2, 2, &pbkdat[2]);
+cam8i(crate, 5, 3, 2, &pbkdat[3]);
+
+.fi
+.PP
+ 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIc\fP crate number (0..) 
+.br
+\fIn\fP station number (0..30) 
+.br
+\fIa\fP sub-address (0..15) 
+.br
+\fIf\fP function (0..7) 
+.br
+\fId\fP pointer to data read out 
+.br
+\fIr\fP number of consecutive sub-address to read 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.SS "EXTERNAL INLINE void EXPRT cam8i_sn (const int c, const int n, const int a, const int f, \fBBYTE\fP ** d, const int r)"Read the given CAMAC address and increment the station number by one. Repeat r times.
+.PP
+.PP
+.nf
+BYTE pbkdat[4];
+cam8i_sa(crate, 5, 0, 2, &pbkdat, 4);
+.fi
+.PP
+ equivalent to : 
+.PP
+.nf
+cam8i(crate, 5, 0, 2, &pbkdat[0]);
+cam8i(crate, 6, 0, 2, &pbkdat[1]);
+cam8i(crate, 7, 0, 2, &pbkdat[2]);
+cam8i(crate, 8, 0, 2, &pbkdat[3]);
+
+.fi
+.PP
+ 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIc\fP crate number (0..) 
+.br
+\fIn\fP station number (0..30) 
+.br
+\fIa\fP sub-address (0..15) 
+.br
+\fIf\fP function (0..7) 
+.br
+\fId\fP pointer to data read out 
+.br
+\fIr\fP number of consecutive station to read 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.SS "EXTERNAL INLINE void EXPRT cam8o (const int c, const int n, const int a, const int f, \fBBYTE\fP d)"Write data to given CAMAC address. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIc\fP crate number (0..) 
+.br
+\fIn\fP station number (0..30) 
+.br
+\fIa\fP sub-address (0..15) 
+.br
+\fIf\fP function (16..31) 
+.br
+\fId\fP data to be written to CAMAC 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.SS "EXTERNAL INLINE void EXPRT cam8o_q (const int c, const int n, const int a, const int f, \fBBYTE\fP d, int * x, int * q)"Write data to given CAMAC address with Q response. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIc\fP crate number (0..) 
+.br
+\fIn\fP station number (0..30) 
+.br
+\fIa\fP sub-address (0..15) 
+.br
+\fIf\fP function (16..31) 
+.br
+\fId\fP data to be written to CAMAC 
+.br
+\fIx\fP X response (0:failed,1:success) 
+.br
+\fIq\fP Q resonpse (0:no Q, 1: Q) 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.SS "EXTERNAL INLINE void EXPRT cam8o_r (const int c, const int n, const int a, const int f, \fBBYTE\fP * d, const int r)"Repeat write data to given CAMAC address r times. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIc\fP crate number (0..) 
+.br
+\fIn\fP station number (0..30) 
+.br
+\fIa\fP sub-address (0..15) 
+.br
+\fIf\fP function (16..31) 
+.br
+\fId\fP data to be written to CAMAC 
+.br
+\fIr\fP number of repeatition 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.SS "EXTERNAL INLINE void EXPRT cam_crate_clear (const int c)"Issue CLEAR to crate. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIc\fP crate number (0..) 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Referenced by cccc(), cnaf_callback(), and frontend_init().
+.SS "EXTERNAL INLINE void EXPRT cam_crate_zinit (const int c)"Issue Z to crate. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIc\fP crate number (0..) 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Referenced by cccz(), cnaf_callback(), and frontend_init().
+.SS "EXTERNAL INLINE void EXPRT cam_exit (void)"Close CAMAC accesss. 
+.SS "EXTERNAL INLINE void EXPRT cam_inhibit_clear (const int c)"Clear Crate inhibit. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIc\fP crate number (0..) 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Referenced by ccci(), and cnaf_callback().
+.SS "EXTERNAL INLINE void EXPRT cam_inhibit_set (const int c)"Set Crate inhibit. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIc\fP crate number (0..) 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Referenced by ccci(), and cnaf_callback().
+.SS "EXTERNAL INLINE int EXPRT cam_inhibit_test (const int c)"Test Crate Inhibit. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIc\fP crate number (0..) 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+1 for set, 0 for cleared 
+.RE
+.PP
+
+.PP
+Referenced by ctci().
+.SS "EXTERNAL INLINE int EXPRT cam_init (void)"Initialize CAMAC access. 
+.PP
+\fBReturns:\fP
+.RS 4
+1: success 
+.RE
+.PP
+
+.PP
+Referenced by ccinit(), fccinit(), and frontend_init().
+.SS "EXTERNAL INLINE int EXPRT cam_init_rpc (char * host_name, char * exp_name, char * fe_name, char * client_name, char * rpc_server)"Initialize CAMAC access for rpc calls 
+.PP
+\fBFor internal use only.\fP
+.RS 4
+
+.PP
+\fBParameters:\fP
+.RS 4
+\fIhost_name\fP Midas host to contact 
+.br
+\fIexp_name\fP Midas experiment to contact 
+.br
+\fIfe_name\fP frontend application name to contact 
+.br
+\fIclient_name\fP RPC host name 
+.br
+\fIrpc_server\fP RPC server name 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+1: success 
+.RE
+.PP
+.RE
+.PP
+
+.SS "EXTERNAL INLINE void EXPRT cam_interrupt_attach (const int c, const int n, void(*)(void) isr)"Attach service routine to LAM of specific crate and station. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIc\fP crate number (0..) 
+.br
+\fIn\fP station number 
+.br
+\fI(*isr)\fP Function pointer to attach to the LAM 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Referenced by cclnk().
+.SS "EXTERNAL INLINE void EXPRT cam_interrupt_detach (const int c, const int n)"Detach service routine from LAM. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIc\fP crate number (0..) 
+.br
+\fIn\fP station number 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Referenced by cculk().
+.SS "EXTERNAL INLINE void EXPRT cam_interrupt_disable (const int c)"Disables interrupts in specific crate 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIc\fP crate number (0..) 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Referenced by cccd().
+.SS "EXTERNAL INLINE void EXPRT cam_interrupt_enable (const int c)"Enable interrupts in specific crate 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIc\fP crate number (0..) 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Referenced by cccd(), and ccrgl().
+.SS "EXTERNAL INLINE int EXPRT cam_interrupt_test (const int c)"Test Crate Interrupt. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIc\fP crate number (0..) 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+1 for set, 0 for cleared 
+.RE
+.PP
+
+.PP
+Referenced by ctcd().
+.SS "EXTERNAL INLINE void EXPRT cam_lam_clear (const int c, const int n)"Clear the LAM register of the crate controller. It doesn't clear the LAM of the particular station. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIc\fP crate number (0..) 
+.br
+\fIn\fP LAM station 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Referenced by cclnk(), ccrgl(), and read_trigger_event().
+.SS "EXTERNAL INLINE void EXPRT cam_lam_disable (const int c, const int n)"Disable LAM generation for given station to the Crate controller. It doesn't disable the LAM of the actual station itself. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIc\fP crate number (0..) 
+.br
+\fIn\fP LAM station 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.SS "EXTERNAL INLINE void EXPRT cam_lam_enable (const int c, const int n)"Enable LAM generation for given station to the Crate controller. It doesn't enable the LAM of the actual station itself. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIc\fP crate number (0..) 
+.br
+\fIn\fP LAM station 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Referenced by cclnk(), ccrgl(), and frontend_init().
+.SS "EXTERNAL void cam_lam_read (const int c, \fBDWORD\fP * lam)"Reads in lam the lam pattern of the entire crate. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIc\fP crate number (0..) 
+.br
+\fIlam\fP LAM pattern of the crate 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Referenced by ctgl(), and poll_event().
+.SS "EXTERNAL INLINE int EXPRT cam_lam_wait (int * c, \fBDWORD\fP * n, const int millisec)"Wait for a LAM to occur with a certain timeout. Return crate and station if LAM occurs. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIc\fP crate number (0..) 
+.br
+\fIn\fP LAM station 
+.br
+\fImillisec\fP If there is no LAM after this timeout, the routine returns 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+1 if LAM occured, 0 else 
+.RE
+.PP
+
+.SS "EXTERNAL INLINE void EXPRT cam_op ()"
+.SS "EXTERNAL INLINE void EXPRT camc (const int c, const int n, const int a, const int f)"CAMAC command (no data). 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIc\fP crate number (0..) 
+.br
+\fIn\fP station number (0..30) 
+.br
+\fIa\fP sub-address (0..15) 
+.br
+\fIf\fP function (8..15, 24..31) 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Referenced by cclc(), cclm(), frontend_init(), and read_trigger_event().
+.SS "EXTERNAL INLINE int EXPRT camc_chk (const int c)"Crate presence check. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIc\fP crate number (0..) 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+0:Success, -1:No CAMAC response 
+.RE
+.PP
+
+.SS "EXTERNAL INLINE void EXPRT camc_q (const int c, const int n, const int a, const int f, int * q)"CAMAC command with Q response (no data). 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIc\fP crate number (0..) 
+.br
+\fIn\fP station number (0..30) 
+.br
+\fIa\fP sub-address (0..15) 
+.br
+\fIf\fP function (8..15, 24..31) 
+.br
+\fIq\fP Q response (0:no Q, 1:Q) 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Referenced by cfsa(), cssa(), ctlm(), and read_trigger_event().
+.SS "EXTERNAL INLINE void EXPRT camc_sa (const int c, const int n, const int a, const int f, const int r)"Scan CAMAC command on sub-address. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIc\fP crate number (0..) 
+.br
+\fIn\fP station number (0..30) 
+.br
+\fIa\fP sub-address (0..15) 
+.br
+\fIf\fP function (8..15, 24..31) 
+.br
+\fIr\fP number of consecutive sub-address to read 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.SS "EXTERNAL INLINE void EXPRT camc_sn (const int c, const int n, const int a, const int f, const int r)"Scan CAMAC command on station. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIc\fP crate number (0..) 
+.br
+\fIn\fP station number (0..30) 
+.br
+\fIa\fP sub-address (0..15) 
+.br
+\fIf\fP function (8..15, 24..31) 
+.br
+\fIr\fP number of consecutive station to read 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.SS "EXTERNAL INLINE void EXPRT cami (const int c, const int n, const int a, const int f, \fBWORD\fP * d)"Same as \fBcam16i()\fP 
+.SS "EXTERNAL INLINE void EXPRT camo (const int c, const int n, const int a, const int f, \fBWORD\fP d)"Same as \fBcam16o()\fP 
+.PP
+Referenced by frontend_init(), and read_trigger_event().
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Midas from the source code.

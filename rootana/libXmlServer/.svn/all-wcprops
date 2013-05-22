@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 44
+/svn/rootana/!svn/ver/107/trunk/libXmlServer
+END
+highcharts.js
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/rootana/!svn/ver/105/trunk/libXmlServer/highcharts.js
+END
+plot.html
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/rootana/!svn/ver/105/trunk/libXmlServer/plot.html
+END
+xmlServer.cxx
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/rootana/!svn/ver/107/trunk/libXmlServer/xmlServer.cxx
+END
+exporting.js
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/rootana/!svn/ver/105/trunk/libXmlServer/exporting.js
+END
+jquery.min.js
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/rootana/!svn/ver/105/trunk/libXmlServer/jquery.min.js
+END
+Makefile
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/rootana/!svn/ver/88/trunk/libXmlServer/Makefile
+END
+xmlServer.h
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/rootana/!svn/ver/88/trunk/libXmlServer/xmlServer.h
+END

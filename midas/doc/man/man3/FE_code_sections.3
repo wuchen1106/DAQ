@@ -1,0 +1,185 @@
+.TH "FE_code_sections" 3 "31 May 2012" "Version 2.3.0-0" "Midas" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+FE_code_sections \- Frontend Code Sections 
+
+.br
+  
+.br
+.SH "Include files"
+.PP
+The user may add any other include files needed, but should not remove any of the existing ones in the example. The include file \fBexperim.h\fP is a special include file for ease of communication between the C code and the \fBodb\fP.
+.PP
+VME :  CAMAC :  
+.PP
+.nf
+#include <stdio.h>
+#include <stdlib.h>
+#include 'midas.h'
+#include 'experim.h'
+#include 'mvmestd.h'
+#include 'vmicvme.h'
+
+.fi
+.PP
+  
+.PP
+.nf
+#include <stdio.h>
+#include <stdlib.h>
+#include 'midas.h'
+#include 'mcstd.h'
+#include 'experim.h'
+
+.fi
+.PP
+ Examples of include files 
+.PP
+
+.br
+.PP
+
+.br
+ 
+.SH "Global declarations"
+.PP
+The declarations are system wide. Some may be changed to suit the user, but none should not be removed.
+.PP
+.PD 0
+.IP "\(bu" 2
+\fBfrontend_name\fP   This value can be modified to reflect the purpose of the code.  
+.IP "\(bu" 2
+\fBfrontend_call_loop\fP   If set to TRUE, the function \fBfrontend_loop()\fP runs after every equipment loop. If FALSE, \fBfrontend_loop()\fP does not run. The user can add suitable code to this routine if desired (e.g. to check for a condition.  
+.IP "\(bu" 2
+\fBdisplay_period\fP   The time interval (defined in milliseconds) between the refresh of a frontend status display. The value of zero disables the display. 
+.br
+ NOTE: If the frontend is started in the background with the display enabled, the stdout should be redirected to the null device to prevent the process from hanging.  
+.IP "\(bu" 2
+\fBmax_event_size\fP   specifies the maximum size (in bytes) of the expected event.  
+.IP "\(bu" 2
+\fBevent_buffer_size\fP   specifies the maximum size (in bytes) of the buffer to be allocated by the system.  
+.PP
+.PP
+.PP
+.nf
+    // The frontend name (client name) as seen by other MIDAS clients
+    char *frontend_name = 'Sample Frontend';
+
+    // The frontend file name, don't change it
+    char *frontend_file_name = __FILE__;
+
+    // frontend_loop is called periodically if this variable is TRUE
+    BOOL frontend_call_loop = FALSE;
+
+    //a frontend status page is displayed with this frequency in ms
+    INT display_period = 3000;
+
+    //maximum event size produced by this frontend
+    INT max_event_size = 200000;
+
+    // maximum event size for fragmented events (EQ_FRAGMENTED) 
+    INT max_event_size_frag = 5 * 1024 * 1024;
+
+    //buffer size to hold events
+    INT event_buffer_size = 10*10000;
+.fi
+.PP
+ 
+.br
+.PP
+
+.br
+ 
+.SH "Global User declarations"
+.PP
+After the global declarations, the user may add his or her own declarations. The example defines various hardware \fBparameters\fP. VME :  CAMAC :  
+.PP
+.nf
+/* Hardware */
+/* Interrupt vector */
+int trig_level =  0;
+#define TRIG_LEVEL  (int) 1
+#define INT_LEVEL   (int) 3
+#define INT_VECTOR  (int) 0x16
+extern INT_INFO int_info;
+int myinfo = VME_INTERRUPT_SIGEVENT;
+
+MVME_INTERFACE *myvme;
+int  inRun = 0;
+DWORD VADC0_BASE = 0x100000; // VME base address
+DWORD VLAM_BASE  = 0x800000; // VME base address
+
+.fi
+.PP
+  
+.PP
+.nf
+    // Global user section
+    // number of channels
+    #define N_ADC  8  
+    #define N_TDC  8 
+    #define N_SCLR 8
+
+    CAMAC crate and slots
+    #define CRATE      0
+    #define SLOT_C212 23
+    #define SLOT_ADC   1
+    #define SLOT_TDC   2
+    #define SLOT_SCLR  3
+
+.fi
+.PP
+ Examples of global declarations 
+.br
+.PP
+
+.br
+ 
+.SH "System prototype functions"
+.PP
+These prototypes declare the pre-defined system functions which should be present. 
+.PP
+.nf
+INT frontend_init();
+INT frontend_exit();
+INT begin_of_run(INT run_number, char *error);
+INT end_of_run(INT run_number, char *error);
+INT pause_run(INT run_number, char *error);
+INT resume_run(INT run_number, char *error);
+INT frontend_loop();
+
+.fi
+.PP
+ 
+.br
+.PP
+
+.br
+ 
+.SH "User prototype functions"
+.PP
+Following this group is a second group of prototypes, which define the \fBuser functions\fP that run when the defined equipments are triggered. In this example, two equipments will be defined, so there are two prototypes. The user functions will be described in detail in the following sections. 
+.PP
+.nf
+INT read_trigger_event(char *pevent, INT off);
+INT read_scaler_event(char *pevent, INT off);
+
+.fi
+.PP
+.PP
+And following this is the prototype 
+.PP
+.nf
+void register_cnaf_callback(int debug);
+
+.fi
+.PP
+ which is a routine provided in \fBcnaf_callback.c\fP
+.PP
+
+.br
+  
+.br
+.PP
+ 

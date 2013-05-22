@@ -1,0 +1,12 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$a00030.html#a3a99e7a49d343d38c7c3395383fcd90e" title="create the list of data banks, return number of banks" alt="" coords="233,32,433,61"/>
+<area shape="rect" id="node5" href="$a00030.html#a0eb2dd100dd1f4e269407b406bb072d7" title="convert event data between little&#45;endian (Linux&#45;x86) and big endian (MacOS&#45;PPC)" alt="" coords="236,85,431,115"/>
+<area shape="rect" id="node7" href="$a00031.html#acd25594fcc51873a05fd16ec24979940" title="Read one event from the file." alt="" coords="505,59,639,88"/>
+<area shape="rect" id="node21" href="$a00030.html#a9851d9e0a990beb8782ad738177575dc" title="set an externally allocated data buffer" alt="" coords="484,112,660,141"/>
+<area shape="rect" id="node9" href="$a00146.html#a0ddf1224851353fc92bfbff6f499fa97" title="main" alt="" coords="824,5,877,35"/>
+<area shape="rect" id="node11" href="$a00038.html#afce91826b6a3fc111ff919ac7f5a1ed0" title="TRootanaEventLoop::ProcessMidasFile" alt="" coords="709,59,992,88"/>
+<area shape="rect" id="node17" href="$a00049.html#a6973be6408175a61a9cb696648b4959c" title="ProcessMidasFile" alt="" coords="784,112,917,141"/>
+<area shape="rect" id="node13" href="$a00038.html#a8a9f5d8b69ba5306e258d2d4a383002d" title="Method to actually process the Midas information, either as file or online." alt="" coords="1040,59,1299,88"/>
+<area shape="rect" id="node15" href="$a00116.html#a0ddf1224851353fc92bfbff6f499fa97" title="main" alt="" coords="1348,59,1401,88"/>
+<area shape="rect" id="node19" href="$a00049.html#a0ddf1224851353fc92bfbff6f499fa97" title="main" alt="" coords="1143,112,1196,141"/>
+</map>

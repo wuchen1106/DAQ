@@ -1,0 +1,63 @@
+.TH "v513.h" 3 "31 May 2012" "Version 2.3.0-0" "Midas" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+v513.h \- 
+.SH SYNOPSIS
+.br
+.PP
+.SH "Define Documentation"
+.PP 
+.SS "#define V513_CHANMODE_EXTSTROBE   8"
+.PP
+Definition at line 26 of file v513.h.
+.SS "#define V513_CHANMODE_IGLITCHED   0"
+.PP
+Definition at line 23 of file v513.h.
+.SS "#define V513_CHANMODE_INORMAL   4"
+.PP
+Definition at line 24 of file v513.h.
+.SS "#define V513_CHANMODE_INPUT   1"
+.PP
+Definition at line 20 of file v513.h.
+.SS "#define V513_CHANMODE_NEG   0"
+.PP
+Definition at line 21 of file v513.h.
+.SS "#define V513_CHANMODE_OUTPUT   0"
+.PP
+Definition at line 19 of file v513.h.
+.SS "#define V513_CHANMODE_POS   2"
+.PP
+Definition at line 22 of file v513.h.
+.SS "#define V513_CHANMODE_TRANSP   0"
+.PP
+Definition at line 25 of file v513.h.
+.SH "Function Documentation"
+.PP 
+.SS "int v513_GetChannelMode (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base, int channel)"
+.PP
+Definition at line 78 of file v513.c.
+.SS "uint16_t v513_Read (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base)"
+.PP
+Definition at line 48 of file v513.c.
+.SS "uint16_t v513_RegisterRead (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base, int offset)"
+.PP
+Definition at line 38 of file v513.c.
+.SS "void v513_RegisterWrite (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base, int offset, uint16_t value)"
+.PP
+Definition at line 43 of file v513.c.
+.SS "void v513_Reset (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base)"
+.PP
+Definition at line 59 of file v513.c.
+.SS "void v513_SetChannelMode (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base, int channel, int mode)"
+.PP
+Definition at line 73 of file v513.c.
+.SS "void v513_Status (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base)"
+.PP
+Definition at line 68 of file v513.c.
+.SS "void v513_Write (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base, uint16_t data)"
+.PP
+Definition at line 53 of file v513.c.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Midas from the source code.

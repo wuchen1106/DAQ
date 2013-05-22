@@ -1,0 +1,290 @@
+.TH "fevmemodules.c" 3 "31 May 2012" "Version 2.3.0-0" "Midas" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+fevmemodules.c \- 
+.SH SYNOPSIS
+.br
+.PP
+.SH "Define Documentation"
+.PP 
+.SS "#define INT_LEVEL   (int) 3"
+.PP
+Definition at line 45 of file fevmemodules.c.
+.PP
+Referenced by interrupt_configure().
+.SS "#define INT_VECTOR   (int) 0x16"
+.PP
+Definition at line 46 of file fevmemodules.c.
+.PP
+Referenced by interrupt_configure().
+.SS "#define N_ADC   100"
+.PP
+Definition at line 97 of file fevmemodules.c.
+.PP
+Referenced by adc_calib(), adc_calib_init(), and read_trigger_event().
+.SS "#define N_PTS   5000"
+.PP
+Definition at line 99 of file fevmemodules.c.
+.SS "#define N_SCLR   4"
+.PP
+Definition at line 105 of file fevmemodules.c.
+.PP
+Referenced by read_scaler_event().
+.SS "#define N_TDC   100"
+.PP
+Definition at line 98 of file fevmemodules.c.
+.PP
+Referenced by read_trigger_event().
+.SS "#define P_BOE   0x1"
+.PP
+Definition at line 36 of file fevmemodules.c.
+.PP
+Referenced by begin_of_run().
+.SS "#define P_CLR   0x4"
+.PP
+Definition at line 38 of file fevmemodules.c.
+.PP
+Referenced by begin_of_run().
+.SS "#define P_EOE   0x2"
+.PP
+Definition at line 37 of file fevmemodules.c.
+.PP
+Referenced by begin_of_run(), and resume_run().
+.SS "#define S_READOUT   0x8"
+.PP
+Definition at line 39 of file fevmemodules.c.
+.SS "#define S_RUNGATE   0x10"
+.PP
+Definition at line 40 of file fevmemodules.c.
+.PP
+Referenced by resume_run().
+.SS "#define TRIG_LEVEL   (int) 1"
+.PP
+Definition at line 44 of file fevmemodules.c.
+.PP
+Referenced by resume_run().
+.SS "#define VF48_CODE"
+.PP
+Definition at line 19 of file fevmemodules.c.
+.SH "Function Documentation"
+.PP 
+.SS "\fBINT\fP begin_of_run (\fBINT\fP run_number, char * error)"
+.PP
+Definition at line 285 of file fevmemodules.c.
+.SS "\fBINT\fP end_of_run (\fBINT\fP run_number, char * error)"
+.PP
+Definition at line 574 of file fevmemodules.c.
+.SS "\fBINT\fP frontend_exit (void)"
+.PP
+Definition at line 278 of file fevmemodules.c.
+.SS "\fBINT\fP frontend_init (void)"
+.PP
+Definition at line 233 of file fevmemodules.c.
+.SS "\fBINT\fP frontend_loop (void)"
+.PP
+Definition at line 621 of file fevmemodules.c.
+.SS "\fBINT\fP interrupt_configure (\fBINT\fP cmd, \fBINT\fP source, PTYPE adr)"
+.PP
+Definition at line 671 of file fevmemodules.c.
+.SS "void interrupt_routine (void)"
+.PP
+Definition at line 1306 of file mfe.c.
+.PP
+Referenced by initialize_equipment().
+.SS "\fBINT\fP pause_run (\fBINT\fP run_number, char * error)"
+.PP
+Definition at line 591 of file fevmemodules.c.
+.SS "\fBINT\fP poll_event (\fBINT\fP source, \fBINT\fP count, \fBBOOL\fP test)"
+.PP
+Definition at line 650 of file fevmemodules.c.
+.SS "\fBINT\fP read_scaler_event (char * pevent, \fBINT\fP off)"
+.PP
+Definition at line 841 of file fevmemodules.c.
+.SS "\fBINT\fP read_trigger_event (char * pevent, \fBINT\fP off)"
+.PP
+-------------------------------
+.PP
+------------------------------- 
+.PP
+Definition at line 697 of file fevmemodules.c.
+.SS "void register_cnaf_callback (int debug)"
+.PP
+Definition at line 124 of file cnaf_callback.c.
+.PP
+Referenced by frontend_init().
+.SS "\fBINT\fP resume_run (\fBINT\fP run_number, char * error)"
+.PP
+Definition at line 604 of file fevmemodules.c.
+.SS "void seq_callback (\fBINT\fP hDB, \fBINT\fP hseq, void * info)"
+.PP
+Definition at line 227 of file fevmemodules.c.
+.PP
+Referenced by frontend_init().
+.SH "Variable Documentation"
+.PP 
+.SS "\fBINT\fP \fBdisplay_period\fP = 000"
+.PP
+Definition at line 66 of file fevmemodules.c.
+.SS "int \fBdone\fP = 0"
+.PP
+Definition at line 82 of file fevmemodules.c.
+.PP
+Referenced by end_of_run(), frontend_loop(), and v1729_isTrigger().
+.SS "\fBEQUIPMENT\fP \fBequipment\fP[]"
+.PP
+Definition at line 150 of file fevmemodules.c.
+.SS "\fBINT\fP \fBevent_buffer_size\fP = 10 * 100000"
+.PP
+Definition at line 75 of file fevmemodules.c.
+.SS "\fBDWORD\fP \fBevlimit\fP"
+.PP
+Definition at line 83 of file fevmemodules.c.
+.PP
+Referenced by frontend_loop(), and read_trigger_event().
+.SS "\fBBOOL\fP \fBfrontend_call_loop\fP = FALSE"
+.PP
+Definition at line 63 of file fevmemodules.c.
+.SS "char* \fBfrontend_file_name\fP = __FILE__"
+.PP
+Definition at line 60 of file fevmemodules.c.
+.SS "char* \fBfrontend_name\fP = 'fevmemodules'"
+.PP
+Definition at line 58 of file fevmemodules.c.
+.SS "HNDLE \fBhDB\fP"
+.PP
+Definition at line 71 of file mfe.c.
+.SS "HNDLE \fBhSet\fP"
+.PP
+Definition at line 101 of file fevmemodules.c.
+.PP
+Referenced by begin_of_run(), and frontend_init().
+.SS "int \fBinRun\fP = 0"
+.PP
+Definition at line 81 of file fevmemodules.c.
+.PP
+Referenced by end_of_run(), frontend_loop(), interrupt_configure(), pause_run(), and resume_run().
+.SS "INT_INFO \fBint_info\fP"
+.PP
+Referenced by myisr().
+.SS "int \fBintflag\fP = 0"
+.PP
+Definition at line 80 of file fevmemodules.c.
+.SS "\fBINT\fP \fBmax_event_size\fP = 200000"
+.PP
+Definition at line 69 of file fevmemodules.c.
+.SS "\fBINT\fP \fBmax_event_size_frag\fP = 5 * 1024 * 1024"
+.PP
+Definition at line 72 of file fevmemodules.c.
+.SS "int \fBmissed\fP = 0"
+.PP
+Definition at line 81 of file fevmemodules.c.
+.PP
+Referenced by begin_of_run(), and read_trigger_event().
+.SS "int \fBmyinfo\fP = VME_INTERRUPT_SIGEVENT"
+.PP
+Definition at line 48 of file fevmemodules.c.
+.PP
+Referenced by interrupt_configure(), and sis3801_int_attach().
+.SS "\fBMVME_INTERFACE\fP* \fBmyvme\fP"
+.PP
+Definition at line 78 of file fevmemodules.c.
+.PP
+Referenced by begin_of_run(), end_of_run(), frontend_init(), frontend_loop(), interrupt_configure(), pause_run(), poll_event(), read_trigger_event(), and resume_run().
+.SS "int \fBsRG\fP = 0"
+.PP
+Definition at line 79 of file fevmemodules.c.
+.SS "int \fBstop_req\fP = 0"
+.PP
+Definition at line 82 of file fevmemodules.c.
+.PP
+Referenced by end_of_run(), and frontend_loop().
+.SS "int \fBtrig_level\fP = 0"
+.PP
+Definition at line 43 of file fevmemodules.c.
+.PP
+Referenced by end_of_run(), pause_run(), and resume_run().
+.SS "\fBBANK_LIST\fP \fBtrigger_bank_list\fP[]"\fBInitial value:\fP
+.PP
+.nf
+ {
+
+   
+   {'ADC0', TID_DWORD, N_ADC, NULL}
+   ,
+   {'ADC1', TID_DWORD, N_ADC, NULL}
+   ,
+   {'ADC2', TID_DWORD, N_ADC, NULL}
+   ,
+   {'ADC3', TID_DWORD, N_ADC, NULL}
+   ,
+   {'TDC0', TID_DWORD, N_TDC, NULL}
+   ,
+
+   {'WAVE', TID_DWORD, N_TDC, NULL}
+   ,
+   {'FWAV', TID_DWORD, N_PTS, NULL}
+   ,
+
+   {''}
+   ,
+}
+.fi
+.PP
+Definition at line 123 of file fevmemodules.c.
+.SS "\fBTRIGGER_SETTINGS\fP \fBts\fP"
+.PP
+Definition at line 102 of file fevmemodules.c.
+.PP
+Referenced by begin_of_run(), cm_msg(), cm_msg_flush_buffer(), frontend_init(), and ss_thread_create().
+.SS "\fBDWORD\fP \fBV1729_BASE\fP = 0x120000"
+.PP
+Definition at line 95 of file fevmemodules.c.
+.PP
+Referenced by begin_of_run(), frontend_init(), and read_trigger_event().
+.SS "\fBDWORD\fP \fBVADC0_BASE\fP = 0x100000"
+.PP
+Definition at line 88 of file fevmemodules.c.
+.PP
+Referenced by begin_of_run(), and read_trigger_event().
+.SS "\fBDWORD\fP \fBVADC1_BASE\fP = 0x200000"
+.PP
+Definition at line 89 of file fevmemodules.c.
+.PP
+Referenced by begin_of_run(), and read_trigger_event().
+.SS "\fBDWORD\fP \fBVADC2_BASE\fP = 0x300000"
+.PP
+Definition at line 90 of file fevmemodules.c.
+.PP
+Referenced by begin_of_run(), and read_trigger_event().
+.SS "\fBDWORD\fP \fBVADC3_BASE\fP = 0x400000"
+.PP
+Definition at line 91 of file fevmemodules.c.
+.PP
+Referenced by begin_of_run(), and read_trigger_event().
+.SS "\fBDWORD\fP \fBVF48_BASE\fP = 0xAF0000"
+.PP
+Definition at line 94 of file fevmemodules.c.
+.PP
+Referenced by begin_of_run(), end_of_run(), and read_trigger_event().
+.SS "int \fBvf48_error\fP = 0"
+.PP
+Definition at line 696 of file fevmemodules.c.
+.SS "\fBDWORD\fP \fBVLAM_BASE\fP = 0x800000"
+.PP
+Definition at line 93 of file fevmemodules.c.
+.PP
+Referenced by end_of_run(), frontend_loop(), interrupt_configure(), pause_run(), and resume_run().
+.SS "\fBDWORD\fP \fBVMEIO_BASE\fP = 0x780000"
+.PP
+Definition at line 86 of file fevmemodules.c.
+.PP
+Referenced by begin_of_run(), end_of_run(), pause_run(), poll_event(), and resume_run().
+.SS "\fBDWORD\fP \fBVTDC0_BASE\fP = 0xF10000"
+.PP
+Definition at line 87 of file fevmemodules.c.
+.PP
+Referenced by begin_of_run(), and read_trigger_event().
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Midas from the source code.

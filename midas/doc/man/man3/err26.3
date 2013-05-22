@@ -1,0 +1,502 @@
+.TH "Other errors" 3 "31 May 2012" "Version 2.3.0-0" "Midas" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Other errors \- 
+.SS "Defines"
+
+.in +1c
+.ti -1c
+.RI "#define \fBFE_SUCCESS\fP   1"
+.br
+.ti -1c
+.RI "#define \fBFE_ERR_ODB\fP   602"
+.br
+.ti -1c
+.RI "#define \fBFE_ERR_HW\fP   603"
+.br
+.ti -1c
+.RI "#define \fBFE_ERR_DISABLED\fP   604"
+.br
+.ti -1c
+.RI "#define \fBFE_ERR_DRIVER\fP   605"
+.br
+.ti -1c
+.RI "#define \fBHS_SUCCESS\fP   1"
+.br
+.ti -1c
+.RI "#define \fBHS_FILE_ERROR\fP   702"
+.br
+.ti -1c
+.RI "#define \fBHS_NO_MEMORY\fP   703"
+.br
+.ti -1c
+.RI "#define \fBHS_TRUNCATED\fP   704"
+.br
+.ti -1c
+.RI "#define \fBHS_WRONG_INDEX\fP   705"
+.br
+.ti -1c
+.RI "#define \fBHS_UNDEFINED_EVENT\fP   706"
+.br
+.ti -1c
+.RI "#define \fBHS_UNDEFINED_VAR\fP   707"
+.br
+.ti -1c
+.RI "#define \fBFTP_SUCCESS\fP   1"
+.br
+.ti -1c
+.RI "#define \fBFTP_NET_ERROR\fP   802"
+.br
+.ti -1c
+.RI "#define \fBFTP_FILE_ERROR\fP   803"
+.br
+.ti -1c
+.RI "#define \fBFTP_RESPONSE_ERROR\fP   804"
+.br
+.ti -1c
+.RI "#define \fBFTP_INVALID_ARG\fP   805"
+.br
+.ti -1c
+.RI "#define \fBEL_SUCCESS\fP   1"
+.br
+.ti -1c
+.RI "#define \fBEL_FILE_ERROR\fP   902"
+.br
+.ti -1c
+.RI "#define \fBEL_NO_MESSAGE\fP   903"
+.br
+.ti -1c
+.RI "#define \fBEL_TRUNCATED\fP   904"
+.br
+.ti -1c
+.RI "#define \fBEL_FIRST_MSG\fP   905"
+.br
+.ti -1c
+.RI "#define \fBEL_LAST_MSG\fP   906"
+.br
+.ti -1c
+.RI "#define \fBAL_SUCCESS\fP   1"
+.br
+.ti -1c
+.RI "#define \fBAL_INVALID_NAME\fP   1002"
+.br
+.ti -1c
+.RI "#define \fBAL_ERROR_ODB\fP   1003"
+.br
+.ti -1c
+.RI "#define \fBAL_RESET\fP   1004"
+.br
+.ti -1c
+.RI "#define \fBCMD_INIT\fP   1"
+.br
+.ti -1c
+.RI "#define \fBCMD_WRITE\fP   100"
+.br
+.ti -1c
+.RI "#define \fBCMD_INTERRUPT_ENABLE\fP   100"
+.br
+.ti -1c
+.RI "#define \fBBD_GETS\fP(s, z, \fBp\fP, t)   info->bd(CMD_GETS, info->bd_info, s, z, \fBp\fP, t)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+dox dox 
+.SH "Define Documentation"
+.PP 
+.SS "#define AL_ERROR_ODB   1003".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 690 of file midas.h.
+.PP
+Referenced by al_reset_alarm(), and al_trigger_alarm().
+.SS "#define AL_INVALID_NAME   1002".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 689 of file midas.h.
+.PP
+Referenced by al_reset_alarm().
+.SS "#define AL_RESET   1004".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 691 of file midas.h.
+.PP
+Referenced by al_reset_alarm().
+.SS "#define AL_SUCCESS   1"Alarm error code - 
+.PP
+Definition at line 688 of file midas.h.
+.PP
+Referenced by al_check(), al_reset_alarm(), and al_trigger_alarm().
+.SS "#define BD_GETS(s, z, \fBp\fP, t)   info->bd(CMD_GETS, info->bd_info, s, z, \fBp\fP, t)"macros for bus driver access 
+.PP
+Definition at line 754 of file midas.h.
+.SS "#define BD_PUTS(s)   info->bd(CMD_PUTS, info->bd_info, s)"
+.PP
+Definition at line 756 of file midas.h.
+.SS "#define BD_READS(s, z, \fBp\fP, t)   info->bd(CMD_READ, info->bd_info, s, z, \fBp\fP, t)"
+.PP
+Definition at line 755 of file midas.h.
+.SS "#define BD_WRITES(s)   info->bd(CMD_WRITE, info->bd_info, s)"
+.PP
+Definition at line 757 of file midas.h.
+.SS "#define CMD_CLOSE   12"
+.PP
+Definition at line 706 of file midas.h.
+.SS "#define CMD_DEBUG   104"
+.PP
+Definition at line 742 of file midas.h.
+.SS "#define CMD_DISABLE_COMMAND   (1<<15)"
+.PP
+Definition at line 734 of file midas.h.
+.SS "#define CMD_ENABLE_COMMAND   (1<<14)"
+.PP
+Definition at line 733 of file midas.h.
+.SS "#define CMD_EXIT   2"
+.PP
+Definition at line 696 of file midas.h.
+.PP
+Referenced by cd_hv(), device_driver(), hv_exit(), and main().
+.SS "#define CMD_GET   CMD_GET_FIRST"
+.PP
+Definition at line 719 of file midas.h.
+.PP
+Referenced by hv_init(), and hv_read().
+.SS "#define CMD_GET_CURRENT   CMD_GET_FIRST+1"
+.PP
+Definition at line 720 of file midas.h.
+.PP
+Referenced by hv_init(), and hv_read().
+.SS "#define CMD_GET_CURRENT_LIMIT   CMD_GET_DIRECT+2"
+.PP
+Definition at line 727 of file midas.h.
+.PP
+Referenced by hv_init().
+.SS "#define CMD_GET_DEMAND   CMD_GET_DIRECT"
+.PP
+Definition at line 725 of file midas.h.
+.PP
+Referenced by hv_init().
+.SS "#define CMD_GET_DIRECT   CMD_GET_LAST+1"
+.PP
+Definition at line 724 of file midas.h.
+.SS "#define CMD_GET_DIRECT_LAST   CMD_GET_DIRECT+5"
+.PP
+Definition at line 731 of file midas.h.
+.SS "#define CMD_GET_FIRST   CMD_SET_LAST+1"
+.PP
+Definition at line 718 of file midas.h.
+.PP
+Referenced by device_driver(), and sc_thread().
+.SS "#define CMD_GET_LABEL   10"
+.PP
+Definition at line 704 of file midas.h.
+.PP
+Referenced by device_driver(), and hv_init().
+.SS "#define CMD_GET_LAST   CMD_GET_FIRST+2"
+.PP
+Definition at line 722 of file midas.h.
+.PP
+Referenced by device_driver(), and sc_thread().
+.SS "#define CMD_GET_RAMPDOWN   CMD_GET_DIRECT+4"
+.PP
+Definition at line 729 of file midas.h.
+.PP
+Referenced by hv_init().
+.SS "#define CMD_GET_RAMPUP   CMD_GET_DIRECT+3"
+.PP
+Definition at line 728 of file midas.h.
+.PP
+Referenced by hv_init().
+.SS "#define CMD_GET_THRESHOLD   6"
+.PP
+Definition at line 700 of file midas.h.
+.PP
+Referenced by hv_init().
+.SS "#define CMD_GET_THRESHOLD_CURRENT   7"
+.PP
+Definition at line 701 of file midas.h.
+.PP
+Referenced by hv_init().
+.SS "#define CMD_GET_THRESHOLD_ZERO   8"
+.PP
+Definition at line 702 of file midas.h.
+.PP
+Referenced by hv_init().
+.SS "#define CMD_GET_TRIP   CMD_GET_FIRST+2"
+.PP
+Definition at line 721 of file midas.h.
+.SS "#define CMD_GET_TRIP_TIME   CMD_GET_DIRECT+5"
+.PP
+Definition at line 730 of file midas.h.
+.PP
+Referenced by hv_init().
+.SS "#define CMD_GET_VOLTAGE_LIMIT   CMD_GET_DIRECT+1"
+.PP
+Definition at line 726 of file midas.h.
+.PP
+Referenced by hv_init().
+.SS "#define CMD_GETS   103"
+.PP
+Definition at line 741 of file midas.h.
+.SS "#define CMD_IDLE   5"
+.PP
+Definition at line 699 of file midas.h.
+.PP
+Referenced by cd_hv(), and scheduler().
+.SS "#define CMD_INIT   1"Slow control device driver commands 
+.PP
+Definition at line 695 of file midas.h.
+.PP
+Referenced by cd_hv(), device_driver(), hv_init(), and initialize_equipment().
+.SS "#define CMD_INTERRUPT_ATTACH   102"
+.PP
+Definition at line 749 of file midas.h.
+.PP
+Referenced by initialize_equipment(), and interrupt_configure().
+.SS "#define CMD_INTERRUPT_DETACH   103"
+.PP
+Definition at line 750 of file midas.h.
+.PP
+Referenced by interrupt_configure(), and main().
+.SS "#define CMD_INTERRUPT_DISABLE   101"
+.PP
+Definition at line 748 of file midas.h.
+.PP
+Referenced by interrupt_configure(), main(), and readout_enable().
+.SS "#define CMD_INTERRUPT_ENABLE   100"Commands for interrupt events 
+.PP
+Definition at line 747 of file midas.h.
+.PP
+Referenced by interrupt_configure(), and readout_enable().
+.SS "#define CMD_MISC_LAST   12"
+.PP
+Definition at line 707 of file midas.h.
+.SS "#define CMD_NAME   105"
+.PP
+Definition at line 743 of file midas.h.
+.SS "#define CMD_OPEN   11"
+.PP
+Definition at line 705 of file midas.h.
+.SS "#define CMD_PUTS   102"
+.PP
+Definition at line 740 of file midas.h.
+.SS "#define CMD_READ   101"
+.PP
+Definition at line 739 of file midas.h.
+.SS "#define CMD_SET   CMD_SET_FIRST"
+.PP
+Definition at line 710 of file midas.h.
+.PP
+Referenced by hv_demand(), hv_init(), and hv_ramp().
+.SS "#define CMD_SET_CURRENT_LIMIT   CMD_SET_FIRST+2"
+.PP
+Definition at line 712 of file midas.h.
+.PP
+Referenced by hv_init(), and hv_set_current_limit().
+.SS "#define CMD_SET_FIRST   CMD_MISC_LAST+1"
+.PP
+Definition at line 709 of file midas.h.
+.PP
+Referenced by device_driver(), and sc_thread().
+.SS "#define CMD_SET_LABEL   9"
+.PP
+Definition at line 703 of file midas.h.
+.PP
+Referenced by device_driver(), hv_init(), and hv_update_label().
+.SS "#define CMD_SET_LAST   CMD_SET_FIRST+5"
+.PP
+Definition at line 716 of file midas.h.
+.PP
+Referenced by device_driver(), and sc_thread().
+.SS "#define CMD_SET_RAMPDOWN   CMD_SET_FIRST+4"
+.PP
+Definition at line 714 of file midas.h.
+.PP
+Referenced by hv_init(), and hv_set_rampdown().
+.SS "#define CMD_SET_RAMPUP   CMD_SET_FIRST+3"
+.PP
+Definition at line 713 of file midas.h.
+.PP
+Referenced by hv_init(), and hv_set_rampup().
+.SS "#define CMD_SET_TRIP_TIME   CMD_SET_FIRST+5"
+.PP
+Definition at line 715 of file midas.h.
+.PP
+Referenced by hv_init(), and hv_set_trip_time().
+.SS "#define CMD_SET_VOLTAGE_LIMIT   CMD_SET_FIRST+1"
+.PP
+Definition at line 711 of file midas.h.
+.PP
+Referenced by hv_init(), and hv_set_voltage_limit().
+.SS "#define CMD_START   3"
+.PP
+Definition at line 697 of file midas.h.
+.PP
+Referenced by cd_hv(), device_driver(), hv_start(), and initialize_equipment().
+.SS "#define CMD_STOP   4"
+.PP
+Definition at line 698 of file midas.h.
+.PP
+Referenced by cd_hv(), device_driver(), hv_stop(), and main().
+.SS "#define CMD_WRITE   100"Slow control bus driver commands 
+.PP
+Definition at line 738 of file midas.h.
+.SS "#define EL_FILE_ERROR   902".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 680 of file midas.h.
+.PP
+Referenced by el_submit().
+.SS "#define EL_FIRST_MSG   905".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 683 of file midas.h.
+.SS "#define EL_LAST_MSG   906".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 684 of file midas.h.
+.SS "#define EL_NO_MESSAGE   903".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 681 of file midas.h.
+.SS "#define EL_SUCCESS   1"ELog error code - 
+.PP
+Definition at line 679 of file midas.h.
+.PP
+Referenced by el_submit().
+.SS "#define EL_TRUNCATED   904".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 682 of file midas.h.
+.SS "#define FE_ERR_DISABLED   604".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 656 of file midas.h.
+.PP
+Referenced by display(), and initialize_equipment().
+.SS "#define FE_ERR_DRIVER   605".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 657 of file midas.h.
+.PP
+Referenced by cd_hv(), device_driver(), display(), and initialize_equipment().
+.SS "#define FE_ERR_HW   603".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 655 of file midas.h.
+.PP
+Referenced by display(), and initialize_equipment().
+.SS "#define FE_ERR_ODB   602".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 654 of file midas.h.
+.PP
+Referenced by display(), hv_init(), and initialize_equipment().
+.SS "#define FE_SUCCESS   1".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 653 of file midas.h.
+.PP
+Referenced by check_polled_events(), device_driver(), display(), hv_exit(), hv_init(), hv_start(), hv_stop(), initialize_equipment(), main(), register_equipment(), scheduler(), and send_all_periodic_events().
+.SS "#define FTP_FILE_ERROR   803".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 673 of file midas.h.
+.SS "#define FTP_INVALID_ARG   805".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 675 of file midas.h.
+.SS "#define FTP_NET_ERROR   802".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 672 of file midas.h.
+.SS "#define FTP_RESPONSE_ERROR   804".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 674 of file midas.h.
+.SS "#define FTP_SUCCESS   1"FTP error code - 
+.PP
+Definition at line 671 of file midas.h.
+.SS "#define HS_FILE_ERROR   702".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 662 of file midas.h.
+.PP
+Referenced by hs_dump().
+.SS "#define HS_NO_MEMORY   703".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 663 of file midas.h.
+.PP
+Referenced by hs_dump().
+.SS "#define HS_SUCCESS   1"History error code - 
+.PP
+Definition at line 661 of file midas.h.
+.PP
+Referenced by hs_dump(), and hs_set_path().
+.SS "#define HS_TRUNCATED   704".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 664 of file midas.h.
+.SS "#define HS_UNDEFINED_EVENT   706".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 666 of file midas.h.
+.SS "#define HS_UNDEFINED_VAR   707".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 667 of file midas.h.
+.SS "#define HS_WRONG_INDEX   705".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 665 of file midas.h.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Midas from the source code.

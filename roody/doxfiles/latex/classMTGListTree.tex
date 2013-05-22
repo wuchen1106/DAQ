@@ -1,0 +1,224 @@
+\section{MTGListTree Class Reference}
+\label{classMTGListTree}\index{MTGListTree@{MTGListTree}}
+
+
+{\ttfamily \#include $<$MTGListTree.h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf MTGListTree} (TGWindow $\ast$, UInt\_\-t, UInt\_\-t, UInt\_\-t, ULong\_\-t=GetWhitePixel())
+\item 
+{\bf MTGListTree} (TGCanvas $\ast$, UInt\_\-t, ULong\_\-t=GetWhitePixel())
+\item 
+Bool\_\-t {\bf HandleButton} (Event\_\-t $\ast$)
+\item 
+Bool\_\-t {\bf HandleKey} (Event\_\-t $\ast$)
+\item 
+void {\bf GetSelectedItems} (std::vector$<$ TGListTreeItem $\ast$ $>$ \&)
+\item 
+void {\bf GetSelectedItemsRecursive} (TGListTreeItem $\ast$, std::vector$<$ TGListTreeItem $\ast$ $>$ \&)
+\item 
+Int\_\-t {\bf MDeleteItem} (TGListTreeItem $\ast$)
+\item 
+void {\bf MPDeleteChildren} (TGListTreeItem $\ast$)
+\end{DoxyCompactItemize}
+\subsection*{Private Types}
+\begin{DoxyCompactItemize}
+\item 
+typedef std::vector$<$ TGListTreeItem $\ast$ $>$::{\bf iterator} {\bf iterator}
+\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void {\bf init} ()
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Bool\_\-t {\bf fControlPressed}
+\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+class {\bf TGListTreeItem}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 17 of file MTGListTree.h.
+
+
+
+\subsection{Member Typedef Documentation}
+\index{MTGListTree@{MTGListTree}!iterator@{iterator}}
+\index{iterator@{iterator}!MTGListTree@{MTGListTree}}
+\subsubsection[{iterator}]{\setlength{\rightskip}{0pt plus 5cm}typedef std::vector$<$TGListTreeItem$\ast$$>$::{\bf iterator} {\bf MTGListTree::iterator}\hspace{0.3cm}{\ttfamily  [private]}}\label{classMTGListTree_a5d149669aa7aa7a9250cd204768d9129}
+
+
+Definition at line 22 of file MTGListTree.h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{MTGListTree@{MTGListTree}!MTGListTree@{MTGListTree}}
+\index{MTGListTree@{MTGListTree}!MTGListTree@{MTGListTree}}
+\subsubsection[{MTGListTree}]{\setlength{\rightskip}{0pt plus 5cm}MTGListTree::MTGListTree (
+\begin{DoxyParamCaption}
+\item[{TGWindow $\ast$}]{p, }
+\item[{UInt\_\-t}]{w, }
+\item[{UInt\_\-t}]{h, }
+\item[{UInt\_\-t}]{options, }
+\item[{ULong\_\-t}]{back = {\ttfamily GetWhitePixel()}}
+\end{DoxyParamCaption}
+)}\label{classMTGListTree_ad8ac02718266588f1851521765feb9b7}
+
+
+Definition at line 42 of file MTGListTree.cxx.
+
+\index{MTGListTree@{MTGListTree}!MTGListTree@{MTGListTree}}
+\index{MTGListTree@{MTGListTree}!MTGListTree@{MTGListTree}}
+\subsubsection[{MTGListTree}]{\setlength{\rightskip}{0pt plus 5cm}MTGListTree::MTGListTree (
+\begin{DoxyParamCaption}
+\item[{TGCanvas $\ast$}]{p, }
+\item[{UInt\_\-t}]{options, }
+\item[{ULong\_\-t}]{back = {\ttfamily GetWhitePixel()}}
+\end{DoxyParamCaption}
+)}\label{classMTGListTree_ad0a89f242825cc021a560796533702b4}
+
+
+Definition at line 47 of file MTGListTree.cxx.
+
+
+
+\subsection{Member Function Documentation}
+\index{MTGListTree@{MTGListTree}!GetSelectedItems@{GetSelectedItems}}
+\index{GetSelectedItems@{GetSelectedItems}!MTGListTree@{MTGListTree}}
+\subsubsection[{GetSelectedItems}]{\setlength{\rightskip}{0pt plus 5cm}void MTGListTree::GetSelectedItems (
+\begin{DoxyParamCaption}
+\item[{std::vector$<$ TGListTreeItem $\ast$ $>$ \&}]{items}
+\end{DoxyParamCaption}
+)}\label{classMTGListTree_a959170a63b6fb0a2c17944f6316743ce}
+
+
+Definition at line 146 of file MTGListTree.cxx.
+
+
+
+Referenced by Roody::ProcessMessage().
+
+\index{MTGListTree@{MTGListTree}!GetSelectedItemsRecursive@{GetSelectedItemsRecursive}}
+\index{GetSelectedItemsRecursive@{GetSelectedItemsRecursive}!MTGListTree@{MTGListTree}}
+\subsubsection[{GetSelectedItemsRecursive}]{\setlength{\rightskip}{0pt plus 5cm}void MTGListTree::GetSelectedItemsRecursive (
+\begin{DoxyParamCaption}
+\item[{TGListTreeItem $\ast$}]{item, }
+\item[{std::vector$<$ TGListTreeItem $\ast$ $>$ \&}]{items}
+\end{DoxyParamCaption}
+)}\label{classMTGListTree_ae4574857d80369d1acf9df42ab38d331}
+
+
+Definition at line 153 of file MTGListTree.cxx.
+
+
+
+Referenced by GetSelectedItems().
+
+\index{MTGListTree@{MTGListTree}!HandleButton@{HandleButton}}
+\index{HandleButton@{HandleButton}!MTGListTree@{MTGListTree}}
+\subsubsection[{HandleButton}]{\setlength{\rightskip}{0pt plus 5cm}Bool\_\-t MTGListTree::HandleButton (
+\begin{DoxyParamCaption}
+\item[{Event\_\-t $\ast$}]{event}
+\end{DoxyParamCaption}
+)}\label{classMTGListTree_aa653659e11fde3d1675254c0a49416bc}
+
+
+Definition at line 91 of file MTGListTree.cxx.
+
+\index{MTGListTree@{MTGListTree}!HandleKey@{HandleKey}}
+\index{HandleKey@{HandleKey}!MTGListTree@{MTGListTree}}
+\subsubsection[{HandleKey}]{\setlength{\rightskip}{0pt plus 5cm}Bool\_\-t MTGListTree::HandleKey (
+\begin{DoxyParamCaption}
+\item[{Event\_\-t $\ast$}]{event}
+\end{DoxyParamCaption}
+)}\label{classMTGListTree_add074bbcb2d9d8cd4227112c0178a592}
+
+
+Definition at line 164 of file MTGListTree.cxx.
+
+\index{MTGListTree@{MTGListTree}!init@{init}}
+\index{init@{init}!MTGListTree@{MTGListTree}}
+\subsubsection[{init}]{\setlength{\rightskip}{0pt plus 5cm}void MTGListTree::init (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  [private]}}\label{classMTGListTree_a9da47702de6d2875f4180ff793805701}
+
+
+Referenced by MTGListTree().
+
+\index{MTGListTree@{MTGListTree}!MDeleteItem@{MDeleteItem}}
+\index{MDeleteItem@{MDeleteItem}!MTGListTree@{MTGListTree}}
+\subsubsection[{MDeleteItem}]{\setlength{\rightskip}{0pt plus 5cm}Int\_\-t MTGListTree::MDeleteItem (
+\begin{DoxyParamCaption}
+\item[{TGListTreeItem $\ast$}]{item}
+\end{DoxyParamCaption}
+)}\label{classMTGListTree_a16442d4287e49070a09f9ba37b43d12c}
+
+
+Definition at line 58 of file MTGListTree.cxx.
+
+
+
+Referenced by Roody::CloseSource(), and Roody::DeleteGroup().
+
+\index{MTGListTree@{MTGListTree}!MPDeleteChildren@{MPDeleteChildren}}
+\index{MPDeleteChildren@{MPDeleteChildren}!MTGListTree@{MTGListTree}}
+\subsubsection[{MPDeleteChildren}]{\setlength{\rightskip}{0pt plus 5cm}void MTGListTree::MPDeleteChildren (
+\begin{DoxyParamCaption}
+\item[{TGListTreeItem $\ast$}]{item}
+\end{DoxyParamCaption}
+)}\label{classMTGListTree_ab799a499555bfa3b17da435eb46e17e6}
+
+
+Definition at line 71 of file MTGListTree.cxx.
+
+
+
+Referenced by MDeleteItem().
+
+
+
+\subsection{Friends And Related Function Documentation}
+\index{MTGListTree@{MTGListTree}!TGListTreeItem@{TGListTreeItem}}
+\index{TGListTreeItem@{TGListTreeItem}!MTGListTree@{MTGListTree}}
+\subsubsection[{TGListTreeItem}]{\setlength{\rightskip}{0pt plus 5cm}friend class TGListTreeItem\hspace{0.3cm}{\ttfamily  [friend]}}\label{classMTGListTree_a5bda0cb7f07902080ed935fa1cd8d941}
+
+
+Definition at line 19 of file MTGListTree.h.
+
+
+
+Referenced by GetSelectedItems(), GetSelectedItemsRecursive(), HandleButton(), MDeleteItem(), and MPDeleteChildren().
+
+
+
+\subsection{Member Data Documentation}
+\index{MTGListTree@{MTGListTree}!fControlPressed@{fControlPressed}}
+\index{fControlPressed@{fControlPressed}!MTGListTree@{MTGListTree}}
+\subsubsection[{fControlPressed}]{\setlength{\rightskip}{0pt plus 5cm}Bool\_\-t {\bf MTGListTree::fControlPressed}\hspace{0.3cm}{\ttfamily  [private]}}\label{classMTGListTree_a5387e77c9a8fe1512d400294a8e8714f}
+
+
+Definition at line 23 of file MTGListTree.h.
+
+
+
+Referenced by HandleButton(), and HandleKey().
+
+
+
+The documentation for this class was generated from the following files:\begin{DoxyCompactItemize}
+\item 
+{\bf MTGListTree.h}\item 
+{\bf MTGListTree.cxx}\end{DoxyCompactItemize}

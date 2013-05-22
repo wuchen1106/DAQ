@@ -1,0 +1,170 @@
+.TH "Alarm related" 3 "31 May 2012" "Version 2.3.0-0" "Midas" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Alarm related \- 
+.SS "Data Structures"
+
+.in +1c
+.ti -1c
+.RI "struct \fBPROGRAM_INFO\fP"
+.br
+.ti -1c
+.RI "struct \fBALARM_CLASS\fP"
+.br
+.ti -1c
+.RI "struct \fBALARM\fP"
+.br
+.in -1c
+.SS "Defines"
+
+.in +1c
+.ti -1c
+.RI "#define \fBAT_INTERNAL\fP   1"
+.br
+.ti -1c
+.RI "#define \fBAT_PROGRAM\fP   2"
+.br
+.ti -1c
+.RI "#define \fBAT_EVALUATED\fP   3"
+.br
+.ti -1c
+.RI "#define \fBAT_PERIODIC\fP   4"
+.br
+.ti -1c
+.RI "#define \fBAT_LAST\fP   4"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+dox dox Alarm structure. 
+.SH "Define Documentation"
+.PP 
+.SS "#define ALARM_CLASS_STR(_name)"\fBValue:\fP
+.PP
+.nf
+const char *_name[] = {\
+'[.]',\
+'Write system message = BOOL : y',\
+'Write Elog message = BOOL : n',\
+'System message interval = INT : 60',\
+'System message last = DWORD : 0',\
+'Execute command = STRING : [256] ',\
+'Execute interval = INT : 0',\
+'Execute last = DWORD : 0',\
+'Stop run = BOOL : n',\
+'Display BGColor = STRING : [32] red',\
+'Display FGColor = STRING : [32] black',\
+'',\
+NULL }
+.fi
+.PP
+Definition at line 1327 of file midas.h.
+.PP
+Referenced by al_check().
+.SS "#define ALARM_ODB_STR(_name)"\fBValue:\fP
+.PP
+.nf
+const char *_name[] = {\
+'[.]',\
+'Active = BOOL : n',\
+'Triggered = INT : 0',\
+'Type = INT : 3',\
+'Check interval = INT : 60',\
+'Checked last = DWORD : 0',\
+'Time triggered first = STRING : [32] ',\
+'Time triggered last = STRING : [32] ',\
+'Condition = STRING : [256] /Runinfo/Run number > 100',\
+'Alarm Class = STRING : [32] Alarm',\
+'Alarm Message = STRING : [80] Run number became too large',\
+'',\
+NULL }
+.fi
+.PP
+Definition at line 1357 of file midas.h.
+.PP
+Referenced by al_check(), and al_trigger_alarm().
+.SS "#define ALARM_PERIODIC_STR(_name)"\fBValue:\fP
+.PP
+.nf
+const char *_name[] = {\
+'[.]',\
+'Active = BOOL : n',\
+'Triggered = INT : 0',\
+'Type = INT : 4',\
+'Check interval = INT : 28800',\
+'Checked last = DWORD : 0',\
+'Time triggered first = STRING : [32] ',\
+'Time triggered last = STRING : [32] ',\
+'Condition = STRING : [256] ',\
+'Alarm Class = STRING : [32] Warning',\
+'Alarm Message = STRING : [80] Please do your shift checks',\
+'',\
+NULL }
+.fi
+.PP
+Definition at line 1372 of file midas.h.
+.PP
+Referenced by al_check().
+.SS "#define AT_EVALUATED   3".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 1294 of file midas.h.
+.PP
+Referenced by al_check(), al_get_alarms(), and al_trigger_alarm().
+.SS "#define AT_INTERNAL   1".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 1292 of file midas.h.
+.SS "#define AT_LAST   4".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 1296 of file midas.h.
+.PP
+Referenced by al_check(), and al_trigger_alarm().
+.SS "#define AT_PERIODIC   4".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 1295 of file midas.h.
+.PP
+Referenced by al_check(), and al_trigger_alarm().
+.SS "#define AT_PROGRAM   2".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 1293 of file midas.h.
+.PP
+Referenced by al_check().
+.SS "#define PROGRAM_INFO_STR(_name)"\fBValue:\fP
+.PP
+.nf
+const char *_name[] = {\
+'[.]',\
+'Required = BOOL : n',\
+'Watchdog timeout = INT : 10000',\
+'Check interval = DWORD : 180000',\
+'Start command = STRING : [256] ',\
+'Auto start = BOOL : n',\
+'Auto stop = BOOL : n',\
+'Auto restart = BOOL : n',\
+'Alarm class = STRING : [32] ',\
+'First failed = DWORD : 0',\
+'',\
+NULL }
+.fi
+.PP
+Definition at line 1298 of file midas.h.
+.PP
+Referenced by cm_set_client_info().
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Midas from the source code.

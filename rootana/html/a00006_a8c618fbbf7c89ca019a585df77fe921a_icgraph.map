@@ -1,0 +1,8 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$a00006.html#a21f27755c70fec4d2fe3af1b21e47790" title="Read a boolean value, midas type TID_BOOL." alt="" coords="183,5,361,35"/>
+<area shape="rect" id="node5" href="$a00006.html#a0379ebe655db22f306d3cef0363043d6" title="Read an 64&#45;bit floating point value, midas type TID_DOUBLET." alt="" coords="175,59,369,88"/>
+<area shape="rect" id="node7" href="$a00006.html#a450796e68771315f78838d4797c197d2" title="Read an 32&#45;bit floating point value, midas type TID_FLOAT." alt="" coords="181,112,363,141"/>
+<area shape="rect" id="node9" href="$a00006.html#a39f1e74dadddacbc6afc8ead496ddaa0" title="Read an integer value, midas type TID_INT." alt="" coords="188,165,356,195"/>
+<area shape="rect" id="node11" href="$a00006.html#a67543ea706e8b3acb879f9fb27c07aff" title="Read a string value, midas type TID_STRING." alt="" coords="179,219,365,248"/>
+<area shape="rect" id="node13" href="$a00006.html#a61889201da3be676d2f8c1103176be18" title="Read an unsigned 32&#45;bit integer value, midas type TID_DWORD." alt="" coords="176,272,368,301"/>
+</map>

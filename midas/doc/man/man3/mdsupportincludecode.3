@@ -1,0 +1,124 @@
+.TH "The mdsupport.h & mdsupport.c" 3 "31 May 2012" "Version 2.3.0-0" "Midas" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+The mdsupport.h & mdsupport.c \- 
+.SS "Modules"
+
+.in +1c
+.ti -1c
+.RI "\fBMidas dump error code\fP"
+.br
+.ti -1c
+.RI "\fBMidas dump support Define\fP"
+.br
+.ti -1c
+.RI "\fBMidas dump support Macros\fP"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBINT\fP \fBmd_file_ropen\fP (char *infile, \fBINT\fP data_fmt, \fBINT\fP openzip)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+dox 
+.SH "Function Documentation"
+.PP 
+.SS "\fBINT\fP md_all_info_display (\fBINT\fP what)"
+.PP
+Definition at line 695 of file mdsupport.c.
+.SS "void md_bank_display (void * pmbh, void * pbk, \fBINT\fP data_fmt, \fBINT\fP dsp_mode, \fBINT\fP dsp_fmt)"
+.PP
+Definition at line 945 of file mdsupport.c.
+.SS "void md_bank_event_display (void * pevent, \fBINT\fP data_fmt, \fBINT\fP dsp_fmt, \fBINT\fP dsp_mode, char * bn)"
+.PP
+Definition at line 856 of file mdsupport.c.
+.PP
+Referenced by md_event_display().
+.SS "\fBINT\fP md_dev_os_read (\fBINT\fP handle, \fBINT\fP type, void * prec, \fBDWORD\fP nbytes, \fBDWORD\fP * readn)"
+.PP
+Definition at line 430 of file mdsupport.c.
+.PP
+Referenced by midas_physrec_get().
+.SS "\fBINT\fP md_dev_os_write (\fBINT\fP handle, \fBINT\fP type, void * prec, \fBDWORD\fP nbytes, \fBDWORD\fP * written)"
+.PP
+Definition at line 486 of file mdsupport.c.
+.PP
+Referenced by md_log_write().
+.SS "void md_event_display (void * pevent, \fBINT\fP data_fmt, \fBINT\fP dsp_mode, \fBINT\fP dsp_fmt, char * bn)"
+.PP
+Definition at line 791 of file mdsupport.c.
+.SS "\fBINT\fP md_event_get (\fBINT\fP data_fmt, void ** pevent, \fBDWORD\fP * readn)"
+.PP
+Definition at line 767 of file mdsupport.c.
+.SS "\fBINT\fP md_event_swap (\fBINT\fP data_fmt, void * pevent)"
+.PP
+Definition at line 735 of file mdsupport.c.
+.PP
+Referenced by eb_yfragment_add().
+.SS "\fBINT\fP md_file_rclose (\fBINT\fP data_fmt)"
+.PP
+Definition at line 263 of file mdsupport.c.
+.SS "\fBINT\fP md_file_ropen (char * infile, \fBINT\fP data_fmt, \fBINT\fP openzip)"dox 
+.PP
+Definition at line 174 of file mdsupport.c.
+.SS "\fBINT\fP md_file_wclose (\fBINT\fP handle, \fBINT\fP type, \fBINT\fP data_fmt, char * destination)"
+.PP
+Definition at line 360 of file mdsupport.c.
+.SS "\fBINT\fP md_file_wopen (\fBINT\fP type, \fBINT\fP data_fmt, char * filename, \fBINT\fP * hDev)"
+.PP
+Definition at line 305 of file mdsupport.c.
+.SS "\fBINT\fP md_log_write (\fBINT\fP handle, \fBINT\fP data_fmt, \fBINT\fP type, void * prec, \fBDWORD\fP nbytes)"
+.PP
+Definition at line 581 of file mdsupport.c.
+.SS "\fBINT\fP md_physrec_display (\fBINT\fP data_fmt)"
+.PP
+Definition at line 669 of file mdsupport.c.
+.SS "\fBINT\fP md_physrec_get (\fBINT\fP data_fmt, void ** precord, \fBDWORD\fP * readn)"
+.PP
+Definition at line 560 of file mdsupport.c.
+.SS "\fBINT\fP md_physrec_skip (\fBINT\fP data_fmt, \fBINT\fP bl)"
+.PP
+Definition at line 608 of file mdsupport.c.
+.SS "void md_raw_bank_display (void * pbank, \fBINT\fP data_fmt, \fBINT\fP dsp_fmt)"
+.PP
+Definition at line 975 of file mdsupport.c.
+.PP
+Referenced by md_bank_display().
+.SS "void md_raw_event_display (void * pevent, \fBINT\fP data_fmt, \fBINT\fP dsp_fmt)"
+.PP
+Definition at line 816 of file mdsupport.c.
+.PP
+Referenced by md_bank_event_display(), and md_event_display().
+.SS "void midas_bank_display (\fBBANK\fP * pbk, \fBINT\fP dsp_fmt)"
+.PP
+Definition at line 1152 of file mdsupport.c.
+.PP
+Referenced by md_bank_display(), and md_bank_event_display().
+.SS "void midas_bank_display32 (\fBBANK32\fP * pbk, \fBINT\fP dsp_fmt)"
+.PP
+Definition at line 1373 of file mdsupport.c.
+.PP
+Referenced by md_bank_display(), and md_bank_event_display().
+.SS "\fBINT\fP midas_event_get (void ** pevent, \fBDWORD\fP * readn)"
+.PP
+Definition at line 1016 of file mdsupport.c.
+.PP
+Referenced by md_event_get(), and midas_event_skip().
+.SS "\fBINT\fP midas_event_skip (\fBINT\fP evtn)"
+.PP
+Definition at line 634 of file mdsupport.c.
+.PP
+Referenced by md_physrec_skip().
+.SS "\fBINT\fP midas_physrec_get (void * prec, \fBDWORD\fP * readn)"
+.PP
+Definition at line 1108 of file mdsupport.c.
+.PP
+Referenced by md_physrec_get(), and midas_event_get().
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Midas from the source code.

@@ -1,0 +1,143 @@
+\subsection{hv.c File Reference}
+\label{hv_8c}\index{hv.c@{hv.c}}
+\subsubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structHV__INFO}{HV\_\-INFO}
+\end{DoxyCompactItemize}
+
+
+\subsubsection{Define Documentation}
+\index{hv.c@{hv.c}!abs@{abs}}
+\index{abs@{abs}!hv.c@{hv.c}}
+\paragraph[{abs}]{\setlength{\rightskip}{0pt plus 5cm}\#define abs(a)~(((a) $<$ 0)   ? -\/(a) : (a))}\hfill\label{hv_8c_a6a010865b10e541735fa2da8f3cd062d}
+
+
+Definition at line 59 of file hv.c.
+
+Referenced by begin\_\-of\_\-run(), hs\_\-dump(), and hv\_\-read().
+
+\subsubsection{Function Documentation}
+\index{hv.c@{hv.c}!cd\_\-hv@{cd\_\-hv}}
+\index{cd\_\-hv@{cd\_\-hv}!hv.c@{hv.c}}
+\paragraph[{cd\_\-hv}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} cd\_\-hv ({\bf INT} {\em cmd}, \/  {\bf PEQUIPMENT} {\em pequipment})}\hfill\label{hv_8c_af6fe77dbe946ebf6e925982d50d0db3c}
+
+
+Definition at line 865 of file hv.c.\index{hv.c@{hv.c}!cd\_\-hv\_\-read@{cd\_\-hv\_\-read}}
+\index{cd\_\-hv\_\-read@{cd\_\-hv\_\-read}!hv.c@{hv.c}}
+\paragraph[{cd\_\-hv\_\-read}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} cd\_\-hv\_\-read (char $\ast$ {\em pevent}, \/  int {\em offset})}\hfill\label{hv_8c_aa5383a81945ebd5e43ca55dcd4d6b07b}
+
+
+Definition at line 780 of file hv.c.\index{hv.c@{hv.c}!free\_\-mem@{free\_\-mem}}
+\index{free\_\-mem@{free\_\-mem}!hv.c@{hv.c}}
+\paragraph[{free\_\-mem}]{\setlength{\rightskip}{0pt plus 5cm}static void free\_\-mem ({\bf HV\_\-INFO} $\ast$ {\em hv\_\-info})\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}\hfill\label{hv_8c_a85cbcc39927a7a621dfe3b417ac6c0cb}
+
+
+Definition at line 64 of file hv.c.
+
+Referenced by hv\_\-exit(), and hv\_\-init().\index{hv.c@{hv.c}!hv\_\-demand@{hv\_\-demand}}
+\index{hv\_\-demand@{hv\_\-demand}!hv.c@{hv.c}}
+\paragraph[{hv\_\-demand}]{\setlength{\rightskip}{0pt plus 5cm}void hv\_\-demand ({\bf INT} {\em hDB}, \/  {\bf INT} {\em hKey}, \/  void $\ast$ {\em info})}\hfill\label{hv_8c_a1972c5d2a46d25f2fa81e42d6fcbac1c}
+
+
+Definition at line 289 of file hv.c.
+
+Referenced by hv\_\-init().\index{hv.c@{hv.c}!hv\_\-exit@{hv\_\-exit}}
+\index{hv\_\-exit@{hv\_\-exit}!hv.c@{hv.c}}
+\paragraph[{hv\_\-exit}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} hv\_\-exit ({\bf EQUIPMENT} $\ast$ {\em pequipment})}\hfill\label{hv_8c_ac206528c83f8db2bd36c4d8c52ee0596}
+
+
+Definition at line 724 of file hv.c.
+
+Referenced by cd\_\-hv().\index{hv.c@{hv.c}!hv\_\-idle@{hv\_\-idle}}
+\index{hv\_\-idle@{hv\_\-idle}!hv.c@{hv.c}}
+\paragraph[{hv\_\-idle}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} hv\_\-idle ({\bf EQUIPMENT} $\ast$ {\em pequipment})}\hfill\label{hv_8c_aaa369e2228fc887094ab22aa51c1b68f}
+
+
+Definition at line 739 of file hv.c.
+
+Referenced by cd\_\-hv().\index{hv.c@{hv.c}!hv\_\-init@{hv\_\-init}}
+\index{hv\_\-init@{hv\_\-init}!hv.c@{hv.c}}
+\paragraph[{hv\_\-init}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} hv\_\-init ({\bf EQUIPMENT} $\ast$ {\em pequipment})}\hfill\label{hv_8c_ad9b5d26722c8f5bd4dd77951bfdb7f36}
+
+
+Definition at line 463 of file hv.c.
+
+Referenced by cd\_\-hv().\index{hv.c@{hv.c}!hv\_\-ramp@{hv\_\-ramp}}
+\index{hv\_\-ramp@{hv\_\-ramp}!hv.c@{hv.c}}
+\paragraph[{hv\_\-ramp}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} hv\_\-ramp ({\bf HV\_\-INFO} $\ast$ {\em hv\_\-info})}\hfill\label{hv_8c_af87c3c364f95d9ef5dd7bf0602c1b7bd}
+
+
+Definition at line 227 of file hv.c.
+
+Referenced by hv\_\-demand(), and hv\_\-idle().\index{hv.c@{hv.c}!hv\_\-read@{hv\_\-read}}
+\index{hv\_\-read@{hv\_\-read}!hv.c@{hv.c}}
+\paragraph[{hv\_\-read}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} hv\_\-read ({\bf EQUIPMENT} $\ast$ {\em pequipment}, \/  int {\em channel})}\hfill\label{hv_8c_adf53cc684488e64813243dafb3649712}
+
+
+Definition at line 124 of file hv.c.
+
+Referenced by hv\_\-idle().\index{hv.c@{hv.c}!hv\_\-set\_\-current\_\-limit@{hv\_\-set\_\-current\_\-limit}}
+\index{hv\_\-set\_\-current\_\-limit@{hv\_\-set\_\-current\_\-limit}!hv.c@{hv.c}}
+\paragraph[{hv\_\-set\_\-current\_\-limit}]{\setlength{\rightskip}{0pt plus 5cm}void hv\_\-set\_\-current\_\-limit ({\bf INT} {\em hDB}, \/  {\bf INT} {\em hKey}, \/  void $\ast$ {\em info})}\hfill\label{hv_8c_aad24ee51a854f8e3d655e11f1b87ad1a}
+
+
+Definition at line 347 of file hv.c.
+
+Referenced by hv\_\-init().\index{hv.c@{hv.c}!hv\_\-set\_\-rampdown@{hv\_\-set\_\-rampdown}}
+\index{hv\_\-set\_\-rampdown@{hv\_\-set\_\-rampdown}!hv.c@{hv.c}}
+\paragraph[{hv\_\-set\_\-rampdown}]{\setlength{\rightskip}{0pt plus 5cm}void hv\_\-set\_\-rampdown ({\bf INT} {\em hDB}, \/  {\bf INT} {\em hKey}, \/  void $\ast$ {\em info})}\hfill\label{hv_8c_a035e3d5e825a2e7537549cbc9133957c}
+
+
+Definition at line 385 of file hv.c.
+
+Referenced by hv\_\-init().\index{hv.c@{hv.c}!hv\_\-set\_\-rampup@{hv\_\-set\_\-rampup}}
+\index{hv\_\-set\_\-rampup@{hv\_\-set\_\-rampup}!hv.c@{hv.c}}
+\paragraph[{hv\_\-set\_\-rampup}]{\setlength{\rightskip}{0pt plus 5cm}void hv\_\-set\_\-rampup ({\bf INT} {\em hDB}, \/  {\bf INT} {\em hKey}, \/  void $\ast$ {\em info})}\hfill\label{hv_8c_a6c2c1ccdfbcf710a0a81249710b72cc4}
+
+
+Definition at line 366 of file hv.c.
+
+Referenced by hv\_\-init().\index{hv.c@{hv.c}!hv\_\-set\_\-trip\_\-time@{hv\_\-set\_\-trip\_\-time}}
+\index{hv\_\-set\_\-trip\_\-time@{hv\_\-set\_\-trip\_\-time}!hv.c@{hv.c}}
+\paragraph[{hv\_\-set\_\-trip\_\-time}]{\setlength{\rightskip}{0pt plus 5cm}void hv\_\-set\_\-trip\_\-time ({\bf INT} {\em hDB}, \/  {\bf INT} {\em hKey}, \/  void $\ast$ {\em info})}\hfill\label{hv_8c_a3191cdab3dab02398919e46fbc289b82}
+
+
+Definition at line 328 of file hv.c.
+
+Referenced by hv\_\-init().\index{hv.c@{hv.c}!hv\_\-set\_\-voltage\_\-limit@{hv\_\-set\_\-voltage\_\-limit}}
+\index{hv\_\-set\_\-voltage\_\-limit@{hv\_\-set\_\-voltage\_\-limit}!hv.c@{hv.c}}
+\paragraph[{hv\_\-set\_\-voltage\_\-limit}]{\setlength{\rightskip}{0pt plus 5cm}void hv\_\-set\_\-voltage\_\-limit ({\bf INT} {\em hDB}, \/  {\bf INT} {\em hKey}, \/  void $\ast$ {\em info})}\hfill\label{hv_8c_ae3c91ed41bc6b7f2182adfcd5549f710}
+
+
+Definition at line 404 of file hv.c.
+
+Referenced by hv\_\-init().\index{hv.c@{hv.c}!hv\_\-start@{hv\_\-start}}
+\index{hv\_\-start@{hv\_\-start}!hv.c@{hv.c}}
+\paragraph[{hv\_\-start}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} hv\_\-start ({\bf EQUIPMENT} $\ast$ {\em pequipment})}\hfill\label{hv_8c_aa65c35bd0a67b97f157e6cf96f8da0c2}
+
+
+Definition at line 94 of file hv.c.
+
+Referenced by cd\_\-hv().\index{hv.c@{hv.c}!hv\_\-stop@{hv\_\-stop}}
+\index{hv\_\-stop@{hv\_\-stop}!hv.c@{hv.c}}
+\paragraph[{hv\_\-stop}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} hv\_\-stop ({\bf EQUIPMENT} $\ast$ {\em pequipment})}\hfill\label{hv_8c_a436026ab3058e095a1c65188b29106a4}
+
+
+Definition at line 110 of file hv.c.
+
+Referenced by cd\_\-hv().\index{hv.c@{hv.c}!hv\_\-update\_\-label@{hv\_\-update\_\-label}}
+\index{hv\_\-update\_\-label@{hv\_\-update\_\-label}!hv.c@{hv.c}}
+\paragraph[{hv\_\-update\_\-label}]{\setlength{\rightskip}{0pt plus 5cm}void hv\_\-update\_\-label ({\bf INT} {\em hDB}, \/  {\bf INT} {\em hKey}, \/  void $\ast$ {\em info})}\hfill\label{hv_8c_a3d7aa8fc312aea3251456ed55b47ae56}
+
+
+Definition at line 423 of file hv.c.
+
+Referenced by hv\_\-init().\index{hv.c@{hv.c}!validate\_\-odb\_\-array@{validate\_\-odb\_\-array}}
+\index{validate\_\-odb\_\-array@{validate\_\-odb\_\-array}!hv.c@{hv.c}}
+\paragraph[{validate\_\-odb\_\-array}]{\setlength{\rightskip}{0pt plus 5cm}void validate\_\-odb\_\-array (HNDLE {\em hDB}, \/  {\bf HV\_\-INFO} $\ast$ {\em hv\_\-info}, \/  char $\ast$ {\em path}, \/  double {\em default\_\-value}, \/  int {\em cmd}, \/  float $\ast$ {\em array}, \/  void($\ast$)({\bf INT}, {\bf INT}, void $\ast$) {\em callback}, \/  {\bf EQUIPMENT} $\ast$ {\em pequipment})}\hfill\label{hv_8c_ac42d4bdc1a509e87ead709972da88ea9}
+
+
+Definition at line 441 of file hv.c.
+
+Referenced by hv\_\-init().

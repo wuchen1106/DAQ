@@ -1,0 +1,7 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$a00037.html#a6e30de3baedb2a5ac8e4bbd1ef8059d0" title="Add a new canvas; user will interactively fill it." alt="" coords="288,5,544,35"/>
+<area shape="rect" id="node7" href="$a00037.html#a4010588ea6450a6e7f2dedfd18648378" title="Set Display name." alt="" coords="289,59,543,88"/>
+<area shape="rect" id="node9" href="$a00037.html#a1dd2ac3e094dc549e4508a00f82af3f4" title="TRootanaDisplay::SetNumberSkipEvent" alt="" coords="273,112,559,141"/>
+<area shape="rect" id="node5" href="$a00024.html#a02cd412ed5e8a0081457546c56dfa188" title="TMainDisplayWindow::AddCanvas" alt="" coords="643,5,885,35"/>
+<area shape="rect" id="node11" href="$a00024.html#ae7bee9dc085e050b727e5b8d88e7f189" title="TMainDisplayWindow::GetSkipEventButton" alt="" coords="609,112,919,141"/>
+</map>

@@ -1,0 +1,174 @@
+.TH "FE_Slow_Control_system" 3 "31 May 2012" "Version 2.3.0-0" "Midas" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+FE_Slow_Control_system \- Slow Control System 
+ 
+.br
+ 
+.PP
+
+.br
+.PP
+Slow Control Systems are used for setup and monitoring of hardware that is not time-critical, and can be run at a low priority. Slow Control systems in a typical experiment are often used to setup and/or monitor components such as high voltage modules, temperature sensors, pressure gauges, leak detectors, RF generators, PID controllers etc. often from a large number of hardware vendors.
+.PP
+In the Midas Slow Control System, instead of talking directly to each other, frontend and control programs exchange information through the ODB. If several types of hardware are to be included in a Slow Control System, they may be assigned to a separate Slow Control Equipments. Each Slow Control Equipment is assigned a corresponding ODB subtree under /Equipment. This tree contains variables needed to control the equipment as well as variables measured by the equipment.
+.PP
+In the case of a high voltage equipment this is
+.IP "\(bu" 2
+a \fBDemand\fP array which contains voltages to be set,
+.IP "\(bu" 2
+a \fBMeasured\fP array which contains read back voltages and
+.IP "\(bu" 2
+a \fBCurrent\fP array which contains the current drawn from each channel.
+.PP
+.PP
+To change the voltage of a channel, a control program writes the desired value to the Demand array. This array is connected to the high voltage frontend via an ODB \fBhot-link\fP. Each time the Demand value is modified, the frontend receives a notification and sets the new value. In the other direction, the frontend continuously reads the voltage and current values from all channels and updates the appropriate ODB array(s) if there has been a significant change.
+.PP
+This design has a possible drawback due to the fact that the ODB is the key element of that control. Any failure or corruption of the database can result in incorrect driver control. Therefore it is not recommended to use this system to control systems that need redundancy for safety purposes. On the other hand, this system has several advantages:
+.PP
+.IP "\(bu" 2
+The control program does not need any knowledge of the frontend, it only talks to the ODB.
+.IP "\(bu" 2
+The control variables only exist at one place that guarantees consistency among all clients.
+.IP "\(bu" 2
+Basic control can be done through \fBODBEdit\fP (or using mhttpd \fBODB page\fP) without the need of a special control program.
+.IP "\(bu" 2
+A special control program can be tested without having a frontend running.
+.IP "\(bu" 2
+In case of n frontend and m control programs, only n+m network connections are needed instead of n*m connection for point-to-point connections.
+.PP
+.PP
+Since all slow control values are contained in the ODB, they are automatically dumped to the logging channels. The slow control frontend uses the same framework as the normal frontend, and behaves similarly in many respects. They also create periodic events that contain the slow control variables and are logged together with trigger and scaler events. The only difference is that a routine is called periodically from the framework that has the task of reading channels and updating the ODB. 
+.br
+  To access slow control hardware, a two-layer driver concept is used. The upper layer is a \fB'class driver'\fP, which establishes the connection to the ODB variables and contains high level functionality like channel limits, ramping etc. It uses a \fB'device driver'\fP to access the channels. These drivers implement only very simple commands like 'set channel' and 'read channel'. The device drivers themselves can use bus drivers like RS232 or GPIB to control the actual device.
+.PP
+  Class driver, Device and Bus driver in the slow control system 
+.br
+
+.br
+
+.br
+   
+.br
+
+.br
+
+.br
+.PP
+The separation into class and device drivers has the advantage that it is very easy to add new devices, because only the simple device driver needs to be written. All higher functionality is inherited from the class driver. The device driver can implement richer functionality, depending on the hardware. For some high voltage devices there is a current read-back for example. This is usually reflected by additional variables in the ODB, i.e. a Current array. Frontend equipment uses exactly one class driver, but a class driver can use more than one device driver. This makes it possible to control several high voltage devices for example with one frontend in one equipment. The number of channels for each device driver is defined in the slow control frontend. Several equipments with different class drivers can be defined in a single frontend.
+.PP
+Slow Control variables can be accessed later through the web using the mhttpd \fBEquipment page\fP and  the new \fBMSCB Page\fP (since \fBDec 2009\fP) .
+.PP
+This can be done by setting the variable names under the Settings subdirectory of the corresponding Equipment in the ODB. The variable description is given under \fBMIDAS History System\fP . The \fBHistory page\fP will also be automatically activated if the \fBmlogger utility\fP is running.
+.PP
+.PP
+.nf
+Key name                        Type    #Val  Size  Last Opn Mode Value
+---------------------------------------------------------------------------
+Epics                           DIR
+    Settings                    DIR
+        Channels                DIR
+            Epics               INT     1     4     25h  0   RWD  3
+        Devices                 DIR
+            Epics               DIR
+                Channel name    STRING  10    32    25h  0   RWD  
+                                        [0]             GPS:VAR1
+                                        [1]             GPS:VAR2
+                                        [2]             GPS:VAR3
+        Names                   STRING  10    32    17h  1   RWD  
+                                        [0]             Current
+                                        [1]             Voltage
+                                        [2]             Watchdog
+        Update Threshold MeasureFLOAT   10    4     17h  0   RWD  
+                                        [0]             2
+                                        [1]             2
+                                        [2]             2
+    Common                      DIR
+        Event ID                WORD    1     2     17h  0   RWD  3
+        Trigger mask            WORD    1     2     17h  0   RWD  0
+        Buffer                  STRING  1     32    17h  0   RWD  SYSTEM
+        Type                    INT     1     4     17h  0   RWD  4
+        Source                  INT     1     4     17h  0   RWD  0
+        Format                  STRING  1     8     17h  0   RWD  FIXED
+        Enabled                 BOOL    1     4     17h  0   RWD  y
+        Read on                 INT     1     4     17h  0   RWD  121
+        Period                  INT     1     4     17h  0   RWD  60000
+        Event limit             DOUBLE  1     8     17h  0   RWD  0
+        Num subevents           DWORD   1     4     17h  0   RWD  0
+        Log history             INT     1     4     17h  0   RWD  1
+        Frontend host           STRING  1     32    17h  0   RWD  hostname
+        Frontend name           STRING  1     32    17h  0   RWD  Epics
+        Frontend file name      STRING  1     256   17h  0   RWD  feepic.c
+    Variables                   DIR
+        Demand                  FLOAT   10    4     0s   1   RWD  
+                                        [0]             1.56
+                                        [1]             120
+                                        [2]             87
+        Measured                FLOAT   10    4     2s   0   RWD  
+                                        [0]             1.56
+                                        [1]             120
+                                        [2]             87
+    Statistics                  DIR
+        Events sent             DOUBLE  1     8     17h  0   RWDE 26
+        Events per sec.         DOUBLE  1     8     17h  0   RWDE 0
+        kBytes per sec.         DOUBLE  1     8     17h  0   RWDE 0
+.fi
+.PP
+.PP
+\fBTodo\fP
+.RS 4
+more recent examples, description needed for slow control system
+.RE
+.PP
+Example of readout code:
+.PP
+.PP
+.nf
+    ...
+    'FIXED',                   /* format */
+    ...
+    cd_hv_read,                 /* readout routine */
+    cd_hv,                      /* class driver main routine */
+    hv_driver,                  /* device driver list */
+    NULL,                       /* init string */
+    },
+
+
+INT cd_hv_read(char *pevent, int offset)
+{
+   float *pdata;
+   DWORD *pdw;
+   HV_INFO *hv_info;
+   EQUIPMENT *pequipment;
+
+   pequipment = *((EQUIPMENT **) pevent);
+   hv_info = (HV_INFO *) pequipment->cd_info;
+
+   if (hv_info->format == FORMAT_FIXED) {
+      memcpy(pevent, hv_info->demand, sizeof(float) * hv_info->num_channels);
+      pevent += sizeof(float) * hv_info->num_channels;
+
+    memcpy(pevent, hv_info->measured, sizeof(float) * hv_info->num_channels);
+      pevent += sizeof(float) * hv_info->num_channels;
+
+      memcpy(pevent, hv_info->current, sizeof(float) * hv_info->num_channels);
+      pevent += sizeof(float) * hv_info->num_channels;
+
+      return 3 * sizeof(float) * hv_info->num_channels;
+   }
+ ....
+}
+.fi
+.PP
+ 
+.br
+.PP
+
+.br
+ 
+.PP
+
+.br
+.PP
+ 

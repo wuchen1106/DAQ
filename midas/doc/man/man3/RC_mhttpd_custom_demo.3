@@ -1,0 +1,201 @@
+.TH "RC_mhttpd_custom_demo" 3 "31 May 2012" "Version 2.3.0-0" "Midas" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+RC_mhttpd_custom_demo \- Demo of custom image page 
+
+.br
+.PP
+.PP
+
+.br
+.PP
+This demo will show you how to make a custom page containing an image, and superimpose edit boxes, clickable areas, labels, fills etc.
+.PP
+The HTML document \fBmyexpt.html\fP can be found in the examples/custom directory. This code forms part of a custom demo. For the full operation of this demo, you'll need to have the frontend \fB'sample frontend'\fP (midas/example/experiment/frontend.c), mlogger, mhttpd running.
+.PP
+The code \fBmyexpt.html\fP is shown below for convenience: 
+.PP
+.nf
+<html>
+  <head>
+   <title>MyExperiment Demo Status</title>
+   <meta http-equiv='Refresh' content='30'>
+  </head>
+ <body>
+  <form name='form1' method='Get' action='/CS/MyExpt&'>
+     <table border=3 cellpadding=2>
+          <tr><th bgcolor='#A0A0FF'>Demo Experiment<th bgcolor='#A0A0FF'>Custom Monitor/Control</tr> 
+          <tr><td> <b><font color='#ff 0'>Actions: </font></b><input
+                      value='Status' name='cmd' type='submit'> <input type='submit'
+                      name='cmd' value='Start'><input type='submit' name='cmd' value='Stop'>
+           </td><td>
+           <center> <a href='http://midas.triumf.ca/doc/html/index.html'> Help </a></center>
+           </td></tr>
+           <td>Current run #: <b><odb src='/Runinfo/run number'></b></td>
+           <td>#events: <b><odb src='/Equipment/Trigger/Statistics/Events sent'></b></td>
+           </tr><tr>
+           <td>Event Rate [/sec]: <b><odb src='/Equipment/Trigger/Statistics/Events per sec.'></b></td>
+           <td>Data Rate [kB/s]: <b><odb src='/Equipment/Trigger/Statistics/kBytes per sec.'></b></td>
+            </tr><tr>
+            <td>Cell Pressure: <b><odb src='/Equipment/NewEpics/Variables/CellPressure'></b></td>
+           <td>FaradayCup   : <b><odb src='/Equipment/NewEpics/Variables/ChargeFaradayCup'></b></td>
+           </tr><tr>
+           <td>Q1 Setpoint: <b><odb src='/Equipment/NewEpics/Variables/EpicsVars[17]' edit=1></b></td>
+          <td>Q2 Setpoint: <b><odb src='/Equipment/NewEpics/Variables/EpicsVars[19]' edit=1></b></td>
+          </tr><tr>
+          <th> <img src='http://localhost:8080/HS/Default/Trigger%20rate.gif?
+                          exp=default&amp;scale=12h&amp;width=250'>
+          </th>
+          <th> <img src='http://localhost:8080/HS/Default/Scaler%20rate.gif?
+                          exp=default&amp;scale=10m&amp;width=250'></th>
+          </tr>
+          <tr><td colspan=2>
+          <map name='myexpt.map'>
+          <area shape=rect coords='140,70, 420,170' 
+                  href='http://midas.triumf.ca/doc/html/index.html' title='Midas Doc'>
+          <area shape=rect coords='200,200,400,400'
+                  href='http://localhost:8080' title='Switch pump'>
+       <area shape=rect coords='230,515,325,600'
+              href='http://localhost:8080' title='Logger in color level (using Fill)'>
+        <img src='myexpt.gif' border=1 usemap='#myexpt.map'>
+          </map>
+          </td></tr>
+     </table></form>
+   </body>
+  </html>  
+
+.fi
+.PP
+.PP
+To \fBactivate\fP this HTML document, it has to be defined in the ODB as follow: 
+.PP
+.nf
+[local:Default:Stopped]/>cd /Custom
+[local:Default:Stopped]/Custom>create string Myexpt&
+String length [32]: 256
+[local:Default:Stopped]/Custom>set Myexpt& /midas/examples/custom/myexpt.html
+
+.fi
+.PP
+ After refresh, the alias-link \fBMyexpt\fP should be visible on the Main Status Page. If you have not already inserted the image file name \fBmyexpt.gif\fP into the Custom page, do so now by following the instructions to \fBinsert the image\fP.
+.PP
+Once the image is inserted, after refresh the image should be visible by clicking on the alias-link \fBMyexpt\fP, and the mapping active.
+.PP
+ The mapping based on myexpt.map is active, hovering the mouse over the boxes will display the associated titles (Midas Doc, Switch pump, etc), By clicking on either box the browser will go to the defined html page specified by the map.
+.PP
+
+.br
+
+.br
+
+.br
+   Figure 1 : Demo Custom web page with external reference to html document. 
+.br
+
+.br
+
+.br
+   
+.br
+
+.br
+
+.br
+.PP
+In addition to these initial features, multiple ODB values can be superimposed at define location on the image. Each entry will have a ODB tree associated to it defining the ODB variable, X/Y position, color, etc...
+.PP
+Make the \fBRate\fP label as explained \fBabove\fP. After refreshing the web page, you will see the error message below:
+.PP
+.PP
+.nf
+>>>>>>>> Refresh web page <<<<<<<<
+
+12:32:38 [mhttpd] [mhttpd.c:5508:show_custom_gif] Empty Src key for label 'Rate'
+.fi
+.PP
+.PP
+The keys created in the Labels/Rate subtree are explained \fBhere\fP. Customize this label by assigning the \fBSrc\fP key to a valid ODB Key variable, and the X,Y fields to position top-left corner of the label, e.g. 
+.PP
+.nf
+[local:Default:Stopped]Rate>set src '/Equipment/Trigger/statistics/kbytes per sec.'
+[local:Default:Stopped]Rate>set x 330
+[local:Default:Stopped]Rate>set y 250 
+[local:Default:Stopped]Rate>set format 'Rate:%1.1f kB/s'
+
+.fi
+.PP
+.PP
+Once the initial label is created, the simplest way to extent to multiple labels is to copy the existing label sub-tree and modify the label \fBparameters\fP. 
+.PP
+.nf
+[local:Default:Stopped]Labels>cd .. 
+[local:Default:Stopped]Labels>copy Rate Event
+[local:Default:Stopped]Labels>cd Events/
+[local:Default:Stopped]Event>set src '/Equipment/Trigger/statistics/events per sec.'
+[local:Default:Stopped]Event>set Format 'Rate:%1.1f evt/s'
+[local:Default:Stopped]Event>set y 170
+[local:Default:Stopped]Event>set x 250
+
+.fi
+.PP
+ You will now have two \fBLabels\fP, named 'Rate' and 'Event', both subtrees under ../Labels.
+.PP
+In the same manner, you can create \fBbars\fP used for level representation. The keys in the Bars subdirectory are explained \fBabove\fP.
+.PP
+This code will setup two ODB values defined by the fields src. 
+.PP
+.nf
+[local:Default:Stopped]myexpt.gif>pwd
+/Custom/Images/myexpt.gif
+[local:Default:Stopped]myexpt.gif>mkdir Bars
+[local:Default:Stopped]myexpt.gif>cd bars/
+[local:Default:Stopped]Labels>mkdir Rate
+
+>>>>>>>> Refresh web page <<<<<<<<
+
+14:05:58 [mhttpd] [mhttpd.c:5508:show_custom_gif] Empty Src key for bars 'Rate'
+[local:Default:Stopped]Labels>cd Rate/
+[local:Default:Stopped]Rate>set src '/Equipment/Trigger/statistics/kbytes per sec.'
+[local:Default:Stopped]Rate>set x 4640
+[local:Default:Stopped]Rate>set y 210 
+[local:Default:Stopped]Rate>set max 1e6 
+[local:Default:Stopped]Labels>cd .. 
+[local:Default:Stopped]Labels>copy Rate Events
+[local:Default:Stopped]Labels>cd Events/
+[local:Default:Stopped]Event>set src '/logger/channles/0/statistics/events written'
+[local:Default:Stopped]Event>set direction 1
+[local:Default:Stopped]Event>set y 240
+[local:Default:Stopped]Event>set x 450
+[local:Default:Stopped]Rate>set max 1e6 
+
+.fi
+.PP
+.PP
+You will now have two \fBBars\fP, also named 'Rate' and 'Event', both subtrees under ../Bars.
+.PP
+The last feature to be added is a \fBFill\fP (where an area can be filled with different colors depending on the given ODB value). These have to be entered by hand. See instructions in \fBfills\fP, which shows you how to create a \fBFilled\fP area named 'Level' (a subtree under ../Fills).
+.PP
+Once all these features have been added, the custom page will look as Figure 2: 
+.PP
+
+.br
+
+.br
+
+.br
+   Figure 2 : Demo Custom web page with labels,bars,fills and history plots 
+.br
+
+.br
+
+.br
+   
+.br
+
+.br
+
+.br
+.PP
+.PP
+ 

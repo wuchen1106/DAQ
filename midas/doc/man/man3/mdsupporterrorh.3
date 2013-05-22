@@ -1,0 +1,73 @@
+.TH "Midas dump error code" 3 "31 May 2012" "Version 2.3.0-0" "Midas" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Midas dump error code \- 
+.SS "Defines"
+
+.in +1c
+.ti -1c
+.RI "#define \fBMD_SUCCESS\fP   1"
+.br
+.ti -1c
+.RI "#define \fBMD_EVENT_NOT_SWAPPED\fP   2"
+.br
+.ti -1c
+.RI "#define \fBMD_DONE\fP   2"
+.br
+.ti -1c
+.RI "#define \fBMD_WRONG_BANK_TYPE\fP   -100"
+.br
+.ti -1c
+.RI "#define \fBMD_BANK_NOT_FOUND\fP   -101"
+.br
+.ti -1c
+.RI "#define \fBMD_SWAP_ERROR\fP   -102"
+.br
+.ti -1c
+.RI "#define \fBMD_NOMORE_SLOT\fP   -103"
+.br
+.ti -1c
+.RI "#define \fBMD_UNKNOWN_FORMAT\fP   -104"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+dox dox 
+.SH "Define Documentation"
+.PP 
+.SS "#define MD_BANK_NOT_FOUND   -101"Bank not found 
+.PP
+Definition at line 64 of file mdsupport.h.
+.SS "#define MD_DONE   2"Operation complete 
+.PP
+Definition at line 62 of file mdsupport.h.
+.PP
+Referenced by md_all_info_display(), md_physrec_display(), midas_event_get(), midas_event_skip(), and midas_physrec_get().
+.SS "#define MD_EVENT_NOT_SWAPPED   2"Not swapped 
+.PP
+Definition at line 61 of file mdsupport.h.
+.PP
+Referenced by md_event_swap().
+.SS "#define MD_NOMORE_SLOT   -103"No more space for fragment 
+.PP
+Definition at line 66 of file mdsupport.h.
+.SS "#define MD_SUCCESS   1"Ok 
+.PP
+Definition at line 60 of file mdsupport.h.
+.PP
+Referenced by md_all_info_display(), md_event_swap(), md_file_rclose(), md_file_ropen(), md_file_wclose(), md_physrec_display(), md_physrec_skip(), midas_event_get(), midas_event_skip(), and midas_physrec_get().
+.SS "#define MD_SWAP_ERROR   -102"Error swapping 
+.PP
+Definition at line 65 of file mdsupport.h.
+.SS "#define MD_UNKNOWN_FORMAT   -104"Unknown format (see \fBMDSUPPORT_format\fP) 
+.PP
+Definition at line 67 of file mdsupport.h.
+.PP
+Referenced by md_event_swap(), md_physrec_display(), md_physrec_get(), and md_physrec_skip().
+.SS "#define MD_WRONG_BANK_TYPE   -100"Wrong bank type (see \fBMDSUPPORT_Bank_Types\fP) 
+.PP
+Definition at line 63 of file mdsupport.h.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Midas from the source code.

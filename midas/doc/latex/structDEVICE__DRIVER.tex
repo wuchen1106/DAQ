@@ -1,0 +1,107 @@
+\subsection{DEVICE\_\-DRIVER Struct Reference}
+\label{structDEVICE__DRIVER}\index{DEVICE\_\-DRIVER@{DEVICE\_\-DRIVER}}
+\subsubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+char \hyperlink{structDEVICE__DRIVER_a3c47bfe572999fec51df9c6072d6c6d7}{name} \mbox{[}NAME\_\-LENGTH\mbox{]}
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT}($\ast$ \hyperlink{structDEVICE__DRIVER_adfdb7ee99dd506e35f65d3f8d4b41a4b}{dd} )(\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} cmd,...)
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{structDEVICE__DRIVER_a1451258cb714852eef78ec04e7970f65}{channels}
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT}($\ast$ \hyperlink{structDEVICE__DRIVER_a885e46846e92facb6222f6a430127772}{bd} )(\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} cmd,...)
+\item 
+\hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} \hyperlink{structDEVICE__DRIVER_ac40f8fcceded9b51b8a772a66f874087}{flags}
+\item 
+void $\ast$ \hyperlink{structDEVICE__DRIVER_a334e4f80981fd4d70bb6ebea2fe3e911}{dd\_\-info}
+\item 
+\hyperlink{structDD__MT__BUFFER}{DD\_\-MT\_\-BUFFER} $\ast$ \hyperlink{structDEVICE__DRIVER_a4b3a73f364d8f40376824d1ac2a95eb7}{mt\_\-buffer}
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{structDEVICE__DRIVER_a4dc7498cbf9c5c57a6d1b90aa7a7db6a}{stop\_\-thread}
+\item 
+MUTEX\_\-T $\ast$ \hyperlink{structDEVICE__DRIVER_a52c55da2a3d4add54467c2d3ded27507}{mutex}
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{structDEVICE__DRIVER_a8233d106afdba2ec9eafefad8cc9a7a0}{semaphore}
+\item 
+\hyperlink{structEQUIPMENT__INFO}{EQUIPMENT\_\-INFO} $\ast$ \hyperlink{structDEVICE__DRIVER_a0c44eefaa711ea871881308c507c8b00}{pequipment}
+\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+
+
+Definition at line 987 of file midas.h.
+
+\subsubsection{Field Documentation}
+\index{DEVICE\_\-DRIVER@{DEVICE\_\-DRIVER}!bd@{bd}}
+\index{bd@{bd}!DEVICE_DRIVER@{DEVICE\_\-DRIVER}}
+\paragraph[{bd}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT}($\ast$ {\bf DEVICE\_\-DRIVER::bd})({\bf INT} cmd,...)}\hfill\label{structDEVICE__DRIVER_a885e46846e92facb6222f6a430127772}
+Bus driver entry point 
+
+Referenced by device\_\-driver().\index{DEVICE\_\-DRIVER@{DEVICE\_\-DRIVER}!channels@{channels}}
+\index{channels@{channels}!DEVICE_DRIVER@{DEVICE\_\-DRIVER}}
+\paragraph[{channels}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} {\bf DEVICE\_\-DRIVER::channels}}\hfill\label{structDEVICE__DRIVER_a1451258cb714852eef78ec04e7970f65}
+Number of channels 
+
+Definition at line 990 of file midas.h.
+
+Referenced by device\_\-driver(), hv\_\-init(), and sc\_\-thread().\index{DEVICE\_\-DRIVER@{DEVICE\_\-DRIVER}!dd@{dd}}
+\index{dd@{dd}!DEVICE_DRIVER@{DEVICE\_\-DRIVER}}
+\paragraph[{dd}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT}($\ast$ {\bf DEVICE\_\-DRIVER::dd})({\bf INT} cmd,...)}\hfill\label{structDEVICE__DRIVER_adfdb7ee99dd506e35f65d3f8d4b41a4b}
+Device driver entry point 
+
+Referenced by device\_\-driver(), hv\_\-exit(), hv\_\-init(), hv\_\-start(), hv\_\-stop(), and sc\_\-thread().\index{DEVICE\_\-DRIVER@{DEVICE\_\-DRIVER}!dd\_\-info@{dd\_\-info}}
+\index{dd\_\-info@{dd\_\-info}!DEVICE_DRIVER@{DEVICE\_\-DRIVER}}
+\paragraph[{dd\_\-info}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ {\bf DEVICE\_\-DRIVER::dd\_\-info}}\hfill\label{structDEVICE__DRIVER_a334e4f80981fd4d70bb6ebea2fe3e911}
+Private info for device driver 
+
+Definition at line 993 of file midas.h.
+
+Referenced by device\_\-driver(), hv\_\-init(), and sc\_\-thread().\index{DEVICE\_\-DRIVER@{DEVICE\_\-DRIVER}!flags@{flags}}
+\index{flags@{flags}!DEVICE_DRIVER@{DEVICE\_\-DRIVER}}
+\paragraph[{flags}]{\setlength{\rightskip}{0pt plus 5cm}{\bf DWORD} {\bf DEVICE\_\-DRIVER::flags}}\hfill\label{structDEVICE__DRIVER_ac40f8fcceded9b51b8a772a66f874087}
+Combination of DF\_\-xx 
+
+Definition at line 992 of file midas.h.
+
+Referenced by device\_\-driver(), hv\_\-demand(), hv\_\-idle(), hv\_\-init(), hv\_\-read(), hv\_\-start(), and hv\_\-stop().\index{DEVICE\_\-DRIVER@{DEVICE\_\-DRIVER}!mt\_\-buffer@{mt\_\-buffer}}
+\index{mt\_\-buffer@{mt\_\-buffer}!DEVICE_DRIVER@{DEVICE\_\-DRIVER}}
+\paragraph[{mt\_\-buffer}]{\setlength{\rightskip}{0pt plus 5cm}{\bf DD\_\-MT\_\-BUFFER}$\ast$ {\bf DEVICE\_\-DRIVER::mt\_\-buffer}}\hfill\label{structDEVICE__DRIVER_a4b3a73f364d8f40376824d1ac2a95eb7}
+pointer to multithread buffer 
+
+Definition at line 994 of file midas.h.
+
+Referenced by device\_\-driver(), and sc\_\-thread().\index{DEVICE\_\-DRIVER@{DEVICE\_\-DRIVER}!mutex@{mutex}}
+\index{mutex@{mutex}!DEVICE_DRIVER@{DEVICE\_\-DRIVER}}
+\paragraph[{mutex}]{\setlength{\rightskip}{0pt plus 5cm}MUTEX\_\-T$\ast$ {\bf DEVICE\_\-DRIVER::mutex}}\hfill\label{structDEVICE__DRIVER_a52c55da2a3d4add54467c2d3ded27507}
+mutex for buffer 
+
+Definition at line 996 of file midas.h.\index{DEVICE\_\-DRIVER@{DEVICE\_\-DRIVER}!name@{name}}
+\index{name@{name}!DEVICE_DRIVER@{DEVICE\_\-DRIVER}}
+\paragraph[{name}]{\setlength{\rightskip}{0pt plus 5cm}char {\bf DEVICE\_\-DRIVER::name}\mbox{[}NAME\_\-LENGTH\mbox{]}}\hfill\label{structDEVICE__DRIVER_a3c47bfe572999fec51df9c6072d6c6d7}
+Driver name 
+
+Definition at line 988 of file midas.h.
+
+Referenced by device\_\-driver(), hv\_\-init(), initialize\_\-equipment(), and main().\index{DEVICE\_\-DRIVER@{DEVICE\_\-DRIVER}!pequipment@{pequipment}}
+\index{pequipment@{pequipment}!DEVICE_DRIVER@{DEVICE\_\-DRIVER}}
+\paragraph[{pequipment}]{\setlength{\rightskip}{0pt plus 5cm}{\bf EQUIPMENT\_\-INFO}$\ast$ {\bf DEVICE\_\-DRIVER::pequipment}}\hfill\label{structDEVICE__DRIVER_a0c44eefaa711ea871881308c507c8b00}
+pointer to equipment 
+
+Definition at line 998 of file midas.h.
+
+Referenced by hv\_\-start(), and sc\_\-thread().\index{DEVICE\_\-DRIVER@{DEVICE\_\-DRIVER}!semaphore@{semaphore}}
+\index{semaphore@{semaphore}!DEVICE_DRIVER@{DEVICE\_\-DRIVER}}
+\paragraph[{semaphore}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} {\bf DEVICE\_\-DRIVER::semaphore}}\hfill\label{structDEVICE__DRIVER_a8233d106afdba2ec9eafefad8cc9a7a0}
+semaphore for device access 
+
+Definition at line 997 of file midas.h.
+
+Referenced by device\_\-driver(), and sc\_\-thread().\index{DEVICE\_\-DRIVER@{DEVICE\_\-DRIVER}!stop\_\-thread@{stop\_\-thread}}
+\index{stop\_\-thread@{stop\_\-thread}!DEVICE_DRIVER@{DEVICE\_\-DRIVER}}
+\paragraph[{stop\_\-thread}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} {\bf DEVICE\_\-DRIVER::stop\_\-thread}}\hfill\label{structDEVICE__DRIVER_a4dc7498cbf9c5c57a6d1b90aa7a7db6a}
+flag used to stop the thread 
+
+Definition at line 995 of file midas.h.
+
+Referenced by device\_\-driver(), and sc\_\-thread().

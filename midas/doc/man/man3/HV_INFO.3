@@ -1,0 +1,157 @@
+.TH "HV_INFO" 3 "31 May 2012" "Version 2.3.0-0" "Midas" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+HV_INFO \- 
+.SH SYNOPSIS
+.br
+.PP
+.SH "Detailed Description"
+.PP 
+Definition at line 18 of file hv.c.
+.SH "Field Documentation"
+.PP 
+.SS "\fBINT\fP* \fBHV_INFO::channel_offset\fP"
+.PP
+Definition at line 53 of file hv.c.
+.PP
+Referenced by free_mem(), hv_demand(), hv_init(), hv_ramp(), hv_read(), hv_set_current_limit(), hv_set_rampdown(), hv_set_rampup(), hv_set_trip_time(), hv_set_voltage_limit(), hv_update_label(), and validate_odb_array().
+.SS "float* \fBHV_INFO::current\fP"
+.PP
+Definition at line 34 of file hv.c.
+.PP
+Referenced by cd_hv_read(), free_mem(), hv_init(), and hv_read().
+.SS "float* \fBHV_INFO::current_limit\fP"
+.PP
+Definition at line 41 of file hv.c.
+.PP
+Referenced by free_mem(), hv_init(), and hv_set_current_limit().
+.SS "float* \fBHV_INFO::current_mirror\fP"
+.PP
+Definition at line 49 of file hv.c.
+.PP
+Referenced by free_mem(), hv_init(), and hv_read().
+.SS "void** \fBHV_INFO::dd_info\fP"
+.PP
+Definition at line 54 of file hv.c.
+.PP
+Referenced by free_mem(), and hv_init().
+.SS "float* \fBHV_INFO::demand\fP"
+.PP
+Definition at line 32 of file hv.c.
+.PP
+Referenced by cd_hv_read(), free_mem(), hv_demand(), hv_init(), and hv_ramp().
+.SS "float* \fBHV_INFO::demand_mirror\fP"
+.PP
+Definition at line 47 of file hv.c.
+.PP
+Referenced by free_mem(), hv_demand(), hv_init(), and hv_ramp().
+.SS "\fBDEVICE_DRIVER\fP** \fBHV_INFO::driver\fP"
+.PP
+Definition at line 52 of file hv.c.
+.PP
+Referenced by free_mem(), hv_demand(), hv_idle(), hv_init(), hv_ramp(), hv_read(), hv_set_current_limit(), hv_set_rampdown(), hv_set_rampup(), hv_set_trip_time(), hv_set_voltage_limit(), hv_update_label(), and validate_odb_array().
+.SS "\fBINT\fP \fBHV_INFO::format\fP"
+.PP
+Definition at line 25 of file hv.c.
+.PP
+Referenced by cd_hv_read(), and hv_init().
+.SS "HNDLE \fBHV_INFO::hKeyCurrent\fP"
+.PP
+Definition at line 21 of file hv.c.
+.PP
+Referenced by hv_init(), and hv_read().
+.SS "HNDLE \fBHV_INFO::hKeyDemand\fP"
+.PP
+Definition at line 21 of file hv.c.
+.PP
+Referenced by hv_init().
+.SS "HNDLE \fBHV_INFO::hKeyMeasured\fP"
+.PP
+Definition at line 21 of file hv.c.
+.PP
+Referenced by hv_init(), and hv_read().
+.SS "HNDLE \fBHV_INFO::hKeyRoot\fP"
+.PP
+Definition at line 21 of file hv.c.
+.PP
+Referenced by hv_init(), and validate_odb_array().
+.SS "\fBDWORD\fP* \fBHV_INFO::last_change\fP"
+.PP
+Definition at line 50 of file hv.c.
+.PP
+Referenced by free_mem(), hv_demand(), hv_idle(), hv_init(), hv_ramp(), and hv_read().
+.SS "\fBINT\fP \fBHV_INFO::last_channel\fP"
+.PP
+Definition at line 27 of file hv.c.
+.PP
+Referenced by hv_idle().
+.SS "\fBINT\fP \fBHV_INFO::last_channel_updated\fP"
+.PP
+Definition at line 28 of file hv.c.
+.PP
+Referenced by hv_idle().
+.SS "\fBDWORD\fP \fBHV_INFO::last_update\fP"
+.PP
+Definition at line 26 of file hv.c.
+.PP
+Referenced by hv_read().
+.SS "float* \fBHV_INFO::measured\fP"
+.PP
+Definition at line 33 of file hv.c.
+.PP
+Referenced by cd_hv_read(), free_mem(), hv_init(), and hv_read().
+.SS "float* \fBHV_INFO::measured_mirror\fP"
+.PP
+Definition at line 48 of file hv.c.
+.PP
+Referenced by free_mem(), hv_init(), and hv_read().
+.SS "char* \fBHV_INFO::names\fP"
+.PP
+Definition at line 31 of file hv.c.
+.PP
+Referenced by free_mem(), hv_init(), and hv_update_label().
+.SS "\fBINT\fP \fBHV_INFO::num_channels\fP"
+.PP
+Definition at line 24 of file hv.c.
+.PP
+Referenced by cd_hv_read(), hv_demand(), hv_idle(), hv_init(), hv_ramp(), hv_read(), hv_set_current_limit(), hv_set_rampdown(), hv_set_rampup(), hv_set_trip_time(), hv_set_voltage_limit(), hv_update_label(), and validate_odb_array().
+.SS "float* \fBHV_INFO::rampdown_speed\fP"
+.PP
+Definition at line 43 of file hv.c.
+.PP
+Referenced by free_mem(), hv_init(), hv_ramp(), and hv_set_rampdown().
+.SS "float* \fBHV_INFO::rampup_speed\fP"
+.PP
+Definition at line 42 of file hv.c.
+.PP
+Referenced by free_mem(), hv_init(), hv_ramp(), and hv_set_rampup().
+.SS "float* \fBHV_INFO::trip_time\fP"
+.PP
+Definition at line 44 of file hv.c.
+.PP
+Referenced by free_mem(), hv_init(), and hv_set_trip_time().
+.SS "float* \fBHV_INFO::update_threshold\fP"
+.PP
+Definition at line 37 of file hv.c.
+.PP
+Referenced by free_mem(), hv_init(), and hv_read().
+.SS "float* \fBHV_INFO::update_threshold_current\fP"
+.PP
+Definition at line 38 of file hv.c.
+.PP
+Referenced by free_mem(), hv_init(), and hv_read().
+.SS "float* \fBHV_INFO::voltage_limit\fP"
+.PP
+Definition at line 40 of file hv.c.
+.PP
+Referenced by free_mem(), hv_demand(), hv_init(), and hv_set_voltage_limit().
+.SS "float* \fBHV_INFO::zero_threshold\fP"
+.PP
+Definition at line 39 of file hv.c.
+.PP
+Referenced by free_mem(), hv_init(), and hv_read().
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Midas from the source code.

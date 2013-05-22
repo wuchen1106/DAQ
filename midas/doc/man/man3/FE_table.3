@@ -1,0 +1,212 @@
+.TH "FE_table" 3 "31 May 2012" "Version 2.3.0-0" "Midas" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+FE_table \- Explanation of Equipment list \fBparameters\fP 
+.PP
+
+.br
+  These \fBparameters\fP are copied to the ODB /Equipment/<equipment-name>/Common subdirectory when the frontend is initialized.
+.PP
+  EQUIPMENT Parameter
+.br
+  Explanation
+.br
+       Equipment Name
+.br
+  Each equipment has to be assigned a \fB unique name \fP (i.e. no two equipments in the same experiment may have the same name). The name will be the reference name of the equipment generating the event. Examples of typical Equipment Names are 'Trigger','Scaler','Epics'.   1
+.br
+  \fBEQUIPMENT_INFO\fP Structure
+.br
+  
+.PP
+1
+.br
+.PP
+    Event ID
+.br
+  Each equipment has to be associated with a \fB unique event ID \fP. The event ID will be part of the event header of that particular equipment. 
+.br
+       Trigger Mask
+.br
+  Each equipment must be associated with a \fB unique Trigger mask \fP if the \fBEquipment type\fP is \fBEQ_INTERRUPT\fP or \fBEQ_MULTITHREAD\fP. In this case, the trigger mask can be modified dynamically by the readout routine to define a \fB sub-event type \fP on an event-by-event basis. This can be used to mix 'physics events' (from a physics trigger) and 'calibration events' (from a clock for example) in one run and identify them later. Both \fBparameters\fP are declared as 16bit values. If the Trigger mask is used in a single bit-wise mode, 16 is the maximum number of different masks available.     Buffer
+.br
+  Specifies the name of the Buffer to which the event will be sent. After composition of an 'Equipment', the Midas frontend \fBmfe.c\fP takes over the sending of this event to the buffer (usually the \fB 'SYSTEM' \fP buffer) on the back-end computer where it may be sent to the logger and the analyser. 
+.PD 0
+
+.IP "\(bu" 2
+ If this field is left empty, (i.e. set to ''), the readout function associated with that equipment will still be performed, but the actual event won't be sent to the buffer. Instead, that particular equipment can be \fBmirrored in the ODB\fP if the \fBRO_ODB\fP flag is turned on (see \fBexample\fP). The ODB is updated with a new event approximately every second. Note that this feature is generally used only for testing or monitoring, as writing large amounts of data to the ODB takes time. 
+.IP "\(bu" 2
+By using a buffer other than the 'SYSTEM' buffer, \fBevent filtering\fP can be implemented. 
+.IP "\(bu" 2
+ If using an \fBEvent Builder\fP ( i.e. a secondary stage on the back-end to collect and assemble events coming from different buffers in order to compose a larger event) , a dedicated buffer can be specified. In this case the \fBEQ_EB\fP flag must be turned on, and the events coming from the frontend are called \fBfragments\fP. 
+.PP
+   Type
+.br
+  Equipment Type should be set to one of the Equipment Flags EQ_XXX selected from the following Table: 
+.br
+ Equipment Types
+.br
+  Explanation 
+.br
+     EQ_PERIODIC Periodic Event
+.br
+  In this mode no hardware requirement is necessary to \fBtrigger\fP the readout function. Instead, the \fBreadout routine\fP associated with this equipment is called periodically. The \fBPeriod\fP field in the equipment declaration is used in this case to specify the time interval between calls to the readout function. See \fBexample\fP.     EQ_POLLED Polling Event  In this mode, the name of the routine performing the \fBtrigger\fP check function is \fBpoll_event()\fP. This routine must be provided in the \fBfrontend.c\fP by the user. As polling consists of checking a variable for a TRUE condition, if the loop count is infinite and the condition never becomes TRUE, the frontend would not be able to respond to any network commands. Therefore the loop count is determined when the frontend starts for the first time so that it returns after a given time-out if no event is available. This time-out is usually of the order of 500 milliseconds. 
+.br
+ The EQ_POLLED equipment type is mainly used for data acquisition based on a hardware condition becoming TRUE, at which time the \fBreadout routine\fP associated with the equipment is called. See \fBexample\fP. 
+.br
+     EQ_INTERRUPT Interrupt Event  This mode is similar to the \fBEQ_POLLED\fP mode except a hardware interrupt is used to \fBtrigger\fP the event instead of a polling loop. Instead of passing a pointer to the polling routine, in EQ_INTERRUPT mode a pointer to the \fB interrupt configuration routine \fP is passed to the system. Midas requires complete configuration and control of the interrupt source. This is provided by an interrupt configuration routine called \fBinterrupt_configure()\fP that must be provided in the \fBfrontend.c\fP by the user. When a valid interrupt is received, the \fBreadout routine\fP associated with the equipment is called. See \fBexample\fP.   
+.PP
+  EQ_MULTITHREAD Multithread Event Readout  This equipment type implements the multi-threading capability within the frontend code. The polling is performed within a separate thread and uses the \fBMidas Ring Buffer Functions\fP (rb_xxx) for inter-thread communication. EQ_MULTITHREAD is similar to \fBEQ_POLLED\fP mode, except for the polling function which in the case of EQ_MULTITHREAD resides in a separate thread. This new type has been added to take advantage of the multi-core processor to free up CPU for tasks other than polling.
+.br
+    EQ_SLOW Slow Control Event  This flag declares the equipment as a Slow Control Equipment. This will enable the call to the \fBidle\fP function part of the class driver. This flag also causes event data to be sent automatically to the /equipment/variables tree in the ODB.     EQ_MANUAL_TRIG Manual triggered event  This flag enables the equipment to be \fBtriggered\fP by a remote procedure call (RPC). If EQ_MANUAL_TRIGGER is selected, the web interface will provide an extra button to trigger the equipment. The event may also be triggered by a client via RPC. \fBSee example.\fP     EQ_FRAGMENTED
+.PP
+Fragmented Event  This flag enables large events (beyond the Midas configuration limit) to be handled by the system. This flag requires that a valid \fBmax_event_size_frag\fP variable is defined in the user frontend code. The \fBmax_event_size\fP variable is used as fragment size in this case. This option is meant to be used in experiments where the event \fBrate\fP is not an issue but the \fBsize\fP of the data needs to be extremely large. \fBSee example.\fP      EQ_EB Event run through the event builder  This flag identifies the equipment as a \fBfragment event\fP and should be ORed with the EQ_POLLED in order to be identified by the \fBEvent Builder Functions\fP. Not to be confused with a fragmented event (see above)!   Table showing Equipment Flags    Source
+.br
+  This field (i.e. the \fBinterrupt\fP or \fBevent\fP \fBsource\fP) is only used if the \fBEquipment Type\fP is set to \fBEQ_INTERRUPT\fP or \fBEQ_MULTITHREAD\fP. The Interrupt Source field is a bit-wise pattern representing the interrupt that is allowed to trigger the call to the \fBreadout routine\fP.
+.br
+.PP
+The \fBexample\fP shows a CAMAC or VME source for the interrupt. A MACRO (LAM_SOURCE) calculates the bit pattern from the \fBparameters\fP (Crate,Slot). If not using an interrupt, this field can be set to 1.       Format
+.br
+  Specifies the data format used for generating the event. Only the following formats are possible: \fBMIDAS\fP and \fBFIXED\fP. The format must agree with the way the event is composed in the Equipment \fBreadout routine\fP. It tells the system how to interpret an event when it is copied to the ODB or displayed in a user-readable form. Data in 'MIDAS' and/or 'FIXED' format can be saved by the MIDAS data logger in a number of formats (see \fBmlogger format\fP).  
+.PD 0
+
+.IP "\(bu" 2
+MIDAS or FIXED data format can be mixed at the frontend level, but the data logger (mlogger) is not able to handle this format diversity on a event-by-event basis. 
+.br
+\fBIn practice 
+.PD 0
+
+.IP "  1." 6
+The data format (MIDAS/FIXED) should be identical throughout the equipment definition 
+.IP "  2." 6
+Different equipments can, of course, have different formats in the same frontend. 
+.PP
+\fP 
+.IP "\(bu" 2
+'ROOT' format cannot be specified in the equipment definition. To save raw data in ROOT format, the \fBBank definition\fP must be supplied, and a conversion to ROOT format is done by the data logger. 
+.IP "\(bu" 2
+For FIXED events, the \fBBank definition\fP parameter may contain the \fBInit String\fP. 
+.PP
+    Enabled \fB**\fP   'Enable' switch for the equipment. Only when enabled (i.e. TRUE) is this equipment active.    
+.PP
+Read On \fB**\fP 
+.br
+  Specifies when the read-out of an event occurs or is enabled (i.e. on which transition state(s) and/or on which run state(s) respectively) by using a combination of RO_XXX flags selected from the following table: 
+.br
+ Read-0n Flags
+.br
+   RO_RUNNING
+.br
+  While running
+.br
+   RO_STOPPED
+.br
+  Before stopping a run
+.br
+   RO_PAUSED
+.br
+  When run is paused
+.br
+   RO_BOR
+.br
+  At the beginning of run
+.br
+   RO_EOR
+.br
+  At the end of run
+.br
+   RO_PAUSE
+.br
+  Before pausing the run
+.br
+   RO_RESUME
+.br
+  Before resuming the run
+.br
+   RO_TRANSITIONS
+.br
+  At all transitions
+.br
+   RO_ALWAYS
+.br
+  Always (independent of the run status)
+.br
+    RO_ODB
+.br
+  Copies the event to the /Equipment/<equipment name>/Variables ODB tree. See \fBabove\fP.  
+.PP
+Table showing RO Flags NOTE: These flags can be combined with the logical OR operator, e.g. RO_RUNNING | RO_TRANSITIONS means that the event is read out when running and additionally on all transitions. 
+.br
+     
+.PP
+ Period \fB**\fP
+.br
+  Time interval for \fBPeriodic\fP equipment or time out value in case of \fBPolled\fP or \fBMultithread\fP equipment (units are milliseconds).    Event Limit \fB**\fP
+.br
+  Specifies the number of events to be taken prior to forcing an End-of-Run transition. The value 0 disables this option.    Num subevents
+.br
+  Enables the Super event capability if > 0 . Specifies the maximum number of sub-events in the \fBSuper event\fP. \fBNot\fP applicable to \fBFIXED format\fP events.
+.br
+      Log History
+.br
+  Enable/disable the \fBhistory system\fP for that equipment. The value (positive in seconds) specifies the time interval between subsequent history events. A positive value enables history logging, in which case the event data will also be sent automatically to the ODB in the /equipment/variables tree. To disable history logging of this event, set this parameter to 0. 
+.br
+    Reserved
+.br
+  Reserved field for system (used for \fBFrontend hostname\fP). Should be present and set to '' in the frontend.   Reserved  Reserved field for system (used for \fBFrontend name\fP). Should be present and set to '' in the frontend.  Reserved  Reserved field for system (used for \fBFrontend file name\fP). Should be present and set to '' in the frontend.   
+.br
+ End of \fBEQUIPMENT_INFO\fP structure 
+.br
+    Readout routine
+.br
+  This field contains the name of the function to be called when the event is triggered. The name of this routine is determined by the user. This readout routine must be present in the frontend code. It will be called at an  \fBevent trigger\fP, which will occur under one of these conditions depending on the \fBEquipment type\fP. 
+.PD 0
+
+.IP "\(bu" 2
+\fBpolled mode\fP: the \fBpoll_event()\fP routine has detected a trigger request while polling on a trigger source. 
+.IP "\(bu" 2
+\fBinterrupt mode\fP: an interrupt has occurred whose source is pre-defined in the \fBinterrupt_configure()\fP routine. 
+.IP "\(bu" 2
+\fBperiodic modes\fP: trigger occurs periodically at a time interval specified by the \fBPeriod\fP field  
+.IP "\(bu" 2
+ \fBmanual trigger mode\fP: trigger occurs when 
+.PD 0
+
+.IP "  \(bu" 4
+the \fBManual Trigger\fP button is pressed on the web interface 
+.IP "  \(bu" 4
+a client requests an event by \fBtriggering the event sending mechanism\fP via a RPC. 
+.PP
+
+.PP
+Click for further details of a \fBpoll_event routine\fP and an \fBinterrupt routine\fP.    Class Driver Reserved for Class Driver main routine. If \fBEquipment Type\fP is \fB not EQ_SLOW \fP, this field must be present but set to NULL.
+.br
+    Device Driver List Reserved for Device Driver List. If \fBEquipment Type\fP is \fB not EQ_SLOW \fP, this field must be present, but set to NULL
+.br
+    Bank Definition or  Init String 
+.br
+.PP
+This field contains either 
+.PD 0
+
+.IP "\(bu" 2
+Bank declaration if saving data in ROOT format (see \fBFormat\fP) or 
+.IP "\(bu" 2
+Init String ( 'FIXED event format' only) or 
+.IP "\(bu" 2
+NULL 
+.PP
+Since the introduction of \fBROOT\fP , the frontend is required to contain the definition of the banks when the raw data is to be converted to and stored in \fBROOT\fP format. The conversion is needed since there is no ROOT \fBformat\fP supported. This procedure is equivalent to the bank declaration in the analyser. See \fBROOT structure definition for frontend EQUIPMENT list\fP example for details. 
+.br
+ 
+.br
+  
+.PP
+TABLE showing Equipment List Parameters 
+.br
+.PP
+.PP
+
+.br
+  

@@ -1,0 +1,108 @@
+.TH "RC_mhttpd" 3 "31 May 2012" "Version 2.3.0-0" "Midas" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+RC_mhttpd \- mhttpd: the MIDAS Web-based Run Control utility 
+.PP
+
+.br
+ 
+.PP
+   
+.br
+
+.br
+
+.br
+  
+.SH "Introduction"
+.PP
+The MIDAS Web Server utility mhttpd provides MIDAS DAQ control through the web using any web browser. Provided the \fBdaemon application\fP is running, the user may access any MIDAS experiment running on a given host from a Web browser.
+.PP
+Full monitoring and almost full control of a particular experiment can be achieved through the MIDAS Web server.
+.PP
+.IP "\(bu" 2
+\fBThe mhttpd daemon\fP
+.IP "\(bu" 2
+\fBFeatures of mhttpd\fP
+.IP "  \(bu" 4
+\fBlist of mhttpd pages\fP
+.IP "  \(bu" 4
+\fBlist of mhttpd-specific odb trees\fP
+.PP
+
+.PP
+.SH "Features of mhttpd"
+.PP
+The basic functionality of mhttpd includes:
+.IP "\(bu" 2
+\fBRun control\fP (start/stop/pause).
+.IP "\(bu" 2
+Up-to-date \fBclient status and statistics display\fP (frontend(s) logger(s) etc.)
+.IP "\(bu" 2
+\fBGraphical history data\fP display.
+.IP "\(bu" 2
+\fBElectronic LogBook\fP recording/retrieval messages
+.IP "\(bu" 2
+\fBAlarm\fP monitoring/control
+.IP "\(bu" 2
+\fBSlow\fP \fBcontrol\fP data display.
+.IP "\(bu" 2
+Listing of currently \fBconnected\fP \fBclients\fP 
+.IP "\(bu" 2
+Basic \fBaccess to ODB\fP.
+.PP
+.PP
+These functions are available on one or more of the various \fBmhttpd\fP \fBpages\fP described below : 
+.PP
+.IP "\(bu" 2
+\fBMain Status Page\fP : monitoring, statistics display, access to other pages etc.
+.IP "\(bu" 2
+\fBStart page\fP : Run control page
+.IP "\(bu" 2
+\fBODB page\fP : Online Database manipulation ( an alternative to using odbedit )
+.IP "\(bu" 2
+\fBEquipment page\fP : Frontend information
+.IP "\(bu" 2
+\fBSlow Control page\fP : Slow Control information
+.IP "\(bu" 2
+\fBMessage page\fP : Message Log
+.IP "\(bu" 2
+\fBElog page\fP : Electronic Log
+.IP "\(bu" 2
+\fBPrograms page\fP : Program control (clients)
+.IP "\(bu" 2
+\fBHistory page\fP : History display
+.IP "\(bu" 2
+\fBAlarm page\fP : Alarm system control
+.IP "\(bu" 2
+\fBMSCB page\fP MIDAS Slow Control Bus
+.IP "\(bu" 2
+\fBCAMAC Access page\fP : CAMAC access
+.IP "\(bu" 2
+\fBmhttpd Alias page\fP : user defined Alias page(s)
+.IP "\(bu" 2
+\fBmhttpd Logger page\fP : data logger settings information
+.IP "\(bu" 2
+\fBConfig page\fP : status page update period
+.IP "\(bu" 2
+\fBCustom pages\fP : user defined Web page(s)
+.PP
+.PP
+ Several directory trees in the ODB are \fB specific to mhttpd\fP, or have \fBadditional\fP \fBfeatures\fP if mhttpd is running. They are described below in the appropriate section.
+.IP "\(bu" 2
+\fBThe ODB /Alias Tree\fP
+.IP "\(bu" 2
+\fBThe /Custom ODB tree\fP
+.IP "\(bu" 2
+\fBThe ODB /Script tree\fP
+.IP "\(bu" 2
+\fBThe ODB /Elog Tree\fP
+.IP "\(bu" 2
+\fBDefining Edit-on-start Parameters\fP
+.PP
+.PP
+.PP
+
+.br
+  

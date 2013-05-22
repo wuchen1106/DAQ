@@ -1,0 +1,362 @@
+.TH "v792.h" 3 "31 May 2012" "Version 2.3.0-0" "Midas" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+v792.h \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Data Structures"
+
+.in +1c
+.ti -1c
+.RI "union \fBv792_Data\fP"
+.br
+.ti -1c
+.RI "struct \fBv792_Data::Entry\fP"
+.br
+.ti -1c
+.RI "struct \fBv792_Data::Header\fP"
+.br
+.ti -1c
+.RI "struct \fBv792_Data::Footer\fP"
+.br
+.ti -1c
+.RI "union \fBv792_StatusRegister1\fP"
+.br
+.ti -1c
+.RI "union \fBv792_StatusRegister2\fP"
+.br
+.ti -1c
+.RI "union \fBv792_ControlRegister1\fP"
+.br
+.ti -1c
+.RI "union \fBv792_BitSet2Register\fP"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "int \fBv792_ThresholdWrite\fP (\fBMVME_INTERFACE\fP *mvme, \fBDWORD\fP base, \fBWORD\fP *threshold)"
+.br
+.ti -1c
+.RI "int \fBv792_ThresholdRead\fP (\fBMVME_INTERFACE\fP *mvme, \fBDWORD\fP base, \fBWORD\fP *threshold)"
+.br
+.ti -1c
+.RI "int \fBv792_Setup\fP (\fBMVME_INTERFACE\fP *mvme, \fBDWORD\fP base, int mode)"
+.br
+.ti -1c
+.RI "void \fBv792_ControlRegister1Write\fP (\fBMVME_INTERFACE\fP *mvme, \fBDWORD\fP base, \fBWORD\fP pat)"
+.br
+.ti -1c
+.RI "\fBWORD\fP \fBv792_ControlRegister1Read\fP (\fBMVME_INTERFACE\fP *mvme, \fBDWORD\fP base)"
+.br
+.ti -1c
+.RI "void \fBv792_Trigger\fP (\fBMVME_INTERFACE\fP *mvme, \fBDWORD\fP base)"
+.br
+.ti -1c
+.RI "void \fBv792_printEntry\fP (const \fBv792_Data\fP *v)"
+.br
+.in -1c
+.SH "Define Documentation"
+.PP 
+.SS "#define V785_SLIDECONST_RW   (\fBDWORD\fP) (0x106A)"
+.PP
+Definition at line 52 of file v792.h.
+.SS "#define V792_BIT_CLEAR1_WO   (\fBDWORD\fP) (0x1008)"
+.PP
+Definition at line 32 of file v792.h.
+.PP
+Referenced by v792_BitSet2Clear(), v792_BitSet2Set(), and v792_SoftReset().
+.SS "#define V792_BIT_CLEAR2_WO   (\fBDWORD\fP) (0x1034)"
+.PP
+Definition at line 47 of file v792.h.
+.PP
+Referenced by v792_DataClear(), v792_LowThEnable(), and v792_OnlineSet().
+.SS "#define V792_BIT_SET1_RW   (\fBDWORD\fP) (0x1006)"
+.PP
+Definition at line 31 of file v792.h.
+.PP
+Referenced by v792_BitSet2Clear(), v792_BitSet2Set(), and v792_SoftReset().
+.SS "#define V792_BIT_SET2_RW   (\fBDWORD\fP) (0x1032)"
+.PP
+Definition at line 46 of file v792.h.
+.PP
+Referenced by v792_BitSet2Read(), v792_DataClear(), v792_EmptyEnable(), and v792_LowThDisable().
+.SS "#define V792_CR1_RW   (\fBDWORD\fP) (0x1010)"
+.PP
+Definition at line 37 of file v792.h.
+.PP
+Referenced by v792_ControlRegister1Read(), and v792_ControlRegister1Write().
+.SS "#define V792_CSR1_RO   (\fBDWORD\fP) (0x100E)"
+.PP
+Definition at line 36 of file v792.h.
+.PP
+Referenced by v792_CSR1Read(), v792_DataReady(), and v792_isBusy().
+.SS "#define V792_CSR2_RO   (\fBDWORD\fP) (0x1022)"
+.PP
+Definition at line 40 of file v792.h.
+.PP
+Referenced by v792_CSR2Read().
+.SS "#define V792_DELAY_CLEAR_RW   (\fBDWORD\fP) (0x102E)"
+.PP
+Definition at line 45 of file v792.h.
+.SS "#define V792_EVT_CNT_H_RO   (\fBDWORD\fP) (0x1026)"
+.PP
+Definition at line 42 of file v792.h.
+.PP
+Referenced by v792_EvtCntRead().
+.SS "#define V792_EVT_CNT_L_RO   (\fBDWORD\fP) (0x1024)"
+.PP
+Definition at line 41 of file v792.h.
+.PP
+Referenced by v792_EvtCntRead().
+.SS "#define V792_EVT_CNT_RST_WO   (\fBDWORD\fP) (0x1040)"
+.PP
+Definition at line 49 of file v792.h.
+.PP
+Referenced by v792_EvtCntReset().
+.SS "#define V792_EVTRIG_REG_RW   (\fBDWORD\fP) (0x1020)"
+.PP
+Definition at line 39 of file v792.h.
+.PP
+Referenced by v792_EvtTriggerSet(), v792_IntDisable(), and v792_IntEnable().
+.SS "#define V792_FIRM_REV   (\fBDWORD\fP) (0x1000)"
+.PP
+Definition at line 29 of file v792.h.
+.PP
+Referenced by v792_isPresent(), and v792_Status().
+.SS "#define V792_GEO_ADDR_RW   (\fBDWORD\fP) (0x1002)"
+.PP
+Definition at line 30 of file v792.h.
+.SS "#define V792_INCR_EVT_WO   (\fBDWORD\fP) (0x1028)"
+.PP
+Definition at line 43 of file v792.h.
+.SS "#define V792_INCR_OFFSET_WO   (\fBDWORD\fP) (0x102A)"
+.PP
+Definition at line 44 of file v792.h.
+.SS "#define V792_INT_LEVEL_WO   (\fBDWORD\fP) (0x100A)"
+.PP
+Definition at line 34 of file v792.h.
+.PP
+Referenced by v792_IntSet().
+.SS "#define V792_INT_VECTOR_WO   (\fBDWORD\fP) (0x100C)"
+.PP
+Definition at line 35 of file v792.h.
+.PP
+Referenced by v792_IntSet().
+.SS "#define V792_IPED_RW   (\fBDWORD\fP) (0x1060)"
+.PP
+Definition at line 50 of file v792.h.
+.PP
+Referenced by v792_Status().
+.SS "#define V792_MAX_CHANNELS   (\fBDWORD\fP) 32"
+.PP
+Definition at line 27 of file v792.h.
+.PP
+Referenced by begin_of_run(), v792_Status(), v792_ThresholdRead(), and v792_ThresholdWrite().
+.SS "#define V792_REG_BASE   (\fBDWORD\fP) (0x1000)"
+.PP
+Definition at line 28 of file v792.h.
+.SS "#define V792_SINGLE_RST_WO   (\fBDWORD\fP) (0x1016)"
+.PP
+Definition at line 38 of file v792.h.
+.PP
+Referenced by v792_SingleShotReset().
+.SS "#define V792_SOFT_RESET   (\fBDWORD\fP) (0x1<<7)"
+.PP
+Definition at line 33 of file v792.h.
+.SS "#define V792_SWCOMM_WO   (\fBDWORD\fP) (0x1068)"
+.PP
+Definition at line 51 of file v792.h.
+.PP
+Referenced by v792_Trigger().
+.SS "#define V792_TEST_EVENT_WO   (\fBDWORD\fP) (0x103E)"
+.PP
+Definition at line 48 of file v792.h.
+.SS "#define V792_THRES_BASE   (\fBDWORD\fP) (0x1080)"
+.PP
+Definition at line 53 of file v792.h.
+.PP
+Referenced by v792_ThresholdRead(), and v792_ThresholdWrite().
+.SH "Enumeration Type Documentation"
+.PP 
+.SS "enum \fBv792_DataType\fP"
+.PP
+\fBEnumerator: \fP
+.in +1c
+.TP
+\fB\fIv792_typeMeasurement \fP\fP
+.TP
+\fB\fIv792_typeHeader \fP\fP
+.TP
+\fB\fIv792_typeFooter \fP\fP
+.TP
+\fB\fIv792_typeFiller \fP\fP
+
+.PP
+Definition at line 94 of file v792.h.
+.SH "Function Documentation"
+.PP 
+.SS "void v792_BitSet2Clear (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base, \fBWORD\fP pat)"
+.PP
+Definition at line 215 of file v792.c.
+.SS "int v792_BitSet2Read (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base)"
+.PP
+Definition at line 192 of file v792.c.
+.PP
+Referenced by v792_Status().
+.SS "void v792_BitSet2Set (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base, \fBWORD\fP pat)"
+.PP
+Definition at line 204 of file v792.c.
+.SS "\fBWORD\fP v792_ControlRegister1Read (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base)"read Control Register 1 (0x1010,16 bit) 
+.PP
+Definition at line 369 of file v792.c.
+.SS "void v792_ControlRegister1Write (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base, \fBWORD\fP pat)"write Control Register 1 (0x1010,16 bit) 
+.PP
+Definition at line 383 of file v792.c.
+.SS "void v792_CrateSet (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base, \fBDWORD\fP * evtcnt)"
+.SS "int v792_CSR1Read (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base)"
+.PP
+Definition at line 151 of file v792.c.
+.PP
+Referenced by begin_of_run(), v792_isEvtReady(), and v792_Status().
+.SS "int v792_CSR2Read (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base)"
+.PP
+Definition at line 180 of file v792.c.
+.PP
+Referenced by v792_Status().
+.SS "void v792_DataClear (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base)"
+.PP
+Definition at line 226 of file v792.c.
+.PP
+Referenced by begin_of_run(), and read_trigger_event().
+.SS "int v792_DataRead (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base, \fBDWORD\fP * pdest, int * nentry)"
+.PP
+Definition at line 73 of file v792.c.
+.SS "int v792_DataReady (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base)"
+.PP
+Definition at line 308 of file v792.c.
+.PP
+Referenced by poll_event(), v792_DataRead(), and v792_EventRead().
+.SS "void v792_DelayClearSet (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base, int delay)"
+.SS "void v792_EmptyEnable (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base)"
+.PP
+Definition at line 278 of file v792.c.
+.PP
+Referenced by v792_Setup().
+.SS "int v792_EventRead (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base, \fBDWORD\fP * pdest, int * nentry)"
+.PP
+Definition at line 41 of file v792.c.
+.PP
+Referenced by read_trigger_event(), and read_v792().
+.SS "void v792_EvtCntRead (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base, \fBDWORD\fP * evtcnt)"
+.PP
+Definition at line 139 of file v792.c.
+.PP
+Referenced by read_trigger_event(), read_v792(), and v792_Status().
+.SS "void v792_EvtCntReset (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base)"
+.PP
+Definition at line 288 of file v792.c.
+.SS "void v792_EvtTriggerSet (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base, int count)"
+.PP
+Definition at line 128 of file v792.c.
+.SS "void v792_IntDisable (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base)"
+.PP
+Definition at line 352 of file v792.c.
+.SS "void v792_IntEnable (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base, int level)"
+.PP
+Definition at line 339 of file v792.c.
+.SS "void v792_IntSet (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base, int level, int vector)"
+.PP
+Definition at line 328 of file v792.c.
+.SS "int v792_isEvtReady (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base)"
+.PP
+Definition at line 320 of file v792.c.
+.SS "int v792_isPresent (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base)"
+.PP
+Definition at line 543 of file v792.c.
+.SS "void v792_LowThDisable (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base)"
+.PP
+Definition at line 268 of file v792.c.
+.SS "void v792_LowThEnable (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base)"
+.PP
+Definition at line 258 of file v792.c.
+.PP
+Referenced by v792_Setup().
+.SS "void v792_OnlineSet (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base)"
+.PP
+Definition at line 248 of file v792.c.
+.PP
+Referenced by v792_Setup().
+.SS "void v792_printEntry (const \fBv792_Data\fP * v)"decoded printout of readout entry Not to be trusted for data decoding but acceptable for display purpose as its implementation is strongly compiler dependent and not flawless. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIv\fP 
+.RE
+.PP
+
+.PP
+Definition at line 519 of file v792.c.
+.SS "\fBWORD\fP v792_Read16 (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base, int offset)"
+.PP
+Definition at line 24 of file v792.c.
+.PP
+Referenced by v792_Status().
+.SS "int v792_Setup (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base, int mode)"Sets all the necessary paramters for a given configuration. The configuration is provided by the mode argument. Add your own configuration in the case statement. Let me know your setting if you want to include it in the distribution. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fI*mvme\fP VME structure 
+.br
+\fIbase\fP Module base address 
+.br
+\fImode\fP Configuration mode number 
+.br
+\fI*nentry\fP number of entries requested and returned. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+MVME_SUCCESS 
+.RE
+.PP
+
+.PP
+Definition at line 415 of file v792.c.
+.PP
+Referenced by begin_of_run().
+.SS "void v792_SingleShotReset (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base)"
+.PP
+Definition at line 298 of file v792.c.
+.PP
+Referenced by init_vme_modules().
+.SS "void v792_SoftReset (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base)"
+.PP
+Definition at line 237 of file v792.c.
+.SS "void v792_Status (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base)"
+.PP
+Definition at line 444 of file v792.c.
+.PP
+Referenced by init_vme_modules().
+.SS "int v792_ThresholdRead (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base, \fBWORD\fP * threshold)"Read Thresholds 
+.PP
+Definition at line 113 of file v792.c.
+.PP
+Referenced by v792_Status().
+.SS "int v792_ThresholdWrite (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base, \fBWORD\fP * threshold)"Write Thresholds and read them back 
+.PP
+Definition at line 91 of file v792.c.
+.PP
+Referenced by begin_of_run().
+.SS "void v792_Trigger (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base)"cause a software trigger 
+.PP
+Definition at line 395 of file v792.c.
+.SS "void v792_Write16 (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base, int offset, \fBWORD\fP value)"
+.PP
+Definition at line 30 of file v792.c.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Midas from the source code.

@@ -1,0 +1,92 @@
+.TH "RC_mhttpd_Alarm_page" 3 "31 May 2012" "Version 2.3.0-0" "Midas" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+RC_mhttpd_Alarm_page \- Alarm page 
+
+.br
+ 
+.PP
+.PP
+
+.br
+.PP
+By clicking on the \fBAlarms\fP button (\fBif present\fP) on the \fBMain Status Page\fP, the Alarms mhttpd page appears. This page presents information about the \fBMIDAS Alarm System\fP from the \fBODB /Alarms Tree\fP . By clicking on the hyperlinks on this Alarms page, you can navigate directly to the alarm class and setup of a particular alarm under the /Alarms tree. In the example below, the name of the alarm that has gone off is 'fepol' and the alarm class is 'Caution'. Buttons are provided so that all or individual activated alarms can be reset.
+.PP
+
+.br
+
+.br
+
+.br
+   
+.br
+
+.br
+
+.br
+   
+.br
+
+.br
+
+.br
+.PP
+ When an alarm has goes off, a banner will appear on the MIDAS Main Status page.
+.PP
+This following image shows the Main status page for the TRIUMF Pol experiment running with the alarm system enabled. The alarm on 'fepol' has gone off, resulting in a large coloured banner with an alarm message.
+.PP
+
+.br
+
+.br
+
+.br
+   
+.br
+
+.br
+
+.br
+   
+.br
+
+.br
+
+.br
+.PP
+ If running \fBodbedit\fP, a message appears on the screen as follows: 
+.PP
+.nf
+[pol@isdaq01 ~]$ odb
+Caution: Program fePOL is not running
+[local:pol:S]/> 
+
+.fi
+.PP
+.PP
+The alarm class in this case is 'Caution' and the message is 'Program fePOL is not running'. These fields have been set up in the \fBODB /Alarms Tree\fP ODB as described in the \fBMIDAS Alarm System\fP .
+.PP
+A separate banner will appear for each alarm that is activated. Here three alarms of three different classes are activated. The classes have been set up with different colours for each class of alarm: 
+.br
+
+.br
+
+.br
+   MIDAS Main Status page showing three alarm banners 
+.br
+
+.br
+
+.br
+   
+.br
+
+.br
+
+.br
+.PP
+.PP
+
+.br
+  

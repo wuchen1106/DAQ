@@ -1,0 +1,61 @@
+.TH "Midas History Functions (hs_xxx)" 3 "31 May 2012" "Version 2.3.0-0" "Midas" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Midas History Functions (hs_xxx) \- 
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBINT\fP \fBhs_set_path\fP (char *path)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBhs_dump\fP (\fBDWORD\fP event_id, \fBDWORD\fP start_time, \fBDWORD\fP end_time, \fBDWORD\fP interval, \fBBOOL\fP binary_time)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+dox 
+.SH "Function Documentation"
+.PP 
+.SS "\fBINT\fP hs_dump (\fBDWORD\fP event_id, \fBDWORD\fP start_time, \fBDWORD\fP end_time, \fBDWORD\fP interval, \fBBOOL\fP binary_time)"dox Display history for a given event at stdout. The output can be redirected to be read by Excel for example. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIevent_id\fP Event ID 
+.br
+\fIstart_time\fP Starting Date/Time 
+.br
+\fIend_time\fP End Date/Time 
+.br
+\fIinterval\fP Minimum time in seconds between reported events. Can be used to skip events 
+.br
+\fIbinary_time\fP Display DWORD time stamp 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+HS_SUCCESS, HS_FILE_ERROR 
+.RE
+.PP
+
+.PP
+Definition at line 1747 of file history.c.
+.SS "\fBINT\fP hs_set_path (char * path)"dox Sets the path for future history file accesses. Should be called before any other history function is called. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIpath\fP Directory where history files reside 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+HS_SUCCESS 
+.RE
+.PP
+
+.PP
+Definition at line 49 of file history.c.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Midas from the source code.

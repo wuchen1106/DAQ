@@ -1,0 +1,195 @@
+\subsection{eqpmnt Struct Reference}
+\label{structeqpmnt}\index{eqpmnt@{eqpmnt}}
+\subsubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+char \hyperlink{structeqpmnt_a80db04cadcc657d17e5ba6f742d6fbc6}{name} \mbox{[}NAME\_\-LENGTH\mbox{]}
+\item 
+\hyperlink{structEQUIPMENT__INFO}{EQUIPMENT\_\-INFO} \hyperlink{structeqpmnt_a51afc5b1fc5a6a107cffb9542444b188}{info}
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT}($\ast$ \hyperlink{structeqpmnt_ab7d302c46bbcfe6151e17bac90451ee3}{readout} )(char $\ast$, \hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT})
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT}($\ast$ \hyperlink{structeqpmnt_ae263c2d6a07b0aeb17b85ee3ea042220}{cd} )(\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} cmd, \hyperlink{structeqpmnt}{PEQUIPMENT})
+\item 
+\hyperlink{structDEVICE__DRIVER}{DEVICE\_\-DRIVER} $\ast$ \hyperlink{structeqpmnt_af19c464fc7092048c9418328ca4e4afc}{driver}
+\item 
+void $\ast$ \hyperlink{structeqpmnt_a4cb2c750babcb1eb077ec8151097d0eb}{event\_\-descrip}
+\item 
+void $\ast$ \hyperlink{structeqpmnt_ac88537c1672f32d13a99ce6822fc4d46}{cd\_\-info}
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{structeqpmnt_af498c07c0758b46649715eead4627874}{status}
+\item 
+\hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} \hyperlink{structeqpmnt_a6bbbd3b1eb8ab1bbc62aa6e07571866a}{last\_\-called}
+\item 
+\hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} \hyperlink{structeqpmnt_a8261688ef7d0d371cdf50023cf0447c1}{last\_\-idle}
+\item 
+\hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} \hyperlink{structeqpmnt_ae9bf94db8ff48533601c3833b1b20097}{poll\_\-count}
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{structeqpmnt_acad980d7699722234c72bfca6243203b}{format}
+\item 
+HNDLE \hyperlink{structeqpmnt_a7a77ffb95300f3c7fcc7fbcc141dd820}{buffer\_\-handle}
+\item 
+HNDLE \hyperlink{structeqpmnt_ab6664c255e4c3fdc58806733ac04503b}{hkey\_\-variables}
+\item 
+\hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} \hyperlink{structeqpmnt_a1eeffec216604567e3ddbed40cbb0a15}{serial\_\-number}
+\item 
+\hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} \hyperlink{structeqpmnt_a1649c4fed8b7c97441a167a860cae4af}{subevent\_\-number}
+\item 
+\hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} \hyperlink{structeqpmnt_a2ba622da82fc7a02605e5f630464b13f}{odb\_\-out}
+\item 
+\hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} \hyperlink{structeqpmnt_ab487ff66b0ceb7677a3e664717158c51}{odb\_\-in}
+\item 
+\hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} \hyperlink{structeqpmnt_a2d00b43d76412e41d7f10c1cb786eade}{bytes\_\-sent}
+\item 
+\hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} \hyperlink{structeqpmnt_a448c8840590d36b3a828ff1ec0c8a65c}{events\_\-sent}
+\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+
+
+Definition at line 1011 of file midas.h.
+
+\subsubsection{Field Documentation}
+\index{eqpmnt@{eqpmnt}!buffer\_\-handle@{buffer\_\-handle}}
+\index{buffer\_\-handle@{buffer\_\-handle}!eqpmnt@{eqpmnt}}
+\paragraph[{buffer\_\-handle}]{\setlength{\rightskip}{0pt plus 5cm}HNDLE {\bf eqpmnt::buffer\_\-handle}}\hfill\label{structeqpmnt_a7a77ffb95300f3c7fcc7fbcc141dd820}
+MIDAS buffer handle 
+
+Definition at line 1024 of file midas.h.
+
+Referenced by check\_\-polled\_\-events(), receive\_\-trigger\_\-event(), register\_\-equipment(), and scheduler().\index{eqpmnt@{eqpmnt}!bytes\_\-sent@{bytes\_\-sent}}
+\index{bytes\_\-sent@{bytes\_\-sent}!eqpmnt@{eqpmnt}}
+\paragraph[{bytes\_\-sent}]{\setlength{\rightskip}{0pt plus 5cm}{\bf DWORD} {\bf eqpmnt::bytes\_\-sent}}\hfill\label{structeqpmnt_a2d00b43d76412e41d7f10c1cb786eade}
+number of bytes sent 
+
+Definition at line 1030 of file midas.h.
+
+Referenced by check\_\-polled\_\-events(), receive\_\-trigger\_\-event(), scan\_\-fragment(), scheduler(), send\_\-event(), source\_\-scan(), and tr\_\-stop().\index{eqpmnt@{eqpmnt}!cd@{cd}}
+\index{cd@{cd}!eqpmnt@{eqpmnt}}
+\paragraph[{cd}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT}($\ast$ {\bf eqpmnt::cd})({\bf INT} cmd, {\bf PEQUIPMENT})}\hfill\label{structeqpmnt_ae263c2d6a07b0aeb17b85ee3ea042220}
+Class driver routine 
+
+Referenced by initialize\_\-equipment(), main(), and scheduler().\index{eqpmnt@{eqpmnt}!cd\_\-info@{cd\_\-info}}
+\index{cd\_\-info@{cd\_\-info}!eqpmnt@{eqpmnt}}
+\paragraph[{cd\_\-info}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ {\bf eqpmnt::cd\_\-info}}\hfill\label{structeqpmnt_ac88537c1672f32d13a99ce6822fc4d46}
+private data for class driver 
+
+Definition at line 1018 of file midas.h.
+
+Referenced by cd\_\-hv\_\-read(), hv\_\-demand(), hv\_\-exit(), hv\_\-idle(), hv\_\-init(), hv\_\-read(), hv\_\-set\_\-current\_\-limit(), hv\_\-set\_\-rampdown(), hv\_\-set\_\-rampup(), hv\_\-set\_\-trip\_\-time(), hv\_\-set\_\-voltage\_\-limit(), and hv\_\-update\_\-label().\index{eqpmnt@{eqpmnt}!driver@{driver}}
+\index{driver@{driver}!eqpmnt@{eqpmnt}}
+\paragraph[{driver}]{\setlength{\rightskip}{0pt plus 5cm}{\bf DEVICE\_\-DRIVER}$\ast$ {\bf eqpmnt::driver}}\hfill\label{structeqpmnt_af19c464fc7092048c9418328ca4e4afc}
+Device driver list 
+
+Definition at line 1016 of file midas.h.
+
+Referenced by hv\_\-exit(), hv\_\-init(), hv\_\-start(), hv\_\-stop(), initialize\_\-equipment(), and main().\index{eqpmnt@{eqpmnt}!event\_\-descrip@{event\_\-descrip}}
+\index{event\_\-descrip@{event\_\-descrip}!eqpmnt@{eqpmnt}}
+\paragraph[{event\_\-descrip}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ {\bf eqpmnt::event\_\-descrip}}\hfill\label{structeqpmnt_a4cb2c750babcb1eb077ec8151097d0eb}
+Init string for fixed events or bank list 
+
+Definition at line 1017 of file midas.h.\index{eqpmnt@{eqpmnt}!events\_\-sent@{events\_\-sent}}
+\index{events\_\-sent@{events\_\-sent}!eqpmnt@{eqpmnt}}
+\paragraph[{events\_\-sent}]{\setlength{\rightskip}{0pt plus 5cm}{\bf DWORD} {\bf eqpmnt::events\_\-sent}}\hfill\label{structeqpmnt_a448c8840590d36b3a828ff1ec0c8a65c}
+number of events sent 
+
+Definition at line 1031 of file midas.h.
+
+Referenced by check\_\-polled\_\-events(), close\_\-buffers(), display(), receive\_\-trigger\_\-event(), scan\_\-fragment(), scheduler(), send\_\-event(), source\_\-scan(), and tr\_\-stop().\index{eqpmnt@{eqpmnt}!format@{format}}
+\index{format@{format}!eqpmnt@{eqpmnt}}
+\paragraph[{format}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} {\bf eqpmnt::format}}\hfill\label{structeqpmnt_acad980d7699722234c72bfca6243203b}
+FORMAT\_\-xxx 
+
+Definition at line 1023 of file midas.h.
+
+Referenced by check\_\-polled\_\-events(), receive\_\-trigger\_\-event(), register\_\-equipment(), and scheduler().\index{eqpmnt@{eqpmnt}!hkey\_\-variables@{hkey\_\-variables}}
+\index{hkey\_\-variables@{hkey\_\-variables}!eqpmnt@{eqpmnt}}
+\paragraph[{hkey\_\-variables}]{\setlength{\rightskip}{0pt plus 5cm}HNDLE {\bf eqpmnt::hkey\_\-variables}}\hfill\label{structeqpmnt_ab6664c255e4c3fdc58806733ac04503b}
+Key to variables subtree in ODB 
+
+Definition at line 1025 of file midas.h.
+
+Referenced by check\_\-polled\_\-events(), receive\_\-trigger\_\-event(), register\_\-equipment(), and scheduler().\index{eqpmnt@{eqpmnt}!info@{info}}
+\index{info@{info}!eqpmnt@{eqpmnt}}
+\paragraph[{info}]{\setlength{\rightskip}{0pt plus 5cm}{\bf EQUIPMENT\_\-INFO} {\bf eqpmnt::info}}\hfill\label{structeqpmnt_a51afc5b1fc5a6a107cffb9542444b188}
+From above 
+
+Definition at line 1013 of file midas.h.
+
+Referenced by check\_\-polled\_\-events(), hv\_\-start(), initialize\_\-equipment(), interrupt\_\-routine(), load\_\-fragment(), readout\_\-thread(), receive\_\-trigger\_\-event(), register\_\-equipment(), scan\_\-fragment(), scheduler(), send\_\-all\_\-periodic\_\-events(), send\_\-event(), and tr\_\-start().\index{eqpmnt@{eqpmnt}!last\_\-called@{last\_\-called}}
+\index{last\_\-called@{last\_\-called}!eqpmnt@{eqpmnt}}
+\paragraph[{last\_\-called}]{\setlength{\rightskip}{0pt plus 5cm}{\bf DWORD} {\bf eqpmnt::last\_\-called}}\hfill\label{structeqpmnt_a6bbbd3b1eb8ab1bbc62aa6e07571866a}
+Last time event was read 
+
+Definition at line 1020 of file midas.h.
+
+Referenced by scheduler(), and send\_\-event().\index{eqpmnt@{eqpmnt}!last\_\-idle@{last\_\-idle}}
+\index{last\_\-idle@{last\_\-idle}!eqpmnt@{eqpmnt}}
+\paragraph[{last\_\-idle}]{\setlength{\rightskip}{0pt plus 5cm}{\bf DWORD} {\bf eqpmnt::last\_\-idle}}\hfill\label{structeqpmnt_a8261688ef7d0d371cdf50023cf0447c1}
+Last time idle func was called 
+
+Definition at line 1021 of file midas.h.
+
+Referenced by scheduler().\index{eqpmnt@{eqpmnt}!name@{name}}
+\index{name@{name}!eqpmnt@{eqpmnt}}
+\paragraph[{name}]{\setlength{\rightskip}{0pt plus 5cm}char {\bf eqpmnt::name}\mbox{[}NAME\_\-LENGTH\mbox{]}}\hfill\label{structeqpmnt_a80db04cadcc657d17e5ba6f742d6fbc6}
+Equipment name 
+
+Definition at line 1012 of file midas.h.
+
+Referenced by check\_\-polled\_\-events(), display(), hv\_\-init(), initialize\_\-equipment(), main(), register\_\-equipment(), scheduler(), send\_\-all\_\-periodic\_\-events(), send\_\-event(), set\_\-equipment\_\-status(), tr\_\-start(), and tr\_\-stop().\index{eqpmnt@{eqpmnt}!odb\_\-in@{odb\_\-in}}
+\index{odb\_\-in@{odb\_\-in}!eqpmnt@{eqpmnt}}
+\paragraph[{odb\_\-in}]{\setlength{\rightskip}{0pt plus 5cm}{\bf DWORD} {\bf eqpmnt::odb\_\-in}}\hfill\label{structeqpmnt_ab487ff66b0ceb7677a3e664717158c51}
+\# updated ODB -\/$>$ FE 
+
+Definition at line 1029 of file midas.h.
+
+Referenced by hv\_\-demand(), hv\_\-set\_\-current\_\-limit(), hv\_\-set\_\-rampdown(), hv\_\-set\_\-rampup(), hv\_\-set\_\-trip\_\-time(), hv\_\-set\_\-voltage\_\-limit(), and tr\_\-start().\index{eqpmnt@{eqpmnt}!odb\_\-out@{odb\_\-out}}
+\index{odb\_\-out@{odb\_\-out}!eqpmnt@{eqpmnt}}
+\paragraph[{odb\_\-out}]{\setlength{\rightskip}{0pt plus 5cm}{\bf DWORD} {\bf eqpmnt::odb\_\-out}}\hfill\label{structeqpmnt_a2ba622da82fc7a02605e5f630464b13f}
+\# updates FE -\/$>$ ODB 
+
+Definition at line 1028 of file midas.h.
+
+Referenced by hv\_\-init(), hv\_\-read(), scheduler(), send\_\-event(), and tr\_\-start().\index{eqpmnt@{eqpmnt}!poll\_\-count@{poll\_\-count}}
+\index{poll\_\-count@{poll\_\-count}!eqpmnt@{eqpmnt}}
+\paragraph[{poll\_\-count}]{\setlength{\rightskip}{0pt plus 5cm}{\bf DWORD} {\bf eqpmnt::poll\_\-count}}\hfill\label{structeqpmnt_ae9bf94db8ff48533601c3833b1b20097}
+Needed to poll 'period' 
+
+Definition at line 1022 of file midas.h.
+
+Referenced by check\_\-polled\_\-events(), initialize\_\-equipment(), readout\_\-thread(), and scheduler().\index{eqpmnt@{eqpmnt}!readout@{readout}}
+\index{readout@{readout}!eqpmnt@{eqpmnt}}
+\paragraph[{readout}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT}($\ast$ {\bf eqpmnt::readout})(char $\ast$, {\bf INT})}\hfill\label{structeqpmnt_ab7d302c46bbcfe6151e17bac90451ee3}
+Pointer to user readout routine 
+
+Referenced by check\_\-polled\_\-events(), interrupt\_\-routine(), readout\_\-thread(), scheduler(), and send\_\-event().\index{eqpmnt@{eqpmnt}!serial\_\-number@{serial\_\-number}}
+\index{serial\_\-number@{serial\_\-number}!eqpmnt@{eqpmnt}}
+\paragraph[{serial\_\-number}]{\setlength{\rightskip}{0pt plus 5cm}{\bf DWORD} {\bf eqpmnt::serial\_\-number}}\hfill\label{structeqpmnt_a1eeffec216604567e3ddbed40cbb0a15}
+event serial number 
+
+Definition at line 1026 of file midas.h.
+
+Referenced by check\_\-polled\_\-events(), interrupt\_\-routine(), readout\_\-thread(), scheduler(), send\_\-event(), and tr\_\-start().\index{eqpmnt@{eqpmnt}!stats@{stats}}
+\index{stats@{stats}!eqpmnt@{eqpmnt}}
+\paragraph[{stats}]{\setlength{\rightskip}{0pt plus 5cm}{\bf EQUIPMENT\_\-STATS} {\bf eqpmnt::stats}}\hfill\label{structeqpmnt_a474c4fbb3bad41ba157076e3a86e93ea}
+
+
+Definition at line 1032 of file midas.h.
+
+Referenced by check\_\-polled\_\-events(), close\_\-buffers(), initialize\_\-equipment(), register\_\-equipment(), scan\_\-fragment(), scheduler(), tr\_\-start(), and tr\_\-stop().\index{eqpmnt@{eqpmnt}!status@{status}}
+\index{status@{status}!eqpmnt@{eqpmnt}}
+\paragraph[{status}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} {\bf eqpmnt::status}}\hfill\label{structeqpmnt_af498c07c0758b46649715eead4627874}
+One of FE\_\-xxx 
+
+Definition at line 1019 of file midas.h.
+
+Referenced by check\_\-polled\_\-events(), display(), initialize\_\-equipment(), main(), register\_\-equipment(), scheduler(), and send\_\-all\_\-periodic\_\-events().\index{eqpmnt@{eqpmnt}!subevent\_\-number@{subevent\_\-number}}
+\index{subevent\_\-number@{subevent\_\-number}!eqpmnt@{eqpmnt}}
+\paragraph[{subevent\_\-number}]{\setlength{\rightskip}{0pt plus 5cm}{\bf DWORD} {\bf eqpmnt::subevent\_\-number}}\hfill\label{structeqpmnt_a1649c4fed8b7c97441a167a860cae4af}
+subevent number 
+
+Definition at line 1027 of file midas.h.
+
+Referenced by check\_\-polled\_\-events(), receive\_\-trigger\_\-event(), scheduler(), and tr\_\-start().

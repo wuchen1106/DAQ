@@ -1,0 +1,333 @@
+.TH "FE_sequence" 3 "31 May 2012" "Version 2.3.0-0" "Midas" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+FE_sequence \- Sequence of operations 
+
+.br
+  
+.br
+.PP
+ The following table shows the sequence of operations of the frontend. These system routines are located in the \fBfrontend.c\fP code but are called by \fBmfe.c\fP at the appropriate time. These routines must be present in the \fBfrontend.c\fP code, but the contents are coded by the user.
+.PP
+Associated Transition
+.br
+  System function 
+.br
+  Action
+.br
+  
+.br
+   
+.br
+  \fBfrontend_init()\fP
+.br
+  Runs once after system initialization, before equipment registration. \fBDetails\fP
+.br
+   TR_START
+.br
+  \fBbegin_of_run()\fP
+.br
+  Runs after systerm statistics reset, before any other Equipments at each Beginning of Run request. \fBDetails\fP
+.br
+   TR_PAUSE \fBpause_run()\fP Runs before any other Equipments at each Run Pause request. \fBDetails\fP 
+.br
+   TR_RESUME \fBresume_run()\fP Runs before any other Equipments at each Run Resume request.
+.PP
+TR_STOP \fBend_of_run()\fP Runs before any other Equipments at each End of Run request. \fBDetails\fP
+.br
+   
+.br
+  \fBfrontend_exit()\fP
+.br
+  Runs once before Slow Control Equipment exit. 
+.br
+   Table showing sequence of operations 
+.PP
+Each equipment has the option to force itself to run at individual transition times (see \fBFrontend event triggers\fP), so that its equipment function will be called on a certain \fBtransition\fP (or combination of transitions).
+.PP
+However, the \fBsystem transition functions\fP
+.IP "\(bu" 2
+\fBbegin_of_run()\fP,
+.IP "\(bu" 2
+\fBend_of_run()\fP,
+.IP "\(bu" 2
+\fBpause_run()\fP and
+.IP "\(bu" 2
+\fBresume_run()\fP 
+.br
+all run \fBprior\fP to the equipment functions. This gives the system the chance to take basic action on the transition request (e.g. enable/disable interrupt) before the equipment runs.
+.PP
+.SH "Reporting Equipment status"
+.PP
+If running with run control utility \fBmhttpd\fP, a frontend can send an update to the main status page, to report on its progress, using the function set_equipment_status. This is very useful when hardware can take a long time to respond. For example, a frontend might add calls in the \fBfrontend_init()\fP routine e.g. 
+.PP
+.nf
+INT frontend_init()
+{
+   set_equipment_status(equipment[idx].name, 'Initializing...', 'yellow');
+   ......  // Initialize hardware 
+   ......
+   set_equipment_status(equipment[idx].name, 'OK', 'green');
+}
+
+.fi
+.PP
+.PP
+The status messages appear next to the equipment name on the \fBmain status page\fP.
+.PP
+
+.br
+ 
+.br
+ 
+.SH "frontend_init()"
+.PP
+This function runs once only at the application startup. Allows hardware checking, loading/setting of global variables, hot-link settings to the ODB etc...
+.PP
+VME :  CAMAC :  
+.PP
+.nf
+INT frontend_init()
+{
+ ....
+ // Open VME interface
+  status = mvme_open(&myvme, 0);
+
+  // Set am to A24 non-privileged Data
+  mvme_set_am(myvme, MVME_AM_A24_ND);
+
+  // Set dmode to D32
+  mvme_set_dmode(myvme, MVME_DMODE_D32)
+  return SUCCESS;
+}
+
+.fi
+.PP
+  
+.PP
+.nf
+INT frontend_init()
+{
+   cam_init();              // Init CAMAC access
+   cam_crate_clear(CRATE);  // Clear Crate
+   cam_crate_zinit(CRATE);  // Z crate
+   cam_inhibit_set(CRATE);  // Set I crate 
+   return SUCCESS;
+}
+
+.fi
+.PP
+ Examples of frontend_init routines 
+.br
+.PP
+
+.br
+ 
+.SH "begin_of_run"
+.PP
+This function is called for every run start transition. Allows the updating of user \fBparameters\fP, and the loading/setup/clearing of hardware. At the exit of this function the acquisition should be armed and ready to test the interrupt (if used).
+.PP
+In case of a CAMAC frontend, the LAM has to be declared to the Crate Controller. The function \fBcam_lam_enable(CRATE, SLOT_IO)\fP is then necessary in order to enable the proper LAM source station. The LAM source station has to also be enabled (F26). 
+.br
+
+.br
+ The arguments
+.IP "\(bu" 2
+\fBrun_number\fP provides the current run number being started.
+.IP "\(bu" 2
+\fBerror\fP can be used for returning a message to the system. This message string will be logged into the \fBmidas.log\fP file. 
+.br
+
+.PP
+.PP
+VME :  CAMAC :  
+.PP
+.nf
+INT begin_of_run (INT runnumber, char * error)
+{
+  ......
+
+  // Set am to A24 non-privileged Data
+  mvme_set_am(myvme, MVME_AM_A24_ND);
+  // Set dmode to D32
+  mvme_set_dmode(myvme, MVME_DMODE_D32);
+
+ //-------- ADCs -------------------
+  v792_Setup(myvme, VADC0_BASE, 2);
+  v792_ThresholdWrite(myvme, VADC0_BASE,
+       (WORD *)&(ts.v792.threshold1));
+  v792_DataClear(myvme, VADC0_BASE);
+  csr = v792_CSR1Read(myvme, VADC0_BASE);
+  printf('Data Ready ADC0: 0x%x\n', csr);
+  ........
+  // Disable interrupt
+  mvme_write_value(myvme, VLAM_BASE+4, 0x0);
+  // Reset Latch
+  mvme_write_value(myvme, VLAM_BASE, 0x1);
+  // Clear pending interrupts
+  mvme_write_value(myvme, VLAM_BASE+8, 0x0);
+  // Enable interrupt
+  inRun = 1;
+  mvme_write_value(myvme, VLAM_BASE+4, inRun);
+  return SUCCESS;
+}
+
+.fi
+.PP
+  
+.PP
+.nf
+INT begin_of_run (INT runnumber, char * error)
+{
+  ......
+  // clear units
+  camc(CRATE, SLOT_C212, 0, 9);
+  camc(CRATE, SLOT_2249A, 0, 9);
+  camc(CRATE, SLOT_SC2, 0, 9);
+  camc(CRATE, SLOT_SC3, 0, 9);
+
+  // Enable LAM generation
+  camc(CRATE, SLOT_C212, 0, 26);  
+
+  cam_inhibit_clear(CRATE); // Remove I
+  // Declare Station to  CC as LAM source
+  cam_lam_enable(CRATE, SLOT_C212);
+
+
+  // set and clear OR1320 pattern bits
+  camo(CRATE, SLOT_OR1320, 0, 18, 0x0330);
+  // Open run gate, reset latch
+  camo(CRATE, SLOT_OR1320, 0, 21, 0x0663);
+  return SUCCESS;
+}
+
+.fi
+.PP
+.PP
+Examples of begin_of_run routines 
+.br
+.PP
+
+.br
+ 
+.SH "pause_run() or resume_run()"
+.PP
+These two functions are called respectively upon 'Pause' and 'Resume' command. Any code relevant to the upcoming run state can be included.
+.PP
+VME :  CAMAC :  
+.PP
+.nf
+INT pause_run (INT run_number, char * error)
+{
+ // Disable interrupt
+  inRun = 0;
+  mvme_write_value(myvme, VLAM_BASE+4, inRun);
+   return SUCCESS;
+}
+
+INT resume_run (INT run_number, char * error)
+{
+ inRun = 1;
+ mvme_write_value(myvme, VLAM_BASE+4, inRun);
+   return SUCCESS;
+}
+
+.fi
+.PP
+  
+.PP
+.nf
+INT pause_run (INT run_number, char * error)
+{
+   cam_inhibit_set(CRATE)
+   return SUCCESS;
+}
+INT resume_run (INT run_number, char * error)
+{
+   cam_inhibit_clear(CRATE)
+   return SUCCESS;
+}  
+
+.fi
+.PP
+.PP
+Examples of pause_run and resume_run routines 
+.PP
+The arguments
+.IP "\(bu" 2
+\fBrun_number\fP provides the current run number being paused/resumed.
+.IP "\(bu" 2
+\fBerror\fP can be used for returning a message to the system. This message string will be logged into the midas.log file.
+.PP
+.PP
+
+.br
+.PP
+
+.br
+ 
+.SH "end_of_run()"
+.PP
+For every 'stop run' transition this function is called and provides the opportunity to disable the hardware. VME :  CAMAC :  
+.PP
+.nf
+INT end_of_run(INT run_number, char *error)
+{
+  // Stop DAQ for seting up the parameters
+  vf48_AcqStop(myvme, VF48_BASE);
+
+  done = 0;
+  stop_req = 0;
+  inRun = 0;
+  // Disable interrupt
+  mvme_write_value(myvme, VLAM_BASE+4, inRun);
+  trig_level = 0;
+  // Close run gate
+  vmeio_AsyncWrite(myvme, VMEIO_BASE, 0x0);
+  return SUCCESS;
+}
+
+.fi
+.PP
+ 
+.PP
+.nf
+INT end_of_run( INT run_number, char* error)
+{
+   // set and clear OR1320 pattern bits or close run gate.
+   camo(CRATE, SLOT_OR1320, 0, 18, 0x0CC3);
+   camo(CRATE, SLOT_OR1320, 0, 21, 0x0990);
+   // Enable LAM generation
+   camc(CRATE, SLOT_C212, 0, 26);  
+   // disable LAM in crate controller
+   cam_lam_disable(CRATE, SLOT_C212);
+   // set crate inhibit 
+   cam_inhibit_set(CRATE);          
+   return SUCCESS;
+}
+
+.fi
+.PP
+ Examples of end_of_run routines The arguments
+.IP "\(bu" 2
+\fBrun_number\fP provides the current run number being ended.
+.IP "\(bu" 2
+\fBerror\fP can be used for returning a message to the system. This message string will be logged into the midas.log file. 
+.br
+
+.PP
+.PP
+
+.br
+ 
+.SH "frontend_exit()"
+.PP
+This function runs when the frontend is requested to terminate. Can be used for local statistic collection etc.
+.PP
+
+.br
+  
+.br
+.PP
+ 

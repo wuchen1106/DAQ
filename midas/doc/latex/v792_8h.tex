@@ -1,0 +1,452 @@
+\subsection{v792.h File Reference}
+\label{v792_8h}\index{v792.h@{v792.h}}
+\subsubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+union \hyperlink{unionv792__Data}{v792\_\-Data}
+\item 
+struct \hyperlink{structv792__Data_1_1Entry}{v792\_\-Data::Entry}
+\item 
+struct \hyperlink{structv792__Data_1_1Header}{v792\_\-Data::Header}
+\item 
+struct \hyperlink{structv792__Data_1_1Footer}{v792\_\-Data::Footer}
+\item 
+union \hyperlink{unionv792__StatusRegister1}{v792\_\-StatusRegister1}
+\item 
+union \hyperlink{unionv792__StatusRegister2}{v792\_\-StatusRegister2}
+\item 
+union \hyperlink{unionv792__ControlRegister1}{v792\_\-ControlRegister1}
+\item 
+union \hyperlink{unionv792__BitSet2Register}{v792\_\-BitSet2Register}
+\end{DoxyCompactItemize}
+\subsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{v792_8h_a3eec625d3dca654c6f99f82d964d4287}{v792\_\-ThresholdWrite} (\hyperlink{structMVME__INTERFACE}{MVME\_\-INTERFACE} $\ast$mvme, \hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} base, \hyperlink{vt2_8h_a2b0e863dadf920709ec53d9088ee7c91}{WORD} $\ast$threshold)
+\item 
+int \hyperlink{v792_8h_a6410a5e010a043f3c1f0ccac13e89ec4}{v792\_\-ThresholdRead} (\hyperlink{structMVME__INTERFACE}{MVME\_\-INTERFACE} $\ast$mvme, \hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} base, \hyperlink{vt2_8h_a2b0e863dadf920709ec53d9088ee7c91}{WORD} $\ast$threshold)
+\item 
+int \hyperlink{v792_8h_ab1fa02b31b58838414803d8d750dbaa3}{v792\_\-Setup} (\hyperlink{structMVME__INTERFACE}{MVME\_\-INTERFACE} $\ast$mvme, \hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} base, int mode)
+\item 
+void \hyperlink{v792_8h_ac3b568047c03f5b511378cd608eb11fd}{v792\_\-ControlRegister1Write} (\hyperlink{structMVME__INTERFACE}{MVME\_\-INTERFACE} $\ast$mvme, \hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} base, \hyperlink{vt2_8h_a2b0e863dadf920709ec53d9088ee7c91}{WORD} pat)
+\item 
+\hyperlink{vt2_8h_a2b0e863dadf920709ec53d9088ee7c91}{WORD} \hyperlink{v792_8h_ab4e2ce6a3f923e95a23d9e6990265b8d}{v792\_\-ControlRegister1Read} (\hyperlink{structMVME__INTERFACE}{MVME\_\-INTERFACE} $\ast$mvme, \hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} base)
+\item 
+void \hyperlink{v792_8h_a14c74a32db3fd4dacdeadfdfdefaff26}{v792\_\-Trigger} (\hyperlink{structMVME__INTERFACE}{MVME\_\-INTERFACE} $\ast$mvme, \hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} base)
+\item 
+void \hyperlink{v792_8h_a24de5c4823e19a5361b4fd5fe4f1f087}{v792\_\-printEntry} (const \hyperlink{unionv792__Data}{v792\_\-Data} $\ast$v)
+\end{DoxyCompactItemize}
+
+
+\subsubsection{Define Documentation}
+\index{v792.h@{v792.h}!V785\_\-SLIDECONST\_\-RW@{V785\_\-SLIDECONST\_\-RW}}
+\index{V785\_\-SLIDECONST\_\-RW@{V785\_\-SLIDECONST\_\-RW}!v792.h@{v792.h}}
+\paragraph[{V785\_\-SLIDECONST\_\-RW}]{\setlength{\rightskip}{0pt plus 5cm}\#define V785\_\-SLIDECONST\_\-RW~({\bf DWORD}) (0x106A)}\hfill\label{v792_8h_a111bde672be15d08a847ace15f299342}
+
+
+Definition at line 52 of file v792.h.\index{v792.h@{v792.h}!V792\_\-BIT\_\-CLEAR1\_\-WO@{V792\_\-BIT\_\-CLEAR1\_\-WO}}
+\index{V792\_\-BIT\_\-CLEAR1\_\-WO@{V792\_\-BIT\_\-CLEAR1\_\-WO}!v792.h@{v792.h}}
+\paragraph[{V792\_\-BIT\_\-CLEAR1\_\-WO}]{\setlength{\rightskip}{0pt plus 5cm}\#define V792\_\-BIT\_\-CLEAR1\_\-WO~({\bf DWORD}) (0x1008)}\hfill\label{v792_8h_a3cf53e955ca3eeb47fd7b00b374bdcd2}
+
+
+Definition at line 32 of file v792.h.
+
+Referenced by v792\_\-BitSet2Clear(), v792\_\-BitSet2Set(), and v792\_\-SoftReset().\index{v792.h@{v792.h}!V792\_\-BIT\_\-CLEAR2\_\-WO@{V792\_\-BIT\_\-CLEAR2\_\-WO}}
+\index{V792\_\-BIT\_\-CLEAR2\_\-WO@{V792\_\-BIT\_\-CLEAR2\_\-WO}!v792.h@{v792.h}}
+\paragraph[{V792\_\-BIT\_\-CLEAR2\_\-WO}]{\setlength{\rightskip}{0pt plus 5cm}\#define V792\_\-BIT\_\-CLEAR2\_\-WO~({\bf DWORD}) (0x1034)}\hfill\label{v792_8h_a3823a4fb90f9cfec8090b778e8b9aa32}
+
+
+Definition at line 47 of file v792.h.
+
+Referenced by v792\_\-DataClear(), v792\_\-LowThEnable(), and v792\_\-OnlineSet().\index{v792.h@{v792.h}!V792\_\-BIT\_\-SET1\_\-RW@{V792\_\-BIT\_\-SET1\_\-RW}}
+\index{V792\_\-BIT\_\-SET1\_\-RW@{V792\_\-BIT\_\-SET1\_\-RW}!v792.h@{v792.h}}
+\paragraph[{V792\_\-BIT\_\-SET1\_\-RW}]{\setlength{\rightskip}{0pt plus 5cm}\#define V792\_\-BIT\_\-SET1\_\-RW~({\bf DWORD}) (0x1006)}\hfill\label{v792_8h_ac6a8024cddfc9385e0ae13e5f96ee339}
+
+
+Definition at line 31 of file v792.h.
+
+Referenced by v792\_\-BitSet2Clear(), v792\_\-BitSet2Set(), and v792\_\-SoftReset().\index{v792.h@{v792.h}!V792\_\-BIT\_\-SET2\_\-RW@{V792\_\-BIT\_\-SET2\_\-RW}}
+\index{V792\_\-BIT\_\-SET2\_\-RW@{V792\_\-BIT\_\-SET2\_\-RW}!v792.h@{v792.h}}
+\paragraph[{V792\_\-BIT\_\-SET2\_\-RW}]{\setlength{\rightskip}{0pt plus 5cm}\#define V792\_\-BIT\_\-SET2\_\-RW~({\bf DWORD}) (0x1032)}\hfill\label{v792_8h_a8b050ad92f873188c3d5da564eb439a7}
+
+
+Definition at line 46 of file v792.h.
+
+Referenced by v792\_\-BitSet2Read(), v792\_\-DataClear(), v792\_\-EmptyEnable(), and v792\_\-LowThDisable().\index{v792.h@{v792.h}!V792\_\-CR1\_\-RW@{V792\_\-CR1\_\-RW}}
+\index{V792\_\-CR1\_\-RW@{V792\_\-CR1\_\-RW}!v792.h@{v792.h}}
+\paragraph[{V792\_\-CR1\_\-RW}]{\setlength{\rightskip}{0pt plus 5cm}\#define V792\_\-CR1\_\-RW~({\bf DWORD}) (0x1010)}\hfill\label{v792_8h_aabd4540cab17f463b0404db0fd9d9ae8}
+
+
+Definition at line 37 of file v792.h.
+
+Referenced by v792\_\-ControlRegister1Read(), and v792\_\-ControlRegister1Write().\index{v792.h@{v792.h}!V792\_\-CSR1\_\-RO@{V792\_\-CSR1\_\-RO}}
+\index{V792\_\-CSR1\_\-RO@{V792\_\-CSR1\_\-RO}!v792.h@{v792.h}}
+\paragraph[{V792\_\-CSR1\_\-RO}]{\setlength{\rightskip}{0pt plus 5cm}\#define V792\_\-CSR1\_\-RO~({\bf DWORD}) (0x100E)}\hfill\label{v792_8h_aadfd0f73570c7b5156d924c5a0dd4734}
+
+
+Definition at line 36 of file v792.h.
+
+Referenced by v792\_\-CSR1Read(), v792\_\-DataReady(), and v792\_\-isBusy().\index{v792.h@{v792.h}!V792\_\-CSR2\_\-RO@{V792\_\-CSR2\_\-RO}}
+\index{V792\_\-CSR2\_\-RO@{V792\_\-CSR2\_\-RO}!v792.h@{v792.h}}
+\paragraph[{V792\_\-CSR2\_\-RO}]{\setlength{\rightskip}{0pt plus 5cm}\#define V792\_\-CSR2\_\-RO~({\bf DWORD}) (0x1022)}\hfill\label{v792_8h_a84bb8214bac09a143f24d22fc062aed6}
+
+
+Definition at line 40 of file v792.h.
+
+Referenced by v792\_\-CSR2Read().\index{v792.h@{v792.h}!V792\_\-DELAY\_\-CLEAR\_\-RW@{V792\_\-DELAY\_\-CLEAR\_\-RW}}
+\index{V792\_\-DELAY\_\-CLEAR\_\-RW@{V792\_\-DELAY\_\-CLEAR\_\-RW}!v792.h@{v792.h}}
+\paragraph[{V792\_\-DELAY\_\-CLEAR\_\-RW}]{\setlength{\rightskip}{0pt plus 5cm}\#define V792\_\-DELAY\_\-CLEAR\_\-RW~({\bf DWORD}) (0x102E)}\hfill\label{v792_8h_a4d7e0cbf3e49fdb789d6095d21815c07}
+
+
+Definition at line 45 of file v792.h.\index{v792.h@{v792.h}!V792\_\-EVT\_\-CNT\_\-H\_\-RO@{V792\_\-EVT\_\-CNT\_\-H\_\-RO}}
+\index{V792\_\-EVT\_\-CNT\_\-H\_\-RO@{V792\_\-EVT\_\-CNT\_\-H\_\-RO}!v792.h@{v792.h}}
+\paragraph[{V792\_\-EVT\_\-CNT\_\-H\_\-RO}]{\setlength{\rightskip}{0pt plus 5cm}\#define V792\_\-EVT\_\-CNT\_\-H\_\-RO~({\bf DWORD}) (0x1026)}\hfill\label{v792_8h_a6a46aa63d149671acd309d58d2d31d52}
+
+
+Definition at line 42 of file v792.h.
+
+Referenced by v792\_\-EvtCntRead().\index{v792.h@{v792.h}!V792\_\-EVT\_\-CNT\_\-L\_\-RO@{V792\_\-EVT\_\-CNT\_\-L\_\-RO}}
+\index{V792\_\-EVT\_\-CNT\_\-L\_\-RO@{V792\_\-EVT\_\-CNT\_\-L\_\-RO}!v792.h@{v792.h}}
+\paragraph[{V792\_\-EVT\_\-CNT\_\-L\_\-RO}]{\setlength{\rightskip}{0pt plus 5cm}\#define V792\_\-EVT\_\-CNT\_\-L\_\-RO~({\bf DWORD}) (0x1024)}\hfill\label{v792_8h_a363d52cf7d34a78311f78e5e3a181d21}
+
+
+Definition at line 41 of file v792.h.
+
+Referenced by v792\_\-EvtCntRead().\index{v792.h@{v792.h}!V792\_\-EVT\_\-CNT\_\-RST\_\-WO@{V792\_\-EVT\_\-CNT\_\-RST\_\-WO}}
+\index{V792\_\-EVT\_\-CNT\_\-RST\_\-WO@{V792\_\-EVT\_\-CNT\_\-RST\_\-WO}!v792.h@{v792.h}}
+\paragraph[{V792\_\-EVT\_\-CNT\_\-RST\_\-WO}]{\setlength{\rightskip}{0pt plus 5cm}\#define V792\_\-EVT\_\-CNT\_\-RST\_\-WO~({\bf DWORD}) (0x1040)}\hfill\label{v792_8h_ae0877a85cced5a7ccc9e8837148f625b}
+
+
+Definition at line 49 of file v792.h.
+
+Referenced by v792\_\-EvtCntReset().\index{v792.h@{v792.h}!V792\_\-EVTRIG\_\-REG\_\-RW@{V792\_\-EVTRIG\_\-REG\_\-RW}}
+\index{V792\_\-EVTRIG\_\-REG\_\-RW@{V792\_\-EVTRIG\_\-REG\_\-RW}!v792.h@{v792.h}}
+\paragraph[{V792\_\-EVTRIG\_\-REG\_\-RW}]{\setlength{\rightskip}{0pt plus 5cm}\#define V792\_\-EVTRIG\_\-REG\_\-RW~({\bf DWORD}) (0x1020)}\hfill\label{v792_8h_a323c57cd920e67582ece1cc03b97530e}
+
+
+Definition at line 39 of file v792.h.
+
+Referenced by v792\_\-EvtTriggerSet(), v792\_\-IntDisable(), and v792\_\-IntEnable().\index{v792.h@{v792.h}!V792\_\-FIRM\_\-REV@{V792\_\-FIRM\_\-REV}}
+\index{V792\_\-FIRM\_\-REV@{V792\_\-FIRM\_\-REV}!v792.h@{v792.h}}
+\paragraph[{V792\_\-FIRM\_\-REV}]{\setlength{\rightskip}{0pt plus 5cm}\#define V792\_\-FIRM\_\-REV~({\bf DWORD}) (0x1000)}\hfill\label{v792_8h_a73656b15650cbb41fd0dcd2c611d0cdb}
+
+
+Definition at line 29 of file v792.h.
+
+Referenced by v792\_\-isPresent(), and v792\_\-Status().\index{v792.h@{v792.h}!V792\_\-GEO\_\-ADDR\_\-RW@{V792\_\-GEO\_\-ADDR\_\-RW}}
+\index{V792\_\-GEO\_\-ADDR\_\-RW@{V792\_\-GEO\_\-ADDR\_\-RW}!v792.h@{v792.h}}
+\paragraph[{V792\_\-GEO\_\-ADDR\_\-RW}]{\setlength{\rightskip}{0pt plus 5cm}\#define V792\_\-GEO\_\-ADDR\_\-RW~({\bf DWORD}) (0x1002)}\hfill\label{v792_8h_aa9f755aa3fe17609995caae5b53bcbaf}
+
+
+Definition at line 30 of file v792.h.\index{v792.h@{v792.h}!V792\_\-INCR\_\-EVT\_\-WO@{V792\_\-INCR\_\-EVT\_\-WO}}
+\index{V792\_\-INCR\_\-EVT\_\-WO@{V792\_\-INCR\_\-EVT\_\-WO}!v792.h@{v792.h}}
+\paragraph[{V792\_\-INCR\_\-EVT\_\-WO}]{\setlength{\rightskip}{0pt plus 5cm}\#define V792\_\-INCR\_\-EVT\_\-WO~({\bf DWORD}) (0x1028)}\hfill\label{v792_8h_a085112e51e80db0bdc91e415b9191e2b}
+
+
+Definition at line 43 of file v792.h.\index{v792.h@{v792.h}!V792\_\-INCR\_\-OFFSET\_\-WO@{V792\_\-INCR\_\-OFFSET\_\-WO}}
+\index{V792\_\-INCR\_\-OFFSET\_\-WO@{V792\_\-INCR\_\-OFFSET\_\-WO}!v792.h@{v792.h}}
+\paragraph[{V792\_\-INCR\_\-OFFSET\_\-WO}]{\setlength{\rightskip}{0pt plus 5cm}\#define V792\_\-INCR\_\-OFFSET\_\-WO~({\bf DWORD}) (0x102A)}\hfill\label{v792_8h_a973cac172ba8db9b9a215cac9b1fe6a3}
+
+
+Definition at line 44 of file v792.h.\index{v792.h@{v792.h}!V792\_\-INT\_\-LEVEL\_\-WO@{V792\_\-INT\_\-LEVEL\_\-WO}}
+\index{V792\_\-INT\_\-LEVEL\_\-WO@{V792\_\-INT\_\-LEVEL\_\-WO}!v792.h@{v792.h}}
+\paragraph[{V792\_\-INT\_\-LEVEL\_\-WO}]{\setlength{\rightskip}{0pt plus 5cm}\#define V792\_\-INT\_\-LEVEL\_\-WO~({\bf DWORD}) (0x100A)}\hfill\label{v792_8h_a4baafd051ec82764c2a8032ffa02020c}
+
+
+Definition at line 34 of file v792.h.
+
+Referenced by v792\_\-IntSet().\index{v792.h@{v792.h}!V792\_\-INT\_\-VECTOR\_\-WO@{V792\_\-INT\_\-VECTOR\_\-WO}}
+\index{V792\_\-INT\_\-VECTOR\_\-WO@{V792\_\-INT\_\-VECTOR\_\-WO}!v792.h@{v792.h}}
+\paragraph[{V792\_\-INT\_\-VECTOR\_\-WO}]{\setlength{\rightskip}{0pt plus 5cm}\#define V792\_\-INT\_\-VECTOR\_\-WO~({\bf DWORD}) (0x100C)}\hfill\label{v792_8h_a400219380629de17a139cd38ff2025d6}
+
+
+Definition at line 35 of file v792.h.
+
+Referenced by v792\_\-IntSet().\index{v792.h@{v792.h}!V792\_\-IPED\_\-RW@{V792\_\-IPED\_\-RW}}
+\index{V792\_\-IPED\_\-RW@{V792\_\-IPED\_\-RW}!v792.h@{v792.h}}
+\paragraph[{V792\_\-IPED\_\-RW}]{\setlength{\rightskip}{0pt plus 5cm}\#define V792\_\-IPED\_\-RW~({\bf DWORD}) (0x1060)}\hfill\label{v792_8h_af9c1d13aeadbfdb136132c4cd696d14e}
+
+
+Definition at line 50 of file v792.h.
+
+Referenced by v792\_\-Status().\index{v792.h@{v792.h}!V792\_\-MAX\_\-CHANNELS@{V792\_\-MAX\_\-CHANNELS}}
+\index{V792\_\-MAX\_\-CHANNELS@{V792\_\-MAX\_\-CHANNELS}!v792.h@{v792.h}}
+\paragraph[{V792\_\-MAX\_\-CHANNELS}]{\setlength{\rightskip}{0pt plus 5cm}\#define V792\_\-MAX\_\-CHANNELS~({\bf DWORD}) 32}\hfill\label{v792_8h_a7d8310a20d773e8c3de4549c81a5c7ae}
+
+
+Definition at line 27 of file v792.h.
+
+Referenced by begin\_\-of\_\-run(), v792\_\-Status(), v792\_\-ThresholdRead(), and v792\_\-ThresholdWrite().\index{v792.h@{v792.h}!V792\_\-REG\_\-BASE@{V792\_\-REG\_\-BASE}}
+\index{V792\_\-REG\_\-BASE@{V792\_\-REG\_\-BASE}!v792.h@{v792.h}}
+\paragraph[{V792\_\-REG\_\-BASE}]{\setlength{\rightskip}{0pt plus 5cm}\#define V792\_\-REG\_\-BASE~({\bf DWORD}) (0x1000)}\hfill\label{v792_8h_abf70d3e1ea358a82c3a784f381c317f0}
+
+
+Definition at line 28 of file v792.h.\index{v792.h@{v792.h}!V792\_\-SINGLE\_\-RST\_\-WO@{V792\_\-SINGLE\_\-RST\_\-WO}}
+\index{V792\_\-SINGLE\_\-RST\_\-WO@{V792\_\-SINGLE\_\-RST\_\-WO}!v792.h@{v792.h}}
+\paragraph[{V792\_\-SINGLE\_\-RST\_\-WO}]{\setlength{\rightskip}{0pt plus 5cm}\#define V792\_\-SINGLE\_\-RST\_\-WO~({\bf DWORD}) (0x1016)}\hfill\label{v792_8h_a03232f3e8b57bdad3101a46aebe28f18}
+
+
+Definition at line 38 of file v792.h.
+
+Referenced by v792\_\-SingleShotReset().\index{v792.h@{v792.h}!V792\_\-SOFT\_\-RESET@{V792\_\-SOFT\_\-RESET}}
+\index{V792\_\-SOFT\_\-RESET@{V792\_\-SOFT\_\-RESET}!v792.h@{v792.h}}
+\paragraph[{V792\_\-SOFT\_\-RESET}]{\setlength{\rightskip}{0pt plus 5cm}\#define V792\_\-SOFT\_\-RESET~({\bf DWORD}) (0x1$<$$<$7)}\hfill\label{v792_8h_a446ba76df491ad78ffa023ff6eb8f9ba}
+
+
+Definition at line 33 of file v792.h.\index{v792.h@{v792.h}!V792\_\-SWCOMM\_\-WO@{V792\_\-SWCOMM\_\-WO}}
+\index{V792\_\-SWCOMM\_\-WO@{V792\_\-SWCOMM\_\-WO}!v792.h@{v792.h}}
+\paragraph[{V792\_\-SWCOMM\_\-WO}]{\setlength{\rightskip}{0pt plus 5cm}\#define V792\_\-SWCOMM\_\-WO~({\bf DWORD}) (0x1068)}\hfill\label{v792_8h_a312f5c5845e5200fc38f30a1521f3121}
+
+
+Definition at line 51 of file v792.h.
+
+Referenced by v792\_\-Trigger().\index{v792.h@{v792.h}!V792\_\-TEST\_\-EVENT\_\-WO@{V792\_\-TEST\_\-EVENT\_\-WO}}
+\index{V792\_\-TEST\_\-EVENT\_\-WO@{V792\_\-TEST\_\-EVENT\_\-WO}!v792.h@{v792.h}}
+\paragraph[{V792\_\-TEST\_\-EVENT\_\-WO}]{\setlength{\rightskip}{0pt plus 5cm}\#define V792\_\-TEST\_\-EVENT\_\-WO~({\bf DWORD}) (0x103E)}\hfill\label{v792_8h_acf425d5d0aa44c25b626f986b0147429}
+
+
+Definition at line 48 of file v792.h.\index{v792.h@{v792.h}!V792\_\-THRES\_\-BASE@{V792\_\-THRES\_\-BASE}}
+\index{V792\_\-THRES\_\-BASE@{V792\_\-THRES\_\-BASE}!v792.h@{v792.h}}
+\paragraph[{V792\_\-THRES\_\-BASE}]{\setlength{\rightskip}{0pt plus 5cm}\#define V792\_\-THRES\_\-BASE~({\bf DWORD}) (0x1080)}\hfill\label{v792_8h_a8043168be515a4d04ad42f41eac30b3b}
+
+
+Definition at line 53 of file v792.h.
+
+Referenced by v792\_\-ThresholdRead(), and v792\_\-ThresholdWrite().
+
+\subsubsection{Enumeration Type Documentation}
+\index{v792.h@{v792.h}!v792\_\-DataType@{v792\_\-DataType}}
+\index{v792\_\-DataType@{v792\_\-DataType}!v792.h@{v792.h}}
+\paragraph[{v792\_\-DataType}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf v792\_\-DataType}}\hfill\label{v792_8h_aef599012aab6cf12a98961feef0835a3}
+\begin{Desc}
+\item[Enumerator: ]\par
+\begin{description}
+\index{v792\_\-typeMeasurement@{v792\_\-typeMeasurement}!v792.h@{v792.h}}\index{v792.h@{v792.h}!v792\_\-typeMeasurement@{v792\_\-typeMeasurement}}\item[{\em 
+v792\_\-typeMeasurement\label{v792_8h_aef599012aab6cf12a98961feef0835a3ae1d872049a1229c08c19f9a6cbb16bbe}
+}]\index{v792\_\-typeHeader@{v792\_\-typeHeader}!v792.h@{v792.h}}\index{v792.h@{v792.h}!v792\_\-typeHeader@{v792\_\-typeHeader}}\item[{\em 
+v792\_\-typeHeader\label{v792_8h_aef599012aab6cf12a98961feef0835a3adb636c7c45d5414ef99e2d937d6eb109}
+}]\index{v792\_\-typeFooter@{v792\_\-typeFooter}!v792.h@{v792.h}}\index{v792.h@{v792.h}!v792\_\-typeFooter@{v792\_\-typeFooter}}\item[{\em 
+v792\_\-typeFooter\label{v792_8h_aef599012aab6cf12a98961feef0835a3aea9a98936320b3d026da5d1125dfbb40}
+}]\index{v792\_\-typeFiller@{v792\_\-typeFiller}!v792.h@{v792.h}}\index{v792.h@{v792.h}!v792\_\-typeFiller@{v792\_\-typeFiller}}\item[{\em 
+v792\_\-typeFiller\label{v792_8h_aef599012aab6cf12a98961feef0835a3ab3247ad462cd0f1535d8a508941d4e20}
+}]\end{description}
+\end{Desc}
+
+
+
+Definition at line 94 of file v792.h.
+
+\subsubsection{Function Documentation}
+\index{v792.h@{v792.h}!v792\_\-BitSet2Clear@{v792\_\-BitSet2Clear}}
+\index{v792\_\-BitSet2Clear@{v792\_\-BitSet2Clear}!v792.h@{v792.h}}
+\paragraph[{v792\_\-BitSet2Clear}]{\setlength{\rightskip}{0pt plus 5cm}void v792\_\-BitSet2Clear ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  {\bf DWORD} {\em base}, \/  {\bf WORD} {\em pat})}\hfill\label{v792_8h_a42d8b6663477fddc91c9a0eb7791a459}
+
+
+Definition at line 215 of file v792.c.\index{v792.h@{v792.h}!v792\_\-BitSet2Read@{v792\_\-BitSet2Read}}
+\index{v792\_\-BitSet2Read@{v792\_\-BitSet2Read}!v792.h@{v792.h}}
+\paragraph[{v792\_\-BitSet2Read}]{\setlength{\rightskip}{0pt plus 5cm}int v792\_\-BitSet2Read ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  {\bf DWORD} {\em base})}\hfill\label{v792_8h_ac7a33ef538da1556c4a1ad45e2fc2783}
+
+
+Definition at line 192 of file v792.c.
+
+Referenced by v792\_\-Status().\index{v792.h@{v792.h}!v792\_\-BitSet2Set@{v792\_\-BitSet2Set}}
+\index{v792\_\-BitSet2Set@{v792\_\-BitSet2Set}!v792.h@{v792.h}}
+\paragraph[{v792\_\-BitSet2Set}]{\setlength{\rightskip}{0pt plus 5cm}void v792\_\-BitSet2Set ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  {\bf DWORD} {\em base}, \/  {\bf WORD} {\em pat})}\hfill\label{v792_8h_a9c71ef67754b6e4b0f319206d75c19ec}
+
+
+Definition at line 204 of file v792.c.\index{v792.h@{v792.h}!v792\_\-ControlRegister1Read@{v792\_\-ControlRegister1Read}}
+\index{v792\_\-ControlRegister1Read@{v792\_\-ControlRegister1Read}!v792.h@{v792.h}}
+\paragraph[{v792\_\-ControlRegister1Read}]{\setlength{\rightskip}{0pt plus 5cm}{\bf WORD} v792\_\-ControlRegister1Read ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  {\bf DWORD} {\em base})}\hfill\label{v792_8h_ab4e2ce6a3f923e95a23d9e6990265b8d}
+read Control Register 1 (0x1010,16 bit) 
+
+Definition at line 369 of file v792.c.\index{v792.h@{v792.h}!v792\_\-ControlRegister1Write@{v792\_\-ControlRegister1Write}}
+\index{v792\_\-ControlRegister1Write@{v792\_\-ControlRegister1Write}!v792.h@{v792.h}}
+\paragraph[{v792\_\-ControlRegister1Write}]{\setlength{\rightskip}{0pt plus 5cm}void v792\_\-ControlRegister1Write ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  {\bf DWORD} {\em base}, \/  {\bf WORD} {\em pat})}\hfill\label{v792_8h_ac3b568047c03f5b511378cd608eb11fd}
+write Control Register 1 (0x1010,16 bit) 
+
+Definition at line 383 of file v792.c.\index{v792.h@{v792.h}!v792\_\-CrateSet@{v792\_\-CrateSet}}
+\index{v792\_\-CrateSet@{v792\_\-CrateSet}!v792.h@{v792.h}}
+\paragraph[{v792\_\-CrateSet}]{\setlength{\rightskip}{0pt plus 5cm}void v792\_\-CrateSet ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  {\bf DWORD} {\em base}, \/  {\bf DWORD} $\ast$ {\em evtcnt})}\hfill\label{v792_8h_a2c9926a34e5afa81cdc7d27e7f754ee5}
+\index{v792.h@{v792.h}!v792\_\-CSR1Read@{v792\_\-CSR1Read}}
+\index{v792\_\-CSR1Read@{v792\_\-CSR1Read}!v792.h@{v792.h}}
+\paragraph[{v792\_\-CSR1Read}]{\setlength{\rightskip}{0pt plus 5cm}int v792\_\-CSR1Read ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  {\bf DWORD} {\em base})}\hfill\label{v792_8h_a01124a009c024fb70d7243658facd6b9}
+
+
+Definition at line 151 of file v792.c.
+
+Referenced by begin\_\-of\_\-run(), v792\_\-isEvtReady(), and v792\_\-Status().\index{v792.h@{v792.h}!v792\_\-CSR2Read@{v792\_\-CSR2Read}}
+\index{v792\_\-CSR2Read@{v792\_\-CSR2Read}!v792.h@{v792.h}}
+\paragraph[{v792\_\-CSR2Read}]{\setlength{\rightskip}{0pt plus 5cm}int v792\_\-CSR2Read ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  {\bf DWORD} {\em base})}\hfill\label{v792_8h_a9ae4f1b71440bde11d896df999b80e7e}
+
+
+Definition at line 180 of file v792.c.
+
+Referenced by v792\_\-Status().\index{v792.h@{v792.h}!v792\_\-DataClear@{v792\_\-DataClear}}
+\index{v792\_\-DataClear@{v792\_\-DataClear}!v792.h@{v792.h}}
+\paragraph[{v792\_\-DataClear}]{\setlength{\rightskip}{0pt plus 5cm}void v792\_\-DataClear ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  {\bf DWORD} {\em base})}\hfill\label{v792_8h_a526dbfe955e68a6e982bb5a3345b74e3}
+
+
+Definition at line 226 of file v792.c.
+
+Referenced by begin\_\-of\_\-run(), and read\_\-trigger\_\-event().\index{v792.h@{v792.h}!v792\_\-DataRead@{v792\_\-DataRead}}
+\index{v792\_\-DataRead@{v792\_\-DataRead}!v792.h@{v792.h}}
+\paragraph[{v792\_\-DataRead}]{\setlength{\rightskip}{0pt plus 5cm}int v792\_\-DataRead ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  {\bf DWORD} {\em base}, \/  {\bf DWORD} $\ast$ {\em pdest}, \/  int $\ast$ {\em nentry})}\hfill\label{v792_8h_a885c3ecd779966cb3c94376eaafc1e63}
+
+
+Definition at line 73 of file v792.c.\index{v792.h@{v792.h}!v792\_\-DataReady@{v792\_\-DataReady}}
+\index{v792\_\-DataReady@{v792\_\-DataReady}!v792.h@{v792.h}}
+\paragraph[{v792\_\-DataReady}]{\setlength{\rightskip}{0pt plus 5cm}int v792\_\-DataReady ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  {\bf DWORD} {\em base})}\hfill\label{v792_8h_a9103a1615a623d5e79c0353045abaafa}
+
+
+Definition at line 308 of file v792.c.
+
+Referenced by poll\_\-event(), v792\_\-DataRead(), and v792\_\-EventRead().\index{v792.h@{v792.h}!v792\_\-DelayClearSet@{v792\_\-DelayClearSet}}
+\index{v792\_\-DelayClearSet@{v792\_\-DelayClearSet}!v792.h@{v792.h}}
+\paragraph[{v792\_\-DelayClearSet}]{\setlength{\rightskip}{0pt plus 5cm}void v792\_\-DelayClearSet ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  {\bf DWORD} {\em base}, \/  int {\em delay})}\hfill\label{v792_8h_a507c3df154ff7b33ff13e750dca6af07}
+\index{v792.h@{v792.h}!v792\_\-EmptyEnable@{v792\_\-EmptyEnable}}
+\index{v792\_\-EmptyEnable@{v792\_\-EmptyEnable}!v792.h@{v792.h}}
+\paragraph[{v792\_\-EmptyEnable}]{\setlength{\rightskip}{0pt plus 5cm}void v792\_\-EmptyEnable ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  {\bf DWORD} {\em base})}\hfill\label{v792_8h_ab61c57bd4759a155b2a6735b955daa5d}
+
+
+Definition at line 278 of file v792.c.
+
+Referenced by v792\_\-Setup().\index{v792.h@{v792.h}!v792\_\-EventRead@{v792\_\-EventRead}}
+\index{v792\_\-EventRead@{v792\_\-EventRead}!v792.h@{v792.h}}
+\paragraph[{v792\_\-EventRead}]{\setlength{\rightskip}{0pt plus 5cm}int v792\_\-EventRead ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  {\bf DWORD} {\em base}, \/  {\bf DWORD} $\ast$ {\em pdest}, \/  int $\ast$ {\em nentry})}\hfill\label{v792_8h_a723985757a28f135d0b1224a85accb62}
+
+
+Definition at line 41 of file v792.c.
+
+Referenced by read\_\-trigger\_\-event(), and read\_\-v792().\index{v792.h@{v792.h}!v792\_\-EvtCntRead@{v792\_\-EvtCntRead}}
+\index{v792\_\-EvtCntRead@{v792\_\-EvtCntRead}!v792.h@{v792.h}}
+\paragraph[{v792\_\-EvtCntRead}]{\setlength{\rightskip}{0pt plus 5cm}void v792\_\-EvtCntRead ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  {\bf DWORD} {\em base}, \/  {\bf DWORD} $\ast$ {\em evtcnt})}\hfill\label{v792_8h_a93c9ec6788ab26b8dc1ca782761f91ac}
+
+
+Definition at line 139 of file v792.c.
+
+Referenced by read\_\-trigger\_\-event(), read\_\-v792(), and v792\_\-Status().\index{v792.h@{v792.h}!v792\_\-EvtCntReset@{v792\_\-EvtCntReset}}
+\index{v792\_\-EvtCntReset@{v792\_\-EvtCntReset}!v792.h@{v792.h}}
+\paragraph[{v792\_\-EvtCntReset}]{\setlength{\rightskip}{0pt plus 5cm}void v792\_\-EvtCntReset ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  {\bf DWORD} {\em base})}\hfill\label{v792_8h_ac55abf9ce7cd67d18ded979ab4b54fe9}
+
+
+Definition at line 288 of file v792.c.\index{v792.h@{v792.h}!v792\_\-EvtTriggerSet@{v792\_\-EvtTriggerSet}}
+\index{v792\_\-EvtTriggerSet@{v792\_\-EvtTriggerSet}!v792.h@{v792.h}}
+\paragraph[{v792\_\-EvtTriggerSet}]{\setlength{\rightskip}{0pt plus 5cm}void v792\_\-EvtTriggerSet ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  {\bf DWORD} {\em base}, \/  int {\em count})}\hfill\label{v792_8h_a3b2bc7ff2f4b4ab41dbe834eba5516f1}
+
+
+Definition at line 128 of file v792.c.\index{v792.h@{v792.h}!v792\_\-IntDisable@{v792\_\-IntDisable}}
+\index{v792\_\-IntDisable@{v792\_\-IntDisable}!v792.h@{v792.h}}
+\paragraph[{v792\_\-IntDisable}]{\setlength{\rightskip}{0pt plus 5cm}void v792\_\-IntDisable ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  {\bf DWORD} {\em base})}\hfill\label{v792_8h_a2ef8260ef4fe27e40837801320ffc617}
+
+
+Definition at line 352 of file v792.c.\index{v792.h@{v792.h}!v792\_\-IntEnable@{v792\_\-IntEnable}}
+\index{v792\_\-IntEnable@{v792\_\-IntEnable}!v792.h@{v792.h}}
+\paragraph[{v792\_\-IntEnable}]{\setlength{\rightskip}{0pt plus 5cm}void v792\_\-IntEnable ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  {\bf DWORD} {\em base}, \/  int {\em level})}\hfill\label{v792_8h_adae02a9413e4b151f9ef8cc527e9d692}
+
+
+Definition at line 339 of file v792.c.\index{v792.h@{v792.h}!v792\_\-IntSet@{v792\_\-IntSet}}
+\index{v792\_\-IntSet@{v792\_\-IntSet}!v792.h@{v792.h}}
+\paragraph[{v792\_\-IntSet}]{\setlength{\rightskip}{0pt plus 5cm}void v792\_\-IntSet ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  {\bf DWORD} {\em base}, \/  int {\em level}, \/  int {\em vector})}\hfill\label{v792_8h_ae704f9e359d9504f3623e75f836163b6}
+
+
+Definition at line 328 of file v792.c.\index{v792.h@{v792.h}!v792\_\-isEvtReady@{v792\_\-isEvtReady}}
+\index{v792\_\-isEvtReady@{v792\_\-isEvtReady}!v792.h@{v792.h}}
+\paragraph[{v792\_\-isEvtReady}]{\setlength{\rightskip}{0pt plus 5cm}int v792\_\-isEvtReady ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  {\bf DWORD} {\em base})}\hfill\label{v792_8h_a9cf758eade2bf73135ddb04beaebe579}
+
+
+Definition at line 320 of file v792.c.\index{v792.h@{v792.h}!v792\_\-isPresent@{v792\_\-isPresent}}
+\index{v792\_\-isPresent@{v792\_\-isPresent}!v792.h@{v792.h}}
+\paragraph[{v792\_\-isPresent}]{\setlength{\rightskip}{0pt plus 5cm}int v792\_\-isPresent ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  {\bf DWORD} {\em base})}\hfill\label{v792_8h_aa0adfeaa5eca01071ebb851f38cc335c}
+
+
+Definition at line 543 of file v792.c.\index{v792.h@{v792.h}!v792\_\-LowThDisable@{v792\_\-LowThDisable}}
+\index{v792\_\-LowThDisable@{v792\_\-LowThDisable}!v792.h@{v792.h}}
+\paragraph[{v792\_\-LowThDisable}]{\setlength{\rightskip}{0pt plus 5cm}void v792\_\-LowThDisable ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  {\bf DWORD} {\em base})}\hfill\label{v792_8h_a69f05689b417afaa147650ccbd16c2cf}
+
+
+Definition at line 268 of file v792.c.\index{v792.h@{v792.h}!v792\_\-LowThEnable@{v792\_\-LowThEnable}}
+\index{v792\_\-LowThEnable@{v792\_\-LowThEnable}!v792.h@{v792.h}}
+\paragraph[{v792\_\-LowThEnable}]{\setlength{\rightskip}{0pt plus 5cm}void v792\_\-LowThEnable ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  {\bf DWORD} {\em base})}\hfill\label{v792_8h_a18d55eb7a70830ed3486ca903cea172a}
+
+
+Definition at line 258 of file v792.c.
+
+Referenced by v792\_\-Setup().\index{v792.h@{v792.h}!v792\_\-OnlineSet@{v792\_\-OnlineSet}}
+\index{v792\_\-OnlineSet@{v792\_\-OnlineSet}!v792.h@{v792.h}}
+\paragraph[{v792\_\-OnlineSet}]{\setlength{\rightskip}{0pt plus 5cm}void v792\_\-OnlineSet ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  {\bf DWORD} {\em base})}\hfill\label{v792_8h_a2b31dff81eccb0fd5342891f39b6919a}
+
+
+Definition at line 248 of file v792.c.
+
+Referenced by v792\_\-Setup().\index{v792.h@{v792.h}!v792\_\-printEntry@{v792\_\-printEntry}}
+\index{v792\_\-printEntry@{v792\_\-printEntry}!v792.h@{v792.h}}
+\paragraph[{v792\_\-printEntry}]{\setlength{\rightskip}{0pt plus 5cm}void v792\_\-printEntry (const {\bf v792\_\-Data} $\ast$ {\em v})}\hfill\label{v792_8h_a24de5c4823e19a5361b4fd5fe4f1f087}
+decoded printout of readout entry Not to be trusted for data decoding but acceptable for display purpose as its implementation is strongly compiler dependent and not flawless. 
+\begin{DoxyParams}{Parameters}
+\item[{\em v}]\end{DoxyParams}
+
+
+Definition at line 519 of file v792.c.\index{v792.h@{v792.h}!v792\_\-Read16@{v792\_\-Read16}}
+\index{v792\_\-Read16@{v792\_\-Read16}!v792.h@{v792.h}}
+\paragraph[{v792\_\-Read16}]{\setlength{\rightskip}{0pt plus 5cm}{\bf WORD} v792\_\-Read16 ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  {\bf DWORD} {\em base}, \/  int {\em offset})}\hfill\label{v792_8h_a2da00222f79ec8c939c45c45ca1a4998}
+
+
+Definition at line 24 of file v792.c.
+
+Referenced by v792\_\-Status().\index{v792.h@{v792.h}!v792\_\-Setup@{v792\_\-Setup}}
+\index{v792\_\-Setup@{v792\_\-Setup}!v792.h@{v792.h}}
+\paragraph[{v792\_\-Setup}]{\setlength{\rightskip}{0pt plus 5cm}int v792\_\-Setup ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  {\bf DWORD} {\em base}, \/  int {\em mode})}\hfill\label{v792_8h_ab1fa02b31b58838414803d8d750dbaa3}
+Sets all the necessary paramters for a given configuration. The configuration is provided by the mode argument. Add your own configuration in the case statement. Let me know your setting if you want to include it in the distribution. 
+\begin{DoxyParams}{Parameters}
+\item[{\em $\ast$mvme}]VME structure \item[{\em base}]Module base address \item[{\em mode}]Configuration mode number \item[{\em $\ast$nentry}]number of entries requested and returned. \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+MVME\_\-SUCCESS 
+\end{DoxyReturn}
+
+
+Definition at line 415 of file v792.c.
+
+Referenced by begin\_\-of\_\-run().\index{v792.h@{v792.h}!v792\_\-SingleShotReset@{v792\_\-SingleShotReset}}
+\index{v792\_\-SingleShotReset@{v792\_\-SingleShotReset}!v792.h@{v792.h}}
+\paragraph[{v792\_\-SingleShotReset}]{\setlength{\rightskip}{0pt plus 5cm}void v792\_\-SingleShotReset ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  {\bf DWORD} {\em base})}\hfill\label{v792_8h_a00c1512a1b145d46fdac9cbbfa867f61}
+
+
+Definition at line 298 of file v792.c.
+
+Referenced by init\_\-vme\_\-modules().\index{v792.h@{v792.h}!v792\_\-SoftReset@{v792\_\-SoftReset}}
+\index{v792\_\-SoftReset@{v792\_\-SoftReset}!v792.h@{v792.h}}
+\paragraph[{v792\_\-SoftReset}]{\setlength{\rightskip}{0pt plus 5cm}void v792\_\-SoftReset ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  {\bf DWORD} {\em base})}\hfill\label{v792_8h_aff0ebd895470a6d2708042eb48eb314b}
+
+
+Definition at line 237 of file v792.c.\index{v792.h@{v792.h}!v792\_\-Status@{v792\_\-Status}}
+\index{v792\_\-Status@{v792\_\-Status}!v792.h@{v792.h}}
+\paragraph[{v792\_\-Status}]{\setlength{\rightskip}{0pt plus 5cm}void v792\_\-Status ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  {\bf DWORD} {\em base})}\hfill\label{v792_8h_a3df455258c8d38e5c7959b0e16c64583}
+
+
+Definition at line 444 of file v792.c.
+
+Referenced by init\_\-vme\_\-modules().\index{v792.h@{v792.h}!v792\_\-ThresholdRead@{v792\_\-ThresholdRead}}
+\index{v792\_\-ThresholdRead@{v792\_\-ThresholdRead}!v792.h@{v792.h}}
+\paragraph[{v792\_\-ThresholdRead}]{\setlength{\rightskip}{0pt plus 5cm}int v792\_\-ThresholdRead ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  {\bf DWORD} {\em base}, \/  {\bf WORD} $\ast$ {\em threshold})}\hfill\label{v792_8h_a6410a5e010a043f3c1f0ccac13e89ec4}
+Read Thresholds 
+
+Definition at line 113 of file v792.c.
+
+Referenced by v792\_\-Status().\index{v792.h@{v792.h}!v792\_\-ThresholdWrite@{v792\_\-ThresholdWrite}}
+\index{v792\_\-ThresholdWrite@{v792\_\-ThresholdWrite}!v792.h@{v792.h}}
+\paragraph[{v792\_\-ThresholdWrite}]{\setlength{\rightskip}{0pt plus 5cm}int v792\_\-ThresholdWrite ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  {\bf DWORD} {\em base}, \/  {\bf WORD} $\ast$ {\em threshold})}\hfill\label{v792_8h_a3eec625d3dca654c6f99f82d964d4287}
+Write Thresholds and read them back 
+
+Definition at line 91 of file v792.c.
+
+Referenced by begin\_\-of\_\-run().\index{v792.h@{v792.h}!v792\_\-Trigger@{v792\_\-Trigger}}
+\index{v792\_\-Trigger@{v792\_\-Trigger}!v792.h@{v792.h}}
+\paragraph[{v792\_\-Trigger}]{\setlength{\rightskip}{0pt plus 5cm}void v792\_\-Trigger ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  {\bf DWORD} {\em base})}\hfill\label{v792_8h_a14c74a32db3fd4dacdeadfdfdefaff26}
+cause a software trigger 
+
+Definition at line 395 of file v792.c.\index{v792.h@{v792.h}!v792\_\-Write16@{v792\_\-Write16}}
+\index{v792\_\-Write16@{v792\_\-Write16}!v792.h@{v792.h}}
+\paragraph[{v792\_\-Write16}]{\setlength{\rightskip}{0pt plus 5cm}void v792\_\-Write16 ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  {\bf DWORD} {\em base}, \/  int {\em offset}, \/  {\bf WORD} {\em value})}\hfill\label{v792_8h_ab06f0b9d499f3b99ad9d9ad1cb879b29}
+
+
+Definition at line 30 of file v792.c.

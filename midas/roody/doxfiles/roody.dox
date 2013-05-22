@@ -1,0 +1,24 @@
+/*! \mainpage Roody documentation
+  \anchor top <b> Welcome to the world of Roody. </b>
+  
+  @section Introduction
+   Roody is <a href="http://root.cern.ch">ROOT</a> application to display
+   histograms and other contents from ROOT and HBOOK files and from
+   the online connection to the MIDAS and ROME online data analyzers.
+   It is meant for display of \em .root files and \em .hbook files.
+   If running this application in conjunction with either the 
+   <a href="http://midas.psi.ch/htmldoc/analyzer_struct.html">Midas analyzer </a> or
+   the <a href="http://midas.psi.ch/rome/">ROME analyzer</a>, it will allow
+   to visualize \em online data retrieved through a socket port.
+   
+  Chapters are: 
+  \arg @ref quickstart : Installation instructions.
+  \arg @ref features : Detail list of the Roody features.
+    
+  <br>
+  \htmlonly <center><small> <em>
+  Powered by<br><a href=http://www.stack.nl/~dimitri/doxygen/features.html>
+  <img src="doxygen.png" alt="doxygen" style="border: 0px solid;"></a>
+  </em> </small> </center> \endhtmlonly 
+*/
+

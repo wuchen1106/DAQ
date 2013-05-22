@@ -1,0 +1,43 @@
+.TH "OPEN_RECORD" 3 "31 May 2012" "Version 2.3.0-0" "Midas" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+OPEN_RECORD \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "\fBINT\fP \fBhandle\fP"
+.br
+.ti -1c
+.RI "\fBWORD\fP \fBaccess_mode\fP"
+.br
+.ti -1c
+.RI "\fBWORD\fP \fBflags\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 350 of file msystem.h.
+.SH "Field Documentation"
+.PP 
+.SS "\fBWORD\fP \fBOPEN_RECORD::access_mode\fP"R/W flags 
+.PP
+Definition at line 352 of file msystem.h.
+.PP
+Referenced by cm_cleanup(), and db_open_database().
+.SS "\fBWORD\fP \fBOPEN_RECORD::flags\fP"Data format, ... 
+.PP
+Definition at line 353 of file msystem.h.
+.SS "\fBINT\fP \fBOPEN_RECORD::handle\fP"Handle of record base key 
+.PP
+Definition at line 351 of file msystem.h.
+.PP
+Referenced by cm_cleanup(), db_close_database(), and db_open_database().
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Midas from the source code.

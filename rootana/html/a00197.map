@@ -1,0 +1,30 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$a00049.html" title="analyzer.cxx" alt="" coords="5,83,112,112"/>
+<area shape="rect" id="node5" href="$a00051.html" title="event_dump.cxx" alt="" coords="136,83,269,112"/>
+<area shape="rect" id="node7" href="$a00096.html" title="include/TPeriodicClass.hxx" alt="" coords="293,83,491,112"/>
+<area shape="rect" id="node9" href="$a00102.html" title="include/TRootanaEventLoop.hxx" alt="" coords="515,83,752,112"/>
+<area shape="rect" id="node11" href="$a00097.html" title="libAnalyzer/TPeriodicClass.hxx" alt="" coords="776,83,997,112"/>
+<area shape="rect" id="node17" href="$a00103.html" title="libAnalyzer/TRootanaEventLoop.hxx" alt="" coords="1021,83,1283,112"/>
+<area shape="rect" id="node60" href="$a00137.html" title="libMidasInterface/TMidasOnline.cxx" alt="" coords="1307,83,1563,112"/>
+<area shape="rect" id="node62" href="$a00146.html" title="tests/testODB.cxx" alt="" coords="1587,83,1739,112"/>
+<area shape="rect" id="node13" href="$a00120.html" title="libAnalyzer/TPeriodicClass.cxx" alt="" coords="559,160,780,189"/>
+<area shape="rect" id="node15" href="$a00121.html" title="libAnalyzer/TRootanaEventLoop.cxx" alt="" coords="804,160,1065,189"/>
+<area shape="rect" id="node19" href="$a00098.html" title="include/TRootanaDisplay.hxx" alt="" coords="631,315,841,344"/>
+<area shape="rect" id="node21" href="$a00116.html" title="libAnalyzer/analyzer_example.cxx" alt="" coords="1140,160,1388,189"/>
+<area shape="rect" id="node24" href="$a00099.html" title="libAnalyzerDisplay/TRootanaDisplay.hxx" alt="" coords="1839,160,2121,189"/>
+<area shape="rect" id="node26" href="$a00064.html" title="include/TCanvasHandleBase.hxx" alt="" coords="2468,237,2705,267"/>
+<area shape="rect" id="node28" href="$a00124.html" title="libAnalyzerDisplay/display_example.cxx" alt="" coords="2669,392,2952,421"/>
+<area shape="rect" id="node30" href="$a00065.html" title="libAnalyzerDisplay/TCanvasHandleBase.hxx" alt="" coords="1505,237,1815,267"/>
+<area shape="rect" id="node56" href="$a00131.html" title="libAnalyzerDisplay/TRootanaDisplay.cxx" alt="" coords="1839,237,2121,267"/>
+<area shape="rect" id="node58" href="$a00132.html" title="libAnalyzerDisplay/TRootanaDisplayDict.h" alt="" coords="2145,237,2444,267"/>
+<area shape="rect" id="node32" href="$a00066.html" title="include/TComplicatedExampleCanvas.hxx" alt="" coords="1511,315,1809,344"/>
+<area shape="rect" id="node34" href="$a00072.html" title="include/TFancyHistogramCanvas.hxx" alt="" coords="2231,315,2497,344"/>
+<area shape="rect" id="node37" href="$a00104.html" title="include/TSimpleExampleCanvas.hxx" alt="" coords="865,315,1124,344"/>
+<area shape="rect" id="node39" href="$a00067.html" title="libAnalyzerDisplay/TComplicatedExampleCanvas.hxx" alt="" coords="1833,315,2207,344"/>
+<area shape="rect" id="node44" href="$a00073.html" title="libAnalyzerDisplay/TFancyHistogramCanvas.hxx" alt="" coords="1148,315,1487,344"/>
+<area shape="rect" id="node51" href="$a00105.html" title="libAnalyzerDisplay/TSimpleExampleCanvas.hxx" alt="" coords="2521,315,2855,344"/>
+<area shape="rect" id="node42" href="$a00126.html" title="libAnalyzerDisplay/TComplicatedExampleCanvas.cxx" alt="" coords="1833,392,2207,421"/>
+<area shape="rect" id="node46" href="$a00127.html" title="libAnalyzerDisplay/TFancyHistogramCanvas.cxx" alt="" coords="937,392,1276,421"/>
+<area shape="rect" id="node48" href="$a00128.html" title="libAnalyzerDisplay/TFancyHistogramCanvasDict.h" alt="" coords="1300,392,1652,421"/>
+<area shape="rect" id="node54" href="$a00133.html" title="libAnalyzerDisplay/TSimpleExampleCanvas.cxx" alt="" coords="2312,392,2645,421"/>
+</map>

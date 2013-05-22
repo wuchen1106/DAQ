@@ -1,0 +1,206 @@
+.TH "FrontendOperation" 3 "31 May 2012" "Version 2.3.0-0" "Midas" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+FrontendOperation \- SECTION 6: Frontend Operation 
+
+.br
+ 
+.PP
+
+.br
+.SH "Introduction"
+.PP
+The \fBterms\fP that are needed for a discussion of the frontend will be introduced here. The features of a typical frontend program will then be explained by reference to some of the examples included with the MIDAS package. 
+.br
+.SS "Frontend Program"
+A 'frontend program' refers to a \fBfrontend - MIDAS Frontend application\fP running on a particular computer which has access to hardware equipment in use by the experiment. The frontend program (image) consists of
+.IP "\(bu" 2
+a fixed \fIexperiment-independent system framework\fP (\fBmfe.c\fP)
+.IP "\(bu" 2
+a \fIuser part\fP (\fBfrontend.c\fP)
+.PP
+.PP
+A set of templates for the user part is provided in the MIDAS package. The hardware access is only apparent in the user part ( referred to here as \fBfrontend.c\fP, but the user may select any name). The system framework is contained in the file \fBmfe.c\fP, which is part of the MIDAS package. The term 'frontend code' in this document usually refers to the user part, since the system framework is fixed. 
+.br
+.PP
+The frontend task, once built, is run as described as follows.
+.PP
+ 
+.SS "frontend  - MIDAS Frontend application"
+The 'frontend' task is built by the user and may have any name the user chooses (e.g. fecamac, fegpib). The purpose of a \fBFrontend Program\fP is to collect data from hardware and transmit this information to a central place where data logging and analysis can be performed. This task is achieved with
+.PP
+.IP "1." 4
+a specific \fBFrontend code\fP written by the user describing the sequence of action to acquire the hardware data and
+.IP "2." 4
+a framework code handling the data flow control, data transmission and run control operation.
+.PP
+.PP
+The framework code (\fBmfe.c\fP) has the following arguments:
+.IP "\(bu" 2
+\fB Arguments \fP
+.IP "  \(bu" 4
+[-h hostname ] : host name (see \fBodbedit - ODB Editor and run control utility\fP)
+.IP "  \(bu" 4
+[-e exptname ] : experiment name (see \fBodbedit - ODB Editor and run control utility\fP)
+.IP "  \(bu" 4
+[-D ] : Become a Daemon.
+.IP "  \(bu" 4
+[-O ] : Become a Daemon but keep stdout
+.IP "  \(bu" 4
+[-d ] : Used for debugging the frontend
+.IP "  \(bu" 4
+[-i index] : Set frontend index (used with \fBmevb - event builder utility\fP . See also \fBPrinciple of the Event Builder and related frontend fragment\fP).
+.PP
+
+.PP
+.PP
+Note that the new argument (-i index) has been introduced to facilitate the multiple frontend configuration operation required for the \fBEvent Builder Functions\fP.
+.PP
+.IP "\(bu" 2
+\fB Usage \fP
+.PP
+.PP
+Start the application as a daemon, using the default host, experiment and port : 
+.PP
+.nf
+e.g. fecamac -D
+
+.fi
+.PP
+ Start the application superceding the default host, experiment and port: 
+.PP
+.nf
+e.g. fegpib -e exp218 -h isdaq10 -p 7077 -D
+
+.fi
+.PP
+.PP
+ 
+.SS "Hardware Modules"
+Examples of hardware modules accessed by the frontend are ADC modules, TDC modules, Scaler modules etc.
+.PP
+ 
+.SS "Hardware Drivers"
+The frontend is usually linked to a \fBdriver\fP for the particular hardware in use. Dedicated header and library files (drivers) for hardware access to CAMAC, VME, Fastbus, GPIB and RS232 are part of the MIDAS distribution set. Several libraries and drivers exist for the various bus systems. See \fBSupported Hardware: MIDAS driver library\fP.
+.PP
+The drivers are located in the drivers directory of the MIDAS distribution. Some libraries consist only of a header file, others of a C file plus a header file. The file names usually refer to the manufacturer abbreviation followed by the model number of the device. The libraries are continuously expanding to widen MIDAS support.
+.PP
+ESONE standard routines for CAMAC are supplied and permit the re-use of the frontend code among different platforms as well as among different CAMAC hardware interfaces, without modification of the code.
+.PP
+ 
+.SS "Software Equipment"
+Under MIDAS, hardware equipment from the experiment is structured into software entities also called 'Equipments'. A software 'Equipment' refer to a collection of hardware equipment (devices) that are grouped together for convenience, such as
+.IP "\(bu" 2
+a set of high voltage supplies
+.IP "\(bu" 2
+one or more crates of digitizing electronics e.g. ADCs and TDCs
+.IP "\(bu" 2
+a set of scalers  
+.PP
+.PP
+From a software point of view, we keep this same term, i.e. 'Equipment', to refer to the means of collecting the data related to this set of hardware equipment. 
+.br
+ Thus the term \fB'Equipment'\fP refers to \fI a single or a collection of sub-tasks meant to collect and regroup logical or physical data under a single and uniquely identified event.\fP 
+.br
+  An \fB'event'\fP is thus a collection of data sent into the data stream by an 'Equipment'. 
+.br
+.SS "Multiple Equipments and Frontends"
+A single frontend may contain several Equipments. For example, an experiment may have a frontend to service crates of ADC, TDC and Scaler modules. The ADC and TDC modules may be grouped together in one Equipment, and the scalers in a second Equipment.
+.PP
+In complex experimental setups, several frontends controlling different sets of hardware equipment may be attached simultaneously to a given experiment, i.e. they share the same Online Database. For example, one frontend might service the VME hardware, while another might service the CAMAC hardware.
+.SS "Frontend Features"
+A typical frontend will:
+.PP
+.IP "\(bu" 2
+Register the given Equipment list(s) to a specific MIDAS experiment.
+.IP "\(bu" 2
+Provide the mean of collecting data from the hardware source defined by each Equipment read function.
+.IP "\(bu" 2
+Gather these data in one of the supported formats (i.e. Fixed format or in MIDAS data bank(s)) for each Equipment.
+.IP "\(bu" 2
+Send these data banks to the buffer manager either locally or remotely.
+.IP "\(bu" 2
+Periodically collect statistics of the acquisition task, and send them to the Online Database.
+.PP
+.PP
+ 
+.SS "Data transfer from the frontend"
+The system frontend framework (\fBmfe.c\fP) sends events to the buffer manager and optionally a copy to the Online Database (ODB). A 'Data cache' in the frontend and on the server side reduces the amount of network operations pushing the transfer speed closer to the physical limit of the network configuration.
+.SS "Optimizing data transfer"
+A frontend's data transfer can be optimized for all kinds of experiments. Those where \fB multiple small events \fP are produced can have the data built into \fBsuper-events\fP, by removing the bank headers to reduce the amount of data transferred.
+.PP
+Other frontends that produce \fB very large amounts of data in one bank \fP (too large to be transferred as a single bank), can transmit the data bank as a number of \fBfragments\fP, which are combined into a single bank by the system code.
+.PP
+An \fBevent builder\fP mechanism is also available, that can combine events from different into a composite event.
+.PP
+ 
+.SS "Frontend event triggers"
+The \fB data collection \fP in the frontend framework can be \fBtriggered\fP by several mechanisms. Currently the frontend supports five different kind of event trigger: 
+.PD 0
+
+.IP "\(bu" 2
+\fB Periodic events: \fP 
+.br
+ Scheduled event based on a fixed time interval. They can be used to read information such as scaler values, temperatures etc. 
+.IP "\(bu" 2
+\fB Polled events: \fP 
+.br
+ Hardware signal read continuously for a certain time period. If the signal is TRUE, the Equipment readout will be triggered. 
+.IP "\(bu" 2
+\fB Interrupt events: \fP 
+.br
+ Generated by particular hardware device supporting interrupt mode (e.g. LAM if CAMAC). 
+.IP "\(bu" 2
+\fB Slow Control events: \fP 
+.br
+ Special class of events that are used in the slow control system. 
+.IP "\(bu" 2
+\fB Manual events: \fP 
+.br
+ Triggered by a remote procedure call (RPC). The web interface provides an extra button for manual triggering by the user. 
+.PP
+.PP
+Each of these types of trigger can be enabled or activated for a particular experiment's \fBrun state, transition state\fP or a combination of any of them .
+.PP
+Examples such as
+.IP "\(bu" 2
+\fI read scaler event \fBonly when running\fP \fP or
+.IP "\(bu" 2
+\fI read periodic event if the run state is \fB not paused and on all transitions\fP \fP
+.PP
+.PP
+are possible (see \fBRO_Flags\fP ). 
+.br
+ A frontend can also cause a transition to be \fBdelayed\fP until a particular condition is met (see \fBDeferred Transition\fP ).
+.PP
+ 
+.SS "Event Readout Functions"
+\fIAssociated with each Equipment \fPis an \fBreadout function\fP which \fI runs when the Equipment is triggered\fP. 
+.br
+This function performs the actions required at the Equipment trigger, for example reading out the Equipment data and packing it into banks.
+.PP
+ 
+.SH "Equipment List"
+.PP
+\fIThe user section (\fBfrontend.c\fP) must have an \fBEquipment List\fP for each defined Equipment\fP, organized as a structure definition. One such structure is needed for each of the Equipments defined in the frontend. Each defined Equipment is created in the Online Database when the frontend program first runs.
+.PP
+The specifics of the \fBEquipment List structure\fP is described below.
+.PP
+.IP "\(bu" 2
+\fBThe ODB /Equipment tree\fP
+.IP "\(bu" 2
+\fBEquipment list for a Frontend\fP
+.IP "\(bu" 2
+\fBExplanation of Equipment list parameters\fP
+.IP "\(bu" 2
+\fBFrontend code\fP
+.PP
+.PP
+
+.br
+ 
+.PP
+
+.br
+  

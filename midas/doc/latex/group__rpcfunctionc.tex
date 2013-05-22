@@ -1,0 +1,84 @@
+\subsection{Midas RPC Functions (rpc\_\-xxx)}
+\label{group__rpcfunctionc}\index{Midas RPC Functions (rpc\_\-xxx)@{Midas RPC Functions (rpc\_\-xxx)}}
+\subsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{group__rpcfunctionc_ga86593a38d88520b4cef9644b7fdc6d23}{rpc\_\-register\_\-client} (const char $\ast$name, RPC\_\-LIST $\ast$list)
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{group__rpcfunctionc_ga8503759d27477f8dd4558864dde5a687}{rpc\_\-register\_\-functions} (const RPC\_\-LIST $\ast$new\_\-list, \hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT}($\ast$func)(\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT}, void $\ast$$\ast$))
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{group__rpcfunctionc_gaab360e4fd185439b0913c723581115ea}{rpc\_\-set\_\-option} (HNDLE hConn, \hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} item, \hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} value)
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{group__rpcfunctionc_ga3191feb350dfa7289e8c7cf2f5993222}{rpc\_\-send\_\-event} (\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} buffer\_\-handle, void $\ast$source, \hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} buf\_\-size, \hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} async\_\-flag, \hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} mode)
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{group__rpcfunctionc_ga83d80e4f1e8d2a2d7f38e58dcfd3c711}{rpc\_\-flush\_\-event} ()
+\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+dox dox dox 
+
+\subsubsection{Function Documentation}
+\index{rpcfunctionc@{rpcfunctionc}!rpc\_\-flush\_\-event@{rpc\_\-flush\_\-event}}
+\index{rpc\_\-flush\_\-event@{rpc\_\-flush\_\-event}!rpcfunctionc@{rpcfunctionc}}
+\paragraph[{rpc\_\-flush\_\-event}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} rpc\_\-flush\_\-event ()}\hfill\label{group__rpcfunctionc_ga83d80e4f1e8d2a2d7f38e58dcfd3c711}
+dox Send event residing in the TCP cache buffer filled by rpc\_\-send\_\-event. This routine should be called when a run is stopped.
+
+\begin{DoxyReturn}{Returns}
+RPC\_\-SUCCESS, RPC\_\-NET\_\-ERROR 
+\end{DoxyReturn}
+
+
+Definition at line 10632 of file midas.c.
+
+Referenced by check\_\-polled\_\-events(), scan\_\-fragment(), scheduler(), send\_\-event(), and tr\_\-stop().\index{rpcfunctionc@{rpcfunctionc}!rpc\_\-register\_\-client@{rpc\_\-register\_\-client}}
+\index{rpc\_\-register\_\-client@{rpc\_\-register\_\-client}!rpcfunctionc@{rpcfunctionc}}
+\paragraph[{rpc\_\-register\_\-client}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} rpc\_\-register\_\-client (const char $\ast$ {\em name}, \/  RPC\_\-LIST $\ast$ {\em list})}\hfill\label{group__rpcfunctionc_ga86593a38d88520b4cef9644b7fdc6d23}
+dox Register RPC client for standalone mode (without standard midas server) 
+\begin{DoxyParams}{Parameters}
+\item[{\em list}]Array of RPC\_\-LIST structures containing function IDs and parameter definitions. The end of the list must be indicated by a function ID of zero. \item[{\em name}]Name of this client \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+RPC\_\-SUCCESS 
+\end{DoxyReturn}
+
+
+Definition at line 8440 of file midas.c.\index{rpcfunctionc@{rpcfunctionc}!rpc\_\-register\_\-functions@{rpc\_\-register\_\-functions}}
+\index{rpc\_\-register\_\-functions@{rpc\_\-register\_\-functions}!rpcfunctionc@{rpcfunctionc}}
+\paragraph[{rpc\_\-register\_\-functions}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} rpc\_\-register\_\-functions (const RPC\_\-LIST $\ast$ {\em new\_\-list}, \/  {\bf INT}($\ast$)({\bf INT}, void $\ast$$\ast$) {\em func})}\hfill\label{group__rpcfunctionc_ga8503759d27477f8dd4558864dde5a687}
+Register a set of RPC functions (both as clients or servers) 
+\begin{DoxyParams}{Parameters}
+\item[{\em new\_\-list}]Array of RPC\_\-LIST structures containing function IDs and parameter definitions. The end of the list must be indicated by a function ID of zero. \item[{\em func}]Default dispatch function\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+RPC\_\-SUCCESS, RPC\_\-NO\_\-MEMORY, RPC\_\-DOUBLE\_\-DEFINED 
+\end{DoxyReturn}
+
+
+Definition at line 8460 of file midas.c.
+
+Referenced by cm\_\-connect\_\-experiment1(), and rpc\_\-register\_\-client().\index{rpcfunctionc@{rpcfunctionc}!rpc\_\-send\_\-event@{rpc\_\-send\_\-event}}
+\index{rpc\_\-send\_\-event@{rpc\_\-send\_\-event}!rpcfunctionc@{rpcfunctionc}}
+\paragraph[{rpc\_\-send\_\-event}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} rpc\_\-send\_\-event ({\bf INT} {\em buffer\_\-handle}, \/  void $\ast$ {\em source}, \/  {\bf INT} {\em buf\_\-size}, \/  {\bf INT} {\em async\_\-flag}, \/  {\bf INT} {\em mode})}\hfill\label{group__rpcfunctionc_ga3191feb350dfa7289e8c7cf2f5993222}
+dox Fast send\_\-event routine which bypasses the RPC layer and sends the event directly at the TCP level. 
+\begin{DoxyParams}{Parameters}
+\item[{\em buffer\_\-handle}]Handle of the buffer to send the event to. Must be obtained via bm\_\-open\_\-buffer. \item[{\em source}]Address of the event to send. It must have a proper event header. \item[{\em buf\_\-size}]Size of event in bytes with header. \item[{\em async\_\-flag}]SYNC / ASYNC flag. In ASYNC mode, the function returns immediately if it cannot send the event over the network. In SYNC mode, it waits until the packet is sent (blocking). \item[{\em mode}]Determines in which mode the event is sent. If zero, use RPC socket, if one, use special event socket to bypass RPC layer on the server side.\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+BM\_\-INVALID\_\-PARAM, BM\_\-ASYNC\_\-RETURN, RPC\_\-SUCCESS, RPC\_\-NET\_\-ERROR, RPC\_\-NO\_\-CONNECTION, RPC\_\-EXCEED\_\-BUFFER 
+\end{DoxyReturn}
+
+
+Definition at line 10419 of file midas.c.
+
+Referenced by check\_\-polled\_\-events(), receive\_\-trigger\_\-event(), scheduler(), send\_\-event(), and source\_\-scan().\index{rpcfunctionc@{rpcfunctionc}!rpc\_\-set\_\-option@{rpc\_\-set\_\-option}}
+\index{rpc\_\-set\_\-option@{rpc\_\-set\_\-option}!rpcfunctionc@{rpcfunctionc}}
+\paragraph[{rpc\_\-set\_\-option}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} rpc\_\-set\_\-option (HNDLE {\em hConn}, \/  {\bf INT} {\em item}, \/  {\bf INT} {\em value})}\hfill\label{group__rpcfunctionc_gaab360e4fd185439b0913c723581115ea}
+dox Set RPC option 
+\begin{DoxyParams}{Parameters}
+\item[{\em hConn}]RPC connection handle, -\/1 for server connection, -\/2 for rpc connect timeout \item[{\em item}]One of RPC\_\-Oxxx \item[{\em value}]Value to set \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+RPC\_\-SUCCESS 
+\end{DoxyReturn}
+
+
+Definition at line 9492 of file midas.c.
+
+Referenced by bm\_\-receive\_\-event(), cm\_\-transition1(), db\_\-send\_\-changed\_\-records(), main(), scheduler(), and update\_\-odb().

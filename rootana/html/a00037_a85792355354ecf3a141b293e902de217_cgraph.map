@@ -1,0 +1,18 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$a00024.html#a47bf68fd34500cbe2d78965f07a309dd" title="TMainDisplayWindow::IsDisplayPaused" alt="" coords="351,64,625,93"/>
+<area shape="rect" id="node5" href="$a00038.html#a924fce568d61d499154590e8c1c564a8" title="Are we processing online data?" alt="" coords="748,5,969,35"/>
+<area shape="rect" id="node7" href="$a00024.html#a7c2c2fe58f6b1ab69e38b8ea518e2c9f" title="This resizing is still not working right! The secondary tabs are not properly resizing!!!..." alt="" coords="740,59,977,88"/>
+<area shape="rect" id="node9" href="$a00037.html#aa6ea6c598e0f215dd45607a1b5b9a59f" title="TRootanaDisplay::SetCachedDataContainer" alt="" coords="329,272,647,301"/>
+<area shape="rect" id="node11" href="$a00037.html#a73d1003d1db272c7b1e2b062f3f4585a" title="This method can be implemented by users to update user histograms." alt="" coords="355,325,621,355"/>
+<area shape="rect" id="node13" href="$a00037.html#adb28b4bea380c50a1bba7a03266e606a" title="TRootanaDisplay::UpdatePlotsAction" alt="" coords="353,219,623,248"/>
+<area shape="rect" id="node15" href="$a00038.html#ab3c9be09f6e0a6e64f68fc88400b697f" title="Current Run Number." alt="" coords="696,432,1021,461"/>
+<area shape="rect" id="node17" href="$a00024.html#a130d3cea0deae757a0d9c5e9aa01d47c" title="Return the index number for the current tab." alt="" coords="697,485,1020,515"/>
+<area shape="rect" id="node19" href="$a00037.html#a1277bfc16f1caff4ec6c604eb574d334" title="Get Display name." alt="" coords="731,539,987,568"/>
+<area shape="rect" id="node21" href="$a00037.html#aa6680d736ac16cd6f55e050d02dcfb5f" title="TRootanaDisplay::GetDisplayWindow" alt="" coords="725,112,992,141"/>
+<area shape="rect" id="node23" href="$a00024.html#a10a03feae76f7aaeafeb4f37bc215ecd" title="TMainDisplayWindow::GetEmbeddedCanvas" alt="" coords="701,165,1016,195"/>
+<area shape="rect" id="node27" href="$a00024.html#a0954e9c617548eabb48e0a83089f22ed" title="TMainDisplayWindow::GetMain" alt="" coords="745,219,972,248"/>
+<area shape="rect" id="node29" href="$a00015.html#a4d07e5a76a135df4f3368c82cc549c09" title="Get the MIDAS data for this event, in TMidasEvent format." alt="" coords="740,272,977,301"/>
+<area shape="rect" id="node31" href="$a00030.html#acbaff1df97247584f3772ac8b5df720e" title="return the serial number" alt="" coords="741,325,976,355"/>
+<area shape="rect" id="node34" href="$a00037.html#a65af307976c9254b8e34fe386e210ab5" title="This method can be implemented by users to plotting of current canvas." alt="" coords="749,379,968,408"/>
+<area shape="rect" id="node25" href="$a00129.html#a5c287c5bdb1cc0ac6e64de9aa7d4db38" title="Pull the embedded canvas out of the compositeframe." alt="" coords="1071,165,1444,195"/>
+</map>

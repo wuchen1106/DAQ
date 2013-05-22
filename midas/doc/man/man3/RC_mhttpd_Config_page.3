@@ -1,0 +1,15 @@
+.TH "RC_mhttpd_Config_page" 3 "31 May 2012" "Version 2.3.0-0" "Midas" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+RC_mhttpd_Config_page \- Config page 
+.PP
+This page is displayed by pressing the \fBConfig Button\fP ( \fBif present\fP) on the \fBMain Status Page\fP . This allows the user to change the refresh period of the Status page.
+.PP
+ mhttpd Config page 
+.br
+  
+.PP
+It is important to note that the \fBrefresh\fP of the Status Page is not 'event driven' but is controlled by a timer whose rate is adjustable through the \fBConfig button\fP. This means the information at any given time may reflect the experiment state of up to \fI n \fP seconds in the past, where \fI n \fP is the timer setting of the refresh parameter.
+.PP
+  

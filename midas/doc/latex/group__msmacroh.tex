@@ -1,0 +1,72 @@
+\subsection{System Macros}
+\label{group__msmacroh}\index{System Macros@{System Macros}}
+\subsubsection*{Defines}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{group__msmacroh_ga4670ac841b4b8e3c3141a91a743bc61d}{WORD\_\-SWAP}(x)
+\item 
+\#define \hyperlink{group__msmacroh_gadb40ea04e4e009bbde68c027a8f95039}{DWORD\_\-SWAP}(x)
+\item 
+\#define \hyperlink{group__msmacroh_ga8c6db33e3f8af89e87556d9f7a9b32a8}{QWORD\_\-SWAP}(x)
+\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+dox dox 
+
+\subsubsection{Define Documentation}
+\index{msmacroh@{msmacroh}!DWORD\_\-SWAP@{DWORD\_\-SWAP}}
+\index{DWORD\_\-SWAP@{DWORD\_\-SWAP}!msmacroh@{msmacroh}}
+\paragraph[{DWORD\_\-SWAP}]{\setlength{\rightskip}{0pt plus 5cm}\#define DWORD\_\-SWAP(x)}\hfill\label{group__msmacroh_gadb40ea04e4e009bbde68c027a8f95039}
+{\bfseries Value:}
+\begin{DoxyCode}
+{ BYTE _tmp;                              \
+                       _tmp= *((BYTE *)(x));                    \
+                       *((BYTE *)(x)) = *(((BYTE *)(x))+3);     \
+                       *(((BYTE *)(x))+3) = _tmp;               \
+                       _tmp= *(((BYTE *)(x))+1);                \
+                       *(((BYTE *)(x))+1) = *(((BYTE *)(x))+2); \
+                       *(((BYTE *)(x))+2) = _tmp; }
+\end{DoxyCode}
+SWAP DWORD macro 
+
+Definition at line 78 of file msystem.h.
+
+Referenced by bk\_\-swap().\index{msmacroh@{msmacroh}!QWORD\_\-SWAP@{QWORD\_\-SWAP}}
+\index{QWORD\_\-SWAP@{QWORD\_\-SWAP}!msmacroh@{msmacroh}}
+\paragraph[{QWORD\_\-SWAP}]{\setlength{\rightskip}{0pt plus 5cm}\#define QWORD\_\-SWAP(x)}\hfill\label{group__msmacroh_ga8c6db33e3f8af89e87556d9f7a9b32a8}
+{\bfseries Value:}
+\begin{DoxyCode}
+{ BYTE _tmp;                              \
+                       _tmp= *((BYTE *)(x));                    \
+                       *((BYTE *)(x)) = *(((BYTE *)(x))+7);     \
+                       *(((BYTE *)(x))+7) = _tmp;               \
+                       _tmp= *(((BYTE *)(x))+1);                \
+                       *(((BYTE *)(x))+1) = *(((BYTE *)(x))+6); \
+                       *(((BYTE *)(x))+6) = _tmp;               \
+                       _tmp= *(((BYTE *)(x))+2);                \
+                       *(((BYTE *)(x))+2) = *(((BYTE *)(x))+5); \
+                       *(((BYTE *)(x))+5) = _tmp;               \
+                       _tmp= *(((BYTE *)(x))+3);                \
+                       *(((BYTE *)(x))+3) = *(((BYTE *)(x))+4); \
+                       *(((BYTE *)(x))+4) = _tmp; }
+\end{DoxyCode}
+SWAP QWORD macro 
+
+Definition at line 90 of file msystem.h.
+
+Referenced by bk\_\-swap().\index{msmacroh@{msmacroh}!WORD\_\-SWAP@{WORD\_\-SWAP}}
+\index{WORD\_\-SWAP@{WORD\_\-SWAP}!msmacroh@{msmacroh}}
+\paragraph[{WORD\_\-SWAP}]{\setlength{\rightskip}{0pt plus 5cm}\#define WORD\_\-SWAP(x)}\hfill\label{group__msmacroh_ga4670ac841b4b8e3c3141a91a743bc61d}
+{\bfseries Value:}
+\begin{DoxyCode}
+{ BYTE _tmp;                               \
+                       _tmp= *((BYTE *)(x));                    \
+                       *((BYTE *)(x)) = *(((BYTE *)(x))+1);     \
+                       *(((BYTE *)(x))+1) = _tmp; }
+\end{DoxyCode}
+SWAP WORD macro 
+
+Definition at line 69 of file msystem.h.
+
+Referenced by bk\_\-swap().

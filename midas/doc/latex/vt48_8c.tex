@@ -1,0 +1,69 @@
+\subsection{vt48.c File Reference}
+\label{vt48_8c}\index{vt48.c@{vt48.c}}
+\subsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{vt48_8c_a1cefc6582d808ef387ecc7016d9577fa}{vt48\_\-EventRead} (\hyperlink{structMVME__INTERFACE}{MVME\_\-INTERFACE} $\ast$\hyperlink{fevmemodules_8c_aeab89db2ad759342a32dcd50a0a0156c}{myvme}, \hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} base, \hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} $\ast$pdest, int $\ast$nentry)
+\item 
+int \hyperlink{vt48_8c_aa6237edcb797fb9ebb0d447a5b1edbcd}{vt48\_\-Setup} (\hyperlink{structMVME__INTERFACE}{MVME\_\-INTERFACE} $\ast$mvme, \hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} base, int mode)
+\end{DoxyCompactItemize}
+
+
+\subsubsection{Function Documentation}
+\index{vt48.c@{vt48.c}!vt48\_\-EventRead@{vt48\_\-EventRead}}
+\index{vt48\_\-EventRead@{vt48\_\-EventRead}!vt48.c@{vt48.c}}
+\paragraph[{vt48\_\-EventRead}]{\setlength{\rightskip}{0pt plus 5cm}int vt48\_\-EventRead ({\bf MVME\_\-INTERFACE} $\ast$ {\em myvme}, \/  {\bf DWORD} {\em base}, \/  {\bf DWORD} $\ast$ {\em pdest}, \/  int $\ast$ {\em nentry})}\hfill\label{vt48_8c_a1cefc6582d808ef387ecc7016d9577fa}
+Read one Event 
+\begin{DoxyParams}{Parameters}
+\item[{\em myvme}]vme structure \item[{\em base}]TF48 base address \item[{\em pdest}]Destination pointer \item[{\em entry}]return number of entry \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 28 of file vt48.c.\index{vt48.c@{vt48.c}!vt48\_\-RegPrint@{vt48\_\-RegPrint}}
+\index{vt48\_\-RegPrint@{vt48\_\-RegPrint}!vt48.c@{vt48.c}}
+\paragraph[{vt48\_\-RegPrint}]{\setlength{\rightskip}{0pt plus 5cm}void vt48\_\-RegPrint ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  {\bf DWORD} {\em base})}\hfill\label{vt48_8c_a0601108f279d6ef9ebb18ab81057f511}
+
+
+Definition at line 150 of file vt48.c.\index{vt48.c@{vt48.c}!vt48\_\-RegRead@{vt48\_\-RegRead}}
+\index{vt48\_\-RegRead@{vt48\_\-RegRead}!vt48.c@{vt48.c}}
+\paragraph[{vt48\_\-RegRead}]{\setlength{\rightskip}{0pt plus 5cm}{\bf DWORD} vt48\_\-RegRead ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  {\bf DWORD} {\em base}, \/  {\bf WORD} {\em reg})}\hfill\label{vt48_8c_a8cc2c9b587fdf95193a9bc0758615524}
+
+
+Definition at line 135 of file vt48.c.
+
+Referenced by vt48\_\-RegPrint(), and vt48\_\-Status().\index{vt48.c@{vt48.c}!vt48\_\-RegWrite@{vt48\_\-RegWrite}}
+\index{vt48\_\-RegWrite@{vt48\_\-RegWrite}!vt48.c@{vt48.c}}
+\paragraph[{vt48\_\-RegWrite}]{\setlength{\rightskip}{0pt plus 5cm}void vt48\_\-RegWrite ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  {\bf DWORD} {\em base}, \/  {\bf DWORD} {\em reg}, \/  {\bf DWORD} {\em data})}\hfill\label{vt48_8c_aa8014da90c3ae3d4a191aa003d76078a}
+
+
+Definition at line 95 of file vt48.c.
+
+Referenced by vt48\_\-RegPrint(), vt48\_\-Setup(), and vt48\_\-Status().\index{vt48.c@{vt48.c}!vt48\_\-Setup@{vt48\_\-Setup}}
+\index{vt48\_\-Setup@{vt48\_\-Setup}!vt48.c@{vt48.c}}
+\paragraph[{vt48\_\-Setup}]{\setlength{\rightskip}{0pt plus 5cm}int vt48\_\-Setup ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  {\bf DWORD} {\em base}, \/  int {\em mode})}\hfill\label{vt48_8c_aa6237edcb797fb9ebb0d447a5b1edbcd}
+Sets all the necessary paramters for a given configuration. The configuration is provided by the mode argument. Add your own configuration in the case statement. Let me know your setting if you want to include it in the distribution. 
+\begin{DoxyParams}{Parameters}
+\item[{\em $\ast$mvme}]VME structure \item[{\em base}]Module base address \item[{\em mode}]Configuration mode number \item[{\em $\ast$nentry}]number of entries requested and returned. \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+MVME\_\-SUCCESS 
+\end{DoxyReturn}
+
+
+Definition at line 180 of file vt48.c.\index{vt48.c@{vt48.c}!vt48\_\-Status@{vt48\_\-Status}}
+\index{vt48\_\-Status@{vt48\_\-Status}!vt48.c@{vt48.c}}
+\paragraph[{vt48\_\-Status}]{\setlength{\rightskip}{0pt plus 5cm}void vt48\_\-Status ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  {\bf DWORD} {\em base})}\hfill\label{vt48_8c_a8c2825023005fcd48c424e75dde70ce3}
+
+
+Definition at line 273 of file vt48.c.\index{vt48.c@{vt48.c}!vt48\_\-WindowOffsetSet@{vt48\_\-WindowOffsetSet}}
+\index{vt48\_\-WindowOffsetSet@{vt48\_\-WindowOffsetSet}!vt48.c@{vt48.c}}
+\paragraph[{vt48\_\-WindowOffsetSet}]{\setlength{\rightskip}{0pt plus 5cm}void vt48\_\-WindowOffsetSet ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  {\bf DWORD} {\em base}, \/  float {\em offset})}\hfill\label{vt48_8c_afd51ba644c73189293c6fab7de739533}
+
+
+Definition at line 121 of file vt48.c.\index{vt48.c@{vt48.c}!vt48\_\-WindowSet@{vt48\_\-WindowSet}}
+\index{vt48\_\-WindowSet@{vt48\_\-WindowSet}!vt48.c@{vt48.c}}
+\paragraph[{vt48\_\-WindowSet}]{\setlength{\rightskip}{0pt plus 5cm}void vt48\_\-WindowSet ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  {\bf DWORD} {\em base}, \/  float {\em window})}\hfill\label{vt48_8c_a5643216541b3d8c374948f45ec2d22f1}
+
+
+Definition at line 108 of file vt48.c.

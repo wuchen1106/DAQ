@@ -1,0 +1,109 @@
+.TH "KEY" 3 "31 May 2012" "Version 2.3.0-0" "Midas" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+KEY \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "\fBDWORD\fP \fBtype\fP"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBnum_values\fP"
+.br
+.ti -1c
+.RI "char \fBname\fP [NAME_LENGTH]"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBdata\fP"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBtotal_size\fP"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBitem_size\fP"
+.br
+.ti -1c
+.RI "\fBWORD\fP \fBaccess_mode\fP"
+.br
+.ti -1c
+.RI "\fBWORD\fP \fBnotify_count\fP"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBnext_key\fP"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBparent_keylist\fP"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBlast_written\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 912 of file midas.h.
+.SH "Field Documentation"
+.PP 
+.SS "\fBWORD\fP \fBKEY::access_mode\fP"Access mode 
+.PP
+Definition at line 919 of file midas.h.
+.PP
+Referenced by cm_cleanup(), db_create_key(), db_delete_key1(), db_find_key(), db_get_data(), db_get_data_index(), db_get_link_data(), db_get_value(), db_open_database(), db_open_record(), db_set_data(), db_set_data_index(), db_set_link_data(), db_set_link_data_index(), and db_set_value().
+.SS "\fBINT\fP \fBKEY::data\fP"Address of variable (offset) 
+.PP
+Definition at line 916 of file midas.h.
+.PP
+Referenced by db_create_key(), db_delete_key1(), db_enum_key(), db_find_key(), db_get_data(), db_get_data_index(), db_get_key(), db_get_key_info(), db_get_link_data(), db_get_value(), db_open_database(), db_set_data(), db_set_data_index(), db_set_link_data(), db_set_link_data_index(), and db_set_value().
+.SS "\fBINT\fP \fBKEY::item_size\fP"Size of single data item 
+.PP
+Definition at line 918 of file midas.h.
+.PP
+Referenced by db_copy(), db_create_key(), db_get_data(), db_get_data_index(), db_get_key_info(), db_get_link_data(), db_get_record(), db_get_record_size(), db_get_value(), db_open_database(), db_save_xml_key(), db_set_data(), db_set_data_index(), db_set_link_data(), db_set_link_data_index(), db_set_record(), db_set_value(), and update_odb().
+.SS "\fBINT\fP \fBKEY::last_written\fP"Time of last write action 
+.PP
+Definition at line 923 of file midas.h.
+.PP
+Referenced by db_get_key_time(), db_set_data(), db_set_data_index(), db_set_link_data(), db_set_link_data_index(), and db_set_value().
+.SS "char \fBKEY::name\fP[NAME_LENGTH]"name of variable 
+.PP
+Definition at line 915 of file midas.h.
+.PP
+Referenced by al_check(), al_reset_alarm(), cm_check_client(), cm_shutdown(), cm_transition1(), db_check_record(), db_copy(), db_create_key(), db_find_key(), db_get_data_index(), db_get_key_info(), db_get_link_data(), db_open_database(), db_save_struct(), db_save_xml_key(), db_set_data(), db_set_link_data(), db_set_record(), and load_fragment().
+.SS "\fBINT\fP \fBKEY::next_key\fP"Address of next key 
+.PP
+Definition at line 921 of file midas.h.
+.PP
+Referenced by db_create_key(), db_delete_key1(), db_enum_key(), and db_find_key().
+.SS "\fBWORD\fP \fBKEY::notify_count\fP"Notify counter 
+.PP
+Definition at line 920 of file midas.h.
+.PP
+Referenced by cm_cleanup(), db_delete_key1(), and db_open_database().
+.SS "\fBINT\fP \fBKEY::num_values\fP"number of values 
+.PP
+Definition at line 914 of file midas.h.
+.PP
+Referenced by cm_register_transition(), cm_transition1(), db_check_record(), db_copy(), db_create_key(), db_get_data(), db_get_data_index(), db_get_key(), db_get_key_info(), db_get_link_data(), db_get_record(), db_get_record_size(), db_get_value(), db_open_database(), db_save_xml_key(), db_set_data(), db_set_data_index(), db_set_link_data(), db_set_link_data_index(), db_set_record(), db_set_value(), tr_start(), and update_odb().
+.SS "\fBINT\fP \fBKEY::parent_keylist\fP"keylist to which this key belongs 
+.PP
+Definition at line 922 of file midas.h.
+.PP
+Referenced by db_create_key(), db_delete_key1(), db_enum_key(), db_find_key(), and db_open_database().
+.SS "\fBINT\fP \fBKEY::total_size\fP"Total size of data block 
+.PP
+Definition at line 917 of file midas.h.
+.PP
+Referenced by db_copy(), db_create_key(), db_delete_key1(), db_open_database(), db_save_xml_key(), db_set_data(), db_set_data_index(), db_set_link_data(), db_set_link_data_index(), db_set_record(), db_set_value(), and tr_start().
+.SS "\fBDWORD\fP \fBKEY::type\fP"TID_xxx type 
+.PP
+Definition at line 913 of file midas.h.
+.PP
+Referenced by al_check(), cm_transition1(), db_check_record(), db_copy(), db_create_key(), db_delete_key1(), db_enum_key(), db_find_key(), db_get_data(), db_get_data_index(), db_get_key(), db_get_key_info(), db_get_link(), db_get_link_data(), db_get_record(), db_get_record_size(), db_get_value(), db_open_database(), db_paste(), db_save_xml_key(), db_set_data(), db_set_data_index(), db_set_link_data(), db_set_link_data_index(), db_set_record(), db_set_value(), load_fragment(), and update_odb().
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Midas from the source code.

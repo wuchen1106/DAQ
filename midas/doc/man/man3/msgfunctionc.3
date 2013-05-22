@@ -1,0 +1,347 @@
+.TH "Midas Message Functions (msg_xxx)" 3 "31 May 2012" "Version 2.3.0-0" "Midas" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Midas Message Functions (msg_xxx) \- 
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBINT\fP \fBcm_get_error\fP (\fBINT\fP code, char *string)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBcm_set_msg_print\fP (\fBINT\fP system_mask, \fBINT\fP user_mask, int(*func)(const char *))"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBcm_msg_log\fP (\fBINT\fP message_type, const char *message)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBcm_msg_log1\fP (\fBINT\fP message_type, const char *message, const char *facility)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBcm_msg_flush_buffer\fP ()"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBcm_msg\fP (\fBINT\fP message_type, const char *filename, \fBINT\fP line, const char *routine, const char *format,...)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBcm_msg1\fP (\fBINT\fP message_type, const char *filename, \fBINT\fP line, const char *facility, const char *routine, const char *format,...)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBcm_msg_register\fP (void(*func)(HNDLE, HNDLE, \fBEVENT_HEADER\fP *, void *))"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBcm_msg_retrieve\fP (\fBINT\fP n_message, char *message, \fBINT\fP buf_size)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+dox dox 
+.SH "Function Documentation"
+.PP 
+.SS "\fBINT\fP cm_get_error (\fBINT\fP code, char * string)"Convert error code to string. Used after cm_connect_experiment to print error string in command line programs or windows programs. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcode\fP Error code as defined in \fBmidas.h\fP 
+.br
+\fIstring\fP Error string 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+CM_SUCCESS 
+.RE
+.PP
+
+.PP
+Definition at line 315 of file midas.c.
+.PP
+Referenced by cm_connect_experiment().
+.SS "\fBINT\fP cm_msg (\fBINT\fP message_type, const char * filename, \fBINT\fP line, const char * routine, const char * format,  ...)"This routine can be called whenever an internal error occurs or an informative message is produced. Different message types can be enabled or disabled by setting the type bits via \fBcm_set_msg_print()\fP. 
+.PP
+\fBAttention:\fP
+.RS 4
+Do not add the '\\n' escape carriage control at the end of the formated line as it is already added by the client on the receiving side. 
+.PP
+.nf
+   ...
+   cm_msg(MINFO, 'my program', 'This is a information message only);
+   cm_msg(MERROR, 'my program', 'This is an error message with status:%d', my_status);
+   cm_msg(MTALK, 'my_program', My program is Done!');
+   ...
+
+.fi
+.PP
+ 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fImessage_type\fP (See \fBmidas_macro\fP). 
+.br
+\fIfilename\fP Name of source file where error occured 
+.br
+\fIline\fP Line number where error occured 
+.br
+\fIroutine\fP Routine name. 
+.br
+\fIformat\fP message to printout, ... Parameters like for printf() 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+CM_SUCCESS 
+.RE
+.PP
+
+.PP
+Definition at line 843 of file midas.c.
+.PP
+Referenced by al_check(), al_reset_alarm(), al_trigger_alarm(), analyzer_init(), bk_list(), bm_cleanup_buffer_locked(), bm_close_buffer(), bm_copy_from_cache(), bm_flush_cache(), bm_open_buffer(), bm_push_event(), bm_receive_event(), bm_remove_event_request(), bm_request_event(), bm_send_event(), bm_set_cache_size(), bm_skip_event(), bm_update_read_pointer(), bm_validate_client_index(), bm_validate_client_pointers(), bm_wait_for_free_space(), bm_wakeup_producers(), cd_hv(), check_polled_events(), close_buffers(), cm_check_client(), cm_check_deferred_transition(), cm_cleanup(), cm_connect_experiment1(), cm_deregister_transition(), cm_disconnect_experiment(), cm_get_watchdog_info(), cm_list_experiments(), cm_register_deferred_transition(), cm_register_transition(), cm_set_client_info(), cm_set_transition_sequence(), cm_shutdown(), cm_transition(), cm_transition1(), db_check_record(), db_close_database(), db_copy(), db_copy_xml(), db_create_key(), db_create_link(), db_create_record(), db_delete_key1(), db_enum_key(), db_find_key(), db_get_data(), db_get_data_index(), db_get_key(), db_get_key_info(), db_get_key_time(), db_get_link(), db_get_link_data(), db_get_lock_cnt(), db_get_record(), db_get_value(), db_load(), db_lock_database(), db_open_database(), db_open_record(), db_paste(), db_paste_node(), db_protect_database(), db_save(), db_save_struct(), db_save_xml(), db_save_xml_key(), db_set_data(), db_set_data_index(), db_set_link_data(), db_set_link_data_index(), db_set_record(), db_set_value(), db_unlock_database(), el_submit(), frontend_init(), frontend_loop(), handFlush(), hs_dump(), hv_init(), initialize_equipment(), load_fragment(), main(), md_dev_os_write(), md_file_ropen(), md_file_wopen(), mfe_set_error(), odbReadUint32(), readout_thread(), receive_trigger_event(), register_equipment(), rpc_flush_event(), rpc_register_functions(), rpc_send_event(), rpc_set_option(), scan_fragment(), scheduler(), send_event(), source_booking(), source_scan(), source_unbooking(), tr_start(), tr_stop(), and update_odb().
+.SS "\fBINT\fP cm_msg1 (\fBINT\fP message_type, const char * filename, \fBINT\fP line, const char * facility, const char * routine, const char * format,  ...)"This routine is similar to \fBcm_msg()\fP. It differs from \fBcm_msg()\fP only by the logging destination being a file given through the argument list i.e:\fBfacility\fP 
+.PP
+\fBFor internal use only.\fP
+.RS 4
+
+.PP
+\fBAttention:\fP
+.RS 4
+Do not add the '\\n' escape carriage control at the end of the formated line as it is already added by the client on the receiving side. The first arg in the following example uses the predefined macro MINFO which handles automatically the first 3 arguments of the function (see \fBmidas_macro\fP). 
+.PP
+.nf
+ ...
+   cm_msg1(MINFO, 'my_log_file', 'my_program',' My message status:%d', status);
+   ...
+//----- File my_log_file.log
+Thu Nov  8 17:59:28 2001 [my_program] My message status:1
+
+.fi
+.PP
+ 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fImessage_type\fP See \fBmidas_macro\fP. 
+.br
+\fIfilename\fP Name of source file where error occured 
+.br
+\fIline\fP Line number where error occured 
+.br
+\fIfacility\fP Logging file name 
+.br
+\fIroutine\fP Routine name 
+.br
+\fIformat\fP message to printout, ... Parameters like for printf() 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+CM_SUCCESS 
+.RE
+.PP
+.RE
+.PP
+
+.PP
+Definition at line 904 of file midas.c.
+.SS "static \fBINT\fP cm_msg_buffer (int ts, int message_type, const char * message)\fC [static]\fP"
+.PP
+Definition at line 693 of file midas.c.
+.PP
+Referenced by cm_msg().
+.SS "\fBINT\fP cm_msg_flush_buffer ()"This routine can be called to process messages buffered by \fBcm_msg()\fP. Normally it is called from \fBcm_yield()\fP and \fBcm_disconnect_experiment()\fP to make sure all accumulated messages are processed. 
+.PP
+Definition at line 750 of file midas.c.
+.PP
+Referenced by cm_connect_experiment(), cm_disconnect_experiment(), cm_shutdown(), and cm_yield().
+.SS "static \fBINT\fP cm_msg_format (char * local_message, int sizeof_local_message, char * send_message, int sizeof_send_message, \fBINT\fP message_type, const char * filename, \fBINT\fP line, const char * routine, const char * format, va_list * argptr)\fC [static]\fP"
+.PP
+Definition at line 602 of file midas.c.
+.PP
+Referenced by cm_msg().
+.SS "\fBINT\fP cm_msg_log (\fBINT\fP message_type, const char * message)"Write message to logging file. Called by cm_msg. 
+.PP
+\fBAttention:\fP
+.RS 4
+May burn your fingers 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fImessage_type\fP Message type 
+.br
+\fImessage\fP Message string 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+CM_SUCCESS 
+.RE
+.PP
+
+.PP
+Definition at line 377 of file midas.c.
+.PP
+Referenced by cm_msg_flush_buffer().
+.SS "\fBINT\fP cm_msg_log1 (\fBINT\fP message_type, const char * message, const char * facility)"Write message to logging file. Called by \fBcm_msg()\fP. 
+.PP
+\fBFor internal use only.\fP
+.RS 4
+
+.PP
+\fBParameters:\fP
+.RS 4
+\fImessage_type\fP Message type 
+.br
+\fImessage\fP Message string 
+.br
+\fIfacility\fP Message facility, filename in which messages will be written 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+CM_SUCCESS 
+.RE
+.PP
+.RE
+.PP
+
+.PP
+Definition at line 469 of file midas.c.
+.PP
+Referenced by cm_msg1().
+.SS "\fBINT\fP cm_msg_register (void(*)(HNDLE, HNDLE, \fBEVENT_HEADER\fP *, void *) func)"Register a dispatch function for receiving system messages.
+.IP "\(bu" 2
+example code from mlxspeaker.c 
+.PP
+.nf
+void receive_message(HNDLE hBuf, HNDLE id, EVENT_HEADER *header, void *message)
+{
+  char str[256], *pc, *sp;
+  // print message
+  printf('%s\n', (char *)(message));
+
+  printf('evID:%x Mask:%x Serial:%i Size:%d\n'
+                 ,header->event_id
+                 ,header->trigger_mask
+                 ,header->serial_number
+                 ,header->data_size);
+  pc = strchr((char *)(message),']')+2;
+  ...
+  // skip none talking message
+  if (header->trigger_mask == MT_TALK ||
+      header->trigger_mask == MT_USER)
+   ...
+}
+
+int main(int argc, char *argv[])
+{
+  ...
+  // now connect to server
+  status = cm_connect_experiment(host_name, exp_name, 'Speaker', NULL);
+  if (status != CM_SUCCESS)
+    return 1;
+  // Register callback for messages
+  cm_msg_register(receive_message);
+  ...
+}
+
+.fi
+.PP
+ 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIfunc\fP Dispatch function. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+CM_SUCCESS or bm_open_buffer and bm_request_event return status 
+.RE
+.PP
+
+.PP
+
+.PP
+Definition at line 1035 of file midas.c.
+.SS "\fBINT\fP cm_msg_retrieve (\fBINT\fP n_message, char * message, \fBINT\fP buf_size)"Retrieve old messages from log file 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIn_message\fP Number of messages to retrieve 
+.br
+\fImessage\fP buf_size bytes of messages, separated by 
+.br
+ characters. The returned number of bytes is normally smaller than the initial buf_size, since only full lines are returned. 
+.br
+\fI*buf_size\fP Size of message buffer to fill 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+CM_SUCCESS 
+.RE
+.PP
+
+.PP
+Definition at line 1136 of file midas.c.
+.SS "\fBINT\fP cm_msg_retrieve1 (char * filename, \fBINT\fP n_message, char * message, \fBINT\fP buf_size)"
+.PP
+Definition at line 1054 of file midas.c.
+.PP
+Referenced by cm_msg_retrieve().
+.SS "static \fBINT\fP cm_msg_send_event (\fBINT\fP ts, \fBINT\fP message_type, const char * send_message)\fC [static]\fP"
+.PP
+Definition at line 662 of file midas.c.
+.PP
+Referenced by cm_msg_flush_buffer().
+.SS "\fBINT\fP cm_set_msg_print (\fBINT\fP system_mask, \fBINT\fP user_mask, int(*)(const char *) func)"Set message masks. When a message is generated by calling \fBcm_msg()\fP, it can got to two destinatinons. First a user defined callback routine and second to the 'SYSMSG' buffer.
+.PP
+A user defined callback receives all messages which satisfy the user_mask.
+.PP
+.PP
+.nf
+int message_print(const char *msg)
+{
+  char str[160];
+
+  memset(str, ' ', 159);
+  str[159] = 0;
+  if (msg[0] == '[')
+    msg = strchr(msg, ']')+2;
+  memcpy(str, msg, strlen(msg));
+  ss_printf(0, 20, str);
+  return 0;
+}
+...
+  cm_set_msg_print(MT_ALL, MT_ALL, message_print);
+...
+.fi
+.PP
+ 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIsystem_mask\fP Bit masks for MERROR, MINFO etc. to send system messages. 
+.br
+\fIuser_mask\fP Bit masks for MERROR, MINFO etc. to send messages to the user callback. 
+.br
+\fIfunc\fP Function which receives all printout. By setting 'puts', messages are just printed to the screen. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+CM_SUCCESS 
+.RE
+.PP
+
+.PP
+Definition at line 360 of file midas.c.
+.PP
+Referenced by cm_connect_experiment1(), and main().
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Midas from the source code.

@@ -1,0 +1,58 @@
+\subsection{sis3320.c File Reference}
+\label{sis3320_8c}\index{sis3320.c@{sis3320.c}}
+\subsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{sis3320_8c_a82a1d41eb9db90c6723165a71cba97b8}{sis3320\_\-Setup} (\hyperlink{structMVME__INTERFACE}{MVME\_\-INTERFACE} $\ast$mvme, uint32\_\-t base, int mode)
+\end{DoxyCompactItemize}
+
+
+\subsubsection{Function Documentation}
+\index{sis3320.c@{sis3320.c}!regRead@{regRead}}
+\index{regRead@{regRead}!sis3320.c@{sis3320.c}}
+\paragraph[{regRead}]{\setlength{\rightskip}{0pt plus 5cm}static uint32\_\-t regRead ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  uint32\_\-t {\em base}, \/  int {\em offset})\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}\hfill\label{sis3320_8c_a2296a7241a9fb55be401fb5c9845c7b7}
+
+
+Definition at line 24 of file sis3320.c.
+
+Referenced by sis3320\_\-RegisterRead(), and sis3320\_\-Status().\index{sis3320.c@{sis3320.c}!regWrite@{regWrite}}
+\index{regWrite@{regWrite}!sis3320.c@{sis3320.c}}
+\paragraph[{regWrite}]{\setlength{\rightskip}{0pt plus 5cm}static void regWrite ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  uint32\_\-t {\em base}, \/  int {\em offset}, \/  uint32\_\-t {\em value})\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}\hfill\label{sis3320_8c_af268fb97f4bcf3a3c0d4e2839c5a2a93}
+
+
+Definition at line 35 of file sis3320.c.
+
+Referenced by sis3320\_\-RegisterWrite(), sis3320\_\-Reset(), and sis3320\_\-Setup().\index{sis3320.c@{sis3320.c}!sis3320\_\-RegisterRead@{sis3320\_\-RegisterRead}}
+\index{sis3320\_\-RegisterRead@{sis3320\_\-RegisterRead}!sis3320.c@{sis3320.c}}
+\paragraph[{sis3320\_\-RegisterRead}]{\setlength{\rightskip}{0pt plus 5cm}uint32\_\-t sis3320\_\-RegisterRead ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  uint32\_\-t {\em base}, \/  int {\em offset})}\hfill\label{sis3320_8c_a250e2792b274958ebe3034a5728a5055}
+
+
+Definition at line 43 of file sis3320.c.\index{sis3320.c@{sis3320.c}!sis3320\_\-RegisterWrite@{sis3320\_\-RegisterWrite}}
+\index{sis3320\_\-RegisterWrite@{sis3320\_\-RegisterWrite}!sis3320.c@{sis3320.c}}
+\paragraph[{sis3320\_\-RegisterWrite}]{\setlength{\rightskip}{0pt plus 5cm}void sis3320\_\-RegisterWrite ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  uint32\_\-t {\em base}, \/  int {\em offset}, \/  uint32\_\-t {\em value})}\hfill\label{sis3320_8c_aca1c2af91de4bfc46bc75bbb41fdba23}
+
+
+Definition at line 49 of file sis3320.c.\index{sis3320.c@{sis3320.c}!sis3320\_\-Reset@{sis3320\_\-Reset}}
+\index{sis3320\_\-Reset@{sis3320\_\-Reset}!sis3320.c@{sis3320.c}}
+\paragraph[{sis3320\_\-Reset}]{\setlength{\rightskip}{0pt plus 5cm}void sis3320\_\-Reset ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  uint32\_\-t {\em base})}\hfill\label{sis3320_8c_aff4671c8f06907a3cd63c72489c23eb4}
+
+
+Definition at line 55 of file sis3320.c.\index{sis3320.c@{sis3320.c}!sis3320\_\-Setup@{sis3320\_\-Setup}}
+\index{sis3320\_\-Setup@{sis3320\_\-Setup}!sis3320.c@{sis3320.c}}
+\paragraph[{sis3320\_\-Setup}]{\setlength{\rightskip}{0pt plus 5cm}int sis3320\_\-Setup ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  uint32\_\-t {\em base}, \/  int {\em mode})}\hfill\label{sis3320_8c_a82a1d41eb9db90c6723165a71cba97b8}
+Sets all the necessary paramters for a given configuration. The configuration is provided by the mode argument. Add your own configuration in the case statement. Let me know your setting if you want to include it in the distribution. 
+\begin{DoxyParams}{Parameters}
+\item[{\em $\ast$mvme}]VME structure \item[{\em base}]Module base address \item[{\em mode}]Configuration mode number \item[{\em $\ast$nentry}]number of entries requested and returned. \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+MVME\_\-SUCCESS 
+\end{DoxyReturn}
+
+
+Definition at line 83 of file sis3320.c.\index{sis3320.c@{sis3320.c}!sis3320\_\-Status@{sis3320\_\-Status}}
+\index{sis3320\_\-Status@{sis3320\_\-Status}!sis3320.c@{sis3320.c}}
+\paragraph[{sis3320\_\-Status}]{\setlength{\rightskip}{0pt plus 5cm}void sis3320\_\-Status ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  uint32\_\-t {\em base})}\hfill\label{sis3320_8c_a6c94c043d907f9fc1dc9f244ee50a498}
+
+
+Definition at line 61 of file sis3320.c.
+
+Referenced by sis3320\_\-Setup().

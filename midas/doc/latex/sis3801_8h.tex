@@ -1,0 +1,684 @@
+\subsection{sis3801.h File Reference}
+\label{sis3801_8h}\index{sis3801.h@{sis3801.h}}
+\subsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} \hyperlink{sis3801_8h_ae898609aaf567d5366587e8e719bdf52}{sis3801\_\-module\_\-ID} (\hyperlink{structMVME__INTERFACE}{MVME\_\-INTERFACE} $\ast$\hyperlink{fevmemodules_8c_aeab89db2ad759342a32dcd50a0a0156c}{myvme}, \hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} base)
+\item 
+\hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} \hyperlink{sis3801_8h_ab295ea2c9698fe3a0143103b696609d2}{sis3801\_\-IRQ\_\-REG\_\-read} (\hyperlink{structMVME__INTERFACE}{MVME\_\-INTERFACE} $\ast$\hyperlink{fevmemodules_8c_aeab89db2ad759342a32dcd50a0a0156c}{myvme}, \hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} base)
+\item 
+\hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} \hyperlink{sis3801_8h_a96c6849156112f3100be773221887e76}{sis3801\_\-IRQ\_\-REG\_\-write} (\hyperlink{structMVME__INTERFACE}{MVME\_\-INTERFACE} $\ast$\hyperlink{fevmemodules_8c_aeab89db2ad759342a32dcd50a0a0156c}{myvme}, \hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} base, \hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} irq)
+\item 
+\hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} \hyperlink{sis3801_8h_a30131d1123d09c8a0244ce086a72efd2}{sis3801\_\-dwell\_\-time} (\hyperlink{structMVME__INTERFACE}{MVME\_\-INTERFACE} $\ast$\hyperlink{fevmemodules_8c_aeab89db2ad759342a32dcd50a0a0156c}{myvme}, \hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} base, \hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} dwell)
+\item 
+int \hyperlink{sis3801_8h_a62a0e860cd93ba6b21e4b14aef66ffc7}{sis3801\_\-ref1} (\hyperlink{structMVME__INTERFACE}{MVME\_\-INTERFACE} $\ast$\hyperlink{fevmemodules_8c_aeab89db2ad759342a32dcd50a0a0156c}{myvme}, \hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} base, \hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} endis)
+\item 
+void \hyperlink{sis3801_8h_ac24aabb3d25468e91ab1da6640229f8e}{sis3801\_\-channel\_\-enable} (\hyperlink{structMVME__INTERFACE}{MVME\_\-INTERFACE} $\ast$\hyperlink{fevmemodules_8c_aeab89db2ad759342a32dcd50a0a0156c}{myvme}, \hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} base, \hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} nch)
+\item 
+\hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} \hyperlink{sis3801_8h_aac90e641397717a461ea29e640bcd529}{sis3801\_\-CSR\_\-read} (\hyperlink{structMVME__INTERFACE}{MVME\_\-INTERFACE} $\ast$\hyperlink{fevmemodules_8c_aeab89db2ad759342a32dcd50a0a0156c}{myvme}, \hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} base, const \hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} what)
+\item 
+\hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} \hyperlink{sis3801_8h_a307bd17779d86d4a2b915a853b8e606a}{sis3801\_\-CSR\_\-write} (\hyperlink{structMVME__INTERFACE}{MVME\_\-INTERFACE} $\ast$\hyperlink{fevmemodules_8c_aeab89db2ad759342a32dcd50a0a0156c}{myvme}, \hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} base, const \hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} what)
+\item 
+void \hyperlink{sis3801_8h_aa4adc6e9d7174d4f14a0fe24eeff603f}{sis3801\_\-FIFO\_\-clear} (\hyperlink{structMVME__INTERFACE}{MVME\_\-INTERFACE} $\ast$\hyperlink{fevmemodules_8c_aeab89db2ad759342a32dcd50a0a0156c}{myvme}, \hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} base)
+\item 
+int \hyperlink{sis3801_8h_a01ae0f7294447474a14a4f9327ac42f1}{sis3801\_\-HFIFO\_\-read} (\hyperlink{structMVME__INTERFACE}{MVME\_\-INTERFACE} $\ast$\hyperlink{fevmemodules_8c_aeab89db2ad759342a32dcd50a0a0156c}{myvme}, \hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} base, \hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} $\ast$\hyperlink{sis3803_8c_afcb0609a0beab248bb3994a3368bd9ff}{p})
+\item 
+int \hyperlink{sis3801_8h_a582b23c0d4b194f737cf9bf62e44de9e}{sis3801\_\-FIFO\_\-flush} (\hyperlink{structMVME__INTERFACE}{MVME\_\-INTERFACE} $\ast$\hyperlink{fevmemodules_8c_aeab89db2ad759342a32dcd50a0a0156c}{myvme}, \hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} base, \hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} $\ast$\hyperlink{sis3803_8c_afcb0609a0beab248bb3994a3368bd9ff}{p})
+\item 
+void \hyperlink{sis3801_8h_afabe260ab7dfe46d4114d0938a978f42}{sis3801\_\-int\_\-source} (\hyperlink{structMVME__INTERFACE}{MVME\_\-INTERFACE} $\ast$\hyperlink{fevmemodules_8c_aeab89db2ad759342a32dcd50a0a0156c}{myvme}, \hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} base, \hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} int\_\-source)
+\item 
+void \hyperlink{sis3801_8h_af6703d63e671731c37eeebcb275464aa}{sis3801\_\-int\_\-source\_\-enable} (\hyperlink{structMVME__INTERFACE}{MVME\_\-INTERFACE} $\ast$\hyperlink{fevmemodules_8c_aeab89db2ad759342a32dcd50a0a0156c}{myvme}, \hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} base, const int intnum)
+\item 
+void \hyperlink{sis3801_8h_a3e7b10aa81fab64857ba1bf01fa0a129}{sis3801\_\-int\_\-source\_\-disable} (\hyperlink{structMVME__INTERFACE}{MVME\_\-INTERFACE} $\ast$\hyperlink{fevmemodules_8c_aeab89db2ad759342a32dcd50a0a0156c}{myvme}, \hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} base, const int intnum)
+\item 
+void \hyperlink{sis3801_8h_af12722909e5d4125828c425b88015072}{sis3801\_\-int\_\-clear} (\hyperlink{structMVME__INTERFACE}{MVME\_\-INTERFACE} $\ast$\hyperlink{fevmemodules_8c_aeab89db2ad759342a32dcd50a0a0156c}{myvme}, \hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} base, const int intnum)
+\item 
+void \hyperlink{sis3801_8h_a2b77796e1d3a01604babb9b8ad11621f}{sis3801\_\-int\_\-attach} (\hyperlink{structMVME__INTERFACE}{MVME\_\-INTERFACE} $\ast$\hyperlink{fevmemodules_8c_aeab89db2ad759342a32dcd50a0a0156c}{myvme}, \hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} base, \hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} base\_\-vect, int level, void($\ast$isr)(void))
+\item 
+void \hyperlink{sis3801_8h_aabfff334589d256ec03c1f7e6bc7969b}{sis3801\_\-int\_\-detach} (\hyperlink{structMVME__INTERFACE}{MVME\_\-INTERFACE} $\ast$\hyperlink{fevmemodules_8c_aeab89db2ad759342a32dcd50a0a0156c}{myvme}, \hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} baser, \hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} base\_\-vect, int level)
+\item 
+int \hyperlink{sis3801_8h_ac57f9b90cd1c32f77787df8702ece6d0}{sis3801\_\-Setup} (\hyperlink{structMVME__INTERFACE}{MVME\_\-INTERFACE} $\ast$\hyperlink{fevmemodules_8c_aeab89db2ad759342a32dcd50a0a0156c}{myvme}, \hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} base, int mode)
+\end{DoxyCompactItemize}
+
+
+\subsubsection{Define Documentation}
+\index{sis3801.h@{sis3801.h}!CLEAR\_\-SOFT\_\-DISABLE@{CLEAR\_\-SOFT\_\-DISABLE}}
+\index{CLEAR\_\-SOFT\_\-DISABLE@{CLEAR\_\-SOFT\_\-DISABLE}!sis3801.h@{sis3801.h}}
+\paragraph[{CLEAR\_\-SOFT\_\-DISABLE}]{\setlength{\rightskip}{0pt plus 5cm}\#define CLEAR\_\-SOFT\_\-DISABLE~0x08000000}\hfill\label{sis3801_8h_ab79425bb159d5ffb2ac6d9e7d1c3d9c7}
+
+
+Definition at line 84 of file sis3801.h.\index{sis3801.h@{sis3801.h}!CSR\_\-FULL@{CSR\_\-FULL}}
+\index{CSR\_\-FULL@{CSR\_\-FULL}!sis3801.h@{sis3801.h}}
+\paragraph[{CSR\_\-FULL}]{\setlength{\rightskip}{0pt plus 5cm}\#define CSR\_\-FULL~0xffffffff}\hfill\label{sis3801_8h_a817f0622ca0dd2c486abb98b68e91b17}
+
+
+Definition at line 42 of file sis3801.h.
+
+Referenced by sis3801\_\-CSR\_\-read(), sis3801\_\-CSR\_\-write(), sis3801\_\-Status(), SIS3803\_\-CSR\_\-read(), sis3803\_\-CSR\_\-read(), and sis3803\_\-CSR\_\-write().\index{sis3801.h@{sis3801.h}!CSR\_\-READ@{CSR\_\-READ}}
+\index{CSR\_\-READ@{CSR\_\-READ}!sis3801.h@{sis3801.h}}
+\paragraph[{CSR\_\-READ}]{\setlength{\rightskip}{0pt plus 5cm}\#define CSR\_\-READ~0x0}\hfill\label{sis3801_8h_a5d574c1c714c8ad2807837164e500dac}
+
+
+Definition at line 41 of file sis3801.h.
+
+Referenced by sis3803\_\-CSR\_\-read(), sis3803\_\-input\_\-mode(), and sis3803\_\-ref1().\index{sis3801.h@{sis3801.h}!CSR\_\-WRITE@{CSR\_\-WRITE}}
+\index{CSR\_\-WRITE@{CSR\_\-WRITE}!sis3801.h@{sis3801.h}}
+\paragraph[{CSR\_\-WRITE}]{\setlength{\rightskip}{0pt plus 5cm}\#define CSR\_\-WRITE~0x0}\hfill\label{sis3801_8h_afeec89b29b3e434512c8233711f834c3}
+
+
+Definition at line 43 of file sis3801.h.
+
+Referenced by sis3803\_\-CSR\_\-write(), sis3803\_\-input\_\-mode(), sis3803\_\-int\_\-clear(), sis3803\_\-int\_\-source(), sis3803\_\-int\_\-source\_\-disable(), sis3803\_\-int\_\-source\_\-enable(), sis3803\_\-test\_\-disable(), and sis3803\_\-test\_\-enable().\index{sis3801.h@{sis3801.h}!DISABLE\_\-102LNE@{DISABLE\_\-102LNE}}
+\index{DISABLE\_\-102LNE@{DISABLE\_\-102LNE}!sis3801.h@{sis3801.h}}
+\paragraph[{DISABLE\_\-102LNE}]{\setlength{\rightskip}{0pt plus 5cm}\#define DISABLE\_\-102LNE~0x00000400}\hfill\label{sis3801_8h_aed9521bf45b7f2429709a1cd752b984b}
+
+
+Definition at line 62 of file sis3801.h.\index{sis3801.h@{sis3801.h}!DISABLE\_\-25MHZ@{DISABLE\_\-25MHZ}}
+\index{DISABLE\_\-25MHZ@{DISABLE\_\-25MHZ}!sis3801.h@{sis3801.h}}
+\paragraph[{DISABLE\_\-25MHZ}]{\setlength{\rightskip}{0pt plus 5cm}\#define DISABLE\_\-25MHZ~0x00001000}\hfill\label{sis3801_8h_a629bd372c7271c8cb7da41b18fde9a0c}
+
+
+Definition at line 55 of file sis3801.h.\index{sis3801.h@{sis3801.h}!DISABLE\_\-EXTERN\_\-CLEAR@{DISABLE\_\-EXTERN\_\-CLEAR}}
+\index{DISABLE\_\-EXTERN\_\-CLEAR@{DISABLE\_\-EXTERN\_\-CLEAR}!sis3801.h@{sis3801.h}}
+\paragraph[{DISABLE\_\-EXTERN\_\-CLEAR}]{\setlength{\rightskip}{0pt plus 5cm}\#define DISABLE\_\-EXTERN\_\-CLEAR~0x02000000}\hfill\label{sis3801_8h_a79110edb6ef2e3d5d877c4be9b5b829a}
+
+
+Definition at line 82 of file sis3801.h.\index{sis3801.h@{sis3801.h}!DISABLE\_\-EXTERN\_\-DISABLE@{DISABLE\_\-EXTERN\_\-DISABLE}}
+\index{DISABLE\_\-EXTERN\_\-DISABLE@{DISABLE\_\-EXTERN\_\-DISABLE}!sis3801.h@{sis3801.h}}
+\paragraph[{DISABLE\_\-EXTERN\_\-DISABLE}]{\setlength{\rightskip}{0pt plus 5cm}\#define DISABLE\_\-EXTERN\_\-DISABLE~0x04000000}\hfill\label{sis3801_8h_abeb2c422e1a6ea2cbae5f5f5d28f73ba}
+
+
+Definition at line 83 of file sis3801.h.\index{sis3801.h@{sis3801.h}!DISABLE\_\-EXTERN\_\-NEXT@{DISABLE\_\-EXTERN\_\-NEXT}}
+\index{DISABLE\_\-EXTERN\_\-NEXT@{DISABLE\_\-EXTERN\_\-NEXT}!sis3801.h@{sis3801.h}}
+\paragraph[{DISABLE\_\-EXTERN\_\-NEXT}]{\setlength{\rightskip}{0pt plus 5cm}\#define DISABLE\_\-EXTERN\_\-NEXT~0x01000000}\hfill\label{sis3801_8h_a84a1706939167532cf940f6ef7682175}
+
+
+Definition at line 81 of file sis3801.h.\index{sis3801.h@{sis3801.h}!DISABLE\_\-IRQ\_\-ALFULL@{DISABLE\_\-IRQ\_\-ALFULL}}
+\index{DISABLE\_\-IRQ\_\-ALFULL@{DISABLE\_\-IRQ\_\-ALFULL}!sis3801.h@{sis3801.h}}
+\paragraph[{DISABLE\_\-IRQ\_\-ALFULL}]{\setlength{\rightskip}{0pt plus 5cm}\#define DISABLE\_\-IRQ\_\-ALFULL~0x80000000}\hfill\label{sis3801_8h_ad4964772785e27e5c5aef46b6187aa5a}
+
+
+Definition at line 101 of file sis3801.h.
+
+Referenced by sis3801\_\-int\_\-attach(), sis3801\_\-int\_\-clear(), sis3801\_\-int\_\-detach(), sis3801\_\-int\_\-source(), and sis3801\_\-int\_\-source\_\-disable().\index{sis3801.h@{sis3801.h}!DISABLE\_\-IRQ\_\-CIP@{DISABLE\_\-IRQ\_\-CIP}}
+\index{DISABLE\_\-IRQ\_\-CIP@{DISABLE\_\-IRQ\_\-CIP}!sis3801.h@{sis3801.h}}
+\paragraph[{DISABLE\_\-IRQ\_\-CIP}]{\setlength{\rightskip}{0pt plus 5cm}\#define DISABLE\_\-IRQ\_\-CIP~0x10000000}\hfill\label{sis3801_8h_ae7c9598ca47e2097ea4bb6c9b39c5cd8}
+
+
+Definition at line 98 of file sis3801.h.
+
+Referenced by sis3801\_\-int\_\-attach(), sis3801\_\-int\_\-clear(), sis3801\_\-int\_\-detach(), sis3801\_\-int\_\-source(), and sis3801\_\-int\_\-source\_\-disable().\index{sis3801.h@{sis3801.h}!DISABLE\_\-IRQ\_\-FULL@{DISABLE\_\-IRQ\_\-FULL}}
+\index{DISABLE\_\-IRQ\_\-FULL@{DISABLE\_\-IRQ\_\-FULL}!sis3801.h@{sis3801.h}}
+\paragraph[{DISABLE\_\-IRQ\_\-FULL}]{\setlength{\rightskip}{0pt plus 5cm}\#define DISABLE\_\-IRQ\_\-FULL~0x20000000}\hfill\label{sis3801_8h_a0c1aff27bc224d6bf77187fdc2c29ba1}
+
+
+Definition at line 99 of file sis3801.h.
+
+Referenced by sis3801\_\-int\_\-attach(), sis3801\_\-int\_\-clear(), sis3801\_\-int\_\-detach(), sis3801\_\-int\_\-source(), and sis3801\_\-int\_\-source\_\-disable().\index{sis3801.h@{sis3801.h}!DISABLE\_\-IRQ\_\-HFULL@{DISABLE\_\-IRQ\_\-HFULL}}
+\index{DISABLE\_\-IRQ\_\-HFULL@{DISABLE\_\-IRQ\_\-HFULL}!sis3801.h@{sis3801.h}}
+\paragraph[{DISABLE\_\-IRQ\_\-HFULL}]{\setlength{\rightskip}{0pt plus 5cm}\#define DISABLE\_\-IRQ\_\-HFULL~0x40000000}\hfill\label{sis3801_8h_a16524c516879de51d68b14e58e5af08e}
+
+
+Definition at line 100 of file sis3801.h.
+
+Referenced by sis3801\_\-int\_\-attach(), sis3801\_\-int\_\-clear(), sis3801\_\-int\_\-detach(), sis3801\_\-int\_\-source(), and sis3801\_\-int\_\-source\_\-disable().\index{sis3801.h@{sis3801.h}!DISABLE\_\-LNE@{DISABLE\_\-LNE}}
+\index{DISABLE\_\-LNE@{DISABLE\_\-LNE}!sis3801.h@{sis3801.h}}
+\paragraph[{DISABLE\_\-LNE}]{\setlength{\rightskip}{0pt plus 5cm}\#define DISABLE\_\-LNE~0x00000800}\hfill\label{sis3801_8h_ae2e9c6f6e53d82b4728a6fecf06ce851}
+
+
+Definition at line 65 of file sis3801.h.\index{sis3801.h@{sis3801.h}!DISABLE\_\-TEST@{DISABLE\_\-TEST}}
+\index{DISABLE\_\-TEST@{DISABLE\_\-TEST}!sis3801.h@{sis3801.h}}
+\paragraph[{DISABLE\_\-TEST}]{\setlength{\rightskip}{0pt plus 5cm}\#define DISABLE\_\-TEST~0x00002000}\hfill\label{sis3801_8h_a56718fb86690cb1c5f418427bbaa0a7f}
+
+
+Definition at line 58 of file sis3801.h.\index{sis3801.h@{sis3801.h}!ENABLE\_\-102LNE@{ENABLE\_\-102LNE}}
+\index{ENABLE\_\-102LNE@{ENABLE\_\-102LNE}!sis3801.h@{sis3801.h}}
+\paragraph[{ENABLE\_\-102LNE}]{\setlength{\rightskip}{0pt plus 5cm}\#define ENABLE\_\-102LNE~0x00000040}\hfill\label{sis3801_8h_ab2493c793dc7845cc57392ecb79dd6e5}
+
+
+Definition at line 61 of file sis3801.h.\index{sis3801.h@{sis3801.h}!ENABLE\_\-25MHZ@{ENABLE\_\-25MHZ}}
+\index{ENABLE\_\-25MHZ@{ENABLE\_\-25MHZ}!sis3801.h@{sis3801.h}}
+\paragraph[{ENABLE\_\-25MHZ}]{\setlength{\rightskip}{0pt plus 5cm}\#define ENABLE\_\-25MHZ~0x00000010}\hfill\label{sis3801_8h_a8dba09530af1bc7960326400b530ff59}
+
+
+Definition at line 54 of file sis3801.h.\index{sis3801.h@{sis3801.h}!ENABLE\_\-EXTERN\_\-CLEAR@{ENABLE\_\-EXTERN\_\-CLEAR}}
+\index{ENABLE\_\-EXTERN\_\-CLEAR@{ENABLE\_\-EXTERN\_\-CLEAR}!sis3801.h@{sis3801.h}}
+\paragraph[{ENABLE\_\-EXTERN\_\-CLEAR}]{\setlength{\rightskip}{0pt plus 5cm}\#define ENABLE\_\-EXTERN\_\-CLEAR~0x00020000}\hfill\label{sis3801_8h_a7544b0058a3750d2bef341f5cd88d14d}
+
+
+Definition at line 78 of file sis3801.h.\index{sis3801.h@{sis3801.h}!ENABLE\_\-EXTERN\_\-DISABLE@{ENABLE\_\-EXTERN\_\-DISABLE}}
+\index{ENABLE\_\-EXTERN\_\-DISABLE@{ENABLE\_\-EXTERN\_\-DISABLE}!sis3801.h@{sis3801.h}}
+\paragraph[{ENABLE\_\-EXTERN\_\-DISABLE}]{\setlength{\rightskip}{0pt plus 5cm}\#define ENABLE\_\-EXTERN\_\-DISABLE~0x00040000}\hfill\label{sis3801_8h_a6cafc0fcd1a38c0b9a2fa0395ea3e855}
+
+
+Definition at line 79 of file sis3801.h.\index{sis3801.h@{sis3801.h}!ENABLE\_\-EXTERN\_\-NEXT@{ENABLE\_\-EXTERN\_\-NEXT}}
+\index{ENABLE\_\-EXTERN\_\-NEXT@{ENABLE\_\-EXTERN\_\-NEXT}!sis3801.h@{sis3801.h}}
+\paragraph[{ENABLE\_\-EXTERN\_\-NEXT}]{\setlength{\rightskip}{0pt plus 5cm}\#define ENABLE\_\-EXTERN\_\-NEXT~0x00010000}\hfill\label{sis3801_8h_a9f2db005f8a5bd48db06ccea3a41f720}
+
+
+Definition at line 77 of file sis3801.h.\index{sis3801.h@{sis3801.h}!ENABLE\_\-IRQ\_\-ALFULL@{ENABLE\_\-IRQ\_\-ALFULL}}
+\index{ENABLE\_\-IRQ\_\-ALFULL@{ENABLE\_\-IRQ\_\-ALFULL}!sis3801.h@{sis3801.h}}
+\paragraph[{ENABLE\_\-IRQ\_\-ALFULL}]{\setlength{\rightskip}{0pt plus 5cm}\#define ENABLE\_\-IRQ\_\-ALFULL~0x00800000}\hfill\label{sis3801_8h_a900b2b69c1af4d0aa4583571453e5106}
+
+
+Definition at line 97 of file sis3801.h.
+
+Referenced by sis3801\_\-int\_\-clear(), sis3801\_\-int\_\-source(), and sis3801\_\-int\_\-source\_\-enable().\index{sis3801.h@{sis3801.h}!ENABLE\_\-IRQ\_\-CIP@{ENABLE\_\-IRQ\_\-CIP}}
+\index{ENABLE\_\-IRQ\_\-CIP@{ENABLE\_\-IRQ\_\-CIP}!sis3801.h@{sis3801.h}}
+\paragraph[{ENABLE\_\-IRQ\_\-CIP}]{\setlength{\rightskip}{0pt plus 5cm}\#define ENABLE\_\-IRQ\_\-CIP~0x00100000}\hfill\label{sis3801_8h_a421e0644fc250f378dacbd165d911106}
+
+
+Definition at line 94 of file sis3801.h.
+
+Referenced by sis3801\_\-int\_\-clear(), sis3801\_\-int\_\-source(), and sis3801\_\-int\_\-source\_\-enable().\index{sis3801.h@{sis3801.h}!ENABLE\_\-IRQ\_\-FULL@{ENABLE\_\-IRQ\_\-FULL}}
+\index{ENABLE\_\-IRQ\_\-FULL@{ENABLE\_\-IRQ\_\-FULL}!sis3801.h@{sis3801.h}}
+\paragraph[{ENABLE\_\-IRQ\_\-FULL}]{\setlength{\rightskip}{0pt plus 5cm}\#define ENABLE\_\-IRQ\_\-FULL~0x00200000}\hfill\label{sis3801_8h_aa5d556f1375b6fc908ed0f4977629555}
+
+
+Definition at line 95 of file sis3801.h.
+
+Referenced by sis3801\_\-int\_\-clear(), sis3801\_\-int\_\-source(), and sis3801\_\-int\_\-source\_\-enable().\index{sis3801.h@{sis3801.h}!ENABLE\_\-IRQ\_\-HFULL@{ENABLE\_\-IRQ\_\-HFULL}}
+\index{ENABLE\_\-IRQ\_\-HFULL@{ENABLE\_\-IRQ\_\-HFULL}!sis3801.h@{sis3801.h}}
+\paragraph[{ENABLE\_\-IRQ\_\-HFULL}]{\setlength{\rightskip}{0pt plus 5cm}\#define ENABLE\_\-IRQ\_\-HFULL~0x00400000}\hfill\label{sis3801_8h_a474ca3706b7b452a4e8da40f819b9fc2}
+
+
+Definition at line 96 of file sis3801.h.
+
+Referenced by sis3801\_\-int\_\-clear(), sis3801\_\-int\_\-source(), and sis3801\_\-int\_\-source\_\-enable().\index{sis3801.h@{sis3801.h}!ENABLE\_\-LNE@{ENABLE\_\-LNE}}
+\index{ENABLE\_\-LNE@{ENABLE\_\-LNE}!sis3801.h@{sis3801.h}}
+\paragraph[{ENABLE\_\-LNE}]{\setlength{\rightskip}{0pt plus 5cm}\#define ENABLE\_\-LNE~0x00000080}\hfill\label{sis3801_8h_acc7e4f0a1a6419d0a132a8a1ea7fadc2}
+
+
+Definition at line 64 of file sis3801.h.\index{sis3801.h@{sis3801.h}!ENABLE\_\-TEST@{ENABLE\_\-TEST}}
+\index{ENABLE\_\-TEST@{ENABLE\_\-TEST}!sis3801.h@{sis3801.h}}
+\paragraph[{ENABLE\_\-TEST}]{\setlength{\rightskip}{0pt plus 5cm}\#define ENABLE\_\-TEST~0x00000020}\hfill\label{sis3801_8h_a99e2a293479706a4778c6f9c879c4803}
+
+
+Definition at line 57 of file sis3801.h.\index{sis3801.h@{sis3801.h}!GET\_\-MODE@{GET\_\-MODE}}
+\index{GET\_\-MODE@{GET\_\-MODE}!sis3801.h@{sis3801.h}}
+\paragraph[{GET\_\-MODE}]{\setlength{\rightskip}{0pt plus 5cm}\#define GET\_\-MODE~0x0000000C}\hfill\label{sis3801_8h_a88b365739b031effedb7c30b2c7a7ef2}
+
+
+Definition at line 48 of file sis3801.h.
+
+Referenced by sis3801\_\-CSR\_\-read(), sis3801\_\-input\_\-mode(), and sis3803\_\-input\_\-mode().\index{sis3801.h@{sis3801.h}!HALF\_\-FIFO@{HALF\_\-FIFO}}
+\index{HALF\_\-FIFO@{HALF\_\-FIFO}!sis3801.h@{sis3801.h}}
+\paragraph[{HALF\_\-FIFO}]{\setlength{\rightskip}{0pt plus 5cm}\#define HALF\_\-FIFO~16384}\hfill\label{sis3801_8h_a541ca8b18bd6767d294b0f5161798ce8}
+
+
+Definition at line 37 of file sis3801.h.
+
+Referenced by sis3801\_\-HFIFO\_\-read().\index{sis3801.h@{sis3801.h}!IS\_\-102LNE@{IS\_\-102LNE}}
+\index{IS\_\-102LNE@{IS\_\-102LNE}!sis3801.h@{sis3801.h}}
+\paragraph[{IS\_\-102LNE}]{\setlength{\rightskip}{0pt plus 5cm}\#define IS\_\-102LNE~0x00000040}\hfill\label{sis3801_8h_a1b90cd7bc7e0da3a07555e966d575f39}
+
+
+Definition at line 60 of file sis3801.h.
+
+Referenced by sis3801\_\-Status().\index{sis3801.h@{sis3801.h}!IS\_\-25MHZ@{IS\_\-25MHZ}}
+\index{IS\_\-25MHZ@{IS\_\-25MHZ}!sis3801.h@{sis3801.h}}
+\paragraph[{IS\_\-25MHZ}]{\setlength{\rightskip}{0pt plus 5cm}\#define IS\_\-25MHZ~0x00000010}\hfill\label{sis3801_8h_ac60281a385d0142701dd3990e9805df7}
+
+
+Definition at line 53 of file sis3801.h.
+
+Referenced by sis3801\_\-Status().\index{sis3801.h@{sis3801.h}!IS\_\-EXTERN\_\-CLEAR@{IS\_\-EXTERN\_\-CLEAR}}
+\index{IS\_\-EXTERN\_\-CLEAR@{IS\_\-EXTERN\_\-CLEAR}!sis3801.h@{sis3801.h}}
+\paragraph[{IS\_\-EXTERN\_\-CLEAR}]{\setlength{\rightskip}{0pt plus 5cm}\#define IS\_\-EXTERN\_\-CLEAR~0x00020000}\hfill\label{sis3801_8h_a7163bbe0ced8067777ffe616ce47a6d7}
+
+
+Definition at line 74 of file sis3801.h.
+
+Referenced by sis3801\_\-Status().\index{sis3801.h@{sis3801.h}!IS\_\-EXTERN\_\-DISABLE@{IS\_\-EXTERN\_\-DISABLE}}
+\index{IS\_\-EXTERN\_\-DISABLE@{IS\_\-EXTERN\_\-DISABLE}!sis3801.h@{sis3801.h}}
+\paragraph[{IS\_\-EXTERN\_\-DISABLE}]{\setlength{\rightskip}{0pt plus 5cm}\#define IS\_\-EXTERN\_\-DISABLE~0x00040000}\hfill\label{sis3801_8h_ad36736cbc74656f44d7de3f2f9bdb6c1}
+
+
+Definition at line 75 of file sis3801.h.
+
+Referenced by sis3801\_\-Status().\index{sis3801.h@{sis3801.h}!IS\_\-EXTERN\_\-NEXT@{IS\_\-EXTERN\_\-NEXT}}
+\index{IS\_\-EXTERN\_\-NEXT@{IS\_\-EXTERN\_\-NEXT}!sis3801.h@{sis3801.h}}
+\paragraph[{IS\_\-EXTERN\_\-NEXT}]{\setlength{\rightskip}{0pt plus 5cm}\#define IS\_\-EXTERN\_\-NEXT~0x00010000}\hfill\label{sis3801_8h_a9f0ae1ee86718cd9affe179412b1f24d}
+
+
+Definition at line 73 of file sis3801.h.
+
+Referenced by sis3801\_\-Status().\index{sis3801.h@{sis3801.h}!IS\_\-FIFO\_\-ALMOST\_\-EMPTY@{IS\_\-FIFO\_\-ALMOST\_\-EMPTY}}
+\index{IS\_\-FIFO\_\-ALMOST\_\-EMPTY@{IS\_\-FIFO\_\-ALMOST\_\-EMPTY}!sis3801.h@{sis3801.h}}
+\paragraph[{IS\_\-FIFO\_\-ALMOST\_\-EMPTY}]{\setlength{\rightskip}{0pt plus 5cm}\#define IS\_\-FIFO\_\-ALMOST\_\-EMPTY~0x00000200}\hfill\label{sis3801_8h_a0a30d30f9a69aa36c585ccc7956b6cfa}
+
+
+Definition at line 67 of file sis3801.h.
+
+Referenced by sis3801\_\-Status().\index{sis3801.h@{sis3801.h}!IS\_\-FIFO\_\-EMPTY@{IS\_\-FIFO\_\-EMPTY}}
+\index{IS\_\-FIFO\_\-EMPTY@{IS\_\-FIFO\_\-EMPTY}!sis3801.h@{sis3801.h}}
+\paragraph[{IS\_\-FIFO\_\-EMPTY}]{\setlength{\rightskip}{0pt plus 5cm}\#define IS\_\-FIFO\_\-EMPTY~0x00000100}\hfill\label{sis3801_8h_acc0c19f969478ca190ac42882e475753}
+
+
+Definition at line 66 of file sis3801.h.
+
+Referenced by sis3801\_\-FIFO\_\-flush(), and sis3801\_\-Status().\index{sis3801.h@{sis3801.h}!IS\_\-FIFO\_\-FULL@{IS\_\-FIFO\_\-FULL}}
+\index{IS\_\-FIFO\_\-FULL@{IS\_\-FIFO\_\-FULL}!sis3801.h@{sis3801.h}}
+\paragraph[{IS\_\-FIFO\_\-FULL}]{\setlength{\rightskip}{0pt plus 5cm}\#define IS\_\-FIFO\_\-FULL~0x00001000}\hfill\label{sis3801_8h_a22e5e17891861e5730982889e52c6213}
+
+
+Definition at line 69 of file sis3801.h.
+
+Referenced by sis3801\_\-FIFO\_\-flush(), sis3801\_\-HFIFO\_\-read(), and sis3801\_\-Status().\index{sis3801.h@{sis3801.h}!IS\_\-FIFO\_\-HALF\_\-FULL@{IS\_\-FIFO\_\-HALF\_\-FULL}}
+\index{IS\_\-FIFO\_\-HALF\_\-FULL@{IS\_\-FIFO\_\-HALF\_\-FULL}!sis3801.h@{sis3801.h}}
+\paragraph[{IS\_\-FIFO\_\-HALF\_\-FULL}]{\setlength{\rightskip}{0pt plus 5cm}\#define IS\_\-FIFO\_\-HALF\_\-FULL~0x00000400}\hfill\label{sis3801_8h_a2c9fe1f048b14193aea51c30467ba37e}
+
+
+Definition at line 68 of file sis3801.h.
+
+Referenced by sis3801\_\-HFIFO\_\-read(), and sis3801\_\-Status().\index{sis3801.h@{sis3801.h}!IS\_\-IRQ\_\-ALFULL@{IS\_\-IRQ\_\-ALFULL}}
+\index{IS\_\-IRQ\_\-ALFULL@{IS\_\-IRQ\_\-ALFULL}!sis3801.h@{sis3801.h}}
+\paragraph[{IS\_\-IRQ\_\-ALFULL}]{\setlength{\rightskip}{0pt plus 5cm}\#define IS\_\-IRQ\_\-ALFULL~0x80000000}\hfill\label{sis3801_8h_a010e34de1ec89fe23d00fc927f68b6eb}
+
+
+Definition at line 93 of file sis3801.h.
+
+Referenced by sis3801\_\-Status().\index{sis3801.h@{sis3801.h}!IS\_\-IRQ\_\-CIP@{IS\_\-IRQ\_\-CIP}}
+\index{IS\_\-IRQ\_\-CIP@{IS\_\-IRQ\_\-CIP}!sis3801.h@{sis3801.h}}
+\paragraph[{IS\_\-IRQ\_\-CIP}]{\setlength{\rightskip}{0pt plus 5cm}\#define IS\_\-IRQ\_\-CIP~0x10000000}\hfill\label{sis3801_8h_a91936e1310c64751150ca346e63f8e17}
+
+
+Definition at line 90 of file sis3801.h.
+
+Referenced by sis3801\_\-Status().\index{sis3801.h@{sis3801.h}!IS\_\-IRQ\_\-EN\_\-ALFULL@{IS\_\-IRQ\_\-EN\_\-ALFULL}}
+\index{IS\_\-IRQ\_\-EN\_\-ALFULL@{IS\_\-IRQ\_\-EN\_\-ALFULL}!sis3801.h@{sis3801.h}}
+\paragraph[{IS\_\-IRQ\_\-EN\_\-ALFULL}]{\setlength{\rightskip}{0pt plus 5cm}\#define IS\_\-IRQ\_\-EN\_\-ALFULL~0x00800000}\hfill\label{sis3801_8h_aa95a908543d60c66e1945b3a7665bb5d}
+
+
+Definition at line 89 of file sis3801.h.
+
+Referenced by sis3801\_\-Status().\index{sis3801.h@{sis3801.h}!IS\_\-IRQ\_\-EN\_\-CIP@{IS\_\-IRQ\_\-EN\_\-CIP}}
+\index{IS\_\-IRQ\_\-EN\_\-CIP@{IS\_\-IRQ\_\-EN\_\-CIP}!sis3801.h@{sis3801.h}}
+\paragraph[{IS\_\-IRQ\_\-EN\_\-CIP}]{\setlength{\rightskip}{0pt plus 5cm}\#define IS\_\-IRQ\_\-EN\_\-CIP~0x00100000}\hfill\label{sis3801_8h_a1fb13901dbd78f6dac8c801006561e69}
+
+
+Definition at line 86 of file sis3801.h.
+
+Referenced by sis3801\_\-Status().\index{sis3801.h@{sis3801.h}!IS\_\-IRQ\_\-EN\_\-FULL@{IS\_\-IRQ\_\-EN\_\-FULL}}
+\index{IS\_\-IRQ\_\-EN\_\-FULL@{IS\_\-IRQ\_\-EN\_\-FULL}!sis3801.h@{sis3801.h}}
+\paragraph[{IS\_\-IRQ\_\-EN\_\-FULL}]{\setlength{\rightskip}{0pt plus 5cm}\#define IS\_\-IRQ\_\-EN\_\-FULL~0x00200000}\hfill\label{sis3801_8h_a620cc95bcfc979816f4fc113fd4b6352}
+
+
+Definition at line 87 of file sis3801.h.
+
+Referenced by sis3801\_\-Status().\index{sis3801.h@{sis3801.h}!IS\_\-IRQ\_\-EN\_\-HFULL@{IS\_\-IRQ\_\-EN\_\-HFULL}}
+\index{IS\_\-IRQ\_\-EN\_\-HFULL@{IS\_\-IRQ\_\-EN\_\-HFULL}!sis3801.h@{sis3801.h}}
+\paragraph[{IS\_\-IRQ\_\-EN\_\-HFULL}]{\setlength{\rightskip}{0pt plus 5cm}\#define IS\_\-IRQ\_\-EN\_\-HFULL~0x00400000}\hfill\label{sis3801_8h_a9f8ac5b29fcad627da3c6ab413ce45d9}
+
+
+Definition at line 88 of file sis3801.h.
+
+Referenced by sis3801\_\-Status().\index{sis3801.h@{sis3801.h}!IS\_\-IRQ\_\-FULL@{IS\_\-IRQ\_\-FULL}}
+\index{IS\_\-IRQ\_\-FULL@{IS\_\-IRQ\_\-FULL}!sis3801.h@{sis3801.h}}
+\paragraph[{IS\_\-IRQ\_\-FULL}]{\setlength{\rightskip}{0pt plus 5cm}\#define IS\_\-IRQ\_\-FULL~0x20000000}\hfill\label{sis3801_8h_ad8dfd7dcaf068da671d73e67b255df66}
+
+
+Definition at line 91 of file sis3801.h.
+
+Referenced by sis3801\_\-Status().\index{sis3801.h@{sis3801.h}!IS\_\-IRQ\_\-HFULL@{IS\_\-IRQ\_\-HFULL}}
+\index{IS\_\-IRQ\_\-HFULL@{IS\_\-IRQ\_\-HFULL}!sis3801.h@{sis3801.h}}
+\paragraph[{IS\_\-IRQ\_\-HFULL}]{\setlength{\rightskip}{0pt plus 5cm}\#define IS\_\-IRQ\_\-HFULL~0x40000000}\hfill\label{sis3801_8h_a2dbf24f998dad0b48d4273ea12b4437d}
+
+
+Definition at line 92 of file sis3801.h.
+
+Referenced by sis3801\_\-Status().\index{sis3801.h@{sis3801.h}!IS\_\-LED@{IS\_\-LED}}
+\index{IS\_\-LED@{IS\_\-LED}!sis3801.h@{sis3801.h}}
+\paragraph[{IS\_\-LED}]{\setlength{\rightskip}{0pt plus 5cm}\#define IS\_\-LED~0x00000001}\hfill\label{sis3801_8h_a1675b13057e5ae3fb361e87d4053de4b}
+
+
+Definition at line 45 of file sis3801.h.
+
+Referenced by sis3801\_\-Status(), and SIS3803\_\-CSR\_\-read().\index{sis3801.h@{sis3801.h}!IS\_\-LNE@{IS\_\-LNE}}
+\index{IS\_\-LNE@{IS\_\-LNE}!sis3801.h@{sis3801.h}}
+\paragraph[{IS\_\-LNE}]{\setlength{\rightskip}{0pt plus 5cm}\#define IS\_\-LNE~0x00000080}\hfill\label{sis3801_8h_ae9a8ae280598308f08d633cfa2880b88}
+
+
+Definition at line 63 of file sis3801.h.
+
+Referenced by sis3801\_\-Status().\index{sis3801.h@{sis3801.h}!IS\_\-NEXT\_\-LOGIC\_\-ENABLE@{IS\_\-NEXT\_\-LOGIC\_\-ENABLE}}
+\index{IS\_\-NEXT\_\-LOGIC\_\-ENABLE@{IS\_\-NEXT\_\-LOGIC\_\-ENABLE}!sis3801.h@{sis3801.h}}
+\paragraph[{IS\_\-NEXT\_\-LOGIC\_\-ENABLE}]{\setlength{\rightskip}{0pt plus 5cm}\#define IS\_\-NEXT\_\-LOGIC\_\-ENABLE~0x00008000}\hfill\label{sis3801_8h_a77fc00367bc86606cc96675723faa358}
+
+
+Definition at line 72 of file sis3801.h.
+
+Referenced by sis3801\_\-next\_\-logic(), and sis3801\_\-Status().\index{sis3801.h@{sis3801.h}!IS\_\-REF1@{IS\_\-REF1}}
+\index{IS\_\-REF1@{IS\_\-REF1}!sis3801.h@{sis3801.h}}
+\paragraph[{IS\_\-REF1}]{\setlength{\rightskip}{0pt plus 5cm}\#define IS\_\-REF1~0x00002000}\hfill\label{sis3801_8h_a6afdc5e84cf76ab272454aad24e9186e}
+
+
+Definition at line 70 of file sis3801.h.
+
+Referenced by sis3801\_\-ref1(), sis3801\_\-Status(), SIS3803\_\-CSR\_\-read(), and sis3803\_\-ref1().\index{sis3801.h@{sis3801.h}!IS\_\-SOFT\_\-COUNTING@{IS\_\-SOFT\_\-COUNTING}}
+\index{IS\_\-SOFT\_\-COUNTING@{IS\_\-SOFT\_\-COUNTING}!sis3801.h@{sis3801.h}}
+\paragraph[{IS\_\-SOFT\_\-COUNTING}]{\setlength{\rightskip}{0pt plus 5cm}\#define IS\_\-SOFT\_\-COUNTING~0x00080000}\hfill\label{sis3801_8h_ae2cbd0cc3f1378acf69c9402286d1ac7}
+
+
+Definition at line 76 of file sis3801.h.
+
+Referenced by sis3801\_\-Status().\index{sis3801.h@{sis3801.h}!IS\_\-TEST@{IS\_\-TEST}}
+\index{IS\_\-TEST@{IS\_\-TEST}!sis3801.h@{sis3801.h}}
+\paragraph[{IS\_\-TEST}]{\setlength{\rightskip}{0pt plus 5cm}\#define IS\_\-TEST~0x00000020}\hfill\label{sis3801_8h_a534a6da2752a735779d94aca808fc357}
+
+
+Definition at line 56 of file sis3801.h.
+
+Referenced by sis3801\_\-Status().\index{sis3801.h@{sis3801.h}!LED\_\-OFF@{LED\_\-OFF}}
+\index{LED\_\-OFF@{LED\_\-OFF}!sis3801.h@{sis3801.h}}
+\paragraph[{LED\_\-OFF}]{\setlength{\rightskip}{0pt plus 5cm}\#define LED\_\-OFF~0x00000100}\hfill\label{sis3801_8h_a80700bb63bd56ebabbb4728aa433fd29}
+
+
+Definition at line 47 of file sis3801.h.\index{sis3801.h@{sis3801.h}!LED\_\-ON@{LED\_\-ON}}
+\index{LED\_\-ON@{LED\_\-ON}!sis3801.h@{sis3801.h}}
+\paragraph[{LED\_\-ON}]{\setlength{\rightskip}{0pt plus 5cm}\#define LED\_\-ON~0x00000001}\hfill\label{sis3801_8h_af2e697ac60e05813d45ea2c9c9e79c25}
+
+
+Definition at line 46 of file sis3801.h.\index{sis3801.h@{sis3801.h}!MAX\_\-FIFO\_\-SIZE@{MAX\_\-FIFO\_\-SIZE}}
+\index{MAX\_\-FIFO\_\-SIZE@{MAX\_\-FIFO\_\-SIZE}!sis3801.h@{sis3801.h}}
+\paragraph[{MAX\_\-FIFO\_\-SIZE}]{\setlength{\rightskip}{0pt plus 5cm}\#define MAX\_\-FIFO\_\-SIZE~2$\ast$HALF\_\-FIFO}\hfill\label{sis3801_8h_a70781c406c17458a408f41de8605edfd}
+
+
+Definition at line 39 of file sis3801.h.
+
+Referenced by sis3801\_\-FIFO\_\-flush().\index{sis3801.h@{sis3801.h}!MODE\_\-0@{MODE\_\-0}}
+\index{MODE\_\-0@{MODE\_\-0}!sis3801.h@{sis3801.h}}
+\paragraph[{MODE\_\-0}]{\setlength{\rightskip}{0pt plus 5cm}\#define MODE\_\-0~0x00000C00}\hfill\label{sis3801_8h_adc4559afdb0535cfebadef1c707a2f91}
+
+
+Definition at line 49 of file sis3801.h.\index{sis3801.h@{sis3801.h}!MODE\_\-1@{MODE\_\-1}}
+\index{MODE\_\-1@{MODE\_\-1}!sis3801.h@{sis3801.h}}
+\paragraph[{MODE\_\-1}]{\setlength{\rightskip}{0pt plus 5cm}\#define MODE\_\-1~0x00000804}\hfill\label{sis3801_8h_adaf03329d7f4a4ac6ac043bf481db786}
+
+
+Definition at line 50 of file sis3801.h.\index{sis3801.h@{sis3801.h}!MODE\_\-2@{MODE\_\-2}}
+\index{MODE\_\-2@{MODE\_\-2}!sis3801.h@{sis3801.h}}
+\paragraph[{MODE\_\-2}]{\setlength{\rightskip}{0pt plus 5cm}\#define MODE\_\-2~0x00000408}\hfill\label{sis3801_8h_aced5757ab7a0d940fced00f3dd123fa3}
+
+
+Definition at line 51 of file sis3801.h.\index{sis3801.h@{sis3801.h}!MODE\_\-3@{MODE\_\-3}}
+\index{MODE\_\-3@{MODE\_\-3}!sis3801.h@{sis3801.h}}
+\paragraph[{MODE\_\-3}]{\setlength{\rightskip}{0pt plus 5cm}\#define MODE\_\-3~0x0000000C}\hfill\label{sis3801_8h_aeb99b4257cb3cd9fb539529a1bd2d9ca}
+
+
+Definition at line 52 of file sis3801.h.\index{sis3801.h@{sis3801.h}!SET\_\-SOFT\_\-DISABLE@{SET\_\-SOFT\_\-DISABLE}}
+\index{SET\_\-SOFT\_\-DISABLE@{SET\_\-SOFT\_\-DISABLE}!sis3801.h@{sis3801.h}}
+\paragraph[{SET\_\-SOFT\_\-DISABLE}]{\setlength{\rightskip}{0pt plus 5cm}\#define SET\_\-SOFT\_\-DISABLE~0x00080000}\hfill\label{sis3801_8h_a73c38dfbc5fbf7d0349e817608f738fb}
+
+
+Definition at line 80 of file sis3801.h.\index{sis3801.h@{sis3801.h}!SIS3801\_\-COPY\_\-REG\_\-WO@{SIS3801\_\-COPY\_\-REG\_\-WO}}
+\index{SIS3801\_\-COPY\_\-REG\_\-WO@{SIS3801\_\-COPY\_\-REG\_\-WO}!sis3801.h@{sis3801.h}}
+\paragraph[{SIS3801\_\-COPY\_\-REG\_\-WO}]{\setlength{\rightskip}{0pt plus 5cm}\#define SIS3801\_\-COPY\_\-REG\_\-WO~0x00C}\hfill\label{sis3801_8h_a461c280dd2dd48ae3560c28cf8dca7fa}
+
+
+Definition at line 107 of file sis3801.h.
+
+Referenced by sis3801\_\-channel\_\-enable().\index{sis3801.h@{sis3801.h}!SIS3801\_\-CSR\_\-RW@{SIS3801\_\-CSR\_\-RW}}
+\index{SIS3801\_\-CSR\_\-RW@{SIS3801\_\-CSR\_\-RW}!sis3801.h@{sis3801.h}}
+\paragraph[{SIS3801\_\-CSR\_\-RW}]{\setlength{\rightskip}{0pt plus 5cm}\#define SIS3801\_\-CSR\_\-RW~0x000}\hfill\label{sis3801_8h_a0d9982fe76e2f1caed964186a2d3007f}
+
+
+Definition at line 104 of file sis3801.h.
+
+Referenced by sis3801\_\-CSR\_\-read(), sis3801\_\-CSR\_\-write(), sis3801\_\-input\_\-mode(), sis3801\_\-int\_\-clear(), sis3801\_\-int\_\-source(), sis3801\_\-int\_\-source\_\-disable(), sis3801\_\-int\_\-source\_\-enable(), sis3801\_\-next\_\-logic(), and sis3801\_\-ref1().\index{sis3801.h@{sis3801.h}!SIS3801\_\-DISABLE\_\-NEXT\_\-CLK\_\-WO@{SIS3801\_\-DISABLE\_\-NEXT\_\-CLK\_\-WO}}
+\index{SIS3801\_\-DISABLE\_\-NEXT\_\-CLK\_\-WO@{SIS3801\_\-DISABLE\_\-NEXT\_\-CLK\_\-WO}!sis3801.h@{sis3801.h}}
+\paragraph[{SIS3801\_\-DISABLE\_\-NEXT\_\-CLK\_\-WO}]{\setlength{\rightskip}{0pt plus 5cm}\#define SIS3801\_\-DISABLE\_\-NEXT\_\-CLK\_\-WO~0x02C}\hfill\label{sis3801_8h_a77c1c1278318716935e26c395d267b73}
+
+
+Definition at line 112 of file sis3801.h.
+
+Referenced by sis3801\_\-next\_\-logic().\index{sis3801.h@{sis3801.h}!SIS3801\_\-DISABLE\_\-REF\_\-CH1\_\-WO@{SIS3801\_\-DISABLE\_\-REF\_\-CH1\_\-WO}}
+\index{SIS3801\_\-DISABLE\_\-REF\_\-CH1\_\-WO@{SIS3801\_\-DISABLE\_\-REF\_\-CH1\_\-WO}!sis3801.h@{sis3801.h}}
+\paragraph[{SIS3801\_\-DISABLE\_\-REF\_\-CH1\_\-WO}]{\setlength{\rightskip}{0pt plus 5cm}\#define SIS3801\_\-DISABLE\_\-REF\_\-CH1\_\-WO~0x054}\hfill\label{sis3801_8h_a43c44f8497c7e148cb4abb4158314ce9}
+
+
+Definition at line 114 of file sis3801.h.
+
+Referenced by sis3801\_\-ref1().\index{sis3801.h@{sis3801.h}!SIS3801\_\-ENABLE\_\-NEXT\_\-CLK\_\-WO@{SIS3801\_\-ENABLE\_\-NEXT\_\-CLK\_\-WO}}
+\index{SIS3801\_\-ENABLE\_\-NEXT\_\-CLK\_\-WO@{SIS3801\_\-ENABLE\_\-NEXT\_\-CLK\_\-WO}!sis3801.h@{sis3801.h}}
+\paragraph[{SIS3801\_\-ENABLE\_\-NEXT\_\-CLK\_\-WO}]{\setlength{\rightskip}{0pt plus 5cm}\#define SIS3801\_\-ENABLE\_\-NEXT\_\-CLK\_\-WO~0x028}\hfill\label{sis3801_8h_ada1711321a5e7d7f825b1000b9f84963}
+
+
+Definition at line 111 of file sis3801.h.
+
+Referenced by sis3801\_\-next\_\-logic().\index{sis3801.h@{sis3801.h}!SIS3801\_\-ENABLE\_\-REF\_\-CH1\_\-WO@{SIS3801\_\-ENABLE\_\-REF\_\-CH1\_\-WO}}
+\index{SIS3801\_\-ENABLE\_\-REF\_\-CH1\_\-WO@{SIS3801\_\-ENABLE\_\-REF\_\-CH1\_\-WO}!sis3801.h@{sis3801.h}}
+\paragraph[{SIS3801\_\-ENABLE\_\-REF\_\-CH1\_\-WO}]{\setlength{\rightskip}{0pt plus 5cm}\#define SIS3801\_\-ENABLE\_\-REF\_\-CH1\_\-WO~0x050}\hfill\label{sis3801_8h_a9c954d15c731258780ea6ed68ee097d7}
+
+
+Definition at line 113 of file sis3801.h.
+
+Referenced by sis3801\_\-ref1().\index{sis3801.h@{sis3801.h}!SIS3801\_\-FIFO\_\-CLEAR\_\-WO@{SIS3801\_\-FIFO\_\-CLEAR\_\-WO}}
+\index{SIS3801\_\-FIFO\_\-CLEAR\_\-WO@{SIS3801\_\-FIFO\_\-CLEAR\_\-WO}!sis3801.h@{sis3801.h}}
+\paragraph[{SIS3801\_\-FIFO\_\-CLEAR\_\-WO}]{\setlength{\rightskip}{0pt plus 5cm}\#define SIS3801\_\-FIFO\_\-CLEAR\_\-WO~0x020}\hfill\label{sis3801_8h_a0c0fec0eea0557e49416d28f68dc380b}
+
+
+Definition at line 109 of file sis3801.h.
+
+Referenced by sis3801\_\-FIFO\_\-clear().\index{sis3801.h@{sis3801.h}!SIS3801\_\-FIFO\_\-RO@{SIS3801\_\-FIFO\_\-RO}}
+\index{SIS3801\_\-FIFO\_\-RO@{SIS3801\_\-FIFO\_\-RO}!sis3801.h@{sis3801.h}}
+\paragraph[{SIS3801\_\-FIFO\_\-RO}]{\setlength{\rightskip}{0pt plus 5cm}\#define SIS3801\_\-FIFO\_\-RO~0x100}\hfill\label{sis3801_8h_a17633afcaa93b027e759d88456f42e1e}
+
+
+Definition at line 118 of file sis3801.h.
+
+Referenced by sis3801\_\-FIFO\_\-flush(), and sis3801\_\-HFIFO\_\-read().\index{sis3801.h@{sis3801.h}!SIS3801\_\-FIFO\_\-WRITE\_\-WO@{SIS3801\_\-FIFO\_\-WRITE\_\-WO}}
+\index{SIS3801\_\-FIFO\_\-WRITE\_\-WO@{SIS3801\_\-FIFO\_\-WRITE\_\-WO}!sis3801.h@{sis3801.h}}
+\paragraph[{SIS3801\_\-FIFO\_\-WRITE\_\-WO}]{\setlength{\rightskip}{0pt plus 5cm}\#define SIS3801\_\-FIFO\_\-WRITE\_\-WO~0x010}\hfill\label{sis3801_8h_aec0d68fc6eda53b92bc90813484483b1}
+
+
+Definition at line 108 of file sis3801.h.\index{sis3801.h@{sis3801.h}!SIS3801\_\-IRQ\_\-REG\_\-RW@{SIS3801\_\-IRQ\_\-REG\_\-RW}}
+\index{SIS3801\_\-IRQ\_\-REG\_\-RW@{SIS3801\_\-IRQ\_\-REG\_\-RW}!sis3801.h@{sis3801.h}}
+\paragraph[{SIS3801\_\-IRQ\_\-REG\_\-RW}]{\setlength{\rightskip}{0pt plus 5cm}\#define SIS3801\_\-IRQ\_\-REG\_\-RW~0x004}\hfill\label{sis3801_8h_a7a5e75b5048ded84755f496291794846}
+
+
+Definition at line 106 of file sis3801.h.
+
+Referenced by sis3801\_\-int\_\-attach(), sis3801\_\-IRQ\_\-REG\_\-read(), and sis3801\_\-IRQ\_\-REG\_\-write().\index{sis3801.h@{sis3801.h}!SIS3801\_\-MODULE\_\-ID\_\-RO@{SIS3801\_\-MODULE\_\-ID\_\-RO}}
+\index{SIS3801\_\-MODULE\_\-ID\_\-RO@{SIS3801\_\-MODULE\_\-ID\_\-RO}!sis3801.h@{sis3801.h}}
+\paragraph[{SIS3801\_\-MODULE\_\-ID\_\-RO}]{\setlength{\rightskip}{0pt plus 5cm}\#define SIS3801\_\-MODULE\_\-ID\_\-RO~0x004}\hfill\label{sis3801_8h_a757b7ce397693914045489bc83c1d64a}
+
+
+Definition at line 105 of file sis3801.h.
+
+Referenced by sis3801\_\-module\_\-ID().\index{sis3801.h@{sis3801.h}!SIS3801\_\-MODULE\_\-RESET\_\-WO@{SIS3801\_\-MODULE\_\-RESET\_\-WO}}
+\index{SIS3801\_\-MODULE\_\-RESET\_\-WO@{SIS3801\_\-MODULE\_\-RESET\_\-WO}!sis3801.h@{sis3801.h}}
+\paragraph[{SIS3801\_\-MODULE\_\-RESET\_\-WO}]{\setlength{\rightskip}{0pt plus 5cm}\#define SIS3801\_\-MODULE\_\-RESET\_\-WO~0x060}\hfill\label{sis3801_8h_a5d3dc575a383f380e5a41fc536da57d5}
+
+
+Definition at line 115 of file sis3801.h.
+
+Referenced by sis3801\_\-module\_\-reset().\index{sis3801.h@{sis3801.h}!SIS3801\_\-PRESCALE\_\-REG\_\-RW@{SIS3801\_\-PRESCALE\_\-REG\_\-RW}}
+\index{SIS3801\_\-PRESCALE\_\-REG\_\-RW@{SIS3801\_\-PRESCALE\_\-REG\_\-RW}!sis3801.h@{sis3801.h}}
+\paragraph[{SIS3801\_\-PRESCALE\_\-REG\_\-RW}]{\setlength{\rightskip}{0pt plus 5cm}\#define SIS3801\_\-PRESCALE\_\-REG\_\-RW~0x080}\hfill\label{sis3801_8h_aa9ffbcb022b9f623f249ffcbc35bd840}
+
+
+Definition at line 117 of file sis3801.h.
+
+Referenced by sis3801\_\-dwell\_\-time().\index{sis3801.h@{sis3801.h}!SIS3801\_\-SINGLE\_\-TST\_\-PULSE\_\-WO@{SIS3801\_\-SINGLE\_\-TST\_\-PULSE\_\-WO}}
+\index{SIS3801\_\-SINGLE\_\-TST\_\-PULSE\_\-WO@{SIS3801\_\-SINGLE\_\-TST\_\-PULSE\_\-WO}!sis3801.h@{sis3801.h}}
+\paragraph[{SIS3801\_\-SINGLE\_\-TST\_\-PULSE\_\-WO}]{\setlength{\rightskip}{0pt plus 5cm}\#define SIS3801\_\-SINGLE\_\-TST\_\-PULSE\_\-WO~0x068}\hfill\label{sis3801_8h_a5962e89a1981d47590d4fad7f857cffa}
+
+
+Definition at line 116 of file sis3801.h.\index{sis3801.h@{sis3801.h}!SIS3801\_\-VECT\_\-BASE@{SIS3801\_\-VECT\_\-BASE}}
+\index{SIS3801\_\-VECT\_\-BASE@{SIS3801\_\-VECT\_\-BASE}!sis3801.h@{sis3801.h}}
+\paragraph[{SIS3801\_\-VECT\_\-BASE}]{\setlength{\rightskip}{0pt plus 5cm}\#define SIS3801\_\-VECT\_\-BASE~0x7f}\hfill\label{sis3801_8h_ac198ad76e073422d1e29a6a119b12ee8}
+
+
+Definition at line 125 of file sis3801.h.\index{sis3801.h@{sis3801.h}!SIS3801\_\-VME\_\-NEXT\_\-CLK\_\-WO@{SIS3801\_\-VME\_\-NEXT\_\-CLK\_\-WO}}
+\index{SIS3801\_\-VME\_\-NEXT\_\-CLK\_\-WO@{SIS3801\_\-VME\_\-NEXT\_\-CLK\_\-WO}!sis3801.h@{sis3801.h}}
+\paragraph[{SIS3801\_\-VME\_\-NEXT\_\-CLK\_\-WO}]{\setlength{\rightskip}{0pt plus 5cm}\#define SIS3801\_\-VME\_\-NEXT\_\-CLK\_\-WO~0x024}\hfill\label{sis3801_8h_a9fac4aee66c6b570fb25441c158e8fe7}
+
+
+Definition at line 110 of file sis3801.h.\index{sis3801.h@{sis3801.h}!SIS\_\-FIFO\_\-SIZE@{SIS\_\-FIFO\_\-SIZE}}
+\index{SIS\_\-FIFO\_\-SIZE@{SIS\_\-FIFO\_\-SIZE}!sis3801.h@{sis3801.h}}
+\paragraph[{SIS\_\-FIFO\_\-SIZE}]{\setlength{\rightskip}{0pt plus 5cm}\#define SIS\_\-FIFO\_\-SIZE~4$\ast$HALF\_\-FIFO}\hfill\label{sis3801_8h_aa4e05adc523a046116083af8e3825f5d}
+
+
+Definition at line 40 of file sis3801.h.\index{sis3801.h@{sis3801.h}!SOURCE\_\-CIP@{SOURCE\_\-CIP}}
+\index{SOURCE\_\-CIP@{SOURCE\_\-CIP}!sis3801.h@{sis3801.h}}
+\paragraph[{SOURCE\_\-CIP}]{\setlength{\rightskip}{0pt plus 5cm}\#define SOURCE\_\-CIP~0}\hfill\label{sis3801_8h_ad99fe0fe6a19f9e604fda19863343692}
+
+
+Definition at line 120 of file sis3801.h.\index{sis3801.h@{sis3801.h}!SOURCE\_\-FIFO\_\-ALFULL@{SOURCE\_\-FIFO\_\-ALFULL}}
+\index{SOURCE\_\-FIFO\_\-ALFULL@{SOURCE\_\-FIFO\_\-ALFULL}!sis3801.h@{sis3801.h}}
+\paragraph[{SOURCE\_\-FIFO\_\-ALFULL}]{\setlength{\rightskip}{0pt plus 5cm}\#define SOURCE\_\-FIFO\_\-ALFULL~3}\hfill\label{sis3801_8h_a1c4f9aa514c4e359578a0a3c471e0e44}
+
+
+Definition at line 123 of file sis3801.h.\index{sis3801.h@{sis3801.h}!SOURCE\_\-FIFO\_\-FULL@{SOURCE\_\-FIFO\_\-FULL}}
+\index{SOURCE\_\-FIFO\_\-FULL@{SOURCE\_\-FIFO\_\-FULL}!sis3801.h@{sis3801.h}}
+\paragraph[{SOURCE\_\-FIFO\_\-FULL}]{\setlength{\rightskip}{0pt plus 5cm}\#define SOURCE\_\-FIFO\_\-FULL~1}\hfill\label{sis3801_8h_a9bd02e07df6be2dcc75f77654c3b369b}
+
+
+Definition at line 121 of file sis3801.h.\index{sis3801.h@{sis3801.h}!SOURCE\_\-FIFO\_\-HFULL@{SOURCE\_\-FIFO\_\-HFULL}}
+\index{SOURCE\_\-FIFO\_\-HFULL@{SOURCE\_\-FIFO\_\-HFULL}!sis3801.h@{sis3801.h}}
+\paragraph[{SOURCE\_\-FIFO\_\-HFULL}]{\setlength{\rightskip}{0pt plus 5cm}\#define SOURCE\_\-FIFO\_\-HFULL~2}\hfill\label{sis3801_8h_acba7195ba8f939f64574d456d52c5589}
+
+
+Definition at line 122 of file sis3801.h.\index{sis3801.h@{sis3801.h}!VME\_\-IRQ\_\-ENABLE@{VME\_\-IRQ\_\-ENABLE}}
+\index{VME\_\-IRQ\_\-ENABLE@{VME\_\-IRQ\_\-ENABLE}!sis3801.h@{sis3801.h}}
+\paragraph[{VME\_\-IRQ\_\-ENABLE}]{\setlength{\rightskip}{0pt plus 5cm}\#define VME\_\-IRQ\_\-ENABLE~0x00000800}\hfill\label{sis3801_8h_abe651a9664cbb258631e2fbc4501f200}
+
+
+Definition at line 102 of file sis3801.h.
+
+Referenced by sis3801\_\-int\_\-attach(), and sis3803\_\-int\_\-attach().
+
+\subsubsection{Typedef Documentation}
+\index{sis3801.h@{sis3801.h}!DWORD@{DWORD}}
+\index{DWORD@{DWORD}!sis3801.h@{sis3801.h}}
+\paragraph[{DWORD}]{\setlength{\rightskip}{0pt plus 5cm}typedef unsigned long int {\bf DWORD}}\hfill\label{sis3801_8h_a408a2366473807fbe658ba18e75dea66}
+
+
+Definition at line 31 of file sis3801.h.
+
+\subsubsection{Function Documentation}
+\index{sis3801.h@{sis3801.h}!sis3801\_\-channel\_\-enable@{sis3801\_\-channel\_\-enable}}
+\index{sis3801\_\-channel\_\-enable@{sis3801\_\-channel\_\-enable}!sis3801.h@{sis3801.h}}
+\paragraph[{sis3801\_\-channel\_\-enable}]{\setlength{\rightskip}{0pt plus 5cm}void sis3801\_\-channel\_\-enable ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  {\bf DWORD} {\em base}, \/  {\bf DWORD} {\em nch})}\hfill\label{sis3801_8h_ac24aabb3d25468e91ab1da6640229f8e}
+Purpose: Enable nch channel for acquistion. blind command! 1..24 or 32 
+
+Definition at line 205 of file sis3801.c.\index{sis3801.h@{sis3801.h}!sis3801\_\-CSR\_\-read@{sis3801\_\-CSR\_\-read}}
+\index{sis3801\_\-CSR\_\-read@{sis3801\_\-CSR\_\-read}!sis3801.h@{sis3801.h}}
+\paragraph[{sis3801\_\-CSR\_\-read}]{\setlength{\rightskip}{0pt plus 5cm}{\bf DWORD} sis3801\_\-CSR\_\-read ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  {\bf DWORD} {\em base}, \/  const {\bf DWORD} {\em what})}\hfill\label{sis3801_8h_aac90e641397717a461ea29e640bcd529}
+Purpose: Read the CSR and return 1/0 based on what. except for what == CSR\_\-FULL where it returns current CSR 
+
+Definition at line 224 of file sis3801.c.
+
+Referenced by sis3801\_\-CSR\_\-write(), sis3801\_\-FIFO\_\-flush(), sis3801\_\-HFIFO\_\-read(), and sis3801\_\-Status().\index{sis3801.h@{sis3801.h}!sis3801\_\-CSR\_\-write@{sis3801\_\-CSR\_\-write}}
+\index{sis3801\_\-CSR\_\-write@{sis3801\_\-CSR\_\-write}!sis3801.h@{sis3801.h}}
+\paragraph[{sis3801\_\-CSR\_\-write}]{\setlength{\rightskip}{0pt plus 5cm}{\bf DWORD} sis3801\_\-CSR\_\-write ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  {\bf DWORD} {\em base}, \/  const {\bf DWORD} {\em what})}\hfill\label{sis3801_8h_a307bd17779d86d4a2b915a853b8e606a}
+Purpose: Write to the CSR and return CSR\_\-FULL. 
+
+Definition at line 250 of file sis3801.c.\index{sis3801.h@{sis3801.h}!sis3801\_\-dwell\_\-time@{sis3801\_\-dwell\_\-time}}
+\index{sis3801\_\-dwell\_\-time@{sis3801\_\-dwell\_\-time}!sis3801.h@{sis3801.h}}
+\paragraph[{sis3801\_\-dwell\_\-time}]{\setlength{\rightskip}{0pt plus 5cm}{\bf DWORD} sis3801\_\-dwell\_\-time ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  {\bf DWORD} {\em base}, \/  {\bf DWORD} {\em dwell})}\hfill\label{sis3801_8h_a30131d1123d09c8a0244ce086a72efd2}
+Purpose: Set dwell time in us DWORD dwell : dwell time in microseconds 
+
+Definition at line 128 of file sis3801.c.\index{sis3801.h@{sis3801.h}!sis3801\_\-FIFO\_\-clear@{sis3801\_\-FIFO\_\-clear}}
+\index{sis3801\_\-FIFO\_\-clear@{sis3801\_\-FIFO\_\-clear}!sis3801.h@{sis3801.h}}
+\paragraph[{sis3801\_\-FIFO\_\-clear}]{\setlength{\rightskip}{0pt plus 5cm}void sis3801\_\-FIFO\_\-clear ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  {\bf DWORD} {\em base})}\hfill\label{sis3801_8h_aa4adc6e9d7174d4f14a0fe24eeff603f}
+Purpose: Clear FIFO and logic 
+
+Definition at line 270 of file sis3801.c.\index{sis3801.h@{sis3801.h}!sis3801\_\-FIFO\_\-flush@{sis3801\_\-FIFO\_\-flush}}
+\index{sis3801\_\-FIFO\_\-flush@{sis3801\_\-FIFO\_\-flush}!sis3801.h@{sis3801.h}}
+\paragraph[{sis3801\_\-FIFO\_\-flush}]{\setlength{\rightskip}{0pt plus 5cm}int sis3801\_\-FIFO\_\-flush ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  {\bf DWORD} {\em base}, \/  {\bf DWORD} $\ast$ {\em pfifo})}\hfill\label{sis3801_8h_a582b23c0d4b194f737cf9bf62e44de9e}
+Purpose: Test and read FIFO until empty This is done using while, if the dwelling time is short relative to the readout time, the pfifo can be overrun. No test on the max read yet! Function value: int : -\/1 FULL number of words read 
+
+Definition at line 323 of file sis3801.c.\index{sis3801.h@{sis3801.h}!sis3801\_\-HFIFO\_\-read@{sis3801\_\-HFIFO\_\-read}}
+\index{sis3801\_\-HFIFO\_\-read@{sis3801\_\-HFIFO\_\-read}!sis3801.h@{sis3801.h}}
+\paragraph[{sis3801\_\-HFIFO\_\-read}]{\setlength{\rightskip}{0pt plus 5cm}int sis3801\_\-HFIFO\_\-read ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  {\bf DWORD} {\em base}, \/  {\bf DWORD} $\ast$ {\em pfifo})}\hfill\label{sis3801_8h_a01ae0f7294447474a14a4f9327ac42f1}
+Purpose: Reads 32KB (8K DWORD) of the FIFO Function value: int : -\/1 FULL 0 NOT 1/2 Full number of words read 
+
+Definition at line 291 of file sis3801.c.\index{sis3801.h@{sis3801.h}!sis3801\_\-int\_\-attach@{sis3801\_\-int\_\-attach}}
+\index{sis3801\_\-int\_\-attach@{sis3801\_\-int\_\-attach}!sis3801.h@{sis3801.h}}
+\paragraph[{sis3801\_\-int\_\-attach}]{\setlength{\rightskip}{0pt plus 5cm}void sis3801\_\-int\_\-attach ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  {\bf DWORD} {\em base}, \/  {\bf DWORD} {\em base\_\-vect}, \/  int {\em level}, \/  void($\ast$)(void) {\em isr})}\hfill\label{sis3801_8h_a2b77796e1d3a01604babb9b8ad11621f}
+Purpose: Book an ISR for a bitwise set of interrupt input (0xff). The interrupt vector is then the VECTOR\_\-BASE+intnum Input: DWORD $\ast$ base\_\-addr : base address of the sis3801 DWORD base\_\-vect : base vector of the module int level : IRQ level (1..7) DWORD isr\_\-routine : interrupt routine pointer 
+
+Definition at line 448 of file sis3801.c.\index{sis3801.h@{sis3801.h}!sis3801\_\-int\_\-clear@{sis3801\_\-int\_\-clear}}
+\index{sis3801\_\-int\_\-clear@{sis3801\_\-int\_\-clear}!sis3801.h@{sis3801.h}}
+\paragraph[{sis3801\_\-int\_\-clear}]{\setlength{\rightskip}{0pt plus 5cm}void sis3801\_\-int\_\-clear ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  {\bf DWORD} {\em base}, \/  const int {\em intnum})}\hfill\label{sis3801_8h_af12722909e5d4125828c425b88015072}
+Purpose: Disable the interrupt for the bitwise input intnum (0xff). The interrupt vector is then the VECTOR\_\-BASE+intnum Input: DWORD $\ast$ base\_\-addr : base address of the sis3801 int $\ast$ intnum : interrupt number (input 0..3) 
+
+Definition at line 494 of file sis3801.c.\index{sis3801.h@{sis3801.h}!sis3801\_\-int\_\-detach@{sis3801\_\-int\_\-detach}}
+\index{sis3801\_\-int\_\-detach@{sis3801\_\-int\_\-detach}!sis3801.h@{sis3801.h}}
+\paragraph[{sis3801\_\-int\_\-detach}]{\setlength{\rightskip}{0pt plus 5cm}void sis3801\_\-int\_\-detach ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  {\bf DWORD} {\em base}, \/  {\bf DWORD} {\em base\_\-vect}, \/  int {\em level})}\hfill\label{sis3801_8h_aabfff334589d256ec03c1f7e6bc7969b}
+Purpose: Unbook an ISR for a bitwise set of interrupt input (0xff). The interrupt vector is then the VECTOR\_\-BASE+intnum Input: DWORD $\ast$ base\_\-addr : base address of the sis3801 DWORD base\_\-vect : base vector of the module int level : IRQ level (1..7) 
+
+Definition at line 475 of file sis3801.c.\index{sis3801.h@{sis3801.h}!sis3801\_\-int\_\-source@{sis3801\_\-int\_\-source}}
+\index{sis3801\_\-int\_\-source@{sis3801\_\-int\_\-source}!sis3801.h@{sis3801.h}}
+\paragraph[{sis3801\_\-int\_\-source}]{\setlength{\rightskip}{0pt plus 5cm}void sis3801\_\-int\_\-source ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  {\bf DWORD} {\em base}, \/  {\bf DWORD} {\em int\_\-source})}\hfill\label{sis3801_8h_afabe260ab7dfe46d4114d0938a978f42}
+Purpose: Enable the one of the 4 interrupt using the predefined \hyperlink{structparameters}{parameters} (see \hyperlink{sis3801_8h}{sis3801.h}) DWORD $\ast$ intnum : interrupt number (input 0..3) 
+
+Definition at line 422 of file sis3801.c.
+
+Referenced by sis3801\_\-int\_\-attach(), and sis3801\_\-int\_\-detach().\index{sis3801.h@{sis3801.h}!sis3801\_\-int\_\-source\_\-disable@{sis3801\_\-int\_\-source\_\-disable}}
+\index{sis3801\_\-int\_\-source\_\-disable@{sis3801\_\-int\_\-source\_\-disable}!sis3801.h@{sis3801.h}}
+\paragraph[{sis3801\_\-int\_\-source\_\-disable}]{\setlength{\rightskip}{0pt plus 5cm}void sis3801\_\-int\_\-source\_\-disable ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  {\bf DWORD} {\em base}, \/  const int {\em intnum})}\hfill\label{sis3801_8h_a3e7b10aa81fab64857ba1bf01fa0a129}
+Purpose: Enable the interrupt for the bitwise input intnum (0xff). The interrupt vector is then the VECTOR\_\-BASE 
+
+Definition at line 385 of file sis3801.c.\index{sis3801.h@{sis3801.h}!sis3801\_\-int\_\-source\_\-enable@{sis3801\_\-int\_\-source\_\-enable}}
+\index{sis3801\_\-int\_\-source\_\-enable@{sis3801\_\-int\_\-source\_\-enable}!sis3801.h@{sis3801.h}}
+\paragraph[{sis3801\_\-int\_\-source\_\-enable}]{\setlength{\rightskip}{0pt plus 5cm}void sis3801\_\-int\_\-source\_\-enable ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  {\bf DWORD} {\em base}, \/  const int {\em intnum})}\hfill\label{sis3801_8h_af6703d63e671731c37eeebcb275464aa}
+Purpose: Enable the interrupt for the bitwise input intnum (0xff). The interrupt vector is then the VECTOR\_\-BASE 
+
+Definition at line 349 of file sis3801.c.\index{sis3801.h@{sis3801.h}!sis3801\_\-IRQ\_\-REG\_\-read@{sis3801\_\-IRQ\_\-REG\_\-read}}
+\index{sis3801\_\-IRQ\_\-REG\_\-read@{sis3801\_\-IRQ\_\-REG\_\-read}!sis3801.h@{sis3801.h}}
+\paragraph[{sis3801\_\-IRQ\_\-REG\_\-read}]{\setlength{\rightskip}{0pt plus 5cm}{\bf DWORD} sis3801\_\-IRQ\_\-REG\_\-read ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  {\bf DWORD} {\em base})}\hfill\label{sis3801_8h_ab295ea2c9698fe3a0143103b696609d2}
+DWORD : 0xE(1)L(3)V(8) 
+
+Definition at line 68 of file sis3801.c.\index{sis3801.h@{sis3801.h}!sis3801\_\-IRQ\_\-REG\_\-write@{sis3801\_\-IRQ\_\-REG\_\-write}}
+\index{sis3801\_\-IRQ\_\-REG\_\-write@{sis3801\_\-IRQ\_\-REG\_\-write}!sis3801.h@{sis3801.h}}
+\paragraph[{sis3801\_\-IRQ\_\-REG\_\-write}]{\setlength{\rightskip}{0pt plus 5cm}{\bf DWORD} sis3801\_\-IRQ\_\-REG\_\-write ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  {\bf DWORD} {\em base}, \/  {\bf DWORD} {\em vector})}\hfill\label{sis3801_8h_a96c6849156112f3100be773221887e76}
+Purpose: write irq (ELV) to the register and read back DWORD : 0xE(1)L(3)V(8) 
+
+Definition at line 86 of file sis3801.c.\index{sis3801.h@{sis3801.h}!sis3801\_\-module\_\-ID@{sis3801\_\-module\_\-ID}}
+\index{sis3801\_\-module\_\-ID@{sis3801\_\-module\_\-ID}!sis3801.h@{sis3801.h}}
+\paragraph[{sis3801\_\-module\_\-ID}]{\setlength{\rightskip}{0pt plus 5cm}{\bf DWORD} sis3801\_\-module\_\-ID ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  {\bf DWORD} {\em base})}\hfill\label{sis3801_8h_ae898609aaf567d5366587e8e719bdf52}
+Module ID Purpose: return the Module ID number (I) version (V) IRQ level (L) IRQ vector\# (BB) 0xIIIIVLBB 
+
+Definition at line 37 of file sis3801.c.
+
+Referenced by sis3801\_\-Status().\index{sis3801.h@{sis3801.h}!sis3801\_\-module\_\-mode@{sis3801\_\-module\_\-mode}}
+\index{sis3801\_\-module\_\-mode@{sis3801\_\-module\_\-mode}!sis3801.h@{sis3801.h}}
+\paragraph[{sis3801\_\-module\_\-mode}]{\setlength{\rightskip}{0pt plus 5cm}{\bf DWORD} sis3801\_\-module\_\-mode ({\bf MVME\_\-INTERFACE} $\ast$ {\em myvme}, \/  {\bf DWORD} {\em base}, \/  {\bf DWORD} {\em mode})}\hfill\label{sis3801_8h_a699de6e698bb226b1879b726dab1641e}
+\index{sis3801.h@{sis3801.h}!sis3801\_\-module\_\-reset@{sis3801\_\-module\_\-reset}}
+\index{sis3801\_\-module\_\-reset@{sis3801\_\-module\_\-reset}!sis3801.h@{sis3801.h}}
+\paragraph[{sis3801\_\-module\_\-reset}]{\setlength{\rightskip}{0pt plus 5cm}void sis3801\_\-module\_\-reset ({\bf MVME\_\-INTERFACE} $\ast$ {\em myvme}, \/  {\bf DWORD} {\em base})}\hfill\label{sis3801_8h_af470813cfb3217ccc86fd561d95ea401}
+
+
+Definition at line 52 of file sis3801.c.\index{sis3801.h@{sis3801.h}!sis3801\_\-next\_\-logic@{sis3801\_\-next\_\-logic}}
+\index{sis3801\_\-next\_\-logic@{sis3801\_\-next\_\-logic}!sis3801.h@{sis3801.h}}
+\paragraph[{sis3801\_\-next\_\-logic}]{\setlength{\rightskip}{0pt plus 5cm}int sis3801\_\-next\_\-logic ({\bf MVME\_\-INTERFACE} $\ast$ {\em myvme}, \/  {\bf DWORD} {\em base}, \/  {\bf DWORD} {\em endis})}\hfill\label{sis3801_8h_aa07bbce4156599eb0aa27121f8561975}
+
+
+Definition at line 178 of file sis3801.c.\index{sis3801.h@{sis3801.h}!sis3801\_\-ref1@{sis3801\_\-ref1}}
+\index{sis3801\_\-ref1@{sis3801\_\-ref1}!sis3801.h@{sis3801.h}}
+\paragraph[{sis3801\_\-ref1}]{\setlength{\rightskip}{0pt plus 5cm}int sis3801\_\-ref1 ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  {\bf DWORD} {\em base}, \/  {\bf DWORD} {\em endis})}\hfill\label{sis3801_8h_a62a0e860cd93ba6b21e4b14aef66ffc7}
+Purpose: Enable/Disable Reference on Channel 1 DWORD endis : action either ENABLE\_\-REF\_\-CH1 DISABLE\_\-REF\_\-CH1 
+
+Definition at line 152 of file sis3801.c.\index{sis3801.h@{sis3801.h}!sis3801\_\-Setup@{sis3801\_\-Setup}}
+\index{sis3801\_\-Setup@{sis3801\_\-Setup}!sis3801.h@{sis3801.h}}
+\paragraph[{sis3801\_\-Setup}]{\setlength{\rightskip}{0pt plus 5cm}int sis3801\_\-Setup ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  {\bf DWORD} {\em base}, \/  int {\em mode})}\hfill\label{sis3801_8h_ac57f9b90cd1c32f77787df8702ece6d0}
+Sets all the necessary \hyperlink{structparameters}{parameters} for a given configuration. The configuration is provided by the mode argument. Add your own configuration in the case statement. Let me know your setting if you want to include it in the distribution. 
+\begin{DoxyParams}{Parameters}
+\item[{\em $\ast$mvme}]VME structure \item[{\em base}]Module base address \item[{\em mode}]Configuration mode number \item[{\em $\ast$nentry}]number of entries requested and returned. \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+MVME\_\-SUCCESS 
+\end{DoxyReturn}
+
+
+Definition at line 544 of file sis3801.c.\index{sis3801.h@{sis3801.h}!sis3801\_\-setup@{sis3801\_\-setup}}
+\index{sis3801\_\-setup@{sis3801\_\-setup}!sis3801.h@{sis3801.h}}
+\paragraph[{sis3801\_\-setup}]{\setlength{\rightskip}{0pt plus 5cm}void sis3801\_\-setup (const {\bf MVME\_\-INTERFACE} $\ast$ {\em myvme}, \/  {\bf DWORD} {\em base}, \/  int {\em mode}, \/  int {\em dsp})}\hfill\label{sis3801_8h_a64901090a0aad26d323e5dace109a458}
+\index{sis3801.h@{sis3801.h}!sis3801\_\-Status@{sis3801\_\-Status}}
+\index{sis3801\_\-Status@{sis3801\_\-Status}!sis3801.h@{sis3801.h}}
+\paragraph[{sis3801\_\-Status}]{\setlength{\rightskip}{0pt plus 5cm}void sis3801\_\-Status ({\bf MVME\_\-INTERFACE} $\ast$ {\em myvme}, \/  {\bf DWORD} {\em base})}\hfill\label{sis3801_8h_ad33debd8d89a953de2ea9217b55db7ce}
+
+
+Definition at line 572 of file sis3801.c.

@@ -1,0 +1,217 @@
+.TH "System Functions (ss_xxx)" 3 "31 May 2012" "Version 2.3.0-0" "Midas" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+System Functions (ss_xxx) \- 
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBINT\fP \fBss_system\fP (char *command)"
+.br
+.ti -1c
+.RI "midas_thread_t \fBss_thread_create\fP (\fBINT\fP(*thread_func)(void *), void *param)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBss_thread_kill\fP (midas_thread_t thread_id)"
+.br
+.ti -1c
+.RI "\fBDWORD\fP \fBss_millitime\fP ()"
+.br
+.ti -1c
+.RI "\fBDWORD\fP \fBss_time\fP ()"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBss_sleep\fP (\fBINT\fP millisec)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+dox 
+.SH "Function Documentation"
+.PP 
+.SS "\fBDWORD\fP ss_millitime ()"dox Returns the actual time in milliseconds with an arbitrary origin. This time may only be used to calculate relative times.
+.PP
+Overruns in the 32 bit value don't hurt since in a subtraction calculated with 32 bit accuracy this overrun cancels (you may think about!).. 
+.PP
+.nf
+...
+DWORD start, stop:
+start = ss_millitime();
+  < do operations >
+stop = ss_millitime();
+printf('Operation took %1.3lf seconds\n',(stop-start)/1000.0);
+...
+
+.fi
+.PP
+ 
+.PP
+\fBReturns:\fP
+.RS 4
+millisecond time stamp. 
+.RE
+.PP
+
+.PP
+Definition at line 2855 of file system.c.
+.PP
+Referenced by bm_check_buffers(), bm_cleanup_buffer_locked(), bm_open_buffer(), bm_wait_for_free_space(), check_polled_events(), close_buffers(), cm_cleanup(), cm_get_watchdog_info(), cm_set_watchdog_params(), cm_shutdown(), cm_transition1(), db_open_database(), hv_demand(), hv_idle(), hv_ramp(), hv_read(), initialize_equipment(), rotate_wheel(), sc_thread(), scan_fragment(), scheduler(), send_event(), and tr_stop().
+.SS "\fBINT\fP ss_sleep (\fBINT\fP millisec)"dox Suspend the calling process for a certain time.
+.PP
+The function is similar to the sleep() function, but has a resolution of one milliseconds. Under VxWorks the resolution is 1/60 of a second. It uses the socket select() function with a time-out. See examples in \fBss_time()\fP 
+.PP
+\fBParameters:\fP
+.RS 4
+\fImillisec\fP Time in milliseconds to sleep. Zero means infinite (until another process calls ss_wake) 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+SS_SUCCESS 
+.RE
+.PP
+
+.PP
+Definition at line 3093 of file system.c.
+.PP
+Referenced by bm_wait_for_free_space(), cm_shutdown(), device_driver(), initialize_equipment(), main(), mesadc32_MSCF16_GainGet(), mesadc32_MSCF16_GainSet(), mesadc32_MSCF16_IDC(), mesadc32_MSCF16_RCon(), rb_get_rp(), rb_get_wp(), rcWait(), read_trigger_event(), readout_enable(), readout_thread(), register_equipment(), and sc_thread().
+.SS "\fBINT\fP ss_system (char * command)"dox Execute command in a separate process, close all open file descriptors invoke ss_exec() and ignore pid. 
+.PP
+.nf
+{ ...
+  char cmd[256];
+  sprintf(cmd,'%s %s %i %s/%s %1.3lf %d',lazy.commandAfter,
+     lazy.backlabel, lazyst.nfiles, lazy.path, lazyst.backfile,
+     lazyst.file_size/1024.0/1024.0, blockn);
+  cm_msg(MINFO,'Lazy','Exec post file write script:%s',cmd);
+  ss_system(cmd);
+}
+...
+
+.fi
+.PP
+ 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcommand\fP Command to execute. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+SS_SUCCESS or ss_exec() return code 
+.RE
+.PP
+
+.PP
+Definition at line 1865 of file system.c.
+.PP
+Referenced by al_check(), cm_transition1(), and scan_fragment().
+.SS "midas_thread_t ss_thread_create (\fBINT\fP(*)(void *) thread_func, void * param)"dox Creates and returns a new thread of execution.
+.PP
+Note the difference when calling from vxWorks versus Linux and Windows. The parameter pointer for a vxWorks call is a VX_TASK_SPAWN structure, whereas for Linux and Windows it is a void pointer. Early versions returned SS_SUCCESS or SS_NO_THREAD instead of thread ID.
+.PP
+Example for VxWorks 
+.PP
+.nf
+...
+VX_TASK_SPAWN tsWatch = {'Watchdog', 100, 0, 2000,  (int) pDevice, 0, 0, 0, 0, 0, 0, 0, 0 ,0};
+midas_thread_t thread_id = ss_thread_create((void *) taskWatch, &tsWatch);
+if (thread_id == 0) {
+  printf('cannot spawn taskWatch\n');
+}
+...
+
+.fi
+.PP
+ Example for Linux 
+.PP
+.nf
+...
+midas_thread_t thread_id = ss_thread_create((void *) taskWatch, pDevice);
+if (thread_id == 0) {
+  printf('cannot spawn taskWatch\n');
+}
+...
+
+.fi
+.PP
+ 
+.PP
+\fBParameters:\fP
+.RS 4
+\fI(*thread_func)\fP Thread function to create. 
+.br
+\fIparam\fP a pointer to a VX_TASK_SPAWN structure for vxWorks and a void pointer for Unix and Windows 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+the new thread id or zero on error 
+.RE
+.PP
+
+.PP
+Definition at line 1991 of file system.c.
+.PP
+Referenced by device_driver(), and initialize_equipment().
+.SS "\fBINT\fP ss_thread_kill (midas_thread_t thread_id)"Destroys the thread identified by the passed thread id. The thread id is returned by \fBss_thread_create()\fP on creation.
+.PP
+.PP
+.nf
+...
+midas_thread_t thread_id = ss_thread_create((void *) taskWatch, pDevice);
+if (thread_id == 0) {
+  printf('cannot spawn taskWatch\n');
+}
+...
+ss_thread_kill(thread_id);
+...
+.fi
+.PP
+ 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIthread_id\fP the thread id of the thread to be killed. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+SS_SUCCESS if no error, else SS_NO_THREAD 
+.RE
+.PP
+
+.PP
+Definition at line 2064 of file system.c.
+.PP
+Referenced by device_driver().
+.SS "\fBDWORD\fP ss_time ()"Returns the actual time in seconds since 1.1.1970 UTC. 
+.PP
+.nf
+...
+DWORD start, stop:
+start = ss_time();
+  ss_sleep(12000);
+stop = ss_time();
+printf('Operation took %1.3lf seconds\n',stop-start);
+...
+
+.fi
+.PP
+ 
+.PP
+\fBReturns:\fP
+.RS 4
+Time in seconds 
+.RE
+.PP
+
+.PP
+Definition at line 2922 of file system.c.
+.PP
+Referenced by al_check(), al_trigger_alarm(), bm_compose_event(), bm_push_event(), cm_msg(), cm_synchronize(), cm_time(), cm_yield(), db_get_key_time(), db_set_data(), db_set_data_index(), db_set_link_data(), db_set_link_data_index(), db_set_value(), scheduler(), and send_event().
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Midas from the source code.

@@ -1,0 +1,283 @@
+.TH "FE_ODB_equipment_tree" 3 "31 May 2012" "Version 2.3.0-0" "Midas" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+FE_ODB_equipment_tree \- The ODB /Equipment tree 
+
+.br
+  
+.PP
+
+.br
+.PP
+Every \fBfrontend\fP or other client that contains an \fBEquipment Declaration\fP will, when run for the first time, create a entry (i.e. a sub-tree) in the ODB under the /Equipment tree. The \fBname\fP of a particular sub-tree (i.e. the name of that Equipment) is taken from the Equipment Declaration in the client(s). The following example shows the /Equipment tree of an experiment where a large number of Equipments have been defined:
+.PP
+Example: 
+.PP
+.nf
+$odbedit
+[local:midas:S]/>ls -lt /Equipment 
+Key name                        Type    #Val  Size  Last Opn Mode Value
+---------------------------------------------------------------------------
+HistoCheck                      DIR
+DSpecCheck                      DIR
+HistoPoll                       DIR
+HistoEOR                        DIR
+DSpecEOR                        DIR
+Scaler                          DIR
+SuconMagnet                     DIR
+TempBridge                      DIR
+Cryostat                        DIR
+Meters                          DIR
+RFSource                        DIR
+DSPec                           DIR
+
+.fi
+.PP
+.PP
+Each of these 'Equipment' directories contain several subdirectories (i.e. 'Common','Variables' and 'Statistics') which the system creates by default.
+.PP
+These sub-trees will be referred to as e.g. /Equipment/<equipment-name>/Common where the name of the particular equipment is to be substituted into \fI'<equipment-name>'\fP (e.g. /Equipment/scaler/Common).
+.PP
+An example of an Equipment called 'Scaler' is shown below: 
+.PP
+.nf
+[local:S]ls -l -r /equipment/scaler
+Key name                        Type    #Val  Size  Last Opn Mode Value
+---------------------------------------------------------------------------
+Scaler                          DIR
+    Common                      DIR
+        Event ID                WORD    1     2     16h  0   RWD  1
+        Trigger mask            WORD    1     2     16h  0   RWD  256
+        Buffer                  STRING  1     32    16h  0   RWD  SYSTEM
+        Type                    INT     1     4     16h  0   RWD  1
+        Source                  INT     1     4     16h  0   RWD  0
+        Format                  STRING  1     8     16h  0   RWD  MIDAS
+        Enabled                 BOOL    1     4     16h  0   RWD  y
+        Read on                 INT     1     4     16h  0   RWD  377
+        Period                  INT     1     4     16h  0   RWD  1000
+        Event limit             DOUBLE  1     8     16h  0   RWD  0
+        Num subevents           DWORD   1     4     16h  0   RWD  0
+
+        Log history             INT     1     4     16h  0   RWD  0
+        Frontend host           STRING  1     32    16h  0   RWD  midtis03
+        Frontend name           STRING  1     32    16h  0   RWD  feLTNO
+        Frontend file name      STRING  1     256   16h  0   RWD  C:\online\sc_ltno.c
+    Variables                   DIR
+        SCLR                    DWORD   6     4     1s   0   RWD  
+                                        [0]             0
+                                        [1]             0
+                                        [2]             0
+                                        [3]             0
+                                        [4]             0
+                                        [5]             0
+        RATE                    FLOAT   6     4     1s   0   RWD  
+                                        [0]             0
+                                        [1]             0
+                                        [2]             0
+
+                                        [3]             0
+                                        [4]             0
+                                        [5]             0
+    Statistics                  DIR
+        Events sent             DOUBLE  1     8     1s   0   RWDE 370
+        Events per sec.         DOUBLE  1     8     1s   0   RWDE 0.789578
+        kBytes per sec.         DOUBLE  1     8     1s   0   RWDE 0.0678543
+
+.fi
+.PP
+.SH "The ODB /Equipment/<equipment-name>/Common subtree"
+.PP
+The /Equipment/<equipment-name>/Common subtree contains system information, which is derived from the \fBEquipment Declaration\fP for that Equipment. 
+.br
+ Every time the frontend is initialized, it \fBcopies the equipment settings to the ODB\fP under /Equipment/<equipment-name>/Common 
+.br
+.PP
+Keys in the ODB /Equipment/Common subtree   Key  Type
+.br
+  Explanation 
+.PP
+<equipment-name>  
+.br
+  
+.br
+  DIR
+.br
+  \fBName of this equipment\fP  
+.PP
+
+.br
+  Common  
+.br
+  DIR
+.br
+  Subdirectory created when the frontend is first run  
+.PP
+
+.br
+  
+.br
+  Event ID  WORD
+.br
+  \fBUnique Event ID\fP  
+.PP
+
+.br
+  
+.br
+  Trigger mask  WORD
+.br
+  \fBTrigger Mask\fP  
+.PP
+
+.br
+  
+.br
+  Buffer  WORD
+.br
+  \fBBuffer\fP  
+.PP
+
+.br
+  
+.br
+  Type  WORD
+.br
+  \fBType\fP  
+.PP
+
+.br
+  
+.br
+  Source  WORD
+.br
+  \fBInterrupt Source\fP  
+.PP
+
+.br
+  
+.br
+  Format  WORD
+.br
+  \fBData Format\fP  
+.PP
+
+.br
+  
+.br
+  Enabled  WORD
+.br
+  \fBEquipment Enabled\fP. May be changed during run-time (\fBHot-linked\fP).  
+.PP
+
+.br
+  
+.br
+  Read On  WORD
+.br
+  \fBRead-On Flag(s)\fP. May be changed during run-time (\fBHot-linked\fP).  
+.PP
+
+.br
+  
+.br
+  Period  WORD
+.br
+  \fBTime interval\fP. May be changed during run-time (\fBHot-linked\fP).  
+.PP
+
+.br
+  
+.br
+  Event limit  WORD
+.br
+  \fBEvent limit\fP. May be changed during run-time (\fBHot-linked\fP).  
+.PP
+
+.br
+  
+.br
+  Num Subevents  WORD
+.br
+  \fBNumber of sub-events\fP  
+.PP
+
+.br
+  
+.br
+  Log history  WORD
+.br
+  \fBEnable history system\fP  
+.PP
+
+.br
+  
+.br
+  Frontend host  WORD
+.br
+   Name of the computer running the frontend that defines this equipment  
+.PP
+
+.br
+  
+.br
+  Frontend name  WORD
+.br
+   Name of the frontend that defines this equipment  
+.PP
+
+.br
+  
+.br
+  Frontend file name  WORD
+.br
+   Name of the file that contains the frontend code  
+.PP
+Above: meaning of keys in the ODB subtree /Equipment/<equipment-name>/Common 
+.PP
+ 
+.SS "Hot-linked Equipment/Common parameters"
+\fBHot-links\fP to the /Equipment/<equipment-name>/Common area are created, allowing some of the settings to be changed during run-time, rather than having to edit, recompile and reload the frontend. These settings are listed below: 
+.br
+ Equipment Settings hot-linked in ODB
+.br
+   ** \fBEnabled\fP flag   ** \fBRead-On (RO_XX)\fP flags   ** \fBPeriod\fP   ** \fBEvent Limit\fP  
+.PP
+.PP
+Modification from the ODB is \fBimmediately\fP reflected into the frontend, which will act upon the new setting.
+.SH "The ODB /Equipment/<equipment-name>/Variables subtree"
+.PP
+The ODB Variables subtree contains the equipment data \fBif enabled\fP by either the \fBRO_ODB\fP flag or the \fBHistory flag\fP. This means that it contains the data banks for an event. The data will be updated when the equipment read-out routine is run, i.e. when an event is sent. If the \fBRO_ODB\fP flag is \fBnot\fP set for the equipment, the Variables subtree will be empty.
+.PP
+The /Equipment/<equipment-name>/Variables (if present) are displayed on the \fBmhttpd\fP \fBEquipment page\fP .
+.SH "The ODB /Equipment/<equipment-name>/Statistics subtree"
+.PP
+The ODB Statistics subtree contains equipment system statistics information such as number of event taken, the event rate and the data rate.
+.SH "The ODB /Equipment/<equipment-name>/Settings subtree"
+.PP
+The ODB Settings subtree contains any equipment-specific information that the user may wish to place there. 
+.br
+ The following example is for the 'Epicslog' equipment for the BNMR experiment at TRIUMF. The 'settings' sub-tree contains a list of the EPICS variables that the user wishes to read out, including the information into the data stream.
+.PP
+.PP
+.nf
+[local:bnmr:S]/>ls /Equipment/epicslog/Settings/
+epics OK                        1
+n_epics_logged                  4
+epics_path
+                                BNMR:HVBIAS:POS:RDVOL
+                                BNMR:HVBIAS:NEG:RDVOL
+                                ITW:BIAS:RDVOL
+                                ILE2:BIAS15:RDVOL
+                                BNMR:HVBIAS:NEG:RDVOL
+                                BNMR:HVBIAS:NEG:RDVOL
+.fi
+.PP
+.PP
+An important feature of the Settings sub-tree is only active when using \fBmhttpd\fP (ignored by \fBodbedit\fP), which is the display of data from /Equipment/<equipment-names>/variables sub-tree on the \fBEquipment page\fP , together with the corresponding information defined in a 'Names' array. See the mhttpd \fBEquipment page\fP for details.
+.PP
+In the case of a \fBSlow Control System\fP equipment, an extended tree is structure is automatically created by the system, which will be displayed on the mhttpd \fBEquipment page\fP - see \fBNamed data from an Equipment with one bank\fP .
+.PP
+
+.br
+   

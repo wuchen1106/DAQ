@@ -1,0 +1,923 @@
+
+%
+\page FE_Appendices   <!-- # Frontend Appendices# new page in Appendices.dox -->
+\subpage FE_Data_format   <!-- subpage under page FE_Appendices in Appendices.dox    -->
+\subpage FE_Hardware   <!-- subpage under page FE_Appendices in Appendices.dox    -->
+\subpage FE_camac_vme_function_calls   <!-- subpage under page FE_Appendices in Appendices.dox    -->
+\subpage FE_utils   <!-- subpage under page FE_Appendices in Appendices.dox    -->
+\end-of-page FE_Appendices 
+
+%
+\page FE_camac_vme_function_calls   <!-- # CAMAC and VME access function calls# new page in Appendices.dox -->
+\section FE_Midas_CAMAC_standard_functions   <!-- section under page FE_camac_vme_function_calls in Appendices.dox -->
+\section FE_ESONE_CAMAC_standard_functions   <!-- section under page FE_camac_vme_function_calls in Appendices.dox -->
+\section FE_Midas_VME_standard_functions   <!-- section under page FE_camac_vme_function_calls in Appendices.dox -->
+\section FE_Compute_Busy_Logic   <!-- section under page FE_camac_vme_function_calls in Appendices.dox -->
+\end-of-page FE_camac_vme_function_calls 
+
+%
+\page FE_utils   <!-- # Hardware Access utilities# new page in Appendices.dox -->
+\section FE_mcnaf_utility   <!-- section under page FE_utils in Appendices.dox -->
+\section FE_dio_utility   <!-- section under page FE_utils in Appendices.dox -->
+\end-of-page FE_utils 
+
+%
+\page BuildingOptions   <!-- # SECTION 10: Build Options# new page in BuildingOptions.dox -->
+\section BO_Intro   <!-- section under page BuildingOptions in BuildingOptions.dox -->
+\section BO_makefile_option   <!-- section under page BuildingOptions in BuildingOptions.dox -->
+\section BO_building_option   <!-- section under page BuildingOptions in BuildingOptions.dox -->
+\subsection BO_USERFLAGS   <!-- subsection under page BuildingOptions in BuildingOptions.dox -->
+\subsection BO_HAVE_ROOT   <!-- subsection under page BuildingOptions in BuildingOptions.dox -->
+\subsection BO_HAVE_HBOOK   <!-- subsection under page BuildingOptions in BuildingOptions.dox -->
+\subsection BO_NEED_MYSQL   <!-- subsection under page BuildingOptions in BuildingOptions.dox -->
+\subsection BO_HAVE_ODBC   <!-- subsection under page BuildingOptions in BuildingOptions.dox -->
+\subsection BO_HAVE_CAMAC   <!-- subsection under page BuildingOptions in BuildingOptions.dox -->
+\subsection BO_MIDAS_MAX_EVENT_SIZE   <!-- subsection under page BuildingOptions in BuildingOptions.dox -->
+\subsection BO_SPECIFIC_OS_PRG   <!-- subsection under page BuildingOptions in BuildingOptions.dox -->
+\subsection BO_NEED_LIBROOTA   <!-- subsection under page BuildingOptions in BuildingOptions.dox -->
+\subsection BO_NEED_ZLIB   <!-- subsection under page BuildingOptions in BuildingOptions.dox -->
+\subsection BO_NEED_RPATH   <!-- subsection under page BuildingOptions in BuildingOptions.dox -->
+\subsection BO_NEED_STRLCPY   <!-- subsection under page BuildingOptions in BuildingOptions.dox -->
+\section BO_Environment_variables   <!-- section under page BuildingOptions in BuildingOptions.dox -->
+\subsection BO_MIDASSYS   <!-- subsection under page BuildingOptions in BuildingOptions.dox -->
+\subsection BO_MIDAS_EXPTAB   <!-- subsection under page BuildingOptions in BuildingOptions.dox -->
+\subsection BO_MIDAS_SERVER_HOST   <!-- subsection under page BuildingOptions in BuildingOptions.dox -->
+\subsection BO_MIDAS_EXPT_NAME   <!-- subsection under page BuildingOptions in BuildingOptions.dox -->
+\subsection BO_MIDAS_DIR   <!-- subsection under page BuildingOptions in BuildingOptions.dox -->
+\subsection BO_ROOTSYS   <!-- subsection under page BuildingOptions in BuildingOptions.dox -->
+\subsection BO_CERNLIB_PACK   <!-- subsection under page BuildingOptions in BuildingOptions.dox -->
+\subsection BO_MIDAS_FRONTEND_INDEX   <!-- subsection under page BuildingOptions in BuildingOptions.dox -->
+\subsection BO_MCHART_DIR   <!-- subsection under page BuildingOptions in BuildingOptions.dox -->
+\end-of-page BuildingOptions 
+
+%
+\page Convention   <!-- # SECTION 13: Document Navigation and Convention# new page in Convention.dox -->
+\section C_Navigation   <!-- section under page Convention in Convention.dox -->
+\section C_Document_Style   <!-- section under page Convention in Convention.dox -->
+\end-of-page Convention 
+
+%
+\page RC_ROOT_analyzer_page   <!-- # Custom Page showing ROOT analyzer output# new page in custom_webpage.dox -->
+\subpage RC_MEG_ROOT_code   <!-- subpage under page RC_ROOT_analyzer_page in custom_webpage.dox    -->
+\end-of-page RC_ROOT_analyzer_page 
+
+%
+\page RC_MEG_ROOT_code   <!-- # HTML code for the MEG ROOT Analyzer page# new page in custom_webpage.dox -->
+\end-of-page RC_MEG_ROOT_code 
+
+%
+\page RC_BNMQR_status   <!-- # Custom Status Pages for experiments BNMR and BNQR # new page in custom_webpage.dox -->
+\end-of-page RC_BNMQR_status 
+
+%
+\page RC_MEG_Gas_Page   <!-- # Custom Page for MEG gas system# new page in custom_webpage.dox -->
+\end-of-page RC_MEG_Gas_Page 
+
+%
+\page RC_Ebit_custom_page   <!-- # Custom Pages for Ebit Experiment# new page in custom_webpage.dox -->
+\end-of-page RC_Ebit_custom_page 
+
+%
+\page RC_Mpet_custom_page   <!-- # Mpet Optics Custom Page# new page in custom_webpage.dox -->
+\end-of-page RC_Mpet_custom_page 
+
+%
+\page RC_T2K_Gas_Page   <!-- # Custom Pages designed for T2K gas system# new page in custom_webpage.dox -->
+\section T2K_example_1   <!-- section under page RC_T2K_Gas_Page in custom_webpage.dox -->
+\section T2K_example_2   <!-- section under page RC_T2K_Gas_Page in custom_webpage.dox -->
+\end-of-page RC_T2K_Gas_Page 
+
+%
+\page DataAnalysis   <!-- # SECTION 7: Data Analysis# new page in DataAnalyzer.dox -->
+\section DA_Data_analyzers   <!-- section under page DataAnalysis in DataAnalyzer.dox -->
+\section DA_analyzer_utility   <!-- section under page DataAnalysis in DataAnalyzer.dox -->
+\section DA_Midas_Analyzer   <!-- section under page DataAnalysis in DataAnalyzer.dox -->
+\section DA_Multi_Stage_Concept   <!-- section under page DataAnalysis in DataAnalyzer.dox -->
+\subsection Analyzer_parameters   <!-- subsection under page DataAnalysis in DataAnalyzer.dox -->
+\subsection Analyzer_module_parameters   <!-- subsection under page DataAnalysis in DataAnalyzer.dox -->
+\subsection Analyzer_flow_chart   <!-- subsection under page DataAnalysis in DataAnalyzer.dox -->
+\subsection HBOOK_analyzer   <!-- subsection under page DataAnalysis in DataAnalyzer.dox -->
+\subsection PAW_Online_usage   <!-- subsection under page DataAnalysis in DataAnalyzer.dox -->
+\subsection PAW_Offline_usage   <!-- subsection under page DataAnalysis in DataAnalyzer.dox -->
+\section DA_Byte_Swap_Macros   <!-- section under page DataAnalysis in DataAnalyzer.dox -->
+\end-of-page DataAnalysis 
+
+%
+\page FE_Data_format   <!-- # Data formats written by the frontend# new page in DataFormat.dox -->
+\section FE_Midas_format   <!-- section under page FE_Data_format in DataFormat.dox -->
+\subsection FE_Bank_Format   <!-- subsection under page FE_Data_format in DataFormat.dox -->
+\subsection Tape   <!-- subsection under page FE_Data_format in DataFormat.dox -->
+\end-of-page FE_Data_format 
+
+%
+\page DocIndex   <!-- # SECTION 15: Alphabetical Index to Documentation # new page in docindex.dox -->
+\end-of-page DocIndex 
+
+%
+\page FE_Event_Builder   <!-- # Event Builder Functions# new page in eventbuilder.dox -->
+\section FE_mevb_utility   <!-- section under page FE_Event_Builder in eventbuilder.dox -->
+\section FE_eb   <!-- section under page FE_Event_Builder in eventbuilder.dox -->
+\section FE_principle_eb   <!-- section under page FE_Event_Builder in eventbuilder.dox -->
+\section FE_ODB_EBuilder_Tree   <!-- section under page FE_Event_Builder in eventbuilder.dox -->
+\section FE_eb_tree_2   <!-- section under page FE_Event_Builder in eventbuilder.dox -->
+\section FE_eb_Operation   <!-- section under page FE_Event_Builder in eventbuilder.dox -->
+\end-of-page FE_Event_Builder 
+
+%
+\page FAQ   <!-- # SECTION 12: Frequently Asked Questions# new page in FAQ.dox -->
+\section FAQ_GENERAL   <!-- section under page FAQ in FAQ.dox -->
+\section FAQ_CUSTOM   <!-- section under page FAQ in FAQ.dox -->
+\section FAQ_CAMAC   <!-- section under page FAQ in FAQ.dox -->
+\end-of-page FAQ 
+
+%
+\page FE_eqdec   <!-- # Equipment list for a Frontend# new page in fe_eqdec.dox -->
+\section FE_Example_equipment_structure   <!-- section under page FE_eqdec in fe_eqdec.dox -->
+\section FE_ROOT_Structure_Def   <!-- section under page FE_eqdec in fe_eqdec.dox -->
+\section FE_equipment_odb_common   <!-- section under page FE_eqdec in fe_eqdec.dox -->
+\end-of-page FE_eqdec 
+
+%
+\page FE_table   <!-- # Explanation of Equipment list parameters # new page in fe_table.dox -->
+\end-of-page FE_table 
+
+%
+\page Features   <!-- # SECTION 4: Features# new page in Features.dox -->
+\section F_Midas_Overview_Intro   <!-- section under page Features in Features.dox -->
+\subpage F_MainElements   <!-- subpage under page Features in Features.dox    -->
+\subpage F_ODB_Structure   <!-- subpage under page Features in Features.dox    -->
+\subpage F_Utilities_List   <!-- subpage under page Features in Features.dox    -->
+\subpage F_Midas_Code_and_Libraries   <!-- subpage under page Features in Features.dox    -->
+\subpage F_Logging   <!-- subpage under page Features in Features.dox    -->
+\end-of-page Features 
+
+%
+\page F_Logging   <!-- # Logging in MIDAS# new page in Features.dox -->
+\section F_Midas_Logger   <!-- section under page F_Logging in Features.dox -->
+\section F_mlogger_utility   <!-- section under page F_Logging in Features.dox -->
+\subpage F_Logging_Data   <!-- subpage under page F_Logging in Features.dox    -->
+\subpage F_Messaging   <!-- subpage under page F_Logging in Features.dox    -->
+\subpage F_mySQL   <!-- subpage under page F_Logging in Features.dox    -->
+\subpage F_History_logging   <!-- subpage under page F_Logging in Features.dox    -->
+\subpage F_Elog   <!-- subpage under page F_Logging in Features.dox    -->
+\subpage F_LogUtil   <!-- subpage under page F_Logging in Features.dox    -->
+\end-of-page F_Logging 
+
+%
+\page F_Logging_Data   <!-- # Customizing the MIDAS data logging# new page in Features.dox -->
+\section F_Logger_tree   <!-- section under page F_Logging_Data in Features.dox -->
+\section F_Logger_tree_keys   <!-- section under page F_Logging_Data in Features.dox -->
+\section F_Logger_multiple_logging_channels   <!-- section under page F_Logging_Data in Features.dox -->
+\section F_Logger_Settings   <!-- section under page F_Logging_Data in Features.dox -->
+\section F_Logger_CStat_Statistics   <!-- section under page F_Logging_Data in Features.dox -->
+\section F_Logger_Optional_Keys   <!-- section under page F_Logging_Data in Features.dox -->
+\end-of-page F_Logging_Data 
+
+%
+\page F_Messaging   <!-- # Messaging# new page in Features.dox -->
+\section F_Log_File   <!-- section under page F_Messaging in Features.dox -->
+\section F_mspeaker_utility   <!-- section under page F_Messaging in Features.dox -->
+\end-of-page F_Messaging 
+
+%
+\page F_mySQL   <!-- # Logging information to a mySQL database# new page in Features.dox -->
+\section F_Logger_mySQL   <!-- section under page F_mySQL in Features.dox -->
+\section F_Logger_SQL_keys   <!-- section under page F_mySQL in Features.dox -->
+\end-of-page F_mySQL 
+
+%
+\page F_History_logging   <!-- # History Logging# new page in Features.dox -->
+\section F_History_System   <!-- section under page F_History_logging in Features.dox -->
+\section F_Logger_History_Files_Location   <!-- section under page F_History_logging in Features.dox -->
+\subsection F_Logger_Create_History_Dir   <!-- subsection under page F_History_logging in Features.dox -->
+\section F_History_Event_Types   <!-- section under page F_History_logging in Features.dox -->
+\section F_Frontend_History_Event   <!-- section under page F_History_logging in Features.dox -->
+\subsection F_Enable_History_Event   <!-- subsection under page F_History_logging in Features.dox -->
+\subsubsection F_new_history_tags   <!-- subsubsection under page F_History_logging in Features.dox   -->
+\subsubsection F_history_old_tags   <!-- subsubsection under page F_History_logging in Features.dox   -->
+\subsection F_example_FE_history_event   <!-- subsection under page F_History_logging in Features.dox -->
+\section F_ODB_History_tree   <!-- section under page F_History_logging in Features.dox -->
+\section F_History_tree_keys   <!-- section under page F_History_logging in Features.dox -->
+\section F_customizing_History   <!-- section under page F_History_logging in Features.dox -->
+\section F_History_sql_internal   <!-- section under page F_History_logging in Features.dox -->
+\subsection F_History_sql_enable   <!-- subsection under page F_History_logging in Features.dox -->
+\subsection F_History_sql_enable   <!-- subsection under page F_History_logging in Features.dox -->
+\subsection F_SQL_Layout   <!-- subsection under page F_History_logging in Features.dox -->
+\subsection F_SQL_Schema   <!-- subsection under page F_History_logging in Features.dox -->
+\section F_mh2sql_utility   <!-- section under page F_History_logging in Features.dox -->
+\section F_mhist_utility   <!-- section under page F_History_logging in Features.dox -->
+\section F_mhdump_utility   <!-- section under page F_History_logging in Features.dox -->
+\section F_History_format   <!-- section under page F_History_logging in Features.dox -->
+\end-of-page F_History_logging 
+
+%
+\page F_Elog   <!-- # Electronic logbook (Elog)# new page in Features.dox -->
+\section F_Elog_Intro   <!-- section under page F_Elog in Features.dox -->
+\section F_Logger_Elog_Files_Location   <!-- section under page F_Elog in Features.dox -->
+\subsection F_Logger_Create_Elog_Dir   <!-- subsection under page F_Elog in Features.dox -->
+\section F_Elog_Custom   <!-- section under page F_Elog in Features.dox -->
+\subsection F_ODB_Elog_Tree   <!-- subsection under page F_Elog in Features.dox -->
+\subsection F_ODB_Elog_Tree_Keys   <!-- subsection under page F_Elog in Features.dox -->
+\section F_melog_utility   <!-- section under page F_Elog in Features.dox -->
+\end-of-page F_Elog 
+
+%
+\page F_LogUtil   <!-- # Logging Utilities# new page in Features.dox -->
+\section F_lazylogger_utility   <!-- section under page F_LogUtil in Features.dox -->
+\section F_ODB_Lazy_Tree   <!-- section under page F_LogUtil in Features.dox -->
+\subsection F_ODB_Lazy_Settings_example   <!-- subsection under page F_LogUtil in Features.dox -->
+\subsection F_ODB_Lazy_Settings   <!-- subsection under page F_LogUtil in Features.dox -->
+\subsection F_ODB_Lazy_Statistics   <!-- subsection under page F_LogUtil in Features.dox -->
+\subsection F_ODB_Lazy_List   <!-- subsection under page F_LogUtil in Features.dox -->
+\section F_ODB_Lazy_setup   <!-- section under page F_LogUtil in Features.dox -->
+\subsection F_ODB_Lazy_operation   <!-- subsection under page F_LogUtil in Features.dox -->
+\section F_mchart_utility   <!-- section under page F_LogUtil in Features.dox -->
+\section F_mtape_utility   <!-- section under page F_LogUtil in Features.dox -->
+\section F_stripchartfile   <!-- section under page F_LogUtil in Features.dox -->
+\end-of-page F_LogUtil 
+
+%
+\page Frontend_code   <!-- # Frontend code# new page in Frontend_code.dox -->
+\section FE_intro   <!-- section under page Frontend_code in Frontend_code.dox -->
+\subsection FE_LAM_macros   <!-- subsection under page Frontend_code in Frontend_code.dox -->
+\subpage FE_code_sections   <!-- subpage under page Frontend_code in Frontend_code.dox    -->
+\subpage FE_sequence   <!-- subpage under page Frontend_code in Frontend_code.dox    -->
+\subpage FE_eq_event_routines   <!-- subpage under page Frontend_code in Frontend_code.dox    -->
+\subpage FE_event_notification   <!-- subpage under page Frontend_code in Frontend_code.dox    -->
+\subpage FE_bank_construction   <!-- subpage under page Frontend_code in Frontend_code.dox    -->
+\subpage FE_Super_Event   <!-- subpage under page Frontend_code in Frontend_code.dox    -->
+\subpage FE_Event_Builder   <!-- subpage under page Frontend_code in Frontend_code.dox    -->
+\subpage FE_Slow_Control_system   <!-- subpage under page Frontend_code in Frontend_code.dox    -->
+\subpage FE_event_buffer_size   <!-- subpage under page Frontend_code in Frontend_code.dox    -->
+\subpage FE_Appendices   <!-- subpage under page Frontend_code in Frontend_code.dox    -->
+\end-of-page Frontend_code 
+
+%
+\page FE_code_sections   <!-- # Frontend Code Sections# new page in Frontend_code.dox -->
+\section FE_includes   <!-- section under page FE_code_sections in Frontend_code.dox -->
+\section FE_global   <!-- section under page FE_code_sections in Frontend_code.dox -->
+\section FE_global_user   <!-- section under page FE_code_sections in Frontend_code.dox -->
+\section FE_system_prototypes   <!-- section under page FE_code_sections in Frontend_code.dox -->
+\section FE_user_prototypes   <!-- section under page FE_code_sections in Frontend_code.dox -->
+\end-of-page FE_code_sections 
+
+%
+\page FE_sequence   <!-- # Sequence of operations# new page in Frontend_code.dox -->
+\section FE_frontend_status   <!-- section under page FE_sequence in Frontend_code.dox -->
+\section FE_frontend_init   <!-- section under page FE_sequence in Frontend_code.dox -->
+\section FE_begin_of_run   <!-- section under page FE_sequence in Frontend_code.dox -->
+\section FE_pause_resume_run   <!-- section under page FE_sequence in Frontend_code.dox -->
+\section FE_end_of_run   <!-- section under page FE_sequence in Frontend_code.dox -->
+\section FE_frontend_exit   <!-- section under page FE_sequence in Frontend_code.dox -->
+\end-of-page FE_sequence 
+
+%
+\page FE_eq_event_routines   <!-- # Frontend Routines associated with Equipments# new page in Frontend_code.dox -->
+\section FE_poll_event   <!-- section under page FE_eq_event_routines in Frontend_code.dox -->
+\section FE_interrupt_event   <!-- section under page FE_eq_event_routines in Frontend_code.dox -->
+\section FE_readout_routine   <!-- section under page FE_eq_event_routines in Frontend_code.dox -->
+\subsection FE_poll_or_interrupt_readout_routine   <!-- subsection under page FE_eq_event_routines in Frontend_code.dox -->
+\subsection FE_other_event   <!-- subsection under page FE_eq_event_routines in Frontend_code.dox -->
+\subsection FE_fragmented_event   <!-- subsection under page FE_eq_event_routines in Frontend_code.dox -->
+\subsection FE_manual_trigger   <!-- subsection under page FE_eq_event_routines in Frontend_code.dox -->
+\subsubsection FE_manual_trig_determine   <!-- subsubsection under page FE_eq_event_routines in Frontend_code.dox   -->
+\subsection FE_tdmusr_equipment   <!-- subsection under page FE_eq_event_routines in Frontend_code.dox -->
+\subsection FE_frag_max_event_size   <!-- subsection under page FE_eq_event_routines in Frontend_code.dox -->
+\subsection FE_frag_readout_code   <!-- subsection under page FE_eq_event_routines in Frontend_code.dox -->
+\subsection FE_backend_Manual_Trigger   <!-- subsection under page FE_eq_event_routines in Frontend_code.dox -->
+\end-of-page FE_eq_event_routines 
+
+%
+\page FE_event_notification   <!-- # Frontend Event Notification# new page in Frontend_code.dox -->
+\section FE_Deferred_Transition   <!-- section under page FE_event_notification in Frontend_code.dox -->
+\end-of-page FE_event_notification 
+
+%
+\page FE_bank_construction   <!-- # Bank construction in an Event readout routine# new page in Frontend_code.dox -->
+\section FE_FIXED_event_readout   <!-- section under page FE_bank_construction in Frontend_code.dox -->
+\section FE_MIDAS_event_construction   <!-- section under page FE_bank_construction in Frontend_code.dox -->
+\subsection FE_Midas_Data_Types   <!-- subsection under page FE_bank_construction in Frontend_code.dox -->
+\subsection FE_creation_Midas_banks   <!-- subsection under page FE_bank_construction in Frontend_code.dox -->
+\subsection FE_Midas_Event_Header_Manipulation   <!-- subsection under page FE_bank_construction in Frontend_code.dox -->
+\end-of-page FE_bank_construction 
+
+%
+\page FE_Super_Event   <!-- # Super-Event# new page in Frontend_code.dox -->
+\section FE_Super_Event_example   <!-- section under page FE_Super_Event in Frontend_code.dox -->
+\section FE_Super_Event_readout   <!-- section under page FE_Super_Event in Frontend_code.dox -->
+\end-of-page FE_Super_Event 
+
+%
+\page FE_Slow_Control_system   <!-- # Slow Control System# new page in Frontend_code.dox -->
+\end-of-page FE_Slow_Control_system 
+
+%
+\page FE_event_buffer_size   <!-- # Increase the Event Buffer Size(s)# new page in Frontend_code.dox -->
+\end-of-page FE_event_buffer_size 
+
+%
+\page FrontendOperation   <!-- # SECTION 6: Frontend Operation# new page in FrontendOperation.dox -->
+\section FE_Intro   <!-- section under page FrontendOperation in FrontendOperation.dox -->
+\subsection FE_program   <!-- subsection under page FrontendOperation in FrontendOperation.dox -->
+\subsection FE_frontend_utility   <!-- subsection under page FrontendOperation in FrontendOperation.dox -->
+\subsection FE_hw_equipment   <!-- subsection under page FrontendOperation in FrontendOperation.dox -->
+\subsection FE_drivers   <!-- subsection under page FrontendOperation in FrontendOperation.dox -->
+\subsection FE_sw_equipment   <!-- subsection under page FrontendOperation in FrontendOperation.dox -->
+\subsection FE_multi   <!-- subsection under page FrontendOperation in FrontendOperation.dox -->
+\subsection FE_features   <!-- subsection under page FrontendOperation in FrontendOperation.dox -->
+\subsection FE_data_transfer   <!-- subsection under page FrontendOperation in FrontendOperation.dox -->
+\subsubsection FE_optimize_transfer   <!-- subsubsection under page FrontendOperation in FrontendOperation.dox   -->
+\subsection FE_event_trigger   <!-- subsection under page FrontendOperation in FrontendOperation.dox -->
+\subsection FE_equipment_readout_function   <!-- subsection under page FrontendOperation in FrontendOperation.dox -->
+\section FE_Equipment_list   <!-- section under page FrontendOperation in FrontendOperation.dox -->
+\subpage FE_ODB_equipment_tree   <!-- subpage under page FrontendOperation in FrontendOperation.dox    -->
+\subpage FE_eqdec   <!-- subpage under page FrontendOperation in FrontendOperation.dox    -->
+\subpage FE_table   <!-- subpage under page FrontendOperation in FrontendOperation.dox    -->
+\subpage Frontend_code   <!-- subpage under page FrontendOperation in FrontendOperation.dox    -->
+\end-of-page FrontendOperation 
+
+%
+\page FE_ODB_equipment_tree   <!-- # The ODB /Equipment tree# new page in FrontendOperation.dox -->
+\section FE_ODB_equipment_common   <!-- section under page FE_ODB_equipment_tree in FrontendOperation.dox -->
+\subsection FE_equipment_odb_hot_links   <!-- subsection under page FE_ODB_equipment_tree in FrontendOperation.dox -->
+\section FE_ODB_equipment_variables   <!-- section under page FE_ODB_equipment_tree in FrontendOperation.dox -->
+\section FE_ODB_equipment_statistics   <!-- section under page FE_ODB_equipment_tree in FrontendOperation.dox -->
+\section FE_ODB_equipment_settings   <!-- section under page FE_ODB_equipment_tree in FrontendOperation.dox -->
+\end-of-page FE_ODB_equipment_tree 
+
+%
+\page Glossary   <!-- # Glossary# new page in glossary.dox -->
+\end-of-page Glossary 
+
+%
+\page FE_Hardware   <!-- # Supported Hardware: MIDAS driver library# new page in Hardware.dox -->
+\section CAMAC_drivers   <!-- section under page FE_Hardware in Hardware.dox -->
+\section VME_drivers   <!-- section under page FE_Hardware in Hardware.dox -->
+\section USB_drivers   <!-- section under page FE_Hardware in Hardware.dox -->
+\section GPIB_drivers   <!-- section under page FE_Hardware in Hardware.dox -->
+\section Other_drivers   <!-- section under page FE_Hardware in Hardware.dox -->
+\end-of-page FE_Hardware 
+
+%
+\page Intro   <!-- # SECTION 2: Introduction# new page in introduction.dox -->
+\section I_WhatIsMidas   <!-- section under page Intro in introduction.dox -->
+\section I_Midas_exp   <!-- section under page Intro in introduction.dox -->
+\subsection I_FE_and_BE   <!-- subsection under page Intro in introduction.dox -->
+\subsection I_device_drivers   <!-- subsection under page Intro in introduction.dox -->
+\subsection I_Analysis   <!-- subsection under page Intro in introduction.dox -->
+\subsection I_slow_controls   <!-- subsection under page Intro in introduction.dox -->
+\subpage I_Midas_system_picture   <!-- subpage under page Intro in introduction.dox    -->
+\end-of-page Intro 
+
+%
+\page I_Midas_system_picture   <!-- # Diagram of the MIDAS system# new page in introduction.dox -->
+\end-of-page I_Midas_system_picture 
+
+%
+\page RC_mhttpd   <!-- # mhttpd: the MIDAS Web-based Run Control utility# new page in mhttpd.dox -->
+\section RC_mhttpd_intro   <!-- section under page RC_mhttpd in mhttpd.dox -->
+\subpage RC_mhttpd_utility   <!-- subpage under page RC_mhttpd in mhttpd.dox    -->
+\section RC_mhttpd_functionality   <!-- section under page RC_mhttpd in mhttpd.dox -->
+\subpage RC_mhttpd_Main_Status_page   <!-- subpage under page RC_mhttpd in mhttpd.dox    -->
+\subpage RC_mhttpd_Start_page   <!-- subpage under page RC_mhttpd in mhttpd.dox    -->
+\subpage RC_mhttpd_ODB_page   <!-- subpage under page RC_mhttpd in mhttpd.dox    -->
+\subpage RC_mhttpd_Equipment_page   <!-- subpage under page RC_mhttpd in mhttpd.dox    -->
+\subpage RC_mhttpd_sc_page   <!-- subpage under page RC_mhttpd in mhttpd.dox    -->
+\subpage RC_mhttpd_Message_page   <!-- subpage under page RC_mhttpd in mhttpd.dox    -->
+\subpage RC_mhttpd_Elog_page   <!-- subpage under page RC_mhttpd in mhttpd.dox    -->
+\subpage RC_mhttpd_Program_page   <!-- subpage under page RC_mhttpd in mhttpd.dox    -->
+\subpage RC_mhttpd_History_page   <!-- subpage under page RC_mhttpd in mhttpd.dox    -->
+\subpage RC_mhttpd_Alarm_page   <!-- subpage under page RC_mhttpd in mhttpd.dox    -->
+\subpage RC_mhttpd_MSCB_page   <!-- subpage under page RC_mhttpd in mhttpd.dox    -->
+\subpage RC_mhttpd_CNAF_page   <!-- subpage under page RC_mhttpd in mhttpd.dox    -->
+\subpage RC_mhttpd_Alias_page   <!-- subpage under page RC_mhttpd in mhttpd.dox    -->
+\subpage RC_mhttpd_Logger_page   <!-- subpage under page RC_mhttpd in mhttpd.dox    -->
+\subpage RC_mhttpd_Config_page   <!-- subpage under page RC_mhttpd in mhttpd.dox    -->
+\subpage RC_mhttpd_Custom_page   <!-- subpage under page RC_mhttpd in mhttpd.dox    -->
+\end-of-page RC_mhttpd 
+
+%
+\page RC_mhttpd_Main_Status_page   <!-- # Main Status Page # new page in mhttpd.dox -->
+\section RC_mhttpd_msp_customized   <!-- section under page RC_mhttpd_Main_Status_page in mhttpd.dox -->
+\subpage RC_mhttpd_status_page_features   <!-- subpage under page RC_mhttpd_Main_Status_page in mhttpd.dox    -->
+\subpage RC_mhttpd_status_page_redesign   <!-- subpage under page RC_mhttpd_Main_Status_page in mhttpd.dox    -->
+\end-of-page RC_mhttpd_Main_Status_page 
+
+%
+\page RC_mhttpd_status_page_redesign   <!-- # Redesign of mhttpd Main Status Page# new page in mhttpd.dox -->
+\end-of-page RC_mhttpd_status_page_redesign 
+
+%
+\page RC_mhttpd_status_page_features   <!-- # Features of the Main Status Page# new page in mhttpd.dox -->
+\section RC_mhttpd_status_title   <!-- section under page RC_mhttpd_status_page_features in mhttpd.dox -->
+\section RC_mhttpd_status_menu_buttons   <!-- section under page RC_mhttpd_status_page_features in mhttpd.dox -->
+\subsection RC_mhttpd_status_RC_buttons   <!-- subsection under page RC_mhttpd_status_page_features in mhttpd.dox -->
+\subsection RC_mhttpd_status_Page_buttons   <!-- subsection under page RC_mhttpd_status_page_features in mhttpd.dox -->
+\section RC_mhpptd_optional_buttons   <!-- section under page RC_mhttpd_status_page_features in mhttpd.dox -->
+\subsection RC_mhttpd_status_script_buttons   <!-- subsection under page RC_mhttpd_status_page_features in mhttpd.dox -->
+\subpage RC_mhttpd_defining_script_buttons   <!-- subpage under page RC_mhttpd_status_page_features in mhttpd.dox  @level+2 -->
+\subsection RC_mhttpd_status_Manual_Trigger_buttons   <!-- subsection under page RC_mhttpd_status_page_features in mhttpd.dox -->
+\subsection RC_mhttpd_status_Alias_buttons   <!-- subsection under page RC_mhttpd_status_page_features in mhttpd.dox -->
+\section RC_mhttpd_status_Run_info   <!-- section under page RC_mhttpd_status_page_features in mhttpd.dox -->
+\section RC_Edit_RP   <!-- section under page RC_mhttpd_status_page_features in mhttpd.dox -->
+\section RC_mhttpd_status_Equipment_info   <!-- section under page RC_mhttpd_status_page_features in mhttpd.dox -->
+\subsection RC_mhttpd_eq_variables   <!-- subsection under page RC_mhttpd_status_page_features in mhttpd.dox -->
+\subsection RC_mhttpd_eq_status   <!-- subsection under page RC_mhttpd_status_page_features in mhttpd.dox -->
+\subsection RC_mhttpd_status_Event_Rates   <!-- subsection under page RC_mhttpd_status_page_features in mhttpd.dox -->
+\subsection RC_mhttpd_status_analyzer   <!-- subsection under page RC_mhttpd_status_page_features in mhttpd.dox -->
+\section RC_mhttpd_status_Logger   <!-- section under page RC_mhttpd_status_page_features in mhttpd.dox -->
+\section RC_mhttpd_status_latest_msg   <!-- section under page RC_mhttpd_status_page_features in mhttpd.dox -->
+\section RC_mhttpd_status_clients   <!-- section under page RC_mhttpd_status_page_features in mhttpd.dox -->
+\end-of-page RC_mhttpd_status_page_features 
+
+%
+\page RC_mhttpd_Start_page   <!-- # Start page# new page in mhttpd.dox -->
+\section RC_mhttpd_Edit_On_Start   <!-- section under page RC_mhttpd_Start_page in mhttpd.dox -->
+\subsection RC_EOS_web_features   <!-- subsection under page RC_mhttpd_Start_page in mhttpd.dox -->
+\subsection RC_Edit_PC   <!-- subsection under page RC_mhttpd_Start_page in mhttpd.dox -->
+\subsection RC_Prevent_Edit_RN   <!-- subsection under page RC_mhttpd_Start_page in mhttpd.dox -->
+\end-of-page RC_mhttpd_Start_page 
+
+%
+\page RC_mhttpd_ODB_page   <!-- # ODB page# new page in mhttpd.dox -->
+\section RC_mhttpd_ODB_page_example1   <!-- section under page RC_mhttpd_ODB_page in mhttpd.dox -->
+\section RC_mhttpd_ODB_page_example2   <!-- section under page RC_mhttpd_ODB_page in mhttpd.dox -->
+\end-of-page RC_mhttpd_ODB_page 
+
+%
+\page RC_mhttpd_Equipment_page   <!-- # Equipment page# new page in mhttpd.dox -->
+\section RC_mhttpd_Equipment_var   <!-- section under page RC_mhttpd_Equipment_page in mhttpd.dox -->
+\section RC_mhttpd_Equipment_Naming   <!-- section under page RC_mhttpd_Equipment_page in mhttpd.dox -->
+\subsection RC_mhttpd_Equipment_Examples   <!-- subsection under page RC_mhttpd_Equipment_page in mhttpd.dox -->
+\subsubsection RC_mhttpd_Equipment_example1   <!-- subsubsection under page RC_mhttpd_Equipment_page in mhttpd.dox   -->
+\subsubsection RC_mhttpd_Equipment_example2   <!-- subsubsection under page RC_mhttpd_Equipment_page in mhttpd.dox   -->
+\subsubsection RC_mhttpd_Equipment_example3   <!-- subsubsection under page RC_mhttpd_Equipment_page in mhttpd.dox   -->
+\subsubsection RC_mhttpd_Equipment_example4   <!-- subsubsection under page RC_mhttpd_Equipment_page in mhttpd.dox   -->
+\subsubsection RC_mhttpd_Equipment_example5   <!-- subsubsection under page RC_mhttpd_Equipment_page in mhttpd.dox   -->
+\subsubsection RC_mhttpd_Equipment_example6   <!-- subsubsection under page RC_mhttpd_Equipment_page in mhttpd.dox   -->
+\subsubsection RC_mhttpd_Equipment_example7   <!-- subsubsection under page RC_mhttpd_Equipment_page in mhttpd.dox   -->
+\end-of-page RC_mhttpd_Equipment_page 
+
+%
+\page RC_mhttpd_sc_page   <!-- # Slow Control page# new page in mhttpd.dox -->
+\section RC_mhttpd_slow_control_intro   <!-- section under page RC_mhttpd_sc_page in mhttpd.dox -->
+\section RC_mhttpd_slow_control_name_syntax   <!-- section under page RC_mhttpd_sc_page in mhttpd.dox -->
+\end-of-page RC_mhttpd_sc_page 
+
+%
+\page RC_mhttpd_CNAF_page   <!-- # CAMAC Access page # new page in mhttpd.dox -->
+\end-of-page RC_mhttpd_CNAF_page 
+
+%
+\page RC_mhttpd_Message_page   <!-- # Message page# new page in mhttpd.dox -->
+\end-of-page RC_mhttpd_Message_page 
+
+%
+\page RC_mhttpd_Elog_page   <!-- # Elog page# new page in mhttpd.dox -->
+\section RC_mhttpd_Elog_intro   <!-- section under page RC_mhttpd_Elog_page in mhttpd.dox -->
+\subsection RC_mhttpd_Internal_Elog   <!-- subsection under page RC_mhttpd_Elog_page in mhttpd.dox -->
+\subsubsection RC_mhttpd_Internal_Elog_shift_check   <!-- subsubsection under page RC_mhttpd_Elog_page in mhttpd.dox   -->
+\subsubsection RC_mhttpd_Internal_Elog_runlog   <!-- subsubsection under page RC_mhttpd_Elog_page in mhttpd.dox   -->
+\subsection RC_mhttpd_External_Elog   <!-- subsection under page RC_mhttpd_Elog_page in mhttpd.dox -->
+\end-of-page RC_mhttpd_Elog_page 
+
+%
+\page RC_mhttpd_Program_page   <!-- # Programs page # new page in mhttpd.dox -->
+\end-of-page RC_mhttpd_Program_page 
+
+%
+\page RC_mhttpd_History_page   <!-- # History page# new page in mhttpd.dox -->
+\end-of-page RC_mhttpd_History_page 
+
+%
+\page RC_mhttpd_Alarm_page   <!-- # Alarm page# new page in mhttpd.dox -->
+\end-of-page RC_mhttpd_Alarm_page 
+
+%
+\page RC_mhttpd_MSCB_page   <!-- # MSCB page# new page in mhttpd.dox -->
+\end-of-page RC_mhttpd_MSCB_page 
+
+%
+\page RC_mhttpd_Config_page   <!-- # Config page# new page in mhttpd.dox -->
+\end-of-page RC_mhttpd_Config_page 
+
+%
+\page RC_mhttpd_Alias_page   <!-- # mhttpd Alias page# new page in mhttpd.dox -->
+\section RC_mhttpd_alias_buttons   <!-- section under page RC_mhttpd_Alias_page in mhttpd.dox -->
+\section RC_mhttpd_alias_define   <!-- section under page RC_mhttpd_Alias_page in mhttpd.dox -->
+\subsection RC_odb_alias_tree   <!-- subsection under page RC_mhttpd_Alias_page in mhttpd.dox -->
+\end-of-page RC_mhttpd_Alias_page 
+
+%
+\page RC_mhttpd_Logger_page   <!-- # mhttpd Logger page# new page in mhttpd.dox -->
+\section RC_mhttpd_Logger_mlogger   <!-- section under page RC_mhttpd_Logger_page in mhttpd.dox -->
+\section RC_mhttpd_Logger_lazylogger   <!-- section under page RC_mhttpd_Logger_page in mhttpd.dox -->
+\end-of-page RC_mhttpd_Logger_page 
+
+%
+\page RC_mhttpd_Custom_page   <!-- # Custom pages# new page in mhttpd_custom.dox -->
+\section RC_mhttpd_custom_intro   <!-- section under page RC_mhttpd_Custom_page in mhttpd_custom.dox -->
+\section RC_Example_Custom_Webpages   <!-- section under page RC_mhttpd_Custom_page in mhttpd_custom.dox -->
+\subpage RC_ROOT_analyzer_page   <!-- subpage under page RC_mhttpd_Custom_page in mhttpd_custom.dox    -->
+\subpage RC_MEG_Gas_Page   <!-- subpage under page RC_mhttpd_Custom_page in mhttpd_custom.dox    -->
+\subpage RC_Ebit_custom_page   <!-- subpage under page RC_mhttpd_Custom_page in mhttpd_custom.dox    -->
+\subpage RC_Mpet_custom_page   <!-- subpage under page RC_mhttpd_Custom_page in mhttpd_custom.dox    -->
+\subpage RC_T2K_Gas_Page   <!-- subpage under page RC_mhttpd_Custom_page in mhttpd_custom.dox    -->
+\subpage RC_BNMQR_status   <!-- subpage under page RC_mhttpd_Custom_page in mhttpd_custom.dox    -->
+\subpage RC_mhttpd_Activate   <!-- subpage under page RC_mhttpd_Custom_page in mhttpd_custom.dox    -->
+\subpage RC_mhttpd_custom_js_lib   <!-- subpage under page RC_mhttpd_Custom_page in mhttpd_custom.dox    -->
+\subpage RC_mhttpd_custom_features   <!-- subpage under page RC_mhttpd_Custom_page in mhttpd_custom.dox    -->
+\end-of-page RC_mhttpd_Custom_page 
+
+%
+\page RC_mhttpd_Activate   <!-- # How to activate custom page(s) in the ODB# new page in mhttpd_custom.dox -->
+\section RC_odb_custom_intro   <!-- section under page RC_mhttpd_Activate in mhttpd_custom.dox -->
+\section RC_odb_custom_tree   <!-- section under page RC_mhttpd_Activate in mhttpd_custom.dox -->
+\subsection RC_odb_custom_keynames   <!-- subsection under page RC_mhttpd_Activate in mhttpd_custom.dox -->
+\subsection RC_odb_custom_external_example   <!-- subsection under page RC_mhttpd_Activate in mhttpd_custom.dox -->
+\subsection RC_odb_custom_internal_example   <!-- subsection under page RC_mhttpd_Activate in mhttpd_custom.dox -->
+\subsection RC_odb_custom_keys_examples   <!-- subsection under page RC_mhttpd_Activate in mhttpd_custom.dox -->
+\section RC_odb_custom_status   <!-- section under page RC_mhttpd_Activate in mhttpd_custom.dox -->
+\end-of-page RC_mhttpd_Activate 
+
+%
+\page RC_mhttpd_custom_js_lib   <!-- # JavaScript built-in library mhttpd.js# new page in mhttpd_custom_features.dox -->
+\subpage RC_mhttpd_js   <!-- subpage under page RC_mhttpd_custom_js_lib in mhttpd_custom_features.dox    -->
+\section RC_mhttpd_js_library_features   <!-- section under page RC_mhttpd_custom_js_lib in mhttpd_custom_features.dox -->
+\section RC_mhttpd_include_js_library   <!-- section under page RC_mhttpd_custom_js_lib in mhttpd_custom_features.dox -->
+\end-of-page RC_mhttpd_custom_js_lib 
+
+%
+\page RC_mhttpd_custom_features   <!-- # Features available on custom pages# new page in mhttpd_custom_features.dox -->
+\section RC_mhttpd_custom_create   <!-- section under page RC_mhttpd_custom_features in mhttpd_custom_features.dox -->
+\subsection RC_mhttpd_custom_including_js   <!-- subsection under page RC_mhttpd_custom_features in mhttpd_custom_features.dox -->
+\subsection RC_mhttpd_custom_key_access   <!-- subsection under page RC_mhttpd_custom_features in mhttpd_custom_features.dox -->
+\subsection RC_mhttpd_custom_refresh   <!-- subsection under page RC_mhttpd_custom_features in mhttpd_custom_features.dox -->
+\section RC_mhttpd_custom_midas_buttons   <!-- section under page RC_mhttpd_custom_features in mhttpd_custom_features.dox -->
+\section RC_mhttpd_custom_alias   <!-- section under page RC_mhttpd_custom_features in mhttpd_custom_features.dox -->
+\section RC_mhttpd_custom_simple_example   <!-- section under page RC_mhttpd_custom_features in mhttpd_custom_features.dox -->
+\section RC_mhttpd_custom_script_buttons   <!-- section under page RC_mhttpd_custom_features in mhttpd_custom_features.dox -->
+\subsection RC_odb_customscript_tree   <!-- subsection under page RC_mhttpd_custom_features in mhttpd_custom_features.dox -->
+\subsection RC_mhttpd_customscript_example   <!-- subsection under page RC_mhttpd_custom_features in mhttpd_custom_features.dox -->
+\section RC_mhttpd_custom_getmsg   <!-- section under page RC_mhttpd_custom_features in mhttpd_custom_features.dox -->
+\subpage RC_mhttpd_custom_ODB_access   <!-- subpage under page RC_mhttpd_custom_features in mhttpd_custom_features.dox    -->
+\subpage RC_mhttpd_custom_RPC_access   <!-- subpage under page RC_mhttpd_custom_features in mhttpd_custom_features.dox    -->
+\subpage RC_mhttpd_Image_access   <!-- subpage under page RC_mhttpd_custom_features in mhttpd_custom_features.dox    -->
+\subpage RC_mhttpd_custom_status   <!-- subpage under page RC_mhttpd_custom_features in mhttpd_custom_features.dox    -->
+\end-of-page RC_mhttpd_custom_features 
+
+%
+\page RC_mhttpd_Image_access   <!-- # Inserting an Image into a Custom page# new page in mhttpd_custom_image.dox -->
+\section RC_mhttpd_custom_history   <!-- section under page RC_mhttpd_Image_access in mhttpd_custom_image.dox -->
+\section RC_mhttpd_custom_image   <!-- section under page RC_mhttpd_Image_access in mhttpd_custom_image.dox -->
+\subsection RC_mhttpd_custom_images_tree_keys   <!-- subsection under page RC_mhttpd_Image_access in mhttpd_custom_image.dox -->
+\section RC_mhttpd_custom_imagemap   <!-- section under page RC_mhttpd_Image_access in mhttpd_custom_image.dox -->
+\subsection RC_mhttpd_custom_imagemap_demo   <!-- subsection under page RC_mhttpd_Image_access in mhttpd_custom_image.dox -->
+\subsection RC_mhttpd_custom_imagemap_pw   <!-- subsection under page RC_mhttpd_Image_access in mhttpd_custom_image.dox -->
+\section RC_mhttpd_custom_getmouse   <!-- section under page RC_mhttpd_Image_access in mhttpd_custom_image.dox -->
+\section RC_mhttpd_custom_Labels_Bars_Fills   <!-- section under page RC_mhttpd_Image_access in mhttpd_custom_image.dox -->
+\subsection RC_mhttpd_custom_labels   <!-- subsection under page RC_mhttpd_Image_access in mhttpd_custom_image.dox -->
+\subsection RC_mhttpd_labels_tree   <!-- subsection under page RC_mhttpd_Image_access in mhttpd_custom_image.dox -->
+\subsection RC_mhttpd_custom_bars   <!-- subsection under page RC_mhttpd_Image_access in mhttpd_custom_image.dox -->
+\subsection RC_mhttpd_bars_tree   <!-- subsection under page RC_mhttpd_Image_access in mhttpd_custom_image.dox -->
+\section RC_mhttpd_custom_fills   <!-- section under page RC_mhttpd_Image_access in mhttpd_custom_image.dox -->
+\subsection RC_mhttpd_custom_fills_create   <!-- subsection under page RC_mhttpd_Image_access in mhttpd_custom_image.dox -->
+\subsection RC_mhttpd_fills_tree   <!-- subsection under page RC_mhttpd_Image_access in mhttpd_custom_image.dox -->
+\subsubsection RC_mhttpd_fills_src_logical   <!-- subsubsection under page RC_mhttpd_Image_access in mhttpd_custom_image.dox   -->
+\section RC_mhttpd_custom_edit_boxes   <!-- section under page RC_mhttpd_Image_access in mhttpd_custom_image.dox -->
+\subsection RC_mhttpd_custom_pw   <!-- subsection under page RC_mhttpd_Image_access in mhttpd_custom_image.dox -->
+\subpage RC_mhttpd_custom_demo   <!-- subpage under page RC_mhttpd_Image_access in mhttpd_custom_image.dox    -->
+\subpage RC_mhttpd_Internal   <!-- subpage under page RC_mhttpd_Image_access in mhttpd_custom_image.dox    -->
+\end-of-page RC_mhttpd_Image_access 
+
+%
+\page RC_mhttpd_custom_demo   <!-- # Demo of custom image page# new page in mhttpd_custom_image.dox -->
+\end-of-page RC_mhttpd_custom_demo 
+
+%
+\page RC_mhttpd_Internal   <!-- # Internal custom page# new page in mhttpd_custom_image.dox -->
+\end-of-page RC_mhttpd_Internal 
+
+%
+\page RC_mhttpd_custom_ODB_access   <!-- # Access to the ODB from a Custom page# new page in mhttpd_custom_odb_access.dox -->
+\subpage RC_mhttpd_custom_ODB_access_examples   <!-- subpage under page RC_mhttpd_custom_ODB_access in mhttpd_custom_odb_access.dox    -->
+\subpage RC_mhttpd_custom_ODB_access_features   <!-- subpage under page RC_mhttpd_custom_ODB_access in mhttpd_custom_odb_access.dox    -->
+\section RC_mhttpd_custom_odb_html   <!-- section under page RC_mhttpd_custom_ODB_access in mhttpd_custom_odb_access.dox -->
+\section RC_mhttpd_custom_odb_js   <!-- section under page RC_mhttpd_custom_ODB_access in mhttpd_custom_odb_access.dox -->
+\subsection RC_mhttpd_custom_odbget   <!-- subsection under page RC_mhttpd_custom_ODB_access in mhttpd_custom_odb_access.dox -->
+\subsection RC_mhttpd_custom_odbedit   <!-- subsection under page RC_mhttpd_custom_ODB_access in mhttpd_custom_odb_access.dox -->
+\subsection RC_mhttpd_custom_odbset   <!-- subsection under page RC_mhttpd_custom_ODB_access in mhttpd_custom_odb_access.dox -->
+\subsection RC_mhttpd_custom_odbkey   <!-- subsection under page RC_mhttpd_custom_ODB_access in mhttpd_custom_odb_access.dox -->
+\end-of-page RC_mhttpd_custom_ODB_access 
+
+%
+\page RC_mhttpd_custom_ODB_access_examples   <!-- # Examples of accessing ODB from a Custom page# new page in mhttpd_custom_odb_access.dox -->
+\section RC_mhttpd_js_example1   <!-- section under page RC_mhttpd_custom_ODB_access_examples in mhttpd_custom_odb_access.dox -->
+\section RC_mhttpd_js_example2   <!-- section under page RC_mhttpd_custom_ODB_access_examples in mhttpd_custom_odb_access.dox -->
+\section RC_mhttpd_js_example3   <!-- section under page RC_mhttpd_custom_ODB_access_examples in mhttpd_custom_odb_access.dox -->
+\end-of-page RC_mhttpd_custom_ODB_access_examples 
+
+%
+\page RC_mhttpd_custom_ODB_access_features   <!-- # Features using ODB access from a Custom page# new page in mhttpd_custom_odb_access.dox -->
+\section RC_mhttpd_custom_checkboxes   <!-- section under page RC_mhttpd_custom_ODB_access_features in mhttpd_custom_odb_access.dox -->
+\section RC_mhttpd_js_example_3   <!-- section under page RC_mhttpd_custom_ODB_access_features in mhttpd_custom_odb_access.dox -->
+\section RC_mhttpd_js_update_part   <!-- section under page RC_mhttpd_custom_ODB_access_features in mhttpd_custom_odb_access.dox -->
+\section RC_mhttpd_custom_pw_protection   <!-- section under page RC_mhttpd_custom_ODB_access_features in mhttpd_custom_odb_access.dox -->
+\end-of-page RC_mhttpd_custom_ODB_access_features 
+
+%
+\page RC_mhttpd_custom_RPC_access   <!-- # ODB RPC access# new page in mhttpd_custom_odb_access.dox -->
+\end-of-page RC_mhttpd_custom_RPC_access 
+
+%
+\page RC_mhttpd_custom_status   <!-- # Custom Status page# new page in mhttpd_custom_status.dox -->
+\section RC_mhttpd_status_toggle   <!-- section under page RC_mhttpd_custom_status in mhttpd_custom_status.dox -->
+\end-of-page RC_mhttpd_custom_status 
+
+%
+\page RC_mhttpd_js   <!-- # Javascript Built-In library# new page in mhttpd_js.dox -->
+\end-of-page RC_mhttpd_js 
+
+%
+\page RC_mhttpd_utility   <!-- # The mhttpd daemon# new page in mhttpd_utility.dox -->
+\section RC_mhttpd_Usage   <!-- section under page RC_mhttpd_utility in mhttpd_utility.dox -->
+\subsection RC_mhttpd_connect   <!-- subsection under page RC_mhttpd_utility in mhttpd_utility.dox -->
+\section RC_mhttpd_proxy   <!-- section under page RC_mhttpd_utility in mhttpd_utility.dox -->
+\end-of-page RC_mhttpd_utility 
+
+%
+\mainpage Midas   # mainpage found in midas.dox  (level 0) -->
+\subpage Intro   <!-- subpage under page Midas in midas.dox    -->
+\subpage Quickstart   <!-- subpage under page Midas in midas.dox    -->
+\subpage Features   <!-- subpage under page Midas in midas.dox    -->
+\subpage RunControl   <!-- subpage under page Midas in midas.dox    -->
+\subpage FrontendOperation   <!-- subpage under page Midas in midas.dox    -->
+\subpage DataAnalysis   <!-- subpage under page Midas in midas.dox    -->
+\subpage Performance   <!-- subpage under page Midas in midas.dox    -->
+\subpage SpecialConfig   <!-- subpage under page Midas in midas.dox    -->
+\subpage BuildingOptions   <!-- subpage under page Midas in midas.dox    -->
+\subpage NDF   <!-- subpage under page Midas in midas.dox    -->
+\subpage FAQ   <!-- subpage under page Midas in midas.dox    -->
+\subpage Convention   <!-- subpage under page Midas in midas.dox    -->
+\subpage DocIndex   <!-- subpage under page Midas in midas.dox    -->
+\subpage Organization   <!-- subpage under page Midas in midas.dox    -->
+<!--  end of mainpage Midas  level 0 --> 
+
+%
+\page F_ODB_Structure   <!-- # ODB Structure# new page in midas_features.dox -->
+\end-of-page F_ODB_Structure 
+
+%
+\page F_Utilities_List   <!-- # List of MIDAS Utilities# new page in midas_features.dox -->
+\section F_utilities_params   <!-- section under page F_Utilities_List in midas_features.dox -->
+\end-of-page F_Utilities_List 
+
+%
+\page F_Midas_Code_and_Libraries   <!-- # MIDAS Code and Libraries# new page in midas_features.dox -->
+\section F_Midas_Data_Types   <!-- section under page F_Midas_Code_and_Libraries in midas_features.dox -->
+\section F_Midas_Library   <!-- section under page F_Midas_Code_and_Libraries in midas_features.dox -->
+\section F_midas_macro   <!-- section under page F_Midas_Code_and_Libraries in midas_features.dox -->
+\end-of-page F_Midas_Code_and_Libraries 
+
+%
+\page NDF   <!-- # SECTION 11 New Features# new page in newdocfeatures.dox -->
+\section ndf_info   <!-- section under page NDF in newdocfeatures.dox -->
+\subsection NDF_versions   <!-- subsection under page NDF in newdocfeatures.dox -->
+\section ndf_New_Features   <!-- section under page NDF in newdocfeatures.dox -->
+\subsection ndf_sep_2010   <!-- subsection under page NDF in newdocfeatures.dox -->
+\subsection ndf_may_2010   <!-- subsection under page NDF in newdocfeatures.dox -->
+\subsection ndf_jan_2010   <!-- subsection under page NDF in newdocfeatures.dox -->
+\subsection ndf_dec_2009   <!-- subsection under page NDF in newdocfeatures.dox -->
+\subsection ndf_nov_2009   <!-- subsection under page NDF in newdocfeatures.dox -->
+\subsection ndf_sep_2009   <!-- subsection under page NDF in newdocfeatures.dox -->
+\subsection ndf_jun_2009   <!-- subsection under page NDF in newdocfeatures.dox -->
+\subsection ndf_jan_2009   <!-- subsection under page NDF in newdocfeatures.dox -->
+\subsection ndf_feb_2008   <!-- subsection under page NDF in newdocfeatures.dox -->
+\end-of-page NDF 
+
+%
+\page RC_odbedit   <!-- # odbedit: The ODB Editor and Run Control utility# new page in odbedit.dox -->
+\subpage RC_odbedit_utility   <!-- subpage under page RC_odbedit in odbedit.dox    -->
+\subpage RC_odbedit_examples   <!-- subpage under page RC_odbedit in odbedit.dox    -->
+\end-of-page RC_odbedit 
+
+%
+\page RC_odbedit_utility   <!-- # odbedit - ODB Editor and run control utility# new page in odbedit.dox -->
+\section RC_odbedit_help   <!-- section under page RC_odbedit_utility in odbedit.dox -->
+\end-of-page RC_odbedit_utility 
+
+%
+\page RC_odbedit_examples   <!-- # Using odbedit # new page in odbedit.dox -->
+\section RC_odbedit_prompt   <!-- section under page RC_odbedit_examples in odbedit.dox -->
+\subsection RC_odbedit_prompt_examples   <!-- subsection under page RC_odbedit_examples in odbedit.dox -->
+\section RC_odbedit_create_ODB   <!-- section under page RC_odbedit_examples in odbedit.dox -->
+\section RC_odbedit_keynames   <!-- section under page RC_odbedit_examples in odbedit.dox -->
+\section RC_odbedit_corrupted   <!-- section under page RC_odbedit_examples in odbedit.dox -->
+\subsection RC_odbedit_extcommand   <!-- subsection under page RC_odbedit_examples in odbedit.dox -->
+\subsection RC_odbedit_script_examples   <!-- subsection under page RC_odbedit_examples in odbedit.dox -->
+\subsubsection RC_example_script_1   <!-- subsubsection under page RC_odbedit_examples in odbedit.dox   -->
+\subsubsection RC_example_script_2   <!-- subsubsection under page RC_odbedit_examples in odbedit.dox   -->
+\section RC_odbedit_cmd_examples   <!-- section under page RC_odbedit_examples in odbedit.dox -->
+\subsection RC_odbedit_pwd   <!-- subsection under page RC_odbedit_examples in odbedit.dox -->
+\subsection RC_odbedit_cd   <!-- subsection under page RC_odbedit_examples in odbedit.dox -->
+\subsection RC_odbedit_chat   <!-- subsection under page RC_odbedit_examples in odbedit.dox -->
+\subsection RC_odbedit_chmod   <!-- subsection under page RC_odbedit_examples in odbedit.dox -->
+\subsection RC_odbedit_ls   <!-- subsection under page RC_odbedit_examples in odbedit.dox -->
+\subsection RC_odbedit_mkdir   <!-- subsection under page RC_odbedit_examples in odbedit.dox -->
+\subsection RC_odbedit_msg   <!-- subsection under page RC_odbedit_examples in odbedit.dox -->
+\subsection RC_odbedit_old   <!-- subsection under page RC_odbedit_examples in odbedit.dox -->
+\subsection RC_odbedit_passwd   <!-- subsection under page RC_odbedit_examples in odbedit.dox -->
+\subsection RC_odbedit_webpasswd   <!-- subsection under page RC_odbedit_examples in odbedit.dox -->
+\subsection RC_odbedit_move   <!-- subsection under page RC_odbedit_examples in odbedit.dox -->
+\subsection RC_odbedit_rename   <!-- subsection under page RC_odbedit_examples in odbedit.dox -->
+\subsection RC_odbedit_copy   <!-- subsection under page RC_odbedit_examples in odbedit.dox -->
+\subsection RC_odbedit_import   <!-- subsection under page RC_odbedit_examples in odbedit.dox -->
+\subsection RC_odbedit_export   <!-- subsection under page RC_odbedit_examples in odbedit.dox -->
+\subsection RC_odbedit_ln   <!-- subsection under page RC_odbedit_examples in odbedit.dox -->
+\subsection RC_odbedit_cr   <!-- subsection under page RC_odbedit_examples in odbedit.dox -->
+\subsection RC_odbedit_set   <!-- subsection under page RC_odbedit_examples in odbedit.dox -->
+\subsection RC_odbedit_chmod   <!-- subsection under page RC_odbedit_examples in odbedit.dox -->
+\subsection RC_odbedit_trunc   <!-- subsection under page RC_odbedit_examples in odbedit.dox -->
+\subsection RC_odbedit_rm   <!-- subsection under page RC_odbedit_examples in odbedit.dox -->
+\subsection RC_odbedit_sor   <!-- subsection under page RC_odbedit_examples in odbedit.dox -->
+\subsection RC_odbedit_save   <!-- subsection under page RC_odbedit_examples in odbedit.dox -->
+\subsection RC_odbedit_load   <!-- subsection under page RC_odbedit_examples in odbedit.dox -->
+\subsection RC_odbedit_make   <!-- subsection under page RC_odbedit_examples in odbedit.dox -->
+\subsection RC_odbedit_scl   <!-- subsection under page RC_odbedit_examples in odbedit.dox -->
+\subsection RC_odbedit_sh   <!-- subsection under page RC_odbedit_examples in odbedit.dox -->
+\subsection RC_odbedit_start   <!-- subsection under page RC_odbedit_examples in odbedit.dox -->
+\subsubsection RC_EOS_example1   <!-- subsubsection under page RC_odbedit_examples in odbedit.dox   -->
+\subsubsection RC_EOS_example2   <!-- subsubsection under page RC_odbedit_examples in odbedit.dox   -->
+\subsubsection RC_EOS_example3   <!-- subsubsection under page RC_odbedit_examples in odbedit.dox   -->
+\subsubsection RC_EOS_example4   <!-- subsubsection under page RC_odbedit_examples in odbedit.dox   -->
+\subsection RC_odbedit_stop   <!-- subsection under page RC_odbedit_examples in odbedit.dox -->
+\end-of-page RC_odbedit_examples 
+
+%
+\page Organization   <!-- # SECTION 15: Manual Contents (dummy)# new page in Organization.dox -->
+\section O_what   <!-- section under page Organization in Organization.dox -->
+\end-of-page Organization 
+
+%
+\page F_MainElements   <!-- # Overview of the Main Elements of the MIDAS DAQ System# new page in overview.dox -->
+\section F_Buffer_Manager_overview   <!-- section under page F_MainElements in overview.dox -->
+\section F_Message_System_overview   <!-- section under page F_MainElements in overview.dox -->
+\section F_Online_Database_overview   <!-- section under page F_MainElements in overview.dox -->
+\section F_Midas_Server_overview   <!-- section under page F_MainElements in overview.dox -->
+\section F_Frontend_sec_overview   <!-- section under page F_MainElements in overview.dox -->
+\section F_Data_Logger_overview   <!-- section under page F_MainElements in overview.dox -->
+\section F_Analyzer_sec_overview   <!-- section under page F_MainElements in overview.dox -->
+\section F_Run_Control_overview   <!-- section under page F_MainElements in overview.dox -->
+\section F_Slow_Control_overview   <!-- section under page F_MainElements in overview.dox -->
+\section F_History_System_overview   <!-- section under page F_MainElements in overview.dox -->
+\section F_Alarm_System_overview   <!-- section under page F_MainElements in overview.dox -->
+\section F_Electronic_Logbook_overview   <!-- section under page F_MainElements in overview.dox -->
+\end-of-page F_MainElements 
+
+%
+\page Performance   <!-- # SECTION 8: Performance# new page in Performance.dox -->
+\end-of-page Performance 
+
+%
+\page RC_mhttpd_perlrc   <!-- # Examples of MPET Perlscripts for run control # new page in perlmidas.dox -->
+\section RC_mhttpd_perlmidas_script   <!-- section under page RC_mhttpd_perlrc in perlmidas.dox -->
+\section RC_mhttpd_perlrc_script   <!-- section under page RC_mhttpd_perlrc in perlmidas.dox -->
+\end-of-page RC_mhttpd_perlrc 
+
+%
+\page Quickstart   <!-- # SECTION 3: Quick Start# new page in quickstart.dox -->
+\section Q_QuickStartIntro   <!-- section under page Quickstart in quickstart.dox -->
+\section Q_SVN   <!-- section under page Quickstart in quickstart.dox -->
+\section Q_Quickstart_Installation   <!-- section under page Quickstart in quickstart.dox -->
+\subpage Q_Linux   <!-- subpage under page Quickstart in quickstart.dox    -->
+\subpage Q_Windows   <!-- subpage under page Quickstart in quickstart.dox    -->
+\end-of-page Quickstart 
+
+%
+\page Q_Linux   <!-- # Quickstart Linux# new page in quickstart.dox -->
+\section Q_Linux_system_requirements   <!-- section under page Q_Linux in quickstart.dox -->
+\section Q_Linux_installation   <!-- section under page Q_Linux in quickstart.dox -->
+\subsection Q_Linux_Environment_Variables   <!-- subsection under page Q_Linux in quickstart.dox -->
+\subsection Q_Linux_Root_Installation   <!-- subsection under page Q_Linux in quickstart.dox -->
+\subsection Q_Linux_Midas_Installation   <!-- subsection under page Q_Linux in quickstart.dox -->
+\subsection Q_Linux_Rome_Installation   <!-- subsection under page Q_Linux in quickstart.dox -->
+\subsection Q_Linux_Roody_Installation   <!-- subsection under page Q_Linux in quickstart.dox -->
+\section Q_Linux_Basic_Test   <!-- section under page Q_Linux in quickstart.dox -->
+\subsection Q_Linux_Hardware_Requirements   <!-- subsection under page Q_Linux in quickstart.dox -->
+\subsection Q_Linux_Software_Requirements   <!-- subsection under page Q_Linux in quickstart.dox -->
+\subsection Q_Linux_Expt_Setup   <!-- subsection under page Q_Linux in quickstart.dox -->
+\section Q_Linux_Installation_Considerations   <!-- section under page Q_Linux in quickstart.dox -->
+\subsection Q_Linux_Remote_Access   <!-- subsection under page Q_Linux in quickstart.dox -->
+\subsection Q_Linux_Exptab   <!-- subsection under page Q_Linux in quickstart.dox -->
+\section Q_Linux_Demo_Examples   <!-- section under page Q_Linux in quickstart.dox -->
+\end-of-page Q_Linux 
+
+%
+\page Q_Windows   <!-- # Quickstart Windows# new page in quickstart.dox -->
+\section Q_Windows_system_requirements   <!-- section under page Q_Windows in quickstart.dox -->
+\section Q_Windows_installation   <!-- section under page Q_Windows in quickstart.dox -->
+\subsection Q_Windows_Environment_Variables   <!-- subsection under page Q_Windows in quickstart.dox -->
+\section Q_Windows_Basic_Test   <!-- section under page Q_Windows in quickstart.dox -->
+\subsection Q_Windows_Hardware_Requirements   <!-- subsection under page Q_Windows in quickstart.dox -->
+\subsection Q_Windows_Software_Requirements   <!-- subsection under page Q_Windows in quickstart.dox -->
+\subsection Q_Windows_Expt_Setup   <!-- subsection under page Q_Windows in quickstart.dox -->
+\end-of-page Q_Windows 
+
+%
+\page RunControl   <!-- # SECTION 5: Run Control# new page in RunControl.dox -->
+\section RC_Intro   <!-- section under page RunControl in RunControl.dox -->
+\subpage RC_Run_States_and_Transitions   <!-- subpage under page RunControl in RunControl.dox    -->
+\subpage RC_run_control   <!-- subpage under page RunControl in RunControl.dox    -->
+\subpage RC_Monitor   <!-- subpage under page RunControl in RunControl.dox    -->
+\subpage RC_customize_ODB   <!-- subpage under page RunControl in RunControl.dox    -->
+\subpage RC_Hot_Link   <!-- subpage under page RunControl in RunControl.dox    -->
+\end-of-page RunControl 
+
+%
+\page RC_Run_States_and_Transitions   <!-- # Run States and Transitions# new page in RunControl.dox -->
+\section RC_state_transition   <!-- section under page RC_Run_States_and_Transitions in RunControl.dox -->
+\section RC_Transition_priority   <!-- section under page RC_Run_States_and_Transitions in RunControl.dox -->
+\subsection RC_Register_for_run_transition   <!-- subsection under page RC_Run_States_and_Transitions in RunControl.dox -->
+\subsubsection RC_Multiple_Registration   <!-- subsubsection under page RC_Run_States_and_Transitions in RunControl.dox   -->
+\subsection RC_Default_Seq_Numbers   <!-- subsection under page RC_Run_States_and_Transitions in RunControl.dox -->
+\subsection RC_Review_Seq_Num   <!-- subsection under page RC_Run_States_and_Transitions in RunControl.dox -->
+\subsection RC_Change_Seq_Num   <!-- subsection under page RC_Run_States_and_Transitions in RunControl.dox -->
+\section RC_Deferred_Transition   <!-- section under page RC_Run_States_and_Transitions in RunControl.dox -->
+\section RC_ODB_RunInfo   <!-- section under page RC_Run_States_and_Transitions in RunControl.dox -->
+\subsection RC_ODB_RunInfo_Tree   <!-- subsection under page RC_Run_States_and_Transitions in RunControl.dox -->
+\end-of-page RC_Run_States_and_Transitions 
+
+%
+\page RC_run_control   <!-- # Run Control Programs# new page in RunControl.dox -->
+\subpage RC_odbedit   <!-- subpage under page RC_run_control in RunControl.dox    -->
+\subpage RC_mhttpd   <!-- subpage under page RC_run_control in RunControl.dox    -->
+\end-of-page RC_run_control 
+
+%
+\page RC_Monitor   <!-- # Monitoring the Experiment# new page in RunControl.dox -->
+\section RC_mstat_utility   <!-- section under page RC_Monitor in RunControl.dox -->
+\section RC_mdump_utility   <!-- section under page RC_Monitor in RunControl.dox -->
+\subsection RC_mdump_ex1   <!-- subsection under page RC_Monitor in RunControl.dox -->
+\subsection RC_mdump_ex2   <!-- subsection under page RC_Monitor in RunControl.dox -->
+\section RC_rmidas_utility   <!-- section under page RC_Monitor in RunControl.dox -->
+\section RC_hvedit_utility   <!-- section under page RC_Monitor in RunControl.dox -->
+\end-of-page RC_Monitor 
+
+%
+\page RC_customize_ODB   <!-- # Customizing the Experiment# new page in RunControl.dox -->
+\section RC_customize_intro   <!-- section under page RC_customize_ODB in RunControl.dox -->
+\section RC_ODB_Experiment_Tree   <!-- section under page RC_customize_ODB in RunControl.dox -->
+\subsection RC_Experiment_tree_keys   <!-- subsection under page RC_customize_ODB in RunControl.dox -->
+\subsection RC_Experiment_Tree_Example   <!-- subsection under page RC_customize_ODB in RunControl.dox -->
+\subsection RC_customize_experiment_tree   <!-- subsection under page RC_customize_ODB in RunControl.dox -->
+\subsubsection RC_Edit_On_Start   <!-- subsubsection under page RC_customize_ODB in RunControl.dox   -->
+\subsubsection RC_parameter_comments   <!-- subsubsection under page RC_customize_ODB in RunControl.dox  @level+ -->
+\subsubsection RC_Run_Parameters   <!-- subsubsection under page RC_customize_ODB in RunControl.dox  @level+ -->
+\subsubsection RC_Lock_when_Running   <!-- subsubsection under page RC_customize_ODB in RunControl.dox   -->
+\subsubsection RC_Access_Control   <!-- subsubsection under page RC_customize_ODB in RunControl.dox   -->
+\subsubsection RC_Setup_Security   <!-- subsubsection under page RC_customize_ODB in RunControl.dox  @level+ -->
+\subsubsection RC_security_allowed_hosts   <!-- subsubsection under page RC_customize_ODB in RunControl.dox  @level+ -->
+\subsubsection RC_security_allowed_programs   <!-- subsubsection under page RC_customize_ODB in RunControl.dox  @level+ -->
+\subsubsection RC_Setup_Web_Security   <!-- subsubsection under page RC_customize_ODB in RunControl.dox   -->
+\subsubsection RC_security_web_pw   <!-- subsubsection under page RC_customize_ODB in RunControl.dox  @level+ -->
+\subsubsection RC_Example_security   <!-- subsubsection under page RC_customize_ODB in RunControl.dox   -->
+\subsubsection RC_Example_full_security   <!-- subsubsection under page RC_customize_ODB in RunControl.dox  @level+ -->
+\subsubsection RC_Example_web_security   <!-- subsubsection under page RC_customize_ODB in RunControl.dox  @level+ -->
+\subsubsection RC_Remove_Security   <!-- subsubsection under page RC_customize_ODB in RunControl.dox   -->
+\section RC_starting_clients   <!-- section under page RC_customize_ODB in RunControl.dox -->
+\subsection RC_start_all_example   <!-- subsection under page RC_customize_ODB in RunControl.dox -->
+\subsection RC_kill_all_example   <!-- subsection under page RC_customize_ODB in RunControl.dox -->
+\section RC_mserver_utility   <!-- section under page RC_customize_ODB in RunControl.dox -->
+\subsection RC_mserver_arguments   <!-- subsection under page RC_customize_ODB in RunControl.dox -->
+\section RC_ODB_Programs_Tree   <!-- section under page RC_customize_ODB in RunControl.dox -->
+\subsection RC_ODB_programs_client   <!-- subsection under page RC_customize_ODB in RunControl.dox -->
+\subsection RC_customize_Programs_tree   <!-- subsection under page RC_customize_ODB in RunControl.dox -->
+\section RC_Alarm_System   <!-- section under page RC_customize_ODB in RunControl.dox -->
+\subsection RC_ODB_Alarms_Tree   <!-- subsection under page RC_customize_ODB in RunControl.dox -->
+\subsubsection RC_evaluated_alarm_condition   <!-- subsubsection under page RC_customize_ODB in RunControl.dox   -->
+\subsubsection RC_explanation_of_alarms_tree   <!-- subsubsection under page RC_customize_ODB in RunControl.dox   -->
+\subsubsection RC_alarms_tree_example   <!-- subsubsection under page RC_customize_ODB in RunControl.dox   -->
+\section RC_alarms_email   <!-- section under page RC_customize_ODB in RunControl.dox -->
+\section RC_ODB_Alarm_system_implementation   <!-- section under page RC_customize_ODB in RunControl.dox -->
+\end-of-page RC_customize_ODB 
+
+%
+\page RC_Hot_Link   <!-- # Event Notification (Hot-Link)# new page in RunControl.dox -->
+\section RC_Hot_Link_Intro   <!-- section under page RC_Hot_Link in RunControl.dox -->
+\section RC_Example_Hot_Link   <!-- section under page RC_Hot_Link in RunControl.dox -->
+\end-of-page RC_Hot_Link 
+
+%
+\page SpecialConfig   <!-- # SECTION 9: Special Configurations# new page in SpecialConfig.dox -->
+\end-of-page SpecialConfig 
+
+%
+\page RC_mhttpd_defining_script_buttons   <!-- # Defining Script Buttons on the main Status Page# new page in userbuttons.dox -->
+\section RC_odb_script_tree   <!-- section under page RC_mhttpd_defining_script_buttons in userbuttons.dox -->
+\section RC_odb_script_example1   <!-- section under page RC_mhttpd_defining_script_buttons in userbuttons.dox -->
+\section RC_odb_script_example2   <!-- section under page RC_mhttpd_defining_script_buttons in userbuttons.dox -->
+\subsection RC_odb_script_ex2_perlscript   <!-- subsection under page RC_mhttpd_defining_script_buttons in userbuttons.dox -->
+\subpage RC_mhttpd_perlrc   <!-- subpage under page RC_mhttpd_defining_script_buttons in userbuttons.dox  @level+2 -->
+\end-of-page RC_mhttpd_defining_script_buttons 
+
+%

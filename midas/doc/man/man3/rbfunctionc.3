@@ -1,0 +1,194 @@
+.TH "Midas Ring Buffer Functions (rb_xxx)" 3 "31 May 2012" "Version 2.3.0-0" "Midas" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Midas Ring Buffer Functions (rb_xxx) \- 
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "int \fBrb_set_nonblocking\fP ()"
+.br
+.ti -1c
+.RI "int \fBrb_create\fP (int size, int \fBmax_event_size\fP, int *handle)"
+.br
+.ti -1c
+.RI "int \fBrb_delete\fP (int handle)"
+.br
+.ti -1c
+.RI "int \fBrb_get_wp\fP (int handle, void **\fBp\fP, int millisec)"
+.br
+.ti -1c
+.RI "int \fBrb_increment_wp\fP (int handle, int size)"
+.br
+.ti -1c
+.RI "int \fBrb_get_rp\fP (int handle, void **\fBp\fP, int millisec)"
+.br
+.ti -1c
+.RI "int \fBrb_increment_rp\fP (int handle, int size)"
+.br
+.ti -1c
+.RI "int \fBrb_get_buffer_level\fP (int handle, int *n_bytes)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+dox dox 
+.SH "Function Documentation"
+.PP 
+.SS "int rb_create (int size, int max_event_size, int * handle)"Create a ring buffer with a given size
+.PP
+Provide an inter-thread buffer scheme for handling front-end events. This code allows concurrent data acquisition, calibration and network transfer on a multi-CPU machine. One thread reads out the data, passes it via the ring buffer functions to another thread running on the other CPU, which can then calibrate and/or send the data over the network.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIsize\fP Size of ring buffer, must be larger than 2*max_event_size 
+.br
+\fImax_event_size\fP Maximum event size to be placed into 
+.br
+\fI*handle\fP Handle to ring buffer 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+DB_SUCCESS, DB_NO_MEMORY, DB_INVALID_PARAM 
+.RE
+.PP
+
+.PP
+Definition at line 13958 of file midas.c.
+.PP
+Referenced by cm_msg_buffer(), and initialize_equipment().
+.SS "int rb_delete (int handle)"Delete a ring buffer 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIhandle\fP Handle of the ring buffer 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+DB_SUCCESS 
+.RE
+.PP
+
+.PP
+Definition at line 14012 of file midas.c.
+.PP
+Referenced by cm_disconnect_experiment().
+.SS "int rb_get_buffer_level (int handle, int * n_bytes)"Return number of bytes in a ring buffer
+.PP
+\fBParameters:\fP
+.RS 4
+\fIhandle\fP Handle of the buffer to get the info 
+.br
+\fI*n_bytes\fP Number of bytes in buffer 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+DB_SUCCESS, DB_INVALID_HANDLE 
+.RE
+.PP
+
+.PP
+Definition at line 14300 of file midas.c.
+.PP
+Referenced by cm_msg_flush_buffer(), and receive_trigger_event().
+.SS "int rb_get_rp (int handle, void ** p, int millisec)"Obtain the current read pointer at which new data is available with optional timeout
+.PP
+\fBParameters:\fP
+.RS 4
+\fIhandle\fP Ring buffer handle 
+.br
+\fImillisec\fP Optional timeout in milliseconds if buffer is full. Zero to not wait at all (non-blocking)
+.br
+\fI**p\fP Address of pointer pointing to newly available data. If p == NULL, only return status. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+DB_SUCCESS, DB_TIEMOUT, DB_INVALID_HANDLE 
+.RE
+.PP
+
+.PP
+Definition at line 14184 of file midas.c.
+.PP
+Referenced by cm_msg_flush_buffer(), and receive_trigger_event().
+.SS "int rb_get_wp (int handle, void ** p, int millisec)"Retrieve write pointer where new data can be written 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIhandle\fP Ring buffer handle 
+.br
+\fImillisec\fP Optional timeout in milliseconds if buffer is full. Zero to not wait at all (non-blocking) 
+.br
+\fI**p\fP Write pointer 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+DB_SUCCESS, DB_TIMEOUT, DB_INVALID_HANDLE 
+.RE
+.PP
+
+.PP
+Definition at line 14048 of file midas.c.
+.PP
+Referenced by cm_msg_buffer(), interrupt_routine(), and readout_thread().
+.SS "int rb_increment_rp (int handle, int size)"Increment current read pointer, freeing up space for the writing thread.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIhandle\fP Ring buffer handle 
+.br
+\fIsize\fP Number of bytes to free up at current read pointer 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+DB_SUCCESS, DB_INVALID_PARAM 
+.RE
+.PP
+
+.PP
+Definition at line 14246 of file midas.c.
+.PP
+Referenced by cm_msg_flush_buffer(), and receive_trigger_event().
+.SS "int rb_increment_wp (int handle, int size)"rb_increment_wp
+.PP
+Increment current write pointer, making the data at the write pointer available to the receiving thread 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIhandle\fP Ring buffer handle 
+.br
+\fIsize\fP Number of bytes placed at the WP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+DB_SUCCESS, DB_INVALID_PARAM, DB_INVALID_HANDLE 
+.RE
+.PP
+
+.PP
+Definition at line 14122 of file midas.c.
+.PP
+Referenced by cm_msg_buffer(), interrupt_routine(), and readout_thread().
+.SS "int rb_set_nonblocking ()"dox Set all rb_get_xx to nonblocking. Needed in multi-thread environments for stopping all theads without deadlock 
+.PP
+\fBReturns:\fP
+.RS 4
+DB_SUCCESS 
+.RE
+.PP
+
+.PP
+Definition at line 13917 of file midas.c.
+.PP
+Referenced by main().
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Midas from the source code.

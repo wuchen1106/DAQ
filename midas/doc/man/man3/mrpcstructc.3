@@ -1,0 +1,57 @@
+.TH "Midas RPC_LIST" 3 "31 May 2012" "Version 2.3.0-0" "Midas" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Midas RPC_LIST \- 
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "static RPC_LIST \fBrpc_list_library\fP []"
+.br
+.ti -1c
+.RI "static RPC_LIST \fBrpc_list_system\fP []"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+dox 
+.SH "Function Documentation"
+.PP 
+.SS "RPC_LIST* rpc_get_internal_list (\fBINT\fP flag)"
+.PP
+Definition at line 1258 of file mrpc.c.
+.PP
+Referenced by cm_connect_experiment1(), rpc_register_client(), and rpc_register_functions().
+.SH "Variable Documentation"
+.PP 
+.SS "RPC_LIST \fBrpc_list_library\fP[]\fC [static]\fP"dox dox rpc_list_library contains all MIDAS library functions and gets registerd whenever a connection to the MIDAS server is established 
+.PP
+Definition at line 44 of file mrpc.c.
+.PP
+Referenced by rpc_get_internal_list().
+.SS "RPC_LIST \fBrpc_list_system\fP[]\fC [static]\fP"\fBInitial value:\fP
+.PP
+.nf
+ {
+
+   
+   {RPC_ID_WATCHDOG, 'id_watchdog',
+    {{0}}},
+
+   {RPC_ID_SHUTDOWN, 'id_shutdown',
+    {{0}}},
+
+   {RPC_ID_EXIT, 'id_exit',
+    {{0}}},
+
+   {0}
+
+}
+.fi
+dox rpc_list_system contains MIDAS system functions and gets registerd whenever a RPC server is registered 
+.PP
+Definition at line 1242 of file mrpc.c.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Midas from the source code.

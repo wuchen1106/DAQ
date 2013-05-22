@@ -1,0 +1,177 @@
+.TH "F_mySQL" 3 "31 May 2012" "Version 2.3.0-0" "Midas" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+F_mySQL \- Logging information to a mySQL database 
+  
+.PP
+
+.br
+  
+.SH "mySQL"
+.PP
+The logger is able to store information in a \fBmySQL\fP database. This option is an alternative to the \fBrunlog.txt\fP file handled by the \fBMIDAS Analyzer\fP . The two main advantages using the SQL are:
+.IP "\(bu" 2
+The recording is done by the logger and therefore is independent of the user analyzer.
+.IP "\(bu" 2
+The definition of the \fBparameters\fP to be recorded in the database is entirely setup in the ODB under the /Logger/SQL tree.
+.PP
+.PP
+The SQL option is enabled by the preprocessor flag \fBNEED_MYSQL\fP at \fBbuild time\fP. This option, when enabled, will cause \fBmlogger\fP to create a subtree SQL under the \fB/Logger ODB tree\fP . This tree contains information for mySQL access with the predefined mySQL database name \fI'Midas'\fP and table \fI'Runlog'\fP. Under two dedicated subdirectories \fBLink_BOR\fP and \fBLink_EOR\fP, predefined links exists which will be used at BOR and EOR respectively for storing parameter values into the database. These elements are ODB links allowing the user to extend the list with any parameter in the ODB database. This logger mySQL option may replace or complement the \fBrunlog.txt\fP functionality of the \fBana_end_of_run()\fP function from the \fBanalyzer.c\fP.
+.PP
+ The following example shows a /Logger/SQL tree as created by \fBmlogger\fP See \fBbelow\fP for an explanation of the meaning of each key. 
+.PP
+.nf
+[local:midas:S]/Logger>ls -lr SQL
+Key name                        Type    #Val  Size  Last Opn Mode Value
+---------------------------------------------------------------------------
+SQL                         DIR
+    Create database             BOOL    1     4     27s  0   RWD  n
+    Write data                  BOOL    1     4     27s  0   RWD  n
+    Hostname                    STRING  1     80    27s  0   RWD  localhost
+    Username                    STRING  1     80    27s  0   RWD  root
+    Password                    STRING  1     80    27s  0   RWD
+    Database                    STRING  1     32    27s  0   RWD  midas
+    Table                       STRING  1     80    27s  0   RWD  Runlog
+    Logfile                     STRING  1     80    27s  0   RWD  sql.log
+    Links BOR                   DIR
+        Run number              LINK    1     20    58s  0   RWD  /Runinfo/Run number
+        Start time              LINK    1     20    58s  0   RWD  /Runinfo/Start time
+    Links EOR                   DIR
+        Stop time               LINK    1     19    4m   0   RWD  /Runinfo/Stop time
+
+.fi
+.PP
+.SH "Explanation of the keys in the ODB /Logger/SQL tree"
+.PP
+An example of a /Logger/SQL tree is shown \fBabove\fP. The table below serves as an index to the explanation of each key in this tree.
+.PP
+
+.br
+ \fB/Logger\fP 
+.br
+  
+.br
+  
+.br
+  
+.br
+  
+.br
+   
+.br
+  \fB/SQL\fP  
+.br
+  
+.br
+  
+.br
+   
+.br
+  
+.br
+  \fBCreate Database\fP  
+.br
+  
+.br
+   
+.br
+  
+.br
+  \fBWrite data\fP  
+.br
+  
+.br
+   
+.br
+  
+.br
+  \fBHostname\fP  
+.br
+  
+.br
+   
+.br
+  
+.br
+  \fBUsername\fP  
+.br
+  
+.br
+   
+.br
+  
+.br
+  \fBPassword\fP  
+.br
+  
+.br
+   
+.br
+  
+.br
+  \fBDatabase\fP  
+.br
+  
+.br
+   
+.br
+  
+.br
+  \fBTable\fP  
+.br
+  
+.br
+   
+.br
+  
+.br
+  \fBLinks BOR\fP  
+.br
+  
+.br
+   
+.br
+  
+.br
+  \fBLinks EOR\fP  
+.br
+  
+.br
+   The ODB /Logger/SQL tree. Click on a key for explanation. 
+.br
+.PP
+
+.br
+ Keys in the ODB tree /Logger/SQL   ODB Key  Explanation  
+.PP
+ Create Database  BOOL value. If this flag is set, the SQL database will be created.  
+.PP
+ Write data  BOOL value. If this flag is set , the data will be written to the SQL database. (provided the logger is also set to \fBwrite the data\fP).  
+.PP
+ Hostname  The name of the host where the SQL database is located.  
+.PP
+ Username  Username for access to the SQL Database.  
+.PP
+ Password  (Encoded) Password for access to the SQL Database.  
+.PP
+ Database  Name of the SQL Database (predefined as 'midas').  
+.PP
+ Table  Name of the Table in the SQL Database (predefined as 'Runlog').  
+.PP
+ Links BOR  This directory contains links to \fBparameters\fP in the ODB that are to be saved in the SQL Database at Begin-of-run. The links
+.IP "\(bu" 2
+Run number
+.IP "\(bu" 2
+Start time are created automatically by the logger the first time it runs. The user may add other links as desired.  
+.PP
+.PP
+ Links EOR  This directory contains links to \fBparameters\fP in the ODB that are to be saved in the SQL Database at End-of-run. The link
+.IP "\(bu" 2
+Stop time is created automatically by the logger the first time it runs. The user may add other links as desired.   
+.PP
+Above: meaning of keys in the /Logger/SQL ODB tree 
+.br
+ 
+.PP
+ 

@@ -1,0 +1,101 @@
+.TH "RC_mhttpd_Alias_page" 3 "31 May 2012" "Version 2.3.0-0" "Midas" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+RC_mhttpd_Alias_page \- mhttpd Alias page 
+  
+.br
+.PP
+.PP
+
+.br
+ 
+.SH "Alias-Buttons (or Hyperlinks)"
+.PP
+An Alias page is displayed by clicking on a user-defined  \fB Alias-button \fP (\fBalias-hyperlink\fP prior to the \fBredesign\fP)  on the mhttpd \fBmain status page\fP.
+.PP
+Alias-buttons provide the user with a simple way to access other webpages (remote or local). They are often used to provide 'shortcuts' from the main Status page to the documentation for an experiment, or to a particular ODB location. For example, if the experiment requires frequent reference to a list of \fBparameters\fP under /Equipment/TpcGasPlc/Common/, an \fB alias button \fP can be set up on the main status page to allow the user access to this tree with one click of the mouse.  Alias and \fBCustom\fP buttons are displayed on the \fBsame line\fP on the status page. 
+.br
+.PP
+.IP "\(bu" 2
+\fBHow to create Alias-Buttons\fP
+.IP "\(bu" 2
+\fBThe ODB /Alias Tree\fP
+.PP
+.PP
+ 
+.br
+
+.br
+
+.br
+  Clicking on an alias-button displays the link contents    
+.br
+
+.br
+
+.br
+ 
+.br
+.PP
+
+.br
+.SH "How to create Alias-Buttons"
+.PP
+Alias-Buttons (hyperlinks prior to \fBDec 2009\fP) on the \fBmain status page\fP are defined through the \fBODB Alias tree\fP. 
+.br
+.PP
+ 
+.SS "The ODB /Alias Tree"
+\fBNote:\fP
+.RS 4
+The  /Alias  tree is applicable to \fBmhttpd\fP only, and ignored by \fBodbedit\fP.
+.RE
+.PP
+This optional ODB tree provides the user with a way to access other webpages via \fBbuttons\fP placed on the mhttpd \fBmain Status page\fP (\fBhyperlinks\fP prior to \fBDec 2009\fP).
+.PP
+
+.br
+.PP
+The ODB /Alias key is not present until the user creates it. It is intended to contain a list of symbolic links to any desired ODB location. Any key created under /Alias will appear as a \fBButton\fP or \fBHyperlink\fP on the Main Status page, with the same name as the key, except where noted below (e.g. alias links spawned in the same frame). 
+.br
+ 
+.br
+ By default, the clicking of the alias-button in the web interface will spawn a \fBnew\fP \fBframe\fP. To force the display of the alias page in the \fBsame\fP \fBframe\fP, an \fB'&'\fP has to be appended to the name of the alias. The \fB&\fP is stripped off the alias name when it appears on the main status page.
+.PP
+The following code demonstrates creating alias-buttons linking to ODB keys using \fBodbedit\fP : 
+.PP
+.nf
+odbedit
+[local:t2kgas:S] mkdir Alias          ***  Create the optional /Alias directory
+[local:t2kgas:S] cd Alias
+[local:t2kgas:S] ln /Equipment/TpcGasPlc/Common/ 'TPC Common'    *** New frame, no &
+[local:t2kgas:S] ln /Equipment/TpcGasPlc/Common/ 'TPC Common'&'  *** Same frame, with &
+
+.fi
+.PP
+  The items preceded by \fB***\fP are comments
+.PP
+This would create two identical alias-buttons called 'TPC Common'. Clicking on the first alias-button 'TPC Common' would open the page in a \fBnew\fP frame as shown \fBabove\fP; clicking on the second would open it in the \fBsame\fP frame. (Two identical buttons have been created for demonstration purposes only. Normally all buttons would be created with unique names.)
+.PP
+The following code demonstrates how to make a link to an external webpage: 
+.PP
+.nf
+[local:t2kgas:S] cd Alias
+[local:t2kgas:S]create string triumf
+String length [32]:
+[local:t2kgas:S] set triumf 'http://triumf.ca'
+
+.fi
+.PP
+ Clicking on the alias-button 'triumf' will show the contents of the link in a new page (see \fBabove\fP).
+.PP
+
+.br
+  
+.br
+ 
+.PP
+
+.br
+ 

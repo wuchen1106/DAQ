@@ -1,0 +1,44 @@
+.TH "sis3820.c" 3 "31 May 2012" "Version 2.3.0-0" "Midas" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+sis3820.c \- 
+.SH SYNOPSIS
+.br
+.PP
+.SH "Function Documentation"
+.PP 
+.SS "static uint32_t regRead (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base, int offset)\fC [static]\fP"
+.PP
+Definition at line 25 of file sis3820.c.
+.PP
+Referenced by sis3820_DataReady(), sis3820_RegisterRead(), sis3820_ScalerRead(), and sis3820_Status().
+.SS "static void regWrite (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base, int offset, uint32_t value)\fC [static]\fP"
+.PP
+Definition at line 36 of file sis3820.c.
+.PP
+Referenced by sis3820_RegisterWrite(), and sis3820_Reset().
+.SS "int sis3820_DataReady (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base)"
+.PP
+Definition at line 93 of file sis3820.c.
+.SS "int sis3820_FifoRead (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base, void * pdest, int wcount)"
+.PP
+Definition at line 69 of file sis3820.c.
+.SS "uint32_t sis3820_RegisterRead (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base, int offset)"
+.PP
+Definition at line 44 of file sis3820.c.
+.SS "void sis3820_RegisterWrite (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base, int offset, uint32_t value)"
+.PP
+Definition at line 50 of file sis3820.c.
+.SS "void sis3820_Reset (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base)"
+.PP
+Definition at line 87 of file sis3820.c.
+.SS "uint32_t sis3820_ScalerRead (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base, int ch)"
+.PP
+Definition at line 56 of file sis3820.c.
+.SS "void sis3820_Status (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base)"
+.PP
+Definition at line 99 of file sis3820.c.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Midas from the source code.

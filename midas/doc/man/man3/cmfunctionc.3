@@ -1,0 +1,1027 @@
+.TH "Midas Common Functions (cm_xxx)" 3 "31 May 2012" "Version 2.3.0-0" "Midas" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Midas Common Functions (cm_xxx) \- 
+.SS "Data Structures"
+
+.in +1c
+.ti -1c
+.RI "struct \fBTR_CLIENT\fP"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBINT\fP \fBcm_synchronize\fP (\fBDWORD\fP *seconds)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBcm_asctime\fP (char *str, \fBINT\fP buf_size)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBcm_time\fP (\fBDWORD\fP *t)"
+.br
+.ti -1c
+.RI "char * \fBcm_get_version\fP ()"
+.br
+.ti -1c
+.RI "int \fBcm_get_revision\fP ()"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBcm_set_path\fP (const char *path)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBcm_get_path\fP (char *path)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBcm_set_experiment_name\fP (const char *name)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBcm_get_experiment_name\fP (char *name, int name_length)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBcm_scan_experiments\fP (void)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBcm_delete_client_info\fP (HNDLE \fBhDB\fP, \fBINT\fP pid)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBcm_check_client\fP (HNDLE \fBhDB\fP, HNDLE hKeyClient)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBcm_set_client_info\fP (HNDLE \fBhDB\fP, HNDLE *hKeyClient, char *\fBhost_name\fP, char *client_name, \fBINT\fP hw_type, char *password, \fBDWORD\fP watchdog_timeout)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBcm_get_client_info\fP (char *client_name)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBcm_get_environment\fP (char *\fBhost_name\fP, int host_name_size, char *\fBexp_name\fP, int exp_name_size)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBcm_connect_experiment\fP (const char *\fBhost_name\fP, const char *\fBexp_name\fP, const char *client_name, void(*func)(char *))"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBcm_connect_experiment1\fP (const char *\fBhost_name\fP, const char *\fBexp_name\fP, const char *client_name, void(*func)(char *), \fBINT\fP \fBodb_size\fP, \fBDWORD\fP watchdog_timeout)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBcm_list_experiments\fP (const char *\fBhost_name\fP, char \fBexp_name\fP[MAX_EXPERIMENT][NAME_LENGTH])"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBcm_select_experiment\fP (const char *\fBhost_name\fP, char *\fBexp_name\fP)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBcm_connect_client\fP (char *client_name, HNDLE *hConn)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBcm_disconnect_client\fP (HNDLE hConn, \fBBOOL\fP bShutdown)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBcm_disconnect_experiment\fP (void)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBcm_set_experiment_database\fP (HNDLE \fBhDB\fP, HNDLE hKeyClient)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBcm_get_experiment_database\fP (HNDLE *\fBhDB\fP, HNDLE *hKeyClient)"
+.br
+.ti -1c
+.RI "static int \fBbm_validate_client_index\fP (const \fBBUFFER\fP *buf, \fBBOOL\fP abort_if_invalid)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBcm_set_watchdog_params\fP (\fBBOOL\fP call_watchdog, \fBDWORD\fP timeout)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBcm_get_watchdog_params\fP (\fBBOOL\fP *call_watchdog, \fBDWORD\fP *timeout)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBcm_get_watchdog_info\fP (HNDLE \fBhDB\fP, char *client_name, \fBDWORD\fP *timeout, \fBDWORD\fP *last)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBcm_register_transition\fP (\fBINT\fP transition, \fBINT\fP(*func)(\fBINT\fP, char *), \fBINT\fP sequence_number)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBcm_set_transition_sequence\fP (\fBINT\fP transition, \fBINT\fP sequence_number)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBcm_register_deferred_transition\fP (\fBINT\fP transition, \fBBOOL\fP(*func)(\fBINT\fP, \fBBOOL\fP))"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBcm_check_deferred_transition\fP ()"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBcm_transition1\fP (\fBINT\fP transition, \fBINT\fP \fBrun_number\fP, char *errstr, \fBINT\fP errstr_size, \fBINT\fP async_flag, \fBINT\fP debug_flag)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBcm_yield\fP (\fBINT\fP millisec)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBcm_execute\fP (const char *command, char *result, \fBINT\fP bufsize)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBcm_shutdown\fP (const char *name, \fBBOOL\fP bUnique)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBcm_exist\fP (const char *name, \fBBOOL\fP bUnique)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBcm_cleanup\fP (const char *client_name, \fBBOOL\fP ignore_timeout)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+dox dox
+.PP
+dox 
+.SH "Function Documentation"
+.PP 
+.SS "static int bm_validate_client_index (const \fBBUFFER\fP * buf, \fBBOOL\fP abort_if_invalid)\fC [static]\fP"dox 
+.PP
+Definition at line 2726 of file midas.c.
+.PP
+Referenced by bm_cleanup(), bm_close_buffer(), bm_empty_buffers(), bm_flush_cache(), bm_push_event(), bm_receive_event(), bm_remove_event_request(), bm_send_event(), bm_skip_event(), bm_wait_for_free_space(), cm_cleanup(), cm_set_watchdog_params(), and cm_update_last_activity().
+.SS "\fBINT\fP cm_asctime (char * str, \fBINT\fP buf_size)"Get time from MIDAS server and set local time. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIstr\fP return time string 
+.br
+\fIbuf_size\fP Maximum size of str 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+CM_SUCCESS 
+.RE
+.PP
+
+.PP
+Definition at line 1286 of file midas.c.
+.PP
+Referenced by al_trigger_alarm(), and cm_transition1().
+.SS "\fBINT\fP cm_check_client (HNDLE hDB, HNDLE hKeyClient)"Check if a client with a /system/client/xxx entry has a valid entry in the ODB client table. If not, remove that client from the /system/client tree. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIhDB\fP Handle to online database 
+.br
+\fIhKeyClient\fP Handle to client key 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+CM_SUCCESS, CM_NO_CLIENT 
+.RE
+.PP
+
+.PP
+Definition at line 1604 of file midas.c.
+.PP
+Referenced by cm_set_client_info(), and cm_transition1().
+.SS "\fBINT\fP cm_check_deferred_transition ()"Check for any deferred transition. If a deferred transition handler has been registered via the cm_register_deferred_transition function, this routine should be called regularly. It checks if a transition request is pending. If so, it calld the registered handler if the transition should be done and then actually does the transition. 
+.PP
+\fBReturns:\fP
+.RS 4
+CM_SUCCESS, <error> Error from \fBcm_transition()\fP 
+.RE
+.PP
+
+.PP
+Definition at line 3346 of file midas.c.
+.PP
+Referenced by scheduler().
+.SS "\fBINT\fP cm_cleanup (const char * client_name, \fBBOOL\fP ignore_timeout)"Remove hanging clients independent of their watchdog timeout.
+.PP
+Since this function does not obey the client watchdog timeout, it should be only called to remove clients which have their watchdog checking turned off or which are known to be dead. The normal client removement is done via cm_watchdog().
+.PP
+Currently (Sept. 02) there are two applications for that:
+.IP "1." 4
+The ODBEdit command 'cleanup', which can be used to remove clients which have their watchdog checking off, like the analyzer started with the '-d' flag for a debugging session.
+.IP "2." 4
+The frontend init code to remove previous frontends. This can be helpful if a frontend dies. Normally, one would have to wait 60 sec. for a crashed frontend to be removed. Only then one can start again the frontend. Since the frontend init code contains a call to cm_cleanup(<frontend_name>), one can restart a frontend immediately.
+.PP
+.PP
+Added ignore_timeout on Nov.03. A logger might have an increased tiemout of up to 60 sec. because of tape operations. If ignore_timeout is FALSE, the logger is then not killed if its inactivity is less than 60 sec., while in the previous implementation it was always killed after 2*WATCHDOG_INTERVAL. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIclient_name\fP Client name, if zero check all clients 
+.br
+\fIignore_timeout\fP If TRUE, ignore a possible increased timeout defined by each client. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+CM_SUCCESS 
+.RE
+.PP
+
+.PP
+Definition at line 5381 of file midas.c.
+.PP
+Referenced by cm_transition1(), and main().
+.SS "\fBINT\fP cm_connect_client (char * client_name, HNDLE * hConn)"Connect to a MIDAS client of the current experiment 
+.PP
+\fBFor internal use only.\fP
+.RS 4
+
+.PP
+\fBParameters:\fP
+.RS 4
+\fIclient_name\fP Name of client to connect to. This name is set by the other client via the cm_connect_experiment call. 
+.br
+\fIhConn\fP Connection handle 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+CM_SUCCESS, CM_NO_CLIENT 
+.RE
+.PP
+.RE
+.PP
+
+.PP
+Definition at line 2431 of file midas.c.
+.SS "\fBINT\fP cm_connect_experiment (const char * host_name, const char * exp_name, const char * client_name, void(*)(char *) func)"dox This function connects to an existing MIDAS experiment. This must be the first call in a MIDAS application. It opens three TCP connection to the remote host (one for RPC calls, one to send events and one for hot-link notifications from the remote host) and writes client information into the ODB under /System/Clients. 
+.PP
+\fBAttention:\fP
+.RS 4
+All MIDAS applications should evaluate the MIDAS_SERVER_HOST and MIDAS_EXPT_NAME environment variables as defaults to the host name and experiment name (see \fBEnvironment_variables\fP). For that purpose, the function \fBcm_get_environment()\fP should be called prior to \fBcm_connect_experiment()\fP. If command line \fBparameters\fP -h and -e are used, the evaluation should be done between \fBcm_get_environment()\fP and \fBcm_connect_experiment()\fP. The function \fBcm_disconnect_experiment()\fP must be called before a MIDAS application exits. 
+.PP
+.nf
+#include <stdio.h>
+#include <midas.h>
+main(int argc, char *argv[])
+{
+  INT  status, i;
+  char host_name[256],exp_name[32];
+
+  // get default values from environment
+  cm_get_environment(host_name, exp_name);
+
+  // parse command line parameters
+  for (i=1 ; i<argc ; i++)
+    {
+    if (argv[i][0] == '-')
+      {
+      if (i+1 >= argc || argv[i+1][0] == '-')
+        goto usage;
+      if (argv[i][1] == 'e')
+        strcpy(exp_name, argv[++i]);
+      else if (argv[i][1] == 'h')
+        strcpy(host_name, argv[++i]);
+      else
+        {
+usage:
+        printf('usage: test [-h Hostname] [-e Experiment]\n\n');
+        return 1;
+        }
+      }
+    }
+  status = cm_connect_experiment(host_name, exp_name, 'Test', NULL);
+  if (status != CM_SUCCESS)
+    return 1;
+  ...do operations...
+  cm_disconnect_experiment();
+}
+
+.fi
+.PP
+ 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIhost_name\fP Specifies host to connect to. Must be a valid IP host name. The string can be empty ('') if to connect to the local computer. 
+.br
+\fIexp_name\fP Specifies the experiment to connect to. If this string is empty, the number of defined experiments in exptab is checked. If only one experiment is defined, the function automatically connects to this one. If more than one experiment is defined, a list is presented and the user can interactively select one experiment. 
+.br
+\fIclient_name\fP Client name of the calling program as it can be seen by others (like the scl command in ODBEdit). 
+.br
+\fIfunc\fP Callback function to read in a password if security has been enabled. In all command line applications this function is NULL which invokes an internal ss_gets() function to read in a password. In windows environments (MS Windows, X Windows) a function can be supplied to open a dialog box and read in the password. The argument of this function must be the returned password. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+CM_SUCCESS, CM_UNDEF_EXP, CM_SET_ERROR, RPC_NET_ERROR 
+.br
+ CM_VERSION_MISMATCH MIDAS library version different on local and remote computer 
+.RE
+.PP
+
+.PP
+Definition at line 2051 of file midas.c.
+.PP
+Referenced by main().
+.SS "\fBINT\fP cm_connect_experiment1 (const char * host_name, const char * exp_name, const char * client_name, void(*)(char *) func, \fBINT\fP odb_size, \fBDWORD\fP watchdog_timeout)"Connect to a MIDAS experiment (to the online database) on a specific host. 
+.PP
+\fBFor internal use only.\fP
+.RS 4
+
+.RE
+.PP
+
+.PP
+Definition at line 2074 of file midas.c.
+.PP
+Referenced by cm_connect_experiment(), and main().
+.SS "\fBINT\fP cm_delete_client_info (HNDLE hDB, \fBINT\fP pid)"Delete client info from database 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIhDB\fP Database handle 
+.br
+\fIpid\fP PID of entry to delete, zero for this process. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+CM_SUCCESS 
+.RE
+.PP
+
+.PP
+Definition at line 1547 of file midas.c.
+.PP
+Referenced by cm_check_client(), cm_cleanup(), cm_disconnect_experiment(), and cm_shutdown().
+.SS "\fBINT\fP cm_deregister_transition (\fBINT\fP transition)"
+.PP
+Definition at line 3166 of file midas.c.
+.SS "\fBINT\fP cm_disconnect_client (HNDLE hConn, \fBBOOL\fP bShutdown)"Disconnect from a MIDAS client 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIhConn\fP Connection handle obtained via \fBcm_connect_client()\fP 
+.br
+\fIbShutdown\fP If TRUE, disconnect from client and shut it down (exit the client program) by sending a RPC_SHUTDOWN message 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+see rpc_client_disconnect() 
+.RE
+.PP
+
+.PP
+Definition at line 2497 of file midas.c.
+.SS "\fBINT\fP cm_disconnect_experiment (void)"Disconnect from a MIDAS experiment. 
+.PP
+\fBAttention:\fP
+.RS 4
+Should be the last call to a MIDAS library function in an application before it exits. This function removes the client information from the ODB, disconnects all TCP connections and frees all internal allocated memory. See \fBcm_connect_experiment()\fP for example. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+CM_SUCCESS 
+.RE
+.PP
+
+.PP
+Definition at line 2511 of file midas.c.
+.PP
+Referenced by cm_connect_experiment1(), main(), and register_equipment().
+.SS "\fBINT\fP cm_execute (const char * command, char * result, \fBINT\fP bufsize)"Executes command via system() call 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcommand\fP Command string to execute 
+.br
+\fIresult\fP stdout of command 
+.br
+\fIbufsize\fP string size in byte 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+CM_SUCCESS 
+.RE
+.PP
+
+.PP
+Definition at line 4288 of file midas.c.
+.SS "\fBINT\fP cm_exist (const char * name, \fBBOOL\fP bUnique)"Check if a MIDAS client exists in current experiment 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIname\fP Client name 
+.br
+\fIbUnique\fP If true, look for the exact client name. If false, look for namexxx where xxx is a any number 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+CM_SUCCESS, CM_NO_CLIENT 
+.RE
+.PP
+
+.PP
+Definition at line 5290 of file midas.c.
+.PP
+Referenced by al_check(), and main().
+.SS "\fBINT\fP cm_get_client_info (char * client_name)"Get info about the current client 
+.PP
+\fBParameters:\fP
+.RS 4
+\fI*client_name\fP Client name. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+CM_SUCCESS, CM_UNDEF_EXP 
+.RE
+.PP
+
+.PP
+Definition at line 1876 of file midas.c.
+.PP
+Referenced by bm_open_buffer().
+.SS "\fBINT\fP cm_get_environment (char * host_name, int host_name_size, char * exp_name, int exp_name_size)"Returns MIDAS environment variables. 
+.PP
+\fBAttention:\fP
+.RS 4
+This function can be used to evaluate the standard MIDAS environment variables before connecting to an experiment (see \fBEnvironment_variables\fP). The usual way is that the host name and experiment name are first derived from the environment variables MIDAS_SERVER_HOST and MIDAS_EXPT_NAME. They can then be superseded by command line \fBparameters\fP with -h and -e flags. 
+.PP
+.nf
+#include <stdio.h>
+#include <midas.h>
+main(int argc, char *argv[])
+{
+  INT  status, i;
+  char host_name[256],exp_name[32];
+
+  // get default values from environment
+  cm_get_environment(host_name, exp_name);
+
+  // parse command line parameters
+  for (i=1 ; i<argc ; i++)
+    {
+    if (argv[i][0] == '-')
+      {
+      if (i+1 >= argc || argv[i+1][0] == '-')
+        goto usage;
+      if (argv[i][1] == 'e')
+        strcpy(exp_name, argv[++i]);
+      else if (argv[i][1] == 'h')
+        strcpy(host_name, argv[++i]);
+      else
+        {
+usage:
+        printf('usage: test [-h Hostname] [-e Experiment]\n\n');
+        return 1;
+        }
+      }
+    }
+  status = cm_connect_experiment(host_name, exp_name, 'Test', NULL);
+  if (status != CM_SUCCESS)
+    return 1;
+    ...do anyting...
+  cm_disconnect_experiment();
+}
+
+.fi
+.PP
+ 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIhost_name\fP Contents of MIDAS_SERVER_HOST environment variable. 
+.br
+\fIhost_name_size\fP string length 
+.br
+\fIexp_name\fP Contents of MIDAS_EXPT_NAME environment variable. 
+.br
+\fIexp_name_size\fP string length 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+CM_SUCCESS 
+.RE
+.PP
+
+.PP
+Definition at line 1952 of file midas.c.
+.PP
+Referenced by main().
+.SS "\fBINT\fP cm_get_experiment_database (HNDLE * hDB, HNDLE * hKeyClient)"dox Get the handle to the ODB from the currently connected experiment.
+.PP
+\fBAttention:\fP
+.RS 4
+This function returns the handle of the online database (ODB) which can be used in future db_xxx() calls. The hkeyclient key handle can be used to access the client information in the ODB. If the client key handle is not needed, the parameter can be NULL. 
+.PP
+.nf
+HNDLE hDB, hkeyclient;
+ char  name[32];
+ int   size;
+ db_get_experiment_database(&hdb, &hkeyclient);
+ size = sizeof(name);
+ db_get_value(hdb, hkeyclient, 'Name', name, &size, TID_STRING, TRUE);
+ printf('My name is %s\n', name);
+
+.fi
+.PP
+ 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIhDB\fP Database handle. 
+.br
+\fIhKeyClient\fP Handle for key where search starts, zero for root. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+CM_SUCCESS 
+.RE
+.PP
+
+.PP
+Definition at line 2669 of file midas.c.
+.PP
+Referenced by al_check(), al_get_alarms(), al_reset_alarm(), al_trigger_alarm(), ana_end_of_run(), analyzer_init(), bm_open_buffer(), cm_connect_client(), cm_deregister_transition(), cm_disconnect_experiment(), cm_exist(), cm_get_client_info(), cm_msg_log(), cm_msg_log1(), cm_msg_retrieve(), cm_register_deferred_transition(), cm_register_transition(), cm_set_transition_sequence(), cm_set_watchdog_params(), cm_shutdown(), cm_transition1(), el_submit(), hv_init(), hv_read(), and main().
+.SS "\fBINT\fP cm_get_experiment_name (char * name, int name_length)"Return the experiment name 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIname\fP Pointer to user string, size should be at least NAME_LENGTH 
+.br
+\fIname_size\fP Size of user string 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+CM_SUCCESS 
+.RE
+.PP
+
+.PP
+Definition at line 1418 of file midas.c.
+.SS "\fBINT\fP cm_get_path (char * path)"Return the path name previously set with cm_set_path. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIpath\fP Pathname 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+CM_SUCCESS 
+.RE
+.PP
+
+.PP
+Definition at line 1385 of file midas.c.
+.PP
+Referenced by cm_connect_experiment1(), cm_msg_log(), cm_msg_log1(), and cm_msg_retrieve().
+.SS "\fBINT\fP cm_get_path1 (char * path, int path_size)"
+.PP
+Definition at line 1392 of file midas.c.
+.SS "int cm_get_revision ()"Return svn revision number of current MIDAS library as a string 
+.PP
+\fBReturns:\fP
+.RS 4
+revision number 
+.RE
+.PP
+
+.PP
+Definition at line 1354 of file midas.c.
+.SS "char* cm_get_version ()"Return version number of current MIDAS library as a string 
+.PP
+\fBReturns:\fP
+.RS 4
+version number 
+.RE
+.PP
+
+.PP
+Definition at line 1345 of file midas.c.
+.SS "\fBINT\fP cm_get_watchdog_info (HNDLE hDB, char * client_name, \fBDWORD\fP * timeout, \fBDWORD\fP * last)"Return watchdog information about specific client 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIhDB\fP ODB handle 
+.br
+\fIclient_name\fP ODB client name 
+.br
+\fItimeout\fP Timeout for this application in seconds 
+.br
+\fIlast\fP Last time watchdog was called in msec 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+CM_SUCCESS, CM_NO_CLIENT, DB_INVALID_HANDLE 
+.RE
+.PP
+
+.PP
+Definition at line 2942 of file midas.c.
+.SS "\fBINT\fP cm_get_watchdog_params (\fBBOOL\fP * call_watchdog, \fBDWORD\fP * timeout)"Return the current watchdog \fBparameters\fP 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcall_watchdog\fP Call the cm_watchdog routine periodically 
+.br
+\fItimeout\fP Timeout for this application in seconds 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+CM_SUCCESS 
+.RE
+.PP
+
+.PP
+Definition at line 2922 of file midas.c.
+.PP
+Referenced by bm_open_buffer(), cm_connect_experiment1(), cm_set_client_info(), and db_open_database().
+.SS "\fBINT\fP cm_list_experiments (const char * host_name, char exp_name[MAX_EXPERIMENT][NAME_LENGTH])"Connect to a MIDAS server and return all defined experiments in *exp_name[MAX_EXPERIMENTS] 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIhost_name\fP Internet host name. 
+.br
+\fIexp_name\fP list of experiment names 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+CM_SUCCESS, RPC_NET_ERROR 
+.RE
+.PP
+
+.PP
+Definition at line 2278 of file midas.c.
+.PP
+Referenced by cm_select_experiment().
+.SS "\fBINT\fP cm_register_deferred_transition (\fBINT\fP transition, \fBBOOL\fP(*)(\fBINT\fP, \fBBOOL\fP) func)"dox Register a deferred transition handler. If a client is registered as a deferred transition handler, it may defer a requested transition by returning FALSE until a certain condition (like a motor reaches its end position) is reached. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fItransition\fP One of TR_xxx 
+.br
+\fI(*func)\fP Function which gets called whenever a transition is requested. If it returns FALSE, the transition is not performed. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+CM_SUCCESS, <error> Error from ODB access 
+.RE
+.PP
+
+.PP
+Definition at line 3289 of file midas.c.
+.SS "\fBINT\fP cm_register_transition (\fBINT\fP transition, \fBINT\fP(*)(\fBINT\fP, char *) func, \fBINT\fP sequence_number)"dox Registers a callback function for run transitions. This function internally registers the transition callback function and publishes its request for transition notification by writing a transition request to /System/Clients/<pid>/Transition XXX. Other clients making a transition scan the transition requests of all clients and call their transition callbacks via RPC.
+.PP
+Clients can register for transitions (Start/Stop/Pause/Resume) in a given sequence. All sequence numbers given in the registration are sorted on a transition and the clients are contacted in ascending order. By default, all programs register with a sequence number of 500. The logger however uses 200 for start, so that it can open files before the other clients are contacted, and 800 for stop, so that the files get closed when all other clients have gone already through the stop trantition.
+.PP
+The callback function returns CM_SUCCESS if it can perform the transition or a value larger than one in case of error. An error string can be copied into the error variable. 
+.PP
+\fBAttention:\fP
+.RS 4
+The callback function will be called on transitions from inside the \fBcm_yield()\fP function which therefore must be contained in the main program loop. 
+.PP
+.nf
+INT start(INT run_number, char *error)
+{
+  if (<not ok>)
+    {
+    strcpy(error, 'Cannot start because ...');
+    return 2;
+    }
+  printf('Starting run %d\n', run_number);
+  return CM_SUCCESS;
+}
+main()
+{
+  ...
+  cm_register_transition(TR_START, start, 500);
+  do
+    {
+    status = cm_yield(1000);
+    } while (status != RPC_SHUTDOWN &&
+             status != SS_ABORT);
+  ...
+}
+
+.fi
+.PP
+ 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fItransition\fP Transition to register for (see \fBstate_transition\fP) 
+.br
+\fIfunc\fP Callback function. 
+.br
+\fIsequence_number\fP Sequence number for that transition (1..1000) 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+CM_SUCCESS 
+.RE
+.PP
+
+.PP
+Definition at line 3101 of file midas.c.
+.PP
+Referenced by main().
+.SS "\fBINT\fP cm_scan_experiments (void)"dox Scan the 'exptab' file for MIDAS experiment names and save them for later use by rpc_server_accept(). The file is first searched under $MIDAS/exptab if present, then the directory from argv[0] is probed. 
+.PP
+\fBReturns:\fP
+.RS 4
+CM_SUCCESS
+.br
+ CM_UNDEF_EXP exptab not found and MIDAS_DIR not set 
+.RE
+.PP
+
+.PP
+Definition at line 1454 of file midas.c.
+.PP
+Referenced by cm_connect_experiment1(), and cm_list_experiments().
+.SS "\fBINT\fP cm_select_experiment (const char * host_name, char * exp_name)"Connect to a MIDAS server and select an experiment from the experiments available on this server 
+.PP
+\fBFor internal use only.\fP
+.RS 4
+
+.PP
+\fBParameters:\fP
+.RS 4
+\fIhost_name\fP Internet host name. 
+.br
+\fIexp_name\fP list of experiment names 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+CM_SUCCESS, RPC_NET_ERROR 
+.RE
+.PP
+.RE
+.PP
+
+.PP
+Definition at line 2392 of file midas.c.
+.PP
+Referenced by cm_connect_experiment1().
+.SS "\fBINT\fP cm_set_client_info (HNDLE hDB, HNDLE * hKeyClient, char * host_name, char * client_name, \fBINT\fP hw_type, char * password, \fBDWORD\fP watchdog_timeout)"Set client information in online database and return handle 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIhDB\fP Handle to online database 
+.br
+\fIhKeyClient\fP returned key 
+.br
+\fIhost_name\fP server name 
+.br
+\fIclient_name\fP Name of this program as it will be seen by other clients. 
+.br
+\fIhw_type\fP Type of byte order 
+.br
+\fIpassword\fP MIDAS password 
+.br
+\fIwatchdog_timeout\fP Default watchdog timeout, can be overwritten by ODB setting /programs/<name>/Watchdog timeout 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+CM_SUCCESS 
+.RE
+.PP
+
+.PP
+Definition at line 1702 of file midas.c.
+.PP
+Referenced by cm_connect_experiment1().
+.SS "\fBINT\fP cm_set_experiment_database (HNDLE hDB, HNDLE hKeyClient)"Set the handle to the ODB for the currently connected experiment 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIhDB\fP Database handle 
+.br
+\fIhKeyClient\fP Key handle of client structure 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+CM_SUCCESS 
+.RE
+.PP
+
+.PP
+Definition at line 2602 of file midas.c.
+.PP
+Referenced by cm_connect_experiment1(), and cm_disconnect_experiment().
+.SS "\fBINT\fP cm_set_experiment_name (const char * name)"Set name of the experiment 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIname\fP Experiment name 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+CM_SUCCESS 
+.RE
+.PP
+
+.PP
+Definition at line 1405 of file midas.c.
+.PP
+Referenced by cm_connect_experiment1().
+.SS "\fBINT\fP cm_set_path (const char * path)"Set path to actual experiment. This function gets called by cm_connect_experiment if the connection is established to a local experiment (not through the TCP/IP server). The path is then used for all shared memory routines. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIpath\fP Pathname 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+CM_SUCCESS 
+.RE
+.PP
+
+.PP
+Definition at line 1368 of file midas.c.
+.PP
+Referenced by cm_connect_experiment1().
+.SS "\fBINT\fP cm_set_transition_sequence (\fBINT\fP transition, \fBINT\fP sequence_number)"Change the transition sequence for the calling program. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fItransition\fP TR_START, TR_PAUSE, TR_RESUME or TR_STOP. 
+.br
+\fIsequence_number\fP New sequence number, should be between 1 and 1000 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+CM_SUCCESS 
+.RE
+.PP
+
+.PP
+Definition at line 3225 of file midas.c.
+.SS "\fBINT\fP cm_set_watchdog_params (\fBBOOL\fP call_watchdog, \fBDWORD\fP timeout)"Sets the internal watchdog flags and the own timeout. If call_watchdog is TRUE, the cm_watchdog routine is called periodically from the system to show other clients that this application is 'alive'. On UNIX systems, the alarm() timer is used which is then not available for user purposes.
+.PP
+The timeout specifies the time, after which the calling application should be considered 'dead' by other clients. Normally, the cm_watchdog() routines is called periodically. If a client crashes, this does not occur any more. Then other clients can detect this and clear all buffer and database entries of this application so they are not blocked any more. If this application should not checked by others, the timeout can be specified as zero. It might be useful for debugging purposes to do so, because if a debugger comes to a breakpoint and stops the application, the periodic call of cm_watchdog is disabled and the client looks like dead.
+.PP
+If the timeout is not zero, but the watchdog is not called (call_watchdog == FALSE), the user must ensure to call cm_watchdog periodically with a period of WATCHDOG_INTERVAL milliseconds or less.
+.PP
+An application which calles system routines which block the alarm signal for some time, might increase the timeout to the maximum expected blocking time before issuing the calls. One example is the logger doing Exabyte tape IO, which can take up to one minute. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcall_watchdog\fP Call the cm_watchdog routine periodically 
+.br
+\fItimeout\fP Timeout for this application in ms 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+CM_SUCCESS 
+.RE
+.PP
+
+.PP
+Definition at line 2809 of file midas.c.
+.PP
+Referenced by cm_connect_experiment1(), cm_set_client_info(), and main().
+.SS "\fBINT\fP cm_shutdown (const char * name, \fBBOOL\fP bUnique)"Shutdown (exit) other MIDAS client 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIname\fP Client name or 'all' for all clients 
+.br
+\fIbUnique\fP If true, look for the exact client name. If false, look for namexxx where xxx is a any number.
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+CM_SUCCESS, CM_NO_CLIENT, DB_NO_KEY 
+.RE
+.PP
+
+.PP
+Definition at line 5176 of file midas.c.
+.PP
+Referenced by cm_transition1(), and main().
+.SS "\fBINT\fP cm_synchronize (\fBDWORD\fP * seconds)"Get time from MIDAS server and set local time. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIseconds\fP Time in seconds 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+CM_SUCCESS 
+.RE
+.PP
+
+.PP
+Definition at line 1258 of file midas.c.
+.PP
+Referenced by main().
+.SS "\fBINT\fP cm_time (\fBDWORD\fP * t)"Get time from ss_time on server. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIt\fP string 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+CM_SUCCESS 
+.RE
+.PP
+
+.PP
+Definition at line 1304 of file midas.c.
+.PP
+Referenced by cm_transition1().
+.SS "\fBINT\fP cm_transition (\fBINT\fP transition, \fBINT\fP run_number, char * errstr, \fBINT\fP errstr_size, \fBINT\fP async_flag, \fBINT\fP debug_flag)"
+.PP
+Definition at line 4117 of file midas.c.
+.PP
+Referenced by cm_check_deferred_transition(), frontend_loop(), main(), scan_fragment(), and scheduler().
+.SS "\fBINT\fP cm_transition1 (\fBINT\fP transition, \fBINT\fP run_number, char * errstr, \fBINT\fP errstr_size, \fBINT\fP async_flag, \fBINT\fP debug_flag)"Performs a run transition (Start/Stop/Pause/Resume).
+.PP
+Synchronous/Asynchronous flag. If set to ASYNC, the transition is done asynchronously, meaning that clients are connected and told to execute their callback routine, but no result is awaited. The return value is specified by the transition callback function on the remote clients. If all callbacks can perform the transition, CM_SUCCESS is returned. If one callback cannot perform the transition, the return value of this callback is returned from \fBcm_transition()\fP. The async_flag is usually FALSE so that transition callbacks can block a run transition in case of problems and return an error string. The only exception are situations where a run transition is performed automatically by a program which cannot block in a transition. For example the logger can cause a run stop when a disk is nearly full but it cannot block in the \fBcm_transition()\fP function since it has its own run stop callback which must flush buffers and close disk files and tapes. 
+.PP
+.nf
+...
+    i = 1;
+    db_set_value(hDB, 0, '/Runinfo/Transition in progress', &i, sizeof(INT), 1, TID_INT);
+
+      status = cm_transition(TR_START, new_run_number, str, sizeof(str), SYNC, debug_flag);
+      if (status != CM_SUCCESS)
+      {
+        // in case of error
+        printf('Error: %s\n', str);
+      }
+    ...
+
+.fi
+.PP
+ 
+.PP
+\fBParameters:\fP
+.RS 4
+\fItransition\fP TR_START, TR_PAUSE, TR_RESUME or TR_STOP. 
+.br
+\fIrun_number\fP New run number. If zero, use current run number plus one. 
+.br
+\fIerrstr\fP returned error string. 
+.br
+\fIerrstr_size\fP Size of error string. 
+.br
+\fIasync_flag\fP SYNC: synchronization flag (SYNC:wait completion, ASYNC: retun immediately) 
+.br
+\fIdebug_flag\fP If 1 output debugging information, if 2 output via \fBcm_msg()\fP. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+CM_SUCCESS, <error> error code from remote client 
+.RE
+.PP
+
+.PP
+Definition at line 3439 of file midas.c.
+.PP
+Referenced by cm_transition().
+.SS "\fBINT\fP cm_yield (\fBINT\fP millisec)"dox Central yield functions for clients. This routine should be called in an infinite loop by a client in order to give the MIDAS system the opportunity to receive commands over RPC channels, update database records and receive events. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fImillisec\fP Timeout in millisec. If no message is received during the specified timeout, the routine returns. If millisec=-1, it only returns when receiving an RPC_SHUTDOWN message. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+CM_SUCCESS, RPC_SHUTDOWN 
+.RE
+.PP
+
+.PP
+Definition at line 4229 of file midas.c.
+.PP
+Referenced by scan_fragment(), and scheduler().
+.SS "int tr_compare (const void * arg1, const void * arg2)"
+.PP
+Definition at line 3394 of file midas.c.
+.PP
+Referenced by cm_transition1().
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Midas from the source code.

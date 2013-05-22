@@ -1,0 +1,50 @@
+\subsection{DD\_\-MT\_\-BUFFER Struct Reference}
+\label{structDD__MT__BUFFER}\index{DD\_\-MT\_\-BUFFER@{DD\_\-MT\_\-BUFFER}}
+\subsubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{structDD__MT__BUFFER_a39e0e855a040ada9fdf72bebe936541e}{n\_\-channels}
+\item 
+midas\_\-thread\_\-t \hyperlink{structDD__MT__BUFFER_a423b3c5c3e9c6f3c930341ea61d44fb8}{thread\_\-id}
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{structDD__MT__BUFFER_a039db8f66e6b3f5ed6c3358d6e934bb1}{status}
+\item 
+\hyperlink{structDD__MT__CHANNEL}{DD\_\-MT\_\-CHANNEL} $\ast$ \hyperlink{structDD__MT__BUFFER_a9a75471f954f8787aa6be021758bcba9}{channel}
+\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+
+
+Definition at line 959 of file midas.h.
+
+\subsubsection{Field Documentation}
+\index{DD\_\-MT\_\-BUFFER@{DD\_\-MT\_\-BUFFER}!channel@{channel}}
+\index{channel@{channel}!DD_MT_BUFFER@{DD\_\-MT\_\-BUFFER}}
+\paragraph[{channel}]{\setlength{\rightskip}{0pt plus 5cm}{\bf DD\_\-MT\_\-CHANNEL}$\ast$ {\bf DD\_\-MT\_\-BUFFER::channel}}\hfill\label{structDD__MT__BUFFER_a9a75471f954f8787aa6be021758bcba9}
+One data set for each channel 
+
+Definition at line 963 of file midas.h.
+
+Referenced by device\_\-driver(), and sc\_\-thread().\index{DD\_\-MT\_\-BUFFER@{DD\_\-MT\_\-BUFFER}!n\_\-channels@{n\_\-channels}}
+\index{n\_\-channels@{n\_\-channels}!DD_MT_BUFFER@{DD\_\-MT\_\-BUFFER}}
+\paragraph[{n\_\-channels}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} {\bf DD\_\-MT\_\-BUFFER::n\_\-channels}}\hfill\label{structDD__MT__BUFFER_a39e0e855a040ada9fdf72bebe936541e}
+Number of channels 
+
+Definition at line 960 of file midas.h.
+
+Referenced by device\_\-driver().\index{DD\_\-MT\_\-BUFFER@{DD\_\-MT\_\-BUFFER}!status@{status}}
+\index{status@{status}!DD_MT_BUFFER@{DD\_\-MT\_\-BUFFER}}
+\paragraph[{status}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} {\bf DD\_\-MT\_\-BUFFER::status}}\hfill\label{structDD__MT__BUFFER_a039db8f66e6b3f5ed6c3358d6e934bb1}
+Status passed from device thread 
+
+Definition at line 962 of file midas.h.
+
+Referenced by device\_\-driver(), and sc\_\-thread().\index{DD\_\-MT\_\-BUFFER@{DD\_\-MT\_\-BUFFER}!thread\_\-id@{thread\_\-id}}
+\index{thread\_\-id@{thread\_\-id}!DD_MT_BUFFER@{DD\_\-MT\_\-BUFFER}}
+\paragraph[{thread\_\-id}]{\setlength{\rightskip}{0pt plus 5cm}midas\_\-thread\_\-t {\bf DD\_\-MT\_\-BUFFER::thread\_\-id}}\hfill\label{structDD__MT__BUFFER_a423b3c5c3e9c6f3c930341ea61d44fb8}
+Thread ID 
+
+Definition at line 961 of file midas.h.
+
+Referenced by device\_\-driver().

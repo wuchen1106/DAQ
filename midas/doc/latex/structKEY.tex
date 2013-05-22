@@ -1,0 +1,113 @@
+\subsection{KEY Struct Reference}
+\label{structKEY}\index{KEY@{KEY}}
+\subsubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} \hyperlink{structKEY_a3360f9082d5083ea144f093d0cd774e3}{type}
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{structKEY_a2604fa0fc38ce19b011785f806185a02}{num\_\-values}
+\item 
+char \hyperlink{structKEY_aab4927ab8eb9921525d82761adb11f5c}{name} \mbox{[}NAME\_\-LENGTH\mbox{]}
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{structKEY_affecbc127d0afea9ac19ed64600760a4}{data}
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{structKEY_a553ba6fe87ca0b1dd08bcdc8fa15e6fa}{total\_\-size}
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{structKEY_acd1951fdb8bf0dec79ef833f6dec9276}{item\_\-size}
+\item 
+\hyperlink{vt2_8h_a2b0e863dadf920709ec53d9088ee7c91}{WORD} \hyperlink{structKEY_a68512ae899ef674617e67dbe51a71c7a}{access\_\-mode}
+\item 
+\hyperlink{vt2_8h_a2b0e863dadf920709ec53d9088ee7c91}{WORD} \hyperlink{structKEY_a4c4c4ab142ebbe60bdb1c149a8ac2047}{notify\_\-count}
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{structKEY_ab8303fc464bc3f0c1d75544cef0a725d}{next\_\-key}
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{structKEY_a7537bff06e9a41b4b211ccf665911c8e}{parent\_\-keylist}
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{structKEY_a6b30a678557dddfc00f2da8b6a416225}{last\_\-written}
+\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+
+
+Definition at line 912 of file midas.h.
+
+\subsubsection{Field Documentation}
+\index{KEY@{KEY}!access\_\-mode@{access\_\-mode}}
+\index{access\_\-mode@{access\_\-mode}!KEY@{KEY}}
+\paragraph[{access\_\-mode}]{\setlength{\rightskip}{0pt plus 5cm}{\bf WORD} {\bf KEY::access\_\-mode}}\hfill\label{structKEY_a68512ae899ef674617e67dbe51a71c7a}
+Access mode 
+
+Definition at line 919 of file midas.h.
+
+Referenced by cm\_\-cleanup(), db\_\-create\_\-key(), db\_\-delete\_\-key1(), db\_\-find\_\-key(), db\_\-get\_\-data(), db\_\-get\_\-data\_\-index(), db\_\-get\_\-link\_\-data(), db\_\-get\_\-value(), db\_\-open\_\-database(), db\_\-open\_\-record(), db\_\-set\_\-data(), db\_\-set\_\-data\_\-index(), db\_\-set\_\-link\_\-data(), db\_\-set\_\-link\_\-data\_\-index(), and db\_\-set\_\-value().\index{KEY@{KEY}!data@{data}}
+\index{data@{data}!KEY@{KEY}}
+\paragraph[{data}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} {\bf KEY::data}}\hfill\label{structKEY_affecbc127d0afea9ac19ed64600760a4}
+Address of variable (offset) 
+
+Definition at line 916 of file midas.h.
+
+Referenced by db\_\-create\_\-key(), db\_\-delete\_\-key1(), db\_\-enum\_\-key(), db\_\-find\_\-key(), db\_\-get\_\-data(), db\_\-get\_\-data\_\-index(), db\_\-get\_\-key(), db\_\-get\_\-key\_\-info(), db\_\-get\_\-link\_\-data(), db\_\-get\_\-value(), db\_\-open\_\-database(), db\_\-set\_\-data(), db\_\-set\_\-data\_\-index(), db\_\-set\_\-link\_\-data(), db\_\-set\_\-link\_\-data\_\-index(), and db\_\-set\_\-value().\index{KEY@{KEY}!item\_\-size@{item\_\-size}}
+\index{item\_\-size@{item\_\-size}!KEY@{KEY}}
+\paragraph[{item\_\-size}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} {\bf KEY::item\_\-size}}\hfill\label{structKEY_acd1951fdb8bf0dec79ef833f6dec9276}
+Size of single data item 
+
+Definition at line 918 of file midas.h.
+
+Referenced by db\_\-copy(), db\_\-create\_\-key(), db\_\-get\_\-data(), db\_\-get\_\-data\_\-index(), db\_\-get\_\-key\_\-info(), db\_\-get\_\-link\_\-data(), db\_\-get\_\-record(), db\_\-get\_\-record\_\-size(), db\_\-get\_\-value(), db\_\-open\_\-database(), db\_\-save\_\-xml\_\-key(), db\_\-set\_\-data(), db\_\-set\_\-data\_\-index(), db\_\-set\_\-link\_\-data(), db\_\-set\_\-link\_\-data\_\-index(), db\_\-set\_\-record(), db\_\-set\_\-value(), and update\_\-odb().\index{KEY@{KEY}!last\_\-written@{last\_\-written}}
+\index{last\_\-written@{last\_\-written}!KEY@{KEY}}
+\paragraph[{last\_\-written}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} {\bf KEY::last\_\-written}}\hfill\label{structKEY_a6b30a678557dddfc00f2da8b6a416225}
+Time of last write action 
+
+Definition at line 923 of file midas.h.
+
+Referenced by db\_\-get\_\-key\_\-time(), db\_\-set\_\-data(), db\_\-set\_\-data\_\-index(), db\_\-set\_\-link\_\-data(), db\_\-set\_\-link\_\-data\_\-index(), and db\_\-set\_\-value().\index{KEY@{KEY}!name@{name}}
+\index{name@{name}!KEY@{KEY}}
+\paragraph[{name}]{\setlength{\rightskip}{0pt plus 5cm}char {\bf KEY::name}\mbox{[}NAME\_\-LENGTH\mbox{]}}\hfill\label{structKEY_aab4927ab8eb9921525d82761adb11f5c}
+name of variable 
+
+Definition at line 915 of file midas.h.
+
+Referenced by al\_\-check(), al\_\-reset\_\-alarm(), cm\_\-check\_\-client(), cm\_\-shutdown(), cm\_\-transition1(), db\_\-check\_\-record(), db\_\-copy(), db\_\-create\_\-key(), db\_\-find\_\-key(), db\_\-get\_\-data\_\-index(), db\_\-get\_\-key\_\-info(), db\_\-get\_\-link\_\-data(), db\_\-open\_\-database(), db\_\-save\_\-struct(), db\_\-save\_\-xml\_\-key(), db\_\-set\_\-data(), db\_\-set\_\-link\_\-data(), db\_\-set\_\-record(), and load\_\-fragment().\index{KEY@{KEY}!next\_\-key@{next\_\-key}}
+\index{next\_\-key@{next\_\-key}!KEY@{KEY}}
+\paragraph[{next\_\-key}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} {\bf KEY::next\_\-key}}\hfill\label{structKEY_ab8303fc464bc3f0c1d75544cef0a725d}
+Address of next key 
+
+Definition at line 921 of file midas.h.
+
+Referenced by db\_\-create\_\-key(), db\_\-delete\_\-key1(), db\_\-enum\_\-key(), and db\_\-find\_\-key().\index{KEY@{KEY}!notify\_\-count@{notify\_\-count}}
+\index{notify\_\-count@{notify\_\-count}!KEY@{KEY}}
+\paragraph[{notify\_\-count}]{\setlength{\rightskip}{0pt plus 5cm}{\bf WORD} {\bf KEY::notify\_\-count}}\hfill\label{structKEY_a4c4c4ab142ebbe60bdb1c149a8ac2047}
+Notify counter 
+
+Definition at line 920 of file midas.h.
+
+Referenced by cm\_\-cleanup(), db\_\-delete\_\-key1(), and db\_\-open\_\-database().\index{KEY@{KEY}!num\_\-values@{num\_\-values}}
+\index{num\_\-values@{num\_\-values}!KEY@{KEY}}
+\paragraph[{num\_\-values}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} {\bf KEY::num\_\-values}}\hfill\label{structKEY_a2604fa0fc38ce19b011785f806185a02}
+number of values 
+
+Definition at line 914 of file midas.h.
+
+Referenced by cm\_\-register\_\-transition(), cm\_\-transition1(), db\_\-check\_\-record(), db\_\-copy(), db\_\-create\_\-key(), db\_\-get\_\-data(), db\_\-get\_\-data\_\-index(), db\_\-get\_\-key(), db\_\-get\_\-key\_\-info(), db\_\-get\_\-link\_\-data(), db\_\-get\_\-record(), db\_\-get\_\-record\_\-size(), db\_\-get\_\-value(), db\_\-open\_\-database(), db\_\-save\_\-xml\_\-key(), db\_\-set\_\-data(), db\_\-set\_\-data\_\-index(), db\_\-set\_\-link\_\-data(), db\_\-set\_\-link\_\-data\_\-index(), db\_\-set\_\-record(), db\_\-set\_\-value(), tr\_\-start(), and update\_\-odb().\index{KEY@{KEY}!parent\_\-keylist@{parent\_\-keylist}}
+\index{parent\_\-keylist@{parent\_\-keylist}!KEY@{KEY}}
+\paragraph[{parent\_\-keylist}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} {\bf KEY::parent\_\-keylist}}\hfill\label{structKEY_a7537bff06e9a41b4b211ccf665911c8e}
+keylist to which this key belongs 
+
+Definition at line 922 of file midas.h.
+
+Referenced by db\_\-create\_\-key(), db\_\-delete\_\-key1(), db\_\-enum\_\-key(), db\_\-find\_\-key(), and db\_\-open\_\-database().\index{KEY@{KEY}!total\_\-size@{total\_\-size}}
+\index{total\_\-size@{total\_\-size}!KEY@{KEY}}
+\paragraph[{total\_\-size}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} {\bf KEY::total\_\-size}}\hfill\label{structKEY_a553ba6fe87ca0b1dd08bcdc8fa15e6fa}
+Total size of data block 
+
+Definition at line 917 of file midas.h.
+
+Referenced by db\_\-copy(), db\_\-create\_\-key(), db\_\-delete\_\-key1(), db\_\-open\_\-database(), db\_\-save\_\-xml\_\-key(), db\_\-set\_\-data(), db\_\-set\_\-data\_\-index(), db\_\-set\_\-link\_\-data(), db\_\-set\_\-link\_\-data\_\-index(), db\_\-set\_\-record(), db\_\-set\_\-value(), and tr\_\-start().\index{KEY@{KEY}!type@{type}}
+\index{type@{type}!KEY@{KEY}}
+\paragraph[{type}]{\setlength{\rightskip}{0pt plus 5cm}{\bf DWORD} {\bf KEY::type}}\hfill\label{structKEY_a3360f9082d5083ea144f093d0cd774e3}
+TID\_\-xxx type 
+
+Definition at line 913 of file midas.h.
+
+Referenced by al\_\-check(), cm\_\-transition1(), db\_\-check\_\-record(), db\_\-copy(), db\_\-create\_\-key(), db\_\-delete\_\-key1(), db\_\-enum\_\-key(), db\_\-find\_\-key(), db\_\-get\_\-data(), db\_\-get\_\-data\_\-index(), db\_\-get\_\-key(), db\_\-get\_\-key\_\-info(), db\_\-get\_\-link(), db\_\-get\_\-link\_\-data(), db\_\-get\_\-record(), db\_\-get\_\-record\_\-size(), db\_\-get\_\-value(), db\_\-open\_\-database(), db\_\-paste(), db\_\-save\_\-xml\_\-key(), db\_\-set\_\-data(), db\_\-set\_\-data\_\-index(), db\_\-set\_\-link\_\-data(), db\_\-set\_\-link\_\-data\_\-index(), db\_\-set\_\-record(), db\_\-set\_\-value(), load\_\-fragment(), and update\_\-odb().

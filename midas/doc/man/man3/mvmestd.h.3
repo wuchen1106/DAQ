@@ -1,0 +1,172 @@
+.TH "mvmestd.h" 3 "31 May 2012" "Version 2.3.0-0" "Midas" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+mvmestd.h \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Data Structures"
+
+.in +1c
+.ti -1c
+.RI "struct \fBMVME_INTERFACE\fP"
+.br
+.in -1c
+.SS "Defines"
+
+.in +1c
+.ti -1c
+.RI "#define \fBMVME_SUCCESS\fP   1"
+.br
+.ti -1c
+.RI "#define \fBMVME_DMODE_D8\fP   1"
+.br
+.ti -1c
+.RI "#define \fBMVME_DMODE_D16\fP   2"
+.br
+.ti -1c
+.RI "#define \fBMVME_DMODE_D32\fP   3"
+.br
+.ti -1c
+.RI "#define \fBMVME_DMODE_D64\fP   4"
+.br
+.ti -1c
+.RI "#define \fBMVME_DMODE_RAMD16\fP   5"
+.br
+.ti -1c
+.RI "#define \fBMVME_DMODE_RAMD32\fP   6"
+.br
+.ti -1c
+.RI "#define \fBMVME_DMODE_LM\fP   7"
+.br
+.ti -1c
+.RI "#define \fBMVME_BLT_NONE\fP   1"
+.br
+.ti -1c
+.RI "#define \fBMVME_BLT_BLT32\fP   2"
+.br
+.ti -1c
+.RI "#define \fBMVME_BLT_MBLT64\fP   3"
+.br
+.ti -1c
+.RI "#define \fBMVME_BLT_2EVME\fP   4"
+.br
+.ti -1c
+.RI "#define \fBMVME_BLT_2ESST\fP   5"
+.br
+.ti -1c
+.RI "#define \fBMVME_BLT_BLT32FIFO\fP   6"
+.br
+.ti -1c
+.RI "#define \fBMVME_BLT_MBLT64FIFO\fP   7"
+.br
+.ti -1c
+.RI "#define \fBMVME_BLT_2EVMEFIFO\fP   8"
+.br
+.ti -1c
+.RI "#define \fBMVME_AM_A32_SB\fP   (0x0F)"
+.br
+.ti -1c
+.RI "#define \fBMVME_AM_A32_SP\fP   (0x0E)"
+.br
+.ti -1c
+.RI "#define \fBMVME_AM_A32_SD\fP   (0x0D)"
+.br
+.ti -1c
+.RI "#define \fBMVME_AM_A32_NB\fP   (0x0B)"
+.br
+.ti -1c
+.RI "#define \fBMVME_AM_A32_NP\fP   (0x0A)"
+.br
+.ti -1c
+.RI "#define \fBMVME_AM_A32_ND\fP   (0x09)"
+.br
+.ti -1c
+.RI "#define \fBMVME_AM_A32_SMBLT\fP   (0x0C)"
+.br
+.ti -1c
+.RI "#define \fBMVME_AM_A32_NMBLT\fP   (0x08)"
+.br
+.ti -1c
+.RI "#define \fBMVME_AM_A24_SB\fP   (0x3F)"
+.br
+.ti -1c
+.RI "#define \fBMVME_AM_A24_SP\fP   (0x3E)"
+.br
+.ti -1c
+.RI "#define \fBMVME_AM_A24_SD\fP   (0x3D)"
+.br
+.ti -1c
+.RI "#define \fBMVME_AM_A24_NB\fP   (0x3B)"
+.br
+.ti -1c
+.RI "#define \fBMVME_AM_A24_NP\fP   (0x3A)"
+.br
+.ti -1c
+.RI "#define \fBMVME_AM_A24_ND\fP   (0x39)"
+.br
+.ti -1c
+.RI "#define \fBMVME_AM_A24_SMBLT\fP   (0x3C)"
+.br
+.ti -1c
+.RI "#define \fBMVME_AM_A24_NMBLT\fP   (0x38)"
+.br
+.ti -1c
+.RI "#define \fBMVME_AM_A16_SD\fP   (0x2D)"
+.br
+.ti -1c
+.RI "#define \fBMVME_AM_A16_ND\fP   (0x29)"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "int EXPRT \fBmvme_open\fP (\fBMVME_INTERFACE\fP **vme, int idx)"
+.br
+.ti -1c
+.RI "int EXPRT \fBmvme_close\fP (\fBMVME_INTERFACE\fP *vme)"
+.br
+.ti -1c
+.RI "int EXPRT \fBmvme_sysreset\fP (\fBMVME_INTERFACE\fP *vme)"
+.br
+.ti -1c
+.RI "int EXPRT \fBmvme_read\fP (\fBMVME_INTERFACE\fP *vme, void *dst, \fBmvme_addr_t\fP vme_addr, \fBmvme_size_t\fP n_bytes)"
+.br
+.ti -1c
+.RI "unsigned int EXPRT \fBmvme_read_value\fP (\fBMVME_INTERFACE\fP *vme, \fBmvme_addr_t\fP vme_addr)"
+.br
+.ti -1c
+.RI "int EXPRT \fBmvme_write\fP (\fBMVME_INTERFACE\fP *vme, \fBmvme_addr_t\fP vme_addr, void *src, \fBmvme_size_t\fP n_bytes)"
+.br
+.ti -1c
+.RI "int EXPRT \fBmvme_write_value\fP (\fBMVME_INTERFACE\fP *vme, \fBmvme_addr_t\fP vme_addr, unsigned int value)"
+.br
+.ti -1c
+.RI "int EXPRT \fBmvme_set_am\fP (\fBMVME_INTERFACE\fP *vme, int am)"
+.br
+.ti -1c
+.RI "int EXPRT \fBmvme_get_am\fP (\fBMVME_INTERFACE\fP *vme, int *am)"
+.br
+.ti -1c
+.RI "int EXPRT \fBmvme_set_dmode\fP (\fBMVME_INTERFACE\fP *vme, int dmode)"
+.br
+.ti -1c
+.RI "int EXPRT \fBmvme_get_dmode\fP (\fBMVME_INTERFACE\fP *vme, int *dmode)"
+.br
+.ti -1c
+.RI "int EXPRT \fBmvme_set_blt\fP (\fBMVME_INTERFACE\fP *vme, int mode)"
+.br
+.ti -1c
+.RI "int EXPRT \fBmvme_get_blt\fP (\fBMVME_INTERFACE\fP *vme, int *mode)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+dox The Midas VME include file 
+.PP
+Definition in file \fBmvmestd.h\fP.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Midas from the source code.

@@ -1,0 +1,498 @@
+.TH "RC_mhttpd_custom_features" 3 "31 May 2012" "Version 2.3.0-0" "Midas" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+RC_mhttpd_custom_features \- Features available on custom pages 
+
+.br
+ 
+.PP
+ 
+.SH "How to create a custom page"
+.PP
+A custom page may be written in ordinary HTML code and/or JavaScript. It may include any of the following special features provided for use with MIDAS:
+.PP
+.PP
+.IP "\(bu" 2
+\fBAccess to the standard MIDAS Menu buttons\fP
+.IP "\(bu" 2
+\fBAccess to the ODB from a Custom page\fP
+.IP "\(bu" 2
+\fBPassword protection of ODB variables accessed from a custom page\fP
+.IP "\(bu" 2
+\fBCustomScript Buttons\fP
+.IP "\(bu" 2
+\fBPage refresh\fP
+.IP "\(bu" 2
+\fBAlias Buttons and Hyperlinks\fP
+.IP "\(bu" 2
+\fBAccess to message log\fP
+.IP "\(bu" 2
+\fBIncluding checkboxes on a custom page\fP
+.IP "\(bu" 2
+\fBPeriodic update of parts of a custom page\fP
+.IP "\(bu" 2
+\fBODB RPC access\fP
+.PP
+.PP
+.IP "\(bu" 2
+\fBImage insertion into a Custom page\fP
+.IP "  \(bu" 4
+\fBInserting a history image in a custom page\fP
+.IP "  \(bu" 4
+\fBMapping active areas onto the image\fP
+.IP "    \(bu" 6
+\fBDisplay mouse position\fP
+.PP
+
+.IP "  \(bu" 4
+\fBSuperimposing Labels, Bars and Fills onto an image\fP
+.IP "  \(bu" 4
+\fBEdit boxes floating on top of a graphic\fP
+.PP
+
+.PP
+.PP
+
+.br
+ All these features will be described in the following sections. They apply to both \fBexternal\fP and \fBinternal\fP web pages.   Since external custom pages are more commonly used than internal, the examples in the following sections use \fBexternal\fP file(s). Examples of \fBinternal\fP pages can be found \fBhere\fP.
+.PP
+
+.br
+ 
+.PP
+
+.br
+ 
+.SS "Including JavaScript code in an HTML custom page"
+Javascript code can be inserted in the HTML file by enclosing it between the <script type='text/javascript'> ..... </script> HTML tags, for example: 
+.br
+ 
+.PP
+.nf
+<!-- include some js code -->
+<script  type='text/javascript'>
+\code
+var my_title='Gas Analyzer Custom Page'
+var my_name='GasAnalyzer'
+var my_num = 10;
+
+document.write('<title>T2KGas: ' +my_title+ '(' +my_num+ ')</title>');
+</script>
+
+.fi
+.PP
+ 
+.br
+ The <script ...> HTML tag is also used to \fBinclude\fP the \fBJavaScript built-in library mhttpd.js\fP in the custom page, to allow access to the ODB using the JavaScript (JS) \fBbuilt-in functions\fP. 
+.br
+Custom pages may be written entirely in JavaScript, if preferred. For example, a file of user-written JavaScript functions can be included into multiple HTML custom pages (provided links are created to these files in the ODB /Custom tree - see \fBdetails here\fP).
+.PP
+In the following HTML code fragment, the \fBJavaScript built-in library mhttpd.js\fP is included, as well as two user-written Javascript files.
+.PP
+.PP
+.nf
+........
+<html>
+<head>
+<!-- include mhttpd js library   -->
+<script type='text/javascript'  src='/mhttpd.js'>
+</script>
+
+<!-- js_constants! -> filename  names.js
+List of device names and corresponding index into arrays
+ -->
+<script type='text/javascript'  src='js_constants!'>
+</script>
+
+<!-- js_functions! -> filename  common_functions.js
+ -->      
+<script type='text/javascript'  src='js_functions!'>
+</script>
+.......
+.fi
+.PP
+.PP
+.PP
+.SS "Access to the ODB from a Custom Page"
+To include the custom features such as Buttons, ODB editing etc. a custom page needs to have at least one form declared with the HTML  <form...>....</form>  tags. Declarations for buttons, ODB editing etc. must be inserted between the enclosing HTML <form...>  tags, which are coded like this : 
+.PP
+.nf
+<form method='GET' action='http://hostname.domain:port/CS/\<Custom_page_key\>'>
+.......
+.......
+</form>
+
+.fi
+.PP
+ where Custom_page_key is the name of the key that has been \fBdefined in the /Custom ODB directory\fP in order to \fBactivate the custom page\fP.
+.PP
+
+.br
+ For a \fBremote\fP page defined using a key named Test&, the HTML  <form...>  tag might be 
+.PP
+.nf
+<form method='GET' action='http://hostname.domain:port/CS/Test&'\>
+
+.fi
+.PP
+.PP
+For a \fBlocal\fP page defined using a key named MyExpt&, the <form...> tag might be 
+.PP
+.nf
+<form name='form1' method='Get' action='/CS/MyExpt&'>
+
+.fi
+.PP
+.PP
+
+.br
+.PP
+.PP
+.PP
+ 
+.SS "Page refresh"
+The following <meta...>  tag included in the HTML header code will cause the whole custom page to refresh in 60 seconds :
+.PP
+.PP
+.nf
+<meta http-equiv='Refresh' content='60'>
+.fi
+.PP
+ 
+.br
+.PP
+It is also possible to \fBperiodically update parts\fP of a custom page.
+.PP
+.PP
+.SH "Access to the standard MIDAS Menu buttons"
+.PP
+Access to the standard MIDAS Menu buttons can be provided with HTML <input...> tags of the form:
+.IP "\(bu" 2
+ <input name='cmd' value=<\fIbutton-name\fP > type='submit' > 
+.PP
+.PP
+Valid values are the standard MIDAS \fBMenu buttons\fP (Start, Pause, Resume, Stop, ODB, Elog, Alarms, History, Programs, etc). The <input...> tags must be declared within enclosing HTML <form...>....</form>  tags (see \fBabove\fP).
+.PP
+The following html fragment shows the inclusion of three of the standard buttons, giving access to the Main Status, ODB and Messages pages : 
+.PP
+.nf
+<form name='form1' method='Get' action='/CS/MyExpt&'>
+<input name='cmd' value='Status' type='submit'>
+<input name='cmd' value='ODB' type='submit'>
+<input name='cmd' value='Messages' type='submit'>
+...
+</form>
+
+.fi
+.PP
+.PP
+.PP
+.SH "Alias Buttons and Hyperlinks"
+.PP
+Any hyperlink can easily be included on a custom page by using the standard HTML anchor <a...> tag, e.g. 
+.PP
+.nf
+<a href='http://ladd00.triumf.ca/~daqweb/doc/midas/html/'>Midas Help</a>
+
+.fi
+.PP
+.PP
+Links on a custom page equivalent to \fBalias-buttons\fP can also be made e.g.
+.PP
+.PP
+.nf
+<button type='button' onclick='document.location.href='/Alias/alias&';'>alias</button>
+.fi
+.PP
+.SH "Simple Example of a custom page in HTML"
+.PP
+Here is a simple example of an HTML custom page demonstrating the features described above, including access to
+.IP "\(bu" 2
+the standard MIDAS Menu buttons
+.IP "  \(bu" 4
+'Status' and 'ODB'
+.PP
+
+.IP "\(bu" 2
+alias buttons
+.IP "  \(bu" 4
+'TPC Button' a local link through the /alias ODB tree
+.IP "  \(bu" 4
+'triumf' an external link
+.PP
+
+.IP "\(bu" 2
+alias links
+.IP "  \(bu" 4
+'TpcGasPlc' local link to /Equipment/TpcGasPlc
+.IP "  \(bu" 4
+'TPC Alias-link' local link through the /alias ODB tree (to same area as 'TPC Button')
+.PP
+
+.PP
+.PP
+
+.br
+  A simple custom page   
+.br
+.PP
+The code for this page is shown below: 
+.PP
+.nf
+ <!DOCTYPE html PUBLIC '-//w3c//dtd html 4.0 transitional//en'>
+<html>
+<head>
+<title>simple custom page</title>
+</head>
+<body>
+<form name='form1' method='Get' action='/CS/Colour&'>
+<table style='text-align: center; width: 40%;' border='1' cellpadding='2' cellspacing='2'>
+<tr>
+<td colspan='2'
+style='vertical-align: top; background-color: mediumslateblue; color: white; text-align: center;'>
+Custom Page for experiment <odb src='/Experiment/Name'>
+</td>
+</tr>
+<td
+style='vertical-align: top; background-color: lightyellow;  text-align: center;'>
+Run Control Buttons:</td>
+<td
+style='vertical-align: top; background-color: lightyellow;  text-align: center;'>
+<input name='cmd' value='Status' type='submit'>
+<input name='cmd' value='ODB' type='submit'>
+</td>
+</tr>
+<tr>
+<td
+style='vertical-align: top; background-color: seagreen; color: white; text-align: center;'>Alias Buttons:</td>
+<td
+style='vertical-align: top; background-color: seagreen;  text-align: center;'>
+<button type='button' onclick='document.location.href='/Alias/TPC Common&';'>TPC Button</button>
+<button type='button' onclick='window.open('http://triumf.ca');'>triumf</button>
+</td>
+</tr>
+<tr>
+<td
+style='vertical-align: top; background-color: fuschia;  text-align: center;'>Links:</td>
+<td
+style='vertical-align: top; background-color: fuschia;  text-align: center;'>
+<a href='/SC/TpcGasPlc'>TpcGasPlc</a>
+<a href='/Alias/TPC Common&'>TPC Alias-link</a>
+</td>
+</tr>
+</table>
+</form>
+</body>
+
+.fi
+.PP
+.PP
+To create this page, you need an existing MIDAS experiment. To have all the buttons/links work, you need the ODB keys
+.IP "\(bu" 2
+/Equipment/<eqp-name> (\fI<eqp-name>\fP is 'TpcGasPlc' in the example)
+.IP "\(bu" 2
+/Alias/<alias-name> (\fI<alias-name>\fP is 'TPC Common&' in the example)
+.PP
+.PP
+.IP "\(bu" 2
+create a file \fIcustom.html\fP containing the above code. In this example, the code is in path \fI/home/mydir/custom.html\fP
+.IP "\(bu" 2
+in \fIcustom.html\fP
+.IP "  \(bu" 4
+change \fITPC Common&\fP to your \fI <alias-name> \fP if different
+.IP "  \(bu" 4
+change \fITpcGasPlc\fP to your \fI<eqp-name> \fP if different
+.PP
+
+.IP "\(bu" 2
+in the ODB for your experiment, create a key /custom/test as shown below: 
+.PP
+.nf
+     $ odb
+     [local:customgas:S]/>cd /custom
+     [local:customgas:S]/Custom>create string test
+     String length [32]:
+     [local:customgas:S]/Custom>set test '/home/mydir/custom.html'
+
+.fi
+.PP
+
+.IP "\(bu" 2
+on the mhttpd status page for the experiment, there should now be a custom-button labelled 'custom'
+.IP "\(bu" 2
+click on this 'custom' button to see the custom page
+.PP
+.PP
+
+.br
+.PP
+
+.br
+   
+.SH "CustomScript Buttons"
+.PP
+CustomScript buttons can be provided on custom webpages. These buttons are equivalent to \fBOptional Script buttons\fP on the MIDAS Main Status page, and allow a particular action to be performed when the button is pressed.
+.PP
+If the user defines a new tree in ODB named /CustomScript , then any key created in the /CustomScript tree will appear as a script-button of that name on a custom page that includes an HTML <input...> tag of the form: 
+.PP
+.nf
+        <input type=submit name=customscript value='my button'>
+
+.fi
+.PP
+ where the action of the button \fI 'my button'\fP will be found in the /customscript/my button subdirectory.
+.PP
+ 
+.SS "ODB /CustomScript tree"
+\fBNote:\fP
+.RS 4
+The optional /CustomScript tree is applicable only to \fBmhttpd\fP, and ignored by \fBodbedit\fP.
+.RE
+.PP
+The syntax of CustomScript buttons in the  /customscript  directory is identical to that of the \fBOptional Script buttons\fP under the /Script ODB directory, i.e.
+.PP
+.IP "\(bu" 2
+each sub-directory ( /CustomScript/<button name>/) should contain at least one string key which is the custom script command to be executed.
+.IP "\(bu" 2
+Further keys will be passed as \fB arguments \fP to the script.
+.IP "\(bu" 2
+MIDAS symbolic links are permitted.
+.PP
+.PP
+
+.br
+ 
+.SS "Example of CustomScript buttons and corresponding /CustomScript tree"
+The following JavaScript fragment shows customscript buttons that appear only when the run is stopped. The button labelled 'tri_config' and, depending on the current experimental mode (given by variable \fI 'ppg_mode' \fP), three of the mode buttons labelled '1a','1b','1c' or '1d' . 
+.PP
+.nf
+ if (rstate == state_stopped) // run stopped
+{
+ document.write('<input name='customscript' value='tri_config' type='submit'>');
+if(ppg_mode != '1a')
+  document.write('<input name='customscript' value='1a' type='submit'>');
+if(ppg_mode != '1b')
+  document.write('<input name='customscript' value='1b' type='submit'>');
+if(ppg_mode != '1c')
+ document.write('<input name='customscript' value='1c' type='submit'>');
+if(ppg_mode != '1d')
+ document.write('<input name='customscript' value='1d' type='submit'>');
+}
+
+.fi
+.PP
+.PP
+The corresponding entry under /customscript is as shown below. The first button (tri_config) when pressed will cause a user-written program \fI tri_config \fP to be executed. The other buttons '1a','1b' etc. when pressed will cause the current experimental mode to be changed to that mode. Only the entry for '1a' is shown. 
+.PP
+.nf
+[local:ebit:S]/>ls /customscript/tri_config
+cmd                             /home/ebit/online/ppg/perl/exec.pl
+include path                    /home/ebit/online/ppg/perl/
+experiment name -> /experiment/Name
+                                ebit
+execute                         '/home/ebit/online/ppg/tri_config -s'
+beamline                        ebit
+
+[local:ebit:S]/>ls /customscript/1a
+cmd                             /home/ebit/online/ppg/perl/change_mode.pl
+include path                    /home/ebit/online/ppg/perl/
+experiment name -> /experiment/Name
+                                ebit
+ppg_mode                        1a
+modefile                        defaults
+
+.fi
+.PP
+.PP
+These buttons are illustrated in the example \fBCustom Pages for Ebit Experiment\fP
+.PP
+
+.br
+.PP
+
+.br
+.PP
+ 
+.SH "Access to message log"
+.PP
+The message log can be accessed from a custom page using a call to the \fBJavaScript library function\fP  ODBGetMsg  (provided the JS library is \fBincluded\fP). There is no HTML equivalent to this JS function. 
+.br
+ JavaScript Function  Purpose  Parameters  
+.PP
+.PP
+.nf
+ ODBGetMsg(n)
+.fi
+.PP
+  Get the most recent \fBn\fP lines from the system message log  \fBn\fP number of lines required   Above: ODB Message access from JavaScript 
+.br
+ This allows the inclusion of the 'Last Midas message' on a custom page. e.g. 
+.PP
+.nf
+<script>
+var message;
+message= ODBGetMsg(1);
+document.write('Last message:'+message+'<br>');
+</script>
+
+.fi
+.PP
+.PP
+
+.br
+  A simple custom page with a call to ODBGetMsg()   
+.br
+.PP
+The Javascript call has been added to the \fBSimple Example of a custom page in HTML\fP above, by
+.IP "\(bu" 2
+adding access to the standard MIDAS Javascript library to the header
+.IP "\(bu" 2
+adding the call to ODBGetMsg()
+.PP
+.PP
+as detailed below: 
+.PP
+.nf
+<!DOCTYPE html PUBLIC '-//w3c//dtd html 4.0 transitional//en'>
+<html>
+<head>
+<title> table test</title>
+<script type='text/javascript' src='../mhttpd.js'></script>
+</head>
+............
+............
+</table>
+
+<script>
+var message;
+message= ODBGetMsg(1);
+document.write('<h2>Last message:</h2>'+message+'<br>');
+</script>
+</form>
+</body>
+
+.fi
+.PP
+.PP
+
+.br
+.PP
+
+.br
+.PP
+.IP "\(bu" 2
+\fBAccess to the ODB from a Custom page\fP
+.IP "\(bu" 2
+\fBODB RPC access\fP
+.IP "\(bu" 2
+\fBInserting an Image into a Custom page\fP
+.IP "\(bu" 2
+\fBCustom Status page\fP
+.PP
+.PP
+
+.br
+ 
+.br
+   

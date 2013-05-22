@@ -1,0 +1,705 @@
+/home/nam/sw/daq/midas/doc/src/perlmidas.dox:416: Warning: found */ without matching /* while inside a \code block! Perhaps a missing \endcode?
+
+/home/nam/sw/daq/midas/doc/src/perlmidas.dox:450: Warning: found */ without matching /* while inside a \code block! Perhaps a missing \endcode?
+
+/home/nam/sw/daq/midas/drivers/camac/esone.c:101: Warning: unable to resolve reference to `AppendixB' for \ref command
+/home/nam/sw/daq/midas/examples/eventbuilder/ebuser.c:101: Warning: argument 'rn' of command @param is not found in the argument list of eb_begin_of_run(INT, char *, char *)
+/home/nam/sw/daq/midas/examples/eventbuilder/ebuser.c:101: Warning: argument 'UserField' of command @param is not found in the argument list of eb_begin_of_run(INT, char *, char *)
+/home/nam/sw/daq/midas/examples/eventbuilder/ebuser.c:101: Warning: argument 'error' of command @param is not found in the argument list of eb_begin_of_run(INT, char *, char *)
+/home/nam/sw/daq/midas/examples/eventbuilder/ebuser.c:116: Warning: argument 'rn' of command @param is not found in the argument list of eb_end_of_run(INT, char *)
+/home/nam/sw/daq/midas/examples/eventbuilder/ebuser.c:116: Warning: argument 'error' of command @param is not found in the argument list of eb_end_of_run(INT, char *)
+/home/nam/sw/daq/midas/drivers/vme/ov1720.c:260: Warning: argument 'mvme' of command @param is not found in the argument list of ov1720_Setup(int handle, int mode)
+/home/nam/sw/daq/midas/drivers/vme/ov1720.c:260: Warning: argument 'base' of command @param is not found in the argument list of ov1720_Setup(int handle, int mode)
+/home/nam/sw/daq/midas/drivers/vme/ov1720.c:260: Warning: The following parameters of ov1720_Setup(int handle, int mode) are not documented:
+  parameter 'handle'
+/home/nam/sw/daq/midas/drivers/vme/ov1720.c:260: Warning: argument 'mvme' of command @param is not found in the argument list of ov1720_Setup(int handle, int mode)
+/home/nam/sw/daq/midas/drivers/vme/ov1720.c:260: Warning: argument 'base' of command @param is not found in the argument list of ov1720_Setup(int handle, int mode)
+/home/nam/sw/daq/midas/drivers/vme/ov1720.c:260: Warning: The following parameters of ov1720_Setup(int handle, int mode) are not documented:
+  parameter 'handle'
+/home/nam/sw/daq/midas/drivers/vme/ov1740.c:236: Warning: argument 'mvme' of command @param is not found in the argument list of ov1740_Setup(int handle, int mode)
+/home/nam/sw/daq/midas/drivers/vme/ov1740.c:236: Warning: argument 'base' of command @param is not found in the argument list of ov1740_Setup(int handle, int mode)
+/home/nam/sw/daq/midas/drivers/vme/ov1740.c:236: Warning: The following parameters of ov1740_Setup(int handle, int mode) are not documented:
+  parameter 'handle'
+/home/nam/sw/daq/midas/drivers/vme/ov1740.c:236: Warning: argument 'mvme' of command @param is not found in the argument list of ov1740_Setup(int handle, int mode)
+/home/nam/sw/daq/midas/drivers/vme/ov1740.c:236: Warning: argument 'base' of command @param is not found in the argument list of ov1740_Setup(int handle, int mode)
+/home/nam/sw/daq/midas/drivers/vme/ov1740.c:236: Warning: The following parameters of ov1740_Setup(int handle, int mode) are not documented:
+  parameter 'handle'
+/home/nam/sw/daq/midas/drivers/vme/sis3320.c:72: Warning: argument 'nentry' of command @param is not found in the argument list of sis3320_Setup(MVME_INTERFACE *mvme, uint32_t base, int mode)
+/home/nam/sw/daq/midas/drivers/vme/sis3320.c:72: Warning: argument 'nentry' of command @param is not found in the argument list of sis3320_Setup(MVME_INTERFACE *mvme, uint32_t base, int mode)
+/home/nam/sw/daq/midas/drivers/vme/sis3801.c:533: Warning: argument 'nentry' of command @param is not found in the argument list of sis3801_Setup(MVME_INTERFACE *mvme, DWORD base, int mode)
+/home/nam/sw/daq/midas/drivers/vme/sis3801.c:533: Warning: argument 'nentry' of command @param is not found in the argument list of sis3801_Setup(MVME_INTERFACE *mvme, DWORD base, int mode)
+/home/nam/sw/daq/midas/drivers/vme/v1190B.c:450: Warning: argument 'nentry' of command @param is not found in the argument list of v1190_Setup(MVME_INTERFACE *mvme, DWORD base, int mode)
+/home/nam/sw/daq/midas/drivers/vme/v1190B.c:450: Warning: argument 'nentry' of command @param is not found in the argument list of v1190_Setup(MVME_INTERFACE *mvme, DWORD base, int mode)
+/home/nam/sw/daq/midas/drivers/vme/v1720.c:268: Warning: The following parameters of v1720_DataBlockRead(MVME_INTERFACE *mvme, uint32_t base, uint32_t *pdest, uint32_t *nentry) are not documented:
+  parameter 'nentry'
+/home/nam/sw/daq/midas/drivers/vme/v1720.c:268: Warning: The following parameters of v1720_DataBlockRead(MVME_INTERFACE *mvme, uint32_t base, uint32_t *pdest, uint32_t *nentry) are not documented:
+  parameter 'nentry'
+/home/nam/sw/daq/midas/drivers/vme/v1729.c:52: Warning: argument 'nentry' of command @param is not found in the argument list of v1729_Setup(MVME_INTERFACE *mvme, DWORD base, int mode)
+/home/nam/sw/daq/midas/drivers/vme/v1729.c:52: Warning: argument 'nentry' of command @param is not found in the argument list of v1729_Setup(MVME_INTERFACE *mvme, DWORD base, int mode)
+/home/nam/sw/daq/midas/drivers/vme/v1740.c:228: Warning: The following parameters of v1740_DataBlockRead(MVME_INTERFACE *mvme, uint32_t base, uint32_t *pdest, uint32_t *nentry) are not documented:
+  parameter 'nentry'
+/home/nam/sw/daq/midas/drivers/vme/v1740.c:228: Warning: The following parameters of v1740_DataBlockRead(MVME_INTERFACE *mvme, uint32_t base, uint32_t *pdest, uint32_t *nentry) are not documented:
+  parameter 'nentry'
+/home/nam/sw/daq/midas/drivers/vme/v792.c:404: Warning: argument 'nentry' of command @param is not found in the argument list of v792_Setup(MVME_INTERFACE *mvme, DWORD base, int mode)
+/home/nam/sw/daq/midas/drivers/vme/v792.c:404: Warning: argument 'nentry' of command @param is not found in the argument list of v792_Setup(MVME_INTERFACE *mvme, DWORD base, int mode)
+/home/nam/sw/daq/midas/drivers/vme/vpc6.c:231: Warning: The following parameters of vpc6_EntryPrint(WORD type, WORD chip, const vpc6_Reg *v) are not documented:
+  parameter 'type'
+  parameter 'chip'
+/home/nam/sw/daq/midas/drivers/vme/vpc6.c:280: Warning: argument 'nentry' of command @param is not found in the argument list of vpc6_Setup(MVME_INTERFACE *mvme, DWORD base, int mode)
+/home/nam/sw/daq/midas/drivers/vme/vpc6.c:231: Warning: The following parameters of vpc6_EntryPrint(WORD type, WORD chip, const vpc6_Reg *v) are not documented:
+  parameter 'type'
+  parameter 'chip'
+/home/nam/sw/daq/midas/drivers/vme/vppg.c:485: Warning: Found unknown command `\memo'
+/home/nam/sw/daq/midas/drivers/vme/vppg.c:526: Warning: Found unknown command `\memo'
+/home/nam/sw/daq/midas/drivers/vme/vppg.c:524: Warning: argument 'input' of command @param is not found in the argument list of lineRead(FILE *infile)
+/home/nam/sw/daq/midas/drivers/vme/vppg.c:524: Warning: The following parameters of lineRead(FILE *infile) are not documented:
+  parameter 'infile'
+/home/nam/sw/daq/midas/drivers/vme/vppg.c:263: Warning: Found unknown command `\memo'
+/home/nam/sw/daq/midas/drivers/vme/vppg.c:261: Warning: argument 'base' of command @param is not found in the argument list of VPPGBeamCtlPPG(MVME_INTERFACE *mvme, const DWORD base_adr)
+/home/nam/sw/daq/midas/drivers/vme/vppg.c:261: Warning: argument '_adr' of command @param is not found in the argument list of VPPGBeamCtlPPG(MVME_INTERFACE *mvme, const DWORD base_adr)
+/home/nam/sw/daq/midas/drivers/vme/vppg.c:261: Warning: The following parameters of VPPGBeamCtlPPG(MVME_INTERFACE *mvme, const DWORD base_adr) are not documented:
+  parameter 'mvme'
+  parameter 'base_adr'
+/home/nam/sw/daq/midas/drivers/vme/vppg.c:303: Warning: Found unknown command `\memo'
+/home/nam/sw/daq/midas/drivers/vme/vppg.c:301: Warning: argument 'base' of command @param is not found in the argument list of VPPGBeamCtlRegRead(MVME_INTERFACE *mvme, const DWORD base_adr)
+/home/nam/sw/daq/midas/drivers/vme/vppg.c:301: Warning: argument '_adr' of command @param is not found in the argument list of VPPGBeamCtlRegRead(MVME_INTERFACE *mvme, const DWORD base_adr)
+/home/nam/sw/daq/midas/drivers/vme/vppg.c:301: Warning: The following parameters of VPPGBeamCtlRegRead(MVME_INTERFACE *mvme, const DWORD base_adr) are not documented:
+  parameter 'mvme'
+  parameter 'base_adr'
+/home/nam/sw/daq/midas/drivers/vme/vppg.c:249: Warning: Found unknown command `\memo'
+/home/nam/sw/daq/midas/drivers/vme/vppg.c:247: Warning: argument 'base' of command @param is not found in the argument list of VPPGBeamOff(MVME_INTERFACE *mvme, const DWORD base_adr)
+/home/nam/sw/daq/midas/drivers/vme/vppg.c:247: Warning: argument '_adr' of command @param is not found in the argument list of VPPGBeamOff(MVME_INTERFACE *mvme, const DWORD base_adr)
+/home/nam/sw/daq/midas/drivers/vme/vppg.c:247: Warning: The following parameters of VPPGBeamOff(MVME_INTERFACE *mvme, const DWORD base_adr) are not documented:
+  parameter 'mvme'
+  parameter 'base_adr'
+/home/nam/sw/daq/midas/drivers/vme/vppg.c:233: Warning: Found unknown command `\memo'
+/home/nam/sw/daq/midas/drivers/vme/vppg.c:231: Warning: argument 'base' of command @param is not found in the argument list of VPPGBeamOn(MVME_INTERFACE *mvme, const DWORD base_adr)
+/home/nam/sw/daq/midas/drivers/vme/vppg.c:231: Warning: argument '_adr' of command @param is not found in the argument list of VPPGBeamOn(MVME_INTERFACE *mvme, const DWORD base_adr)
+/home/nam/sw/daq/midas/drivers/vme/vppg.c:231: Warning: The following parameters of VPPGBeamOn(MVME_INTERFACE *mvme, const DWORD base_adr) are not documented:
+  parameter 'mvme'
+  parameter 'base_adr'
+/home/nam/sw/daq/midas/drivers/vme/vppg.c:369: Warning: Found unknown command `\memo'
+/home/nam/sw/daq/midas/drivers/vme/vppg.c:367: Warning: argument 'base' of command @param is not found in the argument list of VPPGDisableExtTrig(MVME_INTERFACE *mvme, const DWORD base_adr)
+/home/nam/sw/daq/midas/drivers/vme/vppg.c:367: Warning: argument '_adr' of command @param is not found in the argument list of VPPGDisableExtTrig(MVME_INTERFACE *mvme, const DWORD base_adr)
+/home/nam/sw/daq/midas/drivers/vme/vppg.c:367: Warning: The following parameters of VPPGDisableExtTrig(MVME_INTERFACE *mvme, const DWORD base_adr) are not documented:
+  parameter 'mvme'
+  parameter 'base_adr'
+/home/nam/sw/daq/midas/drivers/vme/vppg.c:353: Warning: Found unknown command `\memo'
+/home/nam/sw/daq/midas/drivers/vme/vppg.c:351: Warning: argument 'base' of command @param is not found in the argument list of VPPGEnableExtTrig(MVME_INTERFACE *mvme, const DWORD base_adr)
+/home/nam/sw/daq/midas/drivers/vme/vppg.c:351: Warning: argument '_adr' of command @param is not found in the argument list of VPPGEnableExtTrig(MVME_INTERFACE *mvme, const DWORD base_adr)
+/home/nam/sw/daq/midas/drivers/vme/vppg.c:351: Warning: The following parameters of VPPGEnableExtTrig(MVME_INTERFACE *mvme, const DWORD base_adr) are not documented:
+  parameter 'mvme'
+  parameter 'base_adr'
+/home/nam/sw/daq/midas/drivers/vme/vppg.c:382: Warning: Found unknown command `\memo'
+/home/nam/sw/daq/midas/drivers/vme/vppg.c:380: Warning: argument 'base' of command @param is not found in the argument list of VPPGExtTrigRegRead(MVME_INTERFACE *mvme, const DWORD base_adr)
+/home/nam/sw/daq/midas/drivers/vme/vppg.c:380: Warning: argument '_adr' of command @param is not found in the argument list of VPPGExtTrigRegRead(MVME_INTERFACE *mvme, const DWORD base_adr)
+/home/nam/sw/daq/midas/drivers/vme/vppg.c:380: Warning: The following parameters of VPPGExtTrigRegRead(MVME_INTERFACE *mvme, const DWORD base_adr) are not documented:
+  parameter 'mvme'
+  parameter 'base_adr'
+/home/nam/sw/daq/midas/drivers/vme/vppg.c:169: Warning: Found unknown command `\memo'
+/home/nam/sw/daq/midas/drivers/vme/vppg.c:167: Warning: argument 'base' of command @param is not found in the argument list of VPPGInit(MVME_INTERFACE *mvme, const DWORD base_adr)
+/home/nam/sw/daq/midas/drivers/vme/vppg.c:167: Warning: argument '_adr' of command @param is not found in the argument list of VPPGInit(MVME_INTERFACE *mvme, const DWORD base_adr)
+/home/nam/sw/daq/midas/drivers/vme/vppg.c:167: Warning: The following parameters of VPPGInit(MVME_INTERFACE *mvme, const DWORD base_adr) are not documented:
+  parameter 'mvme'
+  parameter 'base_adr'
+/home/nam/sw/daq/midas/drivers/vme/vppg.c:553: Warning: Found unknown command `\memo'
+/home/nam/sw/daq/midas/drivers/vme/vppg.c:551: Warning: argument 'base' of command @param is not found in the argument list of VPPGLoad(MVME_INTERFACE *mvme, const DWORD base_adr, char *file)
+/home/nam/sw/daq/midas/drivers/vme/vppg.c:551: Warning: argument '_adr' of command @param is not found in the argument list of VPPGLoad(MVME_INTERFACE *mvme, const DWORD base_adr, char *file)
+/home/nam/sw/daq/midas/drivers/vme/vppg.c:551: Warning: The following parameters of VPPGLoad(MVME_INTERFACE *mvme, const DWORD base_adr, char *file) are not documented:
+  parameter 'mvme'
+  parameter 'base_adr'
+  parameter 'file'
+/home/nam/sw/daq/midas/drivers/vme/vppg.c:427: Warning: Found unknown command `\memo'
+/home/nam/sw/daq/midas/drivers/vme/vppg.c:425: Warning: argument 'base' of command @param is not found in the argument list of VPPGPolmskRead(MVME_INTERFACE *mvme, const DWORD base_adr)
+/home/nam/sw/daq/midas/drivers/vme/vppg.c:425: Warning: argument '_adr' of command @param is not found in the argument list of VPPGPolmskRead(MVME_INTERFACE *mvme, const DWORD base_adr)
+/home/nam/sw/daq/midas/drivers/vme/vppg.c:425: Warning: The following parameters of VPPGPolmskRead(MVME_INTERFACE *mvme, const DWORD base_adr) are not documented:
+  parameter 'mvme'
+  parameter 'base_adr'
+/home/nam/sw/daq/midas/drivers/vme/vppg.c:398: Warning: Found unknown command `\_polmsk'
+/home/nam/sw/daq/midas/drivers/vme/vppg.c:398: Warning: Found unknown command `\_write'
+/home/nam/sw/daq/midas/drivers/vme/vppg.c:400: Warning: Found unknown command `\memo'
+/home/nam/sw/daq/midas/drivers/vme/vppg.c:398: Warning: argument 'base' of command @param is not found in the argument list of VPPGPolmskWrite(MVME_INTERFACE *mvme, const DWORD base_adr, const DWORD pol)
+/home/nam/sw/daq/midas/drivers/vme/vppg.c:398: Warning: argument '_adr' of command @param is not found in the argument list of VPPGPolmskWrite(MVME_INTERFACE *mvme, const DWORD base_adr, const DWORD pol)
+/home/nam/sw/daq/midas/drivers/vme/vppg.c:398: Warning: The following parameters of VPPGPolmskWrite(MVME_INTERFACE *mvme, const DWORD base_adr, const DWORD pol) are not documented:
+  parameter 'mvme'
+  parameter 'base_adr'
+/home/nam/sw/daq/midas/drivers/vme/vppg.c:290: Warning: Found unknown command `\memo'
+/home/nam/sw/daq/midas/drivers/vme/vppg.c:288: Warning: argument 'base' of command @param is not found in the argument list of VPPGPolzCtlPPG(MVME_INTERFACE *mvme, const DWORD base_adr)
+/home/nam/sw/daq/midas/drivers/vme/vppg.c:288: Warning: argument '_adr' of command @param is not found in the argument list of VPPGPolzCtlPPG(MVME_INTERFACE *mvme, const DWORD base_adr)
+/home/nam/sw/daq/midas/drivers/vme/vppg.c:288: Warning: The following parameters of VPPGPolzCtlPPG(MVME_INTERFACE *mvme, const DWORD base_adr) are not documented:
+  parameter 'mvme'
+  parameter 'base_adr'
+/home/nam/sw/daq/midas/drivers/vme/vppg.c:277: Warning: Found unknown command `\memo'
+/home/nam/sw/daq/midas/drivers/vme/vppg.c:275: Warning: argument 'base' of command @param is not found in the argument list of VPPGPolzCtlVME(MVME_INTERFACE *mvme, const DWORD base_adr)
+/home/nam/sw/daq/midas/drivers/vme/vppg.c:275: Warning: argument '_adr' of command @param is not found in the argument list of VPPGPolzCtlVME(MVME_INTERFACE *mvme, const DWORD base_adr)
+/home/nam/sw/daq/midas/drivers/vme/vppg.c:275: Warning: The following parameters of VPPGPolzCtlVME(MVME_INTERFACE *mvme, const DWORD base_adr) are not documented:
+  parameter 'mvme'
+  parameter 'base_adr'
+/home/nam/sw/daq/midas/drivers/vme/vppg.c:78: Warning: Found unknown command `\memo'
+/home/nam/sw/daq/midas/drivers/vme/vppg.c:76: Warning: argument 'base' of command @param is not found in the argument list of VPPGPolzFlip(MVME_INTERFACE *mvme, const DWORD base_adr)
+/home/nam/sw/daq/midas/drivers/vme/vppg.c:76: Warning: argument '_adr' of command @param is not found in the argument list of VPPGPolzFlip(MVME_INTERFACE *mvme, const DWORD base_adr)
+/home/nam/sw/daq/midas/drivers/vme/vppg.c:76: Warning: The following parameters of VPPGPolzFlip(MVME_INTERFACE *mvme, const DWORD base_adr) are not documented:
+  parameter 'mvme'
+  parameter 'base_adr'
+/home/nam/sw/daq/midas/drivers/vme/vppg.c:60: Warning: Found unknown command `\memo'
+/home/nam/sw/daq/midas/drivers/vme/vppg.c:58: Warning: argument 'base' of command @param is not found in the argument list of VPPGPolzRead(MVME_INTERFACE *mvme, const DWORD base_adr)
+/home/nam/sw/daq/midas/drivers/vme/vppg.c:58: Warning: argument '_adr' of command @param is not found in the argument list of VPPGPolzRead(MVME_INTERFACE *mvme, const DWORD base_adr)
+/home/nam/sw/daq/midas/drivers/vme/vppg.c:58: Warning: The following parameters of VPPGPolzRead(MVME_INTERFACE *mvme, const DWORD base_adr) are not documented:
+  parameter 'mvme'
+  parameter 'base_adr'
+/home/nam/sw/daq/midas/drivers/vme/vppg.c:47: Warning: Found unknown command `\memo'
+/home/nam/sw/daq/midas/drivers/vme/vppg.c:45: Warning: argument 'base' of command @param is not found in the argument list of VPPGPolzSet(MVME_INTERFACE *mvme, const DWORD base_adr, BYTE value)
+/home/nam/sw/daq/midas/drivers/vme/vppg.c:45: Warning: argument '_adr' of command @param is not found in the argument list of VPPGPolzSet(MVME_INTERFACE *mvme, const DWORD base_adr, BYTE value)
+/home/nam/sw/daq/midas/drivers/vme/vppg.c:45: Warning: The following parameters of VPPGPolzSet(MVME_INTERFACE *mvme, const DWORD base_adr, BYTE value) are not documented:
+  parameter 'mvme'
+  parameter 'base_adr'
+/home/nam/sw/daq/midas/drivers/vme/vppg.c:140: Warning: Found unknown command `\memo'
+/home/nam/sw/daq/midas/drivers/vme/vppg.c:138: Warning: argument 'base' of command @param is not found in the argument list of VPPGRegRead(MVME_INTERFACE *mvme, const DWORD base_adr, DWORD reg_offset)
+/home/nam/sw/daq/midas/drivers/vme/vppg.c:138: Warning: argument '_adr' of command @param is not found in the argument list of VPPGRegRead(MVME_INTERFACE *mvme, const DWORD base_adr, DWORD reg_offset)
+/home/nam/sw/daq/midas/drivers/vme/vppg.c:138: Warning: argument 'reg' of command @param is not found in the argument list of VPPGRegRead(MVME_INTERFACE *mvme, const DWORD base_adr, DWORD reg_offset)
+/home/nam/sw/daq/midas/drivers/vme/vppg.c:138: Warning: argument '_offset' of command @param is not found in the argument list of VPPGRegRead(MVME_INTERFACE *mvme, const DWORD base_adr, DWORD reg_offset)
+/home/nam/sw/daq/midas/drivers/vme/vppg.c:138: Warning: The following parameters of VPPGRegRead(MVME_INTERFACE *mvme, const DWORD base_adr, DWORD reg_offset) are not documented:
+  parameter 'mvme'
+  parameter 'base_adr'
+  parameter 'reg_offset'
+/home/nam/sw/daq/midas/drivers/vme/vppg.c:105: Warning: Found unknown command `\memo'
+/home/nam/sw/daq/midas/drivers/vme/vppg.c:103: Warning: argument 'base' of command @param is not found in the argument list of VPPGRegWrite(MVME_INTERFACE *mvme, const DWORD base_adr, DWORD reg_offset, BYTE value)
+/home/nam/sw/daq/midas/drivers/vme/vppg.c:103: Warning: argument '_adr' of command @param is not found in the argument list of VPPGRegWrite(MVME_INTERFACE *mvme, const DWORD base_adr, DWORD reg_offset, BYTE value)
+/home/nam/sw/daq/midas/drivers/vme/vppg.c:103: Warning: argument 'reg' of command @param is not found in the argument list of VPPGRegWrite(MVME_INTERFACE *mvme, const DWORD base_adr, DWORD reg_offset, BYTE value)
+/home/nam/sw/daq/midas/drivers/vme/vppg.c:103: Warning: argument '_offset' of command @param is not found in the argument list of VPPGRegWrite(MVME_INTERFACE *mvme, const DWORD base_adr, DWORD reg_offset, BYTE value)
+/home/nam/sw/daq/midas/drivers/vme/vppg.c:103: Warning: The following parameters of VPPGRegWrite(MVME_INTERFACE *mvme, const DWORD base_adr, DWORD reg_offset, BYTE value) are not documented:
+  parameter 'mvme'
+  parameter 'base_adr'
+  parameter 'reg_offset'
+/home/nam/sw/daq/midas/drivers/vme/vppg.c:455: Warning: Found unknown command `\_startpattern'
+/home/nam/sw/daq/midas/drivers/vme/vppg.c:455: Warning: Found unknown command `\_write'
+/home/nam/sw/daq/midas/drivers/vme/vppg.c:457: Warning: Found unknown command `\memo'
+/home/nam/sw/daq/midas/drivers/vme/vppg.c:455: Warning: argument 'base' of command @param is not found in the argument list of VPPGStartpatternWrite(MVME_INTERFACE *mvme, const DWORD base_adr, const DWORD pol)
+/home/nam/sw/daq/midas/drivers/vme/vppg.c:455: Warning: argument '_adr' of command @param is not found in the argument list of VPPGStartpatternWrite(MVME_INTERFACE *mvme, const DWORD base_adr, const DWORD pol)
+/home/nam/sw/daq/midas/drivers/vme/vppg.c:455: Warning: The following parameters of VPPGStartpatternWrite(MVME_INTERFACE *mvme, const DWORD base_adr, const DWORD pol) are not documented:
+  parameter 'mvme'
+  parameter 'base_adr'
+/home/nam/sw/daq/midas/drivers/vme/vppg.c:324: Warning: Found unknown command `\memo'
+/home/nam/sw/daq/midas/drivers/vme/vppg.c:322: Warning: argument 'base' of command @param is not found in the argument list of VPPGStartSequencer(MVME_INTERFACE *mvme, const DWORD base_adr)
+/home/nam/sw/daq/midas/drivers/vme/vppg.c:322: Warning: argument '_adr' of command @param is not found in the argument list of VPPGStartSequencer(MVME_INTERFACE *mvme, const DWORD base_adr)
+/home/nam/sw/daq/midas/drivers/vme/vppg.c:322: Warning: The following parameters of VPPGStartSequencer(MVME_INTERFACE *mvme, const DWORD base_adr) are not documented:
+  parameter 'mvme'
+  parameter 'base_adr'
+/home/nam/sw/daq/midas/drivers/vme/vppg.c:190: Warning: Found unknown command `\memo'
+/home/nam/sw/daq/midas/drivers/vme/vppg.c:188: Warning: argument 'base' of command @param is not found in the argument list of VPPGStatusRead(MVME_INTERFACE *mvme, const DWORD base_adr)
+/home/nam/sw/daq/midas/drivers/vme/vppg.c:188: Warning: argument '_adr' of command @param is not found in the argument list of VPPGStatusRead(MVME_INTERFACE *mvme, const DWORD base_adr)
+/home/nam/sw/daq/midas/drivers/vme/vppg.c:188: Warning: The following parameters of VPPGStatusRead(MVME_INTERFACE *mvme, const DWORD base_adr) are not documented:
+  parameter 'mvme'
+  parameter 'base_adr'
+/home/nam/sw/daq/midas/drivers/vme/vppg.c:339: Warning: Found unknown command `\memo'
+/home/nam/sw/daq/midas/drivers/vme/vppg.c:337: Warning: argument 'base' of command @param is not found in the argument list of VPPGStopSequencer(MVME_INTERFACE *mvme, const DWORD base_adr)
+/home/nam/sw/daq/midas/drivers/vme/vppg.c:337: Warning: argument '_adr' of command @param is not found in the argument list of VPPGStopSequencer(MVME_INTERFACE *mvme, const DWORD base_adr)
+/home/nam/sw/daq/midas/drivers/vme/vppg.c:337: Warning: The following parameters of VPPGStopSequencer(MVME_INTERFACE *mvme, const DWORD base_adr) are not documented:
+  parameter 'mvme'
+  parameter 'base_adr'
+/home/nam/sw/daq/midas/drivers/vme/vppg.c:485: Warning: Found unknown command `\memo'
+/home/nam/sw/daq/midas/drivers/vme/vppg.c:526: Warning: Found unknown command `\memo'
+/home/nam/sw/daq/midas/drivers/vme/vppg.c:524: Warning: argument 'input' of command @param is not found in the argument list of lineRead(FILE *infile)
+/home/nam/sw/daq/midas/drivers/vme/vppg.c:524: Warning: The following parameters of lineRead(FILE *infile) are not documented:
+  parameter 'infile'
+/home/nam/sw/daq/midas/drivers/vme/vppg.c:263: Warning: Found unknown command `\memo'
+/home/nam/sw/daq/midas/drivers/vme/vppg.c:261: Warning: argument 'base' of command @param is not found in the argument list of VPPGBeamCtlPPG(MVME_INTERFACE *mvme, const DWORD base_adr)
+/home/nam/sw/daq/midas/drivers/vme/vppg.c:261: Warning: argument '_adr' of command @param is not found in the argument list of VPPGBeamCtlPPG(MVME_INTERFACE *mvme, const DWORD base_adr)
+/home/nam/sw/daq/midas/drivers/vme/vppg.c:261: Warning: The following parameters of VPPGBeamCtlPPG(MVME_INTERFACE *mvme, const DWORD base_adr) are not documented:
+  parameter 'mvme'
+  parameter 'base_adr'
+/home/nam/sw/daq/midas/drivers/vme/vppg.c:303: Warning: Found unknown command `\memo'
+/home/nam/sw/daq/midas/drivers/vme/vppg.c:301: Warning: argument 'base' of command @param is not found in the argument list of VPPGBeamCtlRegRead(MVME_INTERFACE *mvme, const DWORD base_adr)
+/home/nam/sw/daq/midas/drivers/vme/vppg.c:301: Warning: argument '_adr' of command @param is not found in the argument list of VPPGBeamCtlRegRead(MVME_INTERFACE *mvme, const DWORD base_adr)
+/home/nam/sw/daq/midas/drivers/vme/vppg.c:301: Warning: The following parameters of VPPGBeamCtlRegRead(MVME_INTERFACE *mvme, const DWORD base_adr) are not documented:
+  parameter 'mvme'
+  parameter 'base_adr'
+/home/nam/sw/daq/midas/drivers/vme/vppg.c:249: Warning: Found unknown command `\memo'
+/home/nam/sw/daq/midas/drivers/vme/vppg.c:247: Warning: argument 'base' of command @param is not found in the argument list of VPPGBeamOff(MVME_INTERFACE *mvme, const DWORD base_adr)
+/home/nam/sw/daq/midas/drivers/vme/vppg.c:247: Warning: argument '_adr' of command @param is not found in the argument list of VPPGBeamOff(MVME_INTERFACE *mvme, const DWORD base_adr)
+/home/nam/sw/daq/midas/drivers/vme/vppg.c:247: Warning: The following parameters of VPPGBeamOff(MVME_INTERFACE *mvme, const DWORD base_adr) are not documented:
+  parameter 'mvme'
+  parameter 'base_adr'
+/home/nam/sw/daq/midas/drivers/vme/vppg.c:233: Warning: Found unknown command `\memo'
+/home/nam/sw/daq/midas/drivers/vme/vppg.c:231: Warning: argument 'base' of command @param is not found in the argument list of VPPGBeamOn(MVME_INTERFACE *mvme, const DWORD base_adr)
+/home/nam/sw/daq/midas/drivers/vme/vppg.c:231: Warning: argument '_adr' of command @param is not found in the argument list of VPPGBeamOn(MVME_INTERFACE *mvme, const DWORD base_adr)
+/home/nam/sw/daq/midas/drivers/vme/vppg.c:231: Warning: The following parameters of VPPGBeamOn(MVME_INTERFACE *mvme, const DWORD base_adr) are not documented:
+  parameter 'mvme'
+  parameter 'base_adr'
+/home/nam/sw/daq/midas/drivers/vme/vppg.c:369: Warning: Found unknown command `\memo'
+/home/nam/sw/daq/midas/drivers/vme/vppg.c:367: Warning: argument 'base' of command @param is not found in the argument list of VPPGDisableExtTrig(MVME_INTERFACE *mvme, const DWORD base_adr)
+/home/nam/sw/daq/midas/drivers/vme/vppg.c:367: Warning: argument '_adr' of command @param is not found in the argument list of VPPGDisableExtTrig(MVME_INTERFACE *mvme, const DWORD base_adr)
+/home/nam/sw/daq/midas/drivers/vme/vppg.c:367: Warning: The following parameters of VPPGDisableExtTrig(MVME_INTERFACE *mvme, const DWORD base_adr) are not documented:
+  parameter 'mvme'
+  parameter 'base_adr'
+/home/nam/sw/daq/midas/drivers/vme/vppg.c:353: Warning: Found unknown command `\memo'
+/home/nam/sw/daq/midas/drivers/vme/vppg.c:351: Warning: argument 'base' of command @param is not found in the argument list of VPPGEnableExtTrig(MVME_INTERFACE *mvme, const DWORD base_adr)
+/home/nam/sw/daq/midas/drivers/vme/vppg.c:351: Warning: argument '_adr' of command @param is not found in the argument list of VPPGEnableExtTrig(MVME_INTERFACE *mvme, const DWORD base_adr)
+/home/nam/sw/daq/midas/drivers/vme/vppg.c:351: Warning: The following parameters of VPPGEnableExtTrig(MVME_INTERFACE *mvme, const DWORD base_adr) are not documented:
+  parameter 'mvme'
+  parameter 'base_adr'
+/home/nam/sw/daq/midas/drivers/vme/vppg.c:382: Warning: Found unknown command `\memo'
+/home/nam/sw/daq/midas/drivers/vme/vppg.c:380: Warning: argument 'base' of command @param is not found in the argument list of VPPGExtTrigRegRead(MVME_INTERFACE *mvme, const DWORD base_adr)
+/home/nam/sw/daq/midas/drivers/vme/vppg.c:380: Warning: argument '_adr' of command @param is not found in the argument list of VPPGExtTrigRegRead(MVME_INTERFACE *mvme, const DWORD base_adr)
+/home/nam/sw/daq/midas/drivers/vme/vppg.c:380: Warning: The following parameters of VPPGExtTrigRegRead(MVME_INTERFACE *mvme, const DWORD base_adr) are not documented:
+  parameter 'mvme'
+  parameter 'base_adr'
+/home/nam/sw/daq/midas/drivers/vme/vppg.c:169: Warning: Found unknown command `\memo'
+/home/nam/sw/daq/midas/drivers/vme/vppg.c:167: Warning: argument 'base' of command @param is not found in the argument list of VPPGInit(MVME_INTERFACE *mvme, const DWORD base_adr)
+/home/nam/sw/daq/midas/drivers/vme/vppg.c:167: Warning: argument '_adr' of command @param is not found in the argument list of VPPGInit(MVME_INTERFACE *mvme, const DWORD base_adr)
+/home/nam/sw/daq/midas/drivers/vme/vppg.c:167: Warning: The following parameters of VPPGInit(MVME_INTERFACE *mvme, const DWORD base_adr) are not documented:
+  parameter 'mvme'
+  parameter 'base_adr'
+/home/nam/sw/daq/midas/drivers/vme/vppg.c:553: Warning: Found unknown command `\memo'
+/home/nam/sw/daq/midas/drivers/vme/vppg.c:551: Warning: argument 'base' of command @param is not found in the argument list of VPPGLoad(MVME_INTERFACE *mvme, const DWORD base_adr, char *file)
+/home/nam/sw/daq/midas/drivers/vme/vppg.c:551: Warning: argument '_adr' of command @param is not found in the argument list of VPPGLoad(MVME_INTERFACE *mvme, const DWORD base_adr, char *file)
+/home/nam/sw/daq/midas/drivers/vme/vppg.c:551: Warning: The following parameters of VPPGLoad(MVME_INTERFACE *mvme, const DWORD base_adr, char *file) are not documented:
+  parameter 'mvme'
+  parameter 'base_adr'
+  parameter 'file'
+/home/nam/sw/daq/midas/drivers/vme/vppg.c:427: Warning: Found unknown command `\memo'
+/home/nam/sw/daq/midas/drivers/vme/vppg.c:425: Warning: argument 'base' of command @param is not found in the argument list of VPPGPolmskRead(MVME_INTERFACE *mvme, const DWORD base_adr)
+/home/nam/sw/daq/midas/drivers/vme/vppg.c:425: Warning: argument '_adr' of command @param is not found in the argument list of VPPGPolmskRead(MVME_INTERFACE *mvme, const DWORD base_adr)
+/home/nam/sw/daq/midas/drivers/vme/vppg.c:425: Warning: The following parameters of VPPGPolmskRead(MVME_INTERFACE *mvme, const DWORD base_adr) are not documented:
+  parameter 'mvme'
+  parameter 'base_adr'
+/home/nam/sw/daq/midas/drivers/vme/vppg.c:398: Warning: Found unknown command `\_polmsk'
+/home/nam/sw/daq/midas/drivers/vme/vppg.c:398: Warning: Found unknown command `\_write'
+/home/nam/sw/daq/midas/drivers/vme/vppg.c:400: Warning: Found unknown command `\memo'
+/home/nam/sw/daq/midas/drivers/vme/vppg.c:398: Warning: argument 'base' of command @param is not found in the argument list of VPPGPolmskWrite(MVME_INTERFACE *mvme, const DWORD base_adr, const DWORD pol)
+/home/nam/sw/daq/midas/drivers/vme/vppg.c:398: Warning: argument '_adr' of command @param is not found in the argument list of VPPGPolmskWrite(MVME_INTERFACE *mvme, const DWORD base_adr, const DWORD pol)
+/home/nam/sw/daq/midas/drivers/vme/vppg.c:398: Warning: The following parameters of VPPGPolmskWrite(MVME_INTERFACE *mvme, const DWORD base_adr, const DWORD pol) are not documented:
+  parameter 'mvme'
+  parameter 'base_adr'
+/home/nam/sw/daq/midas/drivers/vme/vppg.c:290: Warning: Found unknown command `\memo'
+/home/nam/sw/daq/midas/drivers/vme/vppg.c:288: Warning: argument 'base' of command @param is not found in the argument list of VPPGPolzCtlPPG(MVME_INTERFACE *mvme, const DWORD base_adr)
+/home/nam/sw/daq/midas/drivers/vme/vppg.c:288: Warning: argument '_adr' of command @param is not found in the argument list of VPPGPolzCtlPPG(MVME_INTERFACE *mvme, const DWORD base_adr)
+/home/nam/sw/daq/midas/drivers/vme/vppg.c:288: Warning: The following parameters of VPPGPolzCtlPPG(MVME_INTERFACE *mvme, const DWORD base_adr) are not documented:
+  parameter 'mvme'
+  parameter 'base_adr'
+/home/nam/sw/daq/midas/drivers/vme/vppg.c:277: Warning: Found unknown command `\memo'
+/home/nam/sw/daq/midas/drivers/vme/vppg.c:275: Warning: argument 'base' of command @param is not found in the argument list of VPPGPolzCtlVME(MVME_INTERFACE *mvme, const DWORD base_adr)
+/home/nam/sw/daq/midas/drivers/vme/vppg.c:275: Warning: argument '_adr' of command @param is not found in the argument list of VPPGPolzCtlVME(MVME_INTERFACE *mvme, const DWORD base_adr)
+/home/nam/sw/daq/midas/drivers/vme/vppg.c:275: Warning: The following parameters of VPPGPolzCtlVME(MVME_INTERFACE *mvme, const DWORD base_adr) are not documented:
+  parameter 'mvme'
+  parameter 'base_adr'
+/home/nam/sw/daq/midas/drivers/vme/vppg.c:78: Warning: Found unknown command `\memo'
+/home/nam/sw/daq/midas/drivers/vme/vppg.c:76: Warning: argument 'base' of command @param is not found in the argument list of VPPGPolzFlip(MVME_INTERFACE *mvme, const DWORD base_adr)
+/home/nam/sw/daq/midas/drivers/vme/vppg.c:76: Warning: argument '_adr' of command @param is not found in the argument list of VPPGPolzFlip(MVME_INTERFACE *mvme, const DWORD base_adr)
+/home/nam/sw/daq/midas/drivers/vme/vppg.c:76: Warning: The following parameters of VPPGPolzFlip(MVME_INTERFACE *mvme, const DWORD base_adr) are not documented:
+  parameter 'mvme'
+  parameter 'base_adr'
+/home/nam/sw/daq/midas/drivers/vme/vppg.c:60: Warning: Found unknown command `\memo'
+/home/nam/sw/daq/midas/drivers/vme/vppg.c:58: Warning: argument 'base' of command @param is not found in the argument list of VPPGPolzRead(MVME_INTERFACE *mvme, const DWORD base_adr)
+/home/nam/sw/daq/midas/drivers/vme/vppg.c:58: Warning: argument '_adr' of command @param is not found in the argument list of VPPGPolzRead(MVME_INTERFACE *mvme, const DWORD base_adr)
+/home/nam/sw/daq/midas/drivers/vme/vppg.c:58: Warning: The following parameters of VPPGPolzRead(MVME_INTERFACE *mvme, const DWORD base_adr) are not documented:
+  parameter 'mvme'
+  parameter 'base_adr'
+/home/nam/sw/daq/midas/drivers/vme/vppg.c:47: Warning: Found unknown command `\memo'
+/home/nam/sw/daq/midas/drivers/vme/vppg.c:45: Warning: argument 'base' of command @param is not found in the argument list of VPPGPolzSet(MVME_INTERFACE *mvme, const DWORD base_adr, BYTE value)
+/home/nam/sw/daq/midas/drivers/vme/vppg.c:45: Warning: argument '_adr' of command @param is not found in the argument list of VPPGPolzSet(MVME_INTERFACE *mvme, const DWORD base_adr, BYTE value)
+/home/nam/sw/daq/midas/drivers/vme/vppg.c:45: Warning: The following parameters of VPPGPolzSet(MVME_INTERFACE *mvme, const DWORD base_adr, BYTE value) are not documented:
+  parameter 'mvme'
+  parameter 'base_adr'
+/home/nam/sw/daq/midas/drivers/vme/vppg.c:140: Warning: Found unknown command `\memo'
+/home/nam/sw/daq/midas/drivers/vme/vppg.c:138: Warning: argument 'base' of command @param is not found in the argument list of VPPGRegRead(MVME_INTERFACE *mvme, const DWORD base_adr, DWORD reg_offset)
+/home/nam/sw/daq/midas/drivers/vme/vppg.c:138: Warning: argument '_adr' of command @param is not found in the argument list of VPPGRegRead(MVME_INTERFACE *mvme, const DWORD base_adr, DWORD reg_offset)
+/home/nam/sw/daq/midas/drivers/vme/vppg.c:138: Warning: argument 'reg' of command @param is not found in the argument list of VPPGRegRead(MVME_INTERFACE *mvme, const DWORD base_adr, DWORD reg_offset)
+/home/nam/sw/daq/midas/drivers/vme/vppg.c:138: Warning: argument '_offset' of command @param is not found in the argument list of VPPGRegRead(MVME_INTERFACE *mvme, const DWORD base_adr, DWORD reg_offset)
+/home/nam/sw/daq/midas/drivers/vme/vppg.c:138: Warning: The following parameters of VPPGRegRead(MVME_INTERFACE *mvme, const DWORD base_adr, DWORD reg_offset) are not documented:
+  parameter 'mvme'
+  parameter 'base_adr'
+  parameter 'reg_offset'
+/home/nam/sw/daq/midas/drivers/vme/vppg.c:105: Warning: Found unknown command `\memo'
+/home/nam/sw/daq/midas/drivers/vme/vppg.c:103: Warning: argument 'base' of command @param is not found in the argument list of VPPGRegWrite(MVME_INTERFACE *mvme, const DWORD base_adr, DWORD reg_offset, BYTE value)
+/home/nam/sw/daq/midas/drivers/vme/vppg.c:103: Warning: argument '_adr' of command @param is not found in the argument list of VPPGRegWrite(MVME_INTERFACE *mvme, const DWORD base_adr, DWORD reg_offset, BYTE value)
+/home/nam/sw/daq/midas/drivers/vme/vppg.c:103: Warning: argument 'reg' of command @param is not found in the argument list of VPPGRegWrite(MVME_INTERFACE *mvme, const DWORD base_adr, DWORD reg_offset, BYTE value)
+/home/nam/sw/daq/midas/drivers/vme/vppg.c:103: Warning: argument '_offset' of command @param is not found in the argument list of VPPGRegWrite(MVME_INTERFACE *mvme, const DWORD base_adr, DWORD reg_offset, BYTE value)
+/home/nam/sw/daq/midas/drivers/vme/vppg.c:103: Warning: The following parameters of VPPGRegWrite(MVME_INTERFACE *mvme, const DWORD base_adr, DWORD reg_offset, BYTE value) are not documented:
+  parameter 'mvme'
+  parameter 'base_adr'
+  parameter 'reg_offset'
+/home/nam/sw/daq/midas/drivers/vme/vppg.c:324: Warning: Found unknown command `\memo'
+/home/nam/sw/daq/midas/drivers/vme/vppg.c:322: Warning: argument 'base' of command @param is not found in the argument list of VPPGStartSequencer(MVME_INTERFACE *mvme, const DWORD base_adr)
+/home/nam/sw/daq/midas/drivers/vme/vppg.c:322: Warning: argument '_adr' of command @param is not found in the argument list of VPPGStartSequencer(MVME_INTERFACE *mvme, const DWORD base_adr)
+/home/nam/sw/daq/midas/drivers/vme/vppg.c:322: Warning: The following parameters of VPPGStartSequencer(MVME_INTERFACE *mvme, const DWORD base_adr) are not documented:
+  parameter 'mvme'
+  parameter 'base_adr'
+/home/nam/sw/daq/midas/drivers/vme/vppg.c:190: Warning: Found unknown command `\memo'
+/home/nam/sw/daq/midas/drivers/vme/vppg.c:188: Warning: argument 'base' of command @param is not found in the argument list of VPPGStatusRead(MVME_INTERFACE *mvme, const DWORD base_adr)
+/home/nam/sw/daq/midas/drivers/vme/vppg.c:188: Warning: argument '_adr' of command @param is not found in the argument list of VPPGStatusRead(MVME_INTERFACE *mvme, const DWORD base_adr)
+/home/nam/sw/daq/midas/drivers/vme/vppg.c:188: Warning: The following parameters of VPPGStatusRead(MVME_INTERFACE *mvme, const DWORD base_adr) are not documented:
+  parameter 'mvme'
+  parameter 'base_adr'
+/home/nam/sw/daq/midas/drivers/vme/vppg.c:339: Warning: Found unknown command `\memo'
+/home/nam/sw/daq/midas/drivers/vme/vppg.c:337: Warning: argument 'base' of command @param is not found in the argument list of VPPGStopSequencer(MVME_INTERFACE *mvme, const DWORD base_adr)
+/home/nam/sw/daq/midas/drivers/vme/vppg.c:337: Warning: argument '_adr' of command @param is not found in the argument list of VPPGStopSequencer(MVME_INTERFACE *mvme, const DWORD base_adr)
+/home/nam/sw/daq/midas/drivers/vme/vppg.c:337: Warning: The following parameters of VPPGStopSequencer(MVME_INTERFACE *mvme, const DWORD base_adr) are not documented:
+  parameter 'mvme'
+  parameter 'base_adr'
+/home/nam/sw/daq/midas/drivers/vme/vt48.c:20: Warning: argument 'entry' of command @param is not found in the argument list of vt48_EventRead(MVME_INTERFACE *myvme, DWORD base, DWORD *pdest, int *nentry)
+/home/nam/sw/daq/midas/drivers/vme/vt48.c:20: Warning: The following parameters of vt48_EventRead(MVME_INTERFACE *myvme, DWORD base, DWORD *pdest, int *nentry) are not documented:
+  parameter 'nentry'
+/home/nam/sw/daq/midas/drivers/vme/vt48.c:169: Warning: argument 'nentry' of command @param is not found in the argument list of vt48_Setup(MVME_INTERFACE *mvme, DWORD base, int mode)
+/home/nam/sw/daq/midas/drivers/vme/vt48.c:20: Warning: argument 'entry' of command @param is not found in the argument list of vt48_EventRead(MVME_INTERFACE *myvme, DWORD base, DWORD *pdest, int *nentry)
+/home/nam/sw/daq/midas/drivers/vme/vt48.c:20: Warning: The following parameters of vt48_EventRead(MVME_INTERFACE *myvme, DWORD base, DWORD *pdest, int *nentry) are not documented:
+  parameter 'nentry'
+/home/nam/sw/daq/midas/drivers/vme/vt48.c:169: Warning: argument 'nentry' of command @param is not found in the argument list of vt48_Setup(MVME_INTERFACE *mvme, DWORD base, int mode)
+/home/nam/sw/daq/midas/doc/src/BuildingOptions.dox:234: Warning: Found unknown command `\Note'
+/home/nam/sw/daq/midas/doc/src/Convention.dox:22: Warning: found </span> tag while expecting </span>
+/home/nam/sw/daq/midas/doc/src/Convention.dox:166: Warning: Found unknown command `\Note'
+/home/nam/sw/daq/midas/doc/src/Convention.dox:193: Warning: Found unknown command `\Note'
+/home/nam/sw/daq/midas/doc/src/Convention.dox:207: Warning: end of comment block while expecting command </span>
+/home/nam/sw/daq/midas/doc/src/custom_webpage.dox:19: Warning: image file custom_ROOT_analyzer_page.png is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/custom_webpage.dox:255: Warning: image file bnmr.png is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/custom_webpage.dox:258: Warning: image file bnqr.png is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/custom_webpage.dox:299: Warning: image file Capture_sgas.png is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/custom_webpage.dox:344: Warning: image file ebit_ppg.png is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/custom_webpage.dox:353: Warning: image file ebit_1e.jpg is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/custom_webpage.dox:386: Warning: image file mpet_optics.png is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/custom_webpage.dox:429: Warning: image file gas_analyzer_pop.png is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/custom_webpage.dox:439: Warning: image file gas_combo.gif is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/eventbuilder.dox:75: Warning: Found unknown command `\Note'
+/home/nam/sw/daq/midas/doc/src/fe_table.dox:12: Warning: Found unknown command `\Note'
+/home/nam/sw/daq/midas/doc/src/fe_table.dox:374: Warning: Found unknown command `\NOTE'
+/home/nam/sw/daq/midas/doc/src/midas_features.dox:126: Warning: Found unknown command `\Note'
+/home/nam/sw/daq/midas/doc/src/Features.dox:510: Warning: Found unknown command `\NOTE'
+/home/nam/sw/daq/midas/doc/src/Features.dox:547: Warning: Found unknown command `\Note'
+/home/nam/sw/daq/midas/doc/src/Features.dox:589: Warning: Found unknown command `\Note'
+/home/nam/sw/daq/midas/doc/src/Features.dox:607: Warning: Found unknown command `\NOTE'
+/home/nam/sw/daq/midas/doc/src/Features.dox:767: Warning: Found unknown command `\Note'
+/home/nam/sw/daq/midas/doc/src/Features.dox:1199: Warning: Found unknown command `\Note'
+/home/nam/sw/daq/midas/doc/src/Features.dox:1250: Warning: Found unknown command `\NOTE'
+/home/nam/sw/daq/midas/doc/src/Features.dox:2181: Warning: Found unknown command `\NOTE'
+/home/nam/sw/daq/midas/doc/src/Features.dox:3531: Warning: Found unknown command `\Note'
+/home/nam/sw/daq/midas/doc/src/Features.dox:3776: Warning: Found unknown command `\Note'
+/home/nam/sw/daq/midas/doc/src/Features.dox:510: Warning: Found unknown command `\NOTE'
+/home/nam/sw/daq/midas/doc/src/Features.dox:547: Warning: Found unknown command `\Note'
+/home/nam/sw/daq/midas/doc/src/Features.dox:589: Warning: Found unknown command `\Note'
+/home/nam/sw/daq/midas/doc/src/Features.dox:607: Warning: Found unknown command `\NOTE'
+/home/nam/sw/daq/midas/doc/src/Features.dox:767: Warning: Found unknown command `\Note'
+/home/nam/sw/daq/midas/doc/src/Features.dox:1199: Warning: Found unknown command `\Note'
+/home/nam/sw/daq/midas/doc/src/Features.dox:1250: Warning: Found unknown command `\NOTE'
+/home/nam/sw/daq/midas/doc/src/Features.dox:2181: Warning: Found unknown command `\NOTE'
+/home/nam/sw/daq/midas/doc/src/Features.dox:3531: Warning: Found unknown command `\Note'
+/home/nam/sw/daq/midas/doc/src/Features.dox:3776: Warning: Found unknown command `\Note'
+/home/nam/sw/daq/midas/doc/src/Features.dox:510: Warning: Found unknown command `\NOTE'
+/home/nam/sw/daq/midas/doc/src/Features.dox:547: Warning: Found unknown command `\Note'
+/home/nam/sw/daq/midas/doc/src/Features.dox:589: Warning: Found unknown command `\Note'
+/home/nam/sw/daq/midas/doc/src/Features.dox:607: Warning: Found unknown command `\NOTE'
+/home/nam/sw/daq/midas/doc/src/Features.dox:767: Warning: Found unknown command `\Note'
+/home/nam/sw/daq/midas/doc/src/Features.dox:1199: Warning: Found unknown command `\Note'
+/home/nam/sw/daq/midas/doc/src/Features.dox:1250: Warning: Found unknown command `\NOTE'
+/home/nam/sw/daq/midas/doc/src/Features.dox:2181: Warning: Found unknown command `\NOTE'
+/home/nam/sw/daq/midas/doc/src/Features.dox:3531: Warning: Found unknown command `\Note'
+/home/nam/sw/daq/midas/doc/src/Features.dox:3776: Warning: Found unknown command `\Note'
+/home/nam/sw/daq/midas/doc/src/Frontend_code.dox:1237: Warning: image file mantrig.png is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/eventbuilder.dox:75: Warning: Found unknown command `\Note'
+/home/nam/sw/daq/midas/doc/src/Frontend_code.dox:1237: Warning: image file mantrig.png is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/FrontendOperation.dox:265: Warning: Found unknown command `\Note'
+/home/nam/sw/daq/midas/doc/src/fe_table.dox:12: Warning: Found unknown command `\Note'
+/home/nam/sw/daq/midas/doc/src/fe_table.dox:374: Warning: Found unknown command `\NOTE'
+/home/nam/sw/daq/midas/doc/src/Frontend_code.dox:1237: Warning: image file mantrig.png is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/eventbuilder.dox:75: Warning: Found unknown command `\Note'
+/home/nam/sw/daq/midas/doc/src/FrontendOperation.dox:265: Warning: Found unknown command `\Note'
+/home/nam/sw/daq/midas/doc/src/introduction.dox:50: Error: Unexpected character `"'
+/home/nam/sw/daq/midas/doc/src/introduction.dox:64: Warning: image file small_and_large_systems.gif is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/mhttpd.dox:15: Warning: image file montage5.jpg is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/mhttpd_utility.dox:70: Warning: image file status_nothing.png is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/mhttpd_utility.dox:77: Warning: Found unknown command `\Note'
+/home/nam/sw/daq/midas/doc/src/mhttpd.dox:127: Warning: image file mhttpd_status.jpg is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/mhttpd.dox:255: Warning: image file new_status_buttons.jpg is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/mhttpd.dox:266: Warning: Found unknown command `\Note'
+/home/nam/sw/daq/midas/doc/src/mhttpd.dox:391: Warning: Found unknown command `\Note'
+/home/nam/sw/daq/midas/doc/src/mhttpd.dox:403: Warning: Found unknown command `\Note'
+/home/nam/sw/daq/midas/doc/src/mhttpd.dox:621: Warning: image file new_status_opt_buttons.jpg is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/mhttpd.dox:625: Warning: Found unknown command `\Note'
+/home/nam/sw/daq/midas/doc/src/mhttpd.dox:664: Warning: image file runstatus.jpg is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/mhttpd.dox:680: Warning: image file stoppingrun.jpg is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/mhttpd.dox:685: Warning: image file startingrun.jpg is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/mhttpd.dox:708: Warning: image file runcomment.jpg is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/mhttpd.dox:720: Warning: image file equipstatus1.jpg is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/mhttpd.dox:769: Warning: Found unknown command `\Note'
+/home/nam/sw/daq/midas/doc/src/mhttpd.dox:795: Warning: image file loggerstatus1.jpg is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/mhttpd.dox:817: Warning: image file lastmsg.jpg is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/mhttpd.dox:833: Warning: image file clientlist.jpg is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/userbuttons.dox:52: Warning: image file dac_button.jpg is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/userbuttons.dox:129: Warning: image file mpet_status_only.png is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/userbuttons.dox:134: Warning: Found unknown command `\Note'
+/home/nam/sw/daq/midas/doc/src/userbuttons.dox:148: Warning: image file mpet_script.png is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/userbuttons.dox:163: Warning: image file mpet_status.png is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/perlmidas.dox:15: Warning: Found unknown command `\NOTE'
+/home/nam/sw/daq/midas/doc/src/mhttpd.dox:198: Warning: image file new_status_page.png is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/mhttpd.dox:208: Warning: image file old_status_opt_buttons.jpg is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/custom_webpage.dox:19: Warning: image file custom_ROOT_analyzer_page.png is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/mhttpd_custom_odb_access.dox:28: Warning: Found unknown command `\Note'
+/home/nam/sw/daq/midas/doc/src/mhttpd_custom_odb_access.dox:103: Warning: image file html_ex1.jpg is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/mhttpd_custom_odb_access.dox:136: Warning: image file js_ex1.jpg is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/mhttpd_custom_odb_access.dox:138: Warning: image file js_ex2.jpg is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/mhttpd_custom_odb_access.dox:559: Warning: image file popups_js.png is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/mhttpd_custom_odb_access.dox:571: Warning: image file popups_html.png is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/mhttpd_custom_odb_access.dox:653: Warning: image file Odbget.png is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/mhttpd_custom_odb_access.dox:847: Warning: image file checkboxes.png is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/mhttpd.dox:127: Warning: image file mhttpd_status.jpg is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/mhttpd.dox:255: Warning: image file new_status_buttons.jpg is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/mhttpd.dox:266: Warning: Found unknown command `\Note'
+/home/nam/sw/daq/midas/doc/src/mhttpd.dox:391: Warning: Found unknown command `\Note'
+/home/nam/sw/daq/midas/doc/src/mhttpd.dox:403: Warning: Found unknown command `\Note'
+/home/nam/sw/daq/midas/doc/src/mhttpd.dox:621: Warning: image file new_status_opt_buttons.jpg is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/mhttpd.dox:625: Warning: Found unknown command `\Note'
+/home/nam/sw/daq/midas/doc/src/mhttpd.dox:664: Warning: image file runstatus.jpg is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/mhttpd.dox:680: Warning: image file stoppingrun.jpg is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/mhttpd.dox:685: Warning: image file startingrun.jpg is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/mhttpd.dox:708: Warning: image file runcomment.jpg is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/mhttpd.dox:720: Warning: image file equipstatus1.jpg is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/mhttpd.dox:769: Warning: Found unknown command `\Note'
+/home/nam/sw/daq/midas/doc/src/mhttpd.dox:795: Warning: image file loggerstatus1.jpg is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/mhttpd.dox:817: Warning: image file lastmsg.jpg is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/mhttpd.dox:833: Warning: image file clientlist.jpg is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/userbuttons.dox:52: Warning: image file dac_button.jpg is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/userbuttons.dox:129: Warning: image file mpet_status_only.png is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/userbuttons.dox:134: Warning: Found unknown command `\Note'
+/home/nam/sw/daq/midas/doc/src/userbuttons.dox:148: Warning: image file mpet_script.png is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/userbuttons.dox:163: Warning: image file mpet_status.png is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/perlmidas.dox:15: Warning: Found unknown command `\NOTE'
+/home/nam/sw/daq/midas/doc/src/mhttpd.dox:198: Warning: image file new_status_page.png is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/mhttpd.dox:208: Warning: image file old_status_opt_buttons.jpg is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/mhttpd.dox:255: Warning: image file new_status_buttons.jpg is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/mhttpd.dox:266: Warning: Found unknown command `\Note'
+/home/nam/sw/daq/midas/doc/src/mhttpd.dox:391: Warning: Found unknown command `\Note'
+/home/nam/sw/daq/midas/doc/src/mhttpd.dox:403: Warning: Found unknown command `\Note'
+/home/nam/sw/daq/midas/doc/src/mhttpd.dox:621: Warning: image file new_status_opt_buttons.jpg is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/mhttpd.dox:625: Warning: Found unknown command `\Note'
+/home/nam/sw/daq/midas/doc/src/mhttpd.dox:664: Warning: image file runstatus.jpg is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/mhttpd.dox:680: Warning: image file stoppingrun.jpg is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/mhttpd.dox:685: Warning: image file startingrun.jpg is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/mhttpd.dox:708: Warning: image file runcomment.jpg is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/mhttpd.dox:720: Warning: image file equipstatus1.jpg is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/mhttpd.dox:769: Warning: Found unknown command `\Note'
+/home/nam/sw/daq/midas/doc/src/mhttpd.dox:795: Warning: image file loggerstatus1.jpg is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/mhttpd.dox:817: Warning: image file lastmsg.jpg is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/mhttpd.dox:833: Warning: image file clientlist.jpg is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/userbuttons.dox:52: Warning: image file dac_button.jpg is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/userbuttons.dox:129: Warning: image file mpet_status_only.png is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/userbuttons.dox:134: Warning: Found unknown command `\Note'
+/home/nam/sw/daq/midas/doc/src/userbuttons.dox:148: Warning: image file mpet_script.png is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/userbuttons.dox:163: Warning: image file mpet_status.png is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/perlmidas.dox:15: Warning: Found unknown command `\NOTE'
+/home/nam/sw/daq/midas/doc/src/mhttpd.dox:905: Warning: image file eos_rn.png is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/mhttpd.dox:1054: Warning: image file bnmr_start_fixedrn.gif is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/mhttpd.dox:1112: Warning: image file mhttpd_odb_page.gif is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/mhttpd.dox:1154: Warning: image file mhttpd_create.gif is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/mhttpd.dox:1208: Warning: Found unknown command `\Note'
+/home/nam/sw/daq/midas/doc/src/mhttpd.dox:1247: Warning: image file gas_equipment_1banknoname.gif is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/mhttpd.dox:1312: Warning: image file gas_equipment_1namedbank.gif is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/mhttpd.dox:1346: Warning: image file gas_equipment_2banks.gif is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/mhttpd.dox:1396: Warning: image file gas_equipment.gif is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/mhttpd.dox:1479: Warning: image file bnmr_equipment.gif is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/mhttpd.dox:1574: Warning: image file bnmr_info_odb.gif is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/mhttpd.dox:1624: Warning: image file parameters.png is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/mhttpd.dox:1796: Warning: Found unknown command `\NOTE'
+/home/nam/sw/daq/midas/doc/src/mhttpd.dox:2230: Warning: image file program1.png is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/mhttpd.dox:2250: Warning: image file program.png is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/mhttpd.dox:2378: Warning: image file pol_alarms_page_fepol.png is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/mhttpd.dox:2392: Warning: image file pol_fepol_alarm_status.png is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/mhttpd.dox:2413: Warning: image file three_alarms.png is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/mhttpd.dox:2462: Warning: image file mhttpd_MSCB.png is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/mhttpd.dox:2474: Error: Unexpected character `"'
+/home/nam/sw/daq/midas/doc/src/mhttpd.dox:2551: Warning: image file config.jpg is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/mhttpd.dox:2554: Warning: Found unknown command `\Note'
+/home/nam/sw/daq/midas/doc/src/mhttpd.dox:2601: Warning: Found unknown command `\Note'
+/home/nam/sw/daq/midas/doc/src/mhttpd.dox:2613: Warning: image file alias.jpg is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/mhttpd.dox:2655: Warning: Found unknown command `\Note'
+/home/nam/sw/daq/midas/doc/src/mhttpd.dox:2724: Warning: image file loggerstatuspage.jpg is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/custom_webpage.dox:19: Warning: image file custom_ROOT_analyzer_page.png is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/mhttpd_custom_odb_access.dox:28: Warning: Found unknown command `\Note'
+/home/nam/sw/daq/midas/doc/src/mhttpd_custom_odb_access.dox:103: Warning: image file html_ex1.jpg is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/mhttpd_custom_odb_access.dox:136: Warning: image file js_ex1.jpg is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/mhttpd_custom_odb_access.dox:138: Warning: image file js_ex2.jpg is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/mhttpd_custom_odb_access.dox:559: Warning: image file popups_js.png is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/mhttpd_custom_odb_access.dox:571: Warning: image file popups_html.png is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/mhttpd_custom_odb_access.dox:653: Warning: image file Odbget.png is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/mhttpd_custom_odb_access.dox:847: Warning: image file checkboxes.png is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/mhttpd_custom.dox:126: Warning: Found unknown command `\Note'
+/home/nam/sw/daq/midas/doc/src/mhttpd_custom_features.dox:223: Warning: Found unknown command `\Note'
+/home/nam/sw/daq/midas/doc/src/mhttpd_custom_features.dox:276: Warning: image file simple_custom.jpg is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/mhttpd_custom_features.dox:477: Warning: image file simple_msg.jpg is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/mhttpd_custom_odb_access.dox:28: Warning: Found unknown command `\Note'
+/home/nam/sw/daq/midas/doc/src/mhttpd_custom_odb_access.dox:103: Warning: image file html_ex1.jpg is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/mhttpd_custom_odb_access.dox:136: Warning: image file js_ex1.jpg is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/mhttpd_custom_odb_access.dox:138: Warning: image file js_ex2.jpg is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/mhttpd_custom_odb_access.dox:559: Warning: image file popups_js.png is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/mhttpd_custom_odb_access.dox:571: Warning: image file popups_html.png is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/mhttpd_custom_odb_access.dox:653: Warning: image file Odbget.png is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/mhttpd_custom_odb_access.dox:847: Warning: image file checkboxes.png is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/mhttpd_custom_image.dox:326: Warning: image file cursor.png is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/mhttpd_custom_odb_access.dox:28: Warning: Found unknown command `\Note'
+/home/nam/sw/daq/midas/doc/src/mhttpd_custom_odb_access.dox:103: Warning: image file html_ex1.jpg is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/mhttpd_custom_odb_access.dox:136: Warning: image file js_ex1.jpg is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/mhttpd_custom_odb_access.dox:138: Warning: image file js_ex2.jpg is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/mhttpd_custom_odb_access.dox:559: Warning: image file popups_js.png is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/mhttpd_custom_odb_access.dox:571: Warning: image file popups_html.png is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/mhttpd_custom_odb_access.dox:653: Warning: image file Odbget.png is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/mhttpd_custom_odb_access.dox:847: Warning: image file checkboxes.png is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/mhttpd_custom_odb_access.dox:559: Warning: image file popups_js.png is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/mhttpd_custom_odb_access.dox:571: Warning: image file popups_html.png is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/mhttpd_custom_odb_access.dox:653: Warning: image file Odbget.png is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/mhttpd_custom_odb_access.dox:847: Warning: image file checkboxes.png is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/mhttpd_custom_status.dox:65: Warning: image file bnmr_both_status_pages.gif is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/mhttpd_utility.dox:70: Warning: image file status_nothing.png is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/mhttpd_utility.dox:77: Warning: Found unknown command `\Note'
+/home/nam/sw/daq/midas/doc/src/midas_features.dox:126: Warning: Found unknown command `\Note'
+/home/nam/sw/daq/midas/doc/src/Organization.dox:48: Warning: found </ol> tag without matching <ol>
+/home/nam/sw/daq/midas/doc/src/Organization.dox:70: Warning: found </center> tag without matching <center>
+/home/nam/sw/daq/midas/doc/src/Organization.dox:328: Warning: Unsupported xml/html tag <channel_name> found
+/home/nam/sw/daq/midas/doc/src/Organization.dox:329: Warning: Unsupported xml/html tag <channel_name> found
+/home/nam/sw/daq/midas/doc/src/Organization.dox:330: Warning: Unsupported xml/html tag <channel_name> found
+/home/nam/sw/daq/midas/doc/src/Organization.dox:331: Warning: Unsupported xml/html tag <channel_name> found
+/home/nam/sw/daq/midas/doc/src/Organization.dox:776: Warning: Unsupported xml/html tag <client> found
+/home/nam/sw/daq/midas/doc/src/Organization.dox:1106: Warning: lonely <li> tag found
+/home/nam/sw/daq/midas/doc/src/Organization.dox:1111: Warning: found </ul> tag without matching <ul>
+/home/nam/sw/daq/midas/doc/src/perlmidas.dox:15: Warning: Found unknown command `\NOTE'
+/home/nam/sw/daq/midas/doc/src/quickstart.dox:346: Warning: Found unknown command `\Note'
+/home/nam/sw/daq/midas/doc/src/quickstart.dox:490: Error: Unexpected character `"'
+/home/nam/sw/daq/midas/doc/src/quickstart.dox:510: Error: Unexpected character `"'
+/home/nam/sw/daq/midas/doc/src/quickstart.dox:346: Warning: Found unknown command `\Note'
+/home/nam/sw/daq/midas/doc/src/quickstart.dox:490: Error: Unexpected character `"'
+/home/nam/sw/daq/midas/doc/src/quickstart.dox:510: Error: Unexpected character `"'
+/home/nam/sw/daq/midas/doc/src/mhttpd.dox:15: Warning: image file montage5.jpg is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/mhttpd_utility.dox:70: Warning: image file status_nothing.png is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/mhttpd_utility.dox:77: Warning: Found unknown command `\Note'
+/home/nam/sw/daq/midas/doc/src/mhttpd.dox:127: Warning: image file mhttpd_status.jpg is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/mhttpd.dox:255: Warning: image file new_status_buttons.jpg is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/mhttpd.dox:266: Warning: Found unknown command `\Note'
+/home/nam/sw/daq/midas/doc/src/mhttpd.dox:391: Warning: Found unknown command `\Note'
+/home/nam/sw/daq/midas/doc/src/mhttpd.dox:403: Warning: Found unknown command `\Note'
+/home/nam/sw/daq/midas/doc/src/mhttpd.dox:621: Warning: image file new_status_opt_buttons.jpg is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/mhttpd.dox:625: Warning: Found unknown command `\Note'
+/home/nam/sw/daq/midas/doc/src/mhttpd.dox:664: Warning: image file runstatus.jpg is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/mhttpd.dox:680: Warning: image file stoppingrun.jpg is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/mhttpd.dox:685: Warning: image file startingrun.jpg is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/mhttpd.dox:708: Warning: image file runcomment.jpg is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/mhttpd.dox:720: Warning: image file equipstatus1.jpg is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/mhttpd.dox:769: Warning: Found unknown command `\Note'
+/home/nam/sw/daq/midas/doc/src/mhttpd.dox:795: Warning: image file loggerstatus1.jpg is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/mhttpd.dox:817: Warning: image file lastmsg.jpg is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/mhttpd.dox:833: Warning: image file clientlist.jpg is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/userbuttons.dox:52: Warning: image file dac_button.jpg is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/userbuttons.dox:129: Warning: image file mpet_status_only.png is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/userbuttons.dox:134: Warning: Found unknown command `\Note'
+/home/nam/sw/daq/midas/doc/src/userbuttons.dox:148: Warning: image file mpet_script.png is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/userbuttons.dox:163: Warning: image file mpet_status.png is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/perlmidas.dox:15: Warning: Found unknown command `\NOTE'
+/home/nam/sw/daq/midas/doc/src/mhttpd.dox:198: Warning: image file new_status_page.png is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/mhttpd.dox:208: Warning: image file old_status_opt_buttons.jpg is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/mhttpd.dox:905: Warning: image file eos_rn.png is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/mhttpd.dox:1054: Warning: image file bnmr_start_fixedrn.gif is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/mhttpd.dox:1112: Warning: image file mhttpd_odb_page.gif is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/mhttpd.dox:1154: Warning: image file mhttpd_create.gif is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/mhttpd.dox:1208: Warning: Found unknown command `\Note'
+/home/nam/sw/daq/midas/doc/src/mhttpd.dox:1247: Warning: image file gas_equipment_1banknoname.gif is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/mhttpd.dox:1312: Warning: image file gas_equipment_1namedbank.gif is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/mhttpd.dox:1346: Warning: image file gas_equipment_2banks.gif is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/mhttpd.dox:1396: Warning: image file gas_equipment.gif is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/mhttpd.dox:1479: Warning: image file bnmr_equipment.gif is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/mhttpd.dox:1574: Warning: image file bnmr_info_odb.gif is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/mhttpd.dox:1624: Warning: image file parameters.png is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/mhttpd.dox:2230: Warning: image file program1.png is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/mhttpd.dox:2250: Warning: image file program.png is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/mhttpd.dox:2378: Warning: image file pol_alarms_page_fepol.png is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/mhttpd.dox:2392: Warning: image file pol_fepol_alarm_status.png is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/mhttpd.dox:2413: Warning: image file three_alarms.png is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/mhttpd.dox:2462: Warning: image file mhttpd_MSCB.png is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/mhttpd.dox:2474: Error: Unexpected character `"'
+/home/nam/sw/daq/midas/doc/src/mhttpd.dox:1796: Warning: Found unknown command `\NOTE'
+/home/nam/sw/daq/midas/doc/src/mhttpd.dox:2601: Warning: Found unknown command `\Note'
+/home/nam/sw/daq/midas/doc/src/mhttpd.dox:2613: Warning: image file alias.jpg is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/mhttpd.dox:2655: Warning: Found unknown command `\Note'
+/home/nam/sw/daq/midas/doc/src/mhttpd.dox:2724: Warning: image file loggerstatuspage.jpg is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/mhttpd.dox:2551: Warning: image file config.jpg is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/mhttpd.dox:2554: Warning: Found unknown command `\Note'
+/home/nam/sw/daq/midas/doc/src/custom_webpage.dox:19: Warning: image file custom_ROOT_analyzer_page.png is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/custom_webpage.dox:299: Warning: image file Capture_sgas.png is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/custom_webpage.dox:344: Warning: image file ebit_ppg.png is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/custom_webpage.dox:353: Warning: image file ebit_1e.jpg is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/custom_webpage.dox:386: Warning: image file mpet_optics.png is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/custom_webpage.dox:429: Warning: image file gas_analyzer_pop.png is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/custom_webpage.dox:439: Warning: image file gas_combo.gif is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/custom_webpage.dox:255: Warning: image file bnmr.png is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/custom_webpage.dox:258: Warning: image file bnqr.png is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/mhttpd_custom.dox:126: Warning: Found unknown command `\Note'
+/home/nam/sw/daq/midas/doc/src/mhttpd_custom_features.dox:223: Warning: Found unknown command `\Note'
+/home/nam/sw/daq/midas/doc/src/mhttpd_custom_features.dox:276: Warning: image file simple_custom.jpg is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/mhttpd_custom_features.dox:477: Warning: image file simple_msg.jpg is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/mhttpd_custom_odb_access.dox:28: Warning: Found unknown command `\Note'
+/home/nam/sw/daq/midas/doc/src/mhttpd_custom_odb_access.dox:103: Warning: image file html_ex1.jpg is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/mhttpd_custom_odb_access.dox:136: Warning: image file js_ex1.jpg is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/mhttpd_custom_odb_access.dox:138: Warning: image file js_ex2.jpg is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/mhttpd_custom_odb_access.dox:559: Warning: image file popups_js.png is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/mhttpd_custom_odb_access.dox:571: Warning: image file popups_html.png is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/mhttpd_custom_odb_access.dox:653: Warning: image file Odbget.png is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/mhttpd_custom_odb_access.dox:847: Warning: image file checkboxes.png is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/mhttpd_custom_status.dox:65: Warning: image file bnmr_both_status_pages.gif is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/RunControl.dox:941: Warning: Found unknown command `\Note'
+/home/nam/sw/daq/midas/doc/src/RunControl.dox:1363: Warning: Found unknown command `\Note'
+/home/nam/sw/daq/midas/doc/src/RunControl.dox:1605: Warning: Found unknown command `\Note'
+/home/nam/sw/daq/midas/doc/src/mhttpd_utility.dox:70: Warning: image file status_nothing.png is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/mhttpd_utility.dox:77: Warning: Found unknown command `\Note'
+/home/nam/sw/daq/midas/doc/src/mhttpd.dox:127: Warning: image file mhttpd_status.jpg is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/mhttpd.dox:255: Warning: image file new_status_buttons.jpg is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/mhttpd.dox:266: Warning: Found unknown command `\Note'
+/home/nam/sw/daq/midas/doc/src/mhttpd.dox:391: Warning: Found unknown command `\Note'
+/home/nam/sw/daq/midas/doc/src/mhttpd.dox:403: Warning: Found unknown command `\Note'
+/home/nam/sw/daq/midas/doc/src/mhttpd.dox:621: Warning: image file new_status_opt_buttons.jpg is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/mhttpd.dox:625: Warning: Found unknown command `\Note'
+/home/nam/sw/daq/midas/doc/src/mhttpd.dox:664: Warning: image file runstatus.jpg is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/mhttpd.dox:680: Warning: image file stoppingrun.jpg is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/mhttpd.dox:685: Warning: image file startingrun.jpg is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/mhttpd.dox:708: Warning: image file runcomment.jpg is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/mhttpd.dox:720: Warning: image file equipstatus1.jpg is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/mhttpd.dox:769: Warning: Found unknown command `\Note'
+/home/nam/sw/daq/midas/doc/src/mhttpd.dox:795: Warning: image file loggerstatus1.jpg is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/mhttpd.dox:817: Warning: image file lastmsg.jpg is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/mhttpd.dox:833: Warning: image file clientlist.jpg is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/userbuttons.dox:52: Warning: image file dac_button.jpg is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/userbuttons.dox:129: Warning: image file mpet_status_only.png is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/userbuttons.dox:134: Warning: Found unknown command `\Note'
+/home/nam/sw/daq/midas/doc/src/userbuttons.dox:148: Warning: image file mpet_script.png is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/userbuttons.dox:163: Warning: image file mpet_status.png is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/perlmidas.dox:15: Warning: Found unknown command `\NOTE'
+/home/nam/sw/daq/midas/doc/src/mhttpd.dox:198: Warning: image file new_status_page.png is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/mhttpd.dox:208: Warning: image file old_status_opt_buttons.jpg is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/custom_webpage.dox:19: Warning: image file custom_ROOT_analyzer_page.png is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/mhttpd_custom_odb_access.dox:28: Warning: Found unknown command `\Note'
+/home/nam/sw/daq/midas/doc/src/mhttpd_custom_odb_access.dox:103: Warning: image file html_ex1.jpg is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/mhttpd_custom_odb_access.dox:136: Warning: image file js_ex1.jpg is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/mhttpd_custom_odb_access.dox:138: Warning: image file js_ex2.jpg is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/mhttpd_custom_odb_access.dox:559: Warning: image file popups_js.png is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/mhttpd_custom_odb_access.dox:571: Warning: image file popups_html.png is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/mhttpd_custom_odb_access.dox:653: Warning: image file Odbget.png is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/mhttpd_custom_odb_access.dox:847: Warning: image file checkboxes.png is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/RunControl.dox:941: Warning: Found unknown command `\Note'
+/home/nam/sw/daq/midas/doc/src/RunControl.dox:1363: Warning: Found unknown command `\Note'
+/home/nam/sw/daq/midas/doc/src/RunControl.dox:1605: Warning: Found unknown command `\Note'
+/home/nam/sw/daq/midas/doc/src/userbuttons.dox:52: Warning: image file dac_button.jpg is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/userbuttons.dox:129: Warning: image file mpet_status_only.png is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/userbuttons.dox:134: Warning: Found unknown command `\Note'
+/home/nam/sw/daq/midas/doc/src/userbuttons.dox:148: Warning: image file mpet_script.png is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/userbuttons.dox:163: Warning: image file mpet_status.png is not found in IMAGE_PATH: assuming external image.
+/home/nam/sw/daq/midas/doc/src/perlmidas.dox:15: Warning: Found unknown command `\NOTE'
+/home/nam/sw/daq/midas/include/mvmestd.h:159: Warning: argument 'index' of command @param is not found in the argument list of mvme_open(MVME_INTERFACE **vme, int idx)
+/home/nam/sw/daq/midas/include/mvmestd.h:159: Warning: The following parameters of mvme_open(MVME_INTERFACE **vme, int idx) are not documented:
+  parameter 'idx'
+/home/nam/sw/daq/midas/include/mdsupport.h:67: Warning: unable to resolve reference to `MDSUPPORT_format' for \ref command
+/home/nam/sw/daq/midas/include/mdsupport.h:63: Warning: unable to resolve reference to `MDSUPPORT_Bank_Types' for \ref command
+/home/nam/sw/daq/midas/src/midas.c:1412: Warning: argument 'name_size' of command @param is not found in the argument list of cm_get_experiment_name(char *name, int name_length)
+/home/nam/sw/daq/midas/src/midas.c:1412: Warning: The following parameters of cm_get_experiment_name(char *name, int name_length) are not documented:
+  parameter 'name_length'
+/home/nam/sw/daq/midas/src/odb.c:778: Warning: argument 'database_name' of command @param is not found in the argument list of db_open_database(const char *xdatabase_name, INT database_size, HNDLE *hDB, const char *client_name)
+/home/nam/sw/daq/midas/src/odb.c:778: Warning: The following parameters of db_open_database(const char *xdatabase_name, INT database_size, HNDLE *hDB, const char *client_name) are not documented:
+  parameter 'xdatabase_name'
+/home/nam/sw/daq/midas/src/odb.c:3122: Warning: argument 'index' of command @param is not found in the argument list of db_set_value_index(HNDLE hDB, HNDLE hKeyRoot, const char *key_name, const void *data, INT data_size, INT idx, DWORD type, BOOL trunc)
+/home/nam/sw/daq/midas/src/odb.c:3122: Warning: argument 'truncate' of command @param is not found in the argument list of db_set_value_index(HNDLE hDB, HNDLE hKeyRoot, const char *key_name, const void *data, INT data_size, INT idx, DWORD type, BOOL trunc)
+/home/nam/sw/daq/midas/src/odb.c:3122: Warning: The following parameters of db_set_value_index(HNDLE hDB, HNDLE hKeyRoot, const char *key_name, const void *data, INT data_size, INT idx, DWORD type, BOOL trunc) are not documented:
+  parameter 'idx'
+  parameter 'trunc'

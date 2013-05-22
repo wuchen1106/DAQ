@@ -1,0 +1,63 @@
+.TH "DATABASE_CLIENT" 3 "31 May 2012" "Version 2.3.0-0" "Midas" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+DATABASE_CLIENT \- 
+.SH SYNOPSIS
+.br
+.PP
+.SH "Detailed Description"
+.PP 
+Definition at line 357 of file msystem.h.
+.SH "Field Documentation"
+.PP 
+.SS "\fBDWORD\fP \fBDATABASE_CLIENT::last_activity\fP"
+.PP
+Definition at line 364 of file msystem.h.
+.PP
+Referenced by cm_cleanup(), cm_get_watchdog_info(), cm_set_watchdog_params(), cm_update_last_activity(), and db_open_database().
+.SS "\fBINT\fP \fBDATABASE_CLIENT::max_index\fP"
+.PP
+Definition at line 366 of file msystem.h.
+.PP
+Referenced by cm_cleanup(), db_close_database(), and db_open_database().
+.SS "char \fBDATABASE_CLIENT::name\fP[NAME_LENGTH]"
+.PP
+Definition at line 358 of file msystem.h.
+.PP
+Referenced by cm_cleanup(), cm_get_watchdog_info(), and db_open_database().
+.SS "\fBINT\fP \fBDATABASE_CLIENT::num_open_records\fP"
+.PP
+Definition at line 363 of file msystem.h.
+.PP
+Referenced by db_open_database().
+.SS "\fBOPEN_RECORD\fP \fBDATABASE_CLIENT::open_record\fP[MAX_OPEN_RECORDS]"
+.PP
+Definition at line 368 of file msystem.h.
+.PP
+Referenced by cm_cleanup(), db_close_database(), and db_open_database().
+.SS "\fBINT\fP \fBDATABASE_CLIENT::pid\fP"
+.PP
+Definition at line 359 of file msystem.h.
+.PP
+Referenced by cm_check_client(), cm_cleanup(), cm_get_watchdog_info(), db_close_database(), and db_open_database().
+.SS "\fBINT\fP \fBDATABASE_CLIENT::port\fP"
+.PP
+Definition at line 362 of file msystem.h.
+.PP
+Referenced by db_open_database().
+.SS "\fBINT\fP \fBDATABASE_CLIENT::unused\fP"
+.PP
+Definition at line 361 of file msystem.h.
+.SS "\fBINT\fP \fBDATABASE_CLIENT::unused0\fP"
+.PP
+Definition at line 360 of file msystem.h.
+.SS "\fBDWORD\fP \fBDATABASE_CLIENT::watchdog_timeout\fP"
+.PP
+Definition at line 365 of file msystem.h.
+.PP
+Referenced by cm_cleanup(), cm_get_watchdog_info(), cm_set_watchdog_params(), and db_open_database().
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Midas from the source code.

@@ -1,0 +1,118 @@
+10
+
+dir
+5363
+svn+ssh://svn@savannah.psi.ch/afs/psi.ch/project/meg/svn/midas/trunk/mscb/embedded
+svn+ssh://svn@savannah.psi.ch/afs/psi.ch/project/meg/svn/midas
+
+
+
+2013-04-04T15:06:19.411978Z
+5354
+ritt
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+050218f5-8902-0410-8d0e-8a15d521e4f2
+
+hvr_200
+dir
+
+scs_920
+dir
+
+hvr_400
+dir
+
+hvr_500
+dir
+
+include
+dir
+
+protocols
+dir
+
+hvr_800
+dir
+
+src
+dir
+
+scs_1000
+dir
+
+projects
+dir
+
+scs_1001
+dir
+
+scs_2000
+dir
+
+scs_2001
+dir
+
+scs_3000
+dir
+
+subm_250
+dir
+
+subm_260
+dir
+
+hvr_test
+dir
+
+hvr_1600
+dir
+
+lib
+dir
+
+scs_210_dev
+dir
+
+scs_310_dev
+dir
+
+scs_210
+dir
+
+scs_300
+dir
+
+scs_220
+dir
+
+scs_310
+dir
+
+scs_400
+dir
+
+scs_320
+dir
+
+scs_500
+dir
+
+scs_600
+dir
+
+scs_520
+dir
+

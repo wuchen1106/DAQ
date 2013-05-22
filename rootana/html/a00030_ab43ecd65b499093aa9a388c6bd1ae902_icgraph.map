@@ -1,0 +1,9 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$a00015.html#ac2d58ceff032ecbd7dab209301034eb1" title="Add a templated function that returns event data in the format that we want." alt="" coords="233,59,473,88"/>
+<area shape="rect" id="node11" href="$a00030.html#a9ca976221e70917aebfd50e23b274c8d" title="TMidasEvent::LocateBank" alt="" coords="253,112,453,141"/>
+<area shape="rect" id="node16" href="$a00030.html#a442773e8be576cc7866e1a23f6c6d615" title="show all event information" alt="" coords="279,165,428,195"/>
+<area shape="rect" id="node5" href="$a00010.html#a488e1fa5ce7c9dbf04ad102236dcf380" title="Process each midas event." alt="" coords="603,112,848,141"/>
+<area shape="rect" id="node7" href="$a00039.html#af28d2599411ff7369e5c524cda7fe025" title="Update the histograms for this canvas." alt="" coords="543,5,908,35"/>
+<area shape="rect" id="node9" href="$a00013.html#ad83f3a6bc10f9f59f081e529b54fe131" title="Update the histograms for this canvas." alt="" coords="523,59,928,88"/>
+<area shape="rect" id="node14" href="$a00010.html#a378d2b4e5d93437808b5dc5496dd3ab8" title="This method can be implemented by users to update user histograms." alt="" coords="607,165,844,195"/>
+</map>

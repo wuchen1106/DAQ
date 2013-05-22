@@ -1,0 +1,1621 @@
+.TH "RC_customize_ODB" 3 "31 May 2012" "Version 2.3.0-0" "Midas" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+RC_customize_ODB \- Customizing the Experiment 
+
+.br
+  
+.br
+.SH "Introduction"
+.PP
+When the MIDAS system is installed, the ODB is loaded with default values, which will provide the user with a working system. However, by customizing the ODB, the user can enable powerful features, thus providing him or herself with very sophisticated DAQ system to suit almost every experiment. The user may even wish to customize their experiment further by providing \fBcustom web-pages\fP for their particular application.
+.PP
+Customizing the ODB for Run Control involves some or all of:
+.IP "\(bu" 2
+setting up the \fBEdit-on-Start\fP \fBparameters\fP
+.IP "\(bu" 2
+setting up \fBAccess control (web security)\fP
+.IP "\(bu" 2
+setting up \fBwrite-protection when running\fP
+.IP "\(bu" 2
+setting up \fBhot-links\fP
+.IP "\(bu" 2
+setting up the \fBdata logging\fP
+.IP "\(bu" 2
+setting up the \fBhistory logging\fP
+.IP "\(bu" 2
+setting up scripts to act at end and begin of run
+.IP "\(bu" 2
+setting up the \fBMIDAS Alarm System\fP
+.IP "\(bu" 2
+setting up \fBalias links\fP
+.IP "\(bu" 2
+setting up the \fBelog\fP
+.IP "\(bu" 2
+changing the size of the Midas buffers
+.PP
+.PP
+Other customization may include
+.IP "\(bu" 2
+\fBCustomize the scripts that start up and shut down the clients.\fP
+.PP
+.PP
+Some of this customization has already been described, such as setting up the data and history logging and the electronic logbook (see \fBSECTION 4: Features\fP). Further customization will be described in the following sections.
+.PP
+.PP
+.PP
+ 
+.SH "The ODB /Experiment tree"
+.PP
+When initially created by the MIDAS installation, the ODB /Experiment tree contains the following keys:
+.PP
+.PP
+.nf
+[local:t2kgas:S]/>ls -rlt /experiment
+Key name                        Type    #Val  Size  Last Opn Mode Value
+---------------------------------------------------------------------------
+Experiment                      DIR
+    Name                        STRING  1     32    13m  0   RWD  t2kgas
+    Buffer sizes                DIR
+        SYSMSG                  DWORD   1     4     25h  0   RWD  100000
+    Menu Buttons                STRING  1     256   25h  0   RWD  Start, ODB, Messages, ELog, Alarms, Programs, History, MSCB, Config, Help
+.fi
+.PP
+.PP
+The meaning of these keys is explained \fBbelow\fP.
+.PP
+
+.br
+ 
+.SS "Explanation of the keys in the ODB /Experiment tree"
+ This table also includes some of the \fBoptional keys\fP that the user may create.
+.PP
+that \fBparameters\fP Menu Buttons and Hide Run Buttons allow the customization of the run control buttons appearing on the \fBMain Status Page\fP . They have no effect when running \fBodbedit\fP;
+.PP
+Keys in /Experiment ODB tree
+.br
+   Key
+.br
+  Type
+.br
+  Explanation
+.br
+  
+.PP
+Name
+.br
+  
+.br
+  STRING
+.br
+  Contains the name of the experiment. Filled automatically when the ODB is created. 
+.PP
+Buffer Sizes
+.br
+  
+.br
+  DIR
+.br
+ 
+.PP
+Contains the sizes of the \fBMidas\fP \fBBuffers\fP for the experiment. Created with default values. The sizes can be changed to optimize the memory usage. See \fBIncrease the Event Buffer Size(s)\fP for details.  
+.PP
+
+.br
+  SYSMSG  DWORD  Size of SYSMSG buffer 
+.PP
+
+.br
+  SYSTEM  DWORD  Size of SYSTEM buffer  
+.PP
+ Menu Buttons
+.br
+  
+.br
+  STRING
+.br
+ 
+.PP
+This key added automatically by mhttpd  (since \fBDec 2009\fP).  to allow the \fBMenu buttons\fP that appear on the mhttpd \fBMain Status Page\fP to be customized. The default set of buttons is \fBStart, ODB, Messages, ELog, Alarms, Programs, History, MSCB Config, Help\fP
+.PP
+.PP
+ Hide Run Buttons
+.br
+  
+.br
+  BOOL
+.br
+  Optional key - hides the \fBRun Control buttons\fP on the mhttpd Main Status Page if set to 'y'  (since \fBNov 2009\fP ).   
+.PP
+Edit on Start
+.br
+  
+.br
+  DIR
+.br
+  This subdirectory may contain user-defined \fBparameters\fP which will be displayed for editing at the beginning of each run. See \fBDefining Edit-on-start Parameters\fP for details.  
+.PP
+
+.br
+  Edit run number  BOOL  Optional key. If present and set to 'y' will \fBPrevent the run number being edited at Run Start\fP . Active for \fBmhttpd\fP only (ignored by \fBodbedit\fP)  
+.PP
+
+.br
+  
+.br
+  
+.br
+ 
+.PP
+Any number of user-defined keys or links may be defined (i.e. the edit-on-start \fBparameters\fP). See example \fBbelow\fP  
+.PP
+Lock when running
+.br
+  
+.br
+  DIR
+.br
+  An optional subdirectory that may be created by the user  
+.PP
+
+.br
+  
+.br
+  
+.br
+ 
+.PP
+may contain user-defined links to keys that are to be write-protected when a run is in progress. See \fBLock when Running\fP for details. 
+.PP
+Parameter Comments
+.br
+  
+.br
+  DIR
+.br
+  Optional subdirectory may be created by the user.
+.br
+  
+.PP
+
+.br
+  
+.br
+  
+.br
+  Optional keys may be created by the user to contain parameter comments associated with the \fBEdit on Start\fP Parameters. See \fBEdit-on-start Parameter Comments\fP for details. Active for \fBmhttpd\fP only (ignored by \fBodbedit\fP)   Security
+.br
+  
+.br
+  DIR
+.br
+  subdirectory for user to set up security features. See \fBSecurity\fP for details   Above: Explanation of keys in /Experiment ODB tree
+.SS "Example of an  ODB /Experiment tree with optional subdirectories"
+An example of a typical /Experiment tree containing various optional keys is shown below.
+.PP
+.PP
+.nf
+[local:midas:S]/>ls -rlt /experiment
+Key name                        Type    #Val  Size  Last Opn Mode Value
+---------------------------------------------------------------------------
+Experiment                      DIR
+    Name                        STRING  1     32    14s  0   RWD  midas
+    Hide Run Buttons            BOOL    1     4     3h   0   RWD  n
+    Buffer sizes                DIR
+        SYSMSG                  DWORD   1     4     56h  0   RWD  100000
+        SYSTEM                  DWORD   1     4     56h  0   RWD  8388608
+    Menu Buttons                STRING  1     256   25h  0   RWD  Start, ODB, Messages, ELog, Alarms, Programs, History, MSCB, Config
+    Run Parameters              DIR
+        Comment                 STRING  1     32    3m   0   RWD   no beam, test only
+        Run Description         STRING  1     32    3m   0   RWD  28.2keV resonant energy 7Li
+        Sample                  STRING  1     15    3h   0   RWD  NA
+    Edit on Start               DIR
+        run_title -> /Experiment/run parameters/Run Description
+                                STRING  1     32    3m   0   RWD  28.2keV resonant energy 7Li
+        run_comment -> /Experiment/run parameters/comment
+                                STRING  1     32    3m   0   RWD   no beam, test only
+        experiment number       DWORD   1     4     3h   0   RWD  12
+        experimenter            STRING  1     32    3h   0   RWD  Douglas,Thomas,Minnie
+        sample ->  /Experiment/run parameters/Sample
+                                STRING  1     15    3h   0   RWD  NA
+        orientation             STRING  1     15    3h   0   RWD
+        temperature             STRING  1     15    3h   0   RWD
+        field                   STRING  1     15    3h   0   RWD
+        Element                 STRING  1     24    3h   0   RWD  li
+        Mass                    INT     1     4     3h   0   RWD  7
+        DC offset(V)            INT     1     4     3h   0   RWD  0
+        Ion source (kV)         DOUBLE  1     8     3h   0   RWD  28
+        Laser wavelength (nm)   DOUBLE  1     8     3h   0   RWD  14859.952
+        write data -> /Logger/Channels/0/Settings/Active
+                                BOOL    1     4     3h   0   RWD  y
+        Number of scans -> /Equipment/FIFO_acq/sis mcs/hardware/num scans
+                                INT     1     4     3h   0   RWD  10
+        Source HV Bias          STRING  1     12    3h   0   RWD  ISAC-WEST
+        Edit run number         BOOL    1     4     3h   0   RWD  n
+        Pedestals run           BOOL    1     4     3h   0   RWD  n
+    Lock when running           DIR
+        dis_rn_check -> /Equipment/FIFO_acq/mdarc/disable run number check
+                                BOOL    1     4     56h  0   RWD  n
+        SIS test mode -> /Equipment/FIFO_acq/sis mcs/sis test mode
+                                KEY     1     12    >99d 0   RWD  <subdirectory>
+        PPGinput -> /Equipment/FIFO_acq/sis mcs/Input
+                                KEY     1     12    >99d 0   RWD  <subdirectory>
+        SIS ref A -> /Equipment/FIFO_acq/sis mcs/Hardware/Enable SIS ref ch1 scaler A
+                                BOOL    1     4     56h  0   RWD  n
+        SIS ref B -> /Equipment/FIFO_acq/sis mcs/Hardware/Enable SIS ref ch1 scaler B
+                                BOOL    1     4     56h  0   RWD  y
+    Parameter Comments          DIR
+        Active                  STRING  1     36    56h  0   RWD  <i>Enter y to save data to disk</i>
+        Num scans               STRING 1     80    56h  0   RWD  <i>Stop run after num scans is reached. Enter 0 to disable (free running)</i>
+        Num cycles              STRING  1     80    56h  0   RWD  <i>Stop run after num cycles is reached. Enter 0 to disable (freerunning)</i>
+        Source HV Bias          STRING  1     80    56h  0   RWD  <i>Enter one of 'OLIS', 'ISAC-WEST' or 'ISAC-EAST' </i>
+    Transition debug flag       INT     1     4     21h  0   RWD  0
+    Transition connect timeout  INT     1     4     21h  0   RWD  10000
+    Transition timeout          INT     1     4     21h  0   RWD  120000
+    security                    DIR
+        Web Password            STRING  1     32    15h  0   RWD  mim2Q41CV.GW3
+.fi
+.PP
+.PP
+The meaning of these keys is described \fBabove\fP and in the following sections.
+.PP
+ 
+.SS "Customizing parameters under the ODB /Experiment tree"
+The user can optionally create the following subdirectories under the /Experiment tree if they do not exist already. These must have the names \fB
+.IP "\(bu" 2
+/Experiment/
+.IP "  \(bu" 4
+\fBEdit on Start\fP
+.IP "  \(bu" 4
+\fBParameter Comments\fP
+.IP "  \(bu" 4
+\fBRun Parameters\fP
+.IP "  \(bu" 4
+\fBLock when running\fP
+.IP "  \(bu" 4
+\fBSecurity\fP
+.PP
+
+.PP
+\fP
+.PP
+\fB\fP These keynames have a particular meaning for the MIDAS system which will be described below.
+.PP
+
+.br
+.PP
+
+.br
+ 
+.SS "Defining Edit-on-start Parameters"
+With \fBno\fP optional 'edit-on-start' \fBparameters\fP set up, when a run is started,
+.IP "\(bu" 2
+either by the \fBodbedit\fP command \fBstart\fP
+.IP "\(bu" 2
+or by clicking the \fBmhttpd\fP start button (see \fBmenu buttons\fP ) on the mhttpd main status page
+.PP
+.PP
+a \fB TR_START transition \fP is received, and the \fBrun number\fP of the upcoming run will be displayed for editing. It will have been \fBautomatically incremented\fP relative to the last run.
+.PP
+The following example shows a run started using  odbedit. See (see \fBStart page\fP) ,
+.PP
+The default run number of the next run is 30499. The user has changed this to 500. 
+.PP
+.nf
+[local:bnmr:S]/Experiment>start
+Run number [30499]: 500
+Are the above parameters correct? ([y]/n/q): 
+
+.fi
+.PP
+.PP
+ 
+.PP
+It is often convenient to \fBdisplay and edit additional \fBparameters\fP \fP at this time. These \fBparameters\fP are known as \fBEdit-on-start\fP \fBparameters\fP since they automatically appear every time a run starts, and they are editable by the user. \fBEdit-on-start\fP \fBparameters\fP are defined by creating them or linking to them in a special subdirectory named 'Edit on start' that the user may create in the ODB \fB/Experiment tree\fP. Links can point to any ODB key including the logger settings. It is often convenient to create a link to the logger setting which enables/disables writing of data. A quick test run can then be made without data logging, for example: 
+.PP
+.nf
+[local:bnmr:S]/Experiment>start
+Write data : n
+Run number [30499]:
+Are the above parameters correct? ([y]/n/q):  
+
+.fi
+.PP
+.PP
+The first step to setting up the \fBEdit on Start\fP \fBparameters\fP is to \fBcreate the subdirectory 'Edit on Start'\fP in the ODB under \fB/Experiment\fP as follows: 
+.PP
+.nf
+$odbedit
+[local:Default:S]/>cd /experiment
+[local:Default:S]/Experiment>mkdir 'Edit on start'
+[local:Default:S]/Experiment>cd 'Edit on start'
+[local:Default:S]/Edit on start>
+
+.fi
+.PP
+.PP
+ Then the user either \fBcreates the required \fBparameters\fP\fP, or, if the \fBparameters\fP already exist elsewhere in the ODB, \fBcreates links to the \fBparameters\fP\fP in the Edit on start subdirectory. Many users find it convenient to create their run \fBparameters\fP in a subdirectory of /Experiment named \fB'Run Parameters'\fP, and create links to them in the Edit on start subdirectory.
+.PP
+
+.br
+
+.br
+The example below shows the creation of three \fBparameters\fP in the Edit on start subdirectory: 
+.PD 0
+
+.IP "1." 4
+a \fBparameter\fP to contain the title of the run (called 'run_title') 
+.br
+ The user will be able to enter the title of each run before it starts 
+.IP "2." 4
+a \fBlink\fP to the ODB parameter /Logger/Write data 
+.br
+ It can make sense to create a link to the logger setting which enables/disables writing of data. A quick test run can then be made without data logging 
+.IP "3." 4
+a \fBlink\fP to the ODB parameter /Equipment/FIFO_acq/hardware/num scans which has been previously created by the user 
+.IP "4." 4
+a \fBlink\fP to the ODB parameter /Equipment/Run Parameters/Sample which has been previously created by the user 
+.PP
+.PP
+.PP
+.nf
+[local:Default:S]/Edit on start>
+[local:Default:S]/Edit on start>create string run_title
+String length [32]:128
+[local:Default:S]/Edit on start>ln '/Logger/Write data' 'write data'
+[local:Default:S]/Edit on start>ln '/Equipment/FIFO_acq/hardware/num scans' 'Number of scans'
+[local:Default:S]/Edit on start>ln '/Experiment/Run Parameters/Sample' 'sample'
+.fi
+.PP
+.PP
+Here is an example of the \fBEdit on start\fP \fBparameters\fP from an experiment:
+.PP
+.PP
+.nf
+[local:Default:S]Edit on start>ls -lt
+Key name                        Type    #Val  Size  Last Opn Mode Value
+---------------------------------------------------------------------------
+run_title                       STRING  1     128   3h   0   RWD  2e test
+experiment number               DWORD   1     4     3h   0   RWD  9999
+experimenter                    STRING  1     32    3h   0   RWD  gdm
+sample                          STRING  1     23    3h   0   RWD  /Experiment/Run Parameters/Sample -> NA
+orientation                     STRING  1     15    11h  0   RWD  
+temperature                     STRING  1     32    3h   0   RWD  285.12K
+field                           STRING  1     32    3h   0   RWD  0G
+Number of scans                 INT     1     4     11h  0   RWD  /Equipment/FIFO_acq/hardware/num scans -> 0
+write data                      BOOL    1     4     7s   0   RWD  /Logger/Write data -> y
+Edit run number                 BOOL    1     4     11h  0   RWD  n
+.fi
+.PP
+.PP
+that the 'Edit run number' feature (that prevents editing the run number) is available for mhttpd only. See \fBPrevent the run number being edited at Run Start\fP .
+.PP
+\fBExamples\fP of starting a run with \fB edit on start \fP \fBparameters\fP are shown here:
+.IP "\(bu" 2
+using \fBodbedit\fP or
+.IP "\(bu" 2
+using \fBmhttpd\fP .
+.PP
+.SS "Parameter Comments subdirectory"
+Optional parameter comments (in the /Experiment/Parameter Comments subdirectory) can be set up to give more information about the Edit-on-Start \fBparameters\fP. This feature is only active when using mhttpd. Setting up \fBEdit-on-start Parameter Comments\fP is described in the mhttpd \fBStart page\fP section. 
+.br
+.PP
+
+.br
+.SS "Run Parameters subdirectory"
+Users often create a subdirectory /Experiment/Run Parameters to contain any \fBparameters\fP needed for the run. These may be the subject of links from the Edit on start subdirectory (see \fBexample above\fP). 
+.br
+ In the case of mhttpd, two keys in this directory have special meaning. If the keys \fB'Comment'\fP or \fB'Run Description'\fP are created in the 'Run Parameter' subdirectory, the contents of each key will be displayed on an extra line on the mhttpd main status page. See \fBComment and Run Description\fP for details. 
+.br
+.PP
+
+.br
+.PP
+ 
+.SS "Lock when Running"
+Often it is desirable that various experimental ODB \fBparameters\fP should not to be changed when a run is in progress, i.e. that they are set to a 'read-only' mode while running. This can be done by creating logical links to these ODB keys in the optional directory \fB 'Lock when Running' \fP in the \fBThe ODB /Experiment tree\fP. 
+.br
+ In the example below, all the \fBparameters\fP under the declared tree will be switched to read-only, thus preventing any modification of these \fBparameters\fP during the run. 
+.PP
+.nf
+  [local]/>create key '/Experiment/Lock when running'
+  [local]/>cd '/Experiment/Lock when running'
+  [local]/>ln '/Experiment/Run parameters' 'Run parameter'
+  [local]/>ln '/Logger/Write Data' 'Write Data?'
+
+.fi
+.PP
+.PP
+In the following example, the user attempts to change one of the read-only \fBparameters\fP: 
+.PP
+.nf
+[local:bnmr:R]/>set '/Logger/Write Data' y
+Write access not allowed
+
+.fi
+.PP
+.PP
+
+.br
+.PP
+
+.br
+.PP
+  
+.SS "Access Control (Security) using the ODB"
+\fBNote:\fP
+.RS 4
+To prevent access by determined or malicious hackers, a \fBfirewall\fP and/or \fBrestrictions on off-site access\fP should be implemented. This kind of security can be provided by setting up \fBProxy Access to mhttpd\fP . 
+.br
+.RE
+.PP
+By default, there is no restriction for any user to connect locally or remotely to a given experiment. MIDAS provides a means to setup access restrictions using the ODB in order to protect the experiment from accidental or unauthorized access.
+.PP
+There are two levels of access restriction available each of which can be enabled independently:
+.IP "\(bu" 2
+To require a password before MIDAS clients can start running on the host.
+.IP "\(bu" 2
+To restrict write access via the web by requiring a password before any parameter can be changed.
+.PP
+.PP
+The user can select \fBeither\fP or \fBboth\fP of these security features.
+.PP
+Note that other forms of ODB access control independent of these security features is also available:
+.PP
+.IP "\(bu" 2
+Write access can be restricted during a run (see \fBLock when Running\fP )
+.IP "\(bu" 2
+Individual keys or subdirectories in the experiment's ODB can be set 'read only' with the odbedit command \fBchmod\fP.
+.PP
+.PP
+
+.br
+.PP
+
+.br
+.PP
+.SS "How to Setup Client Access Restrictions"
+ In order to \fBrestrict access\fP to the experiment, a password mechanism needs to be defined. This is provided by the 'Security' subdirectory in odb. This subdirectory is automatically created (if not already present) when the \fBodbedit\fP command \fBpasswd\fP is issued as follows: 
+.PP
+.nf
+  C:\online>odbedit
+  [local:Default:S]/>cd Experiment/
+  [local]/>passwd
+  Password:<xxxx>
+  Retype password:<xxxx>
+
+.fi
+.PP
+ After running the odb command 'passwd', three new sub-fields (odb keys) will be present under the /Experiment/Security subtree.
+.PP
+Keys in ODB /Experiment/Security subtree
+.br
+   Key
+.br
+  Type
+.br
+  Explanation
+.br
+  
+.PP
+Password  
+.br
+  STRING
+.br
+  Contains the encrypted password. Key is created when \fBodbedit\fP command \fBpasswd\fP is issued.  
+.PP
+Allowed hosts
+.br
+  
+.br
+  DIR  This key is created when \fBodbedit\fP command \fBpasswd\fP is issued. Subdirectory may contain names of remote hosts allowed to have free access (i.e. without password) to the current experiment. See \fBAllowed Hosts\fP .  
+.PP
+
+.br
+  pierre.triumf.ca  
+.br
+INT  
+.br
+Example - name of a host allowed password-less access to experiment (key created by the user).  
+.PP
+Allowed programs  
+.br
+  DIR  This key is created when \fBodbedit\fP command \fBpasswd\fP is issued. Subdirectory may contain names of clients allowed to have free access (i.e. without password) to the current experiment. See \fBAllowed programs\fP .  
+.PP
+
+.br
+  mstat  
+.br
+INT  
+.br
+Example - name of a client (run from any host) allowed password-less access to the experiment (key created by the user).  
+.PP
+Web Password  
+.br
+  STRING
+.br
+  This key specifies a separate encrypted password for Web server access. Key is created when \fBodbedit\fP command \fBwebpasswd\fP is issued. See \fBWeb Access restriction\fP.  
+.PP
+Above: Explanation of keys in ODB /Experiment/Security subtree
+.SS "Allowed Hosts"
+This key is a fixed directory name where names of remote hosts can be defined for free access to the current experiment. While the access restriction can make sense to deny access to outsider to a given experiment, it can be annoying for the people working directly at the back-end computer or for the automatic frontend reloading mechanism (MS-DOS, VxWorks configuration). To address this problem, specific hosts can be exempt from having to supply a password before being granted of full access.
+.PP
+.PP
+.nf
+  [local]/>cd '/Experiment/Security/Allowed hosts'
+  [local]rhosts>create int myhost.domain
+  [local]rhosts>
+.fi
+.PP
+ where <myHost.domain> is to be replaced by the full IP address of the host requesting full clearance, e.g 'pierre.triumf.ca'.
+.SS "Allowed programs"
+This key is a fixed directory name where a list of programs can be defined that have full access to the ODB \fIregardless of the node they are running on.\fP 
+.PP
+.nf
+  [local]/>cd '/Experiment/Security/Allowed programs'
+  [local]:S>create int mstat
+  [local]:S>
+
+.fi
+.PP
+ 
+.br
+
+.br
+.PP
+
+.br
+.PP
+
+.br
+  
+.SS "How to Setup Web Access Restriction"
+.PP
+This section is only applicable to access using mhttpd (i.e. web access). Access with odbedit is unaffected.
+.PP
+The ODB /Experiment/Security subtree can also be used to \fBrestrict access\fP to the experiment via the Web. This subtree is automatically created (if not already present) when the odbedit command \fBwebpasswd\fP is issued as follows: 
+.PP
+.nf
+  C:\online>odbedit
+  [local:Default:S]/>cd Experiment/
+  [local]/>webpasswd
+  Password:<xxxx>
+  Retype password:<xxxx>
+
+.fi
+.PP
+.PP
+After running \fBwebpasswd\fP, one new sub-field (odb key) i.e. \fB'Web Password'\fP will be present under the Security tree. If, of course, \fBclient security\fP is ALSO enabled, there will now be a total of four keys present.
+.SS "Web Password"
+This key specifies a separate password for the Web server access via \fBmhttpd\fP. If this field is active, the user will be requested to provide the 'Web Password' when accessing the requested experiment in 'Write Access' mode (see \fBexample\fP). The 'Read Only Access' mode is still available to all users. 
+.PP
+.nf
+[local:bnqr:S]/Experiment>ls Security/
+Web Password                    pon4@#@%SSDF2
+
+.fi
+.PP
+.PP
+.PP
+.SS "Examples of Access Control using the ODB Security subtree"
+The following examples illustrate \fBaccess control\fP using the ODB Security features:
+.SS "Example of Full access control  setup for an experiment"
+The following example shows the odb when \fBboth client and web security\fP have been setup. If client security \fBonly\fP is enabled, the key 'Web Password' would not be present.
+.PP
+.PP
+.nf
+Key name                        Type    #Val  Size  Last Opn Mode Value
+---------------------------------------------------------------------------
+Experiment                      DIR
+    Security                    DIR
+        Password                STRING  1     32    16h  0   RWD  #@D&%F56
+        Allowed hosts           DIR
+            host.sample.domain  INT     1     4     >99d 0   RWD  0
+            pierre.triumf.ca    INT     1     4     >99d 0   RWD  0
+            pcch02.triumf.ca    INT     1     4     >99d 0   RWD  0
+            koslx1.triumf.ca    INT     1     4     >99d 0   RWD  0
+            koslx2.triumf.ca    INT     1     4     >99d 0   RWD  0
+            vwchaos.triumf.ca   INT     1     4     >99d 0   RWD  0
+            koslx0.triumf.ca    INT     1     4     >99d 0   RWD  0
+        Allowed programs        DIR
+            mstat               INT     1     4     >99d 0   RWD  0
+            fechaos             INT     1     4     >99d 0   RWD  0
+        Web Password            STRING  1     32    16h  0   RWD  pon4@#@%SSDF2
+.fi
+.PP
+.PP
+
+.br
+.PP
+
+.br
+.SS "Example of Web-Only access control setup for an experiment"
+The following example shows the odb when \fBweb security only\fP has been enabled. See also \fBExample of Full access control setup for an experiment\fP 
+.PP
+.nf
+Key name                        Type    #Val  Size  Last Opn Mode Value
+---------------------------------------------------------------------------
+Experiment                      DIR
+    Security                    DIR
+        Web Password            STRING  1     32    16h  0   RWD  pon4@#@%SSDF2
+
+.fi
+.PP
+.PP
+.PP
+  
+.SS "To Remove Access Restrictions"
+ To remove the full password checking mechanism completely, the ODB security sub-tree has to be entirely deleted using the following command: 
+.PP
+.nf
+  [local]/>rm /Experiment/Security
+  Are you sure to delete the key
+  '/Experiment/Security'
+  and all its subkeys? (y/[n]) y
+
+.fi
+.PP
+.PP
+To partially remove access restrictions, remove only those keys relevent to web or client security. i.e. to remove web access restriction only, remove the key 'Web Password'
+.PP
+.PP
+.nf
+  [local]/>cd /Experiment/Security
+[local:bnmr:S]Security>ls
+Password                        #@D&%F56
+Allowed hosts
+Allowed programs
+Web Password                    pon4@#@%SSDF2
+
+[local:bnqr:S]Security>rm 'Web Password'
+Are you sure to delete the key
+'/Experiment/Security/Web Password'
+(y/[n]) y
+.fi
+.PP
+.PP
+Client security is retained: 
+.PP
+.nf
+[local:bnmr:S]Security>ls
+Password                      #@D&%F56  
+Allowed hosts
+Allowed programs
+
+.fi
+.PP
+.PP
+Alternatively, to retain web security only, delete the keys Password, Allowed hosts and Allowed Programs 
+.PP
+.nf
+  [local]/>cd /Experiment/Security
+[local:bnmr:S]Security>ls
+Password                        #@D&%F56
+Allowed hosts
+Allowed programs
+Web Password                    pon4@#@%SSDF2
+
+[local:bnqr:S]Security>rm 'Password'
+[local:bnqr:S]Security>rm 'Allowed Hosts'
+[local:bnqr:S]Security>rm 'Allowed programs'
+\encode
+
+So that the only key remaining is the Web Password key:
+\code
+[local:bnmr:S]Security>ls
+Web Password                    pon4@#@%SSDF2
+
+.fi
+.PP
+.PP
+
+.br
+ 
+.PP
+ 
+.br
+.SH "Customize the scripts that start up and shut down the clients."
+.PP
+  Before a run can be started, all the clients necessary to the experiment must be started. We have already seen in \fBSECTION 3: Quick Start\fP that templates of scripts to \fBstart and kill\fP the required clients are provided in the MIDAS package. These must be customized for your experiment. The following example shows the template start-up script \fBstart_daq.sh\fP that starts
+.IP "\(bu" 2
+a frontend
+.IP "\(bu" 2
+an analyzer,
+.IP "\(bu" 2
+\fBMIDAS logger\fP to save the data
+.IP "\(bu" 2
+the run-control/monitoring program \fBmhttpd\fP and the template kill script \fBkill_daq.sh\fP that shuts then all down.
+.PP
+.PP
+start_daq.sh kill_daq.sh 
+.PP
+.nf
+#!/bin/sh
+
+. setup.sh
+
+
+./kill_daq.sh
+
+odbedit -c clean
+
+mhttpd -p 8081 -D
+sleep 2
+xterm -e ./frontend &
+xterm -e ./analyzer &
+mlogger -D
+
+
+echo Please point your web browser to http://localhost:8081
+echo Or run: firefox http://localhost:8081 &
+echo To look at live histograms, run: roody -Hlocalhost
+
+#end file
+
+.fi
+.PP
+  
+.br
+ 
+.PP
+.nf
+#!/bin/sh
+
+killall mlogger
+killall mhttpd
+killall frontend
+killall analyzer
+sleep 1
+
+#end file
+
+.fi
+.PP
+   Above: Template scripts to start and kill the clients 
+.SS "Example of a start-all script"
+The following is a start-all script from an experiment at TRIUMF. It can be run at any time to restart any clients that have stopped. Note that it also starts \fBmserver\fP, because the frontend is run on a remote host.
+.PP
+.PP
+.nf
+#!/bin/sh
+# Host based
+if [ $HOST == 'lxebit.triumf.ca' ]; then
+ echo 'run start-all from titan04 only '
+else
+#. setup.sh
+
+
+odbedit -c clean
+#odbedit -c 'rm /Analyzer/Trigger/Statistics'
+#odbedit -c 'rm /Analyzer/Scaler/Statistics'
+
+
+ps -ef > ~/temp
+grep --silent 'mserver' ~/temp
+if [ '$?' != '0' ];  then
+    echo 'Starting mserver '
+    $MIDASSYS/linux/bin/mserver -D
+else
+ echo 'mserver is already running'
+fi
+rm ~/temp
+
+# Start the http MIDAS server
+ps -ef > ~/temp
+grep --silent 'mhttpd -p 8089' ~/temp
+if [ '$?' != '0' ] ; then
+    echo 'Starting mhttpd'
+     $MIDASSYS/linux/bin/mhttpd -p 8089 -D
+  else
+ echo mhttpd is already running
+fi
+rm ~/temp
+
+sleep 2
+#xterm -e ./frontend &
+#xterm -e ./analyzer &
+
+# The  MIDAS logger
+# Start the logger
+$MIDASSYS/linux/bin/odbedit -c scl | grep --silent  Logger
+if [ '$?' != '0' ] ; then
+    echo 'Starting mlogger'
+    $MIDASSYS/linux/bin/mlogger  -D
+  else
+ echo mlogger is already running
+fi
+
+
+# start the feebit program via remote login on lxebit
+ssh lxebit ~/online/bin/start_feebit_ppg
+
+
+echo Please point your web browser to http://localhost:8089
+#echo Or run: mozilla http://localhost:8089 &
+#echo To look at live histograms, run: roody -Hlocalhost
+fi
+#end file
+.fi
+.PP
+.SS "Example of a kill-all script"
+This is the kill-all script for the ebit experiment at TRIUMF.
+.PP
+.PP
+.nf
+#!/bin/sh
+# Host based
+if [ $HOST == 'lxebit.triumf.ca' ] ; then
+ echo 'run kill-all from titan04 only '
+else
+  killall mserver
+  killall mlogger
+  killall mhttpd
+  killall feebit_ppg
+  killall analyzer
+  sleep 1
+fi
+#end file
+.fi
+.PP
+.PP
+
+.br
+.PP
+
+.br
+   
+.SH "mserver      - MIDAS Remote server"
+.PP
+mserver provides remote access to any MIDAS client. It is needed when \fBone or more of the MIDAS clients for an experiment are running on a different host\fP. In this case, an mserver client must be started on the host where the experiment resides.
+.PP
+For example, if there is no mserver client is running on host dasdevpc2, then an attempt to run a client on dasdevpc2 from a remote computer (isdaq01) will result in an error message: 
+.PP
+.nf
+[bnmr@isdaq01 ~/online]$ odb -e t2kgas -h dasdevpc2
+Cannot connect to remote host
+
+.fi
+.PP
+ If an mserver client is now started on host dasdevpc2, 
+.PP
+.nf
+[suz@dasdevpc2 ~]$ mserver -D
+mserver started interactively
+Becoming a daemon...
+
+.fi
+.PP
+ Now one can connect to the remote experiment : 
+.PP
+.nf
+[bnmr@isdaq01 ~/online]$ odb -e t2kgas -h dasdevpc2
+[dasdevpc2:t2kgas:S]/>quit
+
+.fi
+.PP
+.PP
+The mserver utility usually runs in the background and doesn't need to be modified. In the case where debugging is required, the mserver can be started with the -d flag which will write an entry for each transaction to a log file \fI /tmp/mserver.log \fP . The log entry contains the time stamp and RPC call request. 
+.br
+.PP
+More than one mserver can be started on a system, provided they use different tcp ports. This is useful if, for example, different versions of MIDAS are in use on a single host at the same time. To start a version of mserver on a different port, use the -p argument, e.g. mserver -p XXXX -D 
+.br
+ To connect a client to this version of mserver, use the format 'hostname:port', e.g. 
+.PP
+.nf
+   fe_test -h lin08:7066 -e expt
+
+.fi
+.PP
+ 
+.br
+.SS "mserver arguments"
+.IP "\(bu" 2
+\fB Arguments \fP
+.IP "  \(bu" 4
+[-h ] : help
+.IP "  \(bu" 4
+[-s ] : Single process server
+.IP "  \(bu" 4
+[-t ] : Multi thread server
+.IP "  \(bu" 4
+[-m ] : Multi process server (default)
+.IP "  \(bu" 4
+[-p ] : Port number; listen for connections on non-default tcp port
+.IP "  \(bu" 4
+[-d ] : Write debug info to /tmp/mserver.log
+.IP "  \(bu" 4
+[-D ] : Become a Daemon
+.PP
+
+.PP
+.PP
+.SH "The ODB /Programs tree"
+.PP
+The ODB \fB/Programs\fP tree is created by the system. It contains
+.PP
+.IP "\(bu" 2
+key \fBExecute on start run\fP
+.IP "\(bu" 2
+key \fBExecute on stop run\fP
+.IP "\(bu" 2
+a \fBsubdirectory for each client\fP that runs on the experiment.
+.PP
+.PP
+The subdirectory is created by the system the first time a client runs. The following is an example of the \fB/Programs\fP tree from an experiment:
+.PP
+.PP
+.nf
+[local:bnmr:S]/>ls -lt /programs
+Key name                        Type    #Val  Size  Last Opn Mode Value
+---------------------------------------------------------------------------
+Execute on start run            STRING  1     256   18h  0   RWD  /home/bnmr/online/bnmr/bin/at_start_run.csh
+Execute on stop run             STRING  1     256   18h  0   RWD  /home/bnmr/online/bnmr/bin/at_end_run.csh
+ODBEdit                         DIR
+Logger                          DIR
+Epics                           DIR
+rf_config                       DIR
+mheader                         DIR
+Mdarc                           DIR
+autorun                         DIR
+feBNMR                          DIR
+camplog                         DIR
+Lcrplot                         DIR
+mhttpd                          DIR
+mdump                           DIR
+Speaker                         DIR
+mdarc_cleanup                   DIR
+.fi
+.PP
+.SS "The ODB /Programs/<client> subtree"
+The subdirectory for each client contains system information as well as task-specific characteristics, such as the watchdog timeout, optionally a command to restart the task, the optional \fBalarm condition\fP etc. The following example shows the subdirectory for the \fBmlogger\fP client:
+.PP
+.PP
+.nf
+[local:bnmr:S]/>ls -lt /programs/logger
+Key name                        Type    #Val  Size  Last Opn Mode Value
+---------------------------------------------------------------------------
+Required                        BOOL    1     4     4h   0   RWD  y
+Watchdog timeout                INT     1     4     4h   0   RWD  10000
+Check interval                  DWORD   1     4     4h   0   RWD  180000
+Start command                   STRING  1     256   4h   0   RWD  mlogger -D
+Auto start                      BOOL    1     4     4h   0   RWD  n
+Auto stop                       BOOL    1     4     4h   0   RWD  n
+Auto restart                    BOOL    1     4     4h   0   RWD  y
+Alarm class                     STRING  1     32    4h   0   RWD  Caution
+First failed                    DWORD   1     4     4h   0   RWD  1259294464
+.fi
+.PP
+.PP
+The fields of the /Programs tree are explained below.
+.SS "Customize the ODB /Programs tree"
+The \fBparameters\fP of each client in the \fB/Programs\fP tree should be customized for the experiment. The meaning of the fields is explained below. This may involve adjusting the watchdog timer, turning on an alarm if the client dies, starting the client automatically using a supplied start command etc. Customizing is done individually for each client.
+.PP
+The fields \fBExecute on start run\fP and \fBExecute on stop run\fP may be filled by the user with a command to be executed on the appropriate run transition, for example
+.IP "\(bu" 2
+an \fBodbedit\fP command, to set or clear an odb parameter e.g 
+.br
+ \fB odb -c 'set '/Equipment/fifo_acq/client flags/client alarm' 0' \fP
+.IP "\(bu" 2
+or the \fB name and path of a script\fP as shown in the example above.
+.PP
+.PP
+Keys in the ODB tree /Programs   ODB Key  Explanation  
+.PP
+Programs  
+.br
+ 
+.br
+ 
+.br
+ 
+.br
+ 
+.PP
+
+.br
+ Execute on start run  
+.br
+ STRING Contains optional command or script to be executed on START transition.  
+.PP
+
+.br
+ Execute on stop run  
+.br
+ STRING Contains optional command or script to be executed on STOP transition (see \fBexample\fP)  
+.PP
+
+.br
+ Logger 
+.br
+ STRING Name of client. There will be a subdirectory created for each client named with the client-name. This example shows the subdirectory for the client 'Logger'.  
+.PP
+
+.br
+ 
+.br
+  Required BOOL If set to 'y', a run will be prevented from starting if this client is not running. Set to 'y' for essential clients only. It should be combined with setting \fBAuto start\fP and/or \fBAuto restart\fP to 'y', and supplying a \fBStart command\fP. If set to 'n', the run will start successfully without this client running. Note that this field also changes the display in the  \fBmhttpd\fP \fBPrograms page\fP.  
+.PP
+
+.br
+ 
+.br
+  Watchdog timeout INT This value is the watchdog timeout set in milliseconds. A watchdog runs automatically checking (every \fBCheck interval\fP ms) whether the client responds. If the client has not been responded for \fBWatchdog\fP \fBtimeout\fP ms, the client will be assumed to have timed out, and it will be killed. The watchdog time for each client should be adjusted as required. For example, clients that contact external hardware that is slow to respond should have a longer time set, or they may timeout before the operation is complete.  
+.PP
+
+.br
+ 
+.br
+  Check interval INT This value is the time interval in milliseconds that the Watchdog checks the client to see if it is responding. See \fBWatchdog timeout\fP .  
+.PP
+
+.br
+ 
+.br
+  Start Command STRING Contains the command used to restart the client. It is required if either \fBAuto start\fP, or \fBAuto restart\fP is set to 'y', or the user wishes to start or restart the client using the \fBmhttpd restart button\fP). If no start command is supplied, the user can restart the client by hand, or by using the (customized) script  'start_daq.sh' .  
+.PP
+
+.br
+ 
+.br
+   Auto start BOOL If set to 'y' the client will be started automatically using the \fBStart Command\fP. This will occur when an experiment is first started after killing all clients. If the client then dies (or times out - see \fBWatchdog time out\fP) the client will \fBnot\fP be restarted unless \fBAuto restart\fP is set to 'y'.  
+.PP
+
+.br
+ 
+.br
+   Auto stop BOOL If this is set to 'y' ...  
+.PP
+
+.br
+ 
+.br
+   Auto restart BOOL If set to 'y' the client will be restarted automatically using the \fBStart Command\fP. This will occur if the client dies or times out (see \fBWatchdog time out\fP). If set to 'n', the client must be restarted by the user (see \fBStart command\fP). See also \fBAuto start\fP.  
+.PP
+
+.br
+ 
+.br
+  Alarm class STRING If this field is set to one of the existing \fBalarm classes\fP, an entry in the \fB/Alarms/alarms\fP tree will be automatically created for this program. The \fBAlarm Type\fP will be \fIProgram\fP \fIAlarm\fP . This will cause an alarm to go off if the program is not running (provided both the \fBalarm system\fP and the \fBindividual alarm\fP are enabled).  
+.PP
+
+.br
+ 
+.br
+  First_failed DWORD Value filled by the System to indicate when client first failed.  
+.PP
+Above: Meaning of keys in the ODB /Programs tree. 
+.PP
+
+.br
+.PP
+ 
+.PP
+ 
+.SH "MIDAS Alarm System"
+.PP
+MIDAS provides an alarm system, which by default is turned off. When the alarm system is \fBactivated\fP and an alarm condition is detected, alarms messages are sent by the system which appear as an \fBalarm banner\fP on the \fBmhttpd\fP main status page, and as a \fBmessage\fP on any windows running \fBodbedit\fP clients. The alarm system is flexible and can be extensively customized for each experiment.
+.PP
+The MIDAS alarm system is built-in and part of the main experiment scheduler. This means no separate task is necessary to benefit from the alarm system. The Alarm feature is active during \fBONLINE\fP mode \fBONLY\fP.  Alarm setup and activation is done through the Online DataBase (ODB). The alarm system includes several other features such as sequencing and control of the experiment. The alarm capabilities are:
+.IP "\(bu" 2
+Alarm setting on any ODB variable against a threshold parameter.
+.IP "\(bu" 2
+Alarm triggered by \fBevaluated condition\fP
+.IP "\(bu" 2
+Selection of Alarm check frequency
+.IP "\(bu" 2
+Selection of Alarm trigger frequency
+.IP "\(bu" 2
+Customizable alarm scheme; under this scheme multiple choices of alarm type can be selected.
+.IP "\(bu" 2
+Selection of alarm message destination ( to system message log or to elog)
+.IP "\(bu" 2
+\fBemail or SMS alerts\fP can be sent
+.IP "\(bu" 2
+Program control on run transition.
+.PP
+.PP
+The alarm system can be customized through \fBODBEdit\fP or the \fBmhttpd Alarm page\fP. Some of the features (such as colour) are applicable only to \fBmhttpd\fP.
+.PP
+The following sections describe how to use the MIDAS Alarm System.
+.PP
+See also \fBImplementation of the MIDAS Alarm System\fP
+.PP
+     
+.PP
+ 
+.SS "ODB /Alarms Tree"
+The \fB ODB /Alarms tree \fP contains user and system information related to alarms. When the ODB is created,
+.IP "\(bu" 2
+two \fBClasses\fP of alarm are created : \fBAlarm\fP and \fBWarning\fP 
+.IP "\(bu" 2
+two \fBAlarms\fP are created: \fBDemo\fP \fBODB\fP and \fBDemo\fP \fBPeriodic\fP 
+.IP "\(bu" 2
+by default, the \fBalarm system is NOT active\fP
+.PP
+.PP
+Currently, the overall alarm is checked once every minute. Once the alarm has been triggered, the message associated with the alarm can be repeated at a different rate. The \fBAlarms\fP structure is split into 2 sections:
+.IP "\(bu" 2
+\fB'Alarms'\fP which define the condition to be tested. The user can create as many Alarms as desired, but each must be one of the four defined \fBAlarm Types\fP .
+.IP "\(bu" 2
+\fB'Classes'\fP which define the action to be taken when the alarm occurs. Two Classes (Alarm and Warning) are defined by default. The user can add more Classes as desired.
+.PP
+.PP
+ The four available Alarm Types are shown in the following table. They are defined in \fBmidas.h\fP. 
+.br
+Alarm Type  INT value Explanation  
+.PP
+Internal alarms  AT_INTERNAL 1 Trigger on internal (program) alarm setting through the use of the \fIal_...()\fP functions.  
+.PP
+Program alarms  AT_PROGRAM 2 Triggered on condition of the state of the defined task.  
+.PP
+Evaluated  AT_EVALUATED 3 Triggered by ODB value on given arithmetical condition.  
+.PP
+Periodic alarms  AT_PERIODIC 4 Triggered by timeout condition defined in the alarm setting.   Above: Defined Alarm Types. 
+.PP
+In order to make the system flexible, each alarm class may perform different actions when an alarm is given. For example, it may write a system message, write to the elog, stop the run or spawn a detached script listed in the ODB variable /Programs/Classes/Execute command. This feature is used when an \fBAlarm triggers Email or SMS alerts\fP .
+.SS "Evaluated Alarm conditions"
+The alarm \fBcondition\fP for evaluated alarms is entered into the ODB key /Alarms/Alarms/<alarm_name>/Condition  where <alarm_name> is the name of the alarm. See \fBcondition key\fP.
+.PP
+The \fBcondition\fP may be simply a comparison between any ODB variable and a threshold parameter, e.g. 
+.PP
+.nf
+ /Runinfo/Run number > 100
+
+.fi
+.PP
+ or it may be an evaluated condition. One can write conditions like 
+.PP
+.nf
+  /Equipment/HV/Variables/Input[*] < 100
+
+.fi
+.PP
+ or 
+.PP
+.nf
+  /Equipment/HV/Variables/Input[2-3] < 100
+
+.fi
+.PP
+ to check all values from an array or a certain range. If one array element fulfills the alarm condition, the alarm is triggerrd. In addition, bit-wise alarm conditions are possible, e.g. 
+.PP
+.nf
+  /Equipment/Environment/Variables/Input[0] & 8
+
+.fi
+.PP
+ The alarm is triggered if bit #2 is set in Input[0].
+.PP
+.PP
+.SS "Meaning of the keys in the /Alarms ODB tree"
+Keys in the ODB tree /Alarms   ODB Key  Explanation  
+.PP
+Alarms  
+.br
+ 
+.br
+ 
+.br
+ DIR
+.PP
+
+.br
+ 
+.PP
+
+.br
+  Alarm system active 
+.br
+ 
+.br
+ BOOL If set to 'y'the alarm system is active. Set to 'n' to deactivate.  
+.PP
+
+.br
+ Alarms 
+.br
+ 
+.br
+ DIR Sub-tree defining each individual alarm condition. 
+.PP
+
+.br
+ 
+.br
+ Demo odb 
+.br
+ DIR Name of one of the defined alarms 
+.PP
+
+.br
+ 
+.br
+ 
+.br
+  Active BOOL If set to 'y' , this particular alarm is active.  
+.PP
+
+.br
+ 
+.br
+ 
+.br
+ Triggered INT If non-zero, alarm is triggered. Filled by System.  
+.PP
+
+.br
+ 
+.br
+ 
+.br
+ Type INT One of the listed \fBAlarm Types\fP  
+.PP
+
+.br
+ 
+.br
+ 
+.br
+ Check interval INT Frequency in seconds that alarm condition is checked  
+.PP
+
+.br
+ 
+.br
+ 
+.br
+ Checked last DWORD Written by Alarm System  
+.PP
+
+.br
+ 
+.br
+ 
+.br
+ Time triggered first STRING Written by Alarm System  
+.PP
+
+.br
+ 
+.br
+ 
+.br
+ Time triggered last STRING Written by Alarm System  
+.PP
+
+.br
+ 
+.br
+ 
+.br
+  Condition STRING \fBCondition\fP on which alarm should trigger.  
+.PP
+
+.br
+ 
+.br
+ 
+.br
+ Alarm class STRING Set to one of the existing Alarm classes, e.g. Alarm, Warning  
+.PP
+
+.br
+ 
+.br
+ 
+.br
+ Alarm message STRING Message to be written when alarm triggers  
+.PP
+
+.br
+ Classes 
+.br
+ 
+.br
+ DIR Sub-tree defining each individual action to be performed by a pre-defined and requested alarm. 
+.PP
+
+.br
+ 
+.br
+ Warning 
+.br
+ DIR Name of one of the defined classes 
+.PP
+
+.br
+ 
+.br
+ 
+.br
+ Write System Message BOOL If set to 'y' a message will be sent to the System log when alarm is triggered.  
+.PP
+
+.br
+ 
+.br
+ 
+.br
+ Write Elog Message BOOL If set to 'y' a message will be written to the Elog when alarm is triggered  
+.PP
+
+.br
+ 
+.br
+ 
+.br
+ System message interval INT Interval in seconds between successive system messages when alarm is triggered  
+.PP
+
+.br
+ 
+.br
+ 
+.br
+ System message last DWORD Filled by System...  
+.PP
+
+.br
+ 
+.br
+ 
+.br
+ Execute command STRING Command to be executed when alarm is triggered.  
+.PP
+
+.br
+ 
+.br
+ 
+.br
+ Execute last DWORD 
+.br
+  
+.PP
+
+.br
+ 
+.br
+ 
+.br
+ Stop run BOOL 
+.br
+  
+.PP
+
+.br
+ 
+.br
+ 
+.br
+ Display BGColor STRING Background colour of \fBalarm banner\fP (mhttpd only).  
+.PP
+
+.br
+ 
+.br
+ 
+.br
+ Display FGColor STRING Foreground colour of \fBalarm banner\fP (mhttpd only).   Above: Meaning of keys in the ODB /Alarms tree. 
+.br
+.PP
+
+.br
+.SS "Examples of an /Alarms tree"
+Part of the \fB /Alarms \fP tree is shown below using \fBodbedit\fP (see also \fBmhttpd Alarm page\fP).
+.PP
+.PP
+.nf
+[local:pol:S]/>cd /alarms
+[local:pol:S]/Alarms>ls
+Alarm system active             y
+Alarms
+Classes
+.fi
+.PP
+.PP
+Some of the types of alarm under the \fB /Alarms/Alarms \fP tree for an experiment are shown below: 
+.PP
+.nf
+[local:pol:S]/Alarms>ls -r -lt
+Key name                        Type    #Val  Size  Last Opn Mode Value
+---------------------------------------------------------------------------
+Alarms                          DIR
+    Alarm system active         BOOL    1     4     4h   0   RWD  y
+    Alarms                      DIR
+        Demo ODB                DIR
+            Active              BOOL    1     4     >99d 0   RWD  n
+            Triggered           INT     1     4     >99d 0   RWD  0
+            Type                INT     1     4     >99d 0   RWD  3
+            Check interval      INT     1     4     >99d 0   RWD  60
+            Checked last        DWORD   1     4     >99d 0   RWD  0
+            Time triggered firstSTRING  1     32    >99d 0   RWD
+            Time triggered last STRING  1     32    >99d 0   RWD
+            Condition           STRING  1     256   >99d 0   RWD  /Runinfo/Run number > 100
+            Alarm Class         STRING  1     32    >99d 0   RWD  Alarm
+            Alarm Message       STRING  1     80    >99d 0   RWD  Run number became too large
+        Demo periodic           DIR
+              Active              BOOL    1     4     >99d 0   RWD  n
+            Triggered           INT     1     4     >99d 0   RWD  0
+            Type                INT     1     4     >99d 0   RWD  4
+            Check interval      INT     1     4     >99d 0   RWD  28800
+            Checked last        DWORD   1     4     >99d 0   RWD  1058817867
+            Time triggered firstSTRING  1     32    >99d 0   RWD
+            Time triggered last STRING  1     32    >99d 0   RWD
+            Condition           STRING  1     256   >99d 0   RWD
+            Alarm Class         STRING  1     32    >99d 0   RWD  Warning
+            Alarm Message       STRING  1     80    >99d 0   RWD  Please do your shift checks
+        fePOL                   DIR
+            Active              BOOL    1     4     19s  0   RWD  y
+            Triggered           INT     1     4     19s  0   RWD  205
+            Type                INT     1     4     3s   0   RWD  2
+            Check interval      INT     1     4     19s  0   RWD  60
+            Checked last        DWORD   1     4     19s  0   RWD  1259196026
+            Time triggered firstSTRING  1     32    19s  0   RWD  Wed Nov 25 12:59:33 2009
+            Time triggered last STRING  1     32    19s  0   RWD  Wed Nov 25 16:40:26 2009
+            Condition           STRING  1     256   3s   0   RWD  Program not running
+            Alarm Class         STRING  1     32    19s  0   RWD  Caution
+            Alarm Message       STRING  1     80    19s  0   RWD  Program fePOL is not running
+        thr2 trip               DIR
+            Active              BOOL    1     4     3s   0   RWD  y
+            Triggered           INT     1     4     3s   0   RWD  0
+            Type                INT     1     4     3s   0   RWD  3
+            Check interval      INT     1     4     3s   0   RWD  15
+            Checked last        DWORD   1     4     3s   0   RWD  1259196042
+            Time triggered firstSTRING  1     32    3s   0   RWD
+            Time triggered last STRING  1     32    3s   0   RWD
+            Condition           STRING  1     256   3s   0   RWD  /Equipment/Info ODB/Variables/last failed thr test = 2
+            Alarm Class         STRING  1     32    3s   0   RWD  Threshold
+            Alarm Message       STRING  1     80    3s   0   RWD  Laser threshold check failed
+
+.fi
+.PP
+.PP
+In the above example,
+.IP "\(bu" 2
+\fBDemo odb\fP and \fBDemo periodic\fP were created when the ODB was created.
+.IP "\(bu" 2
+The alarm \fBFepol\fP was added automatically when the user filled the \fBalarm class\fP field in the \fB/Programs/fepol\fP sub-tree.
+.IP "\(bu" 2
+The other alarm \fBthr2_trip\fP was added by the user. 
+.br
+
+.PP
+.PP
+Four Classes of alarms (Alarm, Caution, Warning and Threshold) are defined under the /Alarms/Classes tree for this experiment. Alarm and Warning were created when the ODB was created. The user added two more classes, Caution and Threshold, by \fBcopying\fP and \fBediting\fP one of the existing classes. The Classes defined for the experiment are shown below:
+.PP
+.PP
+.nf
+   Classes                      DIR
+        Alarm                   DIR
+            Write system messageBOOL    1     4     27h  0   RWD  y
+            Write Elog message  BOOL    1     4     27h  0   RWD  n
+            System message interINT     1     4     27h  0   RWD  60
+            System message last DWORD   1     4     27h  0   RWD  0
+            Execute command     STRING  1     256   27h  0   RWD
+            Execute interval    INT     1     4     27h  0   RWD  0
+            Execute last        DWORD   1     4     27h  0   RWD  0
+            Stop run            BOOL    1     4     27h  0   RWD  n
+            Display BGColor     STRING  1     32    27h  0   RWD  red
+            Display FGColor     STRING  1     32    27h  0   RWD  black
+        Warning                 DIR
+            Write system messageBOOL    1     4     >99d 0   RWD  y
+            Write Elog message  BOOL    1     4     >99d 0   RWD  n
+            System message interINT     1     4     >99d 0   RWD  60
+            System message last DWORD   1     4     >99d 0   RWD  0
+            Execute command     STRING  1     256   >99d 0   RWD
+            Execute interval    INT     1     4     >99d 0   RWD  0
+            Execute last        DWORD   1     4     >99d 0   RWD  0
+            Stop run            BOOL    1     4     >99d 0   RWD  n
+            Display BGColor     STRING  1     32    >99d 0   RWD  red
+            Display FGColor     STRING  1     32    >99d 0   RWD  black
+      Caution                 DIR
+            Write system messageBOOL    1     4     19s  0   RWD  y
+            Write Elog message  BOOL    1     4     19s  0   RWD  n
+            System message interINT     1     4     19s  0   RWD  60
+            System message last DWORD   1     4     19s  0   RWD  1259196026
+            Execute command     STRING  1     256   19s  0   RWD
+            Execute interval    INT     1     4     19s  0   RWD  0
+            Execute last        DWORD   1     4     19s  0   RWD  0
+            Stop run            BOOL    1     4     19s  0   RWD  y
+            Display BGColor     STRING  1     32    19s  0   RWD  blue
+            Display FGColor     STRING  1     32    19s  0   RWD  red
+       Threshold               DIR
+            Write system messageBOOL    1     4     >99d 0   RWD  n
+            Write Elog message  BOOL    1     4     >99d 0   RWD  n
+            System message interINT     1     4     >99d 0   RWD  60
+            System message last DWORD   1     4     >99d 0   RWD  0
+            Execute command     STRING  1     256   >99d 0   RWD
+            Execute interval    INT     1     4     >99d 0   RWD  0
+            Execute last        DWORD   1     4     >99d 0   RWD  0
+            Stop run            BOOL    1     4     >99d 0   RWD  n
+            Display BGColor     STRING  1     32    >99d 0   RWD  yellow
+            Display FGColor     STRING  1     32    >99d 0   RWD  black
+.fi
+.PP
+.PP
+
+.br
+.PP
+
+.br
+.SH "Alarm triggers Email or SMS alerts"
+.PP
+It is also possible to have the MIDAS alarm system send email or SMS alerts to cell phones when alarms are triggered. This can be configured by defining an ODB alarm on a critical ODB parameter, e.g. 
+.PP
+.nf
+/Alarms/Alarms/Liquid Level
+Active                   y
+Triggered                0 (0x0)
+Type                     3 (0x3)
+Check interval          60 (0x3C)
+Checked last    1227690148 (0x492D10A4)
+Time triggered first    (empty)
+Time triggered last     (empty)
+Condition               /Equipment/Environment/Variables/Input[0] < 10
+Alarm Class             Level Alarm
+Alarm Message           Liquid Level is only %s
+
+.fi
+.PP
+ In this example, the alarm triggers an alarm of class 'Level Alarm'. This alarm class is defined as follows: 
+.PP
+.nf
+/Alarms/Classes/Level Alarm
+Write system message    y
+Write Elog message      n
+System message interval 600 (0x258)
+System message last     0 (0x0)
+Execute command         /home/midas/level_alarm '%s'
+Execute interval        1800 (0x708)
+Execute last            0 (0x0)
+Stop run                n
+Display BGColor         red
+Display FGColor         black
+
+.fi
+.PP
+ The key here is to call a script 'level_alarm', which can send emails. Use something like: 
+.PP
+.nf
+#/bin/csh
+echo $1 | mail -s \'Level Alarm\' your.name@domain.edu
+odbedit -c 'msg 2 level_alarm \'Alarm was sent to your.name@domain.edu\''
+
+.fi
+.PP
+ The second command just generates a MIDAS system message for confirmation. Most cell phones (depends on the provider) have an email address. If you send an email there, it will be translated into a SMS message.
+.PP
+The script file above can of course be more complicated. A perl script could be used that parses an address list, so other interested parties can register by adding his/her email address to that list. The script may also collects some other slow control variables (like pressure, temperature) and combine them into the SMS message.
+.PP
+For very sensitive systems, having an alarm via SMS may not be sufficient, since the alarm system could be down (e.g. computer crash, network failure). In this case 'negative alarms' can be used. For example, every 30 minutes the system may send an SMS with the current parameter values. If the expected message is not received, it may indicate that something in the MIDAS system is wrong.
+.SH "Implementation of the MIDAS Alarm System"
+.PP
+Alarms are checked inside \fBalarm.c::al_check()\fP. This function is called by \fBcm_yield()\fP every 10 seconds and by rpc_server_thread(), also every 10 seconds. For remote MIDAS clients, their \fBal_check()\fP issues an RPC_AL_CHECK RPC call into the MIDAS server utility \fBmserver\fP, where rpc_server_dispatch() calls the local \fBal_check()\fP. As result, all alarm checks run inside a process directly attached to the local MIDAS shared memory (inside a local client or inside an mserver process for a remote client). Each and every MIDAS client runs the alarm checks. To prevent race conditions between different MIDAS clients, access to \fBal_check()\fP is serialized using the \fBALARM\fP semaphore. Inside \fBal_check()\fP, alarms are triggered using \fBal_trigger_alarm()\fP, which in turn calls al_trigger_class(). Inside al_trigger_class(), the alarm is recorded into an elog or into midas.log using cm_msg(MTALK).
+.PP
+Special note should be made of the ODB setting '/Alarm/Classes/xxx/System
+message interval', which has a surprising effect - after an alarm is recorded into system messages (using cm_msg(MTALK)), no record is made of any subsequent alarms until the time interval set by this variable elapses. With default value of 60 seconds, after one alarm, no more alarms are recorded for 60 seconds. Also, because all the alarms are checked at the same time, only the first triggered alarm will be recorded.
+.PP
+As of \fBalarm.c\fP rev 4683,  'System message interval' is set to 0 ensures that every alarm is recorded into the MIDAS log file. (In previous revisions, this setting may still miss some alarms).
+.PP
+There are 3 types of alarms:
+.PP
+1) 'program not running' alarms.
+.PP
+These alarms are enabled in ODB by setting /Programs/ppp/Alarm class. Each time \fBal_check()\fP runs, every program listed in /Programs is tested using 'cm_exist()' and if the program is not running, the time of first failure is remembered in /Programs/ppp/First failed.
+.PP
+If the program has not been running for longer than the time set in ODB key /Programs/ppp/Check interval, an alarm is triggered (if enabled by /Programs/ppp/Alarm class and the program is restarted (if enabled by /Programs/ppp/Auto restart).
+.PP
+The 'not running' condition is tested every 10 seconds (each time \fBal_check()\fP is called), but the frequency of 'program not running' alarms can be reduced by increasing the value of /Alarms/Alarms/ppp/Check interval (default value 60 seconds). This can be useful if System message interval is set to zero.
+.PP
+2) 'evaluated' alarms
+.PP
+3) 'periodic' alarms
+.PP
+There is nothing surprising in these alarms. Each alarm is checked with a time period set by /Alarm/xxx/Check interval. The value of an evaluated alarm is computed using al_evaluate_condition().
+.PP
+ 
+.br
+.PP
+ 

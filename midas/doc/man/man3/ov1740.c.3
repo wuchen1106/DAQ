@@ -1,0 +1,97 @@
+.TH "ov1740.c" 3 "31 May 2012" "Version 2.3.0-0" "Midas" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+ov1740.c \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "CAENComm_ErrorCode \fBov1740_Setup\fP (int handle, int mode)"
+.br
+.in -1c
+.SH "Define Documentation"
+.PP 
+.SS "#define LARGE_NUMBER   10000000"
+.PP
+Definition at line 21 of file ov1740.c.
+.SH "Function Documentation"
+.PP 
+.SS "CAENComm_ErrorCode ov1740_AcqCtl (int handle, uint32_t operation)"
+.PP
+Definition at line 102 of file ov1740.c.
+.SS "CAENComm_ErrorCode ov1740_BufferFree (int handle, int nbuffer, uint32_t * mode)"
+.PP
+Definition at line 204 of file ov1740.c.
+.SS "CAENComm_ErrorCode ov1740_BufferOccupancy (int handle, uint32_t channel, uint32_t * data)"
+.PP
+Definition at line 195 of file ov1740.c.
+.SS "CAENComm_ErrorCode ov1740_GroupConfig (int handle, uint32_t operation)"
+.PP
+Definition at line 143 of file ov1740.c.
+.SS "CAENComm_ErrorCode ov1740_GroupDACGet (int handle, uint32_t channel, uint32_t * dac)"
+.PP
+Definition at line 89 of file ov1740.c.
+.SS "CAENComm_ErrorCode ov1740_GroupDACSet (int handle, uint32_t channel, uint32_t dac)"
+.PP
+Definition at line 70 of file ov1740.c.
+.SS "CAENComm_ErrorCode ov1740_GroupGet (int handle, uint32_t channel, uint32_t what, uint32_t * data)"
+.PP
+Definition at line 39 of file ov1740.c.
+.SS "CAENComm_ErrorCode ov1740_GroupOUThresholdSet (int handle, uint32_t channel, uint32_t threshold)"
+.PP
+Definition at line 61 of file ov1740.c.
+.SS "CAENComm_ErrorCode ov1740_GroupSet (int handle, uint32_t channel, uint32_t what, uint32_t that)"
+.PP
+Definition at line 27 of file ov1740.c.
+.SS "CAENComm_ErrorCode ov1740_GroupThresholdSet (int handle, uint32_t channel, uint32_t threshold)"
+.PP
+Definition at line 52 of file ov1740.c.
+.SS "CAENComm_ErrorCode ov1740_info (int handle, int * nchannels, uint32_t * data)"
+.PP
+Definition at line 168 of file ov1740.c.
+.SS "CAENComm_ErrorCode ov1740_Setup (int handle, int mode)"Sets all the necessary paramters for a given configuration. The configuration is provided by the mode argument. Add your own configuration in the case statement. Let me know your setting if you want to include it in the distribution.
+.IP "\(bu" 2
+\fBMode 1\fP :
+.PP
+.PP
+\fBParameters:\fP
+.RS 4
+\fI*mvme\fP VME structure 
+.br
+\fIbase\fP Module base address 
+.br
+\fImode\fP Configuration mode number 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+0: OK. -1: Bad 
+.RE
+.PP
+
+.PP
+Definition at line 248 of file ov1740.c.
+.SS "CAENComm_ErrorCode ov1740_Status (int handle)"
+.PP
+Definition at line 217 of file ov1740.c.
+.PP
+Referenced by ov1740_Setup().
+.SH "Variable Documentation"
+.PP 
+.SS "uint32_t \fBV1740_NSAMPLES_MODE\fP[11]"\fBInitial value:\fP
+.PP
+.nf
+ { (1<<20), (1<<19), (1<<18), (1<<17), (1<<16), (1<<15)
+              ,(1<<14), (1<<13), (1<<12), (1<<11), (1<<10)}
+.fi
+.PP
+Definition at line 23 of file ov1740.c.
+.PP
+Referenced by ov1740_info(), and v1740_info().
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Midas from the source code.

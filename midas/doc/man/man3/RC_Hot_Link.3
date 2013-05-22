@@ -1,0 +1,175 @@
+.TH "RC_Hot_Link" 3 "31 May 2012" "Version 2.3.0-0" "Midas" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+RC_Hot_Link \- Event Notification (Hot-Link) 
+
+.br
+ 
+.PP
+
+.br
+   
+.SH "Introduction"
+.PP
+MIDAS implements event notification through \fB 'hot-links' \fP. Once a hot-link is established to a key in the ODB, \fBimmediately\fP that key is accessed, a call-back routine associated with the hot-link is called to perform whatever action has been programmed. The MIDAS system uses hot-links to update keys in the ODB for communication between system clients (e.g. \fBhistory system\fP).
+.PP
+Users often use hot-links to immediately set some hardware to a new value. The new value may have been input into the ODB, either by the user or another client. Without a hot-link, the program setting the hardware values would have to continually poll the ODB to see if any values had changed; otherwise the new value would not be transmitted to the hardware until the next time the ODB set values were read and applied (for example, at the beginning of a run). 
+.br
+.PP
+.PP
+.SH "How to set up a Hot-Link"
+.PP
+It is often desirable to modify hardware \fBparameters\fP (such as discriminator levels or trigger logic) connected to the frontend computer. Assuming that the required hardware is accessible from the frontend code, these \fBparameters\fP are easily controllable when a hot-link is established between the frontend and the ODB itself.
+.PP
+ Hot-Link process  
+.PP
+First the \fBparameters\fP have to be defined in the ODB under the Settings tree for the given equipment. Let's assume we have two discriminator levels belonging to the trigger electronics, which should be controllable. The following commands define these levels in the ODB: 
+.PP
+.nf
+[local]/>cd /Equipment/Trigger/
+[local]Trigger>create key Settings
+[local]Trigger>cd Settings
+[local]Settings>create int level1
+[local]Settings>create int level2
+[local]Settings>ls
+
+.fi
+.PP
+.PP
+  The frontend can now map a C structure to these settings. In order to simplify this process, \fBODBEdit\fP can be requested to generate a header file containing this C structure. The odbedit command \fBmake\fP generates in the current directory the header file \fB\fBexperim.h\fP\fP . 
+.br
+ This file can be copied to the frontend directory (if necessary) and included in the frontend source code. It contains a section with a C structure of the trigger settings and an ASCII representation: 
+.PP
+.nf
+typedef struct {
+  INT       level1;
+  INT       level2;
+  TRIGGER_SETTINGS;
+
+#define TRIGGER_SETTINGS_STR(_name) char *_name[] = {\
+'[.]',\
+'level1 = INT : 0',\
+'level2 = INT : 0',\
+
+'',\
+NULL  
+
+.fi
+.PP
+.PP
+This definition can be used to define a C structure containing the \fBparameters\fP in \fBfrontend.c\fP: 
+.PP
+.nf
+#include <experim.h>
+
+TRIGGER_SETTINGS trigger_settings;
+
+.fi
+.PP
+.PP
+A hot-link between the ODB values and the C structure is established in the \fBfrontend_init()\fP routine: 
+.PP
+.nf
+INT frontend_init()
+{HNDLE hDB, hkey;
+TRIGGER_SETTINGS_STR(trigger_settings_str);
+
+  cm_get_experiment_database(&hDB, NULL);
+
+  db_create_record(hDB, 0,
+    '/Equipment/Trigger/Settings',
+    strcomb(trigger_settings_str));
+
+  db_find_key(hDB, 0, '/Equipment/Trigger/Settings', &hkey);
+
+  if (db_open_record(hDB, hkey,
+      &trigger_settings,
+      sizeof(trigger_settings), MODE_READ,
+      trigger_update, NULL) != DB_SUCCESS)
+    {
+    cm_msg(MERROR, 'frontend_init',
+      'Cannot open Trigger Settings in ODB');
+    return -1;
+     
+  return SUCCESS;
+
+.fi
+.PP
+.PP
+The \fBdb_create_record()\fP function re-creates the settings sub-tree in the ODB from the ASCII representation in case it has been corrupted or deleted. The \fBdb_open_record()\fP now establishes the hot-link between the settings in the ODB and the trigger_settings structure. Each time the ODB settings are modified, the changes are written to the trigger_settings structure and the callback routine trigger_update() is executed afterwards. This routine has the task to set the hardware according to the settings in the trigger_settings structure.
+.PP
+It may look like: 
+.PP
+.nf
+void trigger_update(INT hDB, INT hkey)
+{
+  printf('New levels: %d %d',
+    trigger_settings.level1,
+    trigger_settings.level2);
+
+.fi
+.PP
+.PP
+Of course the printf() function should be replaced by a function which accesses
+.PP
+the hardware properly. Modifying the trigger values with ODBEdit can test the whole scheme: 
+.PP
+.nf
+[local]/>cd /Equipment/Trigger/Settings
+[local]Settings>set level1 123
+[local]Settings>set level2 456
+
+.fi
+.PP
+ Immediately after each modification the frontend should display the new values. The settings can be saved to a file and loaded back later: 
+.PP
+.nf
+[local]/>cd /Equipment/Trigger/Settings
+[local]Settings>save settings.odb
+[local]Settings>set level1 789
+[local]Settings>load settings.odb
+
+.fi
+.PP
+ The settings can also be modified from any application just by accessing the ODB. Following listing is a complete user application that modifies the trigger level: 
+.PP
+.nf
+#include <midas.h>
+
+main()
+{
+HNDLE hDB;
+INT   level;
+  cm_connect_experiment('', 'Sample', 'Test',
+                        NULL);
+  cm_get_experiment_database(&hDB, NULL);
+
+  level = 321;
+  db_set_value(hDB, 0,
+    '/Equipment/Trigger/Settings/Level1',
+    &level, sizeof(INT), 1, TID_INT);
+
+  cm_disconnect_experiment();
+
+.fi
+.PP
+ The following figure summarizes the involved components:
+.PP
+To make sure a hot-link exists, one can use the \fBodbedit\fP command \fBsor - show open records\fP : 
+.PP
+.nf
+ [local]Settings>cd /
+[local]/>sor
+/Equipment/Trigger/Settings open 1 times by ...
+
+.fi
+.PP
+.PP
+
+.br
+ 
+.PP
+ 
+.br
+ 

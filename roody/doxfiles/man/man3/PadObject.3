@@ -1,0 +1,79 @@
+.TH "PadObject" 3 "Thu Apr 26 2012" "Roody" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+PadObject \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <Roody.h>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBPadObject\fP ()"
+.br
+.ti -1c
+.RI "\fBPadObject\fP (int padnum, TObject *obj, const ObjectPath *src, const char *drawOption)"
+.br
+.ti -1c
+.RI "\fB~PadObject\fP ()"
+.br
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "int \fBfPadNumber\fP"
+.br
+.ti -1c
+.RI "TObject * \fBfObject\fP"
+.br
+.ti -1c
+.RI "ObjectPath \fBfSource\fP"
+.br
+.ti -1c
+.RI "std::string \fBfDrawOption\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 35 of file Roody.h.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "PadObject::PadObject ()\fC [inline]\fP"
+.PP
+Definition at line 42 of file Roody.h.
+.SS "PadObject::PadObject (intpadnum, TObject *obj, const ObjectPath *src, const char *drawOption)\fC [inline]\fP"
+.PP
+Definition at line 43 of file Roody.h.
+.SS "PadObject::~PadObject ()\fC [inline]\fP"
+.PP
+Definition at line 50 of file Roody.h.
+.SH "Member Data Documentation"
+.PP 
+.SS "std::string \fBPadObject::fDrawOption\fP"
+.PP
+Definition at line 40 of file Roody.h.
+.PP
+Referenced by Roody::AddPadToVec(), and PadObject().
+.SS "TObject* \fBPadObject::fObject\fP"
+.PP
+Definition at line 38 of file Roody.h.
+.PP
+Referenced by Roody::AddPadToVec(), PadObject(), and ~PadObject().
+.SS "int \fBPadObject::fPadNumber\fP"
+.PP
+Definition at line 37 of file Roody.h.
+.PP
+Referenced by PadObject().
+.SS "ObjectPath \fBPadObject::fSource\fP"
+.PP
+Definition at line 39 of file Roody.h.
+.PP
+Referenced by Roody::AddPadToVec(), and PadObject().
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Roody from the source code.

@@ -1,0 +1,394 @@
+\subsection{vt48.h File Reference}
+\label{vt48_8h}\index{vt48.h@{vt48.h}}
+\subsubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+union \hyperlink{unionvt48__Reg}{vt48\_\-Reg}
+\item 
+struct \hyperlink{structvt48__Reg_1_1Entry1}{vt48\_\-Reg::Entry1}
+\item 
+struct \hyperlink{structvt48__Reg_1_1csr0}{vt48\_\-Reg::csr0}
+\end{DoxyCompactItemize}
+\subsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{vt48_8h_a1cefc6582d808ef387ecc7016d9577fa}{vt48\_\-EventRead} (\hyperlink{structMVME__INTERFACE}{MVME\_\-INTERFACE} $\ast$\hyperlink{fevmemodules_8c_aeab89db2ad759342a32dcd50a0a0156c}{myvme}, \hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} base, \hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} $\ast$pdest, int $\ast$nentry)
+\item 
+int \hyperlink{vt48_8h_aa6237edcb797fb9ebb0d447a5b1edbcd}{vt48\_\-Setup} (\hyperlink{structMVME__INTERFACE}{MVME\_\-INTERFACE} $\ast$mvme, \hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} base, int mode)
+\end{DoxyCompactItemize}
+
+
+\subsubsection{Define Documentation}
+\index{vt48.h@{vt48.h}!VT48\_\-AMT\_\-CFG\_\-RW@{VT48\_\-AMT\_\-CFG\_\-RW}}
+\index{VT48\_\-AMT\_\-CFG\_\-RW@{VT48\_\-AMT\_\-CFG\_\-RW}!vt48.h@{vt48.h}}
+\paragraph[{VT48\_\-AMT\_\-CFG\_\-RW}]{\setlength{\rightskip}{0pt plus 5cm}\#define VT48\_\-AMT\_\-CFG\_\-RW~({\bf WORD})  (0x1)}\hfill\label{vt48_8h_a00ad605e46d7aae22be02b1d68b42310}
+
+
+Definition at line 28 of file vt48.h.
+
+Referenced by vt48\_\-RegPrint(), and vt48\_\-Setup().\index{vt48.h@{vt48.h}!VT48\_\-AMT\_\-ID\_\-R@{VT48\_\-AMT\_\-ID\_\-R}}
+\index{VT48\_\-AMT\_\-ID\_\-R@{VT48\_\-AMT\_\-ID\_\-R}!vt48.h@{vt48.h}}
+\paragraph[{VT48\_\-AMT\_\-ID\_\-R}]{\setlength{\rightskip}{0pt plus 5cm}\#define VT48\_\-AMT\_\-ID\_\-R~({\bf WORD})  (0x3)}\hfill\label{vt48_8h_a5d0703990422d02cd5a89b12daca7d66}
+
+
+Definition at line 30 of file vt48.h.
+
+Referenced by vt48\_\-Status().\index{vt48.h@{vt48.h}!VT48\_\-AMT\_\-STATUS\_\-R@{VT48\_\-AMT\_\-STATUS\_\-R}}
+\index{VT48\_\-AMT\_\-STATUS\_\-R@{VT48\_\-AMT\_\-STATUS\_\-R}!vt48.h@{vt48.h}}
+\paragraph[{VT48\_\-AMT\_\-STATUS\_\-R}]{\setlength{\rightskip}{0pt plus 5cm}\#define VT48\_\-AMT\_\-STATUS\_\-R~({\bf WORD})  (0x2)}\hfill\label{vt48_8h_a6405a9f528d5a53c8e753f392cd24220}
+
+
+Definition at line 29 of file vt48.h.
+
+Referenced by vt48\_\-Status().\index{vt48.h@{vt48.h}!VT48\_\-CMD\_\-REG@{VT48\_\-CMD\_\-REG}}
+\index{VT48\_\-CMD\_\-REG@{VT48\_\-CMD\_\-REG}!vt48.h@{vt48.h}}
+\paragraph[{VT48\_\-CMD\_\-REG}]{\setlength{\rightskip}{0pt plus 5cm}\#define VT48\_\-CMD\_\-REG~({\bf DWORD}) (0x0004)}\hfill\label{vt48_8h_aaf55fbadf16d6f1882195204ee69a169}
+
+
+Definition at line 26 of file vt48.h.
+
+Referenced by vt48\_\-RegPrint(), vt48\_\-Setup(), and vt48\_\-Status().\index{vt48.h@{vt48.h}!VT48\_\-CSR0\_\-RB\_\-REG@{VT48\_\-CSR0\_\-RB\_\-REG}}
+\index{VT48\_\-CSR0\_\-RB\_\-REG@{VT48\_\-CSR0\_\-RB\_\-REG}!vt48.h@{vt48.h}}
+\paragraph[{VT48\_\-CSR0\_\-RB\_\-REG}]{\setlength{\rightskip}{0pt plus 5cm}\#define VT48\_\-CSR0\_\-RB\_\-REG~({\bf DWORD}) (0x0080)}\hfill\label{vt48_8h_a71569e93778cef9e23524a7e60e773aa}
+
+
+Definition at line 62 of file vt48.h.
+
+Referenced by vt48\_\-Status().\index{vt48.h@{vt48.h}!VT48\_\-CSR0\_\-REG@{VT48\_\-CSR0\_\-REG}}
+\index{VT48\_\-CSR0\_\-REG@{VT48\_\-CSR0\_\-REG}!vt48.h@{vt48.h}}
+\paragraph[{VT48\_\-CSR0\_\-REG}]{\setlength{\rightskip}{0pt plus 5cm}\#define VT48\_\-CSR0\_\-REG~({\bf DWORD}) (0x0040)}\hfill\label{vt48_8h_a76b4cbb28d8ed3651964ef7d3f9da099}
+
+
+Definition at line 46 of file vt48.h.
+
+Referenced by vt48\_\-RegPrint(), vt48\_\-Setup(), and vt48\_\-Status().\index{vt48.h@{vt48.h}!VT48\_\-CSR10\_\-RB\_\-REG@{VT48\_\-CSR10\_\-RB\_\-REG}}
+\index{VT48\_\-CSR10\_\-RB\_\-REG@{VT48\_\-CSR10\_\-RB\_\-REG}!vt48.h@{vt48.h}}
+\paragraph[{VT48\_\-CSR10\_\-RB\_\-REG}]{\setlength{\rightskip}{0pt plus 5cm}\#define VT48\_\-CSR10\_\-RB\_\-REG~({\bf DWORD}) (0x00A8)}\hfill\label{vt48_8h_a1115fd86ec87e7e86bbde581651ea240}
+
+
+Definition at line 72 of file vt48.h.\index{vt48.h@{vt48.h}!VT48\_\-CSR10\_\-REG@{VT48\_\-CSR10\_\-REG}}
+\index{VT48\_\-CSR10\_\-REG@{VT48\_\-CSR10\_\-REG}!vt48.h@{vt48.h}}
+\paragraph[{VT48\_\-CSR10\_\-REG}]{\setlength{\rightskip}{0pt plus 5cm}\#define VT48\_\-CSR10\_\-REG~({\bf DWORD}) (0x0068)}\hfill\label{vt48_8h_aee8295d2d385ff6fcda26da2ecec872c}
+
+
+Definition at line 56 of file vt48.h.
+
+Referenced by vt48\_\-Setup().\index{vt48.h@{vt48.h}!VT48\_\-CSR11\_\-RB\_\-REG@{VT48\_\-CSR11\_\-RB\_\-REG}}
+\index{VT48\_\-CSR11\_\-RB\_\-REG@{VT48\_\-CSR11\_\-RB\_\-REG}!vt48.h@{vt48.h}}
+\paragraph[{VT48\_\-CSR11\_\-RB\_\-REG}]{\setlength{\rightskip}{0pt plus 5cm}\#define VT48\_\-CSR11\_\-RB\_\-REG~({\bf DWORD}) (0x00AC)}\hfill\label{vt48_8h_a30018c33cfd2d5ed5ee0c461deb532d7}
+
+
+Definition at line 73 of file vt48.h.\index{vt48.h@{vt48.h}!VT48\_\-CSR11\_\-REG@{VT48\_\-CSR11\_\-REG}}
+\index{VT48\_\-CSR11\_\-REG@{VT48\_\-CSR11\_\-REG}!vt48.h@{vt48.h}}
+\paragraph[{VT48\_\-CSR11\_\-REG}]{\setlength{\rightskip}{0pt plus 5cm}\#define VT48\_\-CSR11\_\-REG~({\bf DWORD}) (0x006C)}\hfill\label{vt48_8h_a7d5aeebbbb73fc59a63dff0eef2c956b}
+
+
+Definition at line 57 of file vt48.h.
+
+Referenced by vt48\_\-Setup().\index{vt48.h@{vt48.h}!VT48\_\-CSR12\_\-RB\_\-REG@{VT48\_\-CSR12\_\-RB\_\-REG}}
+\index{VT48\_\-CSR12\_\-RB\_\-REG@{VT48\_\-CSR12\_\-RB\_\-REG}!vt48.h@{vt48.h}}
+\paragraph[{VT48\_\-CSR12\_\-RB\_\-REG}]{\setlength{\rightskip}{0pt plus 5cm}\#define VT48\_\-CSR12\_\-RB\_\-REG~({\bf DWORD}) (0x00B0)}\hfill\label{vt48_8h_a1f75c32906ff4385d16e2bd2288d02b4}
+
+
+Definition at line 74 of file vt48.h.\index{vt48.h@{vt48.h}!VT48\_\-CSR12\_\-REG@{VT48\_\-CSR12\_\-REG}}
+\index{VT48\_\-CSR12\_\-REG@{VT48\_\-CSR12\_\-REG}!vt48.h@{vt48.h}}
+\paragraph[{VT48\_\-CSR12\_\-REG}]{\setlength{\rightskip}{0pt plus 5cm}\#define VT48\_\-CSR12\_\-REG~({\bf DWORD}) (0x0070)}\hfill\label{vt48_8h_a82c8be1ff079ad31992240d8c0b54deb}
+
+
+Definition at line 58 of file vt48.h.
+
+Referenced by vt48\_\-Setup().\index{vt48.h@{vt48.h}!VT48\_\-CSR13\_\-RB\_\-REG@{VT48\_\-CSR13\_\-RB\_\-REG}}
+\index{VT48\_\-CSR13\_\-RB\_\-REG@{VT48\_\-CSR13\_\-RB\_\-REG}!vt48.h@{vt48.h}}
+\paragraph[{VT48\_\-CSR13\_\-RB\_\-REG}]{\setlength{\rightskip}{0pt plus 5cm}\#define VT48\_\-CSR13\_\-RB\_\-REG~({\bf DWORD}) (0x00B4)}\hfill\label{vt48_8h_a6b05e8d17299e08009741bd997534cfd}
+
+
+Definition at line 75 of file vt48.h.\index{vt48.h@{vt48.h}!VT48\_\-CSR13\_\-REG@{VT48\_\-CSR13\_\-REG}}
+\index{VT48\_\-CSR13\_\-REG@{VT48\_\-CSR13\_\-REG}!vt48.h@{vt48.h}}
+\paragraph[{VT48\_\-CSR13\_\-REG}]{\setlength{\rightskip}{0pt plus 5cm}\#define VT48\_\-CSR13\_\-REG~({\bf DWORD}) (0x0074)}\hfill\label{vt48_8h_a37a837f033fc0eb811c789cedc9103ad}
+
+
+Definition at line 59 of file vt48.h.
+
+Referenced by vt48\_\-Setup().\index{vt48.h@{vt48.h}!VT48\_\-CSR14\_\-RB\_\-REG@{VT48\_\-CSR14\_\-RB\_\-REG}}
+\index{VT48\_\-CSR14\_\-RB\_\-REG@{VT48\_\-CSR14\_\-RB\_\-REG}!vt48.h@{vt48.h}}
+\paragraph[{VT48\_\-CSR14\_\-RB\_\-REG}]{\setlength{\rightskip}{0pt plus 5cm}\#define VT48\_\-CSR14\_\-RB\_\-REG~({\bf DWORD}) (0x00B8)}\hfill\label{vt48_8h_af133808fbb3f904ccfa45c076bf4dc9a}
+
+
+Definition at line 76 of file vt48.h.\index{vt48.h@{vt48.h}!VT48\_\-CSR14\_\-REG@{VT48\_\-CSR14\_\-REG}}
+\index{VT48\_\-CSR14\_\-REG@{VT48\_\-CSR14\_\-REG}!vt48.h@{vt48.h}}
+\paragraph[{VT48\_\-CSR14\_\-REG}]{\setlength{\rightskip}{0pt plus 5cm}\#define VT48\_\-CSR14\_\-REG~({\bf DWORD}) (0x0078)}\hfill\label{vt48_8h_a0391b7a0eeca705402b7169348552c34}
+
+
+Definition at line 60 of file vt48.h.
+
+Referenced by vt48\_\-Setup().\index{vt48.h@{vt48.h}!VT48\_\-CSR16\_\-REG@{VT48\_\-CSR16\_\-REG}}
+\index{VT48\_\-CSR16\_\-REG@{VT48\_\-CSR16\_\-REG}!vt48.h@{vt48.h}}
+\paragraph[{VT48\_\-CSR16\_\-REG}]{\setlength{\rightskip}{0pt plus 5cm}\#define VT48\_\-CSR16\_\-REG~({\bf DWORD}) (0x0020)}\hfill\label{vt48_8h_a980384d2d6386a280c0ea6c95aea550b}
+
+
+Definition at line 39 of file vt48.h.
+
+Referenced by vt48\_\-Status().\index{vt48.h@{vt48.h}!VT48\_\-CSR17\_\-REG@{VT48\_\-CSR17\_\-REG}}
+\index{VT48\_\-CSR17\_\-REG@{VT48\_\-CSR17\_\-REG}!vt48.h@{vt48.h}}
+\paragraph[{VT48\_\-CSR17\_\-REG}]{\setlength{\rightskip}{0pt plus 5cm}\#define VT48\_\-CSR17\_\-REG~({\bf DWORD}) (0x0024)}\hfill\label{vt48_8h_ae72ad5bcf8c05c6f94268def9b4e9d33}
+
+
+Definition at line 40 of file vt48.h.\index{vt48.h@{vt48.h}!VT48\_\-CSR18\_\-REG@{VT48\_\-CSR18\_\-REG}}
+\index{VT48\_\-CSR18\_\-REG@{VT48\_\-CSR18\_\-REG}!vt48.h@{vt48.h}}
+\paragraph[{VT48\_\-CSR18\_\-REG}]{\setlength{\rightskip}{0pt plus 5cm}\#define VT48\_\-CSR18\_\-REG~({\bf DWORD}) (0x0028)}\hfill\label{vt48_8h_a71ed96e19560a9b6e1ae80a8db74626b}
+
+
+Definition at line 41 of file vt48.h.\index{vt48.h@{vt48.h}!VT48\_\-CSR19\_\-REG@{VT48\_\-CSR19\_\-REG}}
+\index{VT48\_\-CSR19\_\-REG@{VT48\_\-CSR19\_\-REG}!vt48.h@{vt48.h}}
+\paragraph[{VT48\_\-CSR19\_\-REG}]{\setlength{\rightskip}{0pt plus 5cm}\#define VT48\_\-CSR19\_\-REG~({\bf DWORD}) (0x002c)}\hfill\label{vt48_8h_a5f0066a60127b1ea1b89a0ae878ec255}
+
+
+Definition at line 42 of file vt48.h.\index{vt48.h@{vt48.h}!VT48\_\-CSR1\_\-RB\_\-REG@{VT48\_\-CSR1\_\-RB\_\-REG}}
+\index{VT48\_\-CSR1\_\-RB\_\-REG@{VT48\_\-CSR1\_\-RB\_\-REG}!vt48.h@{vt48.h}}
+\paragraph[{VT48\_\-CSR1\_\-RB\_\-REG}]{\setlength{\rightskip}{0pt plus 5cm}\#define VT48\_\-CSR1\_\-RB\_\-REG~({\bf DWORD}) (0x0084)}\hfill\label{vt48_8h_a6db1abedeae1b15a2d93dd5844602c05}
+
+
+Definition at line 63 of file vt48.h.\index{vt48.h@{vt48.h}!VT48\_\-CSR1\_\-REG@{VT48\_\-CSR1\_\-REG}}
+\index{VT48\_\-CSR1\_\-REG@{VT48\_\-CSR1\_\-REG}!vt48.h@{vt48.h}}
+\paragraph[{VT48\_\-CSR1\_\-REG}]{\setlength{\rightskip}{0pt plus 5cm}\#define VT48\_\-CSR1\_\-REG~({\bf DWORD}) (0x0044)}\hfill\label{vt48_8h_a4dfe499498af9175352f1a2c8e425065}
+
+
+Definition at line 47 of file vt48.h.
+
+Referenced by vt48\_\-Setup().\index{vt48.h@{vt48.h}!VT48\_\-CSR20\_\-REG@{VT48\_\-CSR20\_\-REG}}
+\index{VT48\_\-CSR20\_\-REG@{VT48\_\-CSR20\_\-REG}!vt48.h@{vt48.h}}
+\paragraph[{VT48\_\-CSR20\_\-REG}]{\setlength{\rightskip}{0pt plus 5cm}\#define VT48\_\-CSR20\_\-REG~({\bf DWORD}) (0x0030)}\hfill\label{vt48_8h_ac1d54b8cb7c6da68de40c976097d7b42}
+
+
+Definition at line 43 of file vt48.h.\index{vt48.h@{vt48.h}!VT48\_\-CSR21\_\-REG@{VT48\_\-CSR21\_\-REG}}
+\index{VT48\_\-CSR21\_\-REG@{VT48\_\-CSR21\_\-REG}!vt48.h@{vt48.h}}
+\paragraph[{VT48\_\-CSR21\_\-REG}]{\setlength{\rightskip}{0pt plus 5cm}\#define VT48\_\-CSR21\_\-REG~({\bf DWORD}) (0x0034)}\hfill\label{vt48_8h_aaa52228417bff799d38c76023bcb528b}
+
+
+Definition at line 44 of file vt48.h.\index{vt48.h@{vt48.h}!VT48\_\-CSR2\_\-RB\_\-REG@{VT48\_\-CSR2\_\-RB\_\-REG}}
+\index{VT48\_\-CSR2\_\-RB\_\-REG@{VT48\_\-CSR2\_\-RB\_\-REG}!vt48.h@{vt48.h}}
+\paragraph[{VT48\_\-CSR2\_\-RB\_\-REG}]{\setlength{\rightskip}{0pt plus 5cm}\#define VT48\_\-CSR2\_\-RB\_\-REG~({\bf DWORD}) (0x0088)}\hfill\label{vt48_8h_a7a51c505dfcf0ddcca8a4eceb971a4f9}
+
+
+Definition at line 64 of file vt48.h.\index{vt48.h@{vt48.h}!VT48\_\-CSR2\_\-REG@{VT48\_\-CSR2\_\-REG}}
+\index{VT48\_\-CSR2\_\-REG@{VT48\_\-CSR2\_\-REG}!vt48.h@{vt48.h}}
+\paragraph[{VT48\_\-CSR2\_\-REG}]{\setlength{\rightskip}{0pt plus 5cm}\#define VT48\_\-CSR2\_\-REG~({\bf DWORD}) (0x0048)}\hfill\label{vt48_8h_ab5e7d9d87e6210c9c67d93c43ec2a23f}
+
+
+Definition at line 48 of file vt48.h.
+
+Referenced by vt48\_\-Setup().\index{vt48.h@{vt48.h}!VT48\_\-CSR3\_\-RB\_\-REG@{VT48\_\-CSR3\_\-RB\_\-REG}}
+\index{VT48\_\-CSR3\_\-RB\_\-REG@{VT48\_\-CSR3\_\-RB\_\-REG}!vt48.h@{vt48.h}}
+\paragraph[{VT48\_\-CSR3\_\-RB\_\-REG}]{\setlength{\rightskip}{0pt plus 5cm}\#define VT48\_\-CSR3\_\-RB\_\-REG~({\bf DWORD}) (0x008C)}\hfill\label{vt48_8h_ac204dea514ea8973a6e76f9e73115981}
+
+
+Definition at line 65 of file vt48.h.\index{vt48.h@{vt48.h}!VT48\_\-CSR3\_\-REG@{VT48\_\-CSR3\_\-REG}}
+\index{VT48\_\-CSR3\_\-REG@{VT48\_\-CSR3\_\-REG}!vt48.h@{vt48.h}}
+\paragraph[{VT48\_\-CSR3\_\-REG}]{\setlength{\rightskip}{0pt plus 5cm}\#define VT48\_\-CSR3\_\-REG~({\bf DWORD}) (0x004C)}\hfill\label{vt48_8h_ae5ce4f49b4032c2c41dab280e69bcd1e}
+
+
+Definition at line 49 of file vt48.h.
+
+Referenced by vt48\_\-Setup().\index{vt48.h@{vt48.h}!VT48\_\-CSR4\_\-RB\_\-REG@{VT48\_\-CSR4\_\-RB\_\-REG}}
+\index{VT48\_\-CSR4\_\-RB\_\-REG@{VT48\_\-CSR4\_\-RB\_\-REG}!vt48.h@{vt48.h}}
+\paragraph[{VT48\_\-CSR4\_\-RB\_\-REG}]{\setlength{\rightskip}{0pt plus 5cm}\#define VT48\_\-CSR4\_\-RB\_\-REG~({\bf DWORD}) (0x0090)}\hfill\label{vt48_8h_a8d29a9fb1ea8c4e64732cbaa7d09a8df}
+
+
+Definition at line 66 of file vt48.h.\index{vt48.h@{vt48.h}!VT48\_\-CSR4\_\-REG@{VT48\_\-CSR4\_\-REG}}
+\index{VT48\_\-CSR4\_\-REG@{VT48\_\-CSR4\_\-REG}!vt48.h@{vt48.h}}
+\paragraph[{VT48\_\-CSR4\_\-REG}]{\setlength{\rightskip}{0pt plus 5cm}\#define VT48\_\-CSR4\_\-REG~({\bf DWORD}) (0x0050)}\hfill\label{vt48_8h_a2c6797141c318812f46eca1ed7d7d5e2}
+
+
+Definition at line 50 of file vt48.h.
+
+Referenced by vt48\_\-Setup().\index{vt48.h@{vt48.h}!VT48\_\-CSR5\_\-RB\_\-REG@{VT48\_\-CSR5\_\-RB\_\-REG}}
+\index{VT48\_\-CSR5\_\-RB\_\-REG@{VT48\_\-CSR5\_\-RB\_\-REG}!vt48.h@{vt48.h}}
+\paragraph[{VT48\_\-CSR5\_\-RB\_\-REG}]{\setlength{\rightskip}{0pt plus 5cm}\#define VT48\_\-CSR5\_\-RB\_\-REG~({\bf DWORD}) (0x0094)}\hfill\label{vt48_8h_a61969611cb0e1eee74a73330f221f74b}
+
+
+Definition at line 67 of file vt48.h.\index{vt48.h@{vt48.h}!VT48\_\-CSR5\_\-REG@{VT48\_\-CSR5\_\-REG}}
+\index{VT48\_\-CSR5\_\-REG@{VT48\_\-CSR5\_\-REG}!vt48.h@{vt48.h}}
+\paragraph[{VT48\_\-CSR5\_\-REG}]{\setlength{\rightskip}{0pt plus 5cm}\#define VT48\_\-CSR5\_\-REG~({\bf DWORD}) (0x0054)}\hfill\label{vt48_8h_a24a7e4d13e0094230eb0b8f6c1264947}
+
+
+Definition at line 51 of file vt48.h.
+
+Referenced by vt48\_\-Setup().\index{vt48.h@{vt48.h}!VT48\_\-CSR6\_\-RB\_\-REG@{VT48\_\-CSR6\_\-RB\_\-REG}}
+\index{VT48\_\-CSR6\_\-RB\_\-REG@{VT48\_\-CSR6\_\-RB\_\-REG}!vt48.h@{vt48.h}}
+\paragraph[{VT48\_\-CSR6\_\-RB\_\-REG}]{\setlength{\rightskip}{0pt plus 5cm}\#define VT48\_\-CSR6\_\-RB\_\-REG~({\bf DWORD}) (0x0098)}\hfill\label{vt48_8h_a0489e71e81acb81762d20dab74eacb7d}
+
+
+Definition at line 68 of file vt48.h.\index{vt48.h@{vt48.h}!VT48\_\-CSR6\_\-REG@{VT48\_\-CSR6\_\-REG}}
+\index{VT48\_\-CSR6\_\-REG@{VT48\_\-CSR6\_\-REG}!vt48.h@{vt48.h}}
+\paragraph[{VT48\_\-CSR6\_\-REG}]{\setlength{\rightskip}{0pt plus 5cm}\#define VT48\_\-CSR6\_\-REG~({\bf DWORD}) (0x0058)}\hfill\label{vt48_8h_ada5fc4a95410cce888ea34b0a868a929}
+
+
+Definition at line 52 of file vt48.h.
+
+Referenced by vt48\_\-Setup().\index{vt48.h@{vt48.h}!VT48\_\-CSR7\_\-RB\_\-REG@{VT48\_\-CSR7\_\-RB\_\-REG}}
+\index{VT48\_\-CSR7\_\-RB\_\-REG@{VT48\_\-CSR7\_\-RB\_\-REG}!vt48.h@{vt48.h}}
+\paragraph[{VT48\_\-CSR7\_\-RB\_\-REG}]{\setlength{\rightskip}{0pt plus 5cm}\#define VT48\_\-CSR7\_\-RB\_\-REG~({\bf DWORD}) (0x009C)}\hfill\label{vt48_8h_a6f7ce796bce7ff8079bf2766f244e36b}
+
+
+Definition at line 69 of file vt48.h.\index{vt48.h@{vt48.h}!VT48\_\-CSR7\_\-REG@{VT48\_\-CSR7\_\-REG}}
+\index{VT48\_\-CSR7\_\-REG@{VT48\_\-CSR7\_\-REG}!vt48.h@{vt48.h}}
+\paragraph[{VT48\_\-CSR7\_\-REG}]{\setlength{\rightskip}{0pt plus 5cm}\#define VT48\_\-CSR7\_\-REG~({\bf DWORD}) (0x005C)}\hfill\label{vt48_8h_ab7136ac5c972a16a2d7572f159d5eaab}
+
+
+Definition at line 53 of file vt48.h.
+
+Referenced by vt48\_\-Setup().\index{vt48.h@{vt48.h}!VT48\_\-CSR8\_\-RB\_\-REG@{VT48\_\-CSR8\_\-RB\_\-REG}}
+\index{VT48\_\-CSR8\_\-RB\_\-REG@{VT48\_\-CSR8\_\-RB\_\-REG}!vt48.h@{vt48.h}}
+\paragraph[{VT48\_\-CSR8\_\-RB\_\-REG}]{\setlength{\rightskip}{0pt plus 5cm}\#define VT48\_\-CSR8\_\-RB\_\-REG~({\bf DWORD}) (0x00A0)}\hfill\label{vt48_8h_af986b6ac66e5a0522d326bd1f26fb63a}
+
+
+Definition at line 70 of file vt48.h.\index{vt48.h@{vt48.h}!VT48\_\-CSR8\_\-REG@{VT48\_\-CSR8\_\-REG}}
+\index{VT48\_\-CSR8\_\-REG@{VT48\_\-CSR8\_\-REG}!vt48.h@{vt48.h}}
+\paragraph[{VT48\_\-CSR8\_\-REG}]{\setlength{\rightskip}{0pt plus 5cm}\#define VT48\_\-CSR8\_\-REG~({\bf DWORD}) (0x0060)}\hfill\label{vt48_8h_ab862b9afa823f5d7d101d0e86f4abe1b}
+
+
+Definition at line 54 of file vt48.h.
+
+Referenced by vt48\_\-Setup().\index{vt48.h@{vt48.h}!VT48\_\-CSR9\_\-RB\_\-REG@{VT48\_\-CSR9\_\-RB\_\-REG}}
+\index{VT48\_\-CSR9\_\-RB\_\-REG@{VT48\_\-CSR9\_\-RB\_\-REG}!vt48.h@{vt48.h}}
+\paragraph[{VT48\_\-CSR9\_\-RB\_\-REG}]{\setlength{\rightskip}{0pt plus 5cm}\#define VT48\_\-CSR9\_\-RB\_\-REG~({\bf DWORD}) (0x00A4)}\hfill\label{vt48_8h_a6a6118c74a6ea0a46050b81bdfb81988}
+
+
+Definition at line 71 of file vt48.h.\index{vt48.h@{vt48.h}!VT48\_\-CSR9\_\-REG@{VT48\_\-CSR9\_\-REG}}
+\index{VT48\_\-CSR9\_\-REG@{VT48\_\-CSR9\_\-REG}!vt48.h@{vt48.h}}
+\paragraph[{VT48\_\-CSR9\_\-REG}]{\setlength{\rightskip}{0pt plus 5cm}\#define VT48\_\-CSR9\_\-REG~({\bf DWORD}) (0x0064)}\hfill\label{vt48_8h_a0de57c91353915a4c31376e4878fb1f5}
+
+
+Definition at line 55 of file vt48.h.
+
+Referenced by vt48\_\-Setup().\index{vt48.h@{vt48.h}!VT48\_\-CSR\_\-RO@{VT48\_\-CSR\_\-RO}}
+\index{VT48\_\-CSR\_\-RO@{VT48\_\-CSR\_\-RO}!vt48.h@{vt48.h}}
+\paragraph[{VT48\_\-CSR\_\-RO}]{\setlength{\rightskip}{0pt plus 5cm}\#define VT48\_\-CSR\_\-RO~({\bf DWORD}) (0x0000)}\hfill\label{vt48_8h_aa16b2262d75885d2f7e2314b2367c0c7}
+
+
+Definition at line 24 of file vt48.h.
+
+Referenced by vt48\_\-Status().\index{vt48.h@{vt48.h}!VT48\_\-DATA\_\-FIFO@{VT48\_\-DATA\_\-FIFO}}
+\index{VT48\_\-DATA\_\-FIFO@{VT48\_\-DATA\_\-FIFO}!vt48.h@{vt48.h}}
+\paragraph[{VT48\_\-DATA\_\-FIFO}]{\setlength{\rightskip}{0pt plus 5cm}\#define VT48\_\-DATA\_\-FIFO~({\bf DWORD}) (0x1000)}\hfill\label{vt48_8h_a9daae9a6e83ca1d2eae110ed95e99e1d}
+
+
+Definition at line 27 of file vt48.h.
+
+Referenced by vt48\_\-EventRead().\index{vt48.h@{vt48.h}!VT48\_\-ERR\_\-NODATA@{VT48\_\-ERR\_\-NODATA}}
+\index{VT48\_\-ERR\_\-NODATA@{VT48\_\-ERR\_\-NODATA}!vt48.h@{vt48.h}}
+\paragraph[{VT48\_\-ERR\_\-NODATA}]{\setlength{\rightskip}{0pt plus 5cm}\#define VT48\_\-ERR\_\-NODATA~10}\hfill\label{vt48_8h_a33355fef9a7dbba946edce837388c8a4}
+
+
+Definition at line 22 of file vt48.h.
+
+Referenced by vt48\_\-EventRead().\index{vt48.h@{vt48.h}!VT48\_\-HEADER@{VT48\_\-HEADER}}
+\index{VT48\_\-HEADER@{VT48\_\-HEADER}!vt48.h@{vt48.h}}
+\paragraph[{VT48\_\-HEADER}]{\setlength{\rightskip}{0pt plus 5cm}\#define VT48\_\-HEADER~({\bf DWORD}) (0x10000000)}\hfill\label{vt48_8h_ac1b560dd03fdade60b1b3606000046e5}
+
+
+Definition at line 32 of file vt48.h.
+
+Referenced by vt48\_\-EventRead().\index{vt48.h@{vt48.h}!VT48\_\-ID1\_\-REG\_\-RO@{VT48\_\-ID1\_\-REG\_\-RO}}
+\index{VT48\_\-ID1\_\-REG\_\-RO@{VT48\_\-ID1\_\-REG\_\-RO}!vt48.h@{vt48.h}}
+\paragraph[{VT48\_\-ID1\_\-REG\_\-RO}]{\setlength{\rightskip}{0pt plus 5cm}\#define VT48\_\-ID1\_\-REG\_\-RO~({\bf DWORD}) (0x0008)}\hfill\label{vt48_8h_a1ae2773b2350502c90f48cafce1bc13c}
+
+
+Definition at line 35 of file vt48.h.
+
+Referenced by vt48\_\-Status().\index{vt48.h@{vt48.h}!VT48\_\-ID2\_\-REG\_\-RO@{VT48\_\-ID2\_\-REG\_\-RO}}
+\index{VT48\_\-ID2\_\-REG\_\-RO@{VT48\_\-ID2\_\-REG\_\-RO}!vt48.h@{vt48.h}}
+\paragraph[{VT48\_\-ID2\_\-REG\_\-RO}]{\setlength{\rightskip}{0pt plus 5cm}\#define VT48\_\-ID2\_\-REG\_\-RO~({\bf DWORD}) (0x000C)}\hfill\label{vt48_8h_ac06e4c35303c3b92b72691d19202223c}
+
+
+Definition at line 36 of file vt48.h.
+
+Referenced by vt48\_\-Status().\index{vt48.h@{vt48.h}!VT48\_\-OCCUPANCY\_\-RO@{VT48\_\-OCCUPANCY\_\-RO}}
+\index{VT48\_\-OCCUPANCY\_\-RO@{VT48\_\-OCCUPANCY\_\-RO}!vt48.h@{vt48.h}}
+\paragraph[{VT48\_\-OCCUPANCY\_\-RO}]{\setlength{\rightskip}{0pt plus 5cm}\#define VT48\_\-OCCUPANCY\_\-RO~({\bf DWORD}) (0x0000)}\hfill\label{vt48_8h_ad8c2dc0161ef401ee0ef2c188bc83438}
+
+
+Definition at line 25 of file vt48.h.
+
+Referenced by vt48\_\-EventRead().\index{vt48.h@{vt48.h}!VT48\_\-PARAM\_\-ERROR@{VT48\_\-PARAM\_\-ERROR}}
+\index{VT48\_\-PARAM\_\-ERROR@{VT48\_\-PARAM\_\-ERROR}!vt48.h@{vt48.h}}
+\paragraph[{VT48\_\-PARAM\_\-ERROR}]{\setlength{\rightskip}{0pt plus 5cm}\#define VT48\_\-PARAM\_\-ERROR~100}\hfill\label{vt48_8h_a016a27f720ca0705bb03517016409c4d}
+
+
+Definition at line 23 of file vt48.h.\index{vt48.h@{vt48.h}!VT48\_\-SUCCESS@{VT48\_\-SUCCESS}}
+\index{VT48\_\-SUCCESS@{VT48\_\-SUCCESS}!vt48.h@{vt48.h}}
+\paragraph[{VT48\_\-SUCCESS}]{\setlength{\rightskip}{0pt plus 5cm}\#define VT48\_\-SUCCESS~1}\hfill\label{vt48_8h_abaf3ebc35c582913599b403853583789}
+
+
+Definition at line 21 of file vt48.h.
+
+Referenced by vt48\_\-EventRead().\index{vt48.h@{vt48.h}!VT48\_\-TRAILER@{VT48\_\-TRAILER}}
+\index{VT48\_\-TRAILER@{VT48\_\-TRAILER}!vt48.h@{vt48.h}}
+\paragraph[{VT48\_\-TRAILER}]{\setlength{\rightskip}{0pt plus 5cm}\#define VT48\_\-TRAILER~({\bf DWORD}) (0x80000000)}\hfill\label{vt48_8h_aa7737fe6d427ecc31d650b8e2c1035f0}
+
+
+Definition at line 33 of file vt48.h.
+
+Referenced by vt48\_\-EventRead().
+
+\subsubsection{Function Documentation}
+\index{vt48.h@{vt48.h}!vt48\_\-EventRead@{vt48\_\-EventRead}}
+\index{vt48\_\-EventRead@{vt48\_\-EventRead}!vt48.h@{vt48.h}}
+\paragraph[{vt48\_\-EventRead}]{\setlength{\rightskip}{0pt plus 5cm}int vt48\_\-EventRead ({\bf MVME\_\-INTERFACE} $\ast$ {\em myvme}, \/  {\bf DWORD} {\em base}, \/  {\bf DWORD} $\ast$ {\em pdest}, \/  int $\ast$ {\em nentry})}\hfill\label{vt48_8h_a1cefc6582d808ef387ecc7016d9577fa}
+Read one Event 
+\begin{DoxyParams}{Parameters}
+\item[{\em myvme}]vme structure \item[{\em base}]TF48 base address \item[{\em pdest}]Destination pointer \item[{\em entry}]return number of entry \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 28 of file vt48.c.\index{vt48.h@{vt48.h}!vt48\_\-RegPrint@{vt48\_\-RegPrint}}
+\index{vt48\_\-RegPrint@{vt48\_\-RegPrint}!vt48.h@{vt48.h}}
+\paragraph[{vt48\_\-RegPrint}]{\setlength{\rightskip}{0pt plus 5cm}void vt48\_\-RegPrint ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  {\bf DWORD} {\em base})}\hfill\label{vt48_8h_a0601108f279d6ef9ebb18ab81057f511}
+
+
+Definition at line 150 of file vt48.c.\index{vt48.h@{vt48.h}!vt48\_\-RegRead@{vt48\_\-RegRead}}
+\index{vt48\_\-RegRead@{vt48\_\-RegRead}!vt48.h@{vt48.h}}
+\paragraph[{vt48\_\-RegRead}]{\setlength{\rightskip}{0pt plus 5cm}{\bf DWORD} vt48\_\-RegRead ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  {\bf DWORD} {\em base}, \/  {\bf WORD} {\em reg})}\hfill\label{vt48_8h_a8cc2c9b587fdf95193a9bc0758615524}
+
+
+Definition at line 135 of file vt48.c.
+
+Referenced by vt48\_\-RegPrint(), and vt48\_\-Status().\index{vt48.h@{vt48.h}!vt48\_\-RegWrite@{vt48\_\-RegWrite}}
+\index{vt48\_\-RegWrite@{vt48\_\-RegWrite}!vt48.h@{vt48.h}}
+\paragraph[{vt48\_\-RegWrite}]{\setlength{\rightskip}{0pt plus 5cm}void vt48\_\-RegWrite ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  {\bf DWORD} {\em base}, \/  {\bf DWORD} {\em reg}, \/  {\bf DWORD} {\em data})}\hfill\label{vt48_8h_aa8014da90c3ae3d4a191aa003d76078a}
+
+
+Definition at line 95 of file vt48.c.
+
+Referenced by vt48\_\-RegPrint(), vt48\_\-Setup(), and vt48\_\-Status().\index{vt48.h@{vt48.h}!vt48\_\-Setup@{vt48\_\-Setup}}
+\index{vt48\_\-Setup@{vt48\_\-Setup}!vt48.h@{vt48.h}}
+\paragraph[{vt48\_\-Setup}]{\setlength{\rightskip}{0pt plus 5cm}int vt48\_\-Setup ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  {\bf DWORD} {\em base}, \/  int {\em mode})}\hfill\label{vt48_8h_aa6237edcb797fb9ebb0d447a5b1edbcd}
+Sets all the necessary paramters for a given configuration. The configuration is provided by the mode argument. Add your own configuration in the case statement. Let me know your setting if you want to include it in the distribution. 
+\begin{DoxyParams}{Parameters}
+\item[{\em $\ast$mvme}]VME structure \item[{\em base}]Module base address \item[{\em mode}]Configuration mode number \item[{\em $\ast$nentry}]number of entries requested and returned. \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+MVME\_\-SUCCESS 
+\end{DoxyReturn}
+
+
+Definition at line 180 of file vt48.c.\index{vt48.h@{vt48.h}!vt48\_\-Status@{vt48\_\-Status}}
+\index{vt48\_\-Status@{vt48\_\-Status}!vt48.h@{vt48.h}}
+\paragraph[{vt48\_\-Status}]{\setlength{\rightskip}{0pt plus 5cm}void vt48\_\-Status ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  {\bf DWORD} {\em base})}\hfill\label{vt48_8h_a8c2825023005fcd48c424e75dde70ce3}
+
+
+Definition at line 273 of file vt48.c.\index{vt48.h@{vt48.h}!vt48\_\-StatusPrint@{vt48\_\-StatusPrint}}
+\index{vt48\_\-StatusPrint@{vt48\_\-StatusPrint}!vt48.h@{vt48.h}}
+\paragraph[{vt48\_\-StatusPrint}]{\setlength{\rightskip}{0pt plus 5cm}void vt48\_\-StatusPrint ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  {\bf DWORD} {\em base})}\hfill\label{vt48_8h_a34be3807ff5960444ca76cb7a7b39c04}
+\index{vt48.h@{vt48.h}!vt48\_\-WindowOffsetSet@{vt48\_\-WindowOffsetSet}}
+\index{vt48\_\-WindowOffsetSet@{vt48\_\-WindowOffsetSet}!vt48.h@{vt48.h}}
+\paragraph[{vt48\_\-WindowOffsetSet}]{\setlength{\rightskip}{0pt plus 5cm}void vt48\_\-WindowOffsetSet ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  {\bf DWORD} {\em base}, \/  float {\em offset})}\hfill\label{vt48_8h_afd51ba644c73189293c6fab7de739533}
+
+
+Definition at line 121 of file vt48.c.\index{vt48.h@{vt48.h}!vt48\_\-WindowSet@{vt48\_\-WindowSet}}
+\index{vt48\_\-WindowSet@{vt48\_\-WindowSet}!vt48.h@{vt48.h}}
+\paragraph[{vt48\_\-WindowSet}]{\setlength{\rightskip}{0pt plus 5cm}void vt48\_\-WindowSet ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  {\bf DWORD} {\em base}, \/  float {\em window})}\hfill\label{vt48_8h_a5643216541b3d8c374948f45ec2d22f1}
+
+
+Definition at line 108 of file vt48.c.

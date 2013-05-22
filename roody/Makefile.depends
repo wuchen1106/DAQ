@@ -1,0 +1,451 @@
+obj/DataSourceTDirectory.o: src/DataSourceTDirectory.cxx \
+   include/DataSourceTDirectory.h include/DataSourceBase.h \
+   /home/nam/sw/root/include/TDirectory.h \
+   /home/nam/sw/root/include/TNamed.h /home/nam/sw/root/include/TObject.h \
+   /home/nam/sw/root/include/Rtypes.h /home/nam/sw/root/include/RConfig.h \
+   /home/nam/sw/root/include/RVersion.h \
+   /home/nam/sw/root/include/DllImport.h \
+   /home/nam/sw/root/include/Rtypeinfo.h \
+   /home/nam/sw/root/include/snprintf.h /home/nam/sw/root/include/strlcpy.h \
+   /home/nam/sw/root/include/TGenericClassInfo.h \
+   /home/nam/sw/root/include/TSchemaHelper.h \
+   /home/nam/sw/root/include/TStorage.h \
+   /home/nam/sw/root/include/TVersionCheck.h \
+   /home/nam/sw/root/include/Riosfwd.h /home/nam/sw/root/include/TBuffer.h \
+   /home/nam/sw/root/include/TString.h \
+   /home/nam/sw/root/include/TMathBase.h /home/nam/sw/root/include/TList.h \
+   /home/nam/sw/root/include/TSeqCollection.h \
+   /home/nam/sw/root/include/TCollection.h \
+   /home/nam/sw/root/include/TIterator.h \
+   /home/nam/sw/root/include/TDatime.h /home/nam/sw/root/include/TUUID.h \
+   /home/nam/sw/root/include/TKey.h /home/nam/sw/root/include/TFolder.h
+obj/main.o: src/main.cxx include/Roody.h /home/nam/sw/root/include/TGFrame.h \
+   /home/nam/sw/root/include/TGWindow.h \
+   /home/nam/sw/root/include/TGObject.h /home/nam/sw/root/include/TObject.h \
+   /home/nam/sw/root/include/Rtypes.h /home/nam/sw/root/include/RConfig.h \
+   /home/nam/sw/root/include/RVersion.h \
+   /home/nam/sw/root/include/DllImport.h \
+   /home/nam/sw/root/include/Rtypeinfo.h \
+   /home/nam/sw/root/include/snprintf.h /home/nam/sw/root/include/strlcpy.h \
+   /home/nam/sw/root/include/TGenericClassInfo.h \
+   /home/nam/sw/root/include/TSchemaHelper.h \
+   /home/nam/sw/root/include/TStorage.h \
+   /home/nam/sw/root/include/TVersionCheck.h \
+   /home/nam/sw/root/include/Riosfwd.h /home/nam/sw/root/include/TBuffer.h \
+   /home/nam/sw/root/include/GuiTypes.h \
+   /home/nam/sw/root/include/TGClient.h /home/nam/sw/root/include/TString.h \
+   /home/nam/sw/root/include/TMathBase.h \
+   /home/nam/sw/root/include/TQObject.h \
+   /home/nam/sw/root/include/TVirtualX.h /home/nam/sw/root/include/TNamed.h \
+   /home/nam/sw/root/include/TAttLine.h \
+   /home/nam/sw/root/include/TAttFill.h \
+   /home/nam/sw/root/include/TAttText.h \
+   /home/nam/sw/root/include/TAttMarker.h \
+   /home/nam/sw/root/include/TGDimension.h /home/nam/sw/root/include/TGGC.h \
+   /home/nam/sw/root/include/TRefCnt.h /home/nam/sw/root/include/TGFont.h \
+   /home/nam/sw/root/include/TGLayout.h \
+   /home/nam/sw/root/include/TGString.h /home/nam/sw/root/include/TList.h \
+   /home/nam/sw/root/include/TSeqCollection.h \
+   /home/nam/sw/root/include/TCollection.h \
+   /home/nam/sw/root/include/TIterator.h include/DataSourceBase.h \
+   /home/nam/sw/root/include/TApplication.h \
+   /home/nam/sw/root/include/TApplicationImp.h include/rootsys.h
+obj/MTGListTree.o: src/MTGListTree.cxx /home/nam/sw/root/include/TGToolTip.h \
+   /home/nam/sw/root/include/TGFrame.h /home/nam/sw/root/include/TGWindow.h \
+   /home/nam/sw/root/include/TGObject.h /home/nam/sw/root/include/TObject.h \
+   /home/nam/sw/root/include/Rtypes.h /home/nam/sw/root/include/RConfig.h \
+   /home/nam/sw/root/include/RVersion.h \
+   /home/nam/sw/root/include/DllImport.h \
+   /home/nam/sw/root/include/Rtypeinfo.h \
+   /home/nam/sw/root/include/snprintf.h /home/nam/sw/root/include/strlcpy.h \
+   /home/nam/sw/root/include/TGenericClassInfo.h \
+   /home/nam/sw/root/include/TSchemaHelper.h \
+   /home/nam/sw/root/include/TStorage.h \
+   /home/nam/sw/root/include/TVersionCheck.h \
+   /home/nam/sw/root/include/Riosfwd.h /home/nam/sw/root/include/TBuffer.h \
+   /home/nam/sw/root/include/GuiTypes.h \
+   /home/nam/sw/root/include/TGClient.h /home/nam/sw/root/include/TString.h \
+   /home/nam/sw/root/include/TMathBase.h \
+   /home/nam/sw/root/include/TQObject.h \
+   /home/nam/sw/root/include/TVirtualX.h /home/nam/sw/root/include/TNamed.h \
+   /home/nam/sw/root/include/TAttLine.h \
+   /home/nam/sw/root/include/TAttFill.h \
+   /home/nam/sw/root/include/TAttText.h \
+   /home/nam/sw/root/include/TAttMarker.h \
+   /home/nam/sw/root/include/TGDimension.h /home/nam/sw/root/include/TGGC.h \
+   /home/nam/sw/root/include/TRefCnt.h /home/nam/sw/root/include/TGFont.h \
+   /home/nam/sw/root/include/TGLayout.h \
+   /home/nam/sw/root/include/TGString.h /home/nam/sw/root/include/TList.h \
+   /home/nam/sw/root/include/TSeqCollection.h \
+   /home/nam/sw/root/include/TCollection.h \
+   /home/nam/sw/root/include/TIterator.h \
+   /home/nam/sw/root/include/Riostream.h include/MTGListTree.h \
+   /home/nam/sw/root/include/TObjArray.h \
+   /home/nam/sw/root/include/TGListTree.h \
+   /home/nam/sw/root/include/TGCanvas.h \
+   /home/nam/sw/root/include/TGWidget.h \
+   /home/nam/sw/root/include/WidgetMessageTypes.h \
+   /home/nam/sw/root/include/TGDNDManager.h
+obj/Roody.o: src/Roody.cxx include/RoodyXML.h include/mxml.h include/Roody.h \
+   /home/nam/sw/root/include/TGFrame.h /home/nam/sw/root/include/TGWindow.h \
+   /home/nam/sw/root/include/TGObject.h /home/nam/sw/root/include/TObject.h \
+   /home/nam/sw/root/include/Rtypes.h /home/nam/sw/root/include/RConfig.h \
+   /home/nam/sw/root/include/RVersion.h \
+   /home/nam/sw/root/include/DllImport.h \
+   /home/nam/sw/root/include/Rtypeinfo.h \
+   /home/nam/sw/root/include/snprintf.h /home/nam/sw/root/include/strlcpy.h \
+   /home/nam/sw/root/include/TGenericClassInfo.h \
+   /home/nam/sw/root/include/TSchemaHelper.h \
+   /home/nam/sw/root/include/TStorage.h \
+   /home/nam/sw/root/include/TVersionCheck.h \
+   /home/nam/sw/root/include/Riosfwd.h /home/nam/sw/root/include/TBuffer.h \
+   /home/nam/sw/root/include/GuiTypes.h \
+   /home/nam/sw/root/include/TGClient.h /home/nam/sw/root/include/TString.h \
+   /home/nam/sw/root/include/TMathBase.h \
+   /home/nam/sw/root/include/TQObject.h \
+   /home/nam/sw/root/include/TVirtualX.h /home/nam/sw/root/include/TNamed.h \
+   /home/nam/sw/root/include/TAttLine.h \
+   /home/nam/sw/root/include/TAttFill.h \
+   /home/nam/sw/root/include/TAttText.h \
+   /home/nam/sw/root/include/TAttMarker.h \
+   /home/nam/sw/root/include/TGDimension.h /home/nam/sw/root/include/TGGC.h \
+   /home/nam/sw/root/include/TRefCnt.h /home/nam/sw/root/include/TGFont.h \
+   /home/nam/sw/root/include/TGLayout.h \
+   /home/nam/sw/root/include/TGString.h /home/nam/sw/root/include/TList.h \
+   /home/nam/sw/root/include/TSeqCollection.h \
+   /home/nam/sw/root/include/TCollection.h \
+   /home/nam/sw/root/include/TIterator.h include/DataSourceBase.h \
+   include/TAxisLimitsDialog.h /home/nam/sw/root/include/TGButton.h \
+   /home/nam/sw/root/include/TGWidget.h \
+   /home/nam/sw/root/include/WidgetMessageTypes.h \
+   /home/nam/sw/root/include/TRootEmbeddedCanvas.h \
+   /home/nam/sw/root/include/TGCanvas.h \
+   /home/nam/sw/root/include/TGLayout.h /home/nam/sw/root/include/TH2.h \
+   /home/nam/sw/root/include/TH1.h /home/nam/sw/root/include/TAxis.h \
+   /home/nam/sw/root/include/TAttAxis.h /home/nam/sw/root/include/TArrayD.h \
+   /home/nam/sw/root/include/TArray.h /home/nam/sw/root/include/TArrayC.h \
+   /home/nam/sw/root/include/TArrayS.h /home/nam/sw/root/include/TArrayI.h \
+   /home/nam/sw/root/include/TArrayF.h /home/nam/sw/root/include/Foption.h \
+   /home/nam/sw/root/include/TVectorFfwd.h \
+   /home/nam/sw/root/include/TVectorDfwd.h \
+   /home/nam/sw/root/include/TFitResultPtr.h \
+   /home/nam/sw/root/include/TMatrixFBasefwd.h \
+   /home/nam/sw/root/include/TMatrixDBasefwd.h \
+   /home/nam/sw/root/include/TCanvas.h /home/nam/sw/root/include/TPad.h \
+   /home/nam/sw/root/include/TVirtualPad.h \
+   /home/nam/sw/root/include/TAttPad.h /home/nam/sw/root/include/Buttons.h \
+   /home/nam/sw/root/include/TAttCanvas.h \
+   /home/nam/sw/root/include/TCanvasImp.h \
+   /home/nam/sw/root/include/TSocket.h /home/nam/sw/root/include/TBits.h \
+   /home/nam/sw/root/include/TInetAddress.h \
+   /home/nam/sw/root/include/MessageTypes.h \
+   /home/nam/sw/root/include/TVirtualAuth.h \
+   /home/nam/sw/root/include/TSecContext.h \
+   /home/nam/sw/root/include/TDatime.h \
+   /home/nam/sw/root/include/TTimeStamp.h \
+   /home/nam/sw/root/include/TVirtualMutex.h \
+   /home/nam/sw/root/include/TMessage.h \
+   /home/nam/sw/root/include/TBufferFile.h \
+   /home/nam/sw/root/include/Bytes.h /home/nam/sw/root/include/Byteswap.h \
+   /home/nam/sw/root/include/TGMsgBox.h \
+   /home/nam/sw/root/include/TGPicture.h \
+   /home/nam/sw/root/include/TApplication.h \
+   /home/nam/sw/root/include/TApplicationImp.h \
+   /home/nam/sw/root/include/TROOT.h /home/nam/sw/root/include/TDirectory.h \
+   /home/nam/sw/root/include/TUUID.h /home/nam/sw/root/include/TGListBox.h \
+   /home/nam/sw/root/include/TGScrollBar.h \
+   /home/nam/sw/root/include/TString.h \
+   /home/nam/sw/root/include/TObjArray.h \
+   /home/nam/sw/root/include/TObjString.h \
+   /home/nam/sw/root/include/TGMenu.h /home/nam/sw/root/include/TGTab.h \
+   /home/nam/sw/root/include/TGLabel.h \
+   /home/nam/sw/root/include/TGTextEntry.h \
+   /home/nam/sw/root/include/TGTextBuffer.h \
+   /home/nam/sw/root/include/Rtypes.h include/CanvasLimits.h \
+   include/Roody.h /home/nam/sw/root/include/TCutG.h \
+   /home/nam/sw/root/include/TGraph.h /home/nam/sw/root/include/TNtuple.h \
+   /home/nam/sw/root/include/TTree.h /home/nam/sw/root/include/TBranch.h \
+   /home/nam/sw/root/include/TDataType.h \
+   /home/nam/sw/root/include/TDictionary.h \
+   /home/nam/sw/root/include/Property.h /home/nam/sw/root/include/TClass.h \
+   /home/nam/sw/root/include/TVirtualTreePlayer.h \
+   /home/nam/sw/root/include/TGraph.h /home/nam/sw/root/include/TVirtualX.h \
+   /home/nam/sw/root/include/TGListTree.h \
+   /home/nam/sw/root/include/TGDNDManager.h \
+   /home/nam/sw/root/include/TGClient.h \
+   /home/nam/sw/root/include/TGCanvas.h include/TGTextDialog.h \
+   /home/nam/sw/root/include/TFrame.h /home/nam/sw/root/include/TWbox.h \
+   /home/nam/sw/root/include/TBox.h /home/nam/sw/root/include/TColor.h \
+   /home/nam/sw/root/include/TH1.h /home/nam/sw/root/include/TSystem.h \
+   /home/nam/sw/root/include/TTimer.h \
+   /home/nam/sw/root/include/TSysEvtHandler.h \
+   /home/nam/sw/root/include/TTime.h /home/nam/sw/root/include/TFile.h \
+   /home/nam/sw/root/include/TDirectoryFile.h \
+   /home/nam/sw/root/include/TUrl.h /home/nam/sw/root/include/TMap.h \
+   /home/nam/sw/root/include/THashTable.h /home/nam/sw/root/include/TKey.h \
+   /home/nam/sw/root/include/TGStatusBar.h \
+   /home/nam/sw/root/include/TExec.h /home/nam/sw/root/include/TStyle.h \
+   /home/nam/sw/root/include/TTimer.h \
+   /home/nam/sw/root/include/TContextMenu.h \
+   /home/nam/sw/root/include/TContextMenuImp.h \
+   /home/nam/sw/root/include/TClassMenuItem.h include/MTGListTree.h \
+   include/TPeakFindPanel.h /home/nam/sw/root/include/TGResourcePool.h \
+   /home/nam/sw/root/include/TGIcon.h \
+   /home/nam/sw/root/include/TGNumberEntry.h \
+   /home/nam/sw/root/include/TGComboBox.h \
+   /home/nam/sw/root/include/TGSlider.h \
+   /home/nam/sw/root/include/TGDoubleSlider.h \
+   /home/nam/sw/root/include/RQ_OBJECT.h \
+   /home/nam/sw/root/include/TQObject.h /home/nam/sw/root/include/Varargs.h \
+   /home/nam/sw/root/include/TF1.h /home/nam/sw/root/include/TFormula.h \
+   /home/nam/sw/root/include/Math/ParamFunctor.h \
+   /home/nam/sw/root/include/TFitter.h \
+   /home/nam/sw/root/include/TVirtualFitter.h \
+   /home/nam/sw/root/include/TMethodCall.h \
+   /home/nam/sw/root/include/TVirtualFitter.h \
+   /home/nam/sw/root/include/TRandom.h /home/nam/sw/root/include/TList.h \
+   /home/nam/sw/root/include/TSpectrum.h \
+   /home/nam/sw/root/include/TPolyMarker.h \
+   /home/nam/sw/root/include/TGFileDialog.h \
+   /home/nam/sw/root/include/TPaveLabel.h /home/nam/sw/root/include/TPave.h \
+   /home/nam/sw/root/include/THbookKey.h \
+   /home/nam/sw/root/include/THbookFile.h \
+   /home/nam/sw/root/include/THbookFile.h \
+   /home/nam/sw/root/include/THbookTree.h \
+   /home/nam/sw/root/include/THbookBranch.h include/DataSourceBase.h \
+   include/DataSourceTDirectory.h include/DataSourceTNetFolder.h \
+   /home/nam/sw/root/include/TFolder.h include/DataSourceTFile.h \
+   include/DataSourceTDirectory.h
+obj/RoodyXML.o: src/RoodyXML.cxx include/RoodyXML.h include/mxml.h
+obj/TAxisLimitsDialog.o: src/TAxisLimitsDialog.cxx \
+   include/TAxisLimitsDialog.h /home/nam/sw/root/include/TGButton.h \
+   /home/nam/sw/root/include/TGFrame.h /home/nam/sw/root/include/TGWindow.h \
+   /home/nam/sw/root/include/TGObject.h /home/nam/sw/root/include/TObject.h \
+   /home/nam/sw/root/include/Rtypes.h /home/nam/sw/root/include/RConfig.h \
+   /home/nam/sw/root/include/RVersion.h \
+   /home/nam/sw/root/include/DllImport.h \
+   /home/nam/sw/root/include/Rtypeinfo.h \
+   /home/nam/sw/root/include/snprintf.h /home/nam/sw/root/include/strlcpy.h \
+   /home/nam/sw/root/include/TGenericClassInfo.h \
+   /home/nam/sw/root/include/TSchemaHelper.h \
+   /home/nam/sw/root/include/TStorage.h \
+   /home/nam/sw/root/include/TVersionCheck.h \
+   /home/nam/sw/root/include/Riosfwd.h /home/nam/sw/root/include/TBuffer.h \
+   /home/nam/sw/root/include/GuiTypes.h \
+   /home/nam/sw/root/include/TGClient.h /home/nam/sw/root/include/TString.h \
+   /home/nam/sw/root/include/TMathBase.h \
+   /home/nam/sw/root/include/TQObject.h \
+   /home/nam/sw/root/include/TVirtualX.h /home/nam/sw/root/include/TNamed.h \
+   /home/nam/sw/root/include/TAttLine.h \
+   /home/nam/sw/root/include/TAttFill.h \
+   /home/nam/sw/root/include/TAttText.h \
+   /home/nam/sw/root/include/TAttMarker.h \
+   /home/nam/sw/root/include/TGDimension.h /home/nam/sw/root/include/TGGC.h \
+   /home/nam/sw/root/include/TRefCnt.h /home/nam/sw/root/include/TGFont.h \
+   /home/nam/sw/root/include/TGLayout.h \
+   /home/nam/sw/root/include/TGString.h /home/nam/sw/root/include/TList.h \
+   /home/nam/sw/root/include/TSeqCollection.h \
+   /home/nam/sw/root/include/TCollection.h \
+   /home/nam/sw/root/include/TIterator.h \
+   /home/nam/sw/root/include/TGWidget.h \
+   /home/nam/sw/root/include/WidgetMessageTypes.h \
+   /home/nam/sw/root/include/TRootEmbeddedCanvas.h \
+   /home/nam/sw/root/include/TGCanvas.h \
+   /home/nam/sw/root/include/TGLayout.h /home/nam/sw/root/include/TH2.h \
+   /home/nam/sw/root/include/TH1.h /home/nam/sw/root/include/TAxis.h \
+   /home/nam/sw/root/include/TAttAxis.h /home/nam/sw/root/include/TArrayD.h \
+   /home/nam/sw/root/include/TArray.h /home/nam/sw/root/include/TArrayC.h \
+   /home/nam/sw/root/include/TArrayS.h /home/nam/sw/root/include/TArrayI.h \
+   /home/nam/sw/root/include/TArrayF.h /home/nam/sw/root/include/Foption.h \
+   /home/nam/sw/root/include/TVectorFfwd.h \
+   /home/nam/sw/root/include/TVectorDfwd.h \
+   /home/nam/sw/root/include/TFitResultPtr.h \
+   /home/nam/sw/root/include/TMatrixFBasefwd.h \
+   /home/nam/sw/root/include/TMatrixDBasefwd.h \
+   /home/nam/sw/root/include/TCanvas.h /home/nam/sw/root/include/TPad.h \
+   /home/nam/sw/root/include/TVirtualPad.h \
+   /home/nam/sw/root/include/TAttPad.h /home/nam/sw/root/include/Buttons.h \
+   /home/nam/sw/root/include/TAttCanvas.h \
+   /home/nam/sw/root/include/TCanvasImp.h \
+   /home/nam/sw/root/include/TSocket.h /home/nam/sw/root/include/TBits.h \
+   /home/nam/sw/root/include/TInetAddress.h \
+   /home/nam/sw/root/include/MessageTypes.h \
+   /home/nam/sw/root/include/TVirtualAuth.h \
+   /home/nam/sw/root/include/TSecContext.h \
+   /home/nam/sw/root/include/TDatime.h \
+   /home/nam/sw/root/include/TTimeStamp.h \
+   /home/nam/sw/root/include/TVirtualMutex.h \
+   /home/nam/sw/root/include/TMessage.h \
+   /home/nam/sw/root/include/TBufferFile.h \
+   /home/nam/sw/root/include/Bytes.h /home/nam/sw/root/include/Byteswap.h \
+   /home/nam/sw/root/include/TGMsgBox.h \
+   /home/nam/sw/root/include/TGPicture.h \
+   /home/nam/sw/root/include/TApplication.h \
+   /home/nam/sw/root/include/TApplicationImp.h \
+   /home/nam/sw/root/include/TROOT.h /home/nam/sw/root/include/TDirectory.h \
+   /home/nam/sw/root/include/TUUID.h /home/nam/sw/root/include/TGListBox.h \
+   /home/nam/sw/root/include/TGScrollBar.h \
+   /home/nam/sw/root/include/TString.h \
+   /home/nam/sw/root/include/TObjArray.h \
+   /home/nam/sw/root/include/TObjString.h \
+   /home/nam/sw/root/include/TGMenu.h /home/nam/sw/root/include/TGTab.h \
+   /home/nam/sw/root/include/TGLabel.h \
+   /home/nam/sw/root/include/TGTextEntry.h \
+   /home/nam/sw/root/include/TGTextBuffer.h \
+   /home/nam/sw/root/include/Rtypes.h include/CanvasLimits.h \
+   include/Roody.h /home/nam/sw/root/include/TGFrame.h \
+   include/DataSourceBase.h
+obj/TGTextDialog.o: src/TGTextDialog.cxx include/TGTextDialog.h \
+   /home/nam/sw/root/include/TGButton.h /home/nam/sw/root/include/TGFrame.h \
+   /home/nam/sw/root/include/TGWindow.h \
+   /home/nam/sw/root/include/TGObject.h /home/nam/sw/root/include/TObject.h \
+   /home/nam/sw/root/include/Rtypes.h /home/nam/sw/root/include/RConfig.h \
+   /home/nam/sw/root/include/RVersion.h \
+   /home/nam/sw/root/include/DllImport.h \
+   /home/nam/sw/root/include/Rtypeinfo.h \
+   /home/nam/sw/root/include/snprintf.h /home/nam/sw/root/include/strlcpy.h \
+   /home/nam/sw/root/include/TGenericClassInfo.h \
+   /home/nam/sw/root/include/TSchemaHelper.h \
+   /home/nam/sw/root/include/TStorage.h \
+   /home/nam/sw/root/include/TVersionCheck.h \
+   /home/nam/sw/root/include/Riosfwd.h /home/nam/sw/root/include/TBuffer.h \
+   /home/nam/sw/root/include/GuiTypes.h \
+   /home/nam/sw/root/include/TGClient.h /home/nam/sw/root/include/TString.h \
+   /home/nam/sw/root/include/TMathBase.h \
+   /home/nam/sw/root/include/TQObject.h \
+   /home/nam/sw/root/include/TVirtualX.h /home/nam/sw/root/include/TNamed.h \
+   /home/nam/sw/root/include/TAttLine.h \
+   /home/nam/sw/root/include/TAttFill.h \
+   /home/nam/sw/root/include/TAttText.h \
+   /home/nam/sw/root/include/TAttMarker.h \
+   /home/nam/sw/root/include/TGDimension.h /home/nam/sw/root/include/TGGC.h \
+   /home/nam/sw/root/include/TRefCnt.h /home/nam/sw/root/include/TGFont.h \
+   /home/nam/sw/root/include/TGLayout.h \
+   /home/nam/sw/root/include/TGString.h /home/nam/sw/root/include/TList.h \
+   /home/nam/sw/root/include/TSeqCollection.h \
+   /home/nam/sw/root/include/TCollection.h \
+   /home/nam/sw/root/include/TIterator.h \
+   /home/nam/sw/root/include/TGWidget.h \
+   /home/nam/sw/root/include/WidgetMessageTypes.h \
+   /home/nam/sw/root/include/TRootEmbeddedCanvas.h \
+   /home/nam/sw/root/include/TGCanvas.h \
+   /home/nam/sw/root/include/TGLayout.h /home/nam/sw/root/include/TH2.h \
+   /home/nam/sw/root/include/TH1.h /home/nam/sw/root/include/TAxis.h \
+   /home/nam/sw/root/include/TAttAxis.h /home/nam/sw/root/include/TArrayD.h \
+   /home/nam/sw/root/include/TArray.h /home/nam/sw/root/include/TArrayC.h \
+   /home/nam/sw/root/include/TArrayS.h /home/nam/sw/root/include/TArrayI.h \
+   /home/nam/sw/root/include/TArrayF.h /home/nam/sw/root/include/Foption.h \
+   /home/nam/sw/root/include/TVectorFfwd.h \
+   /home/nam/sw/root/include/TVectorDfwd.h \
+   /home/nam/sw/root/include/TFitResultPtr.h \
+   /home/nam/sw/root/include/TMatrixFBasefwd.h \
+   /home/nam/sw/root/include/TMatrixDBasefwd.h \
+   /home/nam/sw/root/include/TCanvas.h /home/nam/sw/root/include/TPad.h \
+   /home/nam/sw/root/include/TVirtualPad.h \
+   /home/nam/sw/root/include/TAttPad.h /home/nam/sw/root/include/Buttons.h \
+   /home/nam/sw/root/include/TAttCanvas.h \
+   /home/nam/sw/root/include/TCanvasImp.h \
+   /home/nam/sw/root/include/TSocket.h /home/nam/sw/root/include/TBits.h \
+   /home/nam/sw/root/include/TInetAddress.h \
+   /home/nam/sw/root/include/MessageTypes.h \
+   /home/nam/sw/root/include/TVirtualAuth.h \
+   /home/nam/sw/root/include/TSecContext.h \
+   /home/nam/sw/root/include/TDatime.h \
+   /home/nam/sw/root/include/TTimeStamp.h \
+   /home/nam/sw/root/include/TVirtualMutex.h \
+   /home/nam/sw/root/include/TMessage.h \
+   /home/nam/sw/root/include/TBufferFile.h \
+   /home/nam/sw/root/include/Bytes.h /home/nam/sw/root/include/Byteswap.h \
+   /home/nam/sw/root/include/TGMsgBox.h \
+   /home/nam/sw/root/include/TGPicture.h \
+   /home/nam/sw/root/include/TApplication.h \
+   /home/nam/sw/root/include/TApplicationImp.h \
+   /home/nam/sw/root/include/TROOT.h /home/nam/sw/root/include/TDirectory.h \
+   /home/nam/sw/root/include/TUUID.h /home/nam/sw/root/include/TGListBox.h \
+   /home/nam/sw/root/include/TGScrollBar.h \
+   /home/nam/sw/root/include/TString.h \
+   /home/nam/sw/root/include/TObjArray.h \
+   /home/nam/sw/root/include/TObjString.h \
+   /home/nam/sw/root/include/TGMenu.h /home/nam/sw/root/include/TGTab.h \
+   /home/nam/sw/root/include/TGLabel.h \
+   /home/nam/sw/root/include/TGTextEntry.h \
+   /home/nam/sw/root/include/TGTextBuffer.h
+obj/TPeakFindPanel.o: src/TPeakFindPanel.cxx include/TPeakFindPanel.h \
+   /home/nam/sw/root/include/TGFrame.h /home/nam/sw/root/include/TGWindow.h \
+   /home/nam/sw/root/include/TGObject.h /home/nam/sw/root/include/TObject.h \
+   /home/nam/sw/root/include/Rtypes.h /home/nam/sw/root/include/RConfig.h \
+   /home/nam/sw/root/include/RVersion.h \
+   /home/nam/sw/root/include/DllImport.h \
+   /home/nam/sw/root/include/Rtypeinfo.h \
+   /home/nam/sw/root/include/snprintf.h /home/nam/sw/root/include/strlcpy.h \
+   /home/nam/sw/root/include/TGenericClassInfo.h \
+   /home/nam/sw/root/include/TSchemaHelper.h \
+   /home/nam/sw/root/include/TStorage.h \
+   /home/nam/sw/root/include/TVersionCheck.h \
+   /home/nam/sw/root/include/Riosfwd.h /home/nam/sw/root/include/TBuffer.h \
+   /home/nam/sw/root/include/GuiTypes.h \
+   /home/nam/sw/root/include/TGClient.h /home/nam/sw/root/include/TString.h \
+   /home/nam/sw/root/include/TMathBase.h \
+   /home/nam/sw/root/include/TQObject.h \
+   /home/nam/sw/root/include/TVirtualX.h /home/nam/sw/root/include/TNamed.h \
+   /home/nam/sw/root/include/TAttLine.h \
+   /home/nam/sw/root/include/TAttFill.h \
+   /home/nam/sw/root/include/TAttText.h \
+   /home/nam/sw/root/include/TAttMarker.h \
+   /home/nam/sw/root/include/TGDimension.h /home/nam/sw/root/include/TGGC.h \
+   /home/nam/sw/root/include/TRefCnt.h /home/nam/sw/root/include/TGFont.h \
+   /home/nam/sw/root/include/TGLayout.h \
+   /home/nam/sw/root/include/TGString.h /home/nam/sw/root/include/TList.h \
+   /home/nam/sw/root/include/TSeqCollection.h \
+   /home/nam/sw/root/include/TCollection.h \
+   /home/nam/sw/root/include/TIterator.h /home/nam/sw/root/include/TROOT.h \
+   /home/nam/sw/root/include/TDirectory.h \
+   /home/nam/sw/root/include/TDatime.h /home/nam/sw/root/include/TUUID.h \
+   /home/nam/sw/root/include/TVirtualX.h \
+   /home/nam/sw/root/include/TGResourcePool.h \
+   /home/nam/sw/root/include/TGClient.h /home/nam/sw/root/include/TGIcon.h \
+   /home/nam/sw/root/include/TGLabel.h /home/nam/sw/root/include/TGButton.h \
+   /home/nam/sw/root/include/TGWidget.h \
+   /home/nam/sw/root/include/WidgetMessageTypes.h \
+   /home/nam/sw/root/include/TGTextEntry.h \
+   /home/nam/sw/root/include/TGTextBuffer.h \
+   /home/nam/sw/root/include/TGNumberEntry.h \
+   /home/nam/sw/root/include/TGMsgBox.h \
+   /home/nam/sw/root/include/TGPicture.h /home/nam/sw/root/include/TGMenu.h \
+   /home/nam/sw/root/include/TGCanvas.h \
+   /home/nam/sw/root/include/TGComboBox.h \
+   /home/nam/sw/root/include/TGListBox.h \
+   /home/nam/sw/root/include/TGScrollBar.h \
+   /home/nam/sw/root/include/TGSlider.h \
+   /home/nam/sw/root/include/TGDoubleSlider.h \
+   /home/nam/sw/root/include/RQ_OBJECT.h \
+   /home/nam/sw/root/include/TQObject.h /home/nam/sw/root/include/Varargs.h \
+   /home/nam/sw/root/include/TGLayout.h /home/nam/sw/root/include/TH1.h \
+   /home/nam/sw/root/include/TAxis.h /home/nam/sw/root/include/TAttAxis.h \
+   /home/nam/sw/root/include/TArrayD.h /home/nam/sw/root/include/TArray.h \
+   /home/nam/sw/root/include/TArrayC.h /home/nam/sw/root/include/TArrayS.h \
+   /home/nam/sw/root/include/TArrayI.h /home/nam/sw/root/include/TArrayF.h \
+   /home/nam/sw/root/include/Foption.h \
+   /home/nam/sw/root/include/TVectorFfwd.h \
+   /home/nam/sw/root/include/TVectorDfwd.h \
+   /home/nam/sw/root/include/TFitResultPtr.h \
+   /home/nam/sw/root/include/TF1.h /home/nam/sw/root/include/TFormula.h \
+   /home/nam/sw/root/include/TBits.h /home/nam/sw/root/include/TObjArray.h \
+   /home/nam/sw/root/include/Math/ParamFunctor.h \
+   /home/nam/sw/root/include/TFitter.h \
+   /home/nam/sw/root/include/TVirtualFitter.h \
+   /home/nam/sw/root/include/TMethodCall.h \
+   /home/nam/sw/root/include/TDictionary.h \
+   /home/nam/sw/root/include/Property.h \
+   /home/nam/sw/root/include/TVirtualFitter.h \
+   /home/nam/sw/root/include/TCanvas.h /home/nam/sw/root/include/TPad.h \
+   /home/nam/sw/root/include/TVirtualPad.h \
+   /home/nam/sw/root/include/TAttPad.h /home/nam/sw/root/include/Buttons.h \
+   /home/nam/sw/root/include/TAttCanvas.h \
+   /home/nam/sw/root/include/TCanvasImp.h \
+   /home/nam/sw/root/include/TRandom.h /home/nam/sw/root/include/TGTab.h \
+   /home/nam/sw/root/include/TList.h \
+   /home/nam/sw/root/include/TGStatusBar.h \
+   /home/nam/sw/root/include/TSpectrum.h \
+   /home/nam/sw/root/include/TPolyMarker.h \
+   /home/nam/sw/root/include/TMath.h /home/nam/sw/root/include/TError.h

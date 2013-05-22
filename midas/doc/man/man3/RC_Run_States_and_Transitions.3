@@ -1,0 +1,324 @@
+.TH "RC_Run_States_and_Transitions" 3 "31 May 2012" "Version 2.3.0-0" "Midas" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+RC_Run_States_and_Transitions \- Run States and Transitions 
+
+.br
+ 
+.PP
+
+.br
+   Three \fBRun States\fP define the states of the MIDAS DAQ system: 
+.br
+ 
+.br
+ \fB\fIStopped\fP, \fIPaused\fP, and \fIRunning\fP.\fP  
+.br
+ In order to change from one state to another, MIDAS provides four basic \fBtransition\fP \fBfunctions\fP : 
+.br
+ 
+.br
+\fB\fITR_START\fP, \fITR_PAUSE\fP, \fITR_RESUME\fP, \fITR_STOP\fP \fP
+.PP
+ Transitions  
+.PP
+   
+.SH "MIDAS State and Transition Codes"
+.PP
+MIDAS provides three \fB State Codes \fP (defined in \fBmidas.h\fP) for the three run states (Stopped, Paused and Running). The current State of an experiment is available under the \fBODB /RunInfo Tree\fP.
+.PP
+\fBTransition\fP 
+.br
+  \fBValue\fP
+.br
+   STATE_STOPPED1 STATE_PAUSED2 STATE_RUNNING3 
+.PP
+and four \fB Transition Codes \fP for the four Transitions:
+.PP
+.IP "\(bu" 2
+TR_START
+.IP "\(bu" 2
+TR_STOP
+.IP "\(bu" 2
+TR_PAUSE
+.IP "\(bu" 2
+TR_RESUME
+.PP
+.PP
+While a transition is in progress, these Transition Codes will be found under the \fBODB /RunInfo Tree\fP for an experiment.
+.PP
+.PP
+  
+.SH "Run Transition Priority"
+.PP
+During these transition periods, any MIDAS client registered to receive notification of such a transition will be able to perform dedicated tasks in either synchronized or asynchronized mode, within the overall run control of the experiment.
+.PP
+In order to provide more flexibility to the transition sequence of all the MIDAS clients connected to a given experiment, each transition function has a \fB transition sequence number \fP attached to it. This transition sequence is used to establish within a given transition the order of the invocation of the MIDAS clients (from the lowest sequence number to the highest). By this means, \fB MIDAS provides the user with full control of the sequencing of any MIDAS client. \fP
+.PP
+Click on the links to see an example of how the transition priority operates at \fBstart of run\fP and at \fBend of run\fP.
+.PP
+
+.br
+.PP
+
+.br
+  
+.SS "Registering for a run transition"
+Any MIDAS client can register to receive notification for a run transition. This notification is done by registering to the system for a given transition ( \fBcm_register_transition()\fP ) by specifying the transition type and the sequencing number (1 to 1000). 
+.br
+ The following example show registering to the TR_START transition with a sequencing number of 450 and to a TR_STOP transition with a sequencing number of 650.
+.PP
+.PP
+.nf
+  INT main()
+  {
+    ...
+  cm_register_transition(TR_START, tr_prestart,450);
+  cm_register_transition(TR_STOP, tr_poststop,650);
+    ...
+  }
+
+  // callback
+  INT tr_prestart(INT run_number, char *error)
+  {
+        // code to perform actions prior to frontend starting 
+
+        return (status);
+  }
+
+  // callback
+  INT tr_poststop(INT run_number, char *error)
+  {
+        // code to perform actions after frontend has stopped 
+
+        return (status);
+  }
+.fi
+.PP
+.PP
+.PD 0
+.IP "\(bu" 2
+On a TR_START transition, tr_prestart will run \fBafter\fP the logger and event builder, but \fBbefore\fP the Frontend (see \fBDefault Transition Sequence Numbers\fP). 
+.IP "\(bu" 2
+On a TR_STOP transition, tr_poststop will run \fBafter\fP the frontend, but \fBbefore\fP the logger and event builder. 
+.PP
+.PP
+
+.br
+.PP
+
+.br
+ 
+.SS "Multiple Registration to a Transition"
+Multiple registration to a given transition can be requested. This last option allows (for example) \fB two callback functions to be invoked before and after a given transition \fP, such as the start of the logger.
+.PP
+.PP
+.nf
+my_application.c
+  // Callback 
+  INT before_logger(INT run_number, char *error)
+  {
+    printf('Initialize ... before the logger gets the Start Transition');
+    ...
+    return CM_SUCCESS;
+  }
+
+  // Callback 
+  INT after_logger(INT run_number, char *error)
+
+
+
+  {
+    printf('Log initial info to file... after logger gets the Start Transition');
+    ...
+    return CM_SUCCESS;
+  }
+
+  INT main()
+  {
+    ...
+    cm_register_transition(TR_START, before_logger, 100);
+    cm_register_transition(TR_START, after_logger, 300);
+    ...
+  }
+.fi
+.PP
+.PP
+
+.br
+.PP
+
+.br
+  
+.SS "Default Transition Sequence Numbers"
+By default the following sequence numbers are used:
+.PP
+
+.br
+ \fBClient\fP 
+.br
+  \fBDefault Transition Sequence Number\fP
+.br
+   TR_START
+.br
+  TR_PAUSE
+.br
+  TR_RESUME
+.br
+  TR_STOP
+.br
+   Frontend
+.br
+  500
+.br
+  500
+.br
+  500
+.br
+  500
+.br
+   Analyzer
+.br
+  500 500 500 500  Logger
+.br
+  200
+.br
+  500 500 800
+.br
+   EventBuilder 
+.br
+  300
+.br
+  500 500 700
+.br
+   
+.br
+ 
+.br
+.PP
+
+.br
+ 
+.SS "Review the Client Transition Sequence Numbers in the ODB"
+  The \fB ODB /System tree \fP contains information specific to each 'MIDAS client' currently connected to the experiment. The sequence number appears in the ODB under /System/Clients/ 
+.PP
+.nf
+[local:midas:S]Clients>ls -lr
+Key name                        Type    #Val  Size  Last Opn Mode Value
+---------------------------------------------------------------------------
+Clients                         DIR
+    1832                        DIR     <------------ Frontend 1
+        Name                    STRING  1     32    21h  0   R    ebfe01
+        Host                    STRING  1     256   21h  0   R    pierre2
+        Hardware type           INT     1     4     21h  0   R    42
+        Server Port             INT     1     4     21h  0   R    2582
+        Transition START        INT     1     4     21h  0   R    500
+        Transition STOP         INT     1     4     21h  0   R    500
+        Transition PAUSE        INT     1     4     21h  0   R    500
+        Transition RESUME       INT     1     4     21h  0   R    500
+        RPC                     DIR
+            17000               BOOL    1     4     21h  0   R    y
+    3872                        DIR     <------------ Frontend 2 
+        Name                    STRING  1     32    21h  0   R    ebfe02
+        Host                    STRING  1     256   21h  0   R    pierre2
+        Hardware type           INT     1     4     21h  0   R    42
+        Server Port             INT     1     4     21h  0   R    2585
+        Transition START        INT     1     4     21h  0   R    500
+        Transition STOP         INT     1     4     21h  0   R    500
+        Transition PAUSE        INT     1     4     21h  0   R    500
+        Transition RESUME       INT     1     4     21h  0   R    500
+        RPC                     DIR
+            17000               BOOL    1     4     21h  0   R    y
+    2220                        DIR     <------------ ODBedit doesn't need transition
+        Name                    STRING  1     32    42s  0   R    ODBEdit
+        Host                    STRING  1     256   42s  0   R    pierre2
+        Hardware type           INT     1     4     42s  0   R    42
+        Server Port             INT     1     4     42s  0   R    3429
+    568                         DIR     <------------ Event Builder
+        Name                    STRING  1     32    26s  0   R    Ebuilder
+        Host                    STRING  1     256   26s  0   R    pierre2
+        Hardware type           INT     1     4     26s  0   R    42
+        Server Port             INT     1     4     26s  0   R    3432
+        Transition START        INT     1     4     26s  0   R    300
+        Transition STOP         INT     1     4     26s  0   R    700
+    2848                        DIR     <------------ Logger 
+        Name                    STRING  1     32    5s   0   R    Logger
+        Host                    STRING  1     256   5s   0   R    pierre2
+        Hardware type           INT     1     4     5s   0   R    42
+        Server Port             INT     1     4     5s   0   R    3436
+        Transition START        INT     1     4     5s   0   R    200
+        Transition STOP         INT     1     4     5s   0   R    800
+        Transition PAUSE        INT     1     4     5s   0   R    500
+        Transition RESUME       INT     1     4     5s   0   R    500
+        RPC                     DIR
+            14000               BOOL    1     4     5s   0   R    y
+
+.fi
+.PP
+.PP
+
+.br
+.PP
+
+.br
+ 
+.SS "Change the Client Sequence Number"
+The \fI/System/Clients/\fP... tree reflects the system at a given time. If a permanent change of a client sequence number is required, the MIDAS system call \fBcm_set_transition_sequence()\fP can be used.
+.PP
+
+.br
+.PP
+
+.br
+ 
+.SH "Deferred Transitions"
+.PP
+Any transition may be deferred until some condition is satisfied. This is usually set up in a frontend (see \fBsetup Deferred Transition\fP for further information).
+.PP
+
+.br
+ 
+.PP
+ 
+.br
+  
+.SH "Run Information"
+.PP
+Basic information about the state of the current run is available in the \fBODB /RunInfo Tree\fP . This information is displayed on the \fBMain Status page of mhttpd\fP or can viewed with \fBodbedit\fP as shown \fBbelow\fP .
+.SS "ODB /RunInfo Tree"
+This branch of the ODB contains system information related to the run information. Several time fields are available for run time statistics. 
+.PP
+.nf
+odb -e expt -h host
+[host:expt:Running]/>ls -r -l /runinfo
+Key name                      Type    #Val  Size  Last Opn Mode Value
+------------------------------------------------------------------------
+Runinfo                        DIR
+    State                      INT     1     4     2h   0   RWD  3
+    Online Mode                INT     1     4     2h   0   RWD  1
+    Run number                 INT     1     4     2h   0   RWD  8521
+    Transition in progress     INT     1     4     2h   0   RWD  0
+    Requested transition       INT     1     4     2h   0   RWD  0
+    Start time                 STRING  1     32    2h   0   RWD  Thu Mar 23 10:03:44 2000
+    Start time binary          DWORD   1     4     2h   0   RWD  953834624
+    Stop time                  STRING  1     32    2h   0   RWD  Thu Mar 23 10:03:33 2000
+    Stop time binary           DWORD   1     4     2h   0   RWD  0
+
+.fi
+.PP
+.PP
+Keys in the ODB tree /RunInfo   ODB Key  Explanation  State  Specifies the state of the current run (see \fBMIDAS State and Transition Codes\fP) . The possible states are
+.IP "\(bu" 2
+1: STOPPED ( STATE_STOPPED )
+.IP "\(bu" 2
+2: PAUSED ( STATE_PAUSED )
+.IP "\(bu" 2
+3: RUNNING ( STATE_RUNNING )
+.PP
+.PP
+Online Mode  Specifies the expected acquisition mode. This parameter allows the user to detect if the data are coming from a 'real-time' hardware source or from a data save-set. Note that for analysis replay using 'analyzer' this flag will be switched off.   Run number  Specifies the current run number. This number is automatically incremented by a successful run start procedure.   Transition in progress  Specifies the current internal state of the system. This parameter is used for multiple source of 'run start' synchronization.   Requested transition  Specifies the current internal state of the \fBDeferred Transitions\fP state of the system.   Start Time  Specifies in an ASCII format the time at which the last run has been started.   Start Time binary  Specifies in a binary format at the time at which the last run has been started This field is useful for time interval computation.   Stop Time  Specifies in an ASCII format the time at which the last run has been stopped.   Stop Time binary  Specifies in a binary format the time at which the last run has been stopped. This field is useful for time interval computation.   Above: meaning of keys in the /RunInfo ODB tree 
+.PP
+  
+.br
+ 

@@ -1,0 +1,56 @@
+\subsection{Midas RPC\_\-LIST}
+\label{group__mrpcstructc}\index{Midas RPC\_\-LIST@{Midas RPC\_\-LIST}}
+\subsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+static RPC\_\-LIST \hyperlink{group__mrpcstructc_gac70e10137f9db5797fd787c326ade74a}{rpc\_\-list\_\-library} \mbox{[}$\,$\mbox{]}
+\item 
+static RPC\_\-LIST \hyperlink{group__mrpcstructc_ga3aedfec709ee3e22f1f9040dde0bd75b}{rpc\_\-list\_\-system} \mbox{[}$\,$\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+dox 
+
+\subsubsection{Function Documentation}
+\index{mrpcstructc@{mrpcstructc}!rpc\_\-get\_\-internal\_\-list@{rpc\_\-get\_\-internal\_\-list}}
+\index{rpc\_\-get\_\-internal\_\-list@{rpc\_\-get\_\-internal\_\-list}!mrpcstructc@{mrpcstructc}}
+\paragraph[{rpc\_\-get\_\-internal\_\-list}]{\setlength{\rightskip}{0pt plus 5cm}RPC\_\-LIST$\ast$ rpc\_\-get\_\-internal\_\-list ({\bf INT} {\em flag})}\hfill\label{group__mrpcstructc_gab47874f46099263ae71d008956e52610}
+
+
+Definition at line 1258 of file mrpc.c.
+
+Referenced by cm\_\-connect\_\-experiment1(), rpc\_\-register\_\-client(), and rpc\_\-register\_\-functions().
+
+\subsubsection{Variable Documentation}
+\index{mrpcstructc@{mrpcstructc}!rpc\_\-list\_\-library@{rpc\_\-list\_\-library}}
+\index{rpc\_\-list\_\-library@{rpc\_\-list\_\-library}!mrpcstructc@{mrpcstructc}}
+\paragraph[{rpc\_\-list\_\-library}]{\setlength{\rightskip}{0pt plus 5cm}RPC\_\-LIST {\bf rpc\_\-list\_\-library}\mbox{[}$\,$\mbox{]}\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}\hfill\label{group__mrpcstructc_gac70e10137f9db5797fd787c326ade74a}
+dox dox rpc\_\-list\_\-library contains all MIDAS library functions and gets registerd whenever a connection to the MIDAS server is established 
+
+Definition at line 44 of file mrpc.c.
+
+Referenced by rpc\_\-get\_\-internal\_\-list().\index{mrpcstructc@{mrpcstructc}!rpc\_\-list\_\-system@{rpc\_\-list\_\-system}}
+\index{rpc\_\-list\_\-system@{rpc\_\-list\_\-system}!mrpcstructc@{mrpcstructc}}
+\paragraph[{rpc\_\-list\_\-system}]{\setlength{\rightskip}{0pt plus 5cm}RPC\_\-LIST {\bf rpc\_\-list\_\-system}\mbox{[}$\,$\mbox{]}\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}\hfill\label{group__mrpcstructc_ga3aedfec709ee3e22f1f9040dde0bd75b}
+{\bfseries Initial value:}
+\begin{DoxyCode}
+ {
+
+   
+   {RPC_ID_WATCHDOG, "id_watchdog",
+    {{0}}},
+
+   {RPC_ID_SHUTDOWN, "id_shutdown",
+    {{0}}},
+
+   {RPC_ID_EXIT, "id_exit",
+    {{0}}},
+
+   {0}
+
+}
+\end{DoxyCode}
+dox rpc\_\-list\_\-system contains MIDAS system functions and gets registerd whenever a RPC server is registered 
+
+Definition at line 1242 of file mrpc.c.

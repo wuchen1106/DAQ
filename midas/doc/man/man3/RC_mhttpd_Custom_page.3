@@ -1,0 +1,86 @@
+.TH "RC_mhttpd_Custom_page" 3 "31 May 2012" "Version 2.3.0-0" "Midas" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+RC_mhttpd_Custom_page \- Custom pages 
+
+.br
+    
+.br
+ 
+.br
+ 
+.SH "Introduction"
+.PP
+Custom web pages provide the user with a means of creating secondary user-created web page(s) activated within the standard MIDAS web interface. These custom pages can contain specific links to the ODB, and therefore can present the essential \fBparameters\fP of the controlled experiment in a more compact way. A custom page may even \fBreplace\fP the default MIDAS Status Page. 
+.br
+.PP
+ 
+.SH "Examples of Custom Webpages"
+.PP
+Examples of custom webpages :
+.PP
+.IP "\(bu" 2
+\fBCustom Page showing ROOT analyzer output\fP - ROOT graphical output served through an mhttpd custom page
+.IP "\(bu" 2
+\fBCustom Page for MEG gas system\fP - complex gas system illustrating use of 'fills' and 'labels'
+.IP "\(bu" 2
+\fBCustom Pages for Ebit Experiment\fP - page showing clickable input boxes, checkboxes
+.IP "\(bu" 2
+\fBMpet Optics Custom Page\fP - page showing labels
+.IP "\(bu" 2
+\fBCustom Pages designed for T2K gas system\fP - highly complex gas system showing popups, labels, fills, clickable areas
+.IP "\(bu" 2
+\fBCustom Status Pages for experiments BNMR and BNQR\fP - custom status page replaces MIDAS standard status page 
+.PP
+.PP
+
+.br
+.PP
+Two ways of implementing custom pages are available: 
+.PD 0
+
+.IP "1." 4
+\fBInternal\fP 
+.PD 0
+
+.IP "  \(bu" 4
+The html code is fully stored in the Online Database (ODB). 
+.IP "  \(bu" 4
+Limited capability, size restricted. 
+.IP "  \(bu" 4
+The page is web editable. 
+.PP
+
+.IP "2." 4
+\fBExternal\fP 
+.PD 0
+
+.IP "  \(bu" 4
+ODB contains links to external html or Javascript document(s). 
+.IP "  \(bu" 4
+Multiple custom pages are supported, 
+.IP "  \(bu" 4
+The page can be edited with an external editor. 
+.PP
+
+.PP
+
+.br
+ External pages are more commonly used, hence most of the \fBexamples in this section are those of external\fP pages. All the features described are available for both internal and external pages. An example of an \fBinternal\fP page is shown \fBhere\fP.
+.PP
+.IP "\(bu" 2
+\fBHow to activate custom page(s) in the ODB\fP
+.IP "\(bu" 2
+\fBJavaScript built-in library mhttpd.js\fP
+.IP "\(bu" 2
+\fBFeatures available on custom pages\fP
+.PP
+.PP
+
+.br
+ 
+.br
+ 
+.PP
+ 

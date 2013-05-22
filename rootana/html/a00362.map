@@ -1,0 +1,5 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$a00006.html" title="Access to ODB through the MIDAS HTTP server mhttpd." alt="" coords="5,83,85,112"/>
+<area shape="rect" id="node6" href="$a00032.html" title="MIDAS online connection, including access to online ODB." alt="" coords="109,83,219,112"/>
+<area shape="rect" id="node9" href="$a00047.html" title="Access to ODB saved in XML format inside midas .mid files." alt="" coords="243,83,317,112"/>
+</map>

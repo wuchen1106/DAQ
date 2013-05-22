@@ -1,0 +1,64 @@
+10
+
+dir
+5363
+svn+ssh://svn@savannah.psi.ch/afs/psi.ch/project/meg/svn/midas/trunk/xcode
+svn+ssh://svn@savannah.psi.ch/afs/psi.ch/project/meg/svn/midas
+
+
+
+2013-05-13T14:11:23.136233Z
+5363
+ritt
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+050218f5-8902-0410-8d0e-8a15d521e4f2
+
+frontend
+dir
+
+lazylogger
+dir
+
+odbedit.xcodeproj
+dir
+
+mlxspeaker.xcodeproj
+dir
+
+mtfe.xcodeproj
+dir
+
+mlogger.xcodeproj
+dir
+
+odbedit
+dir
+
+frontend.xcodeproj
+dir
+
+lazylogger.xcodeproj
+dir
+
+mlxspeaker
+dir
+
+mhttpd.xcodeproj
+dir
+
+mlogger
+dir
+

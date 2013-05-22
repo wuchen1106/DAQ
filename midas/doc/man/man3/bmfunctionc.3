@@ -1,0 +1,600 @@
+.TH "Midas Buffer Manager Functions (bm_xxx)" 3 "31 May 2012" "Version 2.3.0-0" "Midas" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Midas Buffer Manager Functions (bm_xxx) \- 
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBINT\fP \fBbm_match_event\fP (short int event_id, short int trigger_mask, \fBEVENT_HEADER\fP *pevent)"
+.br
+.ti -1c
+.RI "void \fBbm_remove_client_locked\fP (\fBBUFFER_HEADER\fP *pheader, int j)"
+.br
+.ti -1c
+.RI "static void \fBbm_cleanup_buffer_locked\fP (int i, const char *who, \fBDWORD\fP \fBactual_time\fP)"
+.br
+.ti -1c
+.RI "static void \fBcm_update_last_activity\fP (\fBDWORD\fP \fBactual_time\fP)"
+.br
+.ti -1c
+.RI "static void \fBbm_cleanup\fP (const char *who, \fBDWORD\fP \fBactual_time\fP, \fBBOOL\fP wrong_interval)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBbm_open_buffer\fP (char *\fBbuffer_name\fP, \fBINT\fP buffer_size, \fBINT\fP *buffer_handle)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBbm_close_buffer\fP (\fBINT\fP buffer_handle)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBbm_close_all_buffers\fP (void)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBbm_set_cache_size\fP (\fBINT\fP buffer_handle, \fBINT\fP read_size, \fBINT\fP write_size)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBbm_compose_event\fP (\fBEVENT_HEADER\fP *event_header, short int event_id, short int trigger_mask, \fBDWORD\fP size, \fBDWORD\fP serial)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBbm_request_event\fP (HNDLE buffer_handle, short int event_id, short int trigger_mask, \fBINT\fP sampling_type, HNDLE *request_id, void(*func)(HNDLE, HNDLE, \fBEVENT_HEADER\fP *, void *))"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBbm_remove_event_request\fP (\fBINT\fP buffer_handle, \fBINT\fP request_id)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBbm_delete_request\fP (\fBINT\fP request_id)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBbm_send_event\fP (\fBINT\fP buffer_handle, void *source, \fBINT\fP buf_size, \fBINT\fP async_flag)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBbm_flush_cache\fP (\fBINT\fP buffer_handle, \fBINT\fP async_flag)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBbm_receive_event\fP (\fBINT\fP buffer_handle, void *destination, \fBINT\fP *buf_size, \fBINT\fP async_flag)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBbm_skip_event\fP (\fBINT\fP buffer_handle)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBbm_push_event\fP (char *\fBbuffer_name\fP)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBbm_check_buffers\fP ()"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBbm_empty_buffers\fP ()"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+dox dox dox 
+.SH "Function Documentation"
+.PP 
+.SS "\fBINT\fP bm_check_buffers ()"Check if any requested event is waiting in a buffer 
+.PP
+\fBReturns:\fP
+.RS 4
+TRUE More events are waiting
+.br
+ FALSE No more events are waiting 
+.RE
+.PP
+
+.PP
+Definition at line 7660 of file midas.c.
+.PP
+Referenced by cm_yield().
+.SS "static void bm_cleanup (const char * who, \fBDWORD\fP actual_time, \fBBOOL\fP wrong_interval)\fC [static]\fP"Check all clients on all buffers, remove invalid clients 
+.PP
+Definition at line 4521 of file midas.c.
+.PP
+Referenced by bm_open_buffer(), and bm_wait_for_free_space().
+.SS "static void bm_cleanup_buffer_locked (int i, const char * who, \fBDWORD\fP actual_time)\fC [static]\fP"Check all clients on buffer, remove invalid clients 
+.PP
+Definition at line 4445 of file midas.c.
+.PP
+Referenced by bm_cleanup(), and bm_open_buffer().
+.SS "\fBINT\fP bm_close_all_buffers (void)"Close all open buffers 
+.PP
+\fBReturns:\fP
+.RS 4
+BM_SUCCESS 
+.RE
+.PP
+
+.PP
+Definition at line 4946 of file midas.c.
+.PP
+Referenced by cm_disconnect_experiment(), and cm_set_client_info().
+.SS "\fBINT\fP bm_close_buffer (\fBINT\fP buffer_handle)"Closes an event buffer previously opened with \fBbm_open_buffer()\fP. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIbuffer_handle\fP buffer handle 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+BM_SUCCESS, BM_INVALID_HANDLE 
+.RE
+.PP
+
+.PP
+Definition at line 4826 of file midas.c.
+.PP
+Referenced by bm_close_all_buffers(), and source_unbooking().
+.SS "\fBINT\fP bm_compose_event (\fBEVENT_HEADER\fP * event_header, short int event_id, short int trigger_mask, \fBDWORD\fP size, \fBDWORD\fP serial)"Compose a Midas event header. An event header can usually be set-up manually or through this routine. If the data size of the event is not known when the header is composed, it can be set later with event_header->data-size = <...> Following structure is created at the beginning of an event 
+.PP
+.nf
+typedef struct {
+ short int     event_id;
+ short int     trigger_mask;
+ DWORD         serial_number;
+ DWORD         time_stamp;
+ DWORD         data_size;
+} EVENT_HEADER;
+
+char event[1000];
+ bm_compose_event((EVENT_HEADER *)event, 1, 0, 100, 1);
+ *(event+sizeof(EVENT_HEADER)) = <...>
+
+.fi
+.PP
+ 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIevent_header\fP pointer to the event header 
+.br
+\fIevent_id\fP event ID of the event 
+.br
+\fItrigger_mask\fP trigger mask of the event 
+.br
+\fIsize\fP size if the data part of the event in bytes 
+.br
+\fIserial\fP serial number 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+BM_SUCCESS 
+.RE
+.PP
+
+.PP
+Definition at line 5901 of file midas.c.
+.PP
+Referenced by cm_msg1(), cm_msg_send_event(), and source_scan().
+.SS "static void bm_convert_event_header (\fBEVENT_HEADER\fP * pevent, int convert_flags)\fC [static]\fP"
+.PP
+Definition at line 6416 of file midas.c.
+.PP
+Referenced by bm_copy_from_cache(), and bm_receive_event().
+.SS "static int bm_copy_from_cache (\fBBUFFER\fP * pbuf, void * destination, int max_size, int * buf_size, int convert_flags)\fC [static]\fP"
+.PP
+Definition at line 6428 of file midas.c.
+.PP
+Referenced by bm_receive_event().
+.SS "\fBINT\fP bm_delete_request (\fBINT\fP request_id)"Deletes an event request previously done with \fBbm_request_event()\fP. When an event request gets deleted, events of that requested type are not received any more. When a buffer is closed via \fBbm_close_buffer()\fP, all event requests from that buffer are deleted automatically 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIrequest_id\fP request identifier given by \fBbm_request_event()\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+BM_SUCCESS, BM_INVALID_HANDLE 
+.RE
+.PP
+
+.PP
+Definition at line 6200 of file midas.c.
+.PP
+Referenced by bm_close_buffer(), and source_unbooking().
+.SS "static void bm_dispatch_event (int buffer_handle, \fBEVENT_HEADER\fP * pevent)\fC [static]\fP"
+.PP
+Definition at line 6380 of file midas.c.
+.PP
+Referenced by bm_dispatch_from_cache(), and bm_push_event().
+.SS "static void bm_dispatch_from_cache (\fBBUFFER\fP * pbuf, int buffer_handle)\fC [static]\fP"
+.PP
+Definition at line 6396 of file midas.c.
+.PP
+Referenced by bm_push_event().
+.SS "\fBINT\fP bm_empty_buffers ()"dox Clears event buffer and cache. If an event buffer is large and a consumer is slow in analyzing events, events are usually received some time after they are produced. This effect is even more experienced if a read cache is used (via \fBbm_set_cache_size()\fP). When changes to the hardware are made in the experience, the consumer will then still analyze old events before any new event which reflects the hardware change. Users can be fooled by looking at histograms which reflect the hardware change many seconds after they have been made.
+.PP
+To overcome this potential problem, the analyzer can call \fBbm_empty_buffers()\fP just after the hardware change has been made which skips all old events contained in event buffers and read caches. Technically this is done by forwarding the read pointer of the client. No events are really deleted, they are still visible to other clients like the logger.
+.PP
+Note that the front-end also contains write buffers which can delay the delivery of events. The standard front-end framework \fBmfe.c\fP reduces this effect by flushing all buffers once every second. 
+.PP
+\fBReturns:\fP
+.RS 4
+BM_SUCCESS 
+.RE
+.PP
+
+.PP
+Definition at line 7987 of file midas.c.
+.PP
+Referenced by handFlush(), source_booking(), and source_unbooking().
+.SS "\fBINT\fP bm_flush_cache (\fBINT\fP buffer_handle, \fBINT\fP async_flag)"Empty write cache. This function should be used if events in the write cache should be visible to the consumers immediately. It should be called at the end of each run, otherwise events could be kept in the write buffer and will flow to the data of the next run. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIbuffer_handle\fP Buffer handle obtained via \fBbm_open_buffer()\fP 
+.br
+\fIasync_flag\fP Synchronous/asynchronous flag. If FALSE, the function blocks if the buffer has not enough free space to receive the full cache. If TRUE, the function returns immediately with a value of BM_ASYNC_RETURN without writing the cache. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+BM_SUCCESS, BM_INVALID_HANDLE
+.br
+ BM_ASYNC_RETURN Routine called with async_flag == TRUE and buffer has not enough space to receive cache
+.br
+ BM_NO_MEMORY Event is too large for network buffer or event buffer. One has to increase MAX_EVENT_SIZE in \fBmidas.h\fP and recompile. 
+.RE
+.PP
+
+.PP
+Definition at line 6897 of file midas.c.
+.PP
+Referenced by bm_send_event(), close_buffers(), scan_fragment(), scheduler(), send_event(), and tr_stop().
+.SS "\fBINT\fP bm_match_event (short int event_id, short int trigger_mask, \fBEVENT_HEADER\fP * pevent)"Check if an event matches a given event request by the event id and trigger mask 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIevent_id\fP Event ID of request 
+.br
+\fItrigger_mask\fP Trigger mask of request 
+.br
+\fIpevent\fP Pointer to event to check 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+TRUE if event matches request 
+.RE
+.PP
+
+.PP
+Definition at line 4396 of file midas.c.
+.PP
+Referenced by bm_dispatch_event(), bm_push_event(), bm_receive_event(), bm_send_event(), and bm_wait_for_free_space().
+.SS "\fBINT\fP bm_open_buffer (char * buffer_name, \fBINT\fP buffer_size, \fBINT\fP * buffer_handle)"Open an event buffer. Two default buffers are created by the system. The 'SYSTEM' buffer is used to exchange events and the 'SYSMSG' buffer is used to exchange system messages. The name and size of the event buffers is defined in \fBmidas.h\fP as EVENT_BUFFER_NAME and 2*MAX_EVENT_SIZE. Following example opens the 'SYSTEM' buffer, requests events with ID 1 and enters a main loop. Events are then received in process_event() 
+.PP
+.nf
+#include <stdio.h>
+#include 'midas.h'
+void process_event(HNDLE hbuf, HNDLE request_id,
+           EVENT_HEADER *pheader, void *pevent)
+{
+  printf('Received event #%d\r',
+  pheader->serial_number);
+}
+main()
+{
+  INT status, request_id;
+  HNDLE hbuf;
+  status = cm_connect_experiment('pc810', 'Sample', 'Simple Analyzer', NULL);
+  if (status != CM_SUCCESS)
+  return 1;
+  bm_open_buffer(EVENT_BUFFER_NAME, 2*MAX_EVENT_SIZE, &hbuf);
+  bm_request_event(hbuf, 1, TRIGGER_ALL, GET_ALL, request_id, process_event);
+
+  do
+  {
+   status = cm_yield(1000);
+  } while (status != RPC_SHUTDOWN && status != SS_ABORT);
+  cm_disconnect_experiment();
+  return 0;
+}
+
+.fi
+.PP
+ 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIbuffer_name\fP Name of buffer 
+.br
+\fIbuffer_size\fP Default size of buffer in bytes. Can by overwritten with ODB value 
+.br
+\fIbuffer_handle\fP Buffer handle returned by function 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+BM_SUCCESS, BM_CREATED 
+.br
+ BM_NO_SHM Shared memory cannot be created 
+.br
+ BM_NO_SEMAPHORE Semaphore cannot be created 
+.br
+ BM_NO_MEMORY Not enough memory to create buffer descriptor 
+.br
+ BM_MEMSIZE_MISMATCH Buffer size conflicts with an existing buffer of different size 
+.br
+ BM_INVALID_PARAM Invalid parameter 
+.RE
+.PP
+
+.PP
+Definition at line 4595 of file midas.c.
+.PP
+Referenced by cm_msg1(), cm_msg_register(), cm_msg_send_event(), register_equipment(), and source_booking().
+.SS "\fBINT\fP bm_push_event (char * buffer_name)"Check a buffer if an event is available and call the dispatch function if found. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIbuffer_name\fP Name of buffer 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+BM_SUCCESS, BM_INVALID_HANDLE, BM_TRUNCATED, BM_ASYNC_RETURN, RPC_NET_ERROR 
+.RE
+.PP
+
+.PP
+Definition at line 7426 of file midas.c.
+.PP
+Referenced by bm_check_buffers().
+.SS "static int bm_read_cache_has_events (const \fBBUFFER\fP * pbuf)\fC [static]\fP"
+.PP
+Definition at line 6462 of file midas.c.
+.PP
+Referenced by bm_push_event(), and bm_receive_event().
+.SS "\fBINT\fP bm_receive_event (\fBINT\fP buffer_handle, void * destination, \fBINT\fP * buf_size, \fBINT\fP async_flag)"Receives events directly. This function is an alternative way to receive events without a main loop.
+.PP
+It can be used in analysis systems which actively receive events, rather than using callbacks. A analysis package could for example contain its own command line interface. A command like 'receive 1000 events' could make it necessary to call \fBbm_receive_event()\fP 1000 times in a row to receive these events and then return back to the command line prompt. The according \fBbm_request_event()\fP call contains NULL as the callback routine to indicate that \fBbm_receive_event()\fP is called to receive events. 
+.PP
+.nf
+#include <stdio.h>
+#include 'midas.h'
+void process_event(EVENT_HEADER *pheader)
+{
+ printf('Received event #%d\r',
+ pheader->serial_number);
+}
+main()
+{
+  INT status, request_id;
+  HNDLE hbuf;
+  char event_buffer[1000];
+  status = cm_connect_experiment('', 'Sample',
+  'Simple Analyzer', NULL);
+  if (status != CM_SUCCESS)
+   return 1;
+  bm_open_buffer(EVENT_BUFFER_NAME, 2*MAX_EVENT_SIZE, &hbuf);
+  bm_request_event(hbuf, 1, TRIGGER_ALL, GET_ALL, request_id, NULL);
+
+  do
+  {
+   size = sizeof(event_buffer);
+   status = bm_receive_event(hbuf, event_buffer, &size, ASYNC);
+  if (status == CM_SUCCESS)
+   process_event((EVENT_HEADER *) event_buffer);
+   <...do something else...>
+   status = cm_yield(0);
+  } while (status != RPC_SHUTDOWN &&
+  status != SS_ABORT);
+  cm_disconnect_experiment();
+  return 0;
+}
+
+.fi
+.PP
+ 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIbuffer_handle\fP buffer handle 
+.br
+\fIdestination\fP destination address where event is written to 
+.br
+\fIbuf_size\fP size of destination buffer on input, size of event plus header on return. 
+.br
+\fIasync_flag\fP Synchronous/asynchronous flag. If FALSE, the function blocks if no event is available. If TRUE, the function returns immediately with a value of BM_ASYNC_RETURN without receiving any event. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+BM_SUCCESS, BM_INVALID_HANDLE 
+.br
+ BM_TRUNCATED The event is larger than the destination buffer and was therefore truncated 
+.br
+ BM_ASYNC_RETURN No event available 
+.RE
+.PP
+
+.PP
+Definition at line 7094 of file midas.c.
+.PP
+Referenced by handFlush(), and source_scan().
+.SS "void bm_remove_client_locked (\fBBUFFER_HEADER\fP * pheader, int j)"Called to forcibly disconnect given client from a data buffer 
+.PP
+Definition at line 4413 of file midas.c.
+.PP
+Referenced by bm_cleanup_buffer_locked(), and cm_cleanup().
+.SS "\fBINT\fP bm_remove_event_request (\fBINT\fP buffer_handle, \fBINT\fP request_id)"Delete a previously placed request for a specific event type in the client structure of the buffer refereced by buffer_handle. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIbuffer_handle\fP Handle to the buffer where the re- quest should be placed in 
+.br
+\fIrequest_id\fP Request id returned by bm_request_event 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+BM_SUCCESS, BM_INVALID_HANDLE, BM_NOT_FOUND, RPC_NET_ERROR 
+.RE
+.PP
+
+.PP
+Definition at line 6131 of file midas.c.
+.PP
+Referenced by bm_delete_request().
+.SS "\fBINT\fP bm_request_event (HNDLE buffer_handle, short int event_id, short int trigger_mask, \fBINT\fP sampling_type, HNDLE * request_id, void(*)(HNDLE, HNDLE, \fBEVENT_HEADER\fP *, void *) func)"dox Place an event request based on certain characteristics. Multiple event requests can be placed for each buffer, which are later identified by their request ID. They can contain different callback routines. Example see \fBbm_open_buffer()\fP and \fBbm_receive_event()\fP 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIbuffer_handle\fP buffer handle obtained via \fBbm_open_buffer()\fP 
+.br
+\fIevent_id\fP event ID for requested events. Use EVENTID_ALL to receive events with any ID. 
+.br
+\fItrigger_mask\fP trigger mask for requested events. The requested events must have at least one bit in its trigger mask common with the requested trigger mask. Use TRIGGER_ALL to receive events with any trigger mask. 
+.br
+\fIsampling_type\fP specifies how many events to receive. A value of GET_ALL receives all events which match the specified event ID and trigger mask. If the events are consumed slower than produced, the producer is automatically slowed down. A value of GET_NONBLOCKING receives as much events as possible without slowing down the producer. GET_ALL is typically used by the logger, while GET_NONBLOCKING is typically used by analyzers. 
+.br
+\fIrequest_id\fP request ID returned by the function. This ID is passed to the callback routine and must be used in the \fBbm_delete_request()\fP routine. 
+.br
+\fIfunc\fP allback routine which gets called when an event of the specified type is received. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+BM_SUCCESS, BM_INVALID_HANDLE 
+.br
+ BM_NO_MEMORY too many requests. The value MAX_EVENT_REQUESTS in \fBmidas.h\fP should be increased. 
+.RE
+.PP
+
+.PP
+Definition at line 6067 of file midas.c.
+.PP
+Referenced by cm_msg_register(), and source_booking().
+.SS "\fBINT\fP bm_send_event (\fBINT\fP buffer_handle, void * source, \fBINT\fP buf_size, \fBINT\fP async_flag)"Sends an event to a buffer. This function check if the buffer has enough space for the event, then copies the event to the buffer in shared memory. If clients have requests for the event, they are notified via an UDP packet. 
+.PP
+.nf
+char event[1000];
+// create event with ID 1, trigger mask 0, size 100 bytes and serial number 1
+bm_compose_event((EVENT_HEADER *) event, 1, 0, 100, 1);
+
+// set first byte of event
+*(event+sizeof(EVENT_HEADER)) = <...>
+#include <stdio.h>
+#include 'midas.h'
+main()
+{
+ INT status, i;
+ HNDLE hbuf;
+ char event[1000];
+ status = cm_connect_experiment('', 'Sample', 'Producer', NULL);
+ if (status != CM_SUCCESS)
+ return 1;
+ bm_open_buffer(EVENT_BUFFER_NAME, 2*MAX_EVENT_SIZE, &hbuf);
+
+ // create event with ID 1, trigger mask 0, size 100 bytes and serial number 1
+ bm_compose_event((EVENT_HEADER *) event, 1, 0, 100, 1);
+
+ // set event data
+ for (i=0 ; i<100 ; i++)
+ *(event+sizeof(EVENT_HEADER)+i) = i;
+ // send event
+ bm_send_event(hbuf, event, 100+sizeof(EVENT_HEADER), SYNC);
+ cm_disconnect_experiment();
+ return 0;
+}
+
+.fi
+.PP
+ 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIbuffer_handle\fP Buffer handle obtained via \fBbm_open_buffer()\fP 
+.br
+\fIsource\fP Address of event buffer 
+.br
+\fIbuf_size\fP Size of event including event header in bytes 
+.br
+\fIasync_flag\fP Synchronous/asynchronous flag. If FALSE, the function blocks if the buffer has not enough free space to receive the event. If TRUE, the function returns immediately with a value of BM_ASYNC_RETURN without writing the event to the buffer 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+BM_SUCCESS, BM_INVALID_HANDLE, BM_INVALID_PARAM
+.br
+ BM_ASYNC_RETURN Routine called with async_flag == TRUE and buffer has not enough space to receive event
+.br
+ BM_NO_MEMORY Event is too large for network buffer or event buffer. One has to increase MAX_EVENT_SIZE in \fBmidas.h\fP and recompile. 
+.RE
+.PP
+
+.PP
+Definition at line 6707 of file midas.c.
+.PP
+Referenced by cm_msg1(), cm_msg_send_event(), and rpc_send_event().
+.SS "\fBINT\fP bm_set_cache_size (\fBINT\fP buffer_handle, \fBINT\fP read_size, \fBINT\fP write_size)"Modifies buffer cache size. Without a buffer cache, events are copied to/from the shared memory event by event.
+.PP
+To protect processed from accessing the shared memory simultaneously, semaphores are used. Since semaphore operations are CPU consuming (typically 50-100us) this can slow down the data transfer especially for small events. By using a cache the number of semaphore operations is reduced dramatically. Instead writing directly to the shared memory, the events are copied to a local cache buffer. When this buffer is full, it is copied to the shared memory in one operation. The same technique can be used when receiving events.
+.PP
+The drawback of this method is that the events have to be copied twice, once to the cache and once from the cache to the shared memory. Therefore it can happen that the usage of a cache even slows down data throughput on a given environment (computer type, OS type, event size). The cache size has therefore be optimized manually to maximize data throughput. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIbuffer_handle\fP buffer handle obtained via \fBbm_open_buffer()\fP 
+.br
+\fIread_size\fP cache size for reading events in bytes, zero for no cache 
+.br
+\fIwrite_size\fP cache size for writing events in bytes, zero for no cache 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+BM_SUCCESS, BM_INVALID_HANDLE, BM_NO_MEMORY, BM_INVALID_PARAM 
+.RE
+.PP
+
+.PP
+Definition at line 5806 of file midas.c.
+.PP
+Referenced by register_equipment().
+.SS "\fBINT\fP bm_skip_event (\fBINT\fP buffer_handle)"Skip all events in current buffer.
+.PP
+Useful for single event displays to see the newest events 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIbuffer_handle\fP Handle of the buffer. Must be obtained via bm_open_buffer. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+BM_SUCCESS, BM_INVALID_HANDLE, RPC_NET_ERROR 
+.RE
+.PP
+
+.PP
+Definition at line 7378 of file midas.c.
+.SS "static \fBBOOL\fP bm_update_read_pointer (const char * caller_name, \fBBUFFER_HEADER\fP * pheader)\fC [static]\fP"
+.PP
+Definition at line 6296 of file midas.c.
+.PP
+Referenced by bm_flush_cache(), bm_push_event(), bm_receive_event(), bm_send_event(), and bm_wait_for_free_space().
+.SS "static void bm_validate_client_pointers (\fBBUFFER_HEADER\fP * pheader, \fBBUFFER_CLIENT\fP * pclient)\fC [static]\fP"
+.PP
+Definition at line 6232 of file midas.c.
+.PP
+Referenced by bm_update_read_pointer().
+.SS "static int bm_wait_for_free_space (int buffer_handle, \fBBUFFER\fP * pbuf, int async_flag, int requested_space)\fC [static]\fP"
+.PP
+Definition at line 6473 of file midas.c.
+.PP
+Referenced by bm_flush_cache(), and bm_send_event().
+.SS "static void bm_wakeup_producers (const \fBBUFFER_HEADER\fP * pheader, const \fBBUFFER_CLIENT\fP * pc)\fC [static]\fP"
+.PP
+Definition at line 6352 of file midas.c.
+.PP
+Referenced by bm_push_event(), and bm_receive_event().
+.SS "static void cm_update_last_activity (\fBDWORD\fP actual_time)\fC [static]\fP"Update last activity time 
+.PP
+Definition at line 4497 of file midas.c.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Midas from the source code.

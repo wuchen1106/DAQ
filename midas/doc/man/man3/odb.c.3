@@ -1,0 +1,155 @@
+.TH "odb.c" 3 "31 May 2012" "Version 2.3.0-0" "Midas" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+odb.c \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBINT\fP \fBdb_open_database\fP (const char *xdatabase_name, \fBINT\fP database_size, HNDLE *\fBhDB\fP, const char *client_name)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBdb_close_database\fP (HNDLE \fBhDB\fP)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBdb_lock_database\fP (HNDLE \fBhDB\fP)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBdb_unlock_database\fP (HNDLE \fBhDB\fP)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBdb_protect_database\fP (HNDLE \fBhDB\fP)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBdb_create_key\fP (HNDLE \fBhDB\fP, HNDLE \fBhKey\fP, const char *key_name, \fBDWORD\fP type)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBdb_create_link\fP (HNDLE \fBhDB\fP, HNDLE \fBhKey\fP, const char *link_name, const char *destination)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBdb_delete_key1\fP (HNDLE \fBhDB\fP, HNDLE \fBhKey\fP, \fBINT\fP level, \fBBOOL\fP follow_links)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBdb_delete_key\fP (HNDLE \fBhDB\fP, HNDLE \fBhKey\fP, \fBBOOL\fP follow_links)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBdb_find_key\fP (HNDLE \fBhDB\fP, HNDLE \fBhKey\fP, const char *key_name, HNDLE *subhKey)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBdb_set_value\fP (HNDLE \fBhDB\fP, HNDLE hKeyRoot, const char *key_name, const void *data, \fBINT\fP data_size, \fBINT\fP num_values, \fBDWORD\fP type)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBdb_set_value_index\fP (HNDLE \fBhDB\fP, HNDLE hKeyRoot, const char *key_name, const void *data, \fBINT\fP data_size, \fBINT\fP idx, \fBDWORD\fP type, \fBBOOL\fP trunc)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBdb_get_value\fP (HNDLE \fBhDB\fP, HNDLE hKeyRoot, const char *key_name, void *data, \fBINT\fP *buf_size, \fBDWORD\fP type, \fBBOOL\fP create)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBdb_enum_key\fP (HNDLE \fBhDB\fP, HNDLE \fBhKey\fP, \fBINT\fP idx, HNDLE *subkey_handle)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBdb_get_key\fP (HNDLE \fBhDB\fP, HNDLE \fBhKey\fP, \fBKEY\fP *key)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBdb_get_link\fP (HNDLE \fBhDB\fP, HNDLE \fBhKey\fP, \fBKEY\fP *key)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBdb_get_key_time\fP (HNDLE \fBhDB\fP, HNDLE \fBhKey\fP, \fBDWORD\fP *delta)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBdb_get_key_info\fP (HNDLE \fBhDB\fP, HNDLE \fBhKey\fP, char *name, \fBINT\fP name_size, \fBINT\fP *type, \fBINT\fP *num_values, \fBINT\fP *item_size)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBdb_get_data\fP (HNDLE \fBhDB\fP, HNDLE \fBhKey\fP, void *data, \fBINT\fP *buf_size, \fBDWORD\fP type)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBdb_get_link_data\fP (HNDLE \fBhDB\fP, HNDLE \fBhKey\fP, void *data, \fBINT\fP *buf_size, \fBDWORD\fP type)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBdb_get_data_index\fP (HNDLE \fBhDB\fP, HNDLE \fBhKey\fP, void *data, \fBINT\fP *buf_size, \fBINT\fP idx, \fBDWORD\fP type)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBdb_set_data\fP (HNDLE \fBhDB\fP, HNDLE \fBhKey\fP, const void *data, \fBINT\fP buf_size, \fBINT\fP num_values, \fBDWORD\fP type)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBdb_set_link_data\fP (HNDLE \fBhDB\fP, HNDLE \fBhKey\fP, const void *data, \fBINT\fP buf_size, \fBINT\fP num_values, \fBDWORD\fP type)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBdb_set_data_index\fP (HNDLE \fBhDB\fP, HNDLE \fBhKey\fP, const void *data, \fBINT\fP data_size, \fBINT\fP idx, \fBDWORD\fP type)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBdb_set_link_data_index\fP (HNDLE \fBhDB\fP, HNDLE \fBhKey\fP, const void *data, \fBINT\fP data_size, \fBINT\fP idx, \fBDWORD\fP type)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBdb_load\fP (HNDLE \fBhDB\fP, HNDLE hKeyRoot, const char *filename, \fBBOOL\fP bRemote)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBdb_copy\fP (HNDLE \fBhDB\fP, HNDLE \fBhKey\fP, char *buffer, \fBINT\fP *buffer_size, char *path)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBdb_paste\fP (HNDLE \fBhDB\fP, HNDLE hKeyRoot, const char *buffer)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBdb_paste_xml\fP (HNDLE \fBhDB\fP, HNDLE hKeyRoot, const char *buffer)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBdb_copy_xml\fP (HNDLE \fBhDB\fP, HNDLE \fBhKey\fP, char *buffer, \fBINT\fP *buffer_size)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBdb_save\fP (HNDLE \fBhDB\fP, HNDLE \fBhKey\fP, const char *filename, \fBBOOL\fP bRemote)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBdb_save_xml\fP (HNDLE \fBhDB\fP, HNDLE \fBhKey\fP, const char *filename)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBdb_save_struct\fP (HNDLE \fBhDB\fP, HNDLE \fBhKey\fP, const char *file_name, const char *struct_name, \fBBOOL\fP append)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBdb_sprintf\fP (char *string, const void *data, \fBINT\fP data_size, \fBINT\fP idx, \fBDWORD\fP type)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBdb_sprintff\fP (char *string, const char *format, const void *data, \fBINT\fP data_size, \fBINT\fP idx, \fBDWORD\fP type)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBdb_get_record_size\fP (HNDLE \fBhDB\fP, HNDLE \fBhKey\fP, \fBINT\fP align, \fBINT\fP *buf_size)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBdb_get_record\fP (HNDLE \fBhDB\fP, HNDLE \fBhKey\fP, void *data, \fBINT\fP *buf_size, \fBINT\fP align)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBdb_set_record\fP (HNDLE \fBhDB\fP, HNDLE \fBhKey\fP, void *data, \fBINT\fP buf_size, \fBINT\fP align)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBdb_create_record\fP (HNDLE \fBhDB\fP, HNDLE \fBhKey\fP, const char *orig_key_name, const char *init_str)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBdb_check_record\fP (HNDLE \fBhDB\fP, HNDLE \fBhKey\fP, const char *keyname, const char *rec_str, \fBBOOL\fP correct)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBdb_open_record\fP (HNDLE \fBhDB\fP, HNDLE \fBhKey\fP, void *ptr, \fBINT\fP rec_size, \fBWORD\fP access_mode, void(*dispatcher)(\fBINT\fP, \fBINT\fP, void *), void *info)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBdb_close_record\fP (HNDLE \fBhDB\fP, HNDLE \fBhKey\fP)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBdb_close_all_records\fP ()"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBdb_update_record\fP (\fBINT\fP \fBhDB\fP, \fBINT\fP \fBhKey\fP, int s)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBdb_send_changed_records\fP ()"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+dox The Online Database file 
+.PP
+Definition in file \fBodb.c\fP.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Midas from the source code.

@@ -1,0 +1,48 @@
+\subsection{Midas Macros}
+\label{group__mmacroh}\index{Midas Macros@{Midas Macros}}
+\subsubsection*{Defines}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{group__mmacroh_gafa99ec4acc4ecb2dc3c2d05da15d0e3f}{MAX}(a, b)~(((a) $>$ (b)) ? (a) : (b))
+\item 
+\#define \hyperlink{group__mmacroh_ga3acffbd305ee72dcd4593c0d8af64a4f}{MIN}(a, b)~(((a) $<$ (b)) ? (a) : (b))
+\item 
+\#define \hyperlink{group__mmacroh_ga46bf3ace1698ee72389c30bc61d78686}{ALIGN8}(x)~(((x)+7) \& $\sim$7)
+\item 
+\#define \hyperlink{group__mmacroh_ga03bfa072452094d4d31ce3d304438f14}{VALIGN}(adr, align)~(((POINTER\_\-T) (adr)+align-\/1) \& $\sim$(align-\/1))
+\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+dox 
+
+\subsubsection{Define Documentation}
+\index{mmacroh@{mmacroh}!ALIGN8@{ALIGN8}}
+\index{ALIGN8@{ALIGN8}!mmacroh@{mmacroh}}
+\paragraph[{ALIGN8}]{\setlength{\rightskip}{0pt plus 5cm}\#define ALIGN8(x)~(((x)+7) \& $\sim$7)}\hfill\label{group__mmacroh_ga46bf3ace1698ee72389c30bc61d78686}
+Align macro for data alignment on 8-\/byte boundary 
+
+Definition at line 462 of file midas.h.
+
+Referenced by bk\_\-close(), bk\_\-find(), bk\_\-iterate(), bk\_\-locate(), bk\_\-swap(), bm\_\-copy\_\-from\_\-cache(), bm\_\-dispatch\_\-from\_\-cache(), bm\_\-flush\_\-cache(), bm\_\-push\_\-event(), bm\_\-receive\_\-event(), bm\_\-send\_\-event(), bm\_\-wait\_\-for\_\-free\_\-space(), db\_\-open\_\-database(), and rpc\_\-send\_\-event().\index{mmacroh@{mmacroh}!MAX@{MAX}}
+\index{MAX@{MAX}!mmacroh@{mmacroh}}
+\paragraph[{MAX}]{\setlength{\rightskip}{0pt plus 5cm}\#define MAX(a, \/  b)~(((a) $>$ (b)) ? (a) : (b))}\hfill\label{group__mmacroh_gafa99ec4acc4ecb2dc3c2d05da15d0e3f}
+MAX 
+
+Definition at line 449 of file midas.h.
+
+Referenced by cm\_\-execute(), hv\_\-ramp(), and scheduler().\index{mmacroh@{mmacroh}!MIN@{MIN}}
+\index{MIN@{MIN}!mmacroh@{mmacroh}}
+\paragraph[{MIN}]{\setlength{\rightskip}{0pt plus 5cm}\#define MIN(a, \/  b)~(((a) $<$ (b)) ? (a) : (b))}\hfill\label{group__mmacroh_ga3acffbd305ee72dcd4593c0d8af64a4f}
+MIN 
+
+Definition at line 455 of file midas.h.
+
+Referenced by hv\_\-init(), hv\_\-ramp(), and update\_\-odb().\index{mmacroh@{mmacroh}!VALIGN@{VALIGN}}
+\index{VALIGN@{VALIGN}!mmacroh@{mmacroh}}
+\paragraph[{VALIGN}]{\setlength{\rightskip}{0pt plus 5cm}\#define VALIGN(adr, \/  align)~(((POINTER\_\-T) (adr)+align-\/1) \& $\sim$(align-\/1))}\hfill\label{group__mmacroh_ga03bfa072452094d4d31ce3d304438f14}
+Align macro for variable data alignment 
+
+Definition at line 466 of file midas.h.
+
+Referenced by db\_\-get\_\-record\_\-size(), and update\_\-odb().

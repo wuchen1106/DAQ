@@ -1,0 +1,588 @@
+\subsection{midas.h File Reference}
+\label{midas_8h}\index{midas.h@{midas.h}}
+\subsubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structEVENT__HEADER}{EVENT\_\-HEADER}
+\item 
+struct \hyperlink{structEVENT__REQUEST}{EVENT\_\-REQUEST}
+\item 
+struct \hyperlink{structBUFFER__CLIENT}{BUFFER\_\-CLIENT}
+\item 
+struct \hyperlink{structBUFFER__HEADER}{BUFFER\_\-HEADER}
+\item 
+struct \hyperlink{structBUFFER}{BUFFER}
+\item 
+struct \hyperlink{structKEY}{KEY}
+\item 
+struct \hyperlink{structKEYLIST}{KEYLIST}
+\item 
+struct \hyperlink{structBUS__DRIVER}{BUS\_\-DRIVER}
+\item 
+struct \hyperlink{structDD__MT__CHANNEL}{DD\_\-MT\_\-CHANNEL}
+\item 
+struct \hyperlink{structDD__MT__BUFFER}{DD\_\-MT\_\-BUFFER}
+\item 
+struct \hyperlink{structEQUIPMENT__INFO}{EQUIPMENT\_\-INFO}
+\item 
+struct \hyperlink{structDEVICE__DRIVER}{DEVICE\_\-DRIVER}
+\item 
+struct \hyperlink{structEQUIPMENT__STATS}{EQUIPMENT\_\-STATS}
+\item 
+struct \hyperlink{structeqpmnt}{eqpmnt}
+\item 
+struct \hyperlink{structBANK__HEADER}{BANK\_\-HEADER}
+\item 
+struct \hyperlink{structBANK}{BANK}
+\item 
+struct \hyperlink{structBANK32}{BANK32}
+\item 
+struct \hyperlink{structTAG}{TAG}
+\item 
+struct \hyperlink{structBANK__LIST}{BANK\_\-LIST}
+\item 
+struct \hyperlink{structANA__MODULE}{ANA\_\-MODULE}
+\item 
+struct \hyperlink{structAR__INFO}{AR\_\-INFO}
+\item 
+struct \hyperlink{structAR__STATS}{AR\_\-STATS}
+\item 
+struct \hyperlink{structANALYZE__REQUEST}{ANALYZE\_\-REQUEST}
+\item 
+struct \hyperlink{structANA__OUTPUT__INFO}{ANA\_\-OUTPUT\_\-INFO}
+\item 
+struct \hyperlink{structANA__TEST}{ANA\_\-TEST}
+\item 
+struct \hyperlink{structHIST__RECORD}{HIST\_\-RECORD}
+\item 
+struct \hyperlink{structDEF__RECORD}{DEF\_\-RECORD}
+\item 
+struct \hyperlink{structINDEX__RECORD}{INDEX\_\-RECORD}
+\item 
+struct \hyperlink{structHISTORY}{HISTORY}
+\item 
+struct \hyperlink{structRUNINFO}{RUNINFO}
+\item 
+struct \hyperlink{structPROGRAM__INFO}{PROGRAM\_\-INFO}
+\item 
+struct \hyperlink{structALARM__CLASS}{ALARM\_\-CLASS}
+\item 
+struct \hyperlink{structALARM}{ALARM}
+\end{DoxyCompactItemize}
+\subsubsection*{Defines}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{group__midasincludecode_ga05d5acc365e3342523d84bc4540adc09}{MAX\_\-EVENT\_\-SIZE}~0x400000
+\item 
+\#define \hyperlink{group__midasincludecode_gab17ef1a258d0569666f69f72ccd50253}{TAPE\_\-BUFFER\_\-SIZE}~0x8000
+\item 
+\#define \hyperlink{group__midasincludecode_ga31190e25ed33be085ff0af476af2c029}{NET\_\-TCP\_\-SIZE}~0xFFFF
+\item 
+\#define \hyperlink{group__midasincludecode_ga2d57fe25161f9e5285d9bafd7fb0775d}{OPT\_\-TCP\_\-SIZE}~8192
+\item 
+\#define \hyperlink{group__midasincludecode_ga75d12e6b30368bb9a7f214430c6e76a6}{NET\_\-UDP\_\-SIZE}~8192
+\item 
+\#define \hyperlink{group__midasincludecode_gab520c690db83550e545ce6afbb12de3f}{EVENT\_\-BUFFER\_\-NAME}~\char`\"{}SYSTEM\char`\"{}
+\item 
+\#define \hyperlink{group__midasincludecode_gac5b414ae3a2f854b099c08f5e63e8671}{DEFAULT\_\-ODB\_\-SIZE}~0x100000
+\item 
+\#define \hyperlink{group__midasincludecode_gaf71324c57f05ff9e24bd384925dd6b17}{NAME\_\-LENGTH}~32
+\item 
+\#define \hyperlink{group__midasincludecode_ga2010c9ed4ef21c3171de778157b9c494}{HOST\_\-NAME\_\-LENGTH}~256
+\item 
+\#define \hyperlink{group__midasincludecode_ga0a8f91f93d75a07f0ae45077db45b3eb}{MAX\_\-CLIENTS}~64
+\item 
+\#define \hyperlink{group__midasincludecode_gabe76a0bd645baa376f4443c59d16e36a}{MAX\_\-EVENT\_\-REQUESTS}~10
+\item 
+\#define \hyperlink{group__midasincludecode_gaa5445fb29f607c9bfac3cd36efd40cc1}{MAX\_\-OPEN\_\-RECORDS}~256
+\item 
+\#define \hyperlink{group__midasincludecode_ga78b086c08dd57c930e2997a71a3ae5ee}{MAX\_\-ODB\_\-PATH}~256
+\item 
+\#define \hyperlink{group__midasincludecode_ga96dcd778f7870d9d3a834f63f7e8506e}{MAX\_\-EXPERIMENT}~32
+\item 
+\#define \hyperlink{group__midasincludecode_gaab64ba61449c513d2c3a2f4884a38d06}{BANKLIST\_\-MAX}~1024
+\item 
+\#define \hyperlink{group__midasincludecode_gafec0c8869c3f66ea7d186ec4b7682fc0}{STRING\_\-BANKLIST\_\-MAX}~BANKLIST\_\-MAX $\ast$ 4
+\item 
+\#define \hyperlink{group__midasincludecode_ga39d21da28bfcbf0caba6bd19ef551f36}{DEFAULT\_\-RPC\_\-TIMEOUT}~10000
+\item 
+\#define \hyperlink{group__midasincludecode_ga277afc8607c7a55aafffc11d69be143c}{DEFAULT\_\-WATCHDOG\_\-TIMEOUT}~10000
+\item 
+\#define \hyperlink{group__mdefineh_ga6a8dac64367bd381245f2eb09a7fe919}{STATE\_\-STOPPED}~1
+\item 
+\#define \hyperlink{group__mdefineh_gab08c47284371c683ba80d6b3244400f1}{STATE\_\-PAUSED}~2
+\item 
+\#define \hyperlink{group__mdefineh_gac4c0304c569818c811515e24523c3150}{STATE\_\-RUNNING}~3
+\item 
+\#define \hyperlink{group__mdefineh_gac7ef5b0cbb1fc1d26c3bfd4cc4a191a9}{FORMAT\_\-MIDAS}~1
+\item 
+\#define \hyperlink{group__mdefineh_gaab9657af955d54be6cd05e0a726ad964}{FORMAT\_\-YBOS}~2
+\item 
+\#define \hyperlink{group__mdefineh_gaf900017aedf1bdc7e50fcbf949464e6d}{FORMAT\_\-ASCII}~3
+\item 
+\#define \hyperlink{group__mdefineh_ga44835dd4c169e13e0fedf8c01a54dc2b}{FORMAT\_\-FIXED}~4
+\item 
+\#define \hyperlink{group__mdefineh_gaffaf04a985dfa6ff43ab39a8c6e3f0a7}{FORMAT\_\-DUMP}~5
+\item 
+\#define \hyperlink{group__mdefineh_gac3a857e4820ecdaa22f9a66a560dccad}{FORMAT\_\-HBOOK}~6
+\item 
+\#define \hyperlink{group__mdefineh_ga9663ae12f7cbf4295b3804ebd335e408}{FORMAT\_\-ROOT}~7
+\item 
+\#define \hyperlink{group__mdefineh_ga16218704fdf35f7624064c9d1d4bc78f}{GET\_\-ALL}~(1$<$$<$0)
+\item 
+\#define \hyperlink{group__mdefineh_ga0c91e56af17a9a23f5adab8a4099fac6}{GET\_\-NONBLOCKING}~(1$<$$<$1)
+\item 
+\#define \hyperlink{group__mdefineh_ga3275482a8a2223e4d57ac51d967979f8}{GET\_\-RECENT}~(1$<$$<$2)
+\item 
+\#define \hyperlink{group__mdefineh_ga7499d3aa0ca98d255f5147494ab4f572}{TID\_\-BYTE}~1
+\item 
+\#define \hyperlink{group__mdefineh_ga150e3437f490b1e7c0e11046a9ead174}{TID\_\-SBYTE}~2
+\item 
+\#define \hyperlink{group__mdefineh_gad4af77af5f2910e73596592030e37ab7}{TID\_\-CHAR}~3
+\item 
+\#define \hyperlink{group__mdefineh_ga681cbe2c114c62cecccb882544d2debb}{TID\_\-WORD}~4
+\item 
+\#define \hyperlink{group__mdefineh_ga4281dafac4285eae3e3c9be0a1d93c5a}{TID\_\-SHORT}~5
+\item 
+\#define \hyperlink{group__mdefineh_gafed9e8d519719d7347f9fdb3031201d1}{TID\_\-DWORD}~6
+\item 
+\#define \hyperlink{group__mdefineh_gad950d5fde6dd3ea7eba59fb6760a38cb}{TID\_\-INT}~7
+\item 
+\#define \hyperlink{group__mdefineh_ga252eb84661dfaa5959b5cb316117d696}{TID\_\-BOOL}~8
+\item 
+\#define \hyperlink{group__mdefineh_gae932ec1b283f6c4b9c30a6d489beea7f}{TID\_\-FLOAT}~9
+\item 
+\#define \hyperlink{group__mdefineh_ga13378fa303cf601b4b491866a6688362}{TID\_\-DOUBLE}~10
+\item 
+\#define \hyperlink{group__mdefineh_gab0a4dbaa6dd29b5b9708a242c16ddaf2}{TID\_\-BITFIELD}~11
+\item 
+\#define \hyperlink{group__mdefineh_gab81af1d9631a5c29500d506f0c3470cd}{TID\_\-STRING}~12
+\item 
+\#define \hyperlink{group__mdefineh_gace0b097869238969f28899be5be86e42}{TID\_\-ARRAY}~13
+\item 
+\#define \hyperlink{group__mdefineh_ga8d82076a05b53876103e1c53d5878b75}{TID\_\-STRUCT}~14
+\item 
+\#define \hyperlink{group__mdefineh_ga15ae151ae0b7588b3327bd8451d9bcb8}{TID\_\-KEY}~15
+\item 
+\#define \hyperlink{group__mdefineh_gaa63f41f547c7f46f828aaf35073807ea}{TID\_\-LINK}~16
+\item 
+\#define \hyperlink{group__mdefineh_gaedf8b3d53db358c7f8b92514815ab3d7}{TID\_\-LAST}~17
+\item 
+\#define \hyperlink{group__mdefineh_ga9ac82e856c7683e23553431e5224d5f4}{SYNC}~0
+\item 
+\#define \hyperlink{group__mdefineh_gac4d1baf108e9ce6414088db508d7c182}{MODE\_\-READ}~(1$<$$<$0)
+\item 
+\#define \hyperlink{group__mdefineh_ga9d274f0e5944be5b429d6c1bacfe1db0}{RPC\_\-OTIMEOUT}~1
+\item 
+\#define \hyperlink{group__mdefineh_gadbd605a3d827a2ee4a032d73d4b65919}{WF\_\-WATCH\_\-ME}~(1$<$$<$0)
+\item 
+\#define \hyperlink{group__mdefineh_ga2abbc514b87837cc235da54a4cf59e09}{TR\_\-START}~(1$<$$<$0)
+\item 
+\#define \hyperlink{group__mdefineh_gadd7d0605113ff6e1b4e705d31332a1a0}{TR\_\-STOP}~(1$<$$<$1)
+\item 
+\#define \hyperlink{group__mdefineh_ga11713399cfb35e58b8fae045836c0d88}{TR\_\-PAUSE}~(1$<$$<$2)
+\item 
+\#define \hyperlink{group__mdefineh_ga0b69b728877f100fe6ff76e667ff8831}{TR\_\-RESUME}~(1$<$$<$3)
+\item 
+\#define \hyperlink{group__mdefineh_ga61faff4d81f378438500ef8971e2b7af}{TR\_\-STARTABORT}~(1$<$$<$4)
+\item 
+\#define \hyperlink{group__mdefineh_ga58e919e4e401b299c1834be965c3e78c}{EQ\_\-PERIODIC}~(1$<$$<$0)
+\item 
+\#define \hyperlink{group__mdefineh_ga0c716a0a98b5da8bbe8477839d9b0c78}{EQ\_\-POLLED}~(1$<$$<$1)
+\item 
+\#define \hyperlink{group__mdefineh_gad5ba2ec0f5d55139048dbe2d416da6ba}{EQ\_\-INTERRUPT}~(1$<$$<$2)
+\item 
+\#define \hyperlink{group__mdefineh_ga7cc85959e8d0c4e476cf659c2cee7a33}{EQ\_\-MULTITHREAD}~(1$<$$<$3)
+\item 
+\#define \hyperlink{group__mdefineh_gafffdc5135b2e8f3c6bc61b8701084df6}{EQ\_\-SLOW}~(1$<$$<$4)
+\item 
+\#define \hyperlink{group__mdefineh_gac73e1045dff2b724325100af2e946717}{EQ\_\-MANUAL\_\-TRIG}~(1$<$$<$5)
+\item 
+\#define \hyperlink{group__mdefineh_ga702ba5dcc4b9f1ccf9a1a37bad62266e}{EQ\_\-FRAGMENTED}~(1$<$$<$6)
+\item 
+\#define \hyperlink{group__mdefineh_ga28055cb167765a3f23ac9ef55afb8e26}{EQ\_\-EB}~(1$<$$<$7)
+\item 
+\#define \hyperlink{group__mdefineh_gafc5ef41cae398b8500f9c3a42cef6d2c}{RO\_\-RUNNING}~(1$<$$<$0)
+\item 
+\#define \hyperlink{group__mdefineh_ga05a5abc619ab24e168695befc7c0b4be}{RO\_\-STOPPED}~(1$<$$<$1)
+\item 
+\#define \hyperlink{group__mdefineh_ga8a47b3b86a72a7db84a582277d4b7a39}{RO\_\-PAUSED}~(1$<$$<$2)
+\item 
+\#define \hyperlink{group__mdefineh_ga88e94e1aadd86417c8eaa304d8c3b467}{RO\_\-BOR}~(1$<$$<$3)
+\item 
+\#define \hyperlink{group__mdefineh_ga5b505930aa1fc780118b4fc75f771464}{RO\_\-EOR}~(1$<$$<$4)
+\item 
+\#define \hyperlink{group__mdefineh_ga55beb931c834300fea83d24014f235d8}{RO\_\-PAUSE}~(1$<$$<$5)
+\item 
+\#define \hyperlink{group__mdefineh_ga549159f6ef3ef7c17261bcccecbe57ec}{RO\_\-RESUME}~(1$<$$<$6)
+\item 
+\#define \hyperlink{group__mdefineh_gadcbbd9e66d9455950d508d10b32b1f74}{RO\_\-TRANSITIONS}~(RO\_\-BOR$|$RO\_\-EOR$|$RO\_\-PAUSE$|$RO\_\-RESUME)
+\item 
+\#define \hyperlink{group__mdefineh_gafb61c915b4df610eb54eeeb781fc2f75}{RO\_\-ALWAYS}~(0xFF)
+\item 
+\#define \hyperlink{group__mdefineh_ga2de85e3b635c54456698533ebfc5635d}{RO\_\-ODB}~(1$<$$<$8)
+\item 
+\#define \hyperlink{group__midasincludecode_gaf5ec05509b0e59d4796795063e6c01d3}{CH\_\-BS}~8
+\item 
+\#define \hyperlink{group__midasincludecode_ga93fde3913a488880c4f96267e24579ee}{LAM\_\-SOURCE}(c, s)~(c$<$$<$24 $|$ ((s) \& 0xFFFFFF))
+\item 
+\#define \hyperlink{group__midasincludecode_ga479219e07f43223f74ff8638705a804e}{LAM\_\-STATION}(s)~(1$<$$<$(s-\/1))
+\item 
+\#define \hyperlink{group__midasincludecode_gafac465450c8035c37ba5482970e026eb}{LAM\_\-SOURCE\_\-CRATE}(c)~(c$>$$>$24)
+\item 
+\#define \hyperlink{group__midasincludecode_gae70f372186346224788f2980de071736}{LAM\_\-SOURCE\_\-STATION}(s)~((s) \& 0xFFFFFF)
+\item 
+\#define \hyperlink{group__midasincludecode_gaabc611f59210401f11ea4247291c4468}{CNAF}~0x1
+\item 
+\#define \hyperlink{group__mmacroh_gafa99ec4acc4ecb2dc3c2d05da15d0e3f}{MAX}(a, b)~(((a) $>$ (b)) ? (a) : (b))
+\item 
+\#define \hyperlink{group__mmacroh_ga3acffbd305ee72dcd4593c0d8af64a4f}{MIN}(a, b)~(((a) $<$ (b)) ? (a) : (b))
+\item 
+\#define \hyperlink{group__mmacroh_ga46bf3ace1698ee72389c30bc61d78686}{ALIGN8}(x)~(((x)+7) \& $\sim$7)
+\item 
+\#define \hyperlink{group__mmacroh_ga03bfa072452094d4d31ce3d304438f14}{VALIGN}(adr, align)~(((POINTER\_\-T) (adr)+align-\/1) \& $\sim$(align-\/1))
+\item 
+\#define \hyperlink{group__mdefineh_gafb24605c905f91417535771185913d07}{MT\_\-ERROR}~(1$<$$<$0)
+\item 
+\#define \hyperlink{group__mdefineh_ga5bf211121ab25c5d13f8c2f272b9ca25}{MT\_\-INFO}~(1$<$$<$1)
+\item 
+\#define \hyperlink{group__mdefineh_gad357af6d472b906b1e269f94f68c97b3}{MT\_\-DEBUG}~(1$<$$<$2)
+\item 
+\#define \hyperlink{group__mdefineh_ga8e13ab6bdea106f548ecb162bdcd41a9}{MT\_\-USER}~(1$<$$<$3)
+\item 
+\#define \hyperlink{group__mdefineh_gaa2290e1318f8605a3e59acf7112ba738}{MT\_\-LOG}~(1$<$$<$4)
+\item 
+\#define \hyperlink{group__mdefineh_ga7d9c4230376d6527c7c8cd810eeb3e86}{MT\_\-TALK}~(1$<$$<$5)
+\item 
+\#define \hyperlink{group__mdefineh_gadcbf4bac0ba5a2fb4e81ed727775dbba}{MT\_\-CALL}~(1$<$$<$6)
+\item 
+\#define \hyperlink{group__mdefineh_ga3378bf6f53a24392145df33c8acc9c0c}{MT\_\-ALL}~0xFF
+\item 
+\#define \hyperlink{group__mdefineh_gac2d967025ca0f84f611d568f4ede934a}{MERROR}~MT\_\-ERROR, \_\-\_\-FILE\_\-\_\-, \_\-\_\-LINE\_\-\_\-
+\item 
+\#define \hyperlink{group__mdefineh_ga6e27d8876a43afce3ee4dd16527cbb9e}{MINFO}~MT\_\-INFO,  \_\-\_\-FILE\_\-\_\-, \_\-\_\-LINE\_\-\_\-
+\item 
+\#define \hyperlink{group__mdefineh_gad769dc7be0dc5189e019d56664a18655}{MDEBUG}~MT\_\-DEBUG, \_\-\_\-FILE\_\-\_\-, \_\-\_\-LINE\_\-\_\-
+\item 
+\#define \hyperlink{group__mdefineh_ga34e08186e736dbd7f0b61a23a8ad8d0f}{MUSER}~MT\_\-USER,  \_\-\_\-FILE\_\-\_\-, \_\-\_\-LINE\_\-\_\-
+\item 
+\#define \hyperlink{group__mdefineh_ga953a810cf5034c603bdcad8840223ddc}{MLOG}~MT\_\-LOG,   \_\-\_\-FILE\_\-\_\-, \_\-\_\-LINE\_\-\_\-
+\item 
+\#define \hyperlink{group__mdefineh_gad6a8d32f94873258d0eebcbe5b24a78e}{MTALK}~MT\_\-TALK,  \_\-\_\-FILE\_\-\_\-, \_\-\_\-LINE\_\-\_\-
+\item 
+\#define \hyperlink{group__mdefineh_ga9f2fa3417c41f059c815b9c0eba73db2}{MCALL}~MT\_\-CALL,  \_\-\_\-FILE\_\-\_\-, \_\-\_\-LINE\_\-\_\-
+\item 
+\#define \hyperlink{group__err21_gaa90cac659d18e8ef6294c7ae337f6b58}{SUCCESS}~1
+\item 
+\#define \hyperlink{group__err21_ga0180947941230d805f5dbb6f1801c17c}{CM\_\-SUCCESS}~1
+\item 
+\#define \hyperlink{group__err21_ga2559211d26add70c0fdc21958ed0e9e1}{CM\_\-SET\_\-ERROR}~102
+\item 
+\#define \hyperlink{group__err21_gaae1164bcc7a30753d96723b897ce234e}{CM\_\-NO\_\-CLIENT}~103
+\item 
+\#define \hyperlink{group__err21_gad7158e389b0aa1f99cb40adb80b2bace}{CM\_\-DB\_\-ERROR}~104
+\item 
+\#define \hyperlink{group__err21_ga10f9c3f1a23d0f63f86edf36143c849d}{CM\_\-UNDEF\_\-EXP}~105
+\item 
+\#define \hyperlink{group__err21_gae706ef5a8d5795d01ba8fa67d6db6302}{CM\_\-VERSION\_\-MISMATCH}~106
+\item 
+\#define \hyperlink{group__err21_ga76db0fac26b6f3dcdc29ec8b640c5a5f}{CM\_\-SHUTDOWN}~107
+\item 
+\#define \hyperlink{group__err21_ga9a26da1c28eadf3f46a335b41520ecd8}{CM\_\-WRONG\_\-PASSWORD}~108
+\item 
+\#define \hyperlink{group__err21_gaf3ff2980ad033cdeb6ed0bb53dfec41c}{CM\_\-UNDEF\_\-ENVIRON}~109
+\item 
+\#define \hyperlink{group__err21_ga56216c4157257715878749974191b697}{CM\_\-DEFERRED\_\-TRANSITION}~110
+\item 
+\#define \hyperlink{group__err21_ga5eb422d9ad83d53c886a16a4691e7eb4}{CM\_\-TRANSITION\_\-IN\_\-PROGRESS}~111
+\item 
+\#define \hyperlink{group__err21_ga3f98d4cb53674e51840088d7c8435d85}{CM\_\-TIMEOUT}~112
+\item 
+\#define \hyperlink{group__err21_ga23fd8fcf5d790b87dd9d8a77e263a2d4}{CM\_\-INVALID\_\-TRANSITION}~113
+\item 
+\#define \hyperlink{group__err21_ga651caeed4e07732c8ce40c41c69ba9a2}{CM\_\-TOO\_\-MANY\_\-REQUESTS}~114
+\item 
+\#define \hyperlink{group__err22_gadccfb762fd84f9e33940f3d1204042b0}{BM\_\-SUCCESS}~1
+\item 
+\#define \hyperlink{group__err22_gaf4d0ec9887b0864c100b8062d21f4c0b}{BM\_\-CREATED}~202
+\item 
+\#define \hyperlink{group__err22_ga5425d2a3621de60926128a3cbaa501cc}{BM\_\-NO\_\-MEMORY}~203
+\item 
+\#define \hyperlink{group__err22_ga3320beea9944241434c6bf98d2392414}{BM\_\-INVALID\_\-NAME}~204
+\item 
+\#define \hyperlink{group__err22_ga992d6577e774ebe1c50b501917c788b8}{BM\_\-INVALID\_\-HANDLE}~205
+\item 
+\#define \hyperlink{group__err22_ga5d9eb250e07354dc4d5de87388feff44}{BM\_\-NO\_\-SLOT}~206
+\item 
+\#define \hyperlink{group__err22_gaf9bc9724347f2c84c37b2725b0fa6b2c}{BM\_\-NO\_\-SEMAPHORE}~207
+\item 
+\#define \hyperlink{group__err22_ga3ec707ba57a9f56c19bf8d8581d8291b}{BM\_\-NOT\_\-FOUND}~208
+\item 
+\#define \hyperlink{group__err22_ga7fb11aaff606b1785cddd205baddbbff}{BM\_\-ASYNC\_\-RETURN}~209
+\item 
+\#define \hyperlink{group__err22_ga21752d578978d7ffe3cdd82e28936667}{BM\_\-TRUNCATED}~210
+\item 
+\#define \hyperlink{group__err22_gad1a172c4643fd4a0227f0df5bcfbd0b4}{BM\_\-MULTIPLE\_\-HOSTS}~211
+\item 
+\#define \hyperlink{group__err22_ga2d978469667eb3d51ea7cc48a5070a72}{BM\_\-MEMSIZE\_\-MISMATCH}~212
+\item 
+\#define \hyperlink{group__err22_ga0703bfd174e660aba961c696766e7066}{BM\_\-CONFLICT}~213
+\item 
+\#define \hyperlink{group__err22_gaa73f629c281190fdd092eed493b5245a}{BM\_\-EXIT}~214
+\item 
+\#define \hyperlink{group__err22_ga09095b8ac6e057d3094c99e485c1a74d}{BM\_\-INVALID\_\-PARAM}~215
+\item 
+\#define \hyperlink{group__err22_ga0ef7db8ae9812d639f07e3d654d76e90}{BM\_\-MORE\_\-EVENTS}~216
+\item 
+\#define \hyperlink{group__err22_ga57d1cf336a7a69397d8a6b1d2d40bf27}{BM\_\-INVALID\_\-MIXING}~217
+\item 
+\#define \hyperlink{group__err22_gaf32276ec7c00c33b4c45bd0b382b8ffb}{BM\_\-NO\_\-SHM}~218
+\item 
+\#define \hyperlink{group__err23_ga4d6ab4d32144d851ddeb7931b81a63e3}{DB\_\-SUCCESS}~1
+\item 
+\#define \hyperlink{group__err23_gabd18ddb49dba3429ea159610875283ec}{DB\_\-CREATED}~302
+\item 
+\#define \hyperlink{group__err23_ga53ba0057ac441528c24b8485c80dbbe3}{DB\_\-NO\_\-MEMORY}~303
+\item 
+\#define \hyperlink{group__err23_ga871ab09b39556a4328e80497ed13088b}{DB\_\-INVALID\_\-NAME}~304
+\item 
+\#define \hyperlink{group__err23_ga2b43bd45a32dd2121296f02c267ccc6d}{DB\_\-INVALID\_\-HANDLE}~305
+\item 
+\#define \hyperlink{group__err23_gafbb1117afac5c259b09143378b454dcb}{DB\_\-NO\_\-SLOT}~306
+\item 
+\#define \hyperlink{group__err23_ga1e4b50982e450b4c6a86a20e9120efbd}{DB\_\-NO\_\-SEMAPHORE}~307
+\item 
+\#define \hyperlink{group__err23_ga30ce4ec4017c1d210d2b72497aad6835}{DB\_\-MEMSIZE\_\-MISMATCH}~308
+\item 
+\#define \hyperlink{group__err23_ga3190934848311dc41f20d5e4ce285339}{DB\_\-INVALID\_\-PARAM}~309
+\item 
+\#define \hyperlink{group__err23_ga25a395a210f89c1a6cfa6efd724657c0}{DB\_\-FULL}~310
+\item 
+\#define \hyperlink{group__err23_ga2989be8053dffcaf9f4e60ce677e98d3}{DB\_\-KEY\_\-EXIST}~311
+\item 
+\#define \hyperlink{group__err23_ga8c6c8ed2099cf2468f0c7c6cd475fe7e}{DB\_\-NO\_\-KEY}~312
+\item 
+\#define \hyperlink{group__err23_ga2d57548d0380a9cd53ba2cc16184705f}{DB\_\-KEY\_\-CREATED}~313
+\item 
+\#define \hyperlink{group__err23_gaf7d81a3217ef14ed73f3089f51584bd9}{DB\_\-TRUNCATED}~314
+\item 
+\#define \hyperlink{group__err23_gab284e13875988d7c16d30c8fe7597f5a}{DB\_\-TYPE\_\-MISMATCH}~315
+\item 
+\#define \hyperlink{group__err23_gaf2249d36fd8ffb254cd33a3bbc899638}{DB\_\-NO\_\-MORE\_\-SUBKEYS}~316
+\item 
+\#define \hyperlink{group__err23_ga39b1479e417376866f2658812ae4ba6b}{DB\_\-FILE\_\-ERROR}~317
+\item 
+\#define \hyperlink{group__err23_ga467b0af34b1011481919088b6af86b95}{DB\_\-NO\_\-ACCESS}~318
+\item 
+\#define \hyperlink{group__err23_ga920c5c179829999cc9b35cec855c7aec}{DB\_\-STRUCT\_\-SIZE\_\-MISMATCH}~319
+\item 
+\#define \hyperlink{group__err23_gacfc6bca00bde3af90d259cb4ae98deb0}{DB\_\-OPEN\_\-RECORD}~320
+\item 
+\#define \hyperlink{group__err23_ga1043c6971ce0fc8cc5613ec81e315789}{DB\_\-OUT\_\-OF\_\-RANGE}~321
+\item 
+\#define \hyperlink{group__err23_gac76d78c0ecc26f907b9996eb5ad1d86b}{DB\_\-INVALID\_\-LINK}~322
+\item 
+\#define \hyperlink{group__err23_gaa127076644c7cc5c76fa9e1354ea6574}{DB\_\-CORRUPTED}~323
+\item 
+\#define \hyperlink{group__err23_ga0ee271607cfbec2e6050b0ea6e5ef533}{DB\_\-STRUCT\_\-MISMATCH}~324
+\item 
+\#define \hyperlink{group__err23_gac3c60a757927f22fc91643550d780a85}{DB\_\-TIMEOUT}~325
+\item 
+\#define \hyperlink{group__err23_gaf466ab5a9f2f1febef5fb3e4c12df14b}{DB\_\-VERSION\_\-MISMATCH}~326
+\item 
+\#define \hyperlink{group__err24_ga0abac6c68d7a79ce83d1a25b2c800321}{SS\_\-SUCCESS}~1
+\item 
+\#define \hyperlink{group__err24_ga7440cf35b00082fb16e8584ada5b50e0}{SS\_\-CREATED}~402
+\item 
+\#define \hyperlink{group__err24_ga39da075b89b283b1ba6ee8163cd75e6d}{SS\_\-NO\_\-MEMORY}~403
+\item 
+\#define \hyperlink{group__err24_ga77e57c8c5c8a676e50f7b757294044f5}{SS\_\-INVALID\_\-NAME}~404
+\item 
+\#define \hyperlink{group__err24_ga43a0d1263dfc7b732dbb04271d8599c9}{SS\_\-INVALID\_\-HANDLE}~405
+\item 
+\#define \hyperlink{group__err24_ga8741bfc9d74c60db4d6978b337cfef93}{SS\_\-INVALID\_\-ADDRESS}~406
+\item 
+\#define \hyperlink{group__err24_ga25ab2ae4b1702824549b8e40a6e86718}{SS\_\-FILE\_\-ERROR}~407
+\item 
+\#define \hyperlink{group__err24_ga693cdd4ddba4919824025c1c7339e54d}{SS\_\-NO\_\-SEMAPHORE}~408
+\item 
+\#define \hyperlink{group__err24_ga45a5e45d0c1bb8ac8b23385a95ffd20d}{SS\_\-NO\_\-PROCESS}~409
+\item 
+\#define \hyperlink{group__err24_ga164e3fc92adb05840a3442728c181793}{SS\_\-NO\_\-THREAD}~410
+\item 
+\#define \hyperlink{group__err24_gabfc9c001ee2e4f077a312cf4cf820dfe}{SS\_\-SOCKET\_\-ERROR}~411
+\item 
+\#define \hyperlink{group__err24_ga4ceb5b10e3abde2c178d87192664044f}{SS\_\-TIMEOUT}~412
+\item 
+\#define \hyperlink{group__err24_ga3f947813c830bdf148673ad0c29e00f7}{SS\_\-SERVER\_\-RECV}~413
+\item 
+\#define \hyperlink{group__err24_gafe9fb1a199a6e53c4478a0fe83931986}{SS\_\-CLIENT\_\-RECV}~414
+\item 
+\#define \hyperlink{group__err24_ga136923b4499af07f13a3cd631b88ec0e}{SS\_\-ABORT}~415
+\item 
+\#define \hyperlink{group__err24_ga8bdfd6ab89f9628d57174f8a4287bf9f}{SS\_\-EXIT}~416
+\item 
+\#define \hyperlink{group__err24_ga9ac796b5448c9009c8135524ab4ede4e}{SS\_\-NO\_\-TAPE}~417
+\item 
+\#define \hyperlink{group__err24_gab33c355e9ba39a4bc024efc9c3bfdbbe}{SS\_\-DEV\_\-BUSY}~418
+\item 
+\#define \hyperlink{group__err24_gaba97d9c5175be9b9573f28e2bec7ec9c}{SS\_\-IO\_\-ERROR}~419
+\item 
+\#define \hyperlink{group__err24_ga1271b2092f57a1f2eab374deb5aa20e0}{SS\_\-TAPE\_\-ERROR}~420
+\item 
+\#define \hyperlink{group__err24_ga6d231194f11fe80cf351cab940212ead}{SS\_\-NO\_\-DRIVER}~421
+\item 
+\#define \hyperlink{group__err24_ga91cc51ebf0822e08c4935a2c09a1a60c}{SS\_\-END\_\-OF\_\-TAPE}~422
+\item 
+\#define \hyperlink{group__err24_ga040a5d277934aea616a26f523711a803}{SS\_\-END\_\-OF\_\-FILE}~423
+\item 
+\#define \hyperlink{group__err24_ga252be9bba4cc9d08025559dc495aca6b}{SS\_\-FILE\_\-EXISTS}~424
+\item 
+\#define \hyperlink{group__err24_gafe95d7246d004e42c34c3ede15d44648}{SS\_\-NO\_\-SPACE}~425
+\item 
+\#define \hyperlink{group__err24_gaa473d6d45ff06e93dcab855be5170ab1}{SS\_\-INVALID\_\-FORMAT}~426
+\item 
+\#define \hyperlink{group__err24_gabda878278e2d9236d3b18c1711c4df86}{SS\_\-NO\_\-ROOT}~427
+\item 
+\#define \hyperlink{group__err24_ga5fb7e0f4f8012a34514c319989e50143}{SS\_\-SIZE\_\-MISMATCH}~428
+\item 
+\#define \hyperlink{group__err24_ga12b0dd329283f2b865476ce4d3e1fcb3}{SS\_\-NO\_\-MUTEX}~429
+\item 
+\#define \hyperlink{group__err25_ga19b06966ce058cda8e5dca8d682b2bd3}{RPC\_\-SUCCESS}~1
+\item 
+\#define \hyperlink{group__err25_ga2a163d317723a6d3ac14627503f6ca7a}{RPC\_\-ABORT}~SS\_\-ABORT
+\item 
+\#define \hyperlink{group__err25_gad3a9f2a6b26ce5b987f6b2088fbb627c}{RPC\_\-NO\_\-CONNECTION}~502
+\item 
+\#define \hyperlink{group__err25_gae7db91aa77eeed4371ba30dfc122ded6}{RPC\_\-NET\_\-ERROR}~503
+\item 
+\#define \hyperlink{group__err25_gad29d62bce98ff8494be9337cb1a0a1f1}{RPC\_\-TIMEOUT}~504
+\item 
+\#define \hyperlink{group__err25_ga1a35d5e05d16d9040eaad41c4434a20a}{RPC\_\-EXCEED\_\-BUFFER}~505
+\item 
+\#define \hyperlink{group__err25_ga8e46f3de256d0dc247efd6386b5b5a39}{RPC\_\-NOT\_\-REGISTERED}~506
+\item 
+\#define \hyperlink{group__err25_ga50c5b6ef0ae99ed578f9209fdd961ac1}{RPC\_\-CONNCLOSED}~507
+\item 
+\#define \hyperlink{group__err25_ga3cbff68ac5b5d52f692b8e880f9ef76c}{RPC\_\-INVALID\_\-ID}~508
+\item 
+\#define \hyperlink{group__err25_ga0406ee07e8c5afbf8e46cb0eed698bcd}{RPC\_\-SHUTDOWN}~509
+\item 
+\#define \hyperlink{group__err25_ga810bf4af4a5d29b1d1d1423e8889b35f}{RPC\_\-NO\_\-MEMORY}~510
+\item 
+\#define \hyperlink{group__err25_ga68d214e584f6bcd6e91f25f1b9d79f54}{RPC\_\-DOUBLE\_\-DEFINED}~511
+\item 
+\#define \hyperlink{group__err25_gab7747c8b74d827488058ef9a0f9d3fc5}{RPC\_\-MUTEX\_\-TIMEOUT}~512
+\item 
+\#define \hyperlink{group__err26_ga23395a243c74edd61ed4ce0df1256419}{FE\_\-SUCCESS}~1
+\item 
+\#define \hyperlink{group__err26_ga8a0cc5de6ea758c61231a11b6a076e1f}{FE\_\-ERR\_\-ODB}~602
+\item 
+\#define \hyperlink{group__err26_ga9fea053c26a278026fa0d7501c300c4f}{FE\_\-ERR\_\-HW}~603
+\item 
+\#define \hyperlink{group__err26_gae7f0996583000c6c16916cdc846b753a}{FE\_\-ERR\_\-DISABLED}~604
+\item 
+\#define \hyperlink{group__err26_gac4221d7e494c798f57552f502e2459ef}{FE\_\-ERR\_\-DRIVER}~605
+\item 
+\#define \hyperlink{group__err26_ga2d533509db8628a7e0eb794e2b3e77b0}{HS\_\-SUCCESS}~1
+\item 
+\#define \hyperlink{group__err26_ga564032fce62ccc4689bd3b5864ad0f9c}{HS\_\-FILE\_\-ERROR}~702
+\item 
+\#define \hyperlink{group__err26_ga8d2556d6b5d8902646a36e3aa7e71dc5}{HS\_\-NO\_\-MEMORY}~703
+\item 
+\#define \hyperlink{group__err26_ga8b8cfc047a951f9afe9f833484d7e814}{HS\_\-TRUNCATED}~704
+\item 
+\#define \hyperlink{group__err26_gab8c5289d12d853f0d8266cdf37c39b08}{HS\_\-WRONG\_\-INDEX}~705
+\item 
+\#define \hyperlink{group__err26_gad7b85d13f7ee77c6d195ed38380bbc27}{HS\_\-UNDEFINED\_\-EVENT}~706
+\item 
+\#define \hyperlink{group__err26_ga1b25c77e3145468cf83f8e88bf1e0804}{HS\_\-UNDEFINED\_\-VAR}~707
+\item 
+\#define \hyperlink{group__err26_ga608032c83acbacc7557d2d04b9ad9a8b}{FTP\_\-SUCCESS}~1
+\item 
+\#define \hyperlink{group__err26_gaad8d88aaaaaa3706732a8a5aa00a6723}{FTP\_\-NET\_\-ERROR}~802
+\item 
+\#define \hyperlink{group__err26_ga8f62a67a3788241e74228be45c8d1334}{FTP\_\-FILE\_\-ERROR}~803
+\item 
+\#define \hyperlink{group__err26_ga7f2618f2babfbc3f2fbd27523c218a1e}{FTP\_\-RESPONSE\_\-ERROR}~804
+\item 
+\#define \hyperlink{group__err26_ga96fa3686e25d0b43ec2c504cc831551d}{FTP\_\-INVALID\_\-ARG}~805
+\item 
+\#define \hyperlink{group__err26_ga6d87830641fea1e7e72242c32acde1df}{EL\_\-SUCCESS}~1
+\item 
+\#define \hyperlink{group__err26_gae97067062620fe28d93670c390f23533}{EL\_\-FILE\_\-ERROR}~902
+\item 
+\#define \hyperlink{group__err26_ga92e31d92c7267ce163abeda53479cb0a}{EL\_\-NO\_\-MESSAGE}~903
+\item 
+\#define \hyperlink{group__err26_ga3e20cada0b5022911f56eb7c8b29b20b}{EL\_\-TRUNCATED}~904
+\item 
+\#define \hyperlink{group__err26_gaac4d08b2b3c0c6755a104864de2ec8f0}{EL\_\-FIRST\_\-MSG}~905
+\item 
+\#define \hyperlink{group__err26_ga5f11d9b4e829e2486252fef634b6a382}{EL\_\-LAST\_\-MSG}~906
+\item 
+\#define \hyperlink{group__err26_ga5bf38fa7fcb948150030918ced138deb}{AL\_\-SUCCESS}~1
+\item 
+\#define \hyperlink{group__err26_ga55849da05eeaa784af7a8b0969b6cab8}{AL\_\-INVALID\_\-NAME}~1002
+\item 
+\#define \hyperlink{group__err26_gae85455d8748ca9ad9c652365f4030178}{AL\_\-ERROR\_\-ODB}~1003
+\item 
+\#define \hyperlink{group__err26_ga6fb127cb253f60659e9356f9eeff2107}{AL\_\-RESET}~1004
+\item 
+\#define \hyperlink{group__err26_ga2677fc43f8393bcf3bafc8bbface003f}{CMD\_\-INIT}~1
+\item 
+\#define \hyperlink{group__err26_ga7391deb9c3a262ded3e186e94eb884e2}{CMD\_\-WRITE}~100
+\item 
+\#define \hyperlink{group__err26_gaab5043b2fd69a86d3bcecfb3fd8f7af3}{CMD\_\-INTERRUPT\_\-ENABLE}~100
+\item 
+\#define \hyperlink{group__err26_ga834400e6d1a88da1ea5e83b5e50675af}{BD\_\-GETS}(s, z, \hyperlink{sis3803_8c_afcb0609a0beab248bb3994a3368bd9ff}{p}, t)~info-\/$>$bd(CMD\_\-GETS, info-\/$>$bd\_\-info, s, z, \hyperlink{sis3803_8c_afcb0609a0beab248bb3994a3368bd9ff}{p}, t)
+\item 
+\#define \hyperlink{group__midasincludecode_ga5047333a47cabd84504052d921f5e82d}{ANA\_\-CONTINUE}~1
+\item 
+\#define \hyperlink{group__mbufferh_ga6a0d6be5b8aad5a907d5b880bae93eb9}{TRIGGER\_\-MASK}(e)~((((\hyperlink{structEVENT__HEADER}{EVENT\_\-HEADER} $\ast$) e)-\/1)-\/$>$trigger\_\-mask)
+\item 
+\#define \hyperlink{group__mbufferh_gaf42c9a1ac33cf459bfd366673f6a4d70}{EVENT\_\-ID}(e)~((((\hyperlink{structEVENT__HEADER}{EVENT\_\-HEADER} $\ast$) e)-\/1)-\/$>$event\_\-id)
+\item 
+\#define \hyperlink{group__mbufferh_gadbb75a9d81e264e357bc5fc73dd4ebb8}{SERIAL\_\-NUMBER}(e)~((((\hyperlink{structEVENT__HEADER}{EVENT\_\-HEADER} $\ast$) e)-\/1)-\/$>$serial\_\-number)
+\item 
+\#define \hyperlink{group__mbufferh_gae8d2f03c283637c81cdcfd3fda065d53}{TIME\_\-STAMP}(e)~((((\hyperlink{structEVENT__HEADER}{EVENT\_\-HEADER} $\ast$) e)-\/1)-\/$>$time\_\-stamp)
+\item 
+\#define \hyperlink{group__mbufferh_ga5327bc310729f5ec36b917ed13e6ff66}{DATA\_\-SIZE}(e)~((((\hyperlink{structEVENT__HEADER}{EVENT\_\-HEADER} $\ast$) e)-\/1)-\/$>$data\_\-size)
+\item 
+\#define \hyperlink{group__mbufferh_gaea58a47233f988dd2f9a0320d99734dc}{EVENTID\_\-BOR}~((short int) 0x8000)
+\item 
+\#define \hyperlink{group__mbufferh_ga8f46d90b4c90a2387685d422625c654f}{EVENTID\_\-EOR}~((short int) 0x8001)
+\item 
+\#define \hyperlink{group__mbufferh_ga7fefe6ad78331e8cfb3d2b31dbfdd2d0}{EVENTID\_\-MESSAGE}~((short int) 0x8002)
+\item 
+\#define \hyperlink{group__mbufferh_gaae07538917933e32355933ac1e2e3d60}{EVENTID\_\-FRAG1}~((unsigned short) 0xC000)
+\item 
+\#define \hyperlink{group__mbufferh_ga028a14f85456b68bf2babd1bdcaa1abb}{MIDAS\_\-MAGIC}~0x494d
+\item 
+\#define \hyperlink{group__mequipment_gace7257be62c3d56a883e4ad1dff6fdda}{DF\_\-INPUT}~(1$<$$<$0)
+\item 
+\#define \hyperlink{group__mequipment_ga9a302762256e89a266256dcadd31b90b}{DF\_\-OUTPUT}~(1$<$$<$1)
+\item 
+\#define \hyperlink{group__mequipment_ga14cf699d29a6edd2088b83e17cda6744}{DF\_\-PRIO\_\-DEVICE}~(1$<$$<$2)
+\item 
+\#define \hyperlink{group__mequipment_ga4dc67d22ff12f3b0e6daff496f870a7f}{DF\_\-READ\_\-ONLY}~(1$<$$<$3)
+\item 
+\#define \hyperlink{group__mbank_gaee768d2c28265eb2b34227d7eae57a18}{BANK\_\-FORMAT\_\-VERSION}~1
+\item 
+\#define \hyperlink{group__mbank_gadc7ea449441f9c3bbe110cf41333bc7b}{BANK\_\-FORMAT\_\-32BIT}~(1$<$$<$4)
+\item 
+\#define \hyperlink{group__malarmh_ga0aecd2654d62ebd6b3d8d57ef8ccf2d9}{AT\_\-INTERNAL}~1
+\item 
+\#define \hyperlink{group__malarmh_ga258ba8c74f1f017cc80ef51fa82e3e13}{AT\_\-PROGRAM}~2
+\item 
+\#define \hyperlink{group__malarmh_gabd367ea3feeb6b3fe27aaf45e9a067f6}{AT\_\-EVALUATED}~3
+\item 
+\#define \hyperlink{group__malarmh_ga40d5f5ba688496ddaa6f12e9a9b9f956}{AT\_\-PERIODIC}~4
+\item 
+\#define \hyperlink{group__malarmh_ga5f102004d1642b0878502f7a6a05fdfa}{AT\_\-LAST}~4
+\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+dox The main include file 
+
+Definition in file \hyperlink{midas_8h_source}{midas.h}.

@@ -1,0 +1,8 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$a00139.html#ae4c520908e89934574ff6a73619ec5ea" title="root_socket_server" alt="" coords="196,32,348,61"/>
+<area shape="rect" id="node13" href="$a00062.html#aae77a7cf2fc9f586fcfcb244ce1e9cc6" title="StartLockRootTimer" alt="" coords="193,85,351,115"/>
+<area shape="rect" id="node5" href="$a00139.html#af1ab5f1dddd620d9b2a2977c18a17450" title="root_server_thread" alt="" coords="400,32,552,61"/>
+<area shape="rect" id="node7" href="$a00139.html#a46bb444c1c19c18f6e1cc93126bdd2b2" title="ReadFolderPointer" alt="" coords="616,5,763,35"/>
+<area shape="rect" id="node9" href="$a00007.html#a6eacd9797b31cb1cbbc213516fe4940f" title="LockRootGuard::Unlock" alt="" coords="601,59,777,88"/>
+<area shape="rect" id="node11" href="$a00062.html#a78a97bb7d60bd863c98e75e86e4dc3a0" title="UnlockRoot" alt="" coords="828,59,924,88"/>
+</map>

@@ -1,0 +1,7 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$a00024.html#a02cd412ed5e8a0081457546c56dfa188" title="TMainDisplayWindow::AddCanvas" alt="" coords="351,5,593,35"/>
+<area shape="rect" id="node5" href="$a00037.html#aa6680d736ac16cd6f55e050d02dcfb5f" title="TRootanaDisplay::GetDisplayWindow" alt="" coords="339,59,605,88"/>
+<area shape="rect" id="node7" href="$a00024.html#ae3acfe7545856c62210ef2c47812dcdf" title="TMainDisplayWindow::GetTab" alt="" coords="364,112,580,141"/>
+<area shape="rect" id="node9" href="$a00012.html#a48434a7ba72c727f191df56e8574c8b5" title="TCanvasHandleBase::GetTabName" alt="" coords="344,165,600,195"/>
+<area shape="rect" id="node11" href="$a00012.html#aa1f0963527c5702e2aea1c58a9310807" title="TCanvasHandleBase::SetUpCompositeFrame" alt="" coords="311,219,633,248"/>
+</map>

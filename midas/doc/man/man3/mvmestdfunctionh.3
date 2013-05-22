@@ -1,0 +1,331 @@
+.TH "VME Functions (mvme_xxx)" 3 "31 May 2012" "Version 2.3.0-0" "Midas" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+VME Functions (mvme_xxx) \- 
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "int EXPRT \fBmvme_open\fP (\fBMVME_INTERFACE\fP **vme, int idx)"
+.br
+.ti -1c
+.RI "int EXPRT \fBmvme_close\fP (\fBMVME_INTERFACE\fP *vme)"
+.br
+.ti -1c
+.RI "int EXPRT \fBmvme_sysreset\fP (\fBMVME_INTERFACE\fP *vme)"
+.br
+.ti -1c
+.RI "int EXPRT \fBmvme_read\fP (\fBMVME_INTERFACE\fP *vme, void *dst, \fBmvme_addr_t\fP vme_addr, \fBmvme_size_t\fP n_bytes)"
+.br
+.ti -1c
+.RI "unsigned int EXPRT \fBmvme_read_value\fP (\fBMVME_INTERFACE\fP *vme, \fBmvme_addr_t\fP vme_addr)"
+.br
+.ti -1c
+.RI "int EXPRT \fBmvme_write\fP (\fBMVME_INTERFACE\fP *vme, \fBmvme_addr_t\fP vme_addr, void *src, \fBmvme_size_t\fP n_bytes)"
+.br
+.ti -1c
+.RI "int EXPRT \fBmvme_write_value\fP (\fBMVME_INTERFACE\fP *vme, \fBmvme_addr_t\fP vme_addr, unsigned int value)"
+.br
+.ti -1c
+.RI "int EXPRT \fBmvme_set_am\fP (\fBMVME_INTERFACE\fP *vme, int am)"
+.br
+.ti -1c
+.RI "int EXPRT \fBmvme_get_am\fP (\fBMVME_INTERFACE\fP *vme, int *am)"
+.br
+.ti -1c
+.RI "int EXPRT \fBmvme_set_dmode\fP (\fBMVME_INTERFACE\fP *vme, int dmode)"
+.br
+.ti -1c
+.RI "int EXPRT \fBmvme_get_dmode\fP (\fBMVME_INTERFACE\fP *vme, int *dmode)"
+.br
+.ti -1c
+.RI "int EXPRT \fBmvme_set_blt\fP (\fBMVME_INTERFACE\fP *vme, int mode)"
+.br
+.ti -1c
+.RI "int EXPRT \fBmvme_get_blt\fP (\fBMVME_INTERFACE\fP *vme, int *mode)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+dox 
+.SH "Function Documentation"
+.PP 
+.SS "int EXPRT mvme_close (\fBMVME_INTERFACE\fP * vme)"Close and release ALL the opened VME channel. See example in \fBmvme_open()\fP 
+.PP
+\fBParameters:\fP
+.RS 4
+\fI*vme\fP VME structure. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+MVME_SUCCESS, MVME_ACCESS_ERROR 
+.RE
+.PP
+
+.PP
+Referenced by frontend_exit().
+.SS "int EXPRT mvme_get_am (\fBMVME_INTERFACE\fP * vme, int * am)"Get Address Modifier. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fI*vme\fP VME structure 
+.br
+\fI*am\fP returned address modifier 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+MVME_SUCCESS 
+.RE
+.PP
+
+.PP
+Referenced by sis3820_FifoRead(), VPPGRegRead(), and VPPGRegWrite().
+.SS "int EXPRT mvme_get_blt (\fBMVME_INTERFACE\fP * vme, int * mode)"Get current Data mode. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fI*vme\fP VME structure 
+.br
+\fI*mode\fP returned BLT mode 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+MVME_SUCCESS 
+.RE
+.PP
+
+.SS "int EXPRT mvme_get_dmode (\fBMVME_INTERFACE\fP * vme, int * dmode)"Get current Data mode. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fI*vme\fP VME structure 
+.br
+\fI*dmode\fP returned address modifier 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+MVME_SUCCESS 
+.RE
+.PP
+
+.PP
+Referenced by lrs1151_Clear(), lrs1151_Read(), lrs1190_CountRead(), lrs1190_Disable(), lrs1190_Enable(), lrs1190_H2Read(), lrs1190_I4Read(), lrs1190_L2Read(), lrs1190_Reset(), sis3801_channel_enable(), sis3801_CSR_read(), sis3801_CSR_write(), sis3801_dwell_time(), sis3801_FIFO_clear(), sis3801_FIFO_flush(), sis3801_HFIFO_read(), sis3801_input_mode(), sis3801_int_attach(), sis3801_int_source(), sis3801_int_source_disable(), sis3801_int_source_enable(), sis3801_IRQ_REG_read(), sis3801_IRQ_REG_write(), sis3801_module_ID(), sis3801_module_reset(), sis3801_next_logic(), sis3801_ref1(), sis3801_Setup(), v1190_AcqModeRead(), v1190_ContinuousSet(), v1190_DataRead(), v1190_DataReady(), v1190_EventRead(), v1190_EvtCounter(), v1190_EvtStored(), v1190_GeoWrite(), v1190_LEResolutionSet(), v1190_MicroFlush(), v1190_MicroRead(), v1190_MicroWrite(), v1190_OffsetSet(), v1190_ResolutionRead(), v1190_SetEdgeDetection(), v1190_Setup(), v1190_SoftClear(), v1190_SoftReset(), v1190_SoftTrigger(), v1190_Status(), v1190_TdcIdList(), v1190_TriggerMatchingSet(), v1190_WidthSet(), v1729_AcqStart(), v1729_ChannelSelect(), v1729_DataRead(), v1729_FrqSamplingSet(), v1729_isTrigger(), v1729_NColsGet(), v1729_NColsSet(), v1729_OrderData(), v1729_PedestalRun(), v1729_PostTrigSet(), v1729_PreTrigSet(), v1729_Reset(), v1729_Setup(), v1729_SoftTrigger(), v1729_Status(), v1729_TimeCalibrationRun(), v1729_TriggerTypeSet(), v792_BitSet2Clear(), v792_BitSet2Read(), v792_BitSet2Set(), v792_ControlRegister1Read(), v792_ControlRegister1Write(), v792_CSR1Read(), v792_CSR2Read(), v792_DataClear(), v792_DataRead(), v792_DataReady(), v792_EmptyEnable(), v792_EventRead(), v792_EvtCntRead(), v792_EvtCntReset(), v792_EvtTriggerSet(), v792_IntDisable(), v792_IntEnable(), v792_IntSet(), v792_isBusy(), v792_isPresent(), v792_LowThDisable(), v792_LowThEnable(), v792_OnlineSet(), v792_Setup(), v792_SingleShotReset(), v792_SoftReset(), v792_Status(), v792_ThresholdRead(), v792_ThresholdWrite(), v792_Trigger(), vpc6_ASDHysteresisSet(), vpc6_ASDModeSet(), vpc6_ASDRegSet(), vpc6_ASDThresholdSet(), vpc6_CfgRetrieve(), vpc6_isPortBusy(), vpc6_PATypeRead(), vpc6_PATypeWrite(), vpc6_PortCfgLoad(), vpc6_PortRegRBRead(), vpc6_PortRegRead(), vpc6_PortTypeRead(), vpc6_Setup(), vpc6_Status(), VPPGRegRead(), VPPGRegWrite(), vt2_CSRRead(), vt2_CycleNumberRead(), vt2_CycleReset(), vt2_FifoLevelRead(), vt2_FifoRead(), vt2_IntEnable(), vt2_KeepAlive(), vt2_ManReset(), vt48_EventRead(), vt48_RegPrint(), vt48_RegRead(), vt48_RegWrite(), vt48_Setup(), vt48_Status(), vt48_WindowOffsetSet(), and vt48_WindowSet().
+.SS "int EXPRT mvme_interrupt_attach (\fBMVME_INTERFACE\fP * mvme, int level, int vector, void(*)(int, void *, void *) isr, void * info)"
+.PP
+Referenced by interrupt_configure(), and sis3801_int_attach().
+.SS "int EXPRT mvme_interrupt_detach (\fBMVME_INTERFACE\fP * mvme, int level, int vector, void * info)"
+.SS "int EXPRT mvme_interrupt_disable (\fBMVME_INTERFACE\fP * mvme, int level, int vector, void * info)"
+.SS "int EXPRT mvme_interrupt_enable (\fBMVME_INTERFACE\fP * mvme, int level, int vector, void * info)"
+.SS "int EXPRT mvme_interrupt_generate (\fBMVME_INTERFACE\fP * mvme, int level, int vector, void * info)"
+.SS "int EXPRT mvme_open (\fBMVME_INTERFACE\fP ** vme, int idx)"VME open The code below summarize the use of most of the mvme calls included in this interface. 
+.PP
+.nf
+#include 'vmicvme.h'  // or other VME interface driver.
+
+int main () {
+  int i, status, vmeio_status, data;
+  MVME_INTERFACE *myvme;
+
+  // Open VME channel 
+  status = mvme_open(&myvme, 0);
+
+  // Reset VME 
+  // Under VMIC reboot CPU!!
+  //  status = mvme_sysreset(myvme);
+
+  // Setup AM 
+  status = mvme_set_am(myvme, MVME_AM_A24_ND);
+
+  // Setup Data size 
+  status = mvme_set_dmode(myvme, MVME_DMODE_D32);
+
+  // Read VMEIO status 
+  status = mvme_read(myvme, &vmeio_status, 0x78001C, 4); 
+  printf('VMEIO status : 0x%x\n', vmeio_status);
+
+  // Write Single value 
+  mvme_write_value(myvme, 0x780010, 0x3);
+
+  // Read Single Value 
+  printf('Value : 0x%x\n', mvme_read_value(myvme, 0x780018));
+
+  // Write to the VMEIO in latch mode 
+  for (i=0;i<10000;i++) {
+    data = 0xF;
+    status = mvme_write(myvme, 0x780010, &data, 4);
+    data = 0x0;
+    status = mvme_write(myvme, 0x780010, &data, 4);
+  }
+
+  // Close VME channel 
+  status = mvme_close(myvme);
+  return 1;
+}
+
+.fi
+.PP
+ 
+.PP
+\fBParameters:\fP
+.RS 4
+\fI**vme\fP user VME pointer to the interface 
+.br
+\fIindex\fP interface number should be used to distingush multiple VME interface access within the same program. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+status MVME_SUCCESS, MVME_NO_INTERFACE, MVME_INVALID_PARAM, MVME_ACCESS_ERROR 
+.RE
+.PP
+
+.PP
+Referenced by frontend_init().
+.SS "int EXPRT mvme_read (\fBMVME_INTERFACE\fP * vme, void * dst, \fBmvme_addr_t\fP vme_addr, \fBmvme_size_t\fP n_bytes)"Read from VME bus. Implementation of the read can include automatic DMA transfer based on the size of the data. See example in \fBmvme_open()\fP 
+.PP
+\fBParameters:\fP
+.RS 4
+\fI*vme\fP VME structure 
+.br
+\fI*dst\fP destination pointer 
+.br
+\fIvme_addr\fP source address (VME location). 
+.br
+\fIn_bytes\fP requested transfer size. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+MVME_SUCCESS 
+.RE
+.PP
+
+.PP
+Referenced by sis3820_FifoRead(), v1190_DataRead(), v1720_DataBlockRead(), v1740_DataBlockRead(), and v792_DataRead().
+.SS "unsigned int EXPRT mvme_read_value (\fBMVME_INTERFACE\fP * vme, \fBmvme_addr_t\fP vme_addr)"Read single data from VME bus. Useful for register access. See example in \fBmvme_open()\fP 
+.PP
+\fBParameters:\fP
+.RS 4
+\fI*vme\fP VME structure 
+.br
+\fIvme_addr\fP source address (VME location). 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+MVME_SUCCESS 
+.RE
+.PP
+
+.PP
+Referenced by begin_of_run(), interrupt_configure(), lrs1151_Read(), lrs1190_CountRead(), lrs1190_H2Read(), lrs1190_I4Read(), lrs1190_L2Read(), lrs1190_Reset(), mesadc32_ReadData(), mvme_read16(), mvme_read32(), regRead(), regReadFloat(), regReadReg(), sis3801_CSR_read(), sis3801_dwell_time(), sis3801_FIFO_flush(), sis3801_HFIFO_read(), sis3801_input_mode(), sis3801_IRQ_REG_read(), sis3801_IRQ_REG_write(), sis3801_module_ID(), sis3801_next_logic(), sis3801_ref1(), v1190_DataReady(), v1190_EventRead(), v1190_EvtCounter(), v1190_EvtStored(), v1190_GeoWrite(), v1190_MicroRead(), v1190_MicroWrite(), v1190_Read16(), v1190_Read32(), v1729_DataRead(), v1729_isTrigger(), v1729_NColsGet(), v1729_OrderData(), v1729_PedestalRun(), v1729_Status(), v1729_TimeCalibrationRun(), v560_Read(), v792_BitSet2Read(), v792_ControlRegister1Read(), v792_CSR1Read(), v792_CSR2Read(), v792_DataReady(), v792_EventRead(), v792_EvtCntRead(), v792_isBusy(), v792_isPresent(), v792_Read16(), v792_Status(), v792_ThresholdRead(), v792_ThresholdWrite(), v895_readReg16(), v895_readReg8(), vmeio_AsyncRead(), vmeio_CsrRead(), vmeio_SyncRead(), vpc6_ASDHysteresisSet(), vpc6_ASDModeSet(), vpc6_ASDThresholdSet(), vpc6_isPortBusy(), vpc6_PATypeRead(), vpc6_PortRegRBRead(), vpc6_PortRegRead(), vpc6_PortTypeRead(), VPPGRegRead(), VPPGRegWrite(), vt2_CSRRead(), vt2_CycleNumberRead(), vt2_FifoLevelRead(), vt2_FifoRead(), vt48_EventRead(), and vt48_RegRead().
+.SS "int EXPRT mvme_set_am (\fBMVME_INTERFACE\fP * vme, int am)"Set Address Modifier. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fI*vme\fP VME structure 
+.br
+\fIam\fP address modifier 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+MVME_SUCCESS 
+.RE
+.PP
+
+.PP
+Referenced by begin_of_run(), frontend_init(), mesadc32_ReadData(), regRead(), regReadFloat(), regReadReg(), regWrite(), regWriteFloat(), regWriteReg(), sis3820_FifoRead(), v1190_Read16(), v1190_Read32(), v1190_Write16(), v1720_DataBlockRead(), v1740_DataBlockRead(), v1740_DataRead(), v560_Read(), v895_readReg16(), v895_readReg8(), v895_writeReg16(), v895_writeReg8(), vmeio_AsyncRead(), vmeio_AsyncWrite(), vmeio_CsrRead(), vmeio_IntEnable(), vmeio_IntRearm(), vmeio_OutputSet(), vmeio_StrobeClear(), vmeio_SyncRead(), vmeio_SyncWrite(), VPPGRegRead(), and VPPGRegWrite().
+.SS "int EXPRT mvme_set_blt (\fBMVME_INTERFACE\fP * vme, int mode)"Set Block Transfer mode. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fI*vme\fP VME structure 
+.br
+\fImode\fP BLT mode 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+MVME_SUCCESS 
+.RE
+.PP
+
+.PP
+Referenced by sis3820_FifoRead(), v1190_DataRead(), v1720_DataBlockRead(), and v1740_DataBlockRead().
+.SS "int EXPRT mvme_set_dmode (\fBMVME_INTERFACE\fP * vme, int dmode)"Set Data mode. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fI*vme\fP VME structure 
+.br
+\fIdmode\fP Data mode 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+MVME_SUCCESS 
+.RE
+.PP
+
+.PP
+Referenced by begin_of_run(), frontend_init(), interrupt_configure(), lrs1151_Clear(), lrs1151_Read(), lrs1190_CountRead(), lrs1190_Disable(), lrs1190_Enable(), lrs1190_H2Read(), lrs1190_I4Read(), lrs1190_L2Read(), lrs1190_Reset(), mesadc32_ReadData(), mvme_read16(), mvme_read32(), regRead(), regReadFloat(), regReadReg(), regWrite(), regWriteFloat(), regWriteReg(), sis3801_channel_enable(), sis3801_CSR_read(), sis3801_CSR_write(), sis3801_dwell_time(), sis3801_FIFO_clear(), sis3801_FIFO_flush(), sis3801_HFIFO_read(), sis3801_input_mode(), sis3801_int_attach(), sis3801_int_source(), sis3801_int_source_disable(), sis3801_int_source_enable(), sis3801_IRQ_REG_read(), sis3801_IRQ_REG_write(), sis3801_module_ID(), sis3801_module_reset(), sis3801_next_logic(), sis3801_ref1(), sis3801_Setup(), v1190_AcqModeRead(), v1190_ContinuousSet(), v1190_DataRead(), v1190_DataReady(), v1190_EventRead(), v1190_EvtCounter(), v1190_EvtStored(), v1190_GeoWrite(), v1190_LEResolutionSet(), v1190_MicroFlush(), v1190_MicroRead(), v1190_MicroWrite(), v1190_OffsetSet(), v1190_Read16(), v1190_Read32(), v1190_ResolutionRead(), v1190_SetEdgeDetection(), v1190_Setup(), v1190_SoftClear(), v1190_SoftReset(), v1190_SoftTrigger(), v1190_Status(), v1190_TdcIdList(), v1190_TriggerMatchingSet(), v1190_WidthSet(), v1190_Write16(), v1720_DataBlockRead(), v1729_AcqStart(), v1729_ChannelSelect(), v1729_DataRead(), v1729_FrqSamplingSet(), v1729_isTrigger(), v1729_NColsGet(), v1729_NColsSet(), v1729_OrderData(), v1729_PedestalRun(), v1729_PostTrigSet(), v1729_PreTrigSet(), v1729_Reset(), v1729_Setup(), v1729_SoftTrigger(), v1729_Status(), v1729_TimeCalibrationRun(), v1729_TriggerTypeSet(), v1740_DataBlockRead(), v1740_DataRead(), v560_Read(), v792_BitSet2Clear(), v792_BitSet2Read(), v792_BitSet2Set(), v792_ControlRegister1Read(), v792_ControlRegister1Write(), v792_CSR1Read(), v792_CSR2Read(), v792_DataClear(), v792_DataRead(), v792_DataReady(), v792_EmptyEnable(), v792_EventRead(), v792_EvtCntRead(), v792_EvtCntReset(), v792_EvtTriggerSet(), v792_IntDisable(), v792_IntEnable(), v792_IntSet(), v792_isBusy(), v792_isPresent(), v792_LowThDisable(), v792_LowThEnable(), v792_OnlineSet(), v792_Read16(), v792_Setup(), v792_SingleShotReset(), v792_SoftReset(), v792_Status(), v792_ThresholdRead(), v792_ThresholdWrite(), v792_Trigger(), v792_Write16(), v895_readReg16(), v895_readReg8(), v895_writeReg16(), v895_writeReg8(), vmeio_AsyncRead(), vmeio_AsyncWrite(), vmeio_CsrRead(), vmeio_IntEnable(), vmeio_IntRearm(), vmeio_OutputSet(), vmeio_StrobeClear(), vmeio_SyncRead(), vmeio_SyncWrite(), vpc6_ASDHysteresisSet(), vpc6_ASDModeSet(), vpc6_ASDRegSet(), vpc6_ASDThresholdSet(), vpc6_CfgRetrieve(), vpc6_isPortBusy(), vpc6_PATypeRead(), vpc6_PATypeWrite(), vpc6_PortCfgLoad(), vpc6_PortRegRBRead(), vpc6_PortRegRead(), vpc6_PortTypeRead(), vpc6_Setup(), vpc6_Status(), VPPGRegRead(), VPPGRegWrite(), vt2_CSRRead(), vt2_CycleNumberRead(), vt2_CycleReset(), vt2_FifoLevelRead(), vt2_FifoRead(), vt2_IntEnable(), vt2_KeepAlive(), vt2_ManReset(), vt48_EventRead(), vt48_RegPrint(), vt48_RegRead(), vt48_RegWrite(), vt48_Setup(), vt48_Status(), vt48_WindowOffsetSet(), and vt48_WindowSet().
+.SS "int EXPRT mvme_sysreset (\fBMVME_INTERFACE\fP * vme)"VME bus reset. Effect of the VME bus reset is dependent of the type of VME interface used. See example in \fBmvme_open()\fP 
+.PP
+\fBParameters:\fP
+.RS 4
+\fI*vme\fP VME structure. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+MVME_SUCCESS, MVME_ACCESS_ERROR 
+.RE
+.PP
+
+.SS "int EXPRT mvme_write (\fBMVME_INTERFACE\fP * vme, \fBmvme_addr_t\fP vme_addr, void * src, \fBmvme_size_t\fP n_bytes)"Write data to VME bus. Implementation of the write can include automatic DMA transfer based on the size of the data. See example in \fBmvme_open()\fP 
+.PP
+\fBParameters:\fP
+.RS 4
+\fI*vme\fP VME structure 
+.br
+\fIvme_addr\fP source address (VME location). 
+.br
+\fI*src\fP source array 
+.br
+\fIn_bytes\fP size of the array in bytes 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+MVME_SUCCESS 
+.RE
+.PP
+
+.SS "int EXPRT mvme_write_value (\fBMVME_INTERFACE\fP * vme, \fBmvme_addr_t\fP vme_addr, unsigned int value)"Write single data to VME bus. Useful for register access. See example in \fBmvme_open()\fP 
+.PP
+\fBParameters:\fP
+.RS 4
+\fI*vme\fP VME structure 
+.br
+\fIvme_addr\fP source address (VME location). 
+.br
+\fIvalue\fP Value to be written to the VME bus 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+MVME_SUCCESS 
+.RE
+.PP
+
+.PP
+Referenced by end_of_run(), frontend_loop(), interrupt_configure(), lrs1151_Clear(), lrs1190_Disable(), lrs1190_Enable(), lrs1190_I4Read(), pause_run(), regWrite(), regWriteFloat(), regWriteReg(), resume_run(), sis3801_channel_enable(), sis3801_CSR_write(), sis3801_dwell_time(), sis3801_FIFO_clear(), sis3801_input_mode(), sis3801_int_attach(), sis3801_int_clear(), sis3801_int_source(), sis3801_int_source_disable(), sis3801_int_source_enable(), sis3801_IRQ_REG_write(), sis3801_module_reset(), sis3801_next_logic(), sis3801_ref1(), v1190_GeoWrite(), v1190_MicroWrite(), v1190_SoftClear(), v1190_SoftReset(), v1190_SoftTrigger(), v1190_Write16(), v1729_AcqStart(), v1729_ChannelSelect(), v1729_FrqSamplingSet(), v1729_NColsSet(), v1729_PostTrigSet(), v1729_PreTrigSet(), v1729_Reset(), v1729_Setup(), v1729_SoftTrigger(), v1729_TriggerTypeSet(), v792_BitSet2Clear(), v792_BitSet2Set(), v792_ControlRegister1Write(), v792_DataClear(), v792_EmptyEnable(), v792_EvtCntReset(), v792_EvtTriggerSet(), v792_IntDisable(), v792_IntEnable(), v792_IntSet(), v792_LowThDisable(), v792_LowThEnable(), v792_OnlineSet(), v792_SingleShotReset(), v792_SoftReset(), v792_ThresholdWrite(), v792_Trigger(), v792_Write16(), v895_writeReg16(), v895_writeReg8(), vmeio_AsyncWrite(), vmeio_IntEnable(), vmeio_IntRearm(), vmeio_OutputSet(), vmeio_StrobeClear(), vmeio_SyncWrite(), vpc6_ASDRegSet(), vpc6_CfgRetrieve(), vpc6_PATypeWrite(), vpc6_PortCfgLoad(), VPPGRegWrite(), vt2_CycleReset(), vt2_IntEnable(), vt2_KeepAlive(), vt2_ManReset(), and vt48_RegWrite().
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Midas from the source code.

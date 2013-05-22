@@ -1,0 +1,102 @@
+.TH "NDF" 3 "31 May 2012" "Version 2.3.0-0" "Midas" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+NDF \- SECTION 11 New Features 
+
+.br
+  
+.br
+.SH "General Information"
+.PP
+This section will describe what \fBnew features\fP are available with new versions of the MIDAS code. References will be given to these features in the documentation, and they will be highlighted in the text like this. Also included will be any other relevent changes, such as 'old features' that were standard, but have since become obsolescent. These may have been made optional or removed.
+.PP
+See also the \fCMidas Elog Forum\fP for
+.IP "\(bu" 2
+Requests for new features,
+.IP "\(bu" 2
+Bug reports etc https://ladd00.triumf.ca/elog/Midas
+.IP "\(bu" 2
+yet-to-be-documented new features
+.PP
+.SS "Note on MIDAS Versions"
+Historically, the MIDAS package was released with an overall version (e.g. 1.9.5, 2.2.0 etc). This had the disadvantage that many new features were not available until the release of the next version.
+.PP
+
+.br
+ The package release system has been discontinued. The latest version of the MIDAS package is now available from the \fConline SVN \fP repository. As a changes are made to the files in the MIDAS package, a common version number is incremented. Each file has an individual version number, but updates of a particular file in svn will not necessarily have consecutive version numbers. For example, the next version of mhttpd.c after 4708 is 4722. The missing version numbers have been used to update different files in the package. Checking out the MIDAS package on a particular day will get the latest working version of the MIDAS package with all the new features. 
+.br
+ In this documentation, new features will be dated (month/year) after which an update from svn will include the new feature. The version of the file (and therefore of the MIDAS package) that included the new feature is listed \fBbelow\fP. Features will be considered to be 'new' for a year or so, then will become standard, and no longer be listed is this file,
+.SH "New Documented Features"
+.PP
+ 
+.SS "Sep 2010"
+.IP "\(bu" 2
+Removal of the YBOS support, ybos files replaced by mdsupport.
+.PP
+.SS "May 2010"
+.IP "\(bu" 2
+bit operations for custom fills - see \fBfills/SRC: Logical calculation\fP (mhttpd.c 4708)
+.IP "\(bu" 2
+Arrays can now be written with \fBODBSet JavaScript function\fP (mhttpd.c 4707)
+.PP
+.SS "Jan 2010"
+.IP "\(bu" 2
+Four different rows for the various buttons on the \fBStatus page\fP
+.PP
+.SS "Dec 2009"
+.IP "\(bu" 2
+Implemented MSCB Page (mhttpd.c 4659) replacing the old CNAF page
+.IP "\(bu" 2
+Option to customize the \fBmenu buttons\fP appearing on the main status page (mhttpd.c 4646)
+.IP "\(bu" 2
+Removed 'analyzed' column (Main Status page) (mhttpd.c 4644)
+.IP "\(bu" 2
+Changed Alias and Custom links to Buttons - see \fBexample\fP (mhttpd.c 4633)
+.PP
+.PP
+Since the column on the main MIDAS status page with fraction of analyzed events was barely used, it has been dropped. It did not make sense for all slow control events. In case this feature is required in some experiment, it will be moved into a custom page and the ratio calculated in JavaScript, where there is much more flexibility.
+.PP
+This modification frees up more space on the status page for the 'Status' column, where front-end programs can report errors etc.
+.SS "Nov 2009"
+.IP "\(bu" 2
+Direct serving of GIF images from file system in custom pages (mhttpd.c 4631)
+.IP "\(bu" 2
+Option to hide the run start/stop buttons ( see \fBdetails\fP );
+.IP "\(bu" 2
+experiment name now shown in status page title and elog email (mhttpd.c 4629)
+.PP
+.SS "Sep 2009"
+.IP "\(bu" 2
+implemented \fBrun duration\fP (mlogger.c 4561)
+.PP
+.SS "Jun 2009"
+.IP "\(bu" 2
+shows Run start/stop requested on main status page until mtransition starts - see \fBStart page\fP (mhttpd.c 4520)
+.PP
+.SS "Jan 2009"
+.IP "\(bu" 2
+Improvements to the History system (mlogger.c, mhttpd.c 4435)
+.br
+ \fBNote:\fP backup ODB before using the following:
+.IP "  \(bu" 4
+history in SQL database (see \fBMIDAS SQL History system\fP)
+.IP "    \(bu" 6
+see \fBNote on /History/Tags\fP
+.PP
+
+.IP "  \(bu" 4
+experimental implementation of 'ODBRpc' \fBODB RPC access\fP added to the MIDAS javascript library
+.PP
+
+.PP
+.SS "Feb 2008"
+.IP "\(bu" 2
+\fBProxy Access to mhttpd\fP
+.PP
+.PP
+
+.br
+   
+.br
+ 

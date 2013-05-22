@@ -1,0 +1,313 @@
+.TH "vt48.h" 3 "31 May 2012" "Version 2.3.0-0" "Midas" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+vt48.h \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Data Structures"
+
+.in +1c
+.ti -1c
+.RI "union \fBvt48_Reg\fP"
+.br
+.ti -1c
+.RI "struct \fBvt48_Reg::Entry1\fP"
+.br
+.ti -1c
+.RI "struct \fBvt48_Reg::csr0\fP"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "int \fBvt48_EventRead\fP (\fBMVME_INTERFACE\fP *\fBmyvme\fP, \fBDWORD\fP base, \fBDWORD\fP *pdest, int *nentry)"
+.br
+.ti -1c
+.RI "int \fBvt48_Setup\fP (\fBMVME_INTERFACE\fP *mvme, \fBDWORD\fP base, int mode)"
+.br
+.in -1c
+.SH "Define Documentation"
+.PP 
+.SS "#define VT48_AMT_CFG_RW   (\fBWORD\fP)  (0x1)"
+.PP
+Definition at line 28 of file vt48.h.
+.PP
+Referenced by vt48_RegPrint(), and vt48_Setup().
+.SS "#define VT48_AMT_ID_R   (\fBWORD\fP)  (0x3)"
+.PP
+Definition at line 30 of file vt48.h.
+.PP
+Referenced by vt48_Status().
+.SS "#define VT48_AMT_STATUS_R   (\fBWORD\fP)  (0x2)"
+.PP
+Definition at line 29 of file vt48.h.
+.PP
+Referenced by vt48_Status().
+.SS "#define VT48_CMD_REG   (\fBDWORD\fP) (0x0004)"
+.PP
+Definition at line 26 of file vt48.h.
+.PP
+Referenced by vt48_RegPrint(), vt48_Setup(), and vt48_Status().
+.SS "#define VT48_CSR0_RB_REG   (\fBDWORD\fP) (0x0080)"
+.PP
+Definition at line 62 of file vt48.h.
+.PP
+Referenced by vt48_Status().
+.SS "#define VT48_CSR0_REG   (\fBDWORD\fP) (0x0040)"
+.PP
+Definition at line 46 of file vt48.h.
+.PP
+Referenced by vt48_RegPrint(), vt48_Setup(), and vt48_Status().
+.SS "#define VT48_CSR10_RB_REG   (\fBDWORD\fP) (0x00A8)"
+.PP
+Definition at line 72 of file vt48.h.
+.SS "#define VT48_CSR10_REG   (\fBDWORD\fP) (0x0068)"
+.PP
+Definition at line 56 of file vt48.h.
+.PP
+Referenced by vt48_Setup().
+.SS "#define VT48_CSR11_RB_REG   (\fBDWORD\fP) (0x00AC)"
+.PP
+Definition at line 73 of file vt48.h.
+.SS "#define VT48_CSR11_REG   (\fBDWORD\fP) (0x006C)"
+.PP
+Definition at line 57 of file vt48.h.
+.PP
+Referenced by vt48_Setup().
+.SS "#define VT48_CSR12_RB_REG   (\fBDWORD\fP) (0x00B0)"
+.PP
+Definition at line 74 of file vt48.h.
+.SS "#define VT48_CSR12_REG   (\fBDWORD\fP) (0x0070)"
+.PP
+Definition at line 58 of file vt48.h.
+.PP
+Referenced by vt48_Setup().
+.SS "#define VT48_CSR13_RB_REG   (\fBDWORD\fP) (0x00B4)"
+.PP
+Definition at line 75 of file vt48.h.
+.SS "#define VT48_CSR13_REG   (\fBDWORD\fP) (0x0074)"
+.PP
+Definition at line 59 of file vt48.h.
+.PP
+Referenced by vt48_Setup().
+.SS "#define VT48_CSR14_RB_REG   (\fBDWORD\fP) (0x00B8)"
+.PP
+Definition at line 76 of file vt48.h.
+.SS "#define VT48_CSR14_REG   (\fBDWORD\fP) (0x0078)"
+.PP
+Definition at line 60 of file vt48.h.
+.PP
+Referenced by vt48_Setup().
+.SS "#define VT48_CSR16_REG   (\fBDWORD\fP) (0x0020)"
+.PP
+Definition at line 39 of file vt48.h.
+.PP
+Referenced by vt48_Status().
+.SS "#define VT48_CSR17_REG   (\fBDWORD\fP) (0x0024)"
+.PP
+Definition at line 40 of file vt48.h.
+.SS "#define VT48_CSR18_REG   (\fBDWORD\fP) (0x0028)"
+.PP
+Definition at line 41 of file vt48.h.
+.SS "#define VT48_CSR19_REG   (\fBDWORD\fP) (0x002c)"
+.PP
+Definition at line 42 of file vt48.h.
+.SS "#define VT48_CSR1_RB_REG   (\fBDWORD\fP) (0x0084)"
+.PP
+Definition at line 63 of file vt48.h.
+.SS "#define VT48_CSR1_REG   (\fBDWORD\fP) (0x0044)"
+.PP
+Definition at line 47 of file vt48.h.
+.PP
+Referenced by vt48_Setup().
+.SS "#define VT48_CSR20_REG   (\fBDWORD\fP) (0x0030)"
+.PP
+Definition at line 43 of file vt48.h.
+.SS "#define VT48_CSR21_REG   (\fBDWORD\fP) (0x0034)"
+.PP
+Definition at line 44 of file vt48.h.
+.SS "#define VT48_CSR2_RB_REG   (\fBDWORD\fP) (0x0088)"
+.PP
+Definition at line 64 of file vt48.h.
+.SS "#define VT48_CSR2_REG   (\fBDWORD\fP) (0x0048)"
+.PP
+Definition at line 48 of file vt48.h.
+.PP
+Referenced by vt48_Setup().
+.SS "#define VT48_CSR3_RB_REG   (\fBDWORD\fP) (0x008C)"
+.PP
+Definition at line 65 of file vt48.h.
+.SS "#define VT48_CSR3_REG   (\fBDWORD\fP) (0x004C)"
+.PP
+Definition at line 49 of file vt48.h.
+.PP
+Referenced by vt48_Setup().
+.SS "#define VT48_CSR4_RB_REG   (\fBDWORD\fP) (0x0090)"
+.PP
+Definition at line 66 of file vt48.h.
+.SS "#define VT48_CSR4_REG   (\fBDWORD\fP) (0x0050)"
+.PP
+Definition at line 50 of file vt48.h.
+.PP
+Referenced by vt48_Setup().
+.SS "#define VT48_CSR5_RB_REG   (\fBDWORD\fP) (0x0094)"
+.PP
+Definition at line 67 of file vt48.h.
+.SS "#define VT48_CSR5_REG   (\fBDWORD\fP) (0x0054)"
+.PP
+Definition at line 51 of file vt48.h.
+.PP
+Referenced by vt48_Setup().
+.SS "#define VT48_CSR6_RB_REG   (\fBDWORD\fP) (0x0098)"
+.PP
+Definition at line 68 of file vt48.h.
+.SS "#define VT48_CSR6_REG   (\fBDWORD\fP) (0x0058)"
+.PP
+Definition at line 52 of file vt48.h.
+.PP
+Referenced by vt48_Setup().
+.SS "#define VT48_CSR7_RB_REG   (\fBDWORD\fP) (0x009C)"
+.PP
+Definition at line 69 of file vt48.h.
+.SS "#define VT48_CSR7_REG   (\fBDWORD\fP) (0x005C)"
+.PP
+Definition at line 53 of file vt48.h.
+.PP
+Referenced by vt48_Setup().
+.SS "#define VT48_CSR8_RB_REG   (\fBDWORD\fP) (0x00A0)"
+.PP
+Definition at line 70 of file vt48.h.
+.SS "#define VT48_CSR8_REG   (\fBDWORD\fP) (0x0060)"
+.PP
+Definition at line 54 of file vt48.h.
+.PP
+Referenced by vt48_Setup().
+.SS "#define VT48_CSR9_RB_REG   (\fBDWORD\fP) (0x00A4)"
+.PP
+Definition at line 71 of file vt48.h.
+.SS "#define VT48_CSR9_REG   (\fBDWORD\fP) (0x0064)"
+.PP
+Definition at line 55 of file vt48.h.
+.PP
+Referenced by vt48_Setup().
+.SS "#define VT48_CSR_RO   (\fBDWORD\fP) (0x0000)"
+.PP
+Definition at line 24 of file vt48.h.
+.PP
+Referenced by vt48_Status().
+.SS "#define VT48_DATA_FIFO   (\fBDWORD\fP) (0x1000)"
+.PP
+Definition at line 27 of file vt48.h.
+.PP
+Referenced by vt48_EventRead().
+.SS "#define VT48_ERR_NODATA   10"
+.PP
+Definition at line 22 of file vt48.h.
+.PP
+Referenced by vt48_EventRead().
+.SS "#define VT48_HEADER   (\fBDWORD\fP) (0x10000000)"
+.PP
+Definition at line 32 of file vt48.h.
+.PP
+Referenced by vt48_EventRead().
+.SS "#define VT48_ID1_REG_RO   (\fBDWORD\fP) (0x0008)"
+.PP
+Definition at line 35 of file vt48.h.
+.PP
+Referenced by vt48_Status().
+.SS "#define VT48_ID2_REG_RO   (\fBDWORD\fP) (0x000C)"
+.PP
+Definition at line 36 of file vt48.h.
+.PP
+Referenced by vt48_Status().
+.SS "#define VT48_OCCUPANCY_RO   (\fBDWORD\fP) (0x0000)"
+.PP
+Definition at line 25 of file vt48.h.
+.PP
+Referenced by vt48_EventRead().
+.SS "#define VT48_PARAM_ERROR   100"
+.PP
+Definition at line 23 of file vt48.h.
+.SS "#define VT48_SUCCESS   1"
+.PP
+Definition at line 21 of file vt48.h.
+.PP
+Referenced by vt48_EventRead().
+.SS "#define VT48_TRAILER   (\fBDWORD\fP) (0x80000000)"
+.PP
+Definition at line 33 of file vt48.h.
+.PP
+Referenced by vt48_EventRead().
+.SH "Function Documentation"
+.PP 
+.SS "int vt48_EventRead (\fBMVME_INTERFACE\fP * myvme, \fBDWORD\fP base, \fBDWORD\fP * pdest, int * nentry)"Read one Event 
+.PP
+\fBParameters:\fP
+.RS 4
+\fImyvme\fP vme structure 
+.br
+\fIbase\fP TF48 base address 
+.br
+\fIpdest\fP Destination pointer 
+.br
+\fIentry\fP return number of entry 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 28 of file vt48.c.
+.SS "void vt48_RegPrint (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base)"
+.PP
+Definition at line 150 of file vt48.c.
+.SS "\fBDWORD\fP vt48_RegRead (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base, \fBWORD\fP reg)"
+.PP
+Definition at line 135 of file vt48.c.
+.PP
+Referenced by vt48_RegPrint(), and vt48_Status().
+.SS "void vt48_RegWrite (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base, \fBDWORD\fP reg, \fBDWORD\fP data)"
+.PP
+Definition at line 95 of file vt48.c.
+.PP
+Referenced by vt48_RegPrint(), vt48_Setup(), and vt48_Status().
+.SS "int vt48_Setup (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base, int mode)"Sets all the necessary paramters for a given configuration. The configuration is provided by the mode argument. Add your own configuration in the case statement. Let me know your setting if you want to include it in the distribution. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fI*mvme\fP VME structure 
+.br
+\fIbase\fP Module base address 
+.br
+\fImode\fP Configuration mode number 
+.br
+\fI*nentry\fP number of entries requested and returned. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+MVME_SUCCESS 
+.RE
+.PP
+
+.PP
+Definition at line 180 of file vt48.c.
+.SS "void vt48_Status (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base)"
+.PP
+Definition at line 273 of file vt48.c.
+.SS "void vt48_StatusPrint (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base)"
+.SS "void vt48_WindowOffsetSet (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base, float offset)"
+.PP
+Definition at line 121 of file vt48.c.
+.SS "void vt48_WindowSet (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base, float window)"
+.PP
+Definition at line 108 of file vt48.c.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Midas from the source code.

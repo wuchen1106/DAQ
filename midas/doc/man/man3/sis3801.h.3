@@ -1,0 +1,510 @@
+.TH "sis3801.h" 3 "31 May 2012" "Version 2.3.0-0" "Midas" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+sis3801.h \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBDWORD\fP \fBsis3801_module_ID\fP (\fBMVME_INTERFACE\fP *\fBmyvme\fP, \fBDWORD\fP base)"
+.br
+.ti -1c
+.RI "\fBDWORD\fP \fBsis3801_IRQ_REG_read\fP (\fBMVME_INTERFACE\fP *\fBmyvme\fP, \fBDWORD\fP base)"
+.br
+.ti -1c
+.RI "\fBDWORD\fP \fBsis3801_IRQ_REG_write\fP (\fBMVME_INTERFACE\fP *\fBmyvme\fP, \fBDWORD\fP base, \fBDWORD\fP irq)"
+.br
+.ti -1c
+.RI "\fBDWORD\fP \fBsis3801_dwell_time\fP (\fBMVME_INTERFACE\fP *\fBmyvme\fP, \fBDWORD\fP base, \fBDWORD\fP dwell)"
+.br
+.ti -1c
+.RI "int \fBsis3801_ref1\fP (\fBMVME_INTERFACE\fP *\fBmyvme\fP, \fBDWORD\fP base, \fBDWORD\fP endis)"
+.br
+.ti -1c
+.RI "void \fBsis3801_channel_enable\fP (\fBMVME_INTERFACE\fP *\fBmyvme\fP, \fBDWORD\fP base, \fBDWORD\fP nch)"
+.br
+.ti -1c
+.RI "\fBDWORD\fP \fBsis3801_CSR_read\fP (\fBMVME_INTERFACE\fP *\fBmyvme\fP, \fBDWORD\fP base, const \fBDWORD\fP what)"
+.br
+.ti -1c
+.RI "\fBDWORD\fP \fBsis3801_CSR_write\fP (\fBMVME_INTERFACE\fP *\fBmyvme\fP, \fBDWORD\fP base, const \fBDWORD\fP what)"
+.br
+.ti -1c
+.RI "void \fBsis3801_FIFO_clear\fP (\fBMVME_INTERFACE\fP *\fBmyvme\fP, \fBDWORD\fP base)"
+.br
+.ti -1c
+.RI "int \fBsis3801_HFIFO_read\fP (\fBMVME_INTERFACE\fP *\fBmyvme\fP, \fBDWORD\fP base, \fBDWORD\fP *\fBp\fP)"
+.br
+.ti -1c
+.RI "int \fBsis3801_FIFO_flush\fP (\fBMVME_INTERFACE\fP *\fBmyvme\fP, \fBDWORD\fP base, \fBDWORD\fP *\fBp\fP)"
+.br
+.ti -1c
+.RI "void \fBsis3801_int_source\fP (\fBMVME_INTERFACE\fP *\fBmyvme\fP, \fBDWORD\fP base, \fBDWORD\fP int_source)"
+.br
+.ti -1c
+.RI "void \fBsis3801_int_source_enable\fP (\fBMVME_INTERFACE\fP *\fBmyvme\fP, \fBDWORD\fP base, const int intnum)"
+.br
+.ti -1c
+.RI "void \fBsis3801_int_source_disable\fP (\fBMVME_INTERFACE\fP *\fBmyvme\fP, \fBDWORD\fP base, const int intnum)"
+.br
+.ti -1c
+.RI "void \fBsis3801_int_clear\fP (\fBMVME_INTERFACE\fP *\fBmyvme\fP, \fBDWORD\fP base, const int intnum)"
+.br
+.ti -1c
+.RI "void \fBsis3801_int_attach\fP (\fBMVME_INTERFACE\fP *\fBmyvme\fP, \fBDWORD\fP base, \fBDWORD\fP base_vect, int level, void(*isr)(void))"
+.br
+.ti -1c
+.RI "void \fBsis3801_int_detach\fP (\fBMVME_INTERFACE\fP *\fBmyvme\fP, \fBDWORD\fP baser, \fBDWORD\fP base_vect, int level)"
+.br
+.ti -1c
+.RI "int \fBsis3801_Setup\fP (\fBMVME_INTERFACE\fP *\fBmyvme\fP, \fBDWORD\fP base, int mode)"
+.br
+.in -1c
+.SH "Define Documentation"
+.PP 
+.SS "#define CLEAR_SOFT_DISABLE   0x08000000"
+.PP
+Definition at line 84 of file sis3801.h.
+.SS "#define CSR_FULL   0xffffffff"
+.PP
+Definition at line 42 of file sis3801.h.
+.PP
+Referenced by sis3801_CSR_read(), sis3801_CSR_write(), sis3801_Status(), SIS3803_CSR_read(), sis3803_CSR_read(), and sis3803_CSR_write().
+.SS "#define CSR_READ   0x0"
+.PP
+Definition at line 41 of file sis3801.h.
+.PP
+Referenced by sis3803_CSR_read(), sis3803_input_mode(), and sis3803_ref1().
+.SS "#define CSR_WRITE   0x0"
+.PP
+Definition at line 43 of file sis3801.h.
+.PP
+Referenced by sis3803_CSR_write(), sis3803_input_mode(), sis3803_int_clear(), sis3803_int_source(), sis3803_int_source_disable(), sis3803_int_source_enable(), sis3803_test_disable(), and sis3803_test_enable().
+.SS "#define DISABLE_102LNE   0x00000400"
+.PP
+Definition at line 62 of file sis3801.h.
+.SS "#define DISABLE_25MHZ   0x00001000"
+.PP
+Definition at line 55 of file sis3801.h.
+.SS "#define DISABLE_EXTERN_CLEAR   0x02000000"
+.PP
+Definition at line 82 of file sis3801.h.
+.SS "#define DISABLE_EXTERN_DISABLE   0x04000000"
+.PP
+Definition at line 83 of file sis3801.h.
+.SS "#define DISABLE_EXTERN_NEXT   0x01000000"
+.PP
+Definition at line 81 of file sis3801.h.
+.SS "#define DISABLE_IRQ_ALFULL   0x80000000"
+.PP
+Definition at line 101 of file sis3801.h.
+.PP
+Referenced by sis3801_int_attach(), sis3801_int_clear(), sis3801_int_detach(), sis3801_int_source(), and sis3801_int_source_disable().
+.SS "#define DISABLE_IRQ_CIP   0x10000000"
+.PP
+Definition at line 98 of file sis3801.h.
+.PP
+Referenced by sis3801_int_attach(), sis3801_int_clear(), sis3801_int_detach(), sis3801_int_source(), and sis3801_int_source_disable().
+.SS "#define DISABLE_IRQ_FULL   0x20000000"
+.PP
+Definition at line 99 of file sis3801.h.
+.PP
+Referenced by sis3801_int_attach(), sis3801_int_clear(), sis3801_int_detach(), sis3801_int_source(), and sis3801_int_source_disable().
+.SS "#define DISABLE_IRQ_HFULL   0x40000000"
+.PP
+Definition at line 100 of file sis3801.h.
+.PP
+Referenced by sis3801_int_attach(), sis3801_int_clear(), sis3801_int_detach(), sis3801_int_source(), and sis3801_int_source_disable().
+.SS "#define DISABLE_LNE   0x00000800"
+.PP
+Definition at line 65 of file sis3801.h.
+.SS "#define DISABLE_TEST   0x00002000"
+.PP
+Definition at line 58 of file sis3801.h.
+.SS "#define ENABLE_102LNE   0x00000040"
+.PP
+Definition at line 61 of file sis3801.h.
+.SS "#define ENABLE_25MHZ   0x00000010"
+.PP
+Definition at line 54 of file sis3801.h.
+.SS "#define ENABLE_EXTERN_CLEAR   0x00020000"
+.PP
+Definition at line 78 of file sis3801.h.
+.SS "#define ENABLE_EXTERN_DISABLE   0x00040000"
+.PP
+Definition at line 79 of file sis3801.h.
+.SS "#define ENABLE_EXTERN_NEXT   0x00010000"
+.PP
+Definition at line 77 of file sis3801.h.
+.SS "#define ENABLE_IRQ_ALFULL   0x00800000"
+.PP
+Definition at line 97 of file sis3801.h.
+.PP
+Referenced by sis3801_int_clear(), sis3801_int_source(), and sis3801_int_source_enable().
+.SS "#define ENABLE_IRQ_CIP   0x00100000"
+.PP
+Definition at line 94 of file sis3801.h.
+.PP
+Referenced by sis3801_int_clear(), sis3801_int_source(), and sis3801_int_source_enable().
+.SS "#define ENABLE_IRQ_FULL   0x00200000"
+.PP
+Definition at line 95 of file sis3801.h.
+.PP
+Referenced by sis3801_int_clear(), sis3801_int_source(), and sis3801_int_source_enable().
+.SS "#define ENABLE_IRQ_HFULL   0x00400000"
+.PP
+Definition at line 96 of file sis3801.h.
+.PP
+Referenced by sis3801_int_clear(), sis3801_int_source(), and sis3801_int_source_enable().
+.SS "#define ENABLE_LNE   0x00000080"
+.PP
+Definition at line 64 of file sis3801.h.
+.SS "#define ENABLE_TEST   0x00000020"
+.PP
+Definition at line 57 of file sis3801.h.
+.SS "#define GET_MODE   0x0000000C"
+.PP
+Definition at line 48 of file sis3801.h.
+.PP
+Referenced by sis3801_CSR_read(), sis3801_input_mode(), and sis3803_input_mode().
+.SS "#define HALF_FIFO   16384"
+.PP
+Definition at line 37 of file sis3801.h.
+.PP
+Referenced by sis3801_HFIFO_read().
+.SS "#define IS_102LNE   0x00000040"
+.PP
+Definition at line 60 of file sis3801.h.
+.PP
+Referenced by sis3801_Status().
+.SS "#define IS_25MHZ   0x00000010"
+.PP
+Definition at line 53 of file sis3801.h.
+.PP
+Referenced by sis3801_Status().
+.SS "#define IS_EXTERN_CLEAR   0x00020000"
+.PP
+Definition at line 74 of file sis3801.h.
+.PP
+Referenced by sis3801_Status().
+.SS "#define IS_EXTERN_DISABLE   0x00040000"
+.PP
+Definition at line 75 of file sis3801.h.
+.PP
+Referenced by sis3801_Status().
+.SS "#define IS_EXTERN_NEXT   0x00010000"
+.PP
+Definition at line 73 of file sis3801.h.
+.PP
+Referenced by sis3801_Status().
+.SS "#define IS_FIFO_ALMOST_EMPTY   0x00000200"
+.PP
+Definition at line 67 of file sis3801.h.
+.PP
+Referenced by sis3801_Status().
+.SS "#define IS_FIFO_EMPTY   0x00000100"
+.PP
+Definition at line 66 of file sis3801.h.
+.PP
+Referenced by sis3801_FIFO_flush(), and sis3801_Status().
+.SS "#define IS_FIFO_FULL   0x00001000"
+.PP
+Definition at line 69 of file sis3801.h.
+.PP
+Referenced by sis3801_FIFO_flush(), sis3801_HFIFO_read(), and sis3801_Status().
+.SS "#define IS_FIFO_HALF_FULL   0x00000400"
+.PP
+Definition at line 68 of file sis3801.h.
+.PP
+Referenced by sis3801_HFIFO_read(), and sis3801_Status().
+.SS "#define IS_IRQ_ALFULL   0x80000000"
+.PP
+Definition at line 93 of file sis3801.h.
+.PP
+Referenced by sis3801_Status().
+.SS "#define IS_IRQ_CIP   0x10000000"
+.PP
+Definition at line 90 of file sis3801.h.
+.PP
+Referenced by sis3801_Status().
+.SS "#define IS_IRQ_EN_ALFULL   0x00800000"
+.PP
+Definition at line 89 of file sis3801.h.
+.PP
+Referenced by sis3801_Status().
+.SS "#define IS_IRQ_EN_CIP   0x00100000"
+.PP
+Definition at line 86 of file sis3801.h.
+.PP
+Referenced by sis3801_Status().
+.SS "#define IS_IRQ_EN_FULL   0x00200000"
+.PP
+Definition at line 87 of file sis3801.h.
+.PP
+Referenced by sis3801_Status().
+.SS "#define IS_IRQ_EN_HFULL   0x00400000"
+.PP
+Definition at line 88 of file sis3801.h.
+.PP
+Referenced by sis3801_Status().
+.SS "#define IS_IRQ_FULL   0x20000000"
+.PP
+Definition at line 91 of file sis3801.h.
+.PP
+Referenced by sis3801_Status().
+.SS "#define IS_IRQ_HFULL   0x40000000"
+.PP
+Definition at line 92 of file sis3801.h.
+.PP
+Referenced by sis3801_Status().
+.SS "#define IS_LED   0x00000001"
+.PP
+Definition at line 45 of file sis3801.h.
+.PP
+Referenced by sis3801_Status(), and SIS3803_CSR_read().
+.SS "#define IS_LNE   0x00000080"
+.PP
+Definition at line 63 of file sis3801.h.
+.PP
+Referenced by sis3801_Status().
+.SS "#define IS_NEXT_LOGIC_ENABLE   0x00008000"
+.PP
+Definition at line 72 of file sis3801.h.
+.PP
+Referenced by sis3801_next_logic(), and sis3801_Status().
+.SS "#define IS_REF1   0x00002000"
+.PP
+Definition at line 70 of file sis3801.h.
+.PP
+Referenced by sis3801_ref1(), sis3801_Status(), SIS3803_CSR_read(), and sis3803_ref1().
+.SS "#define IS_SOFT_COUNTING   0x00080000"
+.PP
+Definition at line 76 of file sis3801.h.
+.PP
+Referenced by sis3801_Status().
+.SS "#define IS_TEST   0x00000020"
+.PP
+Definition at line 56 of file sis3801.h.
+.PP
+Referenced by sis3801_Status().
+.SS "#define LED_OFF   0x00000100"
+.PP
+Definition at line 47 of file sis3801.h.
+.SS "#define LED_ON   0x00000001"
+.PP
+Definition at line 46 of file sis3801.h.
+.SS "#define MAX_FIFO_SIZE   2*HALF_FIFO"
+.PP
+Definition at line 39 of file sis3801.h.
+.PP
+Referenced by sis3801_FIFO_flush().
+.SS "#define MODE_0   0x00000C00"
+.PP
+Definition at line 49 of file sis3801.h.
+.SS "#define MODE_1   0x00000804"
+.PP
+Definition at line 50 of file sis3801.h.
+.SS "#define MODE_2   0x00000408"
+.PP
+Definition at line 51 of file sis3801.h.
+.SS "#define MODE_3   0x0000000C"
+.PP
+Definition at line 52 of file sis3801.h.
+.SS "#define SET_SOFT_DISABLE   0x00080000"
+.PP
+Definition at line 80 of file sis3801.h.
+.SS "#define SIS3801_COPY_REG_WO   0x00C"
+.PP
+Definition at line 107 of file sis3801.h.
+.PP
+Referenced by sis3801_channel_enable().
+.SS "#define SIS3801_CSR_RW   0x000"
+.PP
+Definition at line 104 of file sis3801.h.
+.PP
+Referenced by sis3801_CSR_read(), sis3801_CSR_write(), sis3801_input_mode(), sis3801_int_clear(), sis3801_int_source(), sis3801_int_source_disable(), sis3801_int_source_enable(), sis3801_next_logic(), and sis3801_ref1().
+.SS "#define SIS3801_DISABLE_NEXT_CLK_WO   0x02C"
+.PP
+Definition at line 112 of file sis3801.h.
+.PP
+Referenced by sis3801_next_logic().
+.SS "#define SIS3801_DISABLE_REF_CH1_WO   0x054"
+.PP
+Definition at line 114 of file sis3801.h.
+.PP
+Referenced by sis3801_ref1().
+.SS "#define SIS3801_ENABLE_NEXT_CLK_WO   0x028"
+.PP
+Definition at line 111 of file sis3801.h.
+.PP
+Referenced by sis3801_next_logic().
+.SS "#define SIS3801_ENABLE_REF_CH1_WO   0x050"
+.PP
+Definition at line 113 of file sis3801.h.
+.PP
+Referenced by sis3801_ref1().
+.SS "#define SIS3801_FIFO_CLEAR_WO   0x020"
+.PP
+Definition at line 109 of file sis3801.h.
+.PP
+Referenced by sis3801_FIFO_clear().
+.SS "#define SIS3801_FIFO_RO   0x100"
+.PP
+Definition at line 118 of file sis3801.h.
+.PP
+Referenced by sis3801_FIFO_flush(), and sis3801_HFIFO_read().
+.SS "#define SIS3801_FIFO_WRITE_WO   0x010"
+.PP
+Definition at line 108 of file sis3801.h.
+.SS "#define SIS3801_IRQ_REG_RW   0x004"
+.PP
+Definition at line 106 of file sis3801.h.
+.PP
+Referenced by sis3801_int_attach(), sis3801_IRQ_REG_read(), and sis3801_IRQ_REG_write().
+.SS "#define SIS3801_MODULE_ID_RO   0x004"
+.PP
+Definition at line 105 of file sis3801.h.
+.PP
+Referenced by sis3801_module_ID().
+.SS "#define SIS3801_MODULE_RESET_WO   0x060"
+.PP
+Definition at line 115 of file sis3801.h.
+.PP
+Referenced by sis3801_module_reset().
+.SS "#define SIS3801_PRESCALE_REG_RW   0x080"
+.PP
+Definition at line 117 of file sis3801.h.
+.PP
+Referenced by sis3801_dwell_time().
+.SS "#define SIS3801_SINGLE_TST_PULSE_WO   0x068"
+.PP
+Definition at line 116 of file sis3801.h.
+.SS "#define SIS3801_VECT_BASE   0x7f"
+.PP
+Definition at line 125 of file sis3801.h.
+.SS "#define SIS3801_VME_NEXT_CLK_WO   0x024"
+.PP
+Definition at line 110 of file sis3801.h.
+.SS "#define SIS_FIFO_SIZE   4*HALF_FIFO"
+.PP
+Definition at line 40 of file sis3801.h.
+.SS "#define SOURCE_CIP   0"
+.PP
+Definition at line 120 of file sis3801.h.
+.SS "#define SOURCE_FIFO_ALFULL   3"
+.PP
+Definition at line 123 of file sis3801.h.
+.SS "#define SOURCE_FIFO_FULL   1"
+.PP
+Definition at line 121 of file sis3801.h.
+.SS "#define SOURCE_FIFO_HFULL   2"
+.PP
+Definition at line 122 of file sis3801.h.
+.SS "#define VME_IRQ_ENABLE   0x00000800"
+.PP
+Definition at line 102 of file sis3801.h.
+.PP
+Referenced by sis3801_int_attach(), and sis3803_int_attach().
+.SH "Typedef Documentation"
+.PP 
+.SS "typedef unsigned long int \fBDWORD\fP"
+.PP
+Definition at line 31 of file sis3801.h.
+.SH "Function Documentation"
+.PP 
+.SS "void sis3801_channel_enable (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base, \fBDWORD\fP nch)"Purpose: Enable nch channel for acquistion. blind command! 1..24 or 32 
+.PP
+Definition at line 205 of file sis3801.c.
+.SS "\fBDWORD\fP sis3801_CSR_read (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base, const \fBDWORD\fP what)"Purpose: Read the CSR and return 1/0 based on what. except for what == CSR_FULL where it returns current CSR 
+.PP
+Definition at line 224 of file sis3801.c.
+.PP
+Referenced by sis3801_CSR_write(), sis3801_FIFO_flush(), sis3801_HFIFO_read(), and sis3801_Status().
+.SS "\fBDWORD\fP sis3801_CSR_write (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base, const \fBDWORD\fP what)"Purpose: Write to the CSR and return CSR_FULL. 
+.PP
+Definition at line 250 of file sis3801.c.
+.SS "\fBDWORD\fP sis3801_dwell_time (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base, \fBDWORD\fP dwell)"Purpose: Set dwell time in us DWORD dwell : dwell time in microseconds 
+.PP
+Definition at line 128 of file sis3801.c.
+.SS "void sis3801_FIFO_clear (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base)"Purpose: Clear FIFO and logic 
+.PP
+Definition at line 270 of file sis3801.c.
+.SS "int sis3801_FIFO_flush (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base, \fBDWORD\fP * pfifo)"Purpose: Test and read FIFO until empty This is done using while, if the dwelling time is short relative to the readout time, the pfifo can be overrun. No test on the max read yet! Function value: int : -1 FULL number of words read 
+.PP
+Definition at line 323 of file sis3801.c.
+.SS "int sis3801_HFIFO_read (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base, \fBDWORD\fP * pfifo)"Purpose: Reads 32KB (8K DWORD) of the FIFO Function value: int : -1 FULL 0 NOT 1/2 Full number of words read 
+.PP
+Definition at line 291 of file sis3801.c.
+.SS "void sis3801_int_attach (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base, \fBDWORD\fP base_vect, int level, void(*)(void) isr)"Purpose: Book an ISR for a bitwise set of interrupt input (0xff). The interrupt vector is then the VECTOR_BASE+intnum Input: DWORD * base_addr : base address of the sis3801 DWORD base_vect : base vector of the module int level : IRQ level (1..7) DWORD isr_routine : interrupt routine pointer 
+.PP
+Definition at line 448 of file sis3801.c.
+.SS "void sis3801_int_clear (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base, const int intnum)"Purpose: Disable the interrupt for the bitwise input intnum (0xff). The interrupt vector is then the VECTOR_BASE+intnum Input: DWORD * base_addr : base address of the sis3801 int * intnum : interrupt number (input 0..3) 
+.PP
+Definition at line 494 of file sis3801.c.
+.SS "void sis3801_int_detach (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base, \fBDWORD\fP base_vect, int level)"Purpose: Unbook an ISR for a bitwise set of interrupt input (0xff). The interrupt vector is then the VECTOR_BASE+intnum Input: DWORD * base_addr : base address of the sis3801 DWORD base_vect : base vector of the module int level : IRQ level (1..7) 
+.PP
+Definition at line 475 of file sis3801.c.
+.SS "void sis3801_int_source (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base, \fBDWORD\fP int_source)"Purpose: Enable the one of the 4 interrupt using the predefined \fBparameters\fP (see \fBsis3801.h\fP) DWORD * intnum : interrupt number (input 0..3) 
+.PP
+Definition at line 422 of file sis3801.c.
+.PP
+Referenced by sis3801_int_attach(), and sis3801_int_detach().
+.SS "void sis3801_int_source_disable (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base, const int intnum)"Purpose: Enable the interrupt for the bitwise input intnum (0xff). The interrupt vector is then the VECTOR_BASE 
+.PP
+Definition at line 385 of file sis3801.c.
+.SS "void sis3801_int_source_enable (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base, const int intnum)"Purpose: Enable the interrupt for the bitwise input intnum (0xff). The interrupt vector is then the VECTOR_BASE 
+.PP
+Definition at line 349 of file sis3801.c.
+.SS "\fBDWORD\fP sis3801_IRQ_REG_read (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base)"DWORD : 0xE(1)L(3)V(8) 
+.PP
+Definition at line 68 of file sis3801.c.
+.SS "\fBDWORD\fP sis3801_IRQ_REG_write (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base, \fBDWORD\fP vector)"Purpose: write irq (ELV) to the register and read back DWORD : 0xE(1)L(3)V(8) 
+.PP
+Definition at line 86 of file sis3801.c.
+.SS "\fBDWORD\fP sis3801_module_ID (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base)"Module ID Purpose: return the Module ID number (I) version (V) IRQ level (L) IRQ vector# (BB) 0xIIIIVLBB 
+.PP
+Definition at line 37 of file sis3801.c.
+.PP
+Referenced by sis3801_Status().
+.SS "\fBDWORD\fP sis3801_module_mode (\fBMVME_INTERFACE\fP * myvme, \fBDWORD\fP base, \fBDWORD\fP mode)"
+.SS "void sis3801_module_reset (\fBMVME_INTERFACE\fP * myvme, \fBDWORD\fP base)"
+.PP
+Definition at line 52 of file sis3801.c.
+.SS "int sis3801_next_logic (\fBMVME_INTERFACE\fP * myvme, \fBDWORD\fP base, \fBDWORD\fP endis)"
+.PP
+Definition at line 178 of file sis3801.c.
+.SS "int sis3801_ref1 (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base, \fBDWORD\fP endis)"Purpose: Enable/Disable Reference on Channel 1 DWORD endis : action either ENABLE_REF_CH1 DISABLE_REF_CH1 
+.PP
+Definition at line 152 of file sis3801.c.
+.SS "int sis3801_Setup (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base, int mode)"Sets all the necessary \fBparameters\fP for a given configuration. The configuration is provided by the mode argument. Add your own configuration in the case statement. Let me know your setting if you want to include it in the distribution. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fI*mvme\fP VME structure 
+.br
+\fIbase\fP Module base address 
+.br
+\fImode\fP Configuration mode number 
+.br
+\fI*nentry\fP number of entries requested and returned. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+MVME_SUCCESS 
+.RE
+.PP
+
+.PP
+Definition at line 544 of file sis3801.c.
+.SS "void sis3801_setup (const \fBMVME_INTERFACE\fP * myvme, \fBDWORD\fP base, int mode, int dsp)"
+.SS "void sis3801_Status (\fBMVME_INTERFACE\fP * myvme, \fBDWORD\fP base)"
+.PP
+Definition at line 572 of file sis3801.c.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Midas from the source code.

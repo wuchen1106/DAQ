@@ -1,0 +1,508 @@
+\section{TPeakFindPanel Class Reference}
+\label{classTPeakFindPanel}\index{TPeakFindPanel@{TPeakFindPanel}}
+
+
+{\ttfamily \#include $<$TPeakFindPanel.h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf TPeakFindPanel} (TGWindow const $\ast$, TGWindow const $\ast$, UInt\_\-t, UInt\_\-t)
+\item 
+virtual {\bf $\sim$TPeakFindPanel} ()
+\item 
+virtual void {\bf CloseWindow} ()
+\item 
+virtual Bool\_\-t {\bf ProcessMessage} (Long\_\-t, Long\_\-t, Long\_\-t)
+\item 
+{\bf ClassDef} ({\bf TPeakFindPanel}, 1)
+\end{DoxyCompactItemize}
+\subsection*{Protected Types}
+\begin{DoxyCompactItemize}
+\item 
+enum {\bf ECommandIdentifiers} \{ \par
+{\bf M\_\-FILE\_\-EXIT}, 
+{\bf M\_\-ATTEMPT\_\-FIT\_\-PEAKS\_\-BUTTON}, 
+{\bf M\_\-ADD\_\-POLY\_\-BUTTON}, 
+{\bf M\_\-DO\_\-UNZOOM\_\-BUTTON}, 
+{\bf M\_\-FIND\_\-BUTTON}, 
+{\bf M\_\-DEFAULT\_\-BUTTON}, 
+\par
+{\bf M\_\-CLOSE\_\-BUTTON}, 
+{\bf M\_\-CLEAR\_\-BUTTON}, 
+{\bf M\_\-NUMBER\_\-ENTRY\_\-PEAKS}, 
+{\bf M\_\-NUMBER\_\-ENTRY\_\-RESOLUTION}, 
+{\bf M\_\-NUMBER\_\-ENTRY\_\-SIGMA}, 
+{\bf M\_\-NUMBER\_\-ENTRY\_\-THRESHOLD}
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Double\_\-t {\bf fSigma}
+\item 
+Double\_\-t {\bf fThreshold}
+\item 
+Float\_\-t {\bf fResolution}
+\item 
+Int\_\-t {\bf fNumberOfPeaks}
+\item 
+TF1 $\ast$ {\bf fFit}
+\item 
+Bool\_\-t {\bf fDoFit}
+\item 
+Bool\_\-t {\bf fAddPoly}
+\item 
+Bool\_\-t {\bf fDoUnzoom}
+\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void {\bf FindPeak} ()
+\item 
+void {\bf DrawPeak} ()
+\item 
+void {\bf LayoutGUI} ()
+\item 
+void {\bf LayoutMenuBar} ()
+\item 
+void {\bf GetXYBounds} (Double\_\-t \&, Double\_\-t \&)
+\item 
+void {\bf InsertionSort} (Float\_\-t $\ast$, Float\_\-t $\ast$, Int\_\-t, Int\_\-t)
+\item 
+void {\bf Clear} ()
+\item 
+void {\bf SetDefaults} ()
+\item 
+TH1 $\ast$ {\bf GetHistogram} ()
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+TGNumberEntry $\ast$ {\bf fNumberOfPeaksNE}
+\item 
+TGNumberEntry $\ast$ {\bf fResolutionNE}
+\item 
+TGNumberEntry $\ast$ {\bf fSigmaNE}
+\item 
+TGNumberEntry $\ast$ {\bf fThresholdNE}
+\item 
+TGCheckButton $\ast$ {\bf fAttemptFitCB}
+\item 
+TGCheckButton $\ast$ {\bf fAddPolyFitCB}
+\item 
+TGCheckButton $\ast$ {\bf fDoUnzoomCB}
+\item 
+TGTextButton $\ast$ {\bf fFindTB}
+\item 
+TGTextButton $\ast$ {\bf fDefaultsTB}
+\item 
+TGTextButton $\ast$ {\bf fCloseTB}
+\item 
+TGTextButton $\ast$ {\bf fClearPolyTB}
+\item 
+TGVerticalFrame $\ast$ {\bf fMainFrame}
+\item 
+TGHorizontalFrame $\ast$ {\bf fNumberOfPeaksHF}
+\item 
+TGHorizontalFrame $\ast$ {\bf fResolutionHF}
+\item 
+TGHorizontalFrame $\ast$ {\bf fSigmaHF}
+\item 
+TGHorizontalFrame $\ast$ {\bf fThresholdHF}
+\item 
+TGHorizontalFrame $\ast$ {\bf fFindDefaultsHF}
+\item 
+TGHorizontalFrame $\ast$ {\bf fCloseClearPolyHF}
+\item 
+TSpectrum $\ast$ {\bf fSpectrum}
+\item 
+Int\_\-t {\bf fNfound}
+\item 
+Float\_\-t $\ast$ {\bf fXpeaks}
+\item 
+Float\_\-t $\ast$ {\bf fYpeaks}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 49 of file TPeakFindPanel.h.
+
+
+
+\subsection{Member Enumeration Documentation}
+\index{TPeakFindPanel@{TPeakFindPanel}!ECommandIdentifiers@{ECommandIdentifiers}}
+\index{ECommandIdentifiers@{ECommandIdentifiers}!TPeakFindPanel@{TPeakFindPanel}}
+\subsubsection[{ECommandIdentifiers}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf TPeakFindPanel::ECommandIdentifiers}\hspace{0.3cm}{\ttfamily  [protected]}}\label{classTPeakFindPanel_afbe6618ca662c0c51313b180272a7e06}
+\begin{Desc}
+\item[Enumerator: ]\par
+\begin{description}
+\index{M\_\-FILE\_\-EXIT@{M\_\-FILE\_\-EXIT}!TPeakFindPanel@{TPeakFindPanel}}\index{TPeakFindPanel@{TPeakFindPanel}!M\_\-FILE\_\-EXIT@{M\_\-FILE\_\-EXIT}}\item[{\em 
+M\_\-FILE\_\-EXIT\label{classTPeakFindPanel_afbe6618ca662c0c51313b180272a7e06af1295367023eff9adb3c44293f60bfc7}
+}]\index{M\_\-ATTEMPT\_\-FIT\_\-PEAKS\_\-BUTTON@{M\_\-ATTEMPT\_\-FIT\_\-PEAKS\_\-BUTTON}!TPeakFindPanel@{TPeakFindPanel}}\index{TPeakFindPanel@{TPeakFindPanel}!M\_\-ATTEMPT\_\-FIT\_\-PEAKS\_\-BUTTON@{M\_\-ATTEMPT\_\-FIT\_\-PEAKS\_\-BUTTON}}\item[{\em 
+M\_\-ATTEMPT\_\-FIT\_\-PEAKS\_\-BUTTON\label{classTPeakFindPanel_afbe6618ca662c0c51313b180272a7e06a48f79477ac0e3912a44c4a523d8b09fc}
+}]\index{M\_\-ADD\_\-POLY\_\-BUTTON@{M\_\-ADD\_\-POLY\_\-BUTTON}!TPeakFindPanel@{TPeakFindPanel}}\index{TPeakFindPanel@{TPeakFindPanel}!M\_\-ADD\_\-POLY\_\-BUTTON@{M\_\-ADD\_\-POLY\_\-BUTTON}}\item[{\em 
+M\_\-ADD\_\-POLY\_\-BUTTON\label{classTPeakFindPanel_afbe6618ca662c0c51313b180272a7e06a451cf56f3523da1bd05e0625c3caf44f}
+}]\index{M\_\-DO\_\-UNZOOM\_\-BUTTON@{M\_\-DO\_\-UNZOOM\_\-BUTTON}!TPeakFindPanel@{TPeakFindPanel}}\index{TPeakFindPanel@{TPeakFindPanel}!M\_\-DO\_\-UNZOOM\_\-BUTTON@{M\_\-DO\_\-UNZOOM\_\-BUTTON}}\item[{\em 
+M\_\-DO\_\-UNZOOM\_\-BUTTON\label{classTPeakFindPanel_afbe6618ca662c0c51313b180272a7e06a42fb062de51fef79378ff549d83fa524}
+}]\index{M\_\-FIND\_\-BUTTON@{M\_\-FIND\_\-BUTTON}!TPeakFindPanel@{TPeakFindPanel}}\index{TPeakFindPanel@{TPeakFindPanel}!M\_\-FIND\_\-BUTTON@{M\_\-FIND\_\-BUTTON}}\item[{\em 
+M\_\-FIND\_\-BUTTON\label{classTPeakFindPanel_afbe6618ca662c0c51313b180272a7e06a155ad4d05c39457f4a5e817a06ade2e3}
+}]\index{M\_\-DEFAULT\_\-BUTTON@{M\_\-DEFAULT\_\-BUTTON}!TPeakFindPanel@{TPeakFindPanel}}\index{TPeakFindPanel@{TPeakFindPanel}!M\_\-DEFAULT\_\-BUTTON@{M\_\-DEFAULT\_\-BUTTON}}\item[{\em 
+M\_\-DEFAULT\_\-BUTTON\label{classTPeakFindPanel_afbe6618ca662c0c51313b180272a7e06a3df1805a43585a0612c9d7d2a2b8c9f0}
+}]\index{M\_\-CLOSE\_\-BUTTON@{M\_\-CLOSE\_\-BUTTON}!TPeakFindPanel@{TPeakFindPanel}}\index{TPeakFindPanel@{TPeakFindPanel}!M\_\-CLOSE\_\-BUTTON@{M\_\-CLOSE\_\-BUTTON}}\item[{\em 
+M\_\-CLOSE\_\-BUTTON\label{classTPeakFindPanel_afbe6618ca662c0c51313b180272a7e06a04a4dc74458b718f7593e1257ef23618}
+}]\index{M\_\-CLEAR\_\-BUTTON@{M\_\-CLEAR\_\-BUTTON}!TPeakFindPanel@{TPeakFindPanel}}\index{TPeakFindPanel@{TPeakFindPanel}!M\_\-CLEAR\_\-BUTTON@{M\_\-CLEAR\_\-BUTTON}}\item[{\em 
+M\_\-CLEAR\_\-BUTTON\label{classTPeakFindPanel_afbe6618ca662c0c51313b180272a7e06a1cee7a0992035b34f0a297b9a58c18a9}
+}]\index{M\_\-NUMBER\_\-ENTRY\_\-PEAKS@{M\_\-NUMBER\_\-ENTRY\_\-PEAKS}!TPeakFindPanel@{TPeakFindPanel}}\index{TPeakFindPanel@{TPeakFindPanel}!M\_\-NUMBER\_\-ENTRY\_\-PEAKS@{M\_\-NUMBER\_\-ENTRY\_\-PEAKS}}\item[{\em 
+M\_\-NUMBER\_\-ENTRY\_\-PEAKS\label{classTPeakFindPanel_afbe6618ca662c0c51313b180272a7e06a77d9e4b420a3a5004b571f8d6505da4f}
+}]\index{M\_\-NUMBER\_\-ENTRY\_\-RESOLUTION@{M\_\-NUMBER\_\-ENTRY\_\-RESOLUTION}!TPeakFindPanel@{TPeakFindPanel}}\index{TPeakFindPanel@{TPeakFindPanel}!M\_\-NUMBER\_\-ENTRY\_\-RESOLUTION@{M\_\-NUMBER\_\-ENTRY\_\-RESOLUTION}}\item[{\em 
+M\_\-NUMBER\_\-ENTRY\_\-RESOLUTION\label{classTPeakFindPanel_afbe6618ca662c0c51313b180272a7e06ac5dfbd0e76240b3f448502c99d5d39be}
+}]\index{M\_\-NUMBER\_\-ENTRY\_\-SIGMA@{M\_\-NUMBER\_\-ENTRY\_\-SIGMA}!TPeakFindPanel@{TPeakFindPanel}}\index{TPeakFindPanel@{TPeakFindPanel}!M\_\-NUMBER\_\-ENTRY\_\-SIGMA@{M\_\-NUMBER\_\-ENTRY\_\-SIGMA}}\item[{\em 
+M\_\-NUMBER\_\-ENTRY\_\-SIGMA\label{classTPeakFindPanel_afbe6618ca662c0c51313b180272a7e06a74d9dba6605b866256edb00fc4de6ad3}
+}]\index{M\_\-NUMBER\_\-ENTRY\_\-THRESHOLD@{M\_\-NUMBER\_\-ENTRY\_\-THRESHOLD}!TPeakFindPanel@{TPeakFindPanel}}\index{TPeakFindPanel@{TPeakFindPanel}!M\_\-NUMBER\_\-ENTRY\_\-THRESHOLD@{M\_\-NUMBER\_\-ENTRY\_\-THRESHOLD}}\item[{\em 
+M\_\-NUMBER\_\-ENTRY\_\-THRESHOLD\label{classTPeakFindPanel_afbe6618ca662c0c51313b180272a7e06a16e1bbbfa424012c4c7a3a6749c85841}
+}]\end{description}
+\end{Desc}
+
+
+
+Definition at line 75 of file TPeakFindPanel.h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{TPeakFindPanel@{TPeakFindPanel}!TPeakFindPanel@{TPeakFindPanel}}
+\index{TPeakFindPanel@{TPeakFindPanel}!TPeakFindPanel@{TPeakFindPanel}}
+\subsubsection[{TPeakFindPanel}]{\setlength{\rightskip}{0pt plus 5cm}TPeakFindPanel::TPeakFindPanel (
+\begin{DoxyParamCaption}
+\item[{TGWindow const $\ast$}]{, }
+\item[{TGWindow const $\ast$}]{, }
+\item[{UInt\_\-t}]{, }
+\item[{UInt\_\-t}]{}
+\end{DoxyParamCaption}
+)}\label{classTPeakFindPanel_a64cfdaad6ff2e318b6b2e6c96c2b1a29}
+\index{TPeakFindPanel@{TPeakFindPanel}!$\sim$TPeakFindPanel@{$\sim$TPeakFindPanel}}
+\index{$\sim$TPeakFindPanel@{$\sim$TPeakFindPanel}!TPeakFindPanel@{TPeakFindPanel}}
+\subsubsection[{$\sim$TPeakFindPanel}]{\setlength{\rightskip}{0pt plus 5cm}virtual TPeakFindPanel::$\sim$TPeakFindPanel (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  [virtual]}}\label{classTPeakFindPanel_aedb13cea97a1a35f203d3c6546488311}
+
+
+\subsection{Member Function Documentation}
+\index{TPeakFindPanel@{TPeakFindPanel}!ClassDef@{ClassDef}}
+\index{ClassDef@{ClassDef}!TPeakFindPanel@{TPeakFindPanel}}
+\subsubsection[{ClassDef}]{\setlength{\rightskip}{0pt plus 5cm}TPeakFindPanel::ClassDef (
+\begin{DoxyParamCaption}
+\item[{{\bf TPeakFindPanel}}]{, }
+\item[{1}]{}
+\end{DoxyParamCaption}
+)}\label{classTPeakFindPanel_ab517972f79185ba01293312c98ad8f15}
+\index{TPeakFindPanel@{TPeakFindPanel}!Clear@{Clear}}
+\index{Clear@{Clear}!TPeakFindPanel@{TPeakFindPanel}}
+\subsubsection[{Clear}]{\setlength{\rightskip}{0pt plus 5cm}void TPeakFindPanel::Clear (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  [private]}}\label{classTPeakFindPanel_a8c4d4f00cf9babf77e528a9b8e6689ab}
+\index{TPeakFindPanel@{TPeakFindPanel}!CloseWindow@{CloseWindow}}
+\index{CloseWindow@{CloseWindow}!TPeakFindPanel@{TPeakFindPanel}}
+\subsubsection[{CloseWindow}]{\setlength{\rightskip}{0pt plus 5cm}virtual void TPeakFindPanel::CloseWindow (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  [virtual]}}\label{classTPeakFindPanel_abeedf1add358691220b5c8584d36c0ef}
+\index{TPeakFindPanel@{TPeakFindPanel}!DrawPeak@{DrawPeak}}
+\index{DrawPeak@{DrawPeak}!TPeakFindPanel@{TPeakFindPanel}}
+\subsubsection[{DrawPeak}]{\setlength{\rightskip}{0pt plus 5cm}void TPeakFindPanel::DrawPeak (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  [private]}}\label{classTPeakFindPanel_ab5516c7f2d5419eb93fa1cdb96631e04}
+\index{TPeakFindPanel@{TPeakFindPanel}!FindPeak@{FindPeak}}
+\index{FindPeak@{FindPeak}!TPeakFindPanel@{TPeakFindPanel}}
+\subsubsection[{FindPeak}]{\setlength{\rightskip}{0pt plus 5cm}void TPeakFindPanel::FindPeak (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  [private]}}\label{classTPeakFindPanel_a87735082eba930a341e00123dda3843c}
+\index{TPeakFindPanel@{TPeakFindPanel}!GetHistogram@{GetHistogram}}
+\index{GetHistogram@{GetHistogram}!TPeakFindPanel@{TPeakFindPanel}}
+\subsubsection[{GetHistogram}]{\setlength{\rightskip}{0pt plus 5cm}TH1$\ast$ TPeakFindPanel::GetHistogram (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  [private]}}\label{classTPeakFindPanel_a7e2c104e857814a5962809775b64d5e9}
+\index{TPeakFindPanel@{TPeakFindPanel}!GetXYBounds@{GetXYBounds}}
+\index{GetXYBounds@{GetXYBounds}!TPeakFindPanel@{TPeakFindPanel}}
+\subsubsection[{GetXYBounds}]{\setlength{\rightskip}{0pt plus 5cm}void TPeakFindPanel::GetXYBounds (
+\begin{DoxyParamCaption}
+\item[{Double\_\-t \&}]{, }
+\item[{Double\_\-t \&}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  [private]}}\label{classTPeakFindPanel_aeb33fe63ca2810859ca068234afee49e}
+\index{TPeakFindPanel@{TPeakFindPanel}!InsertionSort@{InsertionSort}}
+\index{InsertionSort@{InsertionSort}!TPeakFindPanel@{TPeakFindPanel}}
+\subsubsection[{InsertionSort}]{\setlength{\rightskip}{0pt plus 5cm}void TPeakFindPanel::InsertionSort (
+\begin{DoxyParamCaption}
+\item[{Float\_\-t $\ast$}]{, }
+\item[{Float\_\-t $\ast$}]{, }
+\item[{Int\_\-t}]{, }
+\item[{Int\_\-t}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  [private]}}\label{classTPeakFindPanel_ac64705612e5718ab0ac25b0890721f7c}
+\index{TPeakFindPanel@{TPeakFindPanel}!LayoutGUI@{LayoutGUI}}
+\index{LayoutGUI@{LayoutGUI}!TPeakFindPanel@{TPeakFindPanel}}
+\subsubsection[{LayoutGUI}]{\setlength{\rightskip}{0pt plus 5cm}void TPeakFindPanel::LayoutGUI (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  [private]}}\label{classTPeakFindPanel_a86eb3bc0fb4c4d5ec4cbda280885ccad}
+\index{TPeakFindPanel@{TPeakFindPanel}!LayoutMenuBar@{LayoutMenuBar}}
+\index{LayoutMenuBar@{LayoutMenuBar}!TPeakFindPanel@{TPeakFindPanel}}
+\subsubsection[{LayoutMenuBar}]{\setlength{\rightskip}{0pt plus 5cm}void TPeakFindPanel::LayoutMenuBar (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  [private]}}\label{classTPeakFindPanel_a834f0a5fd6ee1348f8120ffe18d211b0}
+\index{TPeakFindPanel@{TPeakFindPanel}!ProcessMessage@{ProcessMessage}}
+\index{ProcessMessage@{ProcessMessage}!TPeakFindPanel@{TPeakFindPanel}}
+\subsubsection[{ProcessMessage}]{\setlength{\rightskip}{0pt plus 5cm}virtual Bool\_\-t TPeakFindPanel::ProcessMessage (
+\begin{DoxyParamCaption}
+\item[{Long\_\-t}]{, }
+\item[{Long\_\-t}]{, }
+\item[{Long\_\-t}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  [virtual]}}\label{classTPeakFindPanel_aa932e366d895bf2234a115ad680d8618}
+\index{TPeakFindPanel@{TPeakFindPanel}!SetDefaults@{SetDefaults}}
+\index{SetDefaults@{SetDefaults}!TPeakFindPanel@{TPeakFindPanel}}
+\subsubsection[{SetDefaults}]{\setlength{\rightskip}{0pt plus 5cm}void TPeakFindPanel::SetDefaults (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  [private]}}\label{classTPeakFindPanel_aea3a5833a3b95b3ee5375206e3040e8c}
+
+
+\subsection{Member Data Documentation}
+\index{TPeakFindPanel@{TPeakFindPanel}!fAddPoly@{fAddPoly}}
+\index{fAddPoly@{fAddPoly}!TPeakFindPanel@{TPeakFindPanel}}
+\subsubsection[{fAddPoly}]{\setlength{\rightskip}{0pt plus 5cm}Bool\_\-t {\bf TPeakFindPanel::fAddPoly}\hspace{0.3cm}{\ttfamily  [protected]}}\label{classTPeakFindPanel_af35ee1eb3a84fe552ac447157b0ad18f}
+
+
+Definition at line 95 of file TPeakFindPanel.h.
+
+\index{TPeakFindPanel@{TPeakFindPanel}!fAddPolyFitCB@{fAddPolyFitCB}}
+\index{fAddPolyFitCB@{fAddPolyFitCB}!TPeakFindPanel@{TPeakFindPanel}}
+\subsubsection[{fAddPolyFitCB}]{\setlength{\rightskip}{0pt plus 5cm}TGCheckButton $\ast$ {\bf TPeakFindPanel::fAddPolyFitCB}\hspace{0.3cm}{\ttfamily  [private]}}\label{classTPeakFindPanel_ac331a9f42cb591ce38142e893154588f}
+
+
+Definition at line 53 of file TPeakFindPanel.h.
+
+\index{TPeakFindPanel@{TPeakFindPanel}!fAttemptFitCB@{fAttemptFitCB}}
+\index{fAttemptFitCB@{fAttemptFitCB}!TPeakFindPanel@{TPeakFindPanel}}
+\subsubsection[{fAttemptFitCB}]{\setlength{\rightskip}{0pt plus 5cm}TGCheckButton$\ast$ {\bf TPeakFindPanel::fAttemptFitCB}\hspace{0.3cm}{\ttfamily  [private]}}\label{classTPeakFindPanel_a3c863a7594284859aefa215d968d3ac1}
+
+
+Definition at line 53 of file TPeakFindPanel.h.
+
+\index{TPeakFindPanel@{TPeakFindPanel}!fClearPolyTB@{fClearPolyTB}}
+\index{fClearPolyTB@{fClearPolyTB}!TPeakFindPanel@{TPeakFindPanel}}
+\subsubsection[{fClearPolyTB}]{\setlength{\rightskip}{0pt plus 5cm}TGTextButton $\ast$ {\bf TPeakFindPanel::fClearPolyTB}\hspace{0.3cm}{\ttfamily  [private]}}\label{classTPeakFindPanel_a59d69b23e15ca787e68757914d33c6b0}
+
+
+Definition at line 54 of file TPeakFindPanel.h.
+
+\index{TPeakFindPanel@{TPeakFindPanel}!fCloseClearPolyHF@{fCloseClearPolyHF}}
+\index{fCloseClearPolyHF@{fCloseClearPolyHF}!TPeakFindPanel@{TPeakFindPanel}}
+\subsubsection[{fCloseClearPolyHF}]{\setlength{\rightskip}{0pt plus 5cm}TGHorizontalFrame $\ast$ {\bf TPeakFindPanel::fCloseClearPolyHF}\hspace{0.3cm}{\ttfamily  [private]}}\label{classTPeakFindPanel_a22bfd871341ca3b3ece3e4682531414f}
+
+
+Definition at line 57 of file TPeakFindPanel.h.
+
+\index{TPeakFindPanel@{TPeakFindPanel}!fCloseTB@{fCloseTB}}
+\index{fCloseTB@{fCloseTB}!TPeakFindPanel@{TPeakFindPanel}}
+\subsubsection[{fCloseTB}]{\setlength{\rightskip}{0pt plus 5cm}TGTextButton $\ast$ {\bf TPeakFindPanel::fCloseTB}\hspace{0.3cm}{\ttfamily  [private]}}\label{classTPeakFindPanel_a3e84f92a878fc6810a25ea4f116e8a1c}
+
+
+Definition at line 54 of file TPeakFindPanel.h.
+
+\index{TPeakFindPanel@{TPeakFindPanel}!fDefaultsTB@{fDefaultsTB}}
+\index{fDefaultsTB@{fDefaultsTB}!TPeakFindPanel@{TPeakFindPanel}}
+\subsubsection[{fDefaultsTB}]{\setlength{\rightskip}{0pt plus 5cm}TGTextButton $\ast$ {\bf TPeakFindPanel::fDefaultsTB}\hspace{0.3cm}{\ttfamily  [private]}}\label{classTPeakFindPanel_a9b6f02b821aef2b76c3e3dc5cccca726}
+
+
+Definition at line 54 of file TPeakFindPanel.h.
+
+\index{TPeakFindPanel@{TPeakFindPanel}!fDoFit@{fDoFit}}
+\index{fDoFit@{fDoFit}!TPeakFindPanel@{TPeakFindPanel}}
+\subsubsection[{fDoFit}]{\setlength{\rightskip}{0pt plus 5cm}Bool\_\-t {\bf TPeakFindPanel::fDoFit}\hspace{0.3cm}{\ttfamily  [protected]}}\label{classTPeakFindPanel_a0d1c1e970b53cbae773a3fca98434573}
+
+
+Definition at line 95 of file TPeakFindPanel.h.
+
+\index{TPeakFindPanel@{TPeakFindPanel}!fDoUnzoom@{fDoUnzoom}}
+\index{fDoUnzoom@{fDoUnzoom}!TPeakFindPanel@{TPeakFindPanel}}
+\subsubsection[{fDoUnzoom}]{\setlength{\rightskip}{0pt plus 5cm}Bool\_\-t {\bf TPeakFindPanel::fDoUnzoom}\hspace{0.3cm}{\ttfamily  [protected]}}\label{classTPeakFindPanel_aa389f7df82bc4271586f596129ee7616}
+
+
+Definition at line 95 of file TPeakFindPanel.h.
+
+\index{TPeakFindPanel@{TPeakFindPanel}!fDoUnzoomCB@{fDoUnzoomCB}}
+\index{fDoUnzoomCB@{fDoUnzoomCB}!TPeakFindPanel@{TPeakFindPanel}}
+\subsubsection[{fDoUnzoomCB}]{\setlength{\rightskip}{0pt plus 5cm}TGCheckButton $\ast$ {\bf TPeakFindPanel::fDoUnzoomCB}\hspace{0.3cm}{\ttfamily  [private]}}\label{classTPeakFindPanel_aeebf59829a320058c0293accf850b732}
+
+
+Definition at line 53 of file TPeakFindPanel.h.
+
+\index{TPeakFindPanel@{TPeakFindPanel}!fFindDefaultsHF@{fFindDefaultsHF}}
+\index{fFindDefaultsHF@{fFindDefaultsHF}!TPeakFindPanel@{TPeakFindPanel}}
+\subsubsection[{fFindDefaultsHF}]{\setlength{\rightskip}{0pt plus 5cm}TGHorizontalFrame$\ast$ {\bf TPeakFindPanel::fFindDefaultsHF}\hspace{0.3cm}{\ttfamily  [private]}}\label{classTPeakFindPanel_a6487341a98d29539bba3638b20e27a7b}
+
+
+Definition at line 57 of file TPeakFindPanel.h.
+
+\index{TPeakFindPanel@{TPeakFindPanel}!fFindTB@{fFindTB}}
+\index{fFindTB@{fFindTB}!TPeakFindPanel@{TPeakFindPanel}}
+\subsubsection[{fFindTB}]{\setlength{\rightskip}{0pt plus 5cm}TGTextButton$\ast$ {\bf TPeakFindPanel::fFindTB}\hspace{0.3cm}{\ttfamily  [private]}}\label{classTPeakFindPanel_ac803c9c73a8f00c37b14db60570344e5}
+
+
+Definition at line 54 of file TPeakFindPanel.h.
+
+\index{TPeakFindPanel@{TPeakFindPanel}!fFit@{fFit}}
+\index{fFit@{fFit}!TPeakFindPanel@{TPeakFindPanel}}
+\subsubsection[{fFit}]{\setlength{\rightskip}{0pt plus 5cm}TF1$\ast$ {\bf TPeakFindPanel::fFit}\hspace{0.3cm}{\ttfamily  [protected]}}\label{classTPeakFindPanel_ab3da441de579dbe67bf5195eaf862c55}
+
+
+Definition at line 94 of file TPeakFindPanel.h.
+
+\index{TPeakFindPanel@{TPeakFindPanel}!fMainFrame@{fMainFrame}}
+\index{fMainFrame@{fMainFrame}!TPeakFindPanel@{TPeakFindPanel}}
+\subsubsection[{fMainFrame}]{\setlength{\rightskip}{0pt plus 5cm}TGVerticalFrame$\ast$ {\bf TPeakFindPanel::fMainFrame}\hspace{0.3cm}{\ttfamily  [private]}}\label{classTPeakFindPanel_af76ba4a366293e953618a4dc3590fa5c}
+
+
+Definition at line 55 of file TPeakFindPanel.h.
+
+\index{TPeakFindPanel@{TPeakFindPanel}!fNfound@{fNfound}}
+\index{fNfound@{fNfound}!TPeakFindPanel@{TPeakFindPanel}}
+\subsubsection[{fNfound}]{\setlength{\rightskip}{0pt plus 5cm}Int\_\-t {\bf TPeakFindPanel::fNfound}\hspace{0.3cm}{\ttfamily  [private]}}\label{classTPeakFindPanel_accf2fd543ef0eada73fb8bb84eec599a}
+
+
+Definition at line 60 of file TPeakFindPanel.h.
+
+\index{TPeakFindPanel@{TPeakFindPanel}!fNumberOfPeaks@{fNumberOfPeaks}}
+\index{fNumberOfPeaks@{fNumberOfPeaks}!TPeakFindPanel@{TPeakFindPanel}}
+\subsubsection[{fNumberOfPeaks}]{\setlength{\rightskip}{0pt plus 5cm}Int\_\-t {\bf TPeakFindPanel::fNumberOfPeaks}\hspace{0.3cm}{\ttfamily  [protected]}}\label{classTPeakFindPanel_ae2305f3e528673b10dba75b633adb217}
+
+
+Definition at line 93 of file TPeakFindPanel.h.
+
+\index{TPeakFindPanel@{TPeakFindPanel}!fNumberOfPeaksHF@{fNumberOfPeaksHF}}
+\index{fNumberOfPeaksHF@{fNumberOfPeaksHF}!TPeakFindPanel@{TPeakFindPanel}}
+\subsubsection[{fNumberOfPeaksHF}]{\setlength{\rightskip}{0pt plus 5cm}TGHorizontalFrame$\ast$ {\bf TPeakFindPanel::fNumberOfPeaksHF}\hspace{0.3cm}{\ttfamily  [private]}}\label{classTPeakFindPanel_a2205b631e3ab0cc4ae267a4c2f94e1bf}
+
+
+Definition at line 56 of file TPeakFindPanel.h.
+
+\index{TPeakFindPanel@{TPeakFindPanel}!fNumberOfPeaksNE@{fNumberOfPeaksNE}}
+\index{fNumberOfPeaksNE@{fNumberOfPeaksNE}!TPeakFindPanel@{TPeakFindPanel}}
+\subsubsection[{fNumberOfPeaksNE}]{\setlength{\rightskip}{0pt plus 5cm}TGNumberEntry$\ast$ {\bf TPeakFindPanel::fNumberOfPeaksNE}\hspace{0.3cm}{\ttfamily  [private]}}\label{classTPeakFindPanel_aca4a5235670677da0ecfc79a66b88d3a}
+
+
+Definition at line 52 of file TPeakFindPanel.h.
+
+\index{TPeakFindPanel@{TPeakFindPanel}!fResolution@{fResolution}}
+\index{fResolution@{fResolution}!TPeakFindPanel@{TPeakFindPanel}}
+\subsubsection[{fResolution}]{\setlength{\rightskip}{0pt plus 5cm}Float\_\-t {\bf TPeakFindPanel::fResolution}\hspace{0.3cm}{\ttfamily  [protected]}}\label{classTPeakFindPanel_a6665778f2b2a4629d3d7725da1f10ec4}
+
+
+Definition at line 92 of file TPeakFindPanel.h.
+
+\index{TPeakFindPanel@{TPeakFindPanel}!fResolutionHF@{fResolutionHF}}
+\index{fResolutionHF@{fResolutionHF}!TPeakFindPanel@{TPeakFindPanel}}
+\subsubsection[{fResolutionHF}]{\setlength{\rightskip}{0pt plus 5cm}TGHorizontalFrame $\ast$ {\bf TPeakFindPanel::fResolutionHF}\hspace{0.3cm}{\ttfamily  [private]}}\label{classTPeakFindPanel_acc966fc0c7fa132d0863212bdc11a38e}
+
+
+Definition at line 56 of file TPeakFindPanel.h.
+
+\index{TPeakFindPanel@{TPeakFindPanel}!fResolutionNE@{fResolutionNE}}
+\index{fResolutionNE@{fResolutionNE}!TPeakFindPanel@{TPeakFindPanel}}
+\subsubsection[{fResolutionNE}]{\setlength{\rightskip}{0pt plus 5cm}TGNumberEntry $\ast$ {\bf TPeakFindPanel::fResolutionNE}\hspace{0.3cm}{\ttfamily  [private]}}\label{classTPeakFindPanel_a9043e5dcdcf350b57b5198ef3e790a1d}
+
+
+Definition at line 52 of file TPeakFindPanel.h.
+
+\index{TPeakFindPanel@{TPeakFindPanel}!fSigma@{fSigma}}
+\index{fSigma@{fSigma}!TPeakFindPanel@{TPeakFindPanel}}
+\subsubsection[{fSigma}]{\setlength{\rightskip}{0pt plus 5cm}Double\_\-t {\bf TPeakFindPanel::fSigma}\hspace{0.3cm}{\ttfamily  [protected]}}\label{classTPeakFindPanel_ad969f6854bbc7fc38e2091d0975d50e2}
+
+
+Definition at line 91 of file TPeakFindPanel.h.
+
+\index{TPeakFindPanel@{TPeakFindPanel}!fSigmaHF@{fSigmaHF}}
+\index{fSigmaHF@{fSigmaHF}!TPeakFindPanel@{TPeakFindPanel}}
+\subsubsection[{fSigmaHF}]{\setlength{\rightskip}{0pt plus 5cm}TGHorizontalFrame $\ast$ {\bf TPeakFindPanel::fSigmaHF}\hspace{0.3cm}{\ttfamily  [private]}}\label{classTPeakFindPanel_a031d9ec5bf000c5547391bcddc713c00}
+
+
+Definition at line 56 of file TPeakFindPanel.h.
+
+\index{TPeakFindPanel@{TPeakFindPanel}!fSigmaNE@{fSigmaNE}}
+\index{fSigmaNE@{fSigmaNE}!TPeakFindPanel@{TPeakFindPanel}}
+\subsubsection[{fSigmaNE}]{\setlength{\rightskip}{0pt plus 5cm}TGNumberEntry $\ast$ {\bf TPeakFindPanel::fSigmaNE}\hspace{0.3cm}{\ttfamily  [private]}}\label{classTPeakFindPanel_a58cf52897f07d99bb5ba86a17edd268a}
+
+
+Definition at line 52 of file TPeakFindPanel.h.
+
+\index{TPeakFindPanel@{TPeakFindPanel}!fSpectrum@{fSpectrum}}
+\index{fSpectrum@{fSpectrum}!TPeakFindPanel@{TPeakFindPanel}}
+\subsubsection[{fSpectrum}]{\setlength{\rightskip}{0pt plus 5cm}TSpectrum$\ast$ {\bf TPeakFindPanel::fSpectrum}\hspace{0.3cm}{\ttfamily  [private]}}\label{classTPeakFindPanel_a9edb774f14fa459a97e99a134b765d4e}
+
+
+Definition at line 58 of file TPeakFindPanel.h.
+
+\index{TPeakFindPanel@{TPeakFindPanel}!fThreshold@{fThreshold}}
+\index{fThreshold@{fThreshold}!TPeakFindPanel@{TPeakFindPanel}}
+\subsubsection[{fThreshold}]{\setlength{\rightskip}{0pt plus 5cm}Double\_\-t {\bf TPeakFindPanel::fThreshold}\hspace{0.3cm}{\ttfamily  [protected]}}\label{classTPeakFindPanel_a4fb254ac20318cdfdb04ade53ea60c6f}
+
+
+Definition at line 91 of file TPeakFindPanel.h.
+
+\index{TPeakFindPanel@{TPeakFindPanel}!fThresholdHF@{fThresholdHF}}
+\index{fThresholdHF@{fThresholdHF}!TPeakFindPanel@{TPeakFindPanel}}
+\subsubsection[{fThresholdHF}]{\setlength{\rightskip}{0pt plus 5cm}TGHorizontalFrame $\ast$ {\bf TPeakFindPanel::fThresholdHF}\hspace{0.3cm}{\ttfamily  [private]}}\label{classTPeakFindPanel_a78fef149c7014c9bb22332e6f6acdee1}
+
+
+Definition at line 56 of file TPeakFindPanel.h.
+
+\index{TPeakFindPanel@{TPeakFindPanel}!fThresholdNE@{fThresholdNE}}
+\index{fThresholdNE@{fThresholdNE}!TPeakFindPanel@{TPeakFindPanel}}
+\subsubsection[{fThresholdNE}]{\setlength{\rightskip}{0pt plus 5cm}TGNumberEntry $\ast$ {\bf TPeakFindPanel::fThresholdNE}\hspace{0.3cm}{\ttfamily  [private]}}\label{classTPeakFindPanel_a3e6b761a943f9531a12d7306d81e9a4f}
+
+
+Definition at line 52 of file TPeakFindPanel.h.
+
+\index{TPeakFindPanel@{TPeakFindPanel}!fXpeaks@{fXpeaks}}
+\index{fXpeaks@{fXpeaks}!TPeakFindPanel@{TPeakFindPanel}}
+\subsubsection[{fXpeaks}]{\setlength{\rightskip}{0pt plus 5cm}Float\_\-t$\ast$ {\bf TPeakFindPanel::fXpeaks}\hspace{0.3cm}{\ttfamily  [private]}}\label{classTPeakFindPanel_a608e0abc2668fdec2807029a3de23850}
+
+
+Definition at line 61 of file TPeakFindPanel.h.
+
+\index{TPeakFindPanel@{TPeakFindPanel}!fYpeaks@{fYpeaks}}
+\index{fYpeaks@{fYpeaks}!TPeakFindPanel@{TPeakFindPanel}}
+\subsubsection[{fYpeaks}]{\setlength{\rightskip}{0pt plus 5cm}Float\_\-t$\ast$ {\bf TPeakFindPanel::fYpeaks}\hspace{0.3cm}{\ttfamily  [private]}}\label{classTPeakFindPanel_aff0806bd79c6b606fdb13a3bced11359}
+
+
+[fNfound] 
+
+
+
+Definition at line 62 of file TPeakFindPanel.h.
+
+
+
+The documentation for this class was generated from the following file:\begin{DoxyCompactItemize}
+\item 
+{\bf TPeakFindPanel.h}\end{DoxyCompactItemize}

@@ -1,0 +1,63 @@
+.TH "AR_INFO" 3 "31 May 2012" "Version 2.3.0-0" "Midas" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+AR_INFO \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "\fBINT\fP \fBevent_id\fP"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBtrigger_mask\fP"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBsampling_type\fP"
+.br
+.ti -1c
+.RI "char \fBbuffer\fP [NAME_LENGTH]"
+.br
+.ti -1c
+.RI "\fBBOOL\fP \fBenabled\fP"
+.br
+.ti -1c
+.RI "char \fBclient_name\fP [NAME_LENGTH]"
+.br
+.ti -1c
+.RI "char \fBhost\fP [NAME_LENGTH]"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 1103 of file midas.h.
+.SH "Field Documentation"
+.PP 
+.SS "char \fBAR_INFO::buffer\fP[NAME_LENGTH]"Event buffer to send events into 
+.PP
+Definition at line 1107 of file midas.h.
+.SS "char \fBAR_INFO::client_name\fP[NAME_LENGTH]"Analyzer name 
+.PP
+Definition at line 1109 of file midas.h.
+.SS "\fBBOOL\fP \fBAR_INFO::enabled\fP"Enable flag 
+.PP
+Definition at line 1108 of file midas.h.
+.SS "\fBINT\fP \fBAR_INFO::event_id\fP"Event ID associated with equipm. 
+.PP
+Definition at line 1104 of file midas.h.
+.SS "char \fBAR_INFO::host\fP[NAME_LENGTH]"Host on which analyzer is running 
+.PP
+Definition at line 1110 of file midas.h.
+.SS "\fBINT\fP \fBAR_INFO::sampling_type\fP"GET_ALL/GET_NONBLOCKING/GET_RECENT 
+.PP
+Definition at line 1106 of file midas.h.
+.SS "\fBINT\fP \fBAR_INFO::trigger_mask\fP"Trigger mask 
+.PP
+Definition at line 1105 of file midas.h.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Midas from the source code.

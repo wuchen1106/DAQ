@@ -1,0 +1,216 @@
+.TH "FE_eqdec" 3 "31 May 2012" "Version 2.3.0-0" "Midas" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+FE_eqdec \- Equipment list for a Frontend 
+.PP
+
+.br
+  
+.SH "Example of equipment declaration"
+.PP
+ Click on each parameter link for details. 
+.PP
+Example Equipment declaration from \fBfrontend.c\fP
+.br
+  Equivalent ODB common structure created by \fBmfe.c\fP
+.br
+   
+.br
+  
+.br
+   
+.PP
+.nf
+
+.fi
+.PP
+.PP
+.PP
+.nf
+-- Equipment list ------------------------------------------------ 
+EQUIPMENT equipment[] = {   // start of EQUIPMENT structure  
+.fi
+.PP
+  // Definition of Trigger Equipment :
+.br
+  
+.br
+  
+.PP
+.PP
+.nf
+
+{ 'Trigger',                          \fB// equipment name\fP
+     { 1,                            \fB// event ID\fP
+       0,                            \fB// trigger mask\fP
+       'SYSTEM',                     \fB// event buffer\fP
+#ifdef USE_INT
+       EQ_INTERRUPT,                 \fB// equipment type\fP 
+#else
+       EQ_POLLED,                    \fB// equipment type \fP
+#endif
+       \fBLAM_SOURCE(0, 0xFFFFFF)\fP,      \fB// event source crate 0, all stations\fP
+       'MIDAS',                      \fB// format\fP
+       TRUE,                         \fB// enabled \fP
+       RO_RUNNING | RO_ODB \fB// read when running and update ODB \fP      
+       500,                          \fB// poll for 500ms  \fP
+       0,                            \fB// stop run after this event limit \fP
+       0,                            \fB// number of sub events \fP
+       0,                            \fB// log history\fP 
+       '',                           \fB// Reserved\fP
+       '',                           \fB// Reserved\fP
+       '',},                         \fB// Reserved\fP
+       read_trigger_event,           \fB// Readout Routine\fP    
+the following is required only if data is to be saved in \fBROOT format\fP
+       NULL,                         \fB// Reserved\fP
+       NULL,                         \fB// Reserved\fP
+       trigger_bank_list,            \fB// bank list\fP
+end of required \fBparameters\fP for ROOT format
+     },
+.fi
+.PP
+  
+.PP
+.nf
+
+.fi
+.PP
+.PP
+.PP
+.nf
+[/Equipment/Trigger/Common]
+.fi
+.PP
+.PP
+.PP
+.nf
+.fi
+.PP
+   // Definition of Scaler Equipment :
+.br
+  
+.br
+  
+.PP
+.PP
+.nf
+
+{ 'Scaler',                          \fB// equipment name\fP
+     { 2,                            \fB// event ID\fP
+       0,                            \fB// trigger mask\fP
+       'SYSTEM',                     \fB// event buffer\fP
+       EQ_PERIODIC | EQ_MANUAL_TRIG, \fB// equipment type \fP
+       0,                            \fB// event source\fP
+       'MIDAS',                      \fB// format\fP
+       TRUE,                         \fB// enabled \fP
+       RO_RUNNING | RO_TRANSITIONS | \fB// read when running and on transitions \fP      
+       RO_ODB,                       \fB// and update ODB \fP
+       10000,                        \fB// read every 10 sec\fP
+       0,                            \fB// stop run after this event limit \fP
+       0,                            \fB// number of sub events \fP
+       0,                            \fB// log history\fP 
+       '',                           \fB// Reserved\fP
+       '',                           \fB// Reserved\fP
+       '',},                         \fB// Reserved\fP
+       read_scaler_event,            \fB// Readout Routine\fP 
+the following is required only if data is to be saved in \fBROOT format\fP
+       NULL,                         \fB// Reserved\fP
+       NULL,                         \fB// Reserved\fP
+       scaler_bank_list,             \fB// bank list\fP
+end of required \fBparameters\fP for ROOT format
+     },
+.fi
+.PP
+ 
+.PP
+.nf
+
+.fi
+.PP
+.PP
+.PP
+.nf
+
+[/Equipment/Scaler/Common]
+.fi
+.PP
+.PP
+.PP
+.nf
+Event ID = WORD : 2
+Trigger mask = WORD : 0
+Buffer = STRING : [32] SYSTEM
+Type = INT : 17
+Source = INT : 0
+Format = STRING : [8] MIDAS
+Enabled = BOOL : y
+Read on = INT : 121
+Period = INT : 10000
+Event limit = DOUBLE : 0
+Num subevents = DWORD : 0
+Log history = INT : 0
+Frontend host = STRING : [32] lxhost1
+Frontend name = STRING : [32] fe
+Frontend file name = STRING : [256] \fBfrontend.c\fP
+.fi
+.PP
+  
+.PP
+// Repeat for any other defined Equipments 
+.br
+  
+.PP
+.PP
+.nf
+
+     {''}
+};              // end of EQUIPMENT structure
+.fi
+.PP
+  
+.br
+   
+.PP
+ 
+.SH "ROOT structure definition for frontend EQUIPMENT list"
+.PP
+This example shows a structured bank and a standard variable length bank declaration for the trigger bank list. 
+.br
+.PP
+.PP
+.nf
+   ADC0_BANK_STR(adc0_bank_str);
+   BANK_LIST trigger_bank_list[] = {
+      {'ADC0', TID_STRUCT, sizeof(ADC0_BANK), adc0_bank_str},
+      {'TDC0', TID_WORD, N_TDC, NULL},
+      {''},
+   };
+
+   BANK_LIST scaler_bank_list[] = {
+      {'SCLR', TID_DWORD, N_ADC, NULL},
+      {''},
+   };
+.fi
+.PP
+.PP
+The \fBformats\fP for the ADC0 bank is 'fixed', and for the TDC0 bank 'midas'.
+.br
+ This structure definition must be declared in the parameter \fBBank Definition\fP in the equipment list as in the example \fBabove\fP.
+.br
+ 
+.br
+.PP
+ 
+.SH "Equipment Settings in ODB"
+.PP
+Every time the frontend is initialized, it \fBcopies the equipment settings to the ODB\fP under /Equipment/<equipment name>/Common (see \fBexample\fP).
+.br
+ 
+.br
+.PP
+
+.br
+ 
+.PP
+ 

@@ -1,0 +1,102 @@
+.TH "RC_mhttpd_Program_page" 3 "31 May 2012" "Version 2.3.0-0" "Midas" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+RC_mhttpd_Program_page \- Programs page 
+ 
+.br
+.PP
+.PP
+
+.br
+ The \fBPrograms\fP page is displayed by clicking on the \fBPrograms\fP \fBButton\fP ( \fBif present\fP) on the \fBMain Status Page\fP .
+.PP
+This page presents the current active list of the clients attached to the given experiment. On the right hand side, a dedicated button allows the user to stop a particular client. This is equivalent to the \fBODBedit shutdown\fP command. For example, pressing the \fB'stop Speaker'\fP button (see example below) would be equivalent to 
+.PP
+.nf
+odbedit> sh Speaker
+
+.fi
+.PP
+.PP
+Clicking the client name hyperlink (on the left hand side of the page) pops up a new window pointing to the ODB \fB/Programs\fP subdirectory related to that particular client (see \fBThe ODB /Programs tree\fP). Example 1 shows the Programs page with a number of clients running. The hyperlink for the client \fBltnoRC\fP has been clicked, and the popup window shows the ODB path \fB/Programs/ltnoRC\fP.
+.PP
+
+.br
+
+.br
+
+.br
+   Example 1: mhttpd Programs page. 
+.br
+
+.br
+
+.br
+    
+.br
+
+.br
+
+.br
+.PP
+The ODB structure for \fBeach client\fP should be customized by the user (see \fBCustomize the ODB /Programs tree\fP ). 
+.br
+ 
+.PP
+\fBNote:\fP
+.RS 4
+The buttons and other information that appears on the \fBPrograms\fP mhttpd page depends on the settings of the fields of the /Programs/<\fIclient\fP > subdirectory.
+.RE
+.PP
+ Example 2 shows the case where \fBmlogger\fP is running, but is not \fBRequired\fP (i.e. \fB/Programs/logger/required\fP is false). When \fBmlogger\fP is stopped by pressing the key \fB'Stop Logger'\fP on the \fBPrograms\fP page, the \fBLogger\fP program is no longer displayed. This is because  clients which are not \fBRequired\fP are not shown in the \fBPrograms\fP page unless they are running.
+.PP
+
+.br
+
+.br
+
+.br
+   Example 2: Programs page - mlogger utility is not \fBRequired\fP 
+.br
+
+.br
+
+.br
+    
+.br
+
+.br
+
+.br
+.PP
+In Example 3, mlogger's \fBRequired\fP flag has been set true. In this case, when mlogger is stopped the line for the Logger program is retained. Because a \fBStart Command\fP has been supplied, the \fB'Start Logger' button\fP is displayed. Pressing this will cause the \fBStart Command\fP to be issued, and mlogger should start. The \fB /Programs/< \fIclient\fP > tree \fP also provides for a client to be \fBautomatically started or restarted\fP.
+.PP
+Note that an \fBAlarm Class\fP has also been supplied, giving rise to the \fBAlarm banner\fP on the main status page. See \fBMIDAS Alarm System\fP for details.
+.PP
+
+.br
+
+.br
+
+.br
+  Example 3: Programs page - mlogger utility \fBis\fP \fBRequired\fP and an alarm class has been specified 
+.br
+
+.br
+
+.br
+   
+.br
+
+.br
+
+.br
+.PP
+
+.br
+.PP
+.PP
+
+.br
+  

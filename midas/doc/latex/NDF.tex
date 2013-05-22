@@ -1,0 +1,79 @@
+\par
+  \par
+\hypertarget{NDF_ndf_info}{}\subsection{General Information}\label{NDF_ndf_info}
+This section will describe what {\bfseries new features} are available with new versions of the MIDAS code. References will be given to these features in the documentation, and they will be highlighted in the text like this. Also included will be any other relevent changes, such as \char`\"{}old features\char`\"{} that were standard, but have since become obsolescent. These may have been made optional or removed.
+
+See also the \href{https://ladd00.triumf.ca/elog/Midas}{\tt Midas Elog Forum} for
+\begin{DoxyItemize}
+\item Requests for new features,
+\item Bug reports etc \href{https://ladd00.triumf.ca/elog/Midas}{\tt https://ladd00.triumf.ca/elog/Midas}
+\item yet-\/to-\/be-\/documented new features
+\end{DoxyItemize}\hypertarget{NDF_NDF_versions}{}\subsubsection{Note on MIDAS Versions}\label{NDF_NDF_versions}
+Historically, the MIDAS package was released with an overall version (e.g. 1.9.5, 2.2.0 etc). This had the disadvantage that many new features were not available until the release of the next version.
+
+\par
+ The package release system has been discontinued. The latest version of the MIDAS package is now available from the \href{http://savannah.psi.ch/viewcvs/trunk/?root=midas}{\tt online SVN } repository. As a changes are made to the files in the MIDAS package, a common version number is incremented. Each file has an individual version number, but updates of a particular file in svn will not necessarily have consecutive version numbers. For example, the next version of mhttpd.c after 4708 is 4722. The missing version numbers have been used to update different files in the package. Checking out the MIDAS package on a particular day will get the latest working version of the MIDAS package with all the new features. \par
+ In this documentation, new features will be dated (month/year) after which an update from svn will include the new feature. The version of the file (and therefore of the MIDAS package) that included the new feature is listed \hyperlink{NDF_ndf_New_Features}{below}. Features will be considered to be \char`\"{}new\char`\"{} for a year or so, then will become standard, and no longer be listed is this file,\hypertarget{NDF_ndf_New_Features}{}\subsection{New Documented Features}\label{NDF_ndf_New_Features}
+\label{NDF_idx_YBOS}
+\hypertarget{NDF_idx_YBOS}{}
+ \hypertarget{NDF_ndf_sep_2010}{}\subsubsection{Sep 2010}\label{NDF_ndf_sep_2010}
+
+\begin{DoxyItemize}
+\item Removal of the YBOS support, ybos files replaced by mdsupport.
+\end{DoxyItemize}\hypertarget{NDF_ndf_may_2010}{}\subsubsection{May 2010}\label{NDF_ndf_may_2010}
+
+\begin{DoxyItemize}
+\item bit operations for custom fills -\/ see \hyperlink{RC_mhttpd_Image_access_RC_mhttpd_fills_src_logical}{fills/SRC: Logical calculation} (mhttpd.c 4708)
+\item Arrays can now be written with \hyperlink{RC_mhttpd_custom_ODB_access_RC_mhttpd_custom_odbset}{ODBSet JavaScript function} (mhttpd.c 4707)
+\end{DoxyItemize}\hypertarget{NDF_ndf_jan_2010}{}\subsubsection{Jan 2010}\label{NDF_ndf_jan_2010}
+
+\begin{DoxyItemize}
+\item Four different rows for the various buttons on the \hyperlink{RC_mhttpd_status_page_redesign_alias_buttons_status_page}{Status page}
+\end{DoxyItemize}\hypertarget{NDF_ndf_dec_2009}{}\subsubsection{Dec 2009}\label{NDF_ndf_dec_2009}
+
+\begin{DoxyItemize}
+\item Implemented MSCB Page (mhttpd.c 4659) replacing the old CNAF page
+\item Option to customize the \hyperlink{RC_mhttpd_status_page_features_RC_mhttpd_status_menu_buttons}{menu buttons} appearing on the main status page (mhttpd.c 4646)
+\item Removed 'analyzed' column (Main Status page) (mhttpd.c 4644)
+\item Changed Alias and Custom links to Buttons -\/ see \hyperlink{RC_mhttpd_status_page_redesign_alias_buttons_status_page}{example} (mhttpd.c 4633)
+\end{DoxyItemize}
+
+Since the column on the main MIDAS status page with fraction of analyzed events was barely used, it has been dropped. It did not make sense for all slow control events. In case this feature is required in some experiment, it will be moved into a custom page and the ratio calculated in JavaScript, where there is much more flexibility.
+
+This modification frees up more space on the status page for the \char`\"{}Status\char`\"{} column, where front-\/end programs can report errors etc.\hypertarget{NDF_ndf_nov_2009}{}\subsubsection{Nov 2009}\label{NDF_ndf_nov_2009}
+
+\begin{DoxyItemize}
+\item Direct serving of GIF images from file system in custom pages (mhttpd.c 4631)
+\item Option to hide the run start/stop buttons ( see \hyperlink{RC_customize_ODB_RC_customize_mhttpd_run_buttons}{details} );
+\item experiment name now shown in status page title and elog email (mhttpd.c 4629)
+\end{DoxyItemize}\hypertarget{NDF_ndf_sep_2009}{}\subsubsection{Sep 2009}\label{NDF_ndf_sep_2009}
+
+\begin{DoxyItemize}
+\item implemented \hyperlink{F_Logging_Data_F_Logger_Run_Duration}{run duration} (mlogger.c 4561)
+\end{DoxyItemize}\hypertarget{NDF_ndf_jun_2009}{}\subsubsection{Jun 2009}\label{NDF_ndf_jun_2009}
+
+\begin{DoxyItemize}
+\item shows Run start/stop requested on main status page until mtransition starts -\/ see \hyperlink{RC_mhttpd_Start_page}{Start page} (mhttpd.c 4520)
+\end{DoxyItemize}\hypertarget{NDF_ndf_jan_2009}{}\subsubsection{Jan 2009}\label{NDF_ndf_jan_2009}
+
+\begin{DoxyItemize}
+\item Improvements to the History system (mlogger.c, mhttpd.c 4435)\par
+ {\bfseries Note:} backup ODB before using the following:
+\begin{DoxyItemize}
+\item history in SQL database (see \hyperlink{F_History_logging_F_History_sql_internal}{MIDAS SQL History system})
+\begin{DoxyItemize}
+\item see \hyperlink{F_History_logging_F_new_history_tags}{Note on /History/Tags}
+\end{DoxyItemize}
+\item experimental implementation of \char`\"{}ODBRpc\char`\"{} \hyperlink{RC_mhttpd_custom_RPC_access}{ODB RPC access} added to the MIDAS javascript library
+\end{DoxyItemize}
+\end{DoxyItemize}\hypertarget{NDF_ndf_feb_2008}{}\subsubsection{Feb 2008}\label{NDF_ndf_feb_2008}
+
+\begin{DoxyItemize}
+\item \hyperlink{RC_mhttpd_utility_RC_mhttpd_proxy}{Proxy Access to mhttpd}
+\end{DoxyItemize}
+
+\par
+ \label{index_end}
+\hypertarget{index_end}{}
+  \par
+ 

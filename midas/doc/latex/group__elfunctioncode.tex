@@ -1,0 +1,25 @@
+\subsection{Midas Elog Functions (el\_\-xxx)}
+\label{group__elfunctioncode}\index{Midas Elog Functions (el\_\-xxx)@{Midas Elog Functions (el\_\-xxx)}}
+\subsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{group__elfunctioncode_gae698a2d388573565a5673afbd3b40f9b}{el\_\-submit} (int run, const char $\ast$author, const char $\ast$type, const char $\ast$syst, const char $\ast$subject, const char $\ast$text, const char $\ast$reply\_\-to, const char $\ast$encoding, const char $\ast$afilename1, char $\ast$buffer1, \hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} buffer\_\-size1, const char $\ast$afilename2, char $\ast$buffer2, \hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} buffer\_\-size2, const char $\ast$afilename3, char $\ast$buffer3, \hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} buffer\_\-size3, char $\ast$tag, \hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} tag\_\-size)
+\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+dox 
+
+\subsubsection{Function Documentation}
+\index{elfunctioncode@{elfunctioncode}!el\_\-submit@{el\_\-submit}}
+\index{el\_\-submit@{el\_\-submit}!elfunctioncode@{elfunctioncode}}
+\paragraph[{el\_\-submit}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} el\_\-submit (int {\em run}, \/  const char $\ast$ {\em author}, \/  const char $\ast$ {\em type}, \/  const char $\ast$ {\em syst}, \/  const char $\ast$ {\em subject}, \/  const char $\ast$ {\em text}, \/  const char $\ast$ {\em reply\_\-to}, \/  const char $\ast$ {\em encoding}, \/  const char $\ast$ {\em afilename1}, \/  char $\ast$ {\em buffer1}, \/  {\bf INT} {\em buffer\_\-size1}, \/  const char $\ast$ {\em afilename2}, \/  char $\ast$ {\em buffer2}, \/  {\bf INT} {\em buffer\_\-size2}, \/  const char $\ast$ {\em afilename3}, \/  char $\ast$ {\em buffer3}, \/  {\bf INT} {\em buffer\_\-size3}, \/  char $\ast$ {\em tag}, \/  {\bf INT} {\em tag\_\-size})}\hfill\label{group__elfunctioncode_gae698a2d388573565a5673afbd3b40f9b}
+dox Submit an ELog entry. 
+\begin{DoxyParams}{Parameters}
+\item[{\em run}]Run Number. \item[{\em author}]Message author. \item[{\em type}]Message type. \item[{\em syst}]Message system. \item[{\em subject}]Subject. \item[{\em text}]Message text. \item[{\em reply\_\-to}]In reply to this message. \item[{\em encoding}]Text encoding, either HTML or plain. \item[{\em afilename1}]File name of attachment. \item[{\em buffer1}]File contents. \item[{\em buffer\_\-size1}]Size of buffer in bytes. \item[{\em afilename2}]File name of attachment. \item[{\em buffer2}]File contents. \item[{\em buffer\_\-size2}]Size of buffer in bytes. \item[{\em afilename3}]File name of attachment. \item[{\em buffer3}]File contents. \item[{\em buffer\_\-size3}]Size of buffer in bytes. \item[{\em tag}]If given, edit existing message. \item[{\em tag\_\-size}]Maximum size of tag. \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+EL\_\-SUCCESS 
+\end{DoxyReturn}
+
+
+Definition at line 81 of file elog.c.

@@ -1,0 +1,174 @@
+.TH "sis3801.c" 3 "31 May 2012" "Version 2.3.0-0" "Midas" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+sis3801.c \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBDWORD\fP \fBsis3801_module_ID\fP (\fBMVME_INTERFACE\fP *mvme, \fBDWORD\fP base)"
+.br
+.ti -1c
+.RI "\fBDWORD\fP \fBsis3801_IRQ_REG_read\fP (\fBMVME_INTERFACE\fP *mvme, \fBDWORD\fP base)"
+.br
+.ti -1c
+.RI "\fBDWORD\fP \fBsis3801_IRQ_REG_write\fP (\fBMVME_INTERFACE\fP *mvme, \fBDWORD\fP base, \fBDWORD\fP vector)"
+.br
+.ti -1c
+.RI "\fBDWORD\fP \fBsis3801_input_mode\fP (\fBMVME_INTERFACE\fP *mvme, \fBDWORD\fP base, \fBDWORD\fP mode)"
+.br
+.ti -1c
+.RI "\fBDWORD\fP \fBsis3801_dwell_time\fP (\fBMVME_INTERFACE\fP *mvme, \fBDWORD\fP base, \fBDWORD\fP dwell)"
+.br
+.ti -1c
+.RI "int \fBsis3801_ref1\fP (\fBMVME_INTERFACE\fP *mvme, \fBDWORD\fP base, \fBDWORD\fP endis)"
+.br
+.ti -1c
+.RI "void \fBsis3801_channel_enable\fP (\fBMVME_INTERFACE\fP *mvme, \fBDWORD\fP base, \fBDWORD\fP nch)"
+.br
+.ti -1c
+.RI "\fBDWORD\fP \fBsis3801_CSR_read\fP (\fBMVME_INTERFACE\fP *mvme, \fBDWORD\fP base, const \fBDWORD\fP what)"
+.br
+.ti -1c
+.RI "\fBDWORD\fP \fBsis3801_CSR_write\fP (\fBMVME_INTERFACE\fP *mvme, \fBDWORD\fP base, const \fBDWORD\fP what)"
+.br
+.ti -1c
+.RI "void \fBsis3801_FIFO_clear\fP (\fBMVME_INTERFACE\fP *mvme, \fBDWORD\fP base)"
+.br
+.ti -1c
+.RI "int \fBsis3801_HFIFO_read\fP (\fBMVME_INTERFACE\fP *mvme, \fBDWORD\fP base, \fBDWORD\fP *pfifo)"
+.br
+.ti -1c
+.RI "int \fBsis3801_FIFO_flush\fP (\fBMVME_INTERFACE\fP *mvme, \fBDWORD\fP base, \fBDWORD\fP *pfifo)"
+.br
+.ti -1c
+.RI "void \fBsis3801_int_source_enable\fP (\fBMVME_INTERFACE\fP *mvme, \fBDWORD\fP base, const int intnum)"
+.br
+.ti -1c
+.RI "void \fBsis3801_int_source_disable\fP (\fBMVME_INTERFACE\fP *mvme, \fBDWORD\fP base, const int intnum)"
+.br
+.ti -1c
+.RI "void \fBsis3801_int_source\fP (\fBMVME_INTERFACE\fP *mvme, \fBDWORD\fP base, \fBDWORD\fP int_source)"
+.br
+.ti -1c
+.RI "void \fBsis3801_int_attach\fP (\fBMVME_INTERFACE\fP *mvme, \fBDWORD\fP base, \fBDWORD\fP base_vect, int level, void(*isr)(void))"
+.br
+.ti -1c
+.RI "void \fBsis3801_int_detach\fP (\fBMVME_INTERFACE\fP *mvme, \fBDWORD\fP base, \fBDWORD\fP base_vect, int level)"
+.br
+.ti -1c
+.RI "void \fBsis3801_int_clear\fP (\fBMVME_INTERFACE\fP *mvme, \fBDWORD\fP base, const int intnum)"
+.br
+.ti -1c
+.RI "int \fBsis3801_Setup\fP (\fBMVME_INTERFACE\fP *mvme, \fBDWORD\fP base, int mode)"
+.br
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "static void myisr (int sig, siginfo_t * siginfo, void * extra)\fC [static]\fP"
+.PP
+Definition at line 612 of file sis3801.c.
+.SS "void sis3801_channel_enable (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base, \fBDWORD\fP nch)"Purpose: Enable nch channel for acquistion. blind command! 1..24 or 32 
+.PP
+Definition at line 205 of file sis3801.c.
+.SS "\fBDWORD\fP sis3801_CSR_read (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base, const \fBDWORD\fP what)"Purpose: Read the CSR and return 1/0 based on what. except for what == CSR_FULL where it returns current CSR 
+.PP
+Definition at line 224 of file sis3801.c.
+.PP
+Referenced by sis3801_CSR_write(), sis3801_FIFO_flush(), sis3801_HFIFO_read(), and sis3801_Status().
+.SS "\fBDWORD\fP sis3801_CSR_write (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base, const \fBDWORD\fP what)"Purpose: Write to the CSR and return CSR_FULL. 
+.PP
+Definition at line 250 of file sis3801.c.
+.SS "\fBDWORD\fP sis3801_dwell_time (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base, \fBDWORD\fP dwell)"Purpose: Set dwell time in us DWORD dwell : dwell time in microseconds 
+.PP
+Definition at line 128 of file sis3801.c.
+.SS "void sis3801_FIFO_clear (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base)"Purpose: Clear FIFO and logic 
+.PP
+Definition at line 270 of file sis3801.c.
+.SS "int sis3801_FIFO_flush (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base, \fBDWORD\fP * pfifo)"Purpose: Test and read FIFO until empty This is done using while, if the dwelling time is short relative to the readout time, the pfifo can be overrun. No test on the max read yet! Function value: int : -1 FULL number of words read 
+.PP
+Definition at line 323 of file sis3801.c.
+.SS "int sis3801_HFIFO_read (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base, \fBDWORD\fP * pfifo)"Purpose: Reads 32KB (8K DWORD) of the FIFO Function value: int : -1 FULL 0 NOT 1/2 Full number of words read 
+.PP
+Definition at line 291 of file sis3801.c.
+.SS "\fBDWORD\fP sis3801_input_mode (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base, \fBDWORD\fP mode)"Purpose: Set input configuration mode DWORD mode : Mode 0-4 
+.PP
+Definition at line 106 of file sis3801.c.
+.PP
+Referenced by sis3801_Status().
+.SS "void sis3801_int_attach (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base, \fBDWORD\fP base_vect, int level, void(*)(void) isr)"Purpose: Book an ISR for a bitwise set of interrupt input (0xff). The interrupt vector is then the VECTOR_BASE+intnum Input: DWORD * base_addr : base address of the sis3801 DWORD base_vect : base vector of the module int level : IRQ level (1..7) DWORD isr_routine : interrupt routine pointer 
+.PP
+Definition at line 448 of file sis3801.c.
+.SS "void sis3801_int_clear (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base, const int intnum)"Purpose: Disable the interrupt for the bitwise input intnum (0xff). The interrupt vector is then the VECTOR_BASE+intnum Input: DWORD * base_addr : base address of the sis3801 int * intnum : interrupt number (input 0..3) 
+.PP
+Definition at line 494 of file sis3801.c.
+.SS "void sis3801_int_detach (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base, \fBDWORD\fP base_vect, int level)"Purpose: Unbook an ISR for a bitwise set of interrupt input (0xff). The interrupt vector is then the VECTOR_BASE+intnum Input: DWORD * base_addr : base address of the sis3801 DWORD base_vect : base vector of the module int level : IRQ level (1..7) 
+.PP
+Definition at line 475 of file sis3801.c.
+.SS "void sis3801_int_source (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base, \fBDWORD\fP int_source)"Purpose: Enable the one of the 4 interrupt using the predefined \fBparameters\fP (see \fBsis3801.h\fP) DWORD * intnum : interrupt number (input 0..3) 
+.PP
+Definition at line 422 of file sis3801.c.
+.PP
+Referenced by sis3801_int_attach(), and sis3801_int_detach().
+.SS "void sis3801_int_source_disable (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base, const int intnum)"Purpose: Enable the interrupt for the bitwise input intnum (0xff). The interrupt vector is then the VECTOR_BASE 
+.PP
+Definition at line 385 of file sis3801.c.
+.SS "void sis3801_int_source_enable (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base, const int intnum)"Purpose: Enable the interrupt for the bitwise input intnum (0xff). The interrupt vector is then the VECTOR_BASE 
+.PP
+Definition at line 349 of file sis3801.c.
+.SS "\fBDWORD\fP sis3801_IRQ_REG_read (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base)"DWORD : 0xE(1)L(3)V(8) 
+.PP
+Definition at line 68 of file sis3801.c.
+.SS "\fBDWORD\fP sis3801_IRQ_REG_write (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base, \fBDWORD\fP vector)"Purpose: write irq (ELV) to the register and read back DWORD : 0xE(1)L(3)V(8) 
+.PP
+Definition at line 86 of file sis3801.c.
+.SS "\fBDWORD\fP sis3801_module_ID (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base)"Module ID Purpose: return the Module ID number (I) version (V) IRQ level (L) IRQ vector# (BB) 0xIIIIVLBB 
+.PP
+Definition at line 37 of file sis3801.c.
+.PP
+Referenced by sis3801_Status().
+.SS "void sis3801_module_reset (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base)"
+.PP
+Definition at line 52 of file sis3801.c.
+.SS "int sis3801_next_logic (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base, \fBDWORD\fP endis)"
+.PP
+Definition at line 178 of file sis3801.c.
+.SS "int sis3801_ref1 (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base, \fBDWORD\fP endis)"Purpose: Enable/Disable Reference on Channel 1 DWORD endis : action either ENABLE_REF_CH1 DISABLE_REF_CH1 
+.PP
+Definition at line 152 of file sis3801.c.
+.SS "int sis3801_Setup (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base, int mode)"Sets all the necessary \fBparameters\fP for a given configuration. The configuration is provided by the mode argument. Add your own configuration in the case statement. Let me know your setting if you want to include it in the distribution. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fI*mvme\fP VME structure 
+.br
+\fIbase\fP Module base address 
+.br
+\fImode\fP Configuration mode number 
+.br
+\fI*nentry\fP number of entries requested and returned. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+MVME_SUCCESS 
+.RE
+.PP
+
+.PP
+Definition at line 544 of file sis3801.c.
+.SS "void sis3801_Status (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base)"
+.PP
+Definition at line 572 of file sis3801.c.
+.SH "Variable Documentation"
+.PP 
+.SS "int \fBintflag\fP = 0"
+.PP
+Definition at line 610 of file sis3801.c.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Midas from the source code.

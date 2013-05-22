@@ -1,0 +1,25 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$a00032.html#aa1cb5793f05100370e0e0c8346e8cf76" title="Connect to MIDAS experiment." alt="" coords="133,5,309,35"/>
+<area shape="rect" id="node5" href="$a00030.html#af7b600b29911a56e604a2bd0159a8664" title="return pointer to the data buffer" alt="" coords="435,645,613,675"/>
+<area shape="rect" id="node11" href="$a00032.html#a8c926749be13682ed03a6561d9f3c3f9" title="TMidasOnline::instance" alt="" coords="132,59,311,88"/>
+<area shape="rect" id="node15" href="$a00045.html#a038606bd532a676949b3d7889e37c1cc" title="Read size of an array." alt="" coords="111,165,332,195"/>
+<area shape="rect" id="node17" href="$a00045.html#ab282d9685e765d1fe15254a22507af31" title="Read a boolean value, midas type TID_BOOL." alt="" coords="127,219,316,248"/>
+<area shape="rect" id="node19" href="$a00045.html#aeccfd3e813b1c531a8baa10ac7ef7d95" title="Read an 64&#45;bit floating point value, midas type TID_DOUBLET." alt="" coords="119,272,324,301"/>
+<area shape="rect" id="node21" href="$a00045.html#a98d121aa5782ff9b602884c5a2e8cda3" title="Read an integer value, midas type TID_INT." alt="" coords="132,325,311,355"/>
+<area shape="rect" id="node23" href="$a00045.html#a4c350d5bda55858a735a33e7aad619cb" title="Read a string value, midas type TID_STRING." alt="" coords="123,379,320,408"/>
+<area shape="rect" id="node25" href="$a00045.html#a5267388981718423c1514ecccd9932d0" title="Read an unsigned 32&#45;bit integer value, midas type TID_DWORD." alt="" coords="120,432,323,461"/>
+<area shape="rect" id="node27" href="$a00031.html#a0f39c35bb559a648f46a5b0d05c16768" title="Open input file." alt="" coords="153,112,289,141"/>
+<area shape="rect" id="node33" href="$a00031.html#acd25594fcc51873a05fd16ec24979940" title="Read one event from the file." alt="" coords="155,485,288,515"/>
+<area shape="rect" id="node7" href="$a00030.html#a49f5869d31fb4f9ec1f6c9db12050fee" title="allocate data buffer using the existing event header" alt="" coords="715,565,923,595"/>
+<area shape="rect" id="node9" href="$a00030.html#a7431aed59b35c7850894ea8fafd01964" title="validate the event length" alt="" coords="971,420,1163,449"/>
+<area shape="rect" id="node13" href="$a00032.html#a275df9582e34e400e3743d953b91adc4" title="default constructor is private for singleton classes" alt="" coords="420,59,628,88"/>
+<area shape="rect" id="node29" href="$a00031.html#a693315cd892c50575f44c46080a339b8" title="Close input file." alt="" coords="456,165,592,195"/>
+<area shape="rect" id="node31" href="$a00136.html#acc3a0586541b034e8d61632b1c093dde" title="hasSuffix" alt="" coords="483,112,565,141"/>
+<area shape="rect" id="node35" href="$a00030.html#a2eaf81576e2c7b54ab3af3ec1da749bd" title="clear event for reuse" alt="" coords="447,539,601,568"/>
+<area shape="rect" id="node38" href="$a00030.html#a339db17cb1f0d30c298d008fa380f164" title="return the event size" alt="" coords="421,592,627,621"/>
+<area shape="rect" id="node40" href="$a00030.html#a185596086a78015119f24c5e5132f2d0" title="return pointer to the event header" alt="" coords="407,325,641,355"/>
+<area shape="rect" id="node43" href="$a00136.html#abd66d29dd5da5c7324f68debe264f1c0" title="readpipe" alt="" coords="484,379,564,408"/>
+<area shape="rect" id="node45" href="$a00030.html#a0eb2dd100dd1f4e269407b406bb072d7" title="convert event data between little&#45;endian (Linux&#45;x86) and big endian (MacOS&#45;PPC)" alt="" coords="427,432,621,461"/>
+<area shape="rect" id="node49" href="$a00030.html#aff76bdda6b1c357c47047bbc1a01c11d" title="convert event header between little&#45;endian (Linux&#45;x86) and big endian (MacOS&#45;PPC)..." alt="" coords="381,485,667,515"/>
+<area shape="rect" id="node47" href="$a00030.html#a892acc37f677273cb286c1cc18174bf1" title="returns &quot;true&quot; if event uses 32&#45;bit banks" alt="" coords="729,432,908,461"/>
+</map>

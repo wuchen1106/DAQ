@@ -1,0 +1,96 @@
+\subsection{adccalib.c File Reference}
+\label{adccalib_8c}\index{adccalib.c@{adccalib.c}}
+
+
+\subsubsection{Define Documentation}
+\index{adccalib.c@{adccalib.c}!ADC\_\-N\_\-BINS@{ADC\_\-N\_\-BINS}}
+\index{ADC\_\-N\_\-BINS@{ADC\_\-N\_\-BINS}!adccalib.c@{adccalib.c}}
+\paragraph[{ADC\_\-N\_\-BINS}]{\setlength{\rightskip}{0pt plus 5cm}\#define ADC\_\-N\_\-BINS~500}\hfill\label{adccalib_8c_a00d3bd7d1b0b20922574469f786fb42b}
+
+
+Definition at line 67 of file adccalib.c.
+
+Referenced by adc\_\-calib\_\-init().\index{adccalib.c@{adccalib.c}!ADC\_\-X\_\-HIGH@{ADC\_\-X\_\-HIGH}}
+\index{ADC\_\-X\_\-HIGH@{ADC\_\-X\_\-HIGH}!adccalib.c@{adccalib.c}}
+\paragraph[{ADC\_\-X\_\-HIGH}]{\setlength{\rightskip}{0pt plus 5cm}\#define ADC\_\-X\_\-HIGH~4000}\hfill\label{adccalib_8c_aba2e3a40c26f6a8950bb6428e4a28818}
+
+
+Definition at line 69 of file adccalib.c.
+
+Referenced by adc\_\-calib\_\-init().\index{adccalib.c@{adccalib.c}!ADC\_\-X\_\-LOW@{ADC\_\-X\_\-LOW}}
+\index{ADC\_\-X\_\-LOW@{ADC\_\-X\_\-LOW}!adccalib.c@{adccalib.c}}
+\paragraph[{ADC\_\-X\_\-LOW}]{\setlength{\rightskip}{0pt plus 5cm}\#define ADC\_\-X\_\-LOW~0}\hfill\label{adccalib_8c_a5bc8020f1ec2ea1e071ec2e45748ac52}
+
+
+Definition at line 68 of file adccalib.c.
+
+Referenced by adc\_\-calib\_\-init().
+
+\subsubsection{Function Documentation}
+\index{adccalib.c@{adccalib.c}!adc\_\-calib@{adc\_\-calib}}
+\index{adc\_\-calib@{adc\_\-calib}!adccalib.c@{adccalib.c}}
+\paragraph[{adc\_\-calib}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} adc\_\-calib ({\bf EVENT\_\-HEADER} $\ast$ {\em pheader}, \/  void $\ast$ {\em pevent})}\hfill\label{adccalib_8c_a21e1931a7c367947aeec0daa9548b6e7}
+
+
+Definition at line 106 of file adccalib.c.\index{adccalib.c@{adccalib.c}!adc\_\-calib\_\-bor@{adc\_\-calib\_\-bor}}
+\index{adc\_\-calib\_\-bor@{adc\_\-calib\_\-bor}!adccalib.c@{adccalib.c}}
+\paragraph[{adc\_\-calib\_\-bor}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} adc\_\-calib\_\-bor ({\bf INT} {\em run\_\-number})}\hfill\label{adccalib_8c_ad0c45258e6a5ff1cf274ca70e77cc2b1}
+
+
+Definition at line 92 of file adccalib.c.\index{adccalib.c@{adccalib.c}!adc\_\-calib\_\-eor@{adc\_\-calib\_\-eor}}
+\index{adc\_\-calib\_\-eor@{adc\_\-calib\_\-eor}!adccalib.c@{adccalib.c}}
+\paragraph[{adc\_\-calib\_\-eor}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} adc\_\-calib\_\-eor ({\bf INT} {\em run\_\-number})}\hfill\label{adccalib_8c_afe5e825c262fc181d5213c0ffee2ce47}
+
+
+Definition at line 99 of file adccalib.c.\index{adccalib.c@{adccalib.c}!adc\_\-calib\_\-init@{adc\_\-calib\_\-init}}
+\index{adc\_\-calib\_\-init@{adc\_\-calib\_\-init}!adccalib.c@{adccalib.c}}
+\paragraph[{adc\_\-calib\_\-init}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} adc\_\-calib\_\-init (void)}\hfill\label{adccalib_8c_adf3cd7b1ae0f16be900debc52adf49da}
+
+
+Definition at line 71 of file adccalib.c.\index{adccalib.c@{adccalib.c}!ADC\_\-CALIBRATION\_\-PARAM\_\-STR@{ADC\_\-CALIBRATION\_\-PARAM\_\-STR}}
+\index{ADC\_\-CALIBRATION\_\-PARAM\_\-STR@{ADC\_\-CALIBRATION\_\-PARAM\_\-STR}!adccalib.c@{adccalib.c}}
+\paragraph[{ADC\_\-CALIBRATION\_\-PARAM\_\-STR}]{\setlength{\rightskip}{0pt plus 5cm}ADC\_\-CALIBRATION\_\-PARAM\_\-STR (adc\_\-calibration\_\-param\_\-str)}\hfill\label{adccalib_8c_a96ff1f85b6b52f72dee24b3e3da0de5b}
+
+
+\subsubsection{Variable Documentation}
+\index{adccalib.c@{adccalib.c}!adc\_\-calib\_\-module@{adc\_\-calib\_\-module}}
+\index{adc\_\-calib\_\-module@{adc\_\-calib\_\-module}!adccalib.c@{adccalib.c}}
+\paragraph[{adc\_\-calib\_\-module}]{\setlength{\rightskip}{0pt plus 5cm}{\bf ANA\_\-MODULE} {\bf adc\_\-calib\_\-module}}\hfill\label{adccalib_8c_a6316036c6b9ab6ab3d9932cfa86e1ae5}
+{\bfseries Initial value:}
+\begin{DoxyCode}
+ {
+   "ADC calibration",           
+   "Stefan Ritt",               
+   adc_calib,                   
+   adc_calib_bor,               
+   adc_calib_eor,               
+   adc_calib_init,              
+   NULL,                        
+   &adccalib_param,             
+   sizeof(adccalib_param),      
+   adc_calibration_param_str,   
+}
+\end{DoxyCode}
+
+
+Definition at line 48 of file adccalib.c.\index{adccalib.c@{adccalib.c}!adccalib\_\-param@{adccalib\_\-param}}
+\index{adccalib\_\-param@{adccalib\_\-param}!adccalib.c@{adccalib.c}}
+\paragraph[{adccalib\_\-param}]{\setlength{\rightskip}{0pt plus 5cm}{\bf ADC\_\-CALIBRATION\_\-PARAM} {\bf adccalib\_\-param}}\hfill\label{adccalib_8c_a5b84b1ab630f7d978e438624d9ca560a}
+
+
+Definition at line 35 of file adccalib.c.\index{adccalib.c@{adccalib.c}!exp\_\-param@{exp\_\-param}}
+\index{exp\_\-param@{exp\_\-param}!adccalib.c@{adccalib.c}}
+\paragraph[{exp\_\-param}]{\setlength{\rightskip}{0pt plus 5cm}{\bf EXP\_\-PARAM} {\bf exp\_\-param}}\hfill\label{adccalib_8c_a6f1a7395cc240fde69229adefec8127f}
+
+
+Definition at line 51 of file analyzer.c.\index{adccalib.c@{adccalib.c}!hAdcHists@{hAdcHists}}
+\index{hAdcHists@{hAdcHists}!adccalib.c@{adccalib.c}}
+\paragraph[{hAdcHists}]{\setlength{\rightskip}{0pt plus 5cm}TH1D$\ast$ {\bf hAdcHists}\mbox{[}N\_\-ADC\mbox{]}\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}\hfill\label{adccalib_8c_a12b1bdb88b97f4cf23ff0a70ceb81f54}
+
+
+Definition at line 63 of file adccalib.c.\index{adccalib.c@{adccalib.c}!runinfo@{runinfo}}
+\index{runinfo@{runinfo}!adccalib.c@{adccalib.c}}
+\paragraph[{runinfo}]{\setlength{\rightskip}{0pt plus 5cm}{\bf RUNINFO} {\bf runinfo}}\hfill\label{adccalib_8c_ade46d29add32a0b6910ebc8da0fea69b}
+
+
+Definition at line 49 of file analyzer.c.

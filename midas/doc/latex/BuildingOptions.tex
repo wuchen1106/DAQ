@@ -1,0 +1,304 @@
+\label{BuildingOptions_AppendixD}
+\hypertarget{BuildingOptions_AppendixD}{}
+ \par
+ \hypertarget{BuildingOptions_BO_Intro}{}\subsection{Introduction}\label{BuildingOptions_BO_Intro}
+This section covers the various options available for customization of the MIDAS data acquisition system. The options fall into the following categories:
+
+
+\begin{DoxyItemize}
+\item \hyperlink{BuildingOptions_BO_makefile_option}{Makefile Options}
+\item \hyperlink{BuildingOptions_BO_building_option}{Building Options}
+\item \hyperlink{BuildingOptions_BO_Environment_variables}{Environment variables}
+\end{DoxyItemize}
+
+
+
+ \hypertarget{BuildingOptions_BO_makefile_option}{}\subsection{Makefile Options}\label{BuildingOptions_BO_makefile_option}
+
+\begin{DoxyItemize}
+\item \char`\"{}make\char`\"{}, \char`\"{}make all\char`\"{} : compile the default midas system
+\item \char`\"{}make clean\char`\"{} : remove all compiled object files and executables
+\item \char`\"{}make dox\char`\"{} : make this documentation (in directory .../doxfiles/html)
+\item \char`\"{}make linux32\char`\"{}, \char`\"{}make clean32\char`\"{} : compile subset of midas with gcc \char`\"{}-\/m32\char`\"{} switch, useful for cross-\/compiling 32-\/bit midas on a 64-\/bit machine
+\item \char`\"{}make linux64\char`\"{}, \char`\"{}make clean64\char`\"{} : compile subset of midas with gcc \char`\"{}-\/m64\char`\"{} switch, useful for compiling 64-\/bit midas when default ROOTSYS points to a 32-\/bit ROOT version
+\item \char`\"{}make crosscompile\char`\"{} : compile midas using a cross-\/compiler, for example, to produce midas libraries and executables that will run on a PPC Linux distribution, see Makefile for details.
+\item \char`\"{}make examples\char`\"{} : compile example code in .../examples
+\end{DoxyItemize}
+
+
+
+ \hypertarget{BuildingOptions_BO_building_option}{}\subsection{Building Options}\label{BuildingOptions_BO_building_option}
+By default, MIDAS is built with a minimum of pre-\/compiler flags. The \hyperlink{Makefile}{Makefile} contains options for the user to apply customization by enabling internal options already available in the package. Generally the options are named \char`\"{}NEED\_\-OPTION\char`\"{} where \char`\"{}OPTION\char`\"{} is replaced by the desired option (ZLIB,LIBROOTA etc.). This will set a compiler flag called \char`\"{}HAVE\_\-OPTION\char`\"{} . To link MIDAS with the required option(s), say 
+\begin{DoxyCode}
+make ... NEED_OPTION=1
+\end{DoxyCode}
+
+
+
+\begin{DoxyItemize}
+\item Other options are included automatically by the Makefile depending on whether certain software is present (e.g. \hyperlink{BuildingOptions_BO_HAVE_ODBC}{HAVE\_\-ODBC}).
+\begin{DoxyItemize}
+\item \hyperlink{BuildingOptions_BO_NEED_ZLIB}{NEED\_\-ZLIB} \hyperlink{BuildingOptions_BO_NEED_RPATH}{NEED\_\-RPATH} \hyperlink{BuildingOptions_BO_NEED_LIBROOTA}{NEED\_\-LIBROOTA} \hyperlink{BuildingOptions_BO_NEED_MYSQL}{NEED\_\-MYSQL} \hyperlink{BuildingOptions_BO_NEED_STRLCPY}{NEED\_\-STRLCPY} \hyperlink{BuildingOptions_BO_SPECIFIC_OS_PRG}{SPECIFIC\_\-OS\_\-PRG}
+\end{DoxyItemize}
+\end{DoxyItemize}
+
+
+\begin{DoxyItemize}
+\item Other flags are available at the application level:
+\begin{DoxyItemize}
+\item \hyperlink{BuildingOptions_BO_HAVE_ROOT}{HAVE\_\-ROOT} , \hyperlink{BuildingOptions_BO_HAVE_HBOOK}{HAVE\_\-HBOOK} , \hyperlink{BuildingOptions_BO_HAVE_CAMAC}{HAVE\_\-CAMAC} \hyperlink{BuildingOptions_BO_MIDAS_MAX_EVENT_SIZE}{MIDAS\_\-MAX\_\-EVENT\_\-SIZE} , \hyperlink{BuildingOptions_BO_HAVE_ODBC}{HAVE\_\-ODBC}
+\end{DoxyItemize}
+\end{DoxyItemize}
+
+
+\begin{DoxyItemize}
+\item By default the MIDAS applications are built for use with dynamic library {\bfseries libmidas.so}. If static build is required the whole package can be built using the option {\bfseries static}. 
+\begin{DoxyCode}
+> make static
+\end{DoxyCode}
+
+\end{DoxyItemize}
+
+
+\begin{DoxyItemize}
+\item The basic MIDAS package builds without external package library reference. But it does try to build an extra core analyzer application to be used in conjunction with ROOT if the environment variable \hyperlink{BuildingOptions_BO_ROOTSYS}{ROOTSYS} is found. This is required ONLY if the examples/experiment makefile is used for generating a complete Midas/ROOT analyzer application.
+\end{DoxyItemize}
+
+
+\begin{DoxyItemize}
+\item In case of HBOOK/PAW analyzer application, the build should be done from examples/hbookexpt directory and the environment variable \hyperlink{BuildingOptions_BO_CERNLIB_PACK}{CERNLIB\_\-PACK} should be pointing to a valid cernpacklib.a library.
+\end{DoxyItemize}
+
+
+\begin{DoxyItemize}
+\item For development it could be useful to built individual application in static. This can be done using the \hyperlink{BuildingOptions_BO_USERFLAGS}{USERFLAGS} option such as: 
+\begin{DoxyCode}
+> rm linux/bin/mstat; make USERFLAGS=-static linux/bin/mstat
+\end{DoxyCode}
+
+\end{DoxyItemize}
+
+
+\begin{DoxyItemize}
+\item The current OS support is done through a fixed flag established in the general \hyperlink{Makefile}{Makefile} . Currently the OS supported are:
+\begin{DoxyItemize}
+\item {\bfseries OS\_\-OSF1} , {\bfseries OS\_\-ULTRIX} , {\bfseries OS\_\-FREEBSD} , {\bfseries OS\_\-LINUX} , {\bfseries OS\_\-SOLARIS}.
+\end{DoxyItemize}
+\end{DoxyItemize}
+
+
+\begin{DoxyItemize}
+\item For {\bfseries OS\_\-IRIX} please contact Pierre. 
+\begin{DoxyCode}
+OSFLAGS = -DOS_LINUX ...
+\end{DoxyCode}
+
+\item For 32 bit built, the OSFLAGS should contains the -\/m32 flag. By default this flag is not enabled. It has to be applied to the Makefile for the frontend examples too. 
+\begin{DoxyCode}
+# add to compile MIDAS in 32-bit mode
+# OSFLAGS += -m32
+\end{DoxyCode}
+
+\item Other OS supported are:
+\begin{DoxyItemize}
+\item OS\_\-WINNT : See file makefile.nt.
+\item OS\_\-VXWORKS : See file makefile.ppc\_\-tri.
+\end{DoxyItemize}
+\end{DoxyItemize}
+
+
+
+ \hypertarget{BuildingOptions_BO_USERFLAGS}{}\subsubsection{USERFLAGS}\label{BuildingOptions_BO_USERFLAGS}
+This flag can be used at the command prompt for individual application built. 
+\begin{DoxyCode}
+make USERFLAGS=-static linux/bin/mstat
+\end{DoxyCode}
+
+
+\label{BuildingOptions_idx_ROOT_build-flag}
+\hypertarget{BuildingOptions_idx_ROOT_build-flag}{}
+ 
+
+ \hypertarget{BuildingOptions_BO_HAVE_ROOT}{}\subsubsection{HAVE\_\-ROOT}\label{BuildingOptions_BO_HAVE_ROOT}
+This flag is used for the \hyperlink{DataAnalysis_DA_analyzer_utility}{MIDAS analyzer} in the case {\bfseries ROOT} environment is required. An example of the makefile resides in {\bfseries examples/experiment/Makefile}. This flag is enabled by the presence of a valid \hyperlink{BuildingOptions_BO_ROOTSYS}{ROOTSYS} environment variable. In the case that \hyperlink{BuildingOptions_BO_ROOTSYS}{ROOTSYS} is not found, the analyzer is build without {\bfseries ROOT} support. In this latter case, the application \hyperlink{RC_Monitor_RC_rmidas_utility}{rmidas} will be missing. refer to the \hyperlink{DataAnalysis_DA_Midas_Analyzer}{analyzer structure} for further details.
+
+\label{BuildingOptions_idx_HBOOK_build-flag}
+\hypertarget{BuildingOptions_idx_HBOOK_build-flag}{}
+ 
+
+ \hypertarget{BuildingOptions_BO_HAVE_HBOOK}{}\subsubsection{HAVE\_\-HBOOK}\label{BuildingOptions_BO_HAVE_HBOOK}
+This flag is used for {\bfseries examples/hbookexpt/Makefile} for building the MIDAS \hyperlink{DataAnalysis_DA_analyzer_utility}{analyzer -\/ event analysis} against {\bfseries HBOOK} and {\bfseries PAW}. The path to the cernlib is requested and expected to be found under /cern/pro/lib (see makefile). This can always be overwritten during the make using the following command: 
+\begin{DoxyCode}
+make CERNLIB_PACK=<your path>/libpacklib.a
+\end{DoxyCode}
+
+
+\label{BuildingOptions_idx_mySQL_build-flag}
+\hypertarget{BuildingOptions_idx_mySQL_build-flag}{}
+ 
+
+\hypertarget{BuildingOptions_BO_NEED_MYSQL}{}\subsubsection{NEED\_\-MYSQL}\label{BuildingOptions_BO_NEED_MYSQL}
+This flag is used in \hyperlink{F_Logging_F_mlogger_utility}{mlogger} to build the application with {\itshape mySQL\/} support. The build requires access to the mysql include files as well as the mysql library. The Makefile tries to figure out automatically if the mySQL library is installed in order to set the default value of NEED\_\-MYSQL.
+
+\label{BuildingOptions_idx_ODBC}
+\hypertarget{BuildingOptions_idx_ODBC}{}
+ 
+
+\hypertarget{BuildingOptions_BO_HAVE_ODBC}{}\subsubsection{HAVE\_\-ODBC}\label{BuildingOptions_BO_HAVE_ODBC}
+ODBC (Open DataBase Connectivity) is a standard database access method. In MIDAS, it may be used in the History system (see \hyperlink{F_History_logging_F_History_sql_internal}{MIDAS SQL History system} ). The Makefile will automatically include ODBC (HAVE\_\-ODBC = 1) if the file {\itshape  /usr/include/sql.h \/} is found. Otherwise ODBC will not be included.
+
+
+
+ \hypertarget{BuildingOptions_BO_HAVE_CAMAC}{}\subsubsection{HAVE\_\-CAMAC}\label{BuildingOptions_BO_HAVE_CAMAC}
+This flag enable the CAMAC RPC service within the frontend code.
+\begin{DoxyItemize}
+\item The application mcnaf utility and
+\item the \hyperlink{RC_mhttpd_CNAF_page}{web CNAF page} (in versions prior to \hyperlink{NDF_ndf_dec_2009}{Dec 2009} )
+\end{DoxyItemize}
+
+are by default {\bfseries not} CAMAC enabled (i.e. {\bfseries HAVE\_\-CAMAC} is undefined).
+
+\label{BuildingOptions_idx_event_size_build-flag}
+\hypertarget{BuildingOptions_idx_event_size_build-flag}{}
+ 
+
+ \hypertarget{BuildingOptions_BO_MIDAS_MAX_EVENT_SIZE}{}\subsubsection{MIDAS\_\-MAX\_\-EVENT\_\-SIZE}\label{BuildingOptions_BO_MIDAS_MAX_EVENT_SIZE}
+By default the MIDAS package is build with the maximum event size set to 4MB (MAX\_\-EVENT\_\-SIZE/midas.h). This parameter is used for event transfer across network as well, therefore it has to be applied to all the MIDAS client involved in the experiment when different value is required and a complete MIDAS rebuid needs to be done. 
+\begin{DoxyCode}
+> setenv MIDAS_MAX_EVENT_SIZE 8000000
+> make
+cc -c -g -O3 -Wall -Wuninitialized -Iinclude -Idrivers -I../mxml -Llinux/lib -DIN
+      CLUDE_FTPLIB  \
+ -DMAX_EVENT_SIZE=800000 -D_LARGEFILE64_SOURCE -DHAVE_MYSQL -I/usr/include/mysql 
+      -DHAVE_ROOT -pthread \
+-m64 -I/triumfcs/trshare/olchansk/root/root_v5.12.00_SL42_amd64/include -DHAVE_ZL
+      IB -DOS_LINUX -fPIC \
+-Wno-unused-function -o linux/lib/midas.o src/midas.c
+...
+\end{DoxyCode}
+ But at the frontend level, the user can define his/her own local maximum event size through the {\bfseries max\_\-event\_\-size} (see frontend examples).
+
+
+
+ \hypertarget{BuildingOptions_BO_SPECIFIC_OS_PRG}{}\subsubsection{SPECIFIC\_\-OS\_\-PRG}\label{BuildingOptions_BO_SPECIFIC_OS_PRG}
+This flag is for internal Makefile preference. Used in particular for additional applications build based on the OS selection. In the example below \hyperlink{F_Messaging_F_mspeaker_utility}{mspeaker} and \hyperlink{FE_utils_FE_dio_utility}{dio} utilities are built only under OS\_\-LINUX. 
+\begin{DoxyCode}
+SPECIFIC_OS_PRG = $(BIN_DIR)/mlxspeaker $(BIN_DIR)/dio
+\end{DoxyCode}
+
+
+\label{BuildingOptions_idx_LIBROOTA}
+\hypertarget{BuildingOptions_idx_LIBROOTA}{}
+ \label{BuildingOptions_idx_ROOT_static-library}
+\hypertarget{BuildingOptions_idx_ROOT_static-library}{}
+ 
+
+\hypertarget{BuildingOptions_BO_NEED_LIBROOTA}{}\subsubsection{NEED\_\-LIBROOTA}\label{BuildingOptions_BO_NEED_LIBROOTA}
+This option if set links MIDAS with the static ROOT library. By default this option is disabled. To link with the static ROOT library, \par
+make ... NEED\_\-LIBROOTA=1
+
+\label{BuildingOptions_idx_ZLIB_build-flag}
+\hypertarget{BuildingOptions_idx_ZLIB_build-flag}{}
+ 
+
+ \hypertarget{BuildingOptions_BO_NEED_ZLIB}{}\subsubsection{NEED\_\-ZLIB}\label{BuildingOptions_BO_NEED_ZLIB}
+If \hyperlink{F_Logging_Data_F_Logger_CS_Compression}{data compression} is required by the data logger, the MIDAS package must be compiled with ZLIB support. The applications \hyperlink{F_LogUtil_F_lazylogger_utility}{lazylogger}, \hyperlink{RC_Monitor_RC_mdump_utility}{mdump} can be built with {\bfseries zlib.a} in order to gain direct access to the data within a file with extension {\bfseries mid.gz}. By default this option is disabled except for the system analyzer core code {\bfseries mana.c}. However, if NEED\_\-MYSQL is set, NEED\_\-ZLIB will also be set.
+
+
+
+ \hypertarget{BuildingOptions_BO_NEED_RPATH}{}\subsubsection{NEED\_\-RPATH}\label{BuildingOptions_BO_NEED_RPATH}
+Option to set the shared library path on MIDAS executables. By default this option is enabled for Linux, disabled for MacOSX/Darwin.
+
+
+
+ \hypertarget{BuildingOptions_BO_NEED_STRLCPY}{}\subsubsection{NEED\_\-STRLCPY}\label{BuildingOptions_BO_NEED_STRLCPY}
+Option to use our own implementation of strlcat and strlcpy. By default this option is enabled.
+
+
+
+
+
+\label{BuildingOptions_idx_Environment_Variables}
+\hypertarget{BuildingOptions_idx_Environment_Variables}{}
+ \label{BuildingOptions_Environment_variables}
+\hypertarget{BuildingOptions_Environment_variables}{}
+ \par
+\par
+ \hypertarget{BuildingOptions_BO_Environment_variables}{}\subsection{Environment variables}\label{BuildingOptions_BO_Environment_variables}
+MIDAS uses a several environment variables to facilitate the startup of the different applications. These are also discussed in the \hyperlink{Quickstart}{QuickStart} section.
+
+\label{BuildingOptions_idx_MIDASSYS}
+\hypertarget{BuildingOptions_idx_MIDASSYS}{}
+ 
+
+\hypertarget{BuildingOptions_BO_MIDASSYS}{}\subsubsection{MIDASSYS}\label{BuildingOptions_BO_MIDASSYS}
+This environmental variable is {\bfseries required}. It should point to the main path of the installed MIDAS package. The application \hyperlink{RC_odbedit_utility}{odbedit} will generate a warning message in the case this variable is not defined. \par
+For example 
+\begin{DoxyCode}
+  setenv MIDASSYS $HOME/packages/midas  
+\end{DoxyCode}
+
+
+\label{BuildingOptions_idx_MIDAS_EXPTAB}
+\hypertarget{BuildingOptions_idx_MIDAS_EXPTAB}{}
+ 
+
+\hypertarget{BuildingOptions_BO_MIDAS_EXPTAB}{}\subsubsection{MIDAS\_\-EXPTAB}\label{BuildingOptions_BO_MIDAS_EXPTAB}
+This variable specifies the location of the {\bfseries exptab} file containing the predefined MIDAS experiment. If MIDAS\_\-EXPTAB is {\bfseries not} defined, the {\bfseries default} location will be used (i.e. for OS\_\-UNIX: /etc, / and for OS\_\-WINNT: $\backslash$system32, $\backslash$system ). \par
+For example 
+\begin{DoxyCode}
+  setenv MIDAS_EXPTAB $HOME/online/exptab
+\end{DoxyCode}
+
+
+\label{BuildingOptions_idx_MIDAS_SERVER_HOST}
+\hypertarget{BuildingOptions_idx_MIDAS_SERVER_HOST}{}
+ 
+
+\hypertarget{BuildingOptions_BO_MIDAS_SERVER_HOST}{}\subsubsection{MIDAS\_\-SERVER\_\-HOST}\label{BuildingOptions_BO_MIDAS_SERVER_HOST}
+This variable predefines the name of the host on which the MIDAS experiment shared memories are residing. It is needed when a connection to a remote experiment is requested. It obviates the need to add the \char`\"{}-\/h $<$hostname$>$\char`\"{} argument to the application command (see \hyperlink{F_Utilities_List_F_utilities_params}{Common Parameters to MIDAS Utilities}). Superceded by \hyperlink{BuildingOptions_BO_MIDAS_DIR}{MIDAS\_\-DIR} if defined. This variable is valid for Unix as well as Windows OS.
+
+\label{BuildingOptions_idx_MIDAS_EXPT_NAME}
+\hypertarget{BuildingOptions_idx_MIDAS_EXPT_NAME}{}
+ 
+
+\hypertarget{BuildingOptions_BO_MIDAS_EXPT_NAME}{}\subsubsection{MIDAS\_\-EXPT\_\-NAME}\label{BuildingOptions_BO_MIDAS_EXPT_NAME}
+This variable predefines the default name of the experiment to connect to. It prevents the requested application from asking for the experiment name when multiple experiments are available on the host. Defining MIDAS\_\-EXPT\_\-NAME makes adding the \char`\"{}-\/e $<$exptname$>$\char`\"{} argument to the application command unnecessary (see \hyperlink{F_Utilities_List_F_utilities_params}{Common Parameters to MIDAS Utilities}). Superceded by \hyperlink{BuildingOptions_BO_MIDAS_DIR}{MIDAS\_\-DIR} if defined. This variable is valid for Unix as well as Windows OS.
+
+\label{BuildingOptions_idx_MIDAS_DIR}
+\hypertarget{BuildingOptions_idx_MIDAS_DIR}{}
+ 
+
+\hypertarget{BuildingOptions_BO_MIDAS_DIR}{}\subsubsection{MIDAS\_\-DIR}\label{BuildingOptions_BO_MIDAS_DIR}
+This variable predefines the LOCAL directory path where the shared memories for the experiment are located. {\bfseries Defining this variable results in a single experiment called \char`\"{}Default\char`\"{}.} Since a given directory path can only refer to a single experiment, \hyperlink{BuildingOptions_BO_MIDAS_DIR}{MIDAS\_\-DIR} supersedes the \hyperlink{F_Utilities_List_F_utilities_params}{hostname and exptname parameters} as well as the \hyperlink{BuildingOptions_BO_MIDAS_SERVER_HOST}{MIDAS\_\-SERVER\_\-HOST} and \hyperlink{BuildingOptions_BO_MIDAS_EXPT_NAME}{MIDAS\_\-EXPT\_\-NAME} environment variables.  If you wish to use the \char`\"{}exptab\char`\"{} file to define {\bfseries multiple experiments} on a single host, {\bfseries do not define MIDAS\_\-DIR. }
+
+\label{BuildingOptions_idx_ROOTSYS}
+\hypertarget{BuildingOptions_idx_ROOTSYS}{}
+ 
+
+\hypertarget{BuildingOptions_BO_ROOTSYS}{}\subsubsection{ROOTSYS}\label{BuildingOptions_BO_ROOTSYS}
+This variable must point to the ROOT package if generating a complete MIDAS/ROOT analyzer application (see \hyperlink{Q_Linux_Q_Linux_Environment_Variables}{Environment Variables} ). If not using ROOT, ROOTSYS should be undefined.
+
+\label{BuildingOptions_idx_CERNLIB_PACK}
+\hypertarget{BuildingOptions_idx_CERNLIB_PACK}{}
+ 
+
+\hypertarget{BuildingOptions_BO_CERNLIB_PACK}{}\subsubsection{CERNLIB\_\-PACK}\label{BuildingOptions_BO_CERNLIB_PACK}
+In case of HBOOK/PAW analyzer application, this variable should be pointing to a valid cernpacklib.a library. See \hyperlink{BuildingOptions_BO_HAVE_HBOOK}{HAVE\_\-HBOOK} .
+
+\label{BuildingOptions_idx_MIDAS_FRONTEND_INDEX}
+\hypertarget{BuildingOptions_idx_MIDAS_FRONTEND_INDEX}{}
+ 
+
+\hypertarget{BuildingOptions_BO_MIDAS_FRONTEND_INDEX}{}\subsubsection{MIDAS\_\-FRONTEND\_\-INDEX}\label{BuildingOptions_BO_MIDAS_FRONTEND_INDEX}
+This variable predefines the index assigned to the equipment using the event builder option. Useful if the frontend applications are started from different hosts. Refer to \hyperlink{FE_Event_Builder_FE_principle_eb}{Principle of the Event Builder and related frontend fragment} for more information.
+
+
+
+\hypertarget{BuildingOptions_BO_MCHART_DIR}{}\subsubsection{MCHART\_\-DIR}\label{BuildingOptions_BO_MCHART_DIR}
+This variable is used for the old \hyperlink{F_LogUtil_F_mchart_utility}{mchart} utility.
+
+\label{index_end}
+\hypertarget{index_end}{}
+ \par
+  

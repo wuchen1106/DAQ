@@ -1,0 +1,207 @@
+.TH "Buffer Manager error codes" 3 "31 May 2012" "Version 2.3.0-0" "Midas" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Buffer Manager error codes \- 
+.SS "Defines"
+
+.in +1c
+.ti -1c
+.RI "#define \fBBM_SUCCESS\fP   1"
+.br
+.ti -1c
+.RI "#define \fBBM_CREATED\fP   202"
+.br
+.ti -1c
+.RI "#define \fBBM_NO_MEMORY\fP   203"
+.br
+.ti -1c
+.RI "#define \fBBM_INVALID_NAME\fP   204"
+.br
+.ti -1c
+.RI "#define \fBBM_INVALID_HANDLE\fP   205"
+.br
+.ti -1c
+.RI "#define \fBBM_NO_SLOT\fP   206"
+.br
+.ti -1c
+.RI "#define \fBBM_NO_SEMAPHORE\fP   207"
+.br
+.ti -1c
+.RI "#define \fBBM_NOT_FOUND\fP   208"
+.br
+.ti -1c
+.RI "#define \fBBM_ASYNC_RETURN\fP   209"
+.br
+.ti -1c
+.RI "#define \fBBM_TRUNCATED\fP   210"
+.br
+.ti -1c
+.RI "#define \fBBM_MULTIPLE_HOSTS\fP   211"
+.br
+.ti -1c
+.RI "#define \fBBM_MEMSIZE_MISMATCH\fP   212"
+.br
+.ti -1c
+.RI "#define \fBBM_CONFLICT\fP   213"
+.br
+.ti -1c
+.RI "#define \fBBM_EXIT\fP   214"
+.br
+.ti -1c
+.RI "#define \fBBM_INVALID_PARAM\fP   215"
+.br
+.ti -1c
+.RI "#define \fBBM_MORE_EVENTS\fP   216"
+.br
+.ti -1c
+.RI "#define \fBBM_INVALID_MIXING\fP   217"
+.br
+.ti -1c
+.RI "#define \fBBM_NO_SHM\fP   218"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+dox dox 
+.SH "Define Documentation"
+.PP 
+.SS "#define BM_ASYNC_RETURN   209".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 551 of file midas.h.
+.PP
+Referenced by bm_receive_event(), bm_wait_for_free_space(), rpc_send_event(), scan_fragment(), scheduler(), and source_scan().
+.SS "#define BM_CONFLICT   213".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 555 of file midas.h.
+.PP
+Referenced by source_booking().
+.SS "#define BM_CREATED   202".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 544 of file midas.h.
+.PP
+Referenced by bm_open_buffer(), cm_msg1(), cm_msg_register(), cm_msg_send_event(), register_equipment(), and source_booking().
+.SS "#define BM_EXIT   214".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 556 of file midas.h.
+.SS "#define BM_INVALID_HANDLE   205".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 547 of file midas.h.
+.PP
+Referenced by bm_close_buffer(), bm_delete_request(), bm_flush_cache(), bm_push_event(), bm_receive_event(), bm_remove_event_request(), bm_send_event(), bm_set_cache_size(), and bm_skip_event().
+.SS "#define BM_INVALID_MIXING   217".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 559 of file midas.h.
+.SS "#define BM_INVALID_NAME   204".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 546 of file midas.h.
+.SS "#define BM_INVALID_PARAM   215".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 557 of file midas.h.
+.PP
+Referenced by bm_open_buffer(), bm_send_event(), bm_set_cache_size(), rpc_send_event(), and scheduler().
+.SS "#define BM_MEMSIZE_MISMATCH   212".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 554 of file midas.h.
+.PP
+Referenced by bm_open_buffer().
+.SS "#define BM_MORE_EVENTS   216".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 558 of file midas.h.
+.PP
+Referenced by bm_check_buffers(), and bm_push_event().
+.SS "#define BM_MULTIPLE_HOSTS   211".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 553 of file midas.h.
+.SS "#define BM_NO_MEMORY   203".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 545 of file midas.h.
+.PP
+Referenced by bm_open_buffer(), bm_push_event(), bm_request_event(), bm_send_event(), bm_set_cache_size(), bm_wait_for_free_space(), and source_booking().
+.SS "#define BM_NO_SEMAPHORE   207".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 549 of file midas.h.
+.PP
+Referenced by bm_open_buffer().
+.SS "#define BM_NO_SHM   218".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 560 of file midas.h.
+.PP
+Referenced by bm_open_buffer().
+.SS "#define BM_NO_SLOT   206".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 548 of file midas.h.
+.PP
+Referenced by bm_open_buffer().
+.SS "#define BM_NOT_FOUND   208".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 550 of file midas.h.
+.PP
+Referenced by bm_remove_event_request().
+.SS "#define BM_SUCCESS   1".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 543 of file midas.h.
+.PP
+Referenced by bm_close_all_buffers(), bm_close_buffer(), bm_compose_event(), bm_copy_from_cache(), bm_delete_request(), bm_empty_buffers(), bm_flush_cache(), bm_open_buffer(), bm_push_event(), bm_receive_event(), bm_remove_event_request(), bm_request_event(), bm_send_event(), bm_set_cache_size(), bm_skip_event(), bm_wait_for_free_space(), cm_msg1(), cm_msg_register(), cm_msg_send_event(), cm_set_msg_print(), handFlush(), register_equipment(), scheduler(), send_event(), source_booking(), source_scan(), source_unbooking(), and tr_stop().
+.SS "#define BM_TRUNCATED   210".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 552 of file midas.h.
+.PP
+Referenced by bm_copy_from_cache(), and bm_receive_event().
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Midas from the source code.

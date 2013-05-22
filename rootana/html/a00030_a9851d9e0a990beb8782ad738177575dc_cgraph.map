@@ -1,0 +1,5 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$a00030.html#a7431aed59b35c7850894ea8fafd01964" title="validate the event length" alt="" coords="233,5,425,35"/>
+<area shape="rect" id="node5" href="$a00030.html#a0eb2dd100dd1f4e269407b406bb072d7" title="convert event data between little&#45;endian (Linux&#45;x86) and big endian (MacOS&#45;PPC)" alt="" coords="232,59,427,88"/>
+<area shape="rect" id="node7" href="$a00030.html#a892acc37f677273cb286c1cc18174bf1" title="returns &quot;true&quot; if event uses 32&#45;bit banks" alt="" coords="475,59,653,88"/>
+</map>

@@ -1,0 +1,6 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$a00015.html#a4d07e5a76a135df4f3368c82cc549c09" title="Get the MIDAS data for this event, in TMidasEvent format." alt="" coords="295,5,532,35"/>
+<area shape="rect" id="node5" href="$a00030.html#a9ca976221e70917aebfd50e23b274c8d" title="TMidasEvent::LocateBank" alt="" coords="313,59,513,88"/>
+<area shape="rect" id="node7" href="$a00030.html#ab43ecd65b499093aa9a388c6bd1ae902" title="TMidasEvent::FindBank" alt="" coords="581,59,760,88"/>
+<area shape="rect" id="node9" href="$a00030.html#a31219788e979aa3485cbf2e98dccd848" title="iterate through 32&#45;bit data banks" alt="" coords="809,59,1025,88"/>
+</map>

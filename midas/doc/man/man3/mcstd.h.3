@@ -1,0 +1,170 @@
+.TH "mcstd.h" 3 "31 May 2012" "Version 2.3.0-0" "Midas" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+mcstd.h \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "EXTERNAL INLINE void EXPRT \fBcam16i\fP (const int c, const int n, const int a, const int f, \fBWORD\fP *d)"
+.br
+.ti -1c
+.RI "EXTERNAL INLINE void EXPRT \fBcam24i\fP (const int c, const int n, const int a, const int f, \fBDWORD\fP *d)"
+.br
+.ti -1c
+.RI "EXTERNAL INLINE void EXPRT \fBcam8i_q\fP (const int c, const int n, const int a, const int f, \fBBYTE\fP *d, int *x, int *q)"
+.br
+.ti -1c
+.RI "EXTERNAL INLINE void EXPRT \fBcam16i_q\fP (const int c, const int n, const int a, const int f, \fBWORD\fP *d, int *x, int *q)"
+.br
+.ti -1c
+.RI "EXTERNAL INLINE void EXPRT \fBcam24i_q\fP (const int c, const int n, const int a, const int f, \fBDWORD\fP *d, int *x, int *q)"
+.br
+.ti -1c
+.RI "EXTERNAL INLINE void EXPRT \fBcam16i_r\fP (const int c, const int n, const int a, const int f, \fBWORD\fP **d, const int r)"
+.br
+.ti -1c
+.RI "EXTERNAL INLINE void EXPRT \fBcam24i_r\fP (const int c, const int n, const int a, const int f, \fBDWORD\fP **d, const int r)"
+.br
+.ti -1c
+.RI "EXTERNAL INLINE void EXPRT \fBcam8i_rq\fP (const int c, const int n, const int a, const int f, \fBBYTE\fP **d, const int r)"
+.br
+.ti -1c
+.RI "EXTERNAL INLINE void EXPRT \fBcam16i_rq\fP (const int c, const int n, const int a, const int f, \fBWORD\fP **d, const int r)"
+.br
+.ti -1c
+.RI "EXTERNAL INLINE void EXPRT \fBcam24i_rq\fP (const int c, const int n, const int a, const int f, \fBDWORD\fP **d, const int r)"
+.br
+.ti -1c
+.RI "EXTERNAL INLINE void EXPRT \fBcam8i_sa\fP (const int c, const int n, const int a, const int f, \fBBYTE\fP **d, const int r)"
+.br
+.ti -1c
+.RI "EXTERNAL INLINE void EXPRT \fBcam16i_sa\fP (const int c, const int n, const int a, const int f, \fBWORD\fP **d, const int r)"
+.br
+.ti -1c
+.RI "EXTERNAL INLINE void EXPRT \fBcam24i_sa\fP (const int c, const int n, const int a, const int f, \fBDWORD\fP **d, const int r)"
+.br
+.ti -1c
+.RI "EXTERNAL INLINE void EXPRT \fBcam8i_sn\fP (const int c, const int n, const int a, const int f, \fBBYTE\fP **d, const int r)"
+.br
+.ti -1c
+.RI "EXTERNAL INLINE void EXPRT \fBcam16i_sn\fP (const int c, const int n, const int a, const int f, \fBWORD\fP **d, const int r)"
+.br
+.ti -1c
+.RI "EXTERNAL INLINE void EXPRT \fBcam24i_sn\fP (const int c, const int n, const int a, const int f, \fBDWORD\fP **d, const int r)"
+.br
+.ti -1c
+.RI "EXTERNAL INLINE void EXPRT \fBcami\fP (const int c, const int n, const int a, const int f, \fBWORD\fP *d)"
+.br
+.ti -1c
+.RI "EXTERNAL INLINE void EXPRT \fBcam8o\fP (const int c, const int n, const int a, const int f, \fBBYTE\fP d)"
+.br
+.ti -1c
+.RI "EXTERNAL INLINE void EXPRT \fBcam16o\fP (const int c, const int n, const int a, const int f, \fBWORD\fP d)"
+.br
+.ti -1c
+.RI "EXTERNAL INLINE void EXPRT \fBcam24o\fP (const int c, const int n, const int a, const int f, \fBDWORD\fP d)"
+.br
+.ti -1c
+.RI "EXTERNAL INLINE void EXPRT \fBcam8o_q\fP (const int c, const int n, const int a, const int f, \fBBYTE\fP d, int *x, int *q)"
+.br
+.ti -1c
+.RI "EXTERNAL INLINE void EXPRT \fBcam16o_q\fP (const int c, const int n, const int a, const int f, \fBWORD\fP d, int *x, int *q)"
+.br
+.ti -1c
+.RI "EXTERNAL INLINE void EXPRT \fBcam24o_q\fP (const int c, const int n, const int a, const int f, \fBDWORD\fP d, int *x, int *q)"
+.br
+.ti -1c
+.RI "EXTERNAL INLINE void EXPRT \fBcam8o_r\fP (const int c, const int n, const int a, const int f, \fBBYTE\fP *d, const int r)"
+.br
+.ti -1c
+.RI "EXTERNAL INLINE void EXPRT \fBcam16o_r\fP (const int c, const int n, const int a, const int f, \fBWORD\fP *d, const int r)"
+.br
+.ti -1c
+.RI "EXTERNAL INLINE void EXPRT \fBcam24o_r\fP (const int c, const int n, const int a, const int f, \fBDWORD\fP *d, const int r)"
+.br
+.ti -1c
+.RI "EXTERNAL INLINE void EXPRT \fBcamo\fP (const int c, const int n, const int a, const int f, \fBWORD\fP d)"
+.br
+.ti -1c
+.RI "EXTERNAL INLINE int EXPRT \fBcamc_chk\fP (const int c)"
+.br
+.ti -1c
+.RI "EXTERNAL INLINE void EXPRT \fBcamc\fP (const int c, const int n, const int a, const int f)"
+.br
+.ti -1c
+.RI "EXTERNAL INLINE void EXPRT \fBcamc_q\fP (const int c, const int n, const int a, const int f, int *q)"
+.br
+.ti -1c
+.RI "EXTERNAL INLINE void EXPRT \fBcamc_sa\fP (const int c, const int n, const int a, const int f, const int r)"
+.br
+.ti -1c
+.RI "EXTERNAL INLINE void EXPRT \fBcamc_sn\fP (const int c, const int n, const int a, const int f, const int r)"
+.br
+.ti -1c
+.RI "EXTERNAL INLINE int EXPRT \fBcam_init\fP (void)"
+.br
+.ti -1c
+.RI "EXTERNAL INLINE int EXPRT \fBcam_init_rpc\fP (char *\fBhost_name\fP, char *\fBexp_name\fP, char *fe_name, char *client_name, char *rpc_server)"
+.br
+.ti -1c
+.RI "EXTERNAL INLINE void EXPRT \fBcam_exit\fP (void)"
+.br
+.ti -1c
+.RI "EXTERNAL INLINE void EXPRT \fBcam_inhibit_set\fP (const int c)"
+.br
+.ti -1c
+.RI "EXTERNAL INLINE void EXPRT \fBcam_inhibit_clear\fP (const int c)"
+.br
+.ti -1c
+.RI "EXTERNAL INLINE int EXPRT \fBcam_inhibit_test\fP (const int c)"
+.br
+.ti -1c
+.RI "EXTERNAL INLINE void EXPRT \fBcam_crate_clear\fP (const int c)"
+.br
+.ti -1c
+.RI "EXTERNAL INLINE void EXPRT \fBcam_crate_zinit\fP (const int c)"
+.br
+.ti -1c
+.RI "EXTERNAL INLINE void EXPRT \fBcam_lam_enable\fP (const int c, const int n)"
+.br
+.ti -1c
+.RI "EXTERNAL INLINE void EXPRT \fBcam_lam_disable\fP (const int c, const int n)"
+.br
+.ti -1c
+.RI "EXTERNAL void \fBcam_lam_read\fP (const int c, \fBDWORD\fP *lam)"
+.br
+.ti -1c
+.RI "EXTERNAL INLINE void EXPRT \fBcam_lam_clear\fP (const int c, const int n)"
+.br
+.ti -1c
+.RI "EXTERNAL INLINE int EXPRT \fBcam_lam_wait\fP (int *c, \fBDWORD\fP *n, const int millisec)"
+.br
+.ti -1c
+.RI "EXTERNAL INLINE void EXPRT \fBcam_interrupt_enable\fP (const int c)"
+.br
+.ti -1c
+.RI "EXTERNAL INLINE void EXPRT \fBcam_interrupt_disable\fP (const int c)"
+.br
+.ti -1c
+.RI "EXTERNAL INLINE int EXPRT \fBcam_interrupt_test\fP (const int c)"
+.br
+.ti -1c
+.RI "EXTERNAL INLINE void EXPRT \fBcam_interrupt_attach\fP (const int c, const int n, void(*isr)(void))"
+.br
+.ti -1c
+.RI "EXTERNAL INLINE void EXPRT \fBcam_interrupt_detach\fP (const int c, const int n)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+dox The Midas CAMAC include file 
+.PP
+Definition in file \fBmcstd.h\fP.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Midas from the source code.

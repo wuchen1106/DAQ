@@ -1,0 +1,42 @@
+.TH "ODB runinfo related" 3 "31 May 2012" "Version 2.3.0-0" "Midas" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+ODB runinfo related \- 
+.SS "Data Structures"
+
+.in +1c
+.ti -1c
+.RI "struct \fBRUNINFO\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+dox dox 
+.SH "Define Documentation"
+.PP 
+.SS "#define RUNINFO_STR(_name)"\fBValue:\fP
+.PP
+.nf
+const char *_name[] = {\
+'[.]',\
+'State = INT : 1',\
+'Online Mode = INT : 1',\
+'Run number = INT : 0',\
+'Transition in progress = INT : 0',\
+'Start abort = INT : 0',\
+'Requested transition = INT : 0',\
+'Start time = STRING : [32] Tue Sep 09 15:04:42 1997',\
+'Start time binary = DWORD : 0',\
+'Stop time = STRING : [32] Tue Sep 09 15:04:42 1997',\
+'Stop time binary = DWORD : 0',\
+'',\
+NULL }
+.fi
+.PP
+Definition at line 1254 of file midas.h.
+.PP
+Referenced by analyzer_init(), and cm_connect_experiment1().
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Midas from the source code.

@@ -1,0 +1,405 @@
+\subsection{fevmemodules.c File Reference}
+\label{fevmemodules_8c}\index{fevmemodules.c@{fevmemodules.c}}
+
+
+\subsubsection{Define Documentation}
+\index{fevmemodules.c@{fevmemodules.c}!INT\_\-LEVEL@{INT\_\-LEVEL}}
+\index{INT\_\-LEVEL@{INT\_\-LEVEL}!fevmemodules.c@{fevmemodules.c}}
+\paragraph[{INT\_\-LEVEL}]{\setlength{\rightskip}{0pt plus 5cm}\#define INT\_\-LEVEL~(int) 3}\hfill\label{fevmemodules_8c_aed01298d37e73ed9737c8a6b70e67caa}
+
+
+Definition at line 45 of file fevmemodules.c.
+
+Referenced by interrupt\_\-configure().\index{fevmemodules.c@{fevmemodules.c}!INT\_\-VECTOR@{INT\_\-VECTOR}}
+\index{INT\_\-VECTOR@{INT\_\-VECTOR}!fevmemodules.c@{fevmemodules.c}}
+\paragraph[{INT\_\-VECTOR}]{\setlength{\rightskip}{0pt plus 5cm}\#define INT\_\-VECTOR~(int) 0x16}\hfill\label{fevmemodules_8c_aa992c6e0d30eebad60b642ec25681bcb}
+
+
+Definition at line 46 of file fevmemodules.c.
+
+Referenced by interrupt\_\-configure().\index{fevmemodules.c@{fevmemodules.c}!N\_\-ADC@{N\_\-ADC}}
+\index{N\_\-ADC@{N\_\-ADC}!fevmemodules.c@{fevmemodules.c}}
+\paragraph[{N\_\-ADC}]{\setlength{\rightskip}{0pt plus 5cm}\#define N\_\-ADC~100}\hfill\label{fevmemodules_8c_aeac9187aeffc031aa4adaf856d17093b}
+
+
+Definition at line 97 of file fevmemodules.c.
+
+Referenced by adc\_\-calib(), adc\_\-calib\_\-init(), and read\_\-trigger\_\-event().\index{fevmemodules.c@{fevmemodules.c}!N\_\-PTS@{N\_\-PTS}}
+\index{N\_\-PTS@{N\_\-PTS}!fevmemodules.c@{fevmemodules.c}}
+\paragraph[{N\_\-PTS}]{\setlength{\rightskip}{0pt plus 5cm}\#define N\_\-PTS~5000}\hfill\label{fevmemodules_8c_a67f9565ee144db95e5394b15e393e539}
+
+
+Definition at line 99 of file fevmemodules.c.\index{fevmemodules.c@{fevmemodules.c}!N\_\-SCLR@{N\_\-SCLR}}
+\index{N\_\-SCLR@{N\_\-SCLR}!fevmemodules.c@{fevmemodules.c}}
+\paragraph[{N\_\-SCLR}]{\setlength{\rightskip}{0pt plus 5cm}\#define N\_\-SCLR~4}\hfill\label{fevmemodules_8c_ad2e95a3b1cf99277a9faad8a41d0ab8b}
+
+
+Definition at line 105 of file fevmemodules.c.
+
+Referenced by read\_\-scaler\_\-event().\index{fevmemodules.c@{fevmemodules.c}!N\_\-TDC@{N\_\-TDC}}
+\index{N\_\-TDC@{N\_\-TDC}!fevmemodules.c@{fevmemodules.c}}
+\paragraph[{N\_\-TDC}]{\setlength{\rightskip}{0pt plus 5cm}\#define N\_\-TDC~100}\hfill\label{fevmemodules_8c_a7e9c82b300255f54b1528c66fdcdfafd}
+
+
+Definition at line 98 of file fevmemodules.c.
+
+Referenced by read\_\-trigger\_\-event().\index{fevmemodules.c@{fevmemodules.c}!P\_\-BOE@{P\_\-BOE}}
+\index{P\_\-BOE@{P\_\-BOE}!fevmemodules.c@{fevmemodules.c}}
+\paragraph[{P\_\-BOE}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\_\-BOE~0x1}\hfill\label{fevmemodules_8c_ad6c3e6f40d580b713afb1d8f4fe92dd7}
+
+
+Definition at line 36 of file fevmemodules.c.
+
+Referenced by begin\_\-of\_\-run().\index{fevmemodules.c@{fevmemodules.c}!P\_\-CLR@{P\_\-CLR}}
+\index{P\_\-CLR@{P\_\-CLR}!fevmemodules.c@{fevmemodules.c}}
+\paragraph[{P\_\-CLR}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\_\-CLR~0x4}\hfill\label{fevmemodules_8c_ae4e1fdc925f086a479d7e889dbfaaf9e}
+
+
+Definition at line 38 of file fevmemodules.c.
+
+Referenced by begin\_\-of\_\-run().\index{fevmemodules.c@{fevmemodules.c}!P\_\-EOE@{P\_\-EOE}}
+\index{P\_\-EOE@{P\_\-EOE}!fevmemodules.c@{fevmemodules.c}}
+\paragraph[{P\_\-EOE}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\_\-EOE~0x2}\hfill\label{fevmemodules_8c_a93d7238f44b662d68192a2091933821e}
+
+
+Definition at line 37 of file fevmemodules.c.
+
+Referenced by begin\_\-of\_\-run(), and resume\_\-run().\index{fevmemodules.c@{fevmemodules.c}!S\_\-READOUT@{S\_\-READOUT}}
+\index{S\_\-READOUT@{S\_\-READOUT}!fevmemodules.c@{fevmemodules.c}}
+\paragraph[{S\_\-READOUT}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\_\-READOUT~0x8}\hfill\label{fevmemodules_8c_af89ae631a74234ea7f55a6d3767eb8cc}
+
+
+Definition at line 39 of file fevmemodules.c.\index{fevmemodules.c@{fevmemodules.c}!S\_\-RUNGATE@{S\_\-RUNGATE}}
+\index{S\_\-RUNGATE@{S\_\-RUNGATE}!fevmemodules.c@{fevmemodules.c}}
+\paragraph[{S\_\-RUNGATE}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\_\-RUNGATE~0x10}\hfill\label{fevmemodules_8c_a1218cb0e8300322e213dcc9e94677c13}
+
+
+Definition at line 40 of file fevmemodules.c.
+
+Referenced by resume\_\-run().\index{fevmemodules.c@{fevmemodules.c}!TRIG\_\-LEVEL@{TRIG\_\-LEVEL}}
+\index{TRIG\_\-LEVEL@{TRIG\_\-LEVEL}!fevmemodules.c@{fevmemodules.c}}
+\paragraph[{TRIG\_\-LEVEL}]{\setlength{\rightskip}{0pt plus 5cm}\#define TRIG\_\-LEVEL~(int) 1}\hfill\label{fevmemodules_8c_a90a84f3ea9d75594c6cde52a179b5e88}
+
+
+Definition at line 44 of file fevmemodules.c.
+
+Referenced by resume\_\-run().\index{fevmemodules.c@{fevmemodules.c}!VF48\_\-CODE@{VF48\_\-CODE}}
+\index{VF48\_\-CODE@{VF48\_\-CODE}!fevmemodules.c@{fevmemodules.c}}
+\paragraph[{VF48\_\-CODE}]{\setlength{\rightskip}{0pt plus 5cm}\#define VF48\_\-CODE}\hfill\label{fevmemodules_8c_a12a02425f79527aa8cf10894e2d0e0d6}
+
+
+Definition at line 19 of file fevmemodules.c.
+
+\subsubsection{Function Documentation}
+\index{fevmemodules.c@{fevmemodules.c}!begin\_\-of\_\-run@{begin\_\-of\_\-run}}
+\index{begin\_\-of\_\-run@{begin\_\-of\_\-run}!fevmemodules.c@{fevmemodules.c}}
+\paragraph[{begin\_\-of\_\-run}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} begin\_\-of\_\-run ({\bf INT} {\em run\_\-number}, \/  char $\ast$ {\em error})}\hfill\label{fevmemodules_8c_ad8bfe703c49342b9f0275aba77dc7758}
+
+
+Definition at line 285 of file fevmemodules.c.\index{fevmemodules.c@{fevmemodules.c}!end\_\-of\_\-run@{end\_\-of\_\-run}}
+\index{end\_\-of\_\-run@{end\_\-of\_\-run}!fevmemodules.c@{fevmemodules.c}}
+\paragraph[{end\_\-of\_\-run}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} end\_\-of\_\-run ({\bf INT} {\em run\_\-number}, \/  char $\ast$ {\em error})}\hfill\label{fevmemodules_8c_ae6d798649008b7523c77222bae2d4187}
+
+
+Definition at line 574 of file fevmemodules.c.\index{fevmemodules.c@{fevmemodules.c}!frontend\_\-exit@{frontend\_\-exit}}
+\index{frontend\_\-exit@{frontend\_\-exit}!fevmemodules.c@{fevmemodules.c}}
+\paragraph[{frontend\_\-exit}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} frontend\_\-exit (void)}\hfill\label{fevmemodules_8c_a15271255cca6c92978b28afd5a548382}
+
+
+Definition at line 278 of file fevmemodules.c.\index{fevmemodules.c@{fevmemodules.c}!frontend\_\-init@{frontend\_\-init}}
+\index{frontend\_\-init@{frontend\_\-init}!fevmemodules.c@{fevmemodules.c}}
+\paragraph[{frontend\_\-init}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} frontend\_\-init (void)}\hfill\label{fevmemodules_8c_a34c51ae8c88f4717087b0604975516f4}
+
+
+Definition at line 233 of file fevmemodules.c.\index{fevmemodules.c@{fevmemodules.c}!frontend\_\-loop@{frontend\_\-loop}}
+\index{frontend\_\-loop@{frontend\_\-loop}!fevmemodules.c@{fevmemodules.c}}
+\paragraph[{frontend\_\-loop}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} frontend\_\-loop (void)}\hfill\label{fevmemodules_8c_ada66837c3c3d263974ad717921145e0a}
+
+
+Definition at line 621 of file fevmemodules.c.\index{fevmemodules.c@{fevmemodules.c}!interrupt\_\-configure@{interrupt\_\-configure}}
+\index{interrupt\_\-configure@{interrupt\_\-configure}!fevmemodules.c@{fevmemodules.c}}
+\paragraph[{interrupt\_\-configure}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} interrupt\_\-configure ({\bf INT} {\em cmd}, \/  {\bf INT} {\em source}, \/  PTYPE {\em adr})}\hfill\label{fevmemodules_8c_a55dc1ffa15566edfd2ad2249aae97c77}
+
+
+Definition at line 671 of file fevmemodules.c.\index{fevmemodules.c@{fevmemodules.c}!interrupt\_\-routine@{interrupt\_\-routine}}
+\index{interrupt\_\-routine@{interrupt\_\-routine}!fevmemodules.c@{fevmemodules.c}}
+\paragraph[{interrupt\_\-routine}]{\setlength{\rightskip}{0pt plus 5cm}void interrupt\_\-routine (void)}\hfill\label{fevmemodules_8c_a8b84b3b4051dae0ba00258a3c885c0c7}
+
+
+Definition at line 1306 of file mfe.c.
+
+Referenced by initialize\_\-equipment().\index{fevmemodules.c@{fevmemodules.c}!pause\_\-run@{pause\_\-run}}
+\index{pause\_\-run@{pause\_\-run}!fevmemodules.c@{fevmemodules.c}}
+\paragraph[{pause\_\-run}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} pause\_\-run ({\bf INT} {\em run\_\-number}, \/  char $\ast$ {\em error})}\hfill\label{fevmemodules_8c_a164db20cf6c8c81e8c8ca50a590de436}
+
+
+Definition at line 591 of file fevmemodules.c.\index{fevmemodules.c@{fevmemodules.c}!poll\_\-event@{poll\_\-event}}
+\index{poll\_\-event@{poll\_\-event}!fevmemodules.c@{fevmemodules.c}}
+\paragraph[{poll\_\-event}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} poll\_\-event ({\bf INT} {\em source}, \/  {\bf INT} {\em count}, \/  {\bf BOOL} {\em test})}\hfill\label{fevmemodules_8c_a98cc3257284af91fa0e8da10ddf227c8}
+
+
+Definition at line 650 of file fevmemodules.c.\index{fevmemodules.c@{fevmemodules.c}!read\_\-scaler\_\-event@{read\_\-scaler\_\-event}}
+\index{read\_\-scaler\_\-event@{read\_\-scaler\_\-event}!fevmemodules.c@{fevmemodules.c}}
+\paragraph[{read\_\-scaler\_\-event}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} read\_\-scaler\_\-event (char $\ast$ {\em pevent}, \/  {\bf INT} {\em off})}\hfill\label{fevmemodules_8c_af3ad062393c1437922bae26841d8927c}
+
+
+Definition at line 841 of file fevmemodules.c.\index{fevmemodules.c@{fevmemodules.c}!read\_\-trigger\_\-event@{read\_\-trigger\_\-event}}
+\index{read\_\-trigger\_\-event@{read\_\-trigger\_\-event}!fevmemodules.c@{fevmemodules.c}}
+\paragraph[{read\_\-trigger\_\-event}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} read\_\-trigger\_\-event (char $\ast$ {\em pevent}, \/  {\bf INT} {\em off})}\hfill\label{fevmemodules_8c_a9c54bafa1af403e5e4737f9d8d5aba07}
+
+
+-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/
+
+-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/ 
+
+Definition at line 697 of file fevmemodules.c.\index{fevmemodules.c@{fevmemodules.c}!register\_\-cnaf\_\-callback@{register\_\-cnaf\_\-callback}}
+\index{register\_\-cnaf\_\-callback@{register\_\-cnaf\_\-callback}!fevmemodules.c@{fevmemodules.c}}
+\paragraph[{register\_\-cnaf\_\-callback}]{\setlength{\rightskip}{0pt plus 5cm}void register\_\-cnaf\_\-callback (int {\em debug})}\hfill\label{fevmemodules_8c_a4c2c646c3b139346601893d06cf6df9d}
+
+
+Definition at line 124 of file cnaf\_\-callback.c.
+
+Referenced by frontend\_\-init().\index{fevmemodules.c@{fevmemodules.c}!resume\_\-run@{resume\_\-run}}
+\index{resume\_\-run@{resume\_\-run}!fevmemodules.c@{fevmemodules.c}}
+\paragraph[{resume\_\-run}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} resume\_\-run ({\bf INT} {\em run\_\-number}, \/  char $\ast$ {\em error})}\hfill\label{fevmemodules_8c_a6cada7e3f07b9fc2b9886263223661d4}
+
+
+Definition at line 604 of file fevmemodules.c.\index{fevmemodules.c@{fevmemodules.c}!seq\_\-callback@{seq\_\-callback}}
+\index{seq\_\-callback@{seq\_\-callback}!fevmemodules.c@{fevmemodules.c}}
+\paragraph[{seq\_\-callback}]{\setlength{\rightskip}{0pt plus 5cm}void seq\_\-callback ({\bf INT} {\em hDB}, \/  {\bf INT} {\em hseq}, \/  void $\ast$ {\em info})}\hfill\label{fevmemodules_8c_a0dc058822b97bbd8a5f918f0213e4a9e}
+
+
+Definition at line 227 of file fevmemodules.c.
+
+Referenced by frontend\_\-init().
+
+\subsubsection{Variable Documentation}
+\index{fevmemodules.c@{fevmemodules.c}!display\_\-period@{display\_\-period}}
+\index{display\_\-period@{display\_\-period}!fevmemodules.c@{fevmemodules.c}}
+\paragraph[{display\_\-period}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} {\bf display\_\-period} = 000}\hfill\label{fevmemodules_8c_ab9cdcefda91459091b0ed33011d0d18c}
+
+
+Definition at line 66 of file fevmemodules.c.\index{fevmemodules.c@{fevmemodules.c}!done@{done}}
+\index{done@{done}!fevmemodules.c@{fevmemodules.c}}
+\paragraph[{done}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf done} = 0}\hfill\label{fevmemodules_8c_a5992b274cfdcacdbc1fa8347fd01ebde}
+
+
+Definition at line 82 of file fevmemodules.c.
+
+Referenced by end\_\-of\_\-run(), frontend\_\-loop(), and v1729\_\-isTrigger().\index{fevmemodules.c@{fevmemodules.c}!equipment@{equipment}}
+\index{equipment@{equipment}!fevmemodules.c@{fevmemodules.c}}
+\paragraph[{equipment}]{\setlength{\rightskip}{0pt plus 5cm}{\bf EQUIPMENT} {\bf equipment}\mbox{[}$\,$\mbox{]}}\hfill\label{fevmemodules_8c_aa86ef8764826784b74603ffb23852283}
+
+
+Definition at line 150 of file fevmemodules.c.\index{fevmemodules.c@{fevmemodules.c}!event\_\-buffer\_\-size@{event\_\-buffer\_\-size}}
+\index{event\_\-buffer\_\-size@{event\_\-buffer\_\-size}!fevmemodules.c@{fevmemodules.c}}
+\paragraph[{event\_\-buffer\_\-size}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} {\bf event\_\-buffer\_\-size} = 10 $\ast$ 100000}\hfill\label{fevmemodules_8c_a4411d7db6f901c968b946ed659d202f6}
+
+
+Definition at line 75 of file fevmemodules.c.\index{fevmemodules.c@{fevmemodules.c}!evlimit@{evlimit}}
+\index{evlimit@{evlimit}!fevmemodules.c@{fevmemodules.c}}
+\paragraph[{evlimit}]{\setlength{\rightskip}{0pt plus 5cm}{\bf DWORD} {\bf evlimit}}\hfill\label{fevmemodules_8c_adb65a4e8d1413f7d40cc16e7118899ce}
+
+
+Definition at line 83 of file fevmemodules.c.
+
+Referenced by frontend\_\-loop(), and read\_\-trigger\_\-event().\index{fevmemodules.c@{fevmemodules.c}!frontend\_\-call\_\-loop@{frontend\_\-call\_\-loop}}
+\index{frontend\_\-call\_\-loop@{frontend\_\-call\_\-loop}!fevmemodules.c@{fevmemodules.c}}
+\paragraph[{frontend\_\-call\_\-loop}]{\setlength{\rightskip}{0pt plus 5cm}{\bf BOOL} {\bf frontend\_\-call\_\-loop} = FALSE}\hfill\label{fevmemodules_8c_a0215c0a842a0e97fe65c7ef5fb7633a5}
+
+
+Definition at line 63 of file fevmemodules.c.\index{fevmemodules.c@{fevmemodules.c}!frontend\_\-file\_\-name@{frontend\_\-file\_\-name}}
+\index{frontend\_\-file\_\-name@{frontend\_\-file\_\-name}!fevmemodules.c@{fevmemodules.c}}
+\paragraph[{frontend\_\-file\_\-name}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ {\bf frontend\_\-file\_\-name} = \_\-\_\-FILE\_\-\_\-}\hfill\label{fevmemodules_8c_ac7fc683b5a25d9607abc270a54db6d97}
+
+
+Definition at line 60 of file fevmemodules.c.\index{fevmemodules.c@{fevmemodules.c}!frontend\_\-name@{frontend\_\-name}}
+\index{frontend\_\-name@{frontend\_\-name}!fevmemodules.c@{fevmemodules.c}}
+\paragraph[{frontend\_\-name}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ {\bf frontend\_\-name} = \char`\"{}fevmemodules\char`\"{}}\hfill\label{fevmemodules_8c_ac1f0c6df66e35778b61c611107501ec4}
+
+
+Definition at line 58 of file fevmemodules.c.\index{fevmemodules.c@{fevmemodules.c}!hDB@{hDB}}
+\index{hDB@{hDB}!fevmemodules.c@{fevmemodules.c}}
+\paragraph[{hDB}]{\setlength{\rightskip}{0pt plus 5cm}HNDLE {\bf hDB}}\hfill\label{fevmemodules_8c_ab1f60c53f74e806a3b9f687af38d7421}
+
+
+Definition at line 71 of file mfe.c.\index{fevmemodules.c@{fevmemodules.c}!hSet@{hSet}}
+\index{hSet@{hSet}!fevmemodules.c@{fevmemodules.c}}
+\paragraph[{hSet}]{\setlength{\rightskip}{0pt plus 5cm}HNDLE {\bf hSet}}\hfill\label{fevmemodules_8c_a24a9e510d792776924958328f8220d75}
+
+
+Definition at line 101 of file fevmemodules.c.
+
+Referenced by begin\_\-of\_\-run(), and frontend\_\-init().\index{fevmemodules.c@{fevmemodules.c}!inRun@{inRun}}
+\index{inRun@{inRun}!fevmemodules.c@{fevmemodules.c}}
+\paragraph[{inRun}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf inRun} = 0}\hfill\label{fevmemodules_8c_a0f9c151f98b81e4a46f88f47a37cffb1}
+
+
+Definition at line 81 of file fevmemodules.c.
+
+Referenced by end\_\-of\_\-run(), frontend\_\-loop(), interrupt\_\-configure(), pause\_\-run(), and resume\_\-run().\index{fevmemodules.c@{fevmemodules.c}!int\_\-info@{int\_\-info}}
+\index{int\_\-info@{int\_\-info}!fevmemodules.c@{fevmemodules.c}}
+\paragraph[{int\_\-info}]{\setlength{\rightskip}{0pt plus 5cm}INT\_\-INFO {\bf int\_\-info}}\hfill\label{fevmemodules_8c_ab41e1a698055c9419f431cb4a4c2339c}
+
+
+Referenced by myisr().\index{fevmemodules.c@{fevmemodules.c}!intflag@{intflag}}
+\index{intflag@{intflag}!fevmemodules.c@{fevmemodules.c}}
+\paragraph[{intflag}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf intflag} = 0}\hfill\label{fevmemodules_8c_af04b8670f9eb7a42f73148ced267ab35}
+
+
+Definition at line 80 of file fevmemodules.c.\index{fevmemodules.c@{fevmemodules.c}!max\_\-event\_\-size@{max\_\-event\_\-size}}
+\index{max\_\-event\_\-size@{max\_\-event\_\-size}!fevmemodules.c@{fevmemodules.c}}
+\paragraph[{max\_\-event\_\-size}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} {\bf max\_\-event\_\-size} = 200000}\hfill\label{fevmemodules_8c_a13adb6e6b95ca2a62bbfe2453d71a1cd}
+
+
+Definition at line 69 of file fevmemodules.c.\index{fevmemodules.c@{fevmemodules.c}!max\_\-event\_\-size\_\-frag@{max\_\-event\_\-size\_\-frag}}
+\index{max\_\-event\_\-size\_\-frag@{max\_\-event\_\-size\_\-frag}!fevmemodules.c@{fevmemodules.c}}
+\paragraph[{max\_\-event\_\-size\_\-frag}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} {\bf max\_\-event\_\-size\_\-frag} = 5 $\ast$ 1024 $\ast$ 1024}\hfill\label{fevmemodules_8c_a5593758d19398ebc7c3d58d7f05ec160}
+
+
+Definition at line 72 of file fevmemodules.c.\index{fevmemodules.c@{fevmemodules.c}!missed@{missed}}
+\index{missed@{missed}!fevmemodules.c@{fevmemodules.c}}
+\paragraph[{missed}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf missed} = 0}\hfill\label{fevmemodules_8c_a6cde1377f6c51796f78ef647404f396a}
+
+
+Definition at line 81 of file fevmemodules.c.
+
+Referenced by begin\_\-of\_\-run(), and read\_\-trigger\_\-event().\index{fevmemodules.c@{fevmemodules.c}!myinfo@{myinfo}}
+\index{myinfo@{myinfo}!fevmemodules.c@{fevmemodules.c}}
+\paragraph[{myinfo}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf myinfo} = VME\_\-INTERRUPT\_\-SIGEVENT}\hfill\label{fevmemodules_8c_a078c7a09da85e54e060ec80b7f9e2649}
+
+
+Definition at line 48 of file fevmemodules.c.
+
+Referenced by interrupt\_\-configure(), and sis3801\_\-int\_\-attach().\index{fevmemodules.c@{fevmemodules.c}!myvme@{myvme}}
+\index{myvme@{myvme}!fevmemodules.c@{fevmemodules.c}}
+\paragraph[{myvme}]{\setlength{\rightskip}{0pt plus 5cm}{\bf MVME\_\-INTERFACE}$\ast$ {\bf myvme}}\hfill\label{fevmemodules_8c_aeab89db2ad759342a32dcd50a0a0156c}
+
+
+Definition at line 78 of file fevmemodules.c.
+
+Referenced by begin\_\-of\_\-run(), end\_\-of\_\-run(), frontend\_\-init(), frontend\_\-loop(), interrupt\_\-configure(), pause\_\-run(), poll\_\-event(), read\_\-trigger\_\-event(), and resume\_\-run().\index{fevmemodules.c@{fevmemodules.c}!sRG@{sRG}}
+\index{sRG@{sRG}!fevmemodules.c@{fevmemodules.c}}
+\paragraph[{sRG}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf sRG} = 0}\hfill\label{fevmemodules_8c_ac7cce186dd76dade3ec935efb745e1a0}
+
+
+Definition at line 79 of file fevmemodules.c.\index{fevmemodules.c@{fevmemodules.c}!stop\_\-req@{stop\_\-req}}
+\index{stop\_\-req@{stop\_\-req}!fevmemodules.c@{fevmemodules.c}}
+\paragraph[{stop\_\-req}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf stop\_\-req} = 0}\hfill\label{fevmemodules_8c_a25a07c1f75f0b67144cbdc264ffdb09c}
+
+
+Definition at line 82 of file fevmemodules.c.
+
+Referenced by end\_\-of\_\-run(), and frontend\_\-loop().\index{fevmemodules.c@{fevmemodules.c}!trig\_\-level@{trig\_\-level}}
+\index{trig\_\-level@{trig\_\-level}!fevmemodules.c@{fevmemodules.c}}
+\paragraph[{trig\_\-level}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf trig\_\-level} = 0}\hfill\label{fevmemodules_8c_ad8650f66958ab0805468d3ed83722cd6}
+
+
+Definition at line 43 of file fevmemodules.c.
+
+Referenced by end\_\-of\_\-run(), pause\_\-run(), and resume\_\-run().\index{fevmemodules.c@{fevmemodules.c}!trigger\_\-bank\_\-list@{trigger\_\-bank\_\-list}}
+\index{trigger\_\-bank\_\-list@{trigger\_\-bank\_\-list}!fevmemodules.c@{fevmemodules.c}}
+\paragraph[{trigger\_\-bank\_\-list}]{\setlength{\rightskip}{0pt plus 5cm}{\bf BANK\_\-LIST} {\bf trigger\_\-bank\_\-list}\mbox{[}$\,$\mbox{]}}\hfill\label{fevmemodules_8c_a578a99806dff3ee5cd0c3c6583e60db4}
+{\bfseries Initial value:}
+\begin{DoxyCode}
+ {
+
+   
+   {"ADC0", TID_DWORD, N_ADC, NULL}
+   ,
+   {"ADC1", TID_DWORD, N_ADC, NULL}
+   ,
+   {"ADC2", TID_DWORD, N_ADC, NULL}
+   ,
+   {"ADC3", TID_DWORD, N_ADC, NULL}
+   ,
+   {"TDC0", TID_DWORD, N_TDC, NULL}
+   ,
+
+   {"WAVE", TID_DWORD, N_TDC, NULL}
+   ,
+   {"FWAV", TID_DWORD, N_PTS, NULL}
+   ,
+
+   {""}
+   ,
+}
+\end{DoxyCode}
+
+
+Definition at line 123 of file fevmemodules.c.\index{fevmemodules.c@{fevmemodules.c}!ts@{ts}}
+\index{ts@{ts}!fevmemodules.c@{fevmemodules.c}}
+\paragraph[{ts}]{\setlength{\rightskip}{0pt plus 5cm}{\bf TRIGGER\_\-SETTINGS} {\bf ts}}\hfill\label{fevmemodules_8c_a8d1988d3d35f995fe7cb2e1095e59136}
+
+
+Definition at line 102 of file fevmemodules.c.
+
+Referenced by begin\_\-of\_\-run(), cm\_\-msg(), cm\_\-msg\_\-flush\_\-buffer(), frontend\_\-init(), and ss\_\-thread\_\-create().\index{fevmemodules.c@{fevmemodules.c}!V1729\_\-BASE@{V1729\_\-BASE}}
+\index{V1729\_\-BASE@{V1729\_\-BASE}!fevmemodules.c@{fevmemodules.c}}
+\paragraph[{V1729\_\-BASE}]{\setlength{\rightskip}{0pt plus 5cm}{\bf DWORD} {\bf V1729\_\-BASE} = 0x120000}\hfill\label{fevmemodules_8c_aaea9e4342e75a4567348965a0aad8fc7}
+
+
+Definition at line 95 of file fevmemodules.c.
+
+Referenced by begin\_\-of\_\-run(), frontend\_\-init(), and read\_\-trigger\_\-event().\index{fevmemodules.c@{fevmemodules.c}!VADC0\_\-BASE@{VADC0\_\-BASE}}
+\index{VADC0\_\-BASE@{VADC0\_\-BASE}!fevmemodules.c@{fevmemodules.c}}
+\paragraph[{VADC0\_\-BASE}]{\setlength{\rightskip}{0pt plus 5cm}{\bf DWORD} {\bf VADC0\_\-BASE} = 0x100000}\hfill\label{fevmemodules_8c_a3ae5fa9db7b26822330dc4ecd93bced4}
+
+
+Definition at line 88 of file fevmemodules.c.
+
+Referenced by begin\_\-of\_\-run(), and read\_\-trigger\_\-event().\index{fevmemodules.c@{fevmemodules.c}!VADC1\_\-BASE@{VADC1\_\-BASE}}
+\index{VADC1\_\-BASE@{VADC1\_\-BASE}!fevmemodules.c@{fevmemodules.c}}
+\paragraph[{VADC1\_\-BASE}]{\setlength{\rightskip}{0pt plus 5cm}{\bf DWORD} {\bf VADC1\_\-BASE} = 0x200000}\hfill\label{fevmemodules_8c_aadd77a29826b8161d9b96c579eb2d263}
+
+
+Definition at line 89 of file fevmemodules.c.
+
+Referenced by begin\_\-of\_\-run(), and read\_\-trigger\_\-event().\index{fevmemodules.c@{fevmemodules.c}!VADC2\_\-BASE@{VADC2\_\-BASE}}
+\index{VADC2\_\-BASE@{VADC2\_\-BASE}!fevmemodules.c@{fevmemodules.c}}
+\paragraph[{VADC2\_\-BASE}]{\setlength{\rightskip}{0pt plus 5cm}{\bf DWORD} {\bf VADC2\_\-BASE} = 0x300000}\hfill\label{fevmemodules_8c_a041d0b7085ddc2d50f0c554de93ab39d}
+
+
+Definition at line 90 of file fevmemodules.c.
+
+Referenced by begin\_\-of\_\-run(), and read\_\-trigger\_\-event().\index{fevmemodules.c@{fevmemodules.c}!VADC3\_\-BASE@{VADC3\_\-BASE}}
+\index{VADC3\_\-BASE@{VADC3\_\-BASE}!fevmemodules.c@{fevmemodules.c}}
+\paragraph[{VADC3\_\-BASE}]{\setlength{\rightskip}{0pt plus 5cm}{\bf DWORD} {\bf VADC3\_\-BASE} = 0x400000}\hfill\label{fevmemodules_8c_a37ab9af0533e181c4729f7705c4a993e}
+
+
+Definition at line 91 of file fevmemodules.c.
+
+Referenced by begin\_\-of\_\-run(), and read\_\-trigger\_\-event().\index{fevmemodules.c@{fevmemodules.c}!VF48\_\-BASE@{VF48\_\-BASE}}
+\index{VF48\_\-BASE@{VF48\_\-BASE}!fevmemodules.c@{fevmemodules.c}}
+\paragraph[{VF48\_\-BASE}]{\setlength{\rightskip}{0pt plus 5cm}{\bf DWORD} {\bf VF48\_\-BASE} = 0xAF0000}\hfill\label{fevmemodules_8c_a7675505ab96ded09e577ea510c2900e0}
+
+
+Definition at line 94 of file fevmemodules.c.
+
+Referenced by begin\_\-of\_\-run(), end\_\-of\_\-run(), and read\_\-trigger\_\-event().\index{fevmemodules.c@{fevmemodules.c}!vf48\_\-error@{vf48\_\-error}}
+\index{vf48\_\-error@{vf48\_\-error}!fevmemodules.c@{fevmemodules.c}}
+\paragraph[{vf48\_\-error}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf vf48\_\-error} = 0}\hfill\label{fevmemodules_8c_a8883ccfed3c0d566cf3e4cf5637fd70d}
+
+
+Definition at line 696 of file fevmemodules.c.\index{fevmemodules.c@{fevmemodules.c}!VLAM\_\-BASE@{VLAM\_\-BASE}}
+\index{VLAM\_\-BASE@{VLAM\_\-BASE}!fevmemodules.c@{fevmemodules.c}}
+\paragraph[{VLAM\_\-BASE}]{\setlength{\rightskip}{0pt plus 5cm}{\bf DWORD} {\bf VLAM\_\-BASE} = 0x800000}\hfill\label{fevmemodules_8c_af9e70d396f8271dc89a6ca33f9b540bc}
+
+
+Definition at line 93 of file fevmemodules.c.
+
+Referenced by end\_\-of\_\-run(), frontend\_\-loop(), interrupt\_\-configure(), pause\_\-run(), and resume\_\-run().\index{fevmemodules.c@{fevmemodules.c}!VMEIO\_\-BASE@{VMEIO\_\-BASE}}
+\index{VMEIO\_\-BASE@{VMEIO\_\-BASE}!fevmemodules.c@{fevmemodules.c}}
+\paragraph[{VMEIO\_\-BASE}]{\setlength{\rightskip}{0pt plus 5cm}{\bf DWORD} {\bf VMEIO\_\-BASE} = 0x780000}\hfill\label{fevmemodules_8c_aa914897ada170e3d2b39940ef62467cf}
+
+
+Definition at line 86 of file fevmemodules.c.
+
+Referenced by begin\_\-of\_\-run(), end\_\-of\_\-run(), pause\_\-run(), poll\_\-event(), and resume\_\-run().\index{fevmemodules.c@{fevmemodules.c}!VTDC0\_\-BASE@{VTDC0\_\-BASE}}
+\index{VTDC0\_\-BASE@{VTDC0\_\-BASE}!fevmemodules.c@{fevmemodules.c}}
+\paragraph[{VTDC0\_\-BASE}]{\setlength{\rightskip}{0pt plus 5cm}{\bf DWORD} {\bf VTDC0\_\-BASE} = 0xF10000}\hfill\label{fevmemodules_8c_a72f046e5198d0a8f6f8a18ec0c142b07}
+
+
+Definition at line 87 of file fevmemodules.c.
+
+Referenced by begin\_\-of\_\-run(), and read\_\-trigger\_\-event().

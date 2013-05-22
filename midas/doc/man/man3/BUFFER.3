@@ -1,0 +1,147 @@
+.TH "BUFFER" 3 "31 May 2012" "Version 2.3.0-0" "Midas" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+BUFFER \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "\fBBOOL\fP \fBattached\fP"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBclient_index\fP"
+.br
+.ti -1c
+.RI "\fBBUFFER_HEADER\fP * \fBbuffer_header\fP"
+.br
+.ti -1c
+.RI "void * \fBbuffer_data\fP"
+.br
+.ti -1c
+.RI "char * \fBread_cache\fP"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBread_cache_size\fP"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBread_cache_rp\fP"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBread_cache_wp\fP"
+.br
+.ti -1c
+.RI "char * \fBwrite_cache\fP"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBwrite_cache_size\fP"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBwrite_cache_rp\fP"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBwrite_cache_wp\fP"
+.br
+.ti -1c
+.RI "HNDLE \fBsemaphore\fP"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBshm_handle\fP"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBindex\fP"
+.br
+.ti -1c
+.RI "\fBBOOL\fP \fBcallback\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 892 of file midas.h.
+.SH "Field Documentation"
+.PP 
+.SS "\fBBOOL\fP \fBBUFFER::attached\fP"TRUE if buffer is attached 
+.PP
+Definition at line 893 of file midas.h.
+.PP
+Referenced by bm_close_buffer(), bm_flush_cache(), bm_open_buffer(), bm_push_event(), bm_receive_event(), bm_send_event(), and bm_skip_event().
+.SS "void* \fBBUFFER::buffer_data\fP"pointer to buffer data 
+.PP
+Definition at line 896 of file midas.h.
+.PP
+Referenced by bm_open_buffer().
+.SS "\fBBUFFER_HEADER\fP* \fBBUFFER::buffer_header\fP"pointer to buffer header 
+.PP
+Definition at line 895 of file midas.h.
+.PP
+Referenced by bm_cleanup(), bm_cleanup_buffer_locked(), bm_close_buffer(), bm_empty_buffers(), bm_flush_cache(), bm_open_buffer(), bm_push_event(), bm_receive_event(), bm_remove_event_request(), bm_send_event(), bm_skip_event(), bm_validate_client_index(), bm_wait_for_free_space(), cm_cleanup(), cm_set_watchdog_params(), and cm_update_last_activity().
+.SS "\fBBOOL\fP \fBBUFFER::callback\fP"callback defined for this buffer 
+.PP
+Definition at line 908 of file midas.h.
+.PP
+Referenced by bm_open_buffer(), and bm_push_event().
+.SS "\fBINT\fP \fBBUFFER::client_index\fP"index to CLIENT str. in buf. 
+.PP
+Definition at line 894 of file midas.h.
+.PP
+Referenced by bm_open_buffer(), and bm_validate_client_index().
+.SS "\fBINT\fP \fBBUFFER::index\fP"connection index / tid 
+.PP
+Definition at line 907 of file midas.h.
+.PP
+Referenced by bm_open_buffer().
+.SS "char* \fBBUFFER::read_cache\fP"cache for burst read 
+.PP
+Definition at line 897 of file midas.h.
+.PP
+Referenced by bm_copy_from_cache(), bm_dispatch_from_cache(), bm_push_event(), bm_receive_event(), and bm_set_cache_size().
+.SS "\fBINT\fP \fBBUFFER::read_cache_rp\fP"cache read pointer 
+.PP
+Definition at line 899 of file midas.h.
+.PP
+Referenced by bm_copy_from_cache(), bm_dispatch_from_cache(), bm_empty_buffers(), bm_read_cache_has_events(), bm_set_cache_size(), and bm_skip_event().
+.SS "\fBINT\fP \fBBUFFER::read_cache_size\fP"cache size in bytes 
+.PP
+Definition at line 898 of file midas.h.
+.PP
+Referenced by bm_push_event(), bm_read_cache_has_events(), bm_receive_event(), and bm_set_cache_size().
+.SS "\fBINT\fP \fBBUFFER::read_cache_wp\fP"cache write pointer 
+.PP
+Definition at line 900 of file midas.h.
+.PP
+Referenced by bm_copy_from_cache(), bm_dispatch_from_cache(), bm_empty_buffers(), bm_push_event(), bm_read_cache_has_events(), bm_receive_event(), bm_set_cache_size(), and bm_skip_event().
+.SS "HNDLE \fBBUFFER::semaphore\fP"semaphore handle 
+.PP
+Definition at line 905 of file midas.h.
+.SS "\fBINT\fP \fBBUFFER::shm_handle\fP"handle to shared memory 
+.PP
+Definition at line 906 of file midas.h.
+.PP
+Referenced by bm_close_buffer(), and bm_open_buffer().
+.SS "char* \fBBUFFER::write_cache\fP"cache for burst read 
+.PP
+Definition at line 901 of file midas.h.
+.PP
+Referenced by bm_flush_cache(), bm_send_event(), and bm_set_cache_size().
+.SS "\fBINT\fP \fBBUFFER::write_cache_rp\fP"cache read pointer 
+.PP
+Definition at line 903 of file midas.h.
+.PP
+Referenced by bm_flush_cache(), and bm_set_cache_size().
+.SS "\fBINT\fP \fBBUFFER::write_cache_size\fP"cache size in bytes 
+.PP
+Definition at line 902 of file midas.h.
+.PP
+Referenced by bm_flush_cache(), bm_send_event(), and bm_set_cache_size().
+.SS "\fBINT\fP \fBBUFFER::write_cache_wp\fP"cache write pointer 
+.PP
+Definition at line 904 of file midas.h.
+.PP
+Referenced by bm_flush_cache(), bm_send_event(), and bm_set_cache_size().
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Midas from the source code.

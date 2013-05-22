@@ -1,0 +1,106 @@
+.TH "Midas Alarm Functions (al_xxx)" 3 "31 May 2012" "Version 2.3.0-0" "Midas" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Midas Alarm Functions (al_xxx) \- 
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBINT\fP \fBal_trigger_alarm\fP (const char *alarm_name, const char *alarm_message, const char *default_class, const char *cond_str, \fBINT\fP type)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBal_reset_alarm\fP (const char *alarm_name)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBal_check\fP ()"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBal_get_alarms\fP (char *result, int result_size)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+dox 
+.SH "Function Documentation"
+.PP 
+.SS "\fBINT\fP al_check ()"Scan ODB for alarms. 
+.PP
+\fBReturns:\fP
+.RS 4
+AL_SUCCESS 
+.RE
+.PP
+
+.PP
+Definition at line 527 of file alarm.c.
+.PP
+Referenced by cm_yield().
+.SS "\fBINT\fP al_get_alarms (char * result, int result_size)"Scan ODB for alarms. 
+.PP
+\fBReturns:\fP
+.RS 4
+AL_SUCCESS 
+.RE
+.PP
+
+.PP
+Definition at line 714 of file alarm.c.
+.SS "\fBINT\fP al_reset_alarm (const char * alarm_name)"dox Reset (acknoledge) alarm.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIalarm_name\fP Alarm name, defined in /alarms/alarms 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+AL_SUCCESS, AL_RESETE, AL_INVALID_NAME 
+.RE
+.PP
+
+.PP
+Definition at line 439 of file alarm.c.
+.SS "\fBINT\fP al_trigger_alarm (const char * alarm_name, const char * alarm_message, const char * default_class, const char * cond_str, \fBINT\fP type)"dox Trigger a certain alarm. 
+.PP
+.nf
+ ...
+  lazy.alarm[0] = 0;
+  size = sizeof(lazy.alarm);
+  db_get_value(hDB, pLch->hKey, 'Settings/Alarm Class', lazy.alarm, &size, TID_STRING, TRUE);
+
+  // trigger alarm if defined
+  if (lazy.alarm[0])
+    al_trigger_alarm('Tape', 'Tape full...load new one!', lazy.alarm, 'Tape full', AT_INTERNAL);
+  ...
+
+.fi
+.PP
+ 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIalarm_name\fP Alarm name, defined in /alarms/alarms 
+.br
+\fIalarm_message\fP Optional message which goes with alarm 
+.br
+\fIdefault_class\fP If alarm is not yet defined under /alarms/alarms/<alarm_name>, a new one is created and this default class is used. 
+.br
+\fIcond_str\fP String displayed in alarm condition 
+.br
+\fItype\fP Alarm type, one of AT_xxx 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+AL_SUCCESS, AL_INVALID_NAME 
+.RE
+.PP
+
+.PP
+Definition at line 212 of file alarm.c.
+.PP
+Referenced by al_check().
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Midas from the source code.

@@ -1,0 +1,68 @@
+.TH "RunControl" 3 "31 May 2012" "Version 2.3.0-0" "Midas" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+RunControl \- SECTION 5: Run Control 
+
+.br
+  
+.br
+.SH "Introduction"
+.PP
+This section describes \fBRun\fP \fBControl\fP and \fBMonitoring\fP of the experiment.
+.PP
+A \fB'run'\fP starts when the MIDAS system receivs a \fB Start Transition \fP, and continues until it receives a \fB Stop transition \fP. In the simplest case, this is when the commands \fB'Start'\fP and \fB'Stop'\fP are issued.
+.PP
+\fB 'Run Control' \fP describes how that run may be controlled, including
+.IP "\(bu" 2
+where the data is to be stored (e.g. tape),
+.IP "\(bu" 2
+on what conditions the run should be allowed to start (e.g. hardware is ready, beam is on)
+.IP "\(bu" 2
+when it should stop (e.g. beam goes off, hardware failure).
+.PP
+.PP
+\fB 'Monitoring' \fP involves
+.IP "\(bu" 2
+informing the user on the progress of the run,
+.IP "\(bu" 2
+displaying statistics or history plots,
+.IP "\(bu" 2
+sending information or alarm messages to warn the user of any problems.
+.PP
+.PP
+
+.br
+ Fundamental to Run Control and Monitoring is the \fBOnline Database (ODB)\fP which contains all of the information for an experiment. Therefore a run control program requires access only to information in the ODB.
+.PP
+
+.br
+ Programming exactly what data is read during the run falls under the category \fBSECTION 6: Frontend Operation\fP , and analyzing the data during or after the run is described under \fBSECTION 7: Data Analysis\fP . 
+.br
+.PP
+.IP "\(bu" 2
+\fBRun States and Transitions\fP
+.IP "\(bu" 2
+\fBRun Control Programs\fP
+.IP "  \(bu" 4
+\fBodbedit\fP
+.IP "  \(bu" 4
+\fBmhttpd\fP
+.PP
+
+.IP "\(bu" 2
+\fBMonitoring the Experiment\fP
+.IP "\(bu" 2
+\fBCustomizing the Experiment\fP
+.IP "\(bu" 2
+\fBEvent Notification (Hot-Link)\fP
+.PP
+.PP
+
+.br
+
+.br
+.PP
+  
+.br
+ 

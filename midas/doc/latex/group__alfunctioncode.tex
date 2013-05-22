@@ -1,0 +1,78 @@
+\subsection{Midas Alarm Functions (al\_\-xxx)}
+\label{group__alfunctioncode}\index{Midas Alarm Functions (al\_\-xxx)@{Midas Alarm Functions (al\_\-xxx)}}
+\subsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{group__alfunctioncode_gac024cd8160dc8b9418f05a63678f6c68}{al\_\-trigger\_\-alarm} (const char $\ast$alarm\_\-name, const char $\ast$alarm\_\-message, const char $\ast$default\_\-class, const char $\ast$cond\_\-str, \hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} type)
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{group__alfunctioncode_gab555780bdb676810330f6a7cbbeaaf30}{al\_\-reset\_\-alarm} (const char $\ast$alarm\_\-name)
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{group__alfunctioncode_gaf31864a8bc5fe779057e81bde12167a9}{al\_\-check} ()
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{group__alfunctioncode_gabe1fa087b5c911dae39042bc768bf9c8}{al\_\-get\_\-alarms} (char $\ast$result, int result\_\-size)
+\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+dox 
+
+\subsubsection{Function Documentation}
+\index{alfunctioncode@{alfunctioncode}!al\_\-check@{al\_\-check}}
+\index{al\_\-check@{al\_\-check}!alfunctioncode@{alfunctioncode}}
+\paragraph[{al\_\-check}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} al\_\-check ()}\hfill\label{group__alfunctioncode_gaf31864a8bc5fe779057e81bde12167a9}
+Scan ODB for alarms. \begin{DoxyReturn}{Returns}
+AL\_\-SUCCESS 
+\end{DoxyReturn}
+
+
+Definition at line 527 of file alarm.c.
+
+Referenced by cm\_\-yield().\index{alfunctioncode@{alfunctioncode}!al\_\-get\_\-alarms@{al\_\-get\_\-alarms}}
+\index{al\_\-get\_\-alarms@{al\_\-get\_\-alarms}!alfunctioncode@{alfunctioncode}}
+\paragraph[{al\_\-get\_\-alarms}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} al\_\-get\_\-alarms (char $\ast$ {\em result}, \/  int {\em result\_\-size})}\hfill\label{group__alfunctioncode_gabe1fa087b5c911dae39042bc768bf9c8}
+Scan ODB for alarms. \begin{DoxyReturn}{Returns}
+AL\_\-SUCCESS 
+\end{DoxyReturn}
+
+
+Definition at line 714 of file alarm.c.\index{alfunctioncode@{alfunctioncode}!al\_\-reset\_\-alarm@{al\_\-reset\_\-alarm}}
+\index{al\_\-reset\_\-alarm@{al\_\-reset\_\-alarm}!alfunctioncode@{alfunctioncode}}
+\paragraph[{al\_\-reset\_\-alarm}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} al\_\-reset\_\-alarm (const char $\ast$ {\em alarm\_\-name})}\hfill\label{group__alfunctioncode_gab555780bdb676810330f6a7cbbeaaf30}
+dox Reset (acknoledge) alarm.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em alarm\_\-name}]Alarm name, defined in /alarms/alarms \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+AL\_\-SUCCESS, AL\_\-RESETE, AL\_\-INVALID\_\-NAME 
+\end{DoxyReturn}
+
+
+Definition at line 439 of file alarm.c.\index{alfunctioncode@{alfunctioncode}!al\_\-trigger\_\-alarm@{al\_\-trigger\_\-alarm}}
+\index{al\_\-trigger\_\-alarm@{al\_\-trigger\_\-alarm}!alfunctioncode@{alfunctioncode}}
+\paragraph[{al\_\-trigger\_\-alarm}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} al\_\-trigger\_\-alarm (const char $\ast$ {\em alarm\_\-name}, \/  const char $\ast$ {\em alarm\_\-message}, \/  const char $\ast$ {\em default\_\-class}, \/  const char $\ast$ {\em cond\_\-str}, \/  {\bf INT} {\em type})}\hfill\label{group__alfunctioncode_gac024cd8160dc8b9418f05a63678f6c68}
+dox Trigger a certain alarm. 
+\begin{DoxyCode}
+ ...
+  lazy.alarm[0] = 0;
+  size = sizeof(lazy.alarm);
+  db_get_value(hDB, pLch->hKey, "Settings/Alarm Class", lazy.alarm, &size, 
+      TID_STRING, TRUE);
+
+  // trigger alarm if defined
+  if (lazy.alarm[0])
+    al_trigger_alarm("Tape", "Tape full...load new one!", lazy.alarm, "Tape full"
+      , AT_INTERNAL);
+  ...
+\end{DoxyCode}
+ 
+\begin{DoxyParams}{Parameters}
+\item[{\em alarm\_\-name}]Alarm name, defined in /alarms/alarms \item[{\em alarm\_\-message}]Optional message which goes with alarm \item[{\em default\_\-class}]If alarm is not yet defined under /alarms/alarms/$<$alarm\_\-name$>$, a new one is created and this default class is used. \item[{\em cond\_\-str}]String displayed in alarm condition \item[{\em type}]Alarm type, one of AT\_\-xxx \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+AL\_\-SUCCESS, AL\_\-INVALID\_\-NAME 
+\end{DoxyReturn}
+
+
+Definition at line 212 of file alarm.c.
+
+Referenced by al\_\-check().

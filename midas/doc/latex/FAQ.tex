@@ -1,0 +1,186 @@
+\par
+  \par
+ Feel free to ask questions of one of us ( \href{mailto:midas@psi.ch}{\tt Stefan Ritt }, \href{mailto:midas@triumf.ca}{\tt Pierre-\/Andre Amaudruz}) or visit the \href{http://midas.triumf.ca/forum/Package}{\tt MIDAS Forum }
+
+
+\begin{DoxyItemize}
+\item \hyperlink{FAQ_FAQ_GENERAL}{General questions}
+\item \hyperlink{FAQ_FAQ_CUSTOM}{Questions about custom web pages}
+\item \hyperlink{FAQ_FAQ_CAMAC}{Questions about CAMAC}
+\end{DoxyItemize}\hypertarget{FAQ_FAQ_GENERAL}{}\subsection{General questions}\label{FAQ_FAQ_GENERAL}
+
+\begin{DoxyEnumerate}
+\item {\bfseries  How can I find anything in this manual? }
+\begin{DoxyItemize}
+\item See \hyperlink{Convention_C_Navigation}{Navigating this document}
+\end{DoxyItemize}
+
+
+\item {\bfseries  Where does the MIDAS log file reside?}
+\begin{DoxyItemize}
+\item See \hyperlink{F_Messaging_F_Log_File}{MIDAS Log file}
+\end{DoxyItemize}
+
+
+\item {\bfseries  How do I protected my experiment from being controlled by aliens?}
+
+
+\begin{DoxyItemize}
+\item Every experiment may have a dedicated password for accessing the experiment from the web browser . This is setup through the \hyperlink{RC_odbedit_utility}{odbedit} program with the command {\bfseries webpass} (see \hyperlink{RC_customize_ODB_RC_Setup_Web_Security}{How to Setup Web Access Restriction}). This will create a {\bfseries Security} tree under {\bfseries /Experiment} with a new key {\bfseries  Web Password} with the encrypted word. By default MIDAS allows Full Read Access to all the MIDAS Web pages. Only when modification of a MIDAS field the web password will be requested. The password is stared as a cookie in the target web client for 24 hours.
+\end{DoxyItemize}
+
+
+\begin{DoxyItemize}
+\item Other options for protection are described in \hyperlink{RC_customize_ODB_RC_Setup_Security}{How to Setup Client Access Restrictions} which gives access to the ODB to dedicated hosts or programs.
+\end{DoxyItemize}
+
+
+\begin{DoxyItemize}
+\item \hyperlink{RC_mhttpd_utility_RC_mhttpd_proxy}{Proxy Access to mhttpd} is also supported, where the experiment can be securely accessed through a firewall, or configured to allow a secure SSL connection to the proxy.
+\end{DoxyItemize}
+
+
+\item {\bfseries  How do I prevent the user from modifying ODB values while the run is in progress?}
+\begin{DoxyItemize}
+\item By creating the particular /Experiment/Lock when running ODB subtree , you can include symbolic links to any ODB field which needs to be set to {\bfseries Read Only} while the \hyperlink{RC_Run_States_and_Transitions}{run state} is \char`\"{}running\char`\"{}. See \hyperlink{RC_customize_ODB_RC_Lock_when_Running}{Lock when Running} . \par
+\par
+
+\end{DoxyItemize}
+
+
+\item {\bfseries  Is there a way to invoke my own scripts from the web?}
+\begin{DoxyItemize}
+\item Yes, by creating the ODB tree  /Script every entry in that tree will be available on the Web status page with the name of the key (see \hyperlink{RC_mhttpd_defining_script_buttons}{Defining Script Buttons on the main Status Page} ). Each key entry is then composed with a list of ODB fields (or links) starting with the executable command followed by as many arguments as you wish to be passed to the script. See \hyperlink{RC_mhttpd_defining_script_buttons_RC_odb_script_tree}{The ODB /Script tree}. Scripts can also be invoked from a Custom page (see \hyperlink{RC_mhttpd_custom_features_RC_odb_customscript_tree}{ODB /CustomScript tree} ). \par
+\par
+ 
+\end{DoxyItemize}
+\item {\bfseries  I've seen the ODB prompt displaying the run state, how do you do that?}
+\begin{DoxyItemize}
+\item Modify the {\bfseries /System/prompt} field. The \char`\"{}S\char`\"{} is the trick. 
+\begin{DoxyCode}
+ Fri> odb -e bnmr1 -h isdaq01
+ [host:expt:Stopped]/cd /System/
+ [host:expt:Stopped]/System>ls
+ Clients
+ Client Notify                   0
+ Prompt                          [%h:%e:%S]%p
+ Tmp
+ [host:expt:Stopped]/System
+ [host:expt:Stopped]/Systemset prompt [%h:%e:%S]%p>
+ [host:expt:Stopped]/System>ls
+ Clients
+ Client Notify                   0
+ Prompt                          [%h:%e:%S]%p>
+ Tmp
+ [host:expt:Stopped]/System>set Prompt [%h:%e:%s]%p>
+ [host:expt:S]/System>set Prompt [%h:%e:%S]%p>
+ [host:expt:Stopped]/System>     
+\end{DoxyCode}
+ \par
+\par
+ 
+\end{DoxyItemize}
+\item {\bfseries  I've setup the alarm on one parameter in ODB but I can't make it trigger? }
+\begin{DoxyItemize}
+\item The alarm scheme works only under {\bfseries ONLINE}. See \hyperlink{RC_Run_States_and_Transitions_RC_ODB_RunInfo_Tree}{ODB /RunInfo Tree} for {\bfseries  Online Mode}. This flag may have been turned off due to analysis replay using this ODB. Set this key back to 1 to get the alarm to work again. \par
+\par
+ 
+\end{DoxyItemize}
+\item {\bfseries  How do I extend an array in ODB? }
+\begin{DoxyItemize}
+\item When listing the array from ODB with the -\/l switch, you get a column indicating the index of the listed array. You can extend the array by setting the array value at the new index. The intermediate indices will be fill with the default value depending on the type of the array. This can easly corrected by using the wildcard to access all or a range of indices. 
+\begin{DoxyCode}
+[local:midas:S]/>mkdir tmp
+[local:midas:S]/>cd tmp
+[local:midas:S]/tmp>create int number
+[local:midas:S]/tmp>create string foo
+String length [32]: 
+[local:midas:S]/tmp>ls -l
+Key name                        Type    #Val  Size  Last Opn Mode Value
+---------------------------------------------------------------------------
+number                          INT     1     4     >99d 0   RWD  0
+foo                             STRING  1     32    1s   0   RWD  
+[local:midas:S]/tmp>set number[4] 5
+[local:midas:S]/tmp>set foo[3]
+[local:midas:S]/tmp>ls -l
+Key name                        Type    #Val  Size  Last Opn Mode Value
+---------------------------------------------------------------------------
+number                          INT     5     4     12s  0   RWD  
+                                        [0]             0
+                                        [1]             0
+                                        [2]             0
+                                        [3]             0
+                                        [4]             5
+foo                             STRING  4     32    2s   0   RWD  
+                                        [0]             
+                                        [1]             
+                                        [2]             
+                                        [3]             
+[local:midas:S]/tmp>set number[1..3] 9
+[local:midas:S]/tmp>set foo[2] "A default string"
+[local:midas:S]/tmp>ls -l
+Key name                        Type    #Val  Size  Last Opn Mode Value
+---------------------------------------------------------------------------
+number                          INT     5     4     26s  0   RWD  
+                                        [0]             0
+                                        [1]             9
+                                        [2]             9
+                                        [3]             9
+                                        [4]             5
+foo                             STRING  4     32    3s   0   RWD  
+                                        [0]             
+                                        [1]             
+                                        [2]             A default string
+                                        [3]             
+\end{DoxyCode}
+ 
+\end{DoxyItemize}
+\end{DoxyEnumerate}\par
+
+
+\par
+ \hypertarget{FAQ_FAQ_CUSTOM}{}\subsection{Questions about custom web pages}\label{FAQ_FAQ_CUSTOM}
+
+\begin{DoxyEnumerate}
+\item {\bfseries  Can I compose my own experimental web page?}
+\begin{DoxyItemize}
+\item You can create your own html or javascript code using your favourite HMTL editor. See \hyperlink{RC_mhttpd_custom_features}{Features available on custom pages} . By including custom MIDAS HTML Tags or custom \hyperlink{RC_mhttpd_custom_js_lib}{Javascript built-\/in functions} , you will have access to any field in the ODB of your experiment as well as the standard buttons for start/stop and page switch. See \hyperlink{RC_mhttpd_utility}{mhttpd} , \hyperlink{RC_mhttpd_Custom_page}{Custom pages}. \par
+\par
+
+\end{DoxyItemize}
+
+
+\item {\bfseries  Is there any way to show the cursor position on my custom web page so I can easily place the fills and labels? }
+\begin{DoxyItemize}
+\item Yes. Using the \hyperlink{RC_mhttpd_custom_js_lib}{Javascript built-\/in function} {\bfseries getMouseXY} and the HTML \char`\"{}img\char`\"{} tag with an id of \char`\"{}refimg\char`\"{}. See \hyperlink{RC_mhttpd_Image_access_RC_mhttpd_custom_getmouse}{Display mouse position} for details.
+\end{DoxyItemize}
+
+
+\end{DoxyEnumerate}
+
+\par
+
+
+\par
+ \hypertarget{FAQ_FAQ_CAMAC}{}\subsection{Questions about CAMAC}\label{FAQ_FAQ_CAMAC}
+
+\begin{DoxyEnumerate}
+\item {\bfseries  Why does the CAMAC frontend generate a core dump (linux)? }
+\begin{DoxyItemize}
+\item If you're not using a Linux driver for the CAMAC access, you need to start the CAMAC frontend application through the task launcher first. See \hyperlink{FE_utils_FE_dio_utility}{dio -\/ direct I/O driver} or \hyperlink{FE_utils_FE_mcnaf_utility}{mcnaf -\/ CAMAC hardware access}. This task launcher will grant you access permission to the IO port mapped to your CAMAC interface. \par
+\par
+
+\end{DoxyItemize}
+
+
+\item How do I ...
+\begin{DoxyItemize}
+\item ... \par
+\par
+ 
+\end{DoxyItemize}
+\end{DoxyEnumerate}\label{index_end}
+\hypertarget{index_end}{}
+ \par
+  \par
+ 

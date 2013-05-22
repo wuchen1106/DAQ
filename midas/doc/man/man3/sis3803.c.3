@@ -1,0 +1,176 @@
+.TH "sis3803.c" 3 "31 May 2012" "Version 2.3.0-0" "Midas" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+sis3803.c \- 
+.SH SYNOPSIS
+.br
+.PP
+.SH "Function Documentation"
+.PP 
+.SS "void myStub_sis3803 (void)"
+.PP
+Definition at line 21 of file sis3803.c.
+.PP
+Referenced by sis3803_int_detach().
+.SS "void sis3803 (void)"
+.PP
+Definition at line 790 of file sis3803.c.
+.SS "void SIS3803_all_bcread (const \fBDWORD\fP base_adr)"
+.PP
+Definition at line 905 of file sis3803.c.
+.SS "void SIS3803_all_bread (const \fBDWORD\fP base_adr)"
+.PP
+Definition at line 894 of file sis3803.c.
+.SS "INLINE void sis3803_all_clear (const \fBDWORD\fP base_adr)"
+.PP
+Definition at line 242 of file sis3803.c.
+.SS "INLINE void sis3803_all_disable (const \fBDWORD\fP base_adr)"
+.PP
+Definition at line 314 of file sis3803.c.
+.SS "INLINE void sis3803_all_enable (const \fBDWORD\fP base_adr)"
+.PP
+Definition at line 296 of file sis3803.c.
+.PP
+Referenced by sis3803_setup().
+.SS "void SIS3803_all_read (const \fBDWORD\fP base_adr)"
+.PP
+Definition at line 871 of file sis3803.c.
+.SS "INLINE void sis3803_all_read (const \fBDWORD\fP base_adr, \fBDWORD\fP * pvalue)"
+.PP
+Definition at line 430 of file sis3803.c.
+.PP
+Referenced by SIS3803_all_bread().
+.SS "void SIS3803_all_read_clear (const \fBDWORD\fP base_adr)"
+.PP
+Definition at line 882 of file sis3803.c.
+.SS "INLINE void sis3803_all_read_clear (const \fBDWORD\fP base_adr, \fBDWORD\fP * pvalue)"
+.PP
+Definition at line 496 of file sis3803.c.
+.PP
+Referenced by SIS3803_all_bcread().
+.SS "INLINE void sis3803_channel_disable (const \fBDWORD\fP base_adr, \fBDWORD\fP pat)"
+.PP
+Definition at line 179 of file sis3803.c.
+.SS "INLINE void sis3803_channel_enable (const \fBDWORD\fP base_adr, \fBDWORD\fP pat)"
+.PP
+Definition at line 158 of file sis3803.c.
+.PP
+Referenced by sis3803_setup().
+.SS "INLINE void sis3803_counter_read (const \fBDWORD\fP base_adr, \fBINT\fP ch, \fBDWORD\fP * pvalue)"
+.PP
+Definition at line 408 of file sis3803.c.
+.PP
+Referenced by SIS3803_all_read(), and SIS3803_all_read_clear().
+.SS "void SIS3803_CSR_read (const \fBDWORD\fP base_adr)"
+.PP
+Definition at line 848 of file sis3803.c.
+.PP
+Referenced by sis3803_setup().
+.SS "INLINE \fBDWORD\fP sis3803_CSR_read (const \fBDWORD\fP base_adr, const \fBDWORD\fP what)"
+.PP
+Definition at line 199 of file sis3803.c.
+.PP
+Referenced by SIS3803_CSR_read(), and sis3803_CSR_write().
+.SS "INLINE \fBDWORD\fP sis3803_CSR_write (const \fBDWORD\fP base_adr, const \fBDWORD\fP what)"
+.PP
+Definition at line 222 of file sis3803.c.
+.SS "INLINE void sis3803_grp1_clear (const \fBDWORD\fP base_adr)"
+.PP
+Definition at line 332 of file sis3803.c.
+.SS "INLINE void sis3803_grp1_read (const \fBDWORD\fP base_adr, \fBDWORD\fP * pvalue)"
+.PP
+Definition at line 452 of file sis3803.c.
+.SS "INLINE void sis3803_grp2_clear (const \fBDWORD\fP base_adr)"
+.PP
+Definition at line 350 of file sis3803.c.
+.SS "INLINE void sis3803_grp2_read (const \fBDWORD\fP base_adr, \fBDWORD\fP * pvalue)"
+.PP
+Definition at line 474 of file sis3803.c.
+.SS "INLINE \fBDWORD\fP sis3803_input_mode (const \fBDWORD\fP base_adr, \fBDWORD\fP mode)"
+.PP
+Definition at line 108 of file sis3803.c.
+.PP
+Referenced by SIS3803_CSR_read(), and sis3803_setup().
+.SS "INLINE void sis3803_int_attach (const \fBDWORD\fP base_adr, \fBDWORD\fP base_vect, int level, void(*)(void) isr)"
+.PP
+Definition at line 649 of file sis3803.c.
+.SS "INLINE void sis3803_int_clear (const \fBDWORD\fP base_adr, const int intnum)"
+.PP
+Definition at line 723 of file sis3803.c.
+.SS "INLINE void sis3803_int_detach (const \fBDWORD\fP base_adr, \fBDWORD\fP base_vect, int level)"
+.PP
+Definition at line 688 of file sis3803.c.
+.SS "INLINE void sis3803_int_source (const \fBDWORD\fP base_adr, \fBDWORD\fP int_source)"
+.PP
+Definition at line 625 of file sis3803.c.
+.SS "INLINE void sis3803_int_source_disable (const \fBDWORD\fP base_adr, const int intnum)"
+.PP
+Definition at line 590 of file sis3803.c.
+.PP
+Referenced by myStub_sis3803().
+.SS "INLINE void sis3803_int_source_enable (const \fBDWORD\fP base_adr, const int intnum)"
+.PP
+Definition at line 556 of file sis3803.c.
+.PP
+Referenced by myStub_sis3803().
+.SS "INLINE \fBDWORD\fP sis3803_IRQ_REG_read (const \fBDWORD\fP base_adr)"
+.PP
+Definition at line 69 of file sis3803.c.
+.SS "INLINE \fBDWORD\fP sis3803_IRQ_REG_write (const \fBDWORD\fP base_adr, \fBDWORD\fP irq)"
+.PP
+Definition at line 88 of file sis3803.c.
+.SS "INLINE \fBDWORD\fP sis3803_module_ID (const \fBDWORD\fP base_adr)"
+.PP
+Definition at line 32 of file sis3803.c.
+.PP
+Referenced by SIS3803_CSR_read().
+.SS "INLINE void sis3803_module_reset (const \fBDWORD\fP base_adr)"
+.PP
+Definition at line 51 of file sis3803.c.
+.PP
+Referenced by sis3803_setup().
+.SS "INLINE void sis3803_OVFL_grp1_read (const \fBDWORD\fP base_adr, \fBDWORD\fP * reg)"
+.PP
+Definition at line 518 of file sis3803.c.
+.SS "INLINE void sis3803_OVFL_grp2_read (const \fBDWORD\fP base_adr, \fBDWORD\fP * reg)"
+.PP
+Definition at line 537 of file sis3803.c.
+.SS "INLINE \fBDWORD\fP sis3803_ref1 (const \fBDWORD\fP base_adr, \fBDWORD\fP endis)"
+.PP
+Definition at line 131 of file sis3803.c.
+.SS "void SIS3803_setup (const \fBDWORD\fP base_adr, int mode)"
+.PP
+Definition at line 843 of file sis3803.c.
+.SS "void sis3803_setup (const \fBDWORD\fP base_adr, int mode, int dsp)"
+.PP
+Definition at line 765 of file sis3803.c.
+.PP
+Referenced by SIS3803_setup().
+.SS "INLINE void sis3803_single_clear (const \fBDWORD\fP base_adr, const \fBINT\fP ch)"
+.PP
+Definition at line 368 of file sis3803.c.
+.PP
+Referenced by SIS3803_all_read_clear().
+.SS "INLINE void sis3803_single_OVFL_clear (const \fBDWORD\fP base_adr, \fBINT\fP ch)"
+.PP
+Definition at line 388 of file sis3803.c.
+.SS "INLINE void sis3803_test_disable (const \fBDWORD\fP base_adr)"
+.PP
+Definition at line 278 of file sis3803.c.
+.SS "INLINE void sis3803_test_enable (const \fBDWORD\fP base_adr)"
+.PP
+Definition at line 260 of file sis3803.c.
+.SS "void test (\fBDWORD\fP mem)"
+.PP
+Definition at line 918 of file sis3803.c.
+.SH "Variable Documentation"
+.PP 
+.SS "\fBDWORD\fP* \fBp\fP = NULL"
+.PP
+Definition at line 916 of file sis3803.c.
+.PP
+Referenced by bm_open_buffer(), cm_msg_retrieve1(), el_submit(), interrupt_routine(), md_file_wclose(), readout_thread(), and receive_trigger_event().
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Midas from the source code.

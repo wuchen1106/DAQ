@@ -1,0 +1,245 @@
+\subsection{v1729.c File Reference}
+\label{v1729_8c}\index{v1729.c@{v1729.c}}
+\subsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{v1729_8c_a16a8a323c157ed043a86ac69a6ada37d}{v1729\_\-Setup} (\hyperlink{structMVME__INTERFACE}{MVME\_\-INTERFACE} $\ast$mvme, \hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} base, int mode)
+\item 
+int \hyperlink{v1729_8c_a6a5b223f30c983b7f4dcac408d3f8b9f}{v1729\_\-TimeCalibrationRun} (\hyperlink{structMVME__INTERFACE}{MVME\_\-INTERFACE} $\ast$mvme, \hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} base, int flag)
+\item 
+int \hyperlink{v1729_8c_a135c3c66398c94b6bee6cccad799cfec}{v1729\_\-PedestalRun} (\hyperlink{structMVME__INTERFACE}{MVME\_\-INTERFACE} $\ast$mvme, \hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} base, int loop, int flag)
+\item 
+int \hyperlink{v1729_8c_a16527915223d5ba500133a7773990d57}{v1729\_\-OrderData} (\hyperlink{structMVME__INTERFACE}{MVME\_\-INTERFACE} $\ast$mvme, \hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} base, \hyperlink{vt2_8h_a2b0e863dadf920709ec53d9088ee7c91}{WORD} $\ast$srce, int $\ast$dest, int nch, int chan, int npt)
+\end{DoxyCompactItemize}
+
+
+\subsubsection{Function Documentation}
+\index{v1729.c@{v1729.c}!v1729\_\-AcqStart@{v1729\_\-AcqStart}}
+\index{v1729\_\-AcqStart@{v1729\_\-AcqStart}!v1729.c@{v1729.c}}
+\paragraph[{v1729\_\-AcqStart}]{\setlength{\rightskip}{0pt plus 5cm}void v1729\_\-AcqStart ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  {\bf DWORD} {\em base})}\hfill\label{v1729_8c_ada0344e2f7a00d26cc500f480fb47e4c}
+
+
+Definition at line 29 of file v1729.c.
+
+Referenced by begin\_\-of\_\-run(), read\_\-trigger\_\-event(), v1729\_\-PedestalRun(), and v1729\_\-TimeCalibrationRun().\index{v1729.c@{v1729.c}!v1729\_\-ChannelSelect@{v1729\_\-ChannelSelect}}
+\index{v1729\_\-ChannelSelect@{v1729\_\-ChannelSelect}!v1729.c@{v1729.c}}
+\paragraph[{v1729\_\-ChannelSelect}]{\setlength{\rightskip}{0pt plus 5cm}void v1729\_\-ChannelSelect ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  {\bf DWORD} {\em base}, \/  int {\em value})}\hfill\label{v1729_8c_a4bcd20b1e434c5aab7dd6ceeed8cdbc6}
+
+
+Definition at line 276 of file v1729.c.
+
+Referenced by v1729\_\-Setup().\index{v1729.c@{v1729.c}!v1729\_\-DataRead@{v1729\_\-DataRead}}
+\index{v1729\_\-DataRead@{v1729\_\-DataRead}!v1729.c@{v1729.c}}
+\paragraph[{v1729\_\-DataRead}]{\setlength{\rightskip}{0pt plus 5cm}void v1729\_\-DataRead ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  {\bf DWORD} {\em base}, \/  {\bf WORD} $\ast$ {\em pdest}, \/  int {\em nch}, \/  int {\em npt})}\hfill\label{v1729_8c_ad2cf5338fac61553fb64ee8538e34dac}
+
+
+Definition at line 183 of file v1729.c.
+
+Referenced by read\_\-trigger\_\-event(), and v1729\_\-PedestalRun().\index{v1729.c@{v1729.c}!v1729\_\-FrqSamplingSet@{v1729\_\-FrqSamplingSet}}
+\index{v1729\_\-FrqSamplingSet@{v1729\_\-FrqSamplingSet}!v1729.c@{v1729.c}}
+\paragraph[{v1729\_\-FrqSamplingSet}]{\setlength{\rightskip}{0pt plus 5cm}void v1729\_\-FrqSamplingSet ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  {\bf DWORD} {\em base}, \/  int {\em value})}\hfill\label{v1729_8c_a25d60b8be95abaf6da20a59bf3a6492a}
+
+
+Definition at line 298 of file v1729.c.
+
+Referenced by v1729\_\-Setup().\index{v1729.c@{v1729.c}!v1729\_\-isTrigger@{v1729\_\-isTrigger}}
+\index{v1729\_\-isTrigger@{v1729\_\-isTrigger}!v1729.c@{v1729.c}}
+\paragraph[{v1729\_\-isTrigger}]{\setlength{\rightskip}{0pt plus 5cm}int v1729\_\-isTrigger ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  {\bf DWORD} {\em base})}\hfill\label{v1729_8c_a22cff544a108b4a9504b02997c086158}
+
+
+Definition at line 206 of file v1729.c.
+
+Referenced by read\_\-trigger\_\-event(), v1729\_\-PedestalRun(), and v1729\_\-TimeCalibrationRun().\index{v1729.c@{v1729.c}!v1729\_\-NColsGet@{v1729\_\-NColsGet}}
+\index{v1729\_\-NColsGet@{v1729\_\-NColsGet}!v1729.c@{v1729.c}}
+\paragraph[{v1729\_\-NColsGet}]{\setlength{\rightskip}{0pt plus 5cm}int v1729\_\-NColsGet ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  {\bf DWORD} {\em base})}\hfill\label{v1729_8c_a48a3befe95ef335d93f58dfd4d90326b}
+
+
+Definition at line 264 of file v1729.c.
+
+Referenced by v1729\_\-OrderData(), and v1729\_\-Status().\index{v1729.c@{v1729.c}!v1729\_\-NColsSet@{v1729\_\-NColsSet}}
+\index{v1729\_\-NColsSet@{v1729\_\-NColsSet}!v1729.c@{v1729.c}}
+\paragraph[{v1729\_\-NColsSet}]{\setlength{\rightskip}{0pt plus 5cm}void v1729\_\-NColsSet ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  {\bf DWORD} {\em base}, \/  int {\em value})}\hfill\label{v1729_8c_a4ab00eb7decf0235dec7f0918ae1d820}
+
+
+Definition at line 253 of file v1729.c.
+
+Referenced by v1729\_\-Setup().\index{v1729.c@{v1729.c}!v1729\_\-OrderData@{v1729\_\-OrderData}}
+\index{v1729\_\-OrderData@{v1729\_\-OrderData}!v1729.c@{v1729.c}}
+\paragraph[{v1729\_\-OrderData}]{\setlength{\rightskip}{0pt plus 5cm}int v1729\_\-OrderData ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  {\bf DWORD} {\em base}, \/  {\bf WORD} $\ast$ {\em srce}, \/  int $\ast$ {\em dest}, \/  int {\em nch}, \/  int {\em chan}, \/  int {\em npt})}\hfill\label{v1729_8c_a16527915223d5ba500133a7773990d57}
+Re-\/order given channel from srce to dest len is for now frozen to V1729\_\-MAX\_\-CHANNEL\_\-SIZE Does pedestal subtraction if enabled (ped\_\-ok) Doesn't correct for timing.
+
+NOTE: destination cell index\mbox{[}k\mbox{]} computed as 2560+j+end\_\-cell instead of manual formula \mbox{[}2\mbox{]} page 13 (2560+j-\/end\_\-cell). 
+
+Definition at line 595 of file v1729.c.
+
+Referenced by read\_\-trigger\_\-event().\index{v1729.c@{v1729.c}!v1729\_\-PedestalRun@{v1729\_\-PedestalRun}}
+\index{v1729\_\-PedestalRun@{v1729\_\-PedestalRun}!v1729.c@{v1729.c}}
+\paragraph[{v1729\_\-PedestalRun}]{\setlength{\rightskip}{0pt plus 5cm}int v1729\_\-PedestalRun ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  {\bf DWORD} {\em base}, \/  int {\em loop}, \/  int {\em flag})}\hfill\label{v1729_8c_a135c3c66398c94b6bee6cccad799cfec}
+Pedestal extraction. Requires to module to be in setup mode 7 (soft trigger). Show major improvment in the WF reconstruction, but still has 20 bin periodic spikes.
+
+Code not yet guarantee to be fully correct... 
+
+Definition at line 426 of file v1729.c.
+
+Referenced by frontend\_\-init().\index{v1729.c@{v1729.c}!v1729\_\-PostTrigSet@{v1729\_\-PostTrigSet}}
+\index{v1729\_\-PostTrigSet@{v1729\_\-PostTrigSet}!v1729.c@{v1729.c}}
+\paragraph[{v1729\_\-PostTrigSet}]{\setlength{\rightskip}{0pt plus 5cm}void v1729\_\-PostTrigSet ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  {\bf DWORD} {\em base}, \/  int {\em value})}\hfill\label{v1729_8c_a0c3ea27e8238bd1aa89966c08339681d}
+
+
+Definition at line 230 of file v1729.c.
+
+Referenced by begin\_\-of\_\-run(), and v1729\_\-Setup().\index{v1729.c@{v1729.c}!v1729\_\-PreTrigSet@{v1729\_\-PreTrigSet}}
+\index{v1729\_\-PreTrigSet@{v1729\_\-PreTrigSet}!v1729.c@{v1729.c}}
+\paragraph[{v1729\_\-PreTrigSet}]{\setlength{\rightskip}{0pt plus 5cm}void v1729\_\-PreTrigSet ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  {\bf DWORD} {\em base}, \/  int {\em value})}\hfill\label{v1729_8c_af7563525303a4654bb4f9eb0c7dc848c}
+
+
+Definition at line 218 of file v1729.c.
+
+Referenced by v1729\_\-Setup().\index{v1729.c@{v1729.c}!v1729\_\-Reset@{v1729\_\-Reset}}
+\index{v1729\_\-Reset@{v1729\_\-Reset}!v1729.c@{v1729.c}}
+\paragraph[{v1729\_\-Reset}]{\setlength{\rightskip}{0pt plus 5cm}void v1729\_\-Reset ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  {\bf DWORD} {\em base})}\hfill\label{v1729_8c_af17d36967203a1ea686bec0b86f149e7}
+
+
+Definition at line 41 of file v1729.c.\index{v1729.c@{v1729.c}!v1729\_\-Setup@{v1729\_\-Setup}}
+\index{v1729\_\-Setup@{v1729\_\-Setup}!v1729.c@{v1729.c}}
+\paragraph[{v1729\_\-Setup}]{\setlength{\rightskip}{0pt plus 5cm}int v1729\_\-Setup ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  {\bf DWORD} {\em base}, \/  int {\em mode})}\hfill\label{v1729_8c_a16a8a323c157ed043a86ac69a6ada37d}
+Sets all the necessary paramters for a given configuration. The configuration is provided by the mode argument. Add your own configuration in the case statement. Let me know your setting if you want to include it in the distribution. 
+\begin{DoxyParams}{Parameters}
+\item[{\em $\ast$mvme}]VME structure \item[{\em base}]Module base address \item[{\em mode}]Configuration mode number \item[{\em $\ast$nentry}]number of entries requested and returned. \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+MVME\_\-SUCCESS 
+\end{DoxyReturn}
+
+
+Definition at line 63 of file v1729.c.
+
+Referenced by begin\_\-of\_\-run(), v1729\_\-PedestalRun(), and v1729\_\-TimeCalibrationRun().\index{v1729.c@{v1729.c}!v1729\_\-SoftTrigger@{v1729\_\-SoftTrigger}}
+\index{v1729\_\-SoftTrigger@{v1729\_\-SoftTrigger}!v1729.c@{v1729.c}}
+\paragraph[{v1729\_\-SoftTrigger}]{\setlength{\rightskip}{0pt plus 5cm}void v1729\_\-SoftTrigger ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  {\bf DWORD} {\em base})}\hfill\label{v1729_8c_aabf534ea5032d992b1c5a823939f37b0}
+
+
+Definition at line 287 of file v1729.c.
+
+Referenced by v1729\_\-PedestalRun().\index{v1729.c@{v1729.c}!v1729\_\-Status@{v1729\_\-Status}}
+\index{v1729\_\-Status@{v1729\_\-Status}!v1729.c@{v1729.c}}
+\paragraph[{v1729\_\-Status}]{\setlength{\rightskip}{0pt plus 5cm}int v1729\_\-Status ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  {\bf DWORD} {\em base})}\hfill\label{v1729_8c_a6025f9ff1237562264e91f22ca834fb7}
+
+
+Definition at line 139 of file v1729.c.
+
+Referenced by begin\_\-of\_\-run().\index{v1729.c@{v1729.c}!v1729\_\-TimeCalibrationRun@{v1729\_\-TimeCalibrationRun}}
+\index{v1729\_\-TimeCalibrationRun@{v1729\_\-TimeCalibrationRun}!v1729.c@{v1729.c}}
+\paragraph[{v1729\_\-TimeCalibrationRun}]{\setlength{\rightskip}{0pt plus 5cm}int v1729\_\-TimeCalibrationRun ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  {\bf DWORD} {\em base}, \/  int {\em flag})}\hfill\label{v1729_8c_a6a5b223f30c983b7f4dcac408d3f8b9f}
+Does Time calibration of all 4 channels. Requires the module to be in random Vernier mode (setup 8). Trigger internally generated for the whole memory.
+
+! Code not yet guarantee to be correct. 
+
+Definition at line 318 of file v1729.c.
+
+Referenced by frontend\_\-init().\index{v1729.c@{v1729.c}!v1729\_\-TriggerTypeSet@{v1729\_\-TriggerTypeSet}}
+\index{v1729\_\-TriggerTypeSet@{v1729\_\-TriggerTypeSet}!v1729.c@{v1729.c}}
+\paragraph[{v1729\_\-TriggerTypeSet}]{\setlength{\rightskip}{0pt plus 5cm}void v1729\_\-TriggerTypeSet ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  {\bf DWORD} {\em base}, \/  int {\em value})}\hfill\label{v1729_8c_a12b51ae0d0a7824c97d04269629cdf5c}
+
+
+Definition at line 242 of file v1729.c.
+
+Referenced by v1729\_\-Setup().
+
+\subsubsection{Variable Documentation}
+\index{v1729.c@{v1729.c}!Corr\_\-vernier@{Corr\_\-vernier}}
+\index{Corr\_\-vernier@{Corr\_\-vernier}!v1729.c@{v1729.c}}
+\paragraph[{Corr\_\-vernier}]{\setlength{\rightskip}{0pt plus 5cm}float {\bf Corr\_\-vernier}\mbox{[}4\mbox{]}\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}\hfill\label{v1729_8c_a4f11c5c77dc7f296edafb8e23c822d2a}
+
+
+Definition at line 18 of file v1729.c.
+
+Referenced by v1729\_\-OrderData().\index{v1729.c@{v1729.c}!debug@{debug}}
+\index{debug@{debug}!v1729.c@{v1729.c}}
+\paragraph[{debug}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf debug} = 1}\hfill\label{v1729_8c_ac3e1795766a80ec63b157951b4b9a7d4}
+
+
+Definition at line 17 of file v1729.c.\index{v1729.c@{v1729.c}!end\_\-cell@{end\_\-cell}}
+\index{end\_\-cell@{end\_\-cell}!v1729.c@{v1729.c}}
+\paragraph[{end\_\-cell}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf end\_\-cell}\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}\hfill\label{v1729_8c_a3aa5e48b93f32dfbc149b824eec93ce1}
+
+
+Definition at line 19 of file v1729.c.
+
+Referenced by v1729\_\-OrderData(), and v1729\_\-PedestalRun().\index{v1729.c@{v1729.c}!get\_\-ref@{get\_\-ref}}
+\index{get\_\-ref@{get\_\-ref}!v1729.c@{v1729.c}}
+\paragraph[{get\_\-ref}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf get\_\-ref} = 1\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}\hfill\label{v1729_8c_aed343565c15b922d5f4dd0efac2d4048}
+
+
+Definition at line 19 of file v1729.c.
+
+Referenced by v1729\_\-DataRead(), and v1729\_\-OrderData().\index{v1729.c@{v1729.c}!lMAXVER@{lMAXVER}}
+\index{lMAXVER@{lMAXVER}!v1729.c@{v1729.c}}
+\paragraph[{lMAXVER}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf lMAXVER}\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}\hfill\label{v1729_8c_a4c4d058e715c2598ce323a692a157faa}
+
+
+Definition at line 24 of file v1729.c.
+
+Referenced by v1729\_\-OrderData(), and v1729\_\-TimeCalibrationRun().\index{v1729.c@{v1729.c}!lMINVER@{lMINVER}}
+\index{lMINVER@{lMINVER}!v1729.c@{v1729.c}}
+\paragraph[{lMINVER}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf lMINVER}\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}\hfill\label{v1729_8c_afd858f1cb933f5d117f591f6e40c3f7d}
+
+
+Definition at line 24 of file v1729.c.
+
+Referenced by v1729\_\-OrderData(), and v1729\_\-TimeCalibrationRun().\index{v1729.c@{v1729.c}!ncol@{ncol}}
+\index{ncol@{ncol}!v1729.c@{v1729.c}}
+\paragraph[{ncol}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf ncol}\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}\hfill\label{v1729_8c_a87e8ca5d4bb7a89c76b4393fa61d96c6}
+
+
+Definition at line 19 of file v1729.c.
+
+Referenced by v1729\_\-OrderData(), and v1729\_\-Status().\index{v1729.c@{v1729.c}!ped@{ped}}
+\index{ped@{ped}!v1729.c@{v1729.c}}
+\paragraph[{ped}]{\setlength{\rightskip}{0pt plus 5cm}float {\bf ped}\mbox{[}4\mbox{]}\mbox{[}V1729\_\-MAX\_\-CHANNEL\_\-SIZE+3\mbox{]}\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}\hfill\label{v1729_8c_a0413a567e6d5e6f66f2842d3578e6b88}
+
+
+Definition at line 21 of file v1729.c.
+
+Referenced by v1729\_\-PedestalRun().\index{v1729.c@{v1729.c}!ped\_\-ok@{ped\_\-ok}}
+\index{ped\_\-ok@{ped\_\-ok}!v1729.c@{v1729.c}}
+\paragraph[{ped\_\-ok}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf ped\_\-ok} = 0\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}\hfill\label{v1729_8c_a013736fff742cafc37397bbf87fc62c5}
+
+
+Definition at line 23 of file v1729.c.
+
+Referenced by v1729\_\-PedestalRun().\index{v1729.c@{v1729.c}!pedestals@{pedestals}}
+\index{pedestals@{pedestals}!v1729.c@{v1729.c}}
+\paragraph[{pedestals}]{\setlength{\rightskip}{0pt plus 5cm}float {\bf pedestals}\mbox{[}V1729\_\-RAM\_\-SIZE\mbox{]}\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}\hfill\label{v1729_8c_a020a7ba1c10d5211f56406cbd312a8c0}
+
+
+Definition at line 21 of file v1729.c.
+
+Referenced by v1729\_\-OrderData(), and v1729\_\-PedestalRun().\index{v1729.c@{v1729.c}!pedestalsRms@{pedestalsRms}}
+\index{pedestalsRms@{pedestalsRms}!v1729.c@{v1729.c}}
+\paragraph[{pedestalsRms}]{\setlength{\rightskip}{0pt plus 5cm}float {\bf pedestalsRms}\mbox{[}V1729\_\-RAM\_\-SIZE\mbox{]}\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}\hfill\label{v1729_8c_a107748fe1dd34d65f052e5769726ce81}
+
+
+Definition at line 22 of file v1729.c.
+
+Referenced by v1729\_\-PedestalRun().\index{v1729.c@{v1729.c}!post\_\-trig@{post\_\-trig}}
+\index{post\_\-trig@{post\_\-trig}!v1729.c@{v1729.c}}
+\paragraph[{post\_\-trig}]{\setlength{\rightskip}{0pt plus 5cm}{\bf WORD} {\bf post\_\-trig}\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}\hfill\label{v1729_8c_af94f05e20cb9f6e5756c1a174886e05f}
+
+
+Definition at line 20 of file v1729.c.
+
+Referenced by v1729\_\-OrderData(), and v1729\_\-PedestalRun().\index{v1729.c@{v1729.c}!trig\_\-rec@{trig\_\-rec}}
+\index{trig\_\-rec@{trig\_\-rec}!v1729.c@{v1729.c}}
+\paragraph[{trig\_\-rec}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf trig\_\-rec}\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}\hfill\label{v1729_8c_af926ce3bda4fa1f733d3c196186d436a}
+
+
+Definition at line 19 of file v1729.c.
+
+Referenced by v1729\_\-OrderData(), and v1729\_\-PedestalRun().\index{v1729.c@{v1729.c}!vernier\_\-ok@{vernier\_\-ok}}
+\index{vernier\_\-ok@{vernier\_\-ok}!v1729.c@{v1729.c}}
+\paragraph[{vernier\_\-ok}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf vernier\_\-ok} = 0\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}\hfill\label{v1729_8c_a798cd3500bc35b6c750267bbf4cd7fcc}
+
+
+Definition at line 25 of file v1729.c.
+
+Referenced by v1729\_\-TimeCalibrationRun().

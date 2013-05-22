@@ -1,0 +1,145 @@
+.TH "FE_Super_Event" 3 "31 May 2012" "Version 2.3.0-0" "Midas" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+FE_Super_Event \- Super-Event 
+
+.br
+ 
+.PP
+
+.br
+  
+.PP
+The Super-Event is an option implemented in the frontend code in order to reduce the amount of data to be transfered to the backend computer(s) by removing the bank header for each event constructed. It is not applicable to FIXED format events.
+.PP
+In other words, when an equipment readout in \fIMIDAS\fP bank format is complete, the event is composed of the bank header followed by the data section.
+.PP
+The overhead in bytes of the bank structure is 16 bytes for \fBbk_init()\fP, 20 bytes for \fBbk_init32()\fP and ybk_init(). If the data section size is close to the number above, the data transfer as well as the data storage has an non-negligible overhead. To address this problem, the equipment can be set up to generate a so called \fB Super-Event \fP which is an event composed of the initial standard bank header for the first event of the super-event, and up to the \fBnumber of sub-events\fP maximum successive data sections before the closing of the bank.
+.SH "Super-Event Example"
+.PP
+To demonstrate the use of the super-event, consider the following example:
+.PP
+.IP "\(bu" 2
+Define equipment to be able to generate the \fBSuper-Event\fP 
+.PP
+.nf
+  { 'GE',                 // equipment name 
+      2, 0x0002,            // event ID, trigger mask 
+      'SYSTEM',             // event buffer 
+  #ifdef USE_INT
+      EQ_INTERRUPT,         // equipment type 
+  #else
+      EQ_POLLED,            // equipment type 
+  #endif
+      LAM_SOURCE(GE_C, LAM_STATION(GE_N)), // interrupt source 
+      'MIDAS',              // format 
+      TRUE,                 // enabled 
+      RO_RUNNING,           // read only when running 
+      200,                  // poll for 200ms 
+      0,                    // stop run after this event limit 
+      1000,                 // -----> number of sub events <-----  enable Super-event
+      0,                    // don't log history 
+      '', '', '',
+      read_ge_event,        // readout routine 
+       ,
+      ...
+
+.fi
+.PP
+
+.PP
+.SH "Example Readout code for Super-Event"
+.PP
+Set up the readout function for Super-Event collection, e.g. 
+.PP
+.nf
+  //-- Event readout
+  // Global and fixed -- Expect NWORDS 16bits data readout per sub-event
+  #define NWORDS 3
+
+  INT read_ge_event(char *pevent, INT offset)
+  {
+    static WORD *pdata;
+
+    // Super-event structure 
+    if (offset == 0)
+    {
+      // FIRST event of the Super-event 
+      bk_init(pevent);
+      bk_create(pevent, 'GERM', TID_WORD, &pdata);
+
+    else if (offset == -1)
+    {
+      // close the Super-event if offset is -1
+      bk_close(pevent, pdata);
+
+      // End of Super-Event
+      return bk_size(pevent);
+
+
+    // read GE sub-event (ADC) 
+    cam16i(GE_C, GE_N, 0, GE_READ, pdata++);
+    cam16i(GE_C, GE_N, 1, GE_READ, pdata++);
+    cam16i(GE_C, GE_N, 2, GE_READ, pdata++);
+
+    // clear hardware 
+    re_arm_ge(); 
+
+    if (offset == 0)
+    {
+      // Compute the proper event length on the FIRST event in the Super-Event
+      // NWORDS correspond to the !! NWORDS WORD above !!
+      // sizeof(BANK_HEADER) + sizeof(BANK) will make the 16 bytes header
+      // sizeof(WORD) is defined by the TID_WORD in bk_create()
+
+      return NWORDS * sizeof(WORD) + sizeof(BANK_HEADER) + sizeof(BANK);
+
+    else
+      // Return the data section size only
+      // sizeof(WORD) is defined by the TID_WORD in bk_create()
+
+      return NWORDS * sizeof(WORD);
+
+.fi
+.PP
+ 
+.br
+.PP
+As shown in the example above: 
+.PD 0
+
+.IP "\(bu" 2
+For the \fBfirst\fP event, the correct size of the event \fBincluding the header\fP must be calculated and returned 
+.IP "\(bu" 2
+\fBSubsequent\fP events return the size of the \fBdata only\fP, not the header. 
+.PP
+.PP
+The input parameter 'offset' is used to indicate whether the event is the first, last or intermediate. After the last event, the bank is closed. 
+.br
+ The encoding of the data section is left to the user. If the number of words per sub-event is fixed (i.e. NWORDS in the above example), the sub-event extraction by an analyzer is simple. In the case of variable sub-event length, it is necessary to tag the first or the last word of each sub-event.The contents of the sub-event is the choice of the user.
+.PP
+\fBNote:\fP 
+.IP "\(bu" 2
+Since no particular tagging is applied to the Super-Event by the Midas transfer mechanism, \fI the user must provide code in the backend analyzer to interpret the contents of the Super-Event bank(s)\fP.
+.PP
+.PP
+.IP "\(bu" 2
+If the Super-Event is composed by an equipment on a remote processor running a different \fIEndian\fP mode than the backend processor, it would be necessary to \fIensure the data type consistency throughout the \fB Super-Event \fP \fP in order to guarantee the proper byte-swapping of the data content. \fBByte Swap Macros\fP are available for this purpose.
+.PP
+.PP
+.IP "\(bu" 2
+It may be convenient to change the \fBtime-stamp\fP of the super-event (see \fBexample\fP of use of Macro)
+.PP
+.PP
+.IP "\(bu" 2
+The \fB event rate \fP in the equipment statistics will \fI indicate the rate of sub-events\fP.
+.PP
+.PP
+
+.br
+ 
+.PP
+
+.br
+  

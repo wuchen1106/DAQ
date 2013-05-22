@@ -1,0 +1,58 @@
+\subsection{vt2.c File Reference}
+\label{vt2_8c}\index{vt2.c@{vt2.c}}
+\subsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{vt2_8c_ae99f1221836d1b970dc145ad8b0e53b7}{vt2\_\-FifoLevelRead} (\hyperlink{structMVME__INTERFACE}{MVME\_\-INTERFACE} $\ast$mvme, \hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} base)
+\item 
+int \hyperlink{vt2_8c_abaf463023a19b2793a39227b5315c6cc}{vt2\_\-CycleNumberRead} (\hyperlink{structMVME__INTERFACE}{MVME\_\-INTERFACE} $\ast$mvme, \hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} base)
+\end{DoxyCompactItemize}
+
+
+\subsubsection{Function Documentation}
+\index{vt2.c@{vt2.c}!udelay@{udelay}}
+\index{udelay@{udelay}!vt2.c@{vt2.c}}
+\paragraph[{udelay}]{\setlength{\rightskip}{0pt plus 5cm}int udelay (int {\em usec})}\hfill\label{vt2_8c_aeaa5c434da81fbdf4a665b67f66592bc}
+
+
+Definition at line 18 of file vt2.c.\index{vt2.c@{vt2.c}!vt2\_\-CSRRead@{vt2\_\-CSRRead}}
+\index{vt2\_\-CSRRead@{vt2\_\-CSRRead}!vt2.c@{vt2.c}}
+\paragraph[{vt2\_\-CSRRead}]{\setlength{\rightskip}{0pt plus 5cm}int vt2\_\-CSRRead ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  {\bf DWORD} {\em base})}\hfill\label{vt2_8c_a6bea5bc4347f5e5b0623af8c361a68e8}
+
+
+Definition at line 86 of file vt2.c.\index{vt2.c@{vt2.c}!vt2\_\-CycleNumberRead@{vt2\_\-CycleNumberRead}}
+\index{vt2\_\-CycleNumberRead@{vt2\_\-CycleNumberRead}!vt2.c@{vt2.c}}
+\paragraph[{vt2\_\-CycleNumberRead}]{\setlength{\rightskip}{0pt plus 5cm}int vt2\_\-CycleNumberRead ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  {\bf DWORD} {\em base})}\hfill\label{vt2_8c_abaf463023a19b2793a39227b5315c6cc}
+return the cycle number (10 bit) 
+
+Definition at line 73 of file vt2.c.\index{vt2.c@{vt2.c}!vt2\_\-CycleReset@{vt2\_\-CycleReset}}
+\index{vt2\_\-CycleReset@{vt2\_\-CycleReset}!vt2.c@{vt2.c}}
+\paragraph[{vt2\_\-CycleReset}]{\setlength{\rightskip}{0pt plus 5cm}void vt2\_\-CycleReset ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  {\bf DWORD} {\em base}, \/  int {\em fset})}\hfill\label{vt2_8c_ada48b3ed0fd135d6f2331be031c802b4}
+
+
+Definition at line 136 of file vt2.c.\index{vt2.c@{vt2.c}!vt2\_\-FifoLevelRead@{vt2\_\-FifoLevelRead}}
+\index{vt2\_\-FifoLevelRead@{vt2\_\-FifoLevelRead}!vt2.c@{vt2.c}}
+\paragraph[{vt2\_\-FifoLevelRead}]{\setlength{\rightskip}{0pt plus 5cm}int vt2\_\-FifoLevelRead ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  {\bf DWORD} {\em base})}\hfill\label{vt2_8c_ae99f1221836d1b970dc145ad8b0e53b7}
+return the Fifo level which is 64bits x 2048 with Almost full at 2000. the returned value is on 11 bits. It should be used as 2$\ast$level during read as the data is 64 bit wide. Data field 20bits : \mbox{[}0eaf\mbox{]}\mbox{[}0000 0\mbox{]} 7FF fEmpty, fAlmostFull, Full, level 
+
+Definition at line 54 of file vt2.c.\index{vt2.c@{vt2.c}!vt2\_\-FifoRead@{vt2\_\-FifoRead}}
+\index{vt2\_\-FifoRead@{vt2\_\-FifoRead}!vt2.c@{vt2.c}}
+\paragraph[{vt2\_\-FifoRead}]{\setlength{\rightskip}{0pt plus 5cm}int vt2\_\-FifoRead ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  {\bf DWORD} {\em base}, \/  {\bf DWORD} $\ast$ {\em pdest}, \/  int {\em nentry})}\hfill\label{vt2_8c_a2657478442a3f8a32a09c79a3f57a341}
+
+
+Definition at line 33 of file vt2.c.\index{vt2.c@{vt2.c}!vt2\_\-IntEnable@{vt2\_\-IntEnable}}
+\index{vt2\_\-IntEnable@{vt2\_\-IntEnable}!vt2.c@{vt2.c}}
+\paragraph[{vt2\_\-IntEnable}]{\setlength{\rightskip}{0pt plus 5cm}void vt2\_\-IntEnable ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  {\bf DWORD} {\em base}, \/  int {\em flag})}\hfill\label{vt2_8c_a9f8c0aa414c2a9932b437f42805ff300}
+
+
+Definition at line 108 of file vt2.c.\index{vt2.c@{vt2.c}!vt2\_\-KeepAlive@{vt2\_\-KeepAlive}}
+\index{vt2\_\-KeepAlive@{vt2\_\-KeepAlive}!vt2.c@{vt2.c}}
+\paragraph[{vt2\_\-KeepAlive}]{\setlength{\rightskip}{0pt plus 5cm}void vt2\_\-KeepAlive ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  {\bf DWORD} {\em base}, \/  int {\em fset})}\hfill\label{vt2_8c_ac41935a98cc3b8218c3e8e04900589c9}
+
+
+Definition at line 122 of file vt2.c.\index{vt2.c@{vt2.c}!vt2\_\-ManReset@{vt2\_\-ManReset}}
+\index{vt2\_\-ManReset@{vt2\_\-ManReset}!vt2.c@{vt2.c}}
+\paragraph[{vt2\_\-ManReset}]{\setlength{\rightskip}{0pt plus 5cm}void vt2\_\-ManReset ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  {\bf DWORD} {\em base})}\hfill\label{vt2_8c_ad04d179623a3c13ebc16c255e6301d77}
+
+
+Definition at line 98 of file vt2.c.

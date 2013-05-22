@@ -1,0 +1,134 @@
+.TH "RC_mhttpd_Activate" 3 "31 May 2012" "Version 2.3.0-0" "Midas" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+RC_mhttpd_Activate \- How to activate custom page(s) in the ODB 
+
+.br
+  
+.br
+ 
+.br
+ 
+.SH "Introduction"
+.PP
+ In order to activate a custom page from the within the MIDAS web interface, the pages must be listed in the ODB under the optional /Custom  tree as described below. This applies to \fBexternal\fP and \fBinternal\fP custom pages, as explained below.
+.PP
+The /Custom tree must be created by the user, e.g. using \fBodbedit\fP 
+.PP
+.nf
+odbedit
+[local:midas:S] mkdir Custom
+
+.fi
+.PP
+   
+.SH "The /Custom ODB tree"
+.PP
+Features involving the /Custom tree is applicable only to \fBmhttpd\fP, and ignored by \fBodbedit\fP , which has no web capabilities.
+.PP
+
+.br
+ The optional ODB /Custom tree may contain
+.IP "\(bu" 2
+links to \fBlocal\fP \fBexternal\fP custom web pages created by the user (see \fBbelow\fP for \fBremote\fP \fBexternal\fP pages)
+.IP "\(bu" 2
+HTML content of an \fBinternal\fP custom web page created by the user.
+.IP "\(bu" 2
+\fBimages\fP subtree (explained \fBlater\fP) used to specify images for custom pages
+.PP
+.PP
+If keys are defined in this tree, except where noted \fBbelow\fP, the names of the keys will appear as custom-buttons in versions after \fBDec 2009\fP (or \fBcustom-links\fP in earlier versions) on the  mhttpd \fBMain Status page\fP. By clicking on one of these alias-buttons, the custom page will be visible in a new frame. 
+.br
+.SS "Keynames in the /Custom directory"
+There are two characters that have special meaning if they are the \fBlast\fP character of the keyname:
+.IP "\(bu" 2
+The character \fB'&'\fP forces the page to be opened within the current frame. If this character is omitted, the page will be opened in a new frame (default).
+.PP
+.PP
+.IP "\(bu" 2
+The character \fB'!'\fP suppresses the link appearing on the main status page as a button (or link). This can be used to provide external webpages initially hidden from the user, such as code for pop-ups, or to access a file of Javascript functions needed by other custom pages.
+.PP
+.SS "Create a link to an external webpage"
+If activating an external webpage, create a link for it in the ODB /Custom tree. For example, to create a link called Test& that will open a  local  \fBexternal\fP html file \fI /home/t2ktpc/online/custom/try.html \fP in a new frame: 
+.PP
+.nf
+odbedit
+[local:pol:S] mkdir Custom   <-- if /Custom is not present
+[local:pol:S] cd Custom
+[local:pol:S]/>create string Test&
+String length [32]: 80
+[local:pol:S]/>set Test& '/home/t2ktpc/online/custom/try.html'
+[local:pol:S]/>ls -lt my_page
+Test&                            STRING  1     80    >99d 0   RWD  /home/t2ktpc/online/custom/try.html
+
+.fi
+.PP
+ 
+.br
+  If the external HTML file is on a  remote  \fBwebserver\fP, the link should be placed under the \fB/Alias\fP tree rather than the /Custom tree, e.g.
+.PP
+.PP
+.nf
+[local:Default:Stopped]/>mkdir Alias  <-- if /Alias is not present
+[local:Default:Stopped]/>cd alias
+[local:Default:Stopped]/alias>create string WebDewpoint&
+String length [32]: 256
+[local:Default:Stopped]/alias>set WebDewpoint& 'http://www.decatur.de/javascript/dew/index.html'
+.fi
+.PP
+.SS "Import an internal webpage"
+If creating an internal webpage, it must be imported into the ODB using the \fBodbedit import command\fP. This example shows a file \fBmcustom.html\fP imported into the key /Custom/Test&.
+.PP
+.PP
+.nf
+  Tue> odbedit                      
+  [local:midas:Stopped]/>mkdir Custom    <-- create /Custom if it does not exist
+  [local:midas:Stopped]/>cd Custom/
+  [local:midas:Stopped]/Custom>import mcustom.html   <-- import an html file
+  Key name: Test&              
+  [local:midas:Stopped]/Custom>
+.fi
+.PP
+.PP
+Example of an \fBInternal custom page\fP is shown here.
+.SS "Examples of /Custom keys"
+Here is an example of different keys in /Custom (all for \fBexternal\fP webpages) 
+.PP
+.nf
+GasMain&                        STRING  1     80    >99d 0   RWD  /home/t2ktpc/online/custom_gas/GasMain.html
+js_functions!                   STRING  1     64    >99d 0   RWD  /home/t2ktpc/online/custom_gas/custom_functions.js
+Purifier!                       STRING  1     132   >99d 0   RWD  /home/t2ktpc/online/custom_gas/purifier.html
+style0!                         STRING  1     45    >99d 0   RWD  /home/t2ktpc/online/custom_gas/t0.css                    
+
+.fi
+.PP
+.PP
+.IP "\(bu" 2
+The first key GasMain& will produce an alias-link on the main status page called \fBGasMain\fP. Clicking this alias-link will load the file \fBGasMain.html\fP into the \fBsame\fP frame (the keyname ends in '&').
+.PP
+.PP
+The other keys will not produce alias-links, since the keynames end with '!').
+.PP
+.IP "\(bu" 2
+The key js_functions! is used to load some javascript functions needed by the html code of the other custom pages.
+.IP "\(bu" 2
+The key Purifier! is a custom page that can be loaded by clicking on a box in the custom page GasMain.
+.IP "\(bu" 2
+The key style0! contains a style sheet for use with all the html custom pages.
+.PP
+.PP
+The output is shown in \fBthis example\fP.
+.SH "How to replace the default Status page by a Custom Status page"
+.PP
+By using a keyname of Status (no '&') in the link to a custom page, that page will replace the Default main status page. Clicking on the \fBStatus\fP button on any of the sub-pages will return to the \fBCustom\fP status page.
+.PP
+
+.br
+ See \fBCustom Status page\fP for more information and examples.
+.PP
+
+.br
+ 
+.PP
+ 

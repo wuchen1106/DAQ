@@ -1,0 +1,309 @@
+.TH "Midas VME standard" 3 "31 May 2012" "Version 2.3.0-0" "Midas" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Midas VME standard \- 
+.SS "Data Structures"
+
+.in +1c
+.ti -1c
+.RI "struct \fBMVME_INTERFACE\fP"
+.br
+.in -1c
+.SS "Modules"
+
+.in +1c
+.ti -1c
+.RI "\fBVME Functions (mvme_xxx)\fP"
+.br
+.in -1c
+.SS "Defines"
+
+.in +1c
+.ti -1c
+.RI "#define \fBMVME_SUCCESS\fP   1"
+.br
+.ti -1c
+.RI "#define \fBMVME_DMODE_D8\fP   1"
+.br
+.ti -1c
+.RI "#define \fBMVME_DMODE_D16\fP   2"
+.br
+.ti -1c
+.RI "#define \fBMVME_DMODE_D32\fP   3"
+.br
+.ti -1c
+.RI "#define \fBMVME_DMODE_D64\fP   4"
+.br
+.ti -1c
+.RI "#define \fBMVME_DMODE_RAMD16\fP   5"
+.br
+.ti -1c
+.RI "#define \fBMVME_DMODE_RAMD32\fP   6"
+.br
+.ti -1c
+.RI "#define \fBMVME_DMODE_LM\fP   7"
+.br
+.ti -1c
+.RI "#define \fBMVME_BLT_NONE\fP   1"
+.br
+.ti -1c
+.RI "#define \fBMVME_BLT_BLT32\fP   2"
+.br
+.ti -1c
+.RI "#define \fBMVME_BLT_MBLT64\fP   3"
+.br
+.ti -1c
+.RI "#define \fBMVME_BLT_2EVME\fP   4"
+.br
+.ti -1c
+.RI "#define \fBMVME_BLT_2ESST\fP   5"
+.br
+.ti -1c
+.RI "#define \fBMVME_BLT_BLT32FIFO\fP   6"
+.br
+.ti -1c
+.RI "#define \fBMVME_BLT_MBLT64FIFO\fP   7"
+.br
+.ti -1c
+.RI "#define \fBMVME_BLT_2EVMEFIFO\fP   8"
+.br
+.ti -1c
+.RI "#define \fBMVME_AM_A32_SB\fP   (0x0F)"
+.br
+.ti -1c
+.RI "#define \fBMVME_AM_A32_SP\fP   (0x0E)"
+.br
+.ti -1c
+.RI "#define \fBMVME_AM_A32_SD\fP   (0x0D)"
+.br
+.ti -1c
+.RI "#define \fBMVME_AM_A32_NB\fP   (0x0B)"
+.br
+.ti -1c
+.RI "#define \fBMVME_AM_A32_NP\fP   (0x0A)"
+.br
+.ti -1c
+.RI "#define \fBMVME_AM_A32_ND\fP   (0x09)"
+.br
+.ti -1c
+.RI "#define \fBMVME_AM_A32_SMBLT\fP   (0x0C)"
+.br
+.ti -1c
+.RI "#define \fBMVME_AM_A32_NMBLT\fP   (0x08)"
+.br
+.ti -1c
+.RI "#define \fBMVME_AM_A24_SB\fP   (0x3F)"
+.br
+.ti -1c
+.RI "#define \fBMVME_AM_A24_SP\fP   (0x3E)"
+.br
+.ti -1c
+.RI "#define \fBMVME_AM_A24_SD\fP   (0x3D)"
+.br
+.ti -1c
+.RI "#define \fBMVME_AM_A24_NB\fP   (0x3B)"
+.br
+.ti -1c
+.RI "#define \fBMVME_AM_A24_NP\fP   (0x3A)"
+.br
+.ti -1c
+.RI "#define \fBMVME_AM_A24_ND\fP   (0x39)"
+.br
+.ti -1c
+.RI "#define \fBMVME_AM_A24_SMBLT\fP   (0x3C)"
+.br
+.ti -1c
+.RI "#define \fBMVME_AM_A24_NMBLT\fP   (0x38)"
+.br
+.ti -1c
+.RI "#define \fBMVME_AM_A16_SD\fP   (0x2D)"
+.br
+.ti -1c
+.RI "#define \fBMVME_AM_A16_ND\fP   (0x29)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+dox 
+.SH "Define Documentation"
+.PP 
+.SS "#define MVME_ACCESS_ERROR   7"
+.PP
+Definition at line 67 of file mvmestd.h.
+.SS "#define MVME_AM_A16   MVME_AM_A16_SD"
+.PP
+Definition at line 130 of file mvmestd.h.
+.PP
+Referenced by regRead(), regReadFloat(), regWrite(), and regWriteFloat().
+.SS "#define MVME_AM_A16_ND   (0x29)"A16 Short Non-Privileged Data Access 
+.PP
+Definition at line 128 of file mvmestd.h.
+.PP
+Referenced by VPPGRegRead(), and VPPGRegWrite().
+.SS "#define MVME_AM_A16_SD   (0x2D)"A16 Short Supervisory Data Access 
+.PP
+Definition at line 127 of file mvmestd.h.
+.SS "#define MVME_AM_A24   MVME_AM_A24_SD"
+.PP
+Definition at line 124 of file mvmestd.h.
+.PP
+Referenced by regRead(), regWrite(), v1190_Read16(), v1190_Read32(), v1190_Write16(), v560_Read(), v895_readReg16(), v895_readReg8(), v895_writeReg16(), and v895_writeReg8().
+.SS "#define MVME_AM_A24_D64   MVME_AM_A24_SMBLT"
+.PP
+Definition at line 125 of file mvmestd.h.
+.SS "#define MVME_AM_A24_NB   (0x3B)"A24 Standard Non-Privileged Block Transfer 
+.PP
+Definition at line 118 of file mvmestd.h.
+.SS "#define MVME_AM_A24_ND   (0x39)"A24 Standard Non-Privileged Data Access 
+.PP
+Definition at line 120 of file mvmestd.h.
+.PP
+Referenced by begin_of_run(), frontend_init(), vmeio_AsyncRead(), vmeio_AsyncWrite(), vmeio_CsrRead(), vmeio_IntEnable(), vmeio_IntRearm(), vmeio_OutputSet(), vmeio_StrobeClear(), vmeio_SyncRead(), and vmeio_SyncWrite().
+.SS "#define MVME_AM_A24_NMBLT   (0x38)"A24 Multiplexed Block Transfer (D64) 
+.PP
+Definition at line 122 of file mvmestd.h.
+.SS "#define MVME_AM_A24_NP   (0x3A)"A24 Standard Non-Privileged Program Access 
+.PP
+Definition at line 119 of file mvmestd.h.
+.SS "#define MVME_AM_A24_SB   (0x3F)"A24 Standard Supervisory Block Transfer 
+.PP
+Definition at line 115 of file mvmestd.h.
+.SS "#define MVME_AM_A24_SD   (0x3D)"A24 Standard Supervisory Data Access 
+.PP
+Definition at line 117 of file mvmestd.h.
+.SS "#define MVME_AM_A24_SMBLT   (0x3C)"A24 Multiplexed Block Transfer (D64) 
+.PP
+Definition at line 121 of file mvmestd.h.
+.SS "#define MVME_AM_A24_SP   (0x3E)"A24 Standard Supervisory Program Access 
+.PP
+Definition at line 116 of file mvmestd.h.
+.SS "#define MVME_AM_A32   MVME_AM_A32_SD"
+.PP
+Definition at line 112 of file mvmestd.h.
+.PP
+Referenced by mesadc32_ReadData(), regRead(), regReadReg(), regWrite(), regWriteReg(), v1720_DataBlockRead(), v1740_DataBlockRead(), and v1740_DataRead().
+.SS "#define MVME_AM_A32_D64   MVME_AM_A32_SMBLT"
+.PP
+Definition at line 113 of file mvmestd.h.
+.PP
+Referenced by sis3820_FifoRead().
+.SS "#define MVME_AM_A32_NB   (0x0B)"A32 Extended Non-Privileged Block 
+.PP
+Definition at line 106 of file mvmestd.h.
+.SS "#define MVME_AM_A32_ND   (0x09)"A32 Extended Non-Privileged Data 
+.PP
+Definition at line 108 of file mvmestd.h.
+.SS "#define MVME_AM_A32_NMBLT   (0x08)"A32 Multiplexed Block Transfer (D64) 
+.PP
+Definition at line 110 of file mvmestd.h.
+.SS "#define MVME_AM_A32_NP   (0x0A)"A32 Extended Non-Privileged Program 
+.PP
+Definition at line 107 of file mvmestd.h.
+.SS "#define MVME_AM_A32_SB   (0x0F)"A32 Extended Supervisory Block 
+.PP
+Definition at line 103 of file mvmestd.h.
+.SS "#define MVME_AM_A32_SD   (0x0D)"A32 Extended Supervisory Data 
+.PP
+Definition at line 105 of file mvmestd.h.
+.SS "#define MVME_AM_A32_SMBLT   (0x0C)"A32 Multiplexed Block Transfer (D64) 
+.PP
+Definition at line 109 of file mvmestd.h.
+.SS "#define MVME_AM_A32_SP   (0x0E)"A32 Extended Supervisory Program 
+.PP
+Definition at line 104 of file mvmestd.h.
+.SS "#define MVME_AM_DEFAULT   MVME_AM_A32"
+.PP
+Definition at line 132 of file mvmestd.h.
+.SS "#define MVME_BLT_2ESST   5"two edge source synchrnous transfer 
+.PP
+Definition at line 96 of file mvmestd.h.
+.SS "#define MVME_BLT_2EVME   4"two edge block transfer 
+.PP
+Definition at line 95 of file mvmestd.h.
+.SS "#define MVME_BLT_2EVMEFIFO   8"two edge block transfer with FIFO mode 
+.PP
+Definition at line 99 of file mvmestd.h.
+.SS "#define MVME_BLT_BLT32   2"32-bit block transfer 
+.PP
+Definition at line 93 of file mvmestd.h.
+.PP
+Referenced by v1190_DataRead().
+.SS "#define MVME_BLT_BLT32FIFO   6"FIFO mode, don't increment address 
+.PP
+Definition at line 97 of file mvmestd.h.
+.SS "#define MVME_BLT_MBLT64   3"multiplexed 64-bit block transfer 
+.PP
+Definition at line 94 of file mvmestd.h.
+.PP
+Referenced by sis3820_FifoRead(), v1720_DataBlockRead(), and v1740_DataBlockRead().
+.SS "#define MVME_BLT_MBLT64FIFO   7"FIFO mode, don't increment address 
+.PP
+Definition at line 98 of file mvmestd.h.
+.SS "#define MVME_BLT_NONE   1"normal programmed IO 
+.PP
+Definition at line 92 of file mvmestd.h.
+.SS "#define MVME_DMODE_D16   2"D16 
+.PP
+Definition at line 81 of file mvmestd.h.
+.PP
+Referenced by lrs1190_CountRead(), lrs1190_Disable(), lrs1190_Enable(), lrs1190_H2Read(), lrs1190_I4Read(), lrs1190_L2Read(), lrs1190_Reset(), mvme_read16(), regRead(), regReadFloat(), regReadReg(), regWrite(), regWriteFloat(), regWriteReg(), v1190_AcqModeRead(), v1190_ContinuousSet(), v1190_DataReady(), v1190_EvtStored(), v1190_GeoWrite(), v1190_LEResolutionSet(), v1190_MicroFlush(), v1190_MicroRead(), v1190_MicroWrite(), v1190_OffsetSet(), v1190_Read16(), v1190_ResolutionRead(), v1190_SetEdgeDetection(), v1190_Setup(), v1190_SoftClear(), v1190_SoftReset(), v1190_SoftTrigger(), v1190_Status(), v1190_TdcIdList(), v1190_TriggerMatchingSet(), v1190_WidthSet(), v1190_Write16(), v1729_AcqStart(), v1729_ChannelSelect(), v1729_DataRead(), v1729_FrqSamplingSet(), v1729_isTrigger(), v1729_NColsGet(), v1729_NColsSet(), v1729_OrderData(), v1729_PedestalRun(), v1729_PostTrigSet(), v1729_PreTrigSet(), v1729_Reset(), v1729_Setup(), v1729_SoftTrigger(), v1729_Status(), v1729_TimeCalibrationRun(), v1729_TriggerTypeSet(), v792_BitSet2Clear(), v792_BitSet2Read(), v792_BitSet2Set(), v792_ControlRegister1Read(), v792_ControlRegister1Write(), v792_CSR1Read(), v792_CSR2Read(), v792_DataClear(), v792_DataReady(), v792_EmptyEnable(), v792_EvtCntRead(), v792_EvtCntReset(), v792_EvtTriggerSet(), v792_IntDisable(), v792_IntEnable(), v792_IntSet(), v792_isBusy(), v792_isPresent(), v792_LowThDisable(), v792_LowThEnable(), v792_OnlineSet(), v792_Read16(), v792_Setup(), v792_SingleShotReset(), v792_SoftReset(), v792_Status(), v792_ThresholdRead(), v792_ThresholdWrite(), v792_Trigger(), v792_Write16(), v895_readReg16(), and v895_writeReg16().
+.SS "#define MVME_DMODE_D32   3"D32 
+.PP
+Definition at line 82 of file mvmestd.h.
+.PP
+Referenced by begin_of_run(), frontend_init(), interrupt_configure(), lrs1151_Clear(), lrs1151_Read(), lrs1190_H2Read(), lrs1190_I4Read(), lrs1190_L2Read(), mesadc32_ReadData(), mvme_read32(), regRead(), regWrite(), sis3801_channel_enable(), sis3801_CSR_read(), sis3801_CSR_write(), sis3801_dwell_time(), sis3801_FIFO_clear(), sis3801_FIFO_flush(), sis3801_HFIFO_read(), sis3801_input_mode(), sis3801_int_attach(), sis3801_int_source(), sis3801_int_source_disable(), sis3801_int_source_enable(), sis3801_IRQ_REG_read(), sis3801_IRQ_REG_write(), sis3801_module_ID(), sis3801_module_reset(), sis3801_next_logic(), sis3801_ref1(), sis3801_Setup(), v1190_DataRead(), v1190_EventRead(), v1190_EvtCounter(), v1190_Read32(), v1720_DataBlockRead(), v1740_DataBlockRead(), v1740_DataRead(), v560_Read(), v792_DataRead(), v792_EventRead(), vmeio_AsyncRead(), vmeio_AsyncWrite(), vmeio_CsrRead(), vmeio_IntEnable(), vmeio_IntRearm(), vmeio_OutputSet(), vmeio_StrobeClear(), vmeio_SyncRead(), vmeio_SyncWrite(), vpc6_ASDHysteresisSet(), vpc6_ASDModeSet(), vpc6_ASDRegSet(), vpc6_ASDThresholdSet(), vpc6_CfgRetrieve(), vpc6_isPortBusy(), vpc6_PATypeRead(), vpc6_PATypeWrite(), vpc6_PortCfgLoad(), vpc6_PortRegRBRead(), vpc6_PortRegRead(), vpc6_PortTypeRead(), vpc6_Setup(), vpc6_Status(), vt2_CSRRead(), vt2_CycleNumberRead(), vt2_CycleReset(), vt2_FifoLevelRead(), vt2_FifoRead(), vt2_IntEnable(), vt2_KeepAlive(), vt2_ManReset(), vt48_EventRead(), vt48_RegPrint(), vt48_RegRead(), vt48_RegWrite(), vt48_Setup(), vt48_Status(), vt48_WindowOffsetSet(), and vt48_WindowSet().
+.SS "#define MVME_DMODE_D64   4"D64 
+.PP
+Definition at line 83 of file mvmestd.h.
+.SS "#define MVME_DMODE_D8   1"data modes D8 
+.PP
+Definition at line 80 of file mvmestd.h.
+.PP
+Referenced by v895_readReg8(), v895_writeReg8(), VPPGRegRead(), and VPPGRegWrite().
+.SS "#define MVME_DMODE_DEFAULT   MVME_DMODE_D32"
+.PP
+Definition at line 88 of file mvmestd.h.
+.SS "#define MVME_DMODE_LM   7"local memory mapped to VME 
+.PP
+Definition at line 86 of file mvmestd.h.
+.SS "#define MVME_DMODE_RAMD16   5"RAM memory of VME adapter 
+.PP
+Definition at line 84 of file mvmestd.h.
+.SS "#define MVME_DMODE_RAMD32   6"RAM memory of VME adapter 
+.PP
+Definition at line 85 of file mvmestd.h.
+.SS "#define MVME_INVALID_PARAM   5"
+.PP
+Definition at line 65 of file mvmestd.h.
+.SS "#define MVME_NO_CRATE   3"
+.PP
+Definition at line 63 of file mvmestd.h.
+.SS "#define MVME_NO_INTERFACE   2"
+.PP
+Definition at line 62 of file mvmestd.h.
+.SS "#define MVME_NO_MEM   6"
+.PP
+Definition at line 66 of file mvmestd.h.
+.SS "#define MVME_SUCCESS   1"dox 
+.PP
+Definition at line 61 of file mvmestd.h.
+.PP
+Referenced by v1720_DataBlockRead(), and v1740_DataBlockRead().
+.SS "#define MVME_UNSUPPORTED   4"
+.PP
+Definition at line 64 of file mvmestd.h.
+.SH "Typedef Documentation"
+.PP 
+.SS "typedef unsigned int \fBmvme_addr_t\fP"
+.PP
+Definition at line 71 of file mvmestd.h.
+.SS "typedef unsigned int \fBmvme_locaddr_t\fP"
+.PP
+Definition at line 72 of file mvmestd.h.
+.SS "typedef unsigned int \fBmvme_size_t\fP"
+.PP
+Definition at line 73 of file mvmestd.h.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Midas from the source code.

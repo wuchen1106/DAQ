@@ -1,0 +1,741 @@
+.TH "Midas Define" 3 "31 May 2012" "Version 2.3.0-0" "Midas" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Midas Define \- 
+.SS "Defines"
+
+.in +1c
+.ti -1c
+.RI "#define \fBSTATE_STOPPED\fP   1"
+.br
+.ti -1c
+.RI "#define \fBSTATE_PAUSED\fP   2"
+.br
+.ti -1c
+.RI "#define \fBSTATE_RUNNING\fP   3"
+.br
+.ti -1c
+.RI "#define \fBFORMAT_MIDAS\fP   1"
+.br
+.ti -1c
+.RI "#define \fBFORMAT_YBOS\fP   2"
+.br
+.ti -1c
+.RI "#define \fBFORMAT_ASCII\fP   3"
+.br
+.ti -1c
+.RI "#define \fBFORMAT_FIXED\fP   4"
+.br
+.ti -1c
+.RI "#define \fBFORMAT_DUMP\fP   5"
+.br
+.ti -1c
+.RI "#define \fBFORMAT_HBOOK\fP   6"
+.br
+.ti -1c
+.RI "#define \fBFORMAT_ROOT\fP   7"
+.br
+.ti -1c
+.RI "#define \fBGET_ALL\fP   (1<<0)"
+.br
+.ti -1c
+.RI "#define \fBGET_NONBLOCKING\fP   (1<<1)"
+.br
+.ti -1c
+.RI "#define \fBGET_RECENT\fP   (1<<2)"
+.br
+.ti -1c
+.RI "#define \fBTID_BYTE\fP   1"
+.br
+.ti -1c
+.RI "#define \fBTID_SBYTE\fP   2"
+.br
+.ti -1c
+.RI "#define \fBTID_CHAR\fP   3"
+.br
+.ti -1c
+.RI "#define \fBTID_WORD\fP   4"
+.br
+.ti -1c
+.RI "#define \fBTID_SHORT\fP   5"
+.br
+.ti -1c
+.RI "#define \fBTID_DWORD\fP   6"
+.br
+.ti -1c
+.RI "#define \fBTID_INT\fP   7"
+.br
+.ti -1c
+.RI "#define \fBTID_BOOL\fP   8"
+.br
+.ti -1c
+.RI "#define \fBTID_FLOAT\fP   9"
+.br
+.ti -1c
+.RI "#define \fBTID_DOUBLE\fP   10"
+.br
+.ti -1c
+.RI "#define \fBTID_BITFIELD\fP   11"
+.br
+.ti -1c
+.RI "#define \fBTID_STRING\fP   12"
+.br
+.ti -1c
+.RI "#define \fBTID_ARRAY\fP   13"
+.br
+.ti -1c
+.RI "#define \fBTID_STRUCT\fP   14"
+.br
+.ti -1c
+.RI "#define \fBTID_KEY\fP   15"
+.br
+.ti -1c
+.RI "#define \fBTID_LINK\fP   16"
+.br
+.ti -1c
+.RI "#define \fBTID_LAST\fP   17"
+.br
+.ti -1c
+.RI "#define \fBSYNC\fP   0"
+.br
+.ti -1c
+.RI "#define \fBMODE_READ\fP   (1<<0)"
+.br
+.ti -1c
+.RI "#define \fBRPC_OTIMEOUT\fP   1"
+.br
+.ti -1c
+.RI "#define \fBWF_WATCH_ME\fP   (1<<0)"
+.br
+.ti -1c
+.RI "#define \fBTR_START\fP   (1<<0)"
+.br
+.ti -1c
+.RI "#define \fBTR_STOP\fP   (1<<1)"
+.br
+.ti -1c
+.RI "#define \fBTR_PAUSE\fP   (1<<2)"
+.br
+.ti -1c
+.RI "#define \fBTR_RESUME\fP   (1<<3)"
+.br
+.ti -1c
+.RI "#define \fBTR_STARTABORT\fP   (1<<4)"
+.br
+.ti -1c
+.RI "#define \fBEQ_PERIODIC\fP   (1<<0)"
+.br
+.ti -1c
+.RI "#define \fBEQ_POLLED\fP   (1<<1)"
+.br
+.ti -1c
+.RI "#define \fBEQ_INTERRUPT\fP   (1<<2)"
+.br
+.ti -1c
+.RI "#define \fBEQ_MULTITHREAD\fP   (1<<3)"
+.br
+.ti -1c
+.RI "#define \fBEQ_SLOW\fP   (1<<4)"
+.br
+.ti -1c
+.RI "#define \fBEQ_MANUAL_TRIG\fP   (1<<5)"
+.br
+.ti -1c
+.RI "#define \fBEQ_FRAGMENTED\fP   (1<<6)"
+.br
+.ti -1c
+.RI "#define \fBEQ_EB\fP   (1<<7)"
+.br
+.ti -1c
+.RI "#define \fBRO_RUNNING\fP   (1<<0)"
+.br
+.ti -1c
+.RI "#define \fBRO_STOPPED\fP   (1<<1)"
+.br
+.ti -1c
+.RI "#define \fBRO_PAUSED\fP   (1<<2)"
+.br
+.ti -1c
+.RI "#define \fBRO_BOR\fP   (1<<3)"
+.br
+.ti -1c
+.RI "#define \fBRO_EOR\fP   (1<<4)"
+.br
+.ti -1c
+.RI "#define \fBRO_PAUSE\fP   (1<<5)"
+.br
+.ti -1c
+.RI "#define \fBRO_RESUME\fP   (1<<6)"
+.br
+.ti -1c
+.RI "#define \fBRO_TRANSITIONS\fP   (RO_BOR|RO_EOR|RO_PAUSE|RO_RESUME)"
+.br
+.ti -1c
+.RI "#define \fBRO_ALWAYS\fP   (0xFF)"
+.br
+.ti -1c
+.RI "#define \fBRO_ODB\fP   (1<<8)"
+.br
+.ti -1c
+.RI "#define \fBMT_ERROR\fP   (1<<0)"
+.br
+.ti -1c
+.RI "#define \fBMT_INFO\fP   (1<<1)"
+.br
+.ti -1c
+.RI "#define \fBMT_DEBUG\fP   (1<<2)"
+.br
+.ti -1c
+.RI "#define \fBMT_USER\fP   (1<<3)"
+.br
+.ti -1c
+.RI "#define \fBMT_LOG\fP   (1<<4)"
+.br
+.ti -1c
+.RI "#define \fBMT_TALK\fP   (1<<5)"
+.br
+.ti -1c
+.RI "#define \fBMT_CALL\fP   (1<<6)"
+.br
+.ti -1c
+.RI "#define \fBMT_ALL\fP   0xFF"
+.br
+.ti -1c
+.RI "#define \fBMERROR\fP   MT_ERROR, __FILE__, __LINE__"
+.br
+.ti -1c
+.RI "#define \fBMINFO\fP   MT_INFO,  __FILE__, __LINE__"
+.br
+.ti -1c
+.RI "#define \fBMDEBUG\fP   MT_DEBUG, __FILE__, __LINE__"
+.br
+.ti -1c
+.RI "#define \fBMUSER\fP   MT_USER,  __FILE__, __LINE__"
+.br
+.ti -1c
+.RI "#define \fBMLOG\fP   MT_LOG,   __FILE__, __LINE__"
+.br
+.ti -1c
+.RI "#define \fBMTALK\fP   MT_TALK,  __FILE__, __LINE__"
+.br
+.ti -1c
+.RI "#define \fBMCALL\fP   MT_CALL,  __FILE__, __LINE__"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+dox
+.PP
+dox dox 
+.SH "Define Documentation"
+.PP 
+.SS "#define ASYNC   1"
+.PP
+Definition at line 311 of file midas.h.
+.PP
+Referenced by bm_receive_event(), cm_transition1(), frontend_loop(), handFlush(), rpc_send_event(), scan_fragment(), scheduler(), and source_scan().
+.SS "#define DETACH   2"
+.PP
+Definition at line 312 of file midas.h.
+.PP
+Referenced by cm_transition1().
+.SS "#define EQ_EB   (1<<7)"Event run through the event builder 
+.PP
+Definition at line 363 of file midas.h.
+.PP
+Referenced by load_fragment().
+.SS "#define EQ_FRAGMENTED   (1<<6)"Fragmented Event 
+.PP
+Definition at line 362 of file midas.h.
+.PP
+Referenced by check_polled_events(), register_equipment(), scheduler(), and send_event().
+.SS "#define EQ_INTERRUPT   (1<<2)"Interrupt Event 
+.PP
+Definition at line 358 of file midas.h.
+.PP
+Referenced by initialize_equipment(), scheduler(), and tr_stop().
+.SS "#define EQ_MANUAL_TRIG   (1<<5)"Manual triggered Event 
+.PP
+Definition at line 361 of file midas.h.
+.PP
+Referenced by initialize_equipment().
+.SS "#define EQ_MULTITHREAD   (1<<3)"Multithread Event readout 
+.PP
+Definition at line 359 of file midas.h.
+.PP
+Referenced by initialize_equipment(), scheduler(), and tr_stop().
+.SS "#define EQ_PERIODIC   (1<<0)"Equipment types Periodic Event 
+.PP
+Definition at line 356 of file midas.h.
+.PP
+Referenced by scheduler().
+.SS "#define EQ_POLLED   (1<<1)"Polling Event 
+.PP
+Definition at line 357 of file midas.h.
+.PP
+Referenced by check_polled_events(), initialize_equipment(), and scheduler().
+.SS "#define EQ_SLOW   (1<<4)"Slow Control Event 
+.PP
+Definition at line 360 of file midas.h.
+.PP
+Referenced by initialize_equipment(), main(), register_equipment(), scheduler(), and send_event().
+.SS "#define EVENTID_ALL   -1"
+.PP
+Definition at line 477 of file midas.h.
+.PP
+Referenced by bm_match_event(), and cm_msg_register().
+.SS "#define FORMAT_ASCII   3"ASCII format 
+.PP
+Definition at line 276 of file midas.h.
+.SS "#define FORMAT_DUMP   5"Dump (detailed ASCII) format 
+.PP
+Definition at line 278 of file midas.h.
+.SS "#define FORMAT_FIXED   4"Fixed length binary records 
+.PP
+Definition at line 277 of file midas.h.
+.PP
+Referenced by cd_hv_read(), hv_init(), register_equipment(), and update_odb().
+.SS "#define FORMAT_HBOOK   6"CERN hbook (rz) format 
+.PP
+Definition at line 279 of file midas.h.
+.SS "#define FORMAT_MIDAS   1"Data format MIDAS banks 
+.PP
+Definition at line 274 of file midas.h.
+.PP
+Referenced by cd_hv_read(), eb_yfragment_add(), hv_init(), load_fragment(), md_all_info_display(), md_bank_display(), md_bank_event_display(), md_event_get(), md_event_swap(), md_file_ropen(), md_file_wopen(), md_physrec_display(), md_physrec_get(), md_physrec_skip(), md_raw_bank_display(), md_raw_event_display(), register_equipment(), source_scan(), and update_odb().
+.SS "#define FORMAT_ROOT   7"CERN ROOT format 
+.PP
+Definition at line 280 of file midas.h.
+.SS "#define FORMAT_YBOS   2"YBOS banks 
+.PP
+Definition at line 275 of file midas.h.
+.PP
+Referenced by cd_hv_read(), hv_init(), md_all_info_display(), md_bank_display(), md_bank_event_display(), md_event_get(), md_event_swap(), md_file_ropen(), md_file_wopen(), md_physrec_display(), md_raw_bank_display(), md_raw_event_display(), and update_odb().
+.SS "#define GET_ALL   (1<<0)"Event Sampling type get all events (consume) 
+.PP
+Definition at line 284 of file midas.h.
+.PP
+Referenced by bm_remove_event_request(), bm_send_event(), bm_wait_for_free_space(), and source_booking().
+.SS "#define GET_NONBLOCKING   (1<<1)"get as much as possible without blocking producer 
+.PP
+Definition at line 285 of file midas.h.
+.PP
+Referenced by cm_msg_register().
+.SS "#define GET_RECENT   (1<<2)"get recent event (not older than 1 s) 
+.PP
+Definition at line 286 of file midas.h.
+.PP
+Referenced by bm_push_event().
+.SS "#define MCALL   MT_CALL,  __FILE__, __LINE__"info message for telephone call 
+.PP
+Definition at line 505 of file midas.h.
+.SS "#define MDEBUG   MT_DEBUG, __FILE__, __LINE__".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 501 of file midas.h.
+.PP
+Referenced by bm_flush_cache(), bm_push_event(), bm_receive_event(), bm_send_event(), bm_update_read_pointer(), bm_wait_for_free_space(), and bm_wakeup_producers().
+.SS "#define MERROR   MT_ERROR, __FILE__, __LINE__".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 499 of file midas.h.
+.PP
+Referenced by al_check(), al_reset_alarm(), al_trigger_alarm(), analyzer_init(), bm_close_buffer(), bm_copy_from_cache(), bm_flush_cache(), bm_open_buffer(), bm_push_event(), bm_receive_event(), bm_remove_event_request(), bm_request_event(), bm_send_event(), bm_set_cache_size(), bm_skip_event(), bm_validate_client_index(), bm_wait_for_free_space(), cd_hv(), check_polled_events(), cm_check_client(), cm_check_deferred_transition(), cm_cleanup(), cm_connect_experiment1(), cm_deregister_transition(), cm_get_watchdog_info(), cm_list_experiments(), cm_register_deferred_transition(), cm_register_transition(), cm_set_client_info(), cm_set_transition_sequence(), cm_shutdown(), cm_transition(), cm_transition1(), db_check_record(), db_close_database(), db_copy(), db_copy_xml(), db_create_key(), db_create_link(), db_create_record(), db_delete_key1(), db_enum_key(), db_find_key(), db_get_data(), db_get_data_index(), db_get_key(), db_get_key_info(), db_get_key_time(), db_get_link(), db_get_link_data(), db_get_lock_cnt(), db_get_record(), db_get_value(), db_load(), db_lock_database(), db_open_database(), db_open_record(), db_paste(), db_paste_node(), db_protect_database(), db_save(), db_save_struct(), db_save_xml(), db_save_xml_key(), db_set_data(), db_set_data_index(), db_set_link_data(), db_set_link_data_index(), db_set_record(), db_set_value(), db_unlock_database(), el_submit(), frontend_loop(), handFlush(), hs_dump(), hv_init(), initialize_equipment(), load_fragment(), main(), md_dev_os_write(), md_file_ropen(), md_file_wopen(), mfe_set_error(), odbReadUint32(), readout_thread(), receive_trigger_event(), register_equipment(), rpc_flush_event(), rpc_register_functions(), rpc_send_event(), rpc_set_option(), scan_fragment(), scheduler(), send_event(), source_booking(), source_scan(), source_unbooking(), tr_start(), tr_stop(), and update_odb().
+.SS "#define MINFO   MT_INFO,  __FILE__, __LINE__".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 500 of file midas.h.
+.PP
+Referenced by bk_list(), bm_cleanup_buffer_locked(), bm_validate_client_pointers(), close_buffers(), cm_check_client(), cm_cleanup(), cm_connect_experiment1(), cm_disconnect_experiment(), cm_set_client_info(), cm_transition1(), frontend_init(), initialize_equipment(), load_fragment(), main(), register_equipment(), scan_fragment(), and tr_start().
+.SS "#define MLOG   MT_LOG,   __FILE__, __LINE__"info message which is only logged 
+.PP
+Definition at line 503 of file midas.h.
+.SS "#define MODE_ALLOC   (1<<7)"
+.PP
+Definition at line 320 of file midas.h.
+.PP
+Referenced by db_close_all_records(), db_close_record(), and db_open_record().
+.SS "#define MODE_DELETE   (1<<2)"
+.PP
+Definition at line 318 of file midas.h.
+.PP
+Referenced by cm_delete_client_info(), cm_deregister_transition(), cm_register_transition(), cm_set_client_info(), cm_transition1(), db_create_key(), db_delete_key1(), db_open_database(), and register_equipment().
+.SS "#define MODE_EXCLUSIVE   (1<<3)"
+.PP
+Definition at line 319 of file midas.h.
+.PP
+Referenced by cm_cleanup(), db_create_key(), db_open_database(), db_open_record(), db_set_data(), db_set_data_index(), db_set_link_data(), db_set_link_data_index(), and db_set_value().
+.SS "#define MODE_READ   (1<<0)"Access modes 
+.PP
+Definition at line 316 of file midas.h.
+.PP
+Referenced by analyzer_init(), cm_delete_client_info(), cm_deregister_transition(), cm_register_deferred_transition(), cm_register_transition(), cm_set_client_info(), cm_set_transition_sequence(), cm_set_watchdog_params(), cm_transition1(), db_create_key(), db_find_key(), db_get_data(), db_get_data_index(), db_get_link_data(), db_get_value(), db_open_database(), db_open_record(), frontend_init(), hv_init(), register_equipment(), and validate_odb_array().
+.SS "#define MODE_WRITE   (1<<1)"
+.PP
+Definition at line 317 of file midas.h.
+.PP
+Referenced by cm_cleanup(), cm_delete_client_info(), cm_deregister_transition(), cm_register_deferred_transition(), cm_register_transition(), cm_set_client_info(), cm_set_transition_sequence(), cm_set_watchdog_params(), cm_transition1(), db_create_key(), db_open_database(), db_set_data(), db_set_data_index(), db_set_link_data(), db_set_link_data_index(), db_set_value(), and register_equipment().
+.SS "#define MT_ALL   0xFF".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 489 of file midas.h.
+.PP
+Referenced by cm_connect_experiment1(), and main().
+.SS "#define MT_CALL   (1<<6)".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 488 of file midas.h.
+.SS "#define MT_CALL_STR   'CALL'"
+.PP
+Definition at line 497 of file midas.h.
+.SS "#define MT_DEBUG   (1<<2)".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 484 of file midas.h.
+.PP
+Referenced by cm_msg_format(), cm_msg_log(), and cm_msg_log1().
+.SS "#define MT_DEBUG_STR   'DEBUG'"
+.PP
+Definition at line 493 of file midas.h.
+.PP
+Referenced by cm_msg_format().
+.SS "#define MT_ERROR   (1<<0)"System message types - 
+.PP
+Definition at line 482 of file midas.h.
+.PP
+Referenced by cm_msg1(), and cm_msg_format().
+.SS "#define MT_ERROR_STR   'ERROR'"
+.PP
+Definition at line 491 of file midas.h.
+.PP
+Referenced by cm_msg_format().
+.SS "#define MT_INFO   (1<<1)".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 483 of file midas.h.
+.PP
+Referenced by cm_msg_format().
+.SS "#define MT_INFO_STR   'INFO'"
+.PP
+Definition at line 492 of file midas.h.
+.PP
+Referenced by cm_msg_format().
+.SS "#define MT_LOG   (1<<4)".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 486 of file midas.h.
+.PP
+Referenced by cm_msg1(), cm_msg_format(), and cm_msg_send_event().
+.SS "#define MT_LOG_STR   'LOG'"
+.PP
+Definition at line 495 of file midas.h.
+.PP
+Referenced by cm_msg_format().
+.SS "#define MT_TALK   (1<<5)".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 487 of file midas.h.
+.PP
+Referenced by cm_msg_format().
+.SS "#define MT_TALK_STR   'TALK'"
+.PP
+Definition at line 496 of file midas.h.
+.PP
+Referenced by cm_msg_format().
+.SS "#define MT_USER   (1<<3)".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 485 of file midas.h.
+.PP
+Referenced by cm_msg1(), and cm_msg_format().
+.SS "#define MT_USER_STR   'USER'"
+.PP
+Definition at line 494 of file midas.h.
+.PP
+Referenced by cm_msg_format().
+.SS "#define MTALK   MT_TALK,  __FILE__, __LINE__"info message for speech system 
+.PP
+Definition at line 504 of file midas.h.
+.PP
+Referenced by al_check(), scan_fragment(), and scheduler().
+.SS "#define MUSER   MT_USER,  __FILE__, __LINE__"produced by interactive user 
+.PP
+Definition at line 502 of file midas.h.
+.SS "#define RO_ALWAYS   (0xFF)"Always (independent of the run status) 
+.PP
+Definition at line 377 of file midas.h.
+.SS "#define RO_BOR   (1<<3)"At the Begin of run 
+.PP
+Definition at line 371 of file midas.h.
+.PP
+Referenced by send_all_periodic_events().
+.SS "#define RO_EOR   (1<<4)"At the End of run 
+.PP
+Definition at line 372 of file midas.h.
+.PP
+Referenced by send_all_periodic_events().
+.SS "#define RO_ODB   (1<<8)"Submit data to ODB only 
+.PP
+Definition at line 379 of file midas.h.
+.PP
+Referenced by receive_trigger_event(), scheduler(), and send_event().
+.SS "#define RO_PAUSE   (1<<5)"Before pausing the run 
+.PP
+Definition at line 373 of file midas.h.
+.PP
+Referenced by send_all_periodic_events().
+.SS "#define RO_PAUSED   (1<<2)"??? 
+.PP
+Definition at line 370 of file midas.h.
+.PP
+Referenced by scheduler().
+.SS "#define RO_RESUME   (1<<6)"Before resuming the run 
+.PP
+Definition at line 374 of file midas.h.
+.PP
+Referenced by send_all_periodic_events().
+.SS "#define RO_RUNNING   (1<<0)"Read - On flags While running 
+.PP
+Definition at line 368 of file midas.h.
+.PP
+Referenced by scheduler().
+.SS "#define RO_STOPPED   (1<<1)"Before stopping the run 
+.PP
+Definition at line 369 of file midas.h.
+.PP
+Referenced by scheduler().
+.SS "#define RO_TRANSITIONS   (RO_BOR|RO_EOR|RO_PAUSE|RO_RESUME)"At all transitions 
+.PP
+Definition at line 376 of file midas.h.
+.SS "#define RPC_CLIENT_HANDLE   9"
+.PP
+Definition at line 332 of file midas.h.
+.PP
+Referenced by cm_get_experiment_database(), and cm_set_client_info().
+.SS "#define RPC_CONVERT_FLAGS   7"
+.PP
+Definition at line 330 of file midas.h.
+.PP
+Referenced by bm_receive_event(), db_get_record(), db_set_record(), and db_update_record().
+.SS "#define RPC_FTCP   1"
+.PP
+Definition at line 338 of file midas.h.
+.PP
+Referenced by cm_transition1(), db_send_changed_records(), and scheduler().
+.SS "#define RPC_NODELAY   12"
+.PP
+Definition at line 335 of file midas.h.
+.PP
+Referenced by rpc_set_option().
+.SS "#define RPC_OCONVERT_FLAG   3"
+.PP
+Definition at line 326 of file midas.h.
+.SS "#define RPC_ODB_HANDLE   8"
+.PP
+Definition at line 331 of file midas.h.
+.PP
+Referenced by cm_get_experiment_database(), and cm_set_client_info().
+.SS "#define RPC_OHW_TYPE   4"
+.PP
+Definition at line 327 of file midas.h.
+.PP
+Referenced by cm_connect_experiment1().
+.SS "#define RPC_OSERVER_NAME   6"
+.PP
+Definition at line 329 of file midas.h.
+.SS "#define RPC_OSERVER_TYPE   5"
+.PP
+Definition at line 328 of file midas.h.
+.PP
+Referenced by bm_check_buffers(), bm_close_buffer(), bm_empty_buffers(), bm_open_buffer(), bm_receive_event(), cm_disconnect_experiment(), cm_set_watchdog_params(), db_close_database(), db_get_record(), db_open_database(), and db_set_record().
+.SS "#define RPC_OTIMEOUT   1"RPC options 
+.PP
+Definition at line 324 of file midas.h.
+.PP
+Referenced by bm_receive_event(), cm_transition1(), main(), and rpc_set_option().
+.SS "#define RPC_OTRANSPORT   2"
+.PP
+Definition at line 325 of file midas.h.
+.PP
+Referenced by cm_transition1(), db_send_changed_records(), rpc_set_option(), scheduler(), and update_odb().
+.SS "#define RPC_SEND_SOCK   10"
+.PP
+Definition at line 333 of file midas.h.
+.SS "#define RPC_TCP   0"
+.PP
+Definition at line 337 of file midas.h.
+.PP
+Referenced by cm_transition1(), db_send_changed_records(), scheduler(), and update_odb().
+.SS "#define RPC_WATCHDOG_TIMEOUT   11"
+.PP
+Definition at line 334 of file midas.h.
+.PP
+Referenced by cm_set_watchdog_params().
+.SS "#define STATE_PAUSED   2"MIDAS run paused 
+.PP
+Definition at line 269 of file midas.h.
+.PP
+Referenced by cm_transition1(), scan_fragment(), scheduler(), and tr_pause().
+.SS "#define STATE_RUNNING   3"MIDAS run running 
+.PP
+Definition at line 270 of file midas.h.
+.PP
+Referenced by cm_transition1(), display(), main(), scan_fragment(), scheduler(), tr_resume(), and tr_start().
+.SS "#define STATE_STOPPED   1"System states MIDAS run stopped 
+.PP
+Definition at line 268 of file midas.h.
+.PP
+Referenced by close_buffers(), cm_transition1(), display(), handFlush(), main(), register_equipment(), scan_fragment(), scheduler(), and tr_stop().
+.SS "#define SYNC   0"Synchronous / Asynchronous flags 
+.PP
+Definition at line 310 of file midas.h.
+.PP
+Referenced by check_polled_events(), close_buffers(), cm_check_deferred_transition(), cm_msg1(), cm_msg_send_event(), main(), receive_trigger_event(), scan_fragment(), scheduler(), send_event(), source_scan(), and tr_stop().
+.SS "#define TID_ARRAY   13"array with unknown contents 
+.PP
+Definition at line 302 of file midas.h.
+.SS "#define TID_BITFIELD   11"32 Bits Bitfield 0 111... (32) 
+.PP
+Definition at line 300 of file midas.h.
+.PP
+Referenced by db_sprintf(), and db_sprintff().
+.SS "#define TID_BOOL   8"four bytes bool 0 1 
+.PP
+Definition at line 297 of file midas.h.
+.PP
+Referenced by al_check(), al_get_alarms(), al_trigger_alarm(), ana_end_of_run(), bk_swap(), db_sprintf(), db_sprintff(), main(), midas_bank_display(), midas_bank_display32(), scheduler(), and tr_start().
+.SS "#define TID_BYTE   1"Data types Definition min max unsigned byte 0 255 
+.PP
+Definition at line 290 of file midas.h.
+.PP
+Referenced by db_sprintf(), db_sprintff(), midas_bank_display(), and midas_bank_display32().
+.SS "#define TID_CHAR   3"single character 0 255 
+.PP
+Definition at line 292 of file midas.h.
+.PP
+Referenced by db_sprintf(), db_sprintff(), midas_bank_display(), and midas_bank_display32().
+.SS "#define TID_DOUBLE   10"8 Byte float format 
+.PP
+Definition at line 299 of file midas.h.
+.PP
+Referenced by ana_end_of_run(), bk_swap(), db_sprintf(), db_sprintff(), midas_bank_display(), midas_bank_display32(), register_equipment(), and scaler_accum().
+.SS "#define TID_DWORD   6"four bytes 0 2^32-1 
+.PP
+Definition at line 295 of file midas.h.
+.PP
+Referenced by bk_swap(), bm_convert_event_header(), bm_open_buffer(), cm_transition1(), db_sprintf(), db_sprintff(), db_update_record(), eb_user(), frontend_loop(), main(), midas_bank_display(), midas_bank_display32(), odbReadUint32(), read_scaler_event(), and read_trigger_event().
+.SS "#define TID_FLOAT   9"4 Byte float format 
+.PP
+Definition at line 298 of file midas.h.
+.PP
+Referenced by adc_calib(), bk_swap(), cd_hv_read(), db_sprintf(), db_sprintff(), hv_init(), hv_read(), midas_bank_display(), midas_bank_display32(), and validate_odb_array().
+.SS "#define TID_INT   7"signed dword -2^31 2^31-1 
+.PP
+Definition at line 296 of file midas.h.
+.PP
+Referenced by al_check(), al_get_alarms(), al_trigger_alarm(), bk_swap(), cm_connect_client(), cm_connect_experiment1(), cm_delete_client_info(), cm_register_deferred_transition(), cm_register_transition(), cm_set_client_info(), cm_set_transition_sequence(), cm_set_watchdog_params(), cm_shutdown(), cm_transition1(), db_sprintf(), db_sprintff(), el_submit(), load_fragment(), main(), midas_bank_display(), midas_bank_display32(), read_tdc(), read_trigger_event(), register_equipment(), scheduler(), and tr_start().
+.SS "#define TID_KEY   15"key in online database 
+.PP
+Definition at line 304 of file midas.h.
+.PP
+Referenced by al_check(), cm_transition1(), db_check_record(), db_copy(), db_create_key(), db_create_record(), db_delete_key1(), db_enum_key(), db_find_key(), db_get_data(), db_get_data_index(), db_get_key_info(), db_get_link_data(), db_get_record(), db_get_record_size(), db_open_database(), db_paste(), db_paste_node(), db_save_xml_key(), db_set_data(), db_set_data_index(), db_set_link_data(), db_set_link_data_index(), db_set_record(), db_set_value(), hv_init(), load_fragment(), and register_equipment().
+.SS "#define TID_LAST   17"end of TID list indicator 
+.PP
+Definition at line 306 of file midas.h.
+.PP
+Referenced by db_check_record(), db_create_key(), db_find_key(), db_get_key(), db_get_link(), db_paste(), and db_paste_node().
+.SS "#define TID_LINK   16"link in online database 
+.PP
+Definition at line 305 of file midas.h.
+.PP
+Referenced by db_check_record(), db_copy(), db_create_key(), db_create_link(), db_delete_key1(), db_enum_key(), db_find_key(), db_get_data(), db_get_key(), db_get_value(), db_paste(), db_paste_node(), db_save_xml_key(), db_set_data(), db_set_data_index(), db_set_link_data_index(), db_set_value(), db_sprintf(), db_sprintff(), and update_odb().
+.SS "#define TID_SBYTE   2"signed byte -128 127 
+.PP
+Definition at line 291 of file midas.h.
+.PP
+Referenced by db_sprintf(), db_sprintff(), midas_bank_display(), and midas_bank_display32().
+.SS "#define TID_SHORT   5"signed word -32768 32767 
+.PP
+Definition at line 294 of file midas.h.
+.PP
+Referenced by bk_swap(), bm_convert_event_header(), db_sprintf(), db_sprintff(), midas_bank_display(), and midas_bank_display32().
+.SS "#define TID_STRING   12"zero terminated string 
+.PP
+Definition at line 301 of file midas.h.
+.PP
+Referenced by al_get_alarms(), al_trigger_alarm(), ana_end_of_run(), cm_check_client(), cm_connect_client(), cm_connect_experiment1(), cm_exist(), cm_get_client_info(), cm_msg_log(), cm_msg_log1(), cm_msg_retrieve(), cm_set_client_info(), cm_shutdown(), cm_transition1(), db_check_record(), db_copy(), db_create_key(), db_get_value(), db_paste(), db_paste_node(), db_save_xml_key(), db_set_data_index(), db_set_link_data_index(), db_set_value(), db_sprintf(), db_sprintff(), el_submit(), hs_dump(), hv_init(), load_fragment(), logger_root(), midas_bank_display(), midas_bank_display32(), set_equipment_status(), tr_start(), and update_odb().
+.SS "#define TID_STRUCT   14"structure with fixed length 
+.PP
+Definition at line 303 of file midas.h.
+.PP
+Referenced by adc_summing(), bk_close(), midas_bank_display(), midas_bank_display32(), register_equipment(), and update_odb().
+.SS "#define TID_WORD   4"two bytes 0 65535 
+.PP
+Definition at line 293 of file midas.h.
+.PP
+Referenced by bk_swap(), db_sprintf(), db_sprintff(), load_fragment(), midas_bank_display(), midas_bank_display32(), read_trigger_event(), read_v792(), and register_equipment().
+.SS "#define TR_DEFERRED   (1<<12)"
+.PP
+Definition at line 352 of file midas.h.
+.PP
+Referenced by cm_check_deferred_transition(), and cm_transition1().
+.SS "#define TR_PAUSE   (1<<2)"Pause transition 
+.PP
+Definition at line 349 of file midas.h.
+.PP
+Referenced by cm_deregister_transition(), cm_register_transition(), cm_set_transition_sequence(), cm_transition1(), main(), send_all_periodic_events(), and tr_pause().
+.SS "#define TR_RESUME   (1<<3)"Resume transition 
+.PP
+Definition at line 350 of file midas.h.
+.PP
+Referenced by cm_deregister_transition(), cm_register_transition(), cm_set_transition_sequence(), cm_transition1(), main(), send_all_periodic_events(), and tr_resume().
+.SS "#define TR_START   (1<<0)"Transitions values Start transition 
+.PP
+Definition at line 347 of file midas.h.
+.PP
+Referenced by cm_deregister_transition(), cm_register_transition(), cm_set_transition_sequence(), cm_transition(), cm_transition1(), main(), scheduler(), send_all_periodic_events(), and tr_start().
+.SS "#define TR_STARTABORT   (1<<4)"Start aborted transition 
+.PP
+Definition at line 351 of file midas.h.
+.PP
+Referenced by cm_register_transition(), cm_transition(), and cm_transition1().
+.SS "#define TR_STOP   (1<<1)"Stop transition 
+.PP
+Definition at line 348 of file midas.h.
+.PP
+Referenced by cm_deregister_transition(), cm_register_transition(), cm_set_transition_sequence(), cm_transition1(), frontend_loop(), main(), scan_fragment(), scheduler(), send_all_periodic_events(), and tr_stop().
+.SS "#define TRIGGER_ALL   -1"
+.PP
+Definition at line 478 of file midas.h.
+.PP
+Referenced by bm_match_event(), cm_msg_register(), and source_booking().
+.SS "#define WF_CALL_WD   (1<<1)"
+.PP
+Definition at line 343 of file midas.h.
+.SS "#define WF_WATCH_ME   (1<<0)"Watchdog flags 
+.PP
+Definition at line 342 of file midas.h.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Midas from the source code.

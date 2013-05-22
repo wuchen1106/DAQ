@@ -1,0 +1,144 @@
+\subsection{vpc6.c File Reference}
+\label{vpc6_8c}\index{vpc6.c@{vpc6.c}}
+\subsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{vpc6_8c_aeebefabbb82c5db323d9d80f554586ce}{vpc6\_\-PATypeWrite} (\hyperlink{structMVME__INTERFACE}{MVME\_\-INTERFACE} $\ast$mvme, \hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} base, \hyperlink{vt2_8h_a2b0e863dadf920709ec53d9088ee7c91}{WORD} data)
+\item 
+int \hyperlink{vpc6_8c_afb94d63b60eab3d570396b532e3fdeec}{vpc6\_\-PATypeRead} (\hyperlink{structMVME__INTERFACE}{MVME\_\-INTERFACE} $\ast$mvme, \hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} base)
+\item 
+int \hyperlink{vpc6_8c_ac870864055cc5eea66f7229a2bd44073}{vpc6\_\-PortTypeRead} (\hyperlink{structMVME__INTERFACE}{MVME\_\-INTERFACE} $\ast$mvme, \hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} base, \hyperlink{vt2_8h_a2b0e863dadf920709ec53d9088ee7c91}{WORD} port)
+\item 
+int \hyperlink{vpc6_8c_a955d588da5b0d7274438f361309ec07b}{vpc6\_\-PortCfgLoad} (\hyperlink{structMVME__INTERFACE}{MVME\_\-INTERFACE} $\ast$mvme, \hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} base, \hyperlink{vt2_8h_a2b0e863dadf920709ec53d9088ee7c91}{WORD} port)
+\item 
+int \hyperlink{vpc6_8c_a7def69c129b90426d2c5834b18d1b81f}{vpc6\_\-CfgRetrieve} (\hyperlink{structMVME__INTERFACE}{MVME\_\-INTERFACE} $\ast$mvme, \hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} base, \hyperlink{vt2_8h_a2b0e863dadf920709ec53d9088ee7c91}{WORD} port)
+\item 
+int \hyperlink{vpc6_8c_a0d9b6b536c70f925f3abe043310b3f64}{vpc6\_\-PortRegRBRead} (\hyperlink{structMVME__INTERFACE}{MVME\_\-INTERFACE} $\ast$mvme, \hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} base, \hyperlink{vt2_8h_a2b0e863dadf920709ec53d9088ee7c91}{WORD} port)
+\item 
+int \hyperlink{vpc6_8c_a03b97f9c9cb620dfa76f19cefacb4f4e}{vpc6\_\-PortRegRead} (\hyperlink{structMVME__INTERFACE}{MVME\_\-INTERFACE} $\ast$mvme, \hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} base, \hyperlink{vt2_8h_a2b0e863dadf920709ec53d9088ee7c91}{WORD} port)
+\item 
+void \hyperlink{vpc6_8c_a30c15080312a5dbb3bfb9bc4e1b21202}{vpc6\_\-PortDisplay} (\hyperlink{vt2_8h_a2b0e863dadf920709ec53d9088ee7c91}{WORD} type, \hyperlink{vt2_8h_a2b0e863dadf920709ec53d9088ee7c91}{WORD} port, \hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} $\ast$reg)
+\item 
+void \hyperlink{vpc6_8c_acba11652b38f9148081dc825bb79ccd5}{vpc6\_\-EntryPrint} (\hyperlink{vt2_8h_a2b0e863dadf920709ec53d9088ee7c91}{WORD} type, \hyperlink{vt2_8h_a2b0e863dadf920709ec53d9088ee7c91}{WORD} chip, const \hyperlink{unionvpc6__Reg}{vpc6\_\-Reg} $\ast$v)
+\item 
+int \hyperlink{vpc6_8c_a0bf11be8a7c2d0971e5c2bfb1387e36b}{vpc6\_\-Setup} (\hyperlink{structMVME__INTERFACE}{MVME\_\-INTERFACE} $\ast$mvme, \hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} base, int mode)
+\end{DoxyCompactItemize}
+
+
+\subsubsection{Function Documentation}
+\index{vpc6.c@{vpc6.c}!vpc6\_\-ASDDefaultLoad@{vpc6\_\-ASDDefaultLoad}}
+\index{vpc6\_\-ASDDefaultLoad@{vpc6\_\-ASDDefaultLoad}!vpc6.c@{vpc6.c}}
+\paragraph[{vpc6\_\-ASDDefaultLoad}]{\setlength{\rightskip}{0pt plus 5cm}void vpc6\_\-ASDDefaultLoad ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  {\bf DWORD} {\em base}, \/  {\bf WORD} {\em port})}\hfill\label{vpc6_8c_a94c50f949c0ea364b353ec0500168839}
+
+
+Definition at line 344 of file vpc6.c.\index{vpc6.c@{vpc6.c}!vpc6\_\-ASDHysteresisSet@{vpc6\_\-ASDHysteresisSet}}
+\index{vpc6\_\-ASDHysteresisSet@{vpc6\_\-ASDHysteresisSet}!vpc6.c@{vpc6.c}}
+\paragraph[{vpc6\_\-ASDHysteresisSet}]{\setlength{\rightskip}{0pt plus 5cm}int vpc6\_\-ASDHysteresisSet ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  {\bf DWORD} {\em base}, \/  {\bf WORD} {\em port}, \/  float {\em value})}\hfill\label{vpc6_8c_a664bb195d66757bbfd4d64425ce6b501}
+
+
+Definition at line 488 of file vpc6.c.\index{vpc6.c@{vpc6.c}!vpc6\_\-ASDModeSet@{vpc6\_\-ASDModeSet}}
+\index{vpc6\_\-ASDModeSet@{vpc6\_\-ASDModeSet}!vpc6.c@{vpc6.c}}
+\paragraph[{vpc6\_\-ASDModeSet}]{\setlength{\rightskip}{0pt plus 5cm}int vpc6\_\-ASDModeSet ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  {\bf DWORD} {\em base}, \/  {\bf WORD} {\em port}, \/  int {\em channel}, \/  int {\em mode})}\hfill\label{vpc6_8c_a4d16aafec8a77a2b1e6427a4fa1b7290}
+
+
+Definition at line 397 of file vpc6.c.\index{vpc6.c@{vpc6.c}!vpc6\_\-ASDRegSet@{vpc6\_\-ASDRegSet}}
+\index{vpc6\_\-ASDRegSet@{vpc6\_\-ASDRegSet}!vpc6.c@{vpc6.c}}
+\paragraph[{vpc6\_\-ASDRegSet}]{\setlength{\rightskip}{0pt plus 5cm}void vpc6\_\-ASDRegSet ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  {\bf DWORD} {\em base}, \/  {\bf WORD} {\em port}, \/  {\bf WORD} {\em reg}, \/  {\bf vpc6\_\-Reg} $\ast$ {\em Reg})}\hfill\label{vpc6_8c_a3288a666b9c619cbb58157a5d9e070d1}
+
+
+Definition at line 382 of file vpc6.c.
+
+Referenced by vpc6\_\-ASDDefaultLoad(), vpc6\_\-ASDHysteresisSet(), vpc6\_\-ASDModeSet(), and vpc6\_\-ASDThresholdSet().\index{vpc6.c@{vpc6.c}!vpc6\_\-ASDThresholdSet@{vpc6\_\-ASDThresholdSet}}
+\index{vpc6\_\-ASDThresholdSet@{vpc6\_\-ASDThresholdSet}!vpc6.c@{vpc6.c}}
+\paragraph[{vpc6\_\-ASDThresholdSet}]{\setlength{\rightskip}{0pt plus 5cm}int vpc6\_\-ASDThresholdSet ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  {\bf DWORD} {\em base}, \/  {\bf WORD} {\em port}, \/  int {\em value})}\hfill\label{vpc6_8c_a2e598b60509f7c15b802df1ec5ff83ae}
+
+
+Definition at line 452 of file vpc6.c.\index{vpc6.c@{vpc6.c}!vpc6\_\-BuckeyeModeSet@{vpc6\_\-BuckeyeModeSet}}
+\index{vpc6\_\-BuckeyeModeSet@{vpc6\_\-BuckeyeModeSet}!vpc6.c@{vpc6.c}}
+\paragraph[{vpc6\_\-BuckeyeModeSet}]{\setlength{\rightskip}{0pt plus 5cm}int vpc6\_\-BuckeyeModeSet ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  {\bf DWORD} {\em base}, \/  {\bf WORD} {\em port}, \/  int {\em channel}, \/  int {\em mode})}\hfill\label{vpc6_8c_ab1018e72d9d1f8c2401ba5859875a290}
+
+
+Definition at line 524 of file vpc6.c.\index{vpc6.c@{vpc6.c}!vpc6\_\-CfgRetrieve@{vpc6\_\-CfgRetrieve}}
+\index{vpc6\_\-CfgRetrieve@{vpc6\_\-CfgRetrieve}!vpc6.c@{vpc6.c}}
+\paragraph[{vpc6\_\-CfgRetrieve}]{\setlength{\rightskip}{0pt plus 5cm}int vpc6\_\-CfgRetrieve ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  {\bf DWORD} {\em base}, \/  {\bf WORD} {\em port})}\hfill\label{vpc6_8c_a7def69c129b90426d2c5834b18d1b81f}
+Retrieve bit string full configuration from a given port. Loads bit string into Readback registers that can then be read. the port is either ASD01 or Buckeye for now. 
+
+Definition at line 121 of file vpc6.c.
+
+Referenced by vpc6\_\-ASDHysteresisSet(), vpc6\_\-ASDModeSet(), and vpc6\_\-ASDThresholdSet().\index{vpc6.c@{vpc6.c}!vpc6\_\-EntryPrint@{vpc6\_\-EntryPrint}}
+\index{vpc6\_\-EntryPrint@{vpc6\_\-EntryPrint}!vpc6.c@{vpc6.c}}
+\paragraph[{vpc6\_\-EntryPrint}]{\setlength{\rightskip}{0pt plus 5cm}void vpc6\_\-EntryPrint ({\bf WORD} {\em type}, \/  {\bf WORD} {\em chip}, \/  const {\bf vpc6\_\-Reg} $\ast$ {\em v})}\hfill\label{vpc6_8c_acba11652b38f9148081dc825bb79ccd5}
+decoded printout of readout entry for ASD type preamp Not to be trusted for data decoding but acceptable for display purpose as its implementation is strongly compiler dependent and not flawless. 
+\begin{DoxyParams}{Parameters}
+\item[{\em v}]\end{DoxyParams}
+
+
+Definition at line 238 of file vpc6.c.
+
+Referenced by vpc6\_\-PortDisplay().\index{vpc6.c@{vpc6.c}!vpc6\_\-isPortBusy@{vpc6\_\-isPortBusy}}
+\index{vpc6\_\-isPortBusy@{vpc6\_\-isPortBusy}!vpc6.c@{vpc6.c}}
+\paragraph[{vpc6\_\-isPortBusy}]{\setlength{\rightskip}{0pt plus 5cm}int vpc6\_\-isPortBusy ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  {\bf DWORD} {\em base}, \/  {\bf WORD} {\em port})}\hfill\label{vpc6_8c_a3b49ac5c590e4a1da458708bd791ec76}
+
+
+Definition at line 19 of file vpc6.c.
+
+Referenced by vpc6\_\-CfgRetrieve(), vpc6\_\-PortCfgLoad(), vpc6\_\-PortRegRBRead(), and vpc6\_\-Status().\index{vpc6.c@{vpc6.c}!vpc6\_\-PATypeRead@{vpc6\_\-PATypeRead}}
+\index{vpc6\_\-PATypeRead@{vpc6\_\-PATypeRead}!vpc6.c@{vpc6.c}}
+\paragraph[{vpc6\_\-PATypeRead}]{\setlength{\rightskip}{0pt plus 5cm}int vpc6\_\-PATypeRead ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  {\bf DWORD} {\em base})}\hfill\label{vpc6_8c_afb94d63b60eab3d570396b532e3fdeec}
+Read the 6 AP type of the board (either ASD01 or Buckeye for now. 
+
+Definition at line 51 of file vpc6.c.\index{vpc6.c@{vpc6.c}!vpc6\_\-PATypeWrite@{vpc6\_\-PATypeWrite}}
+\index{vpc6\_\-PATypeWrite@{vpc6\_\-PATypeWrite}!vpc6.c@{vpc6.c}}
+\paragraph[{vpc6\_\-PATypeWrite}]{\setlength{\rightskip}{0pt plus 5cm}void vpc6\_\-PATypeWrite ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  {\bf DWORD} {\em base}, \/  {\bf WORD} {\em data})}\hfill\label{vpc6_8c_aeebefabbb82c5db323d9d80f554586ce}
+Setup Preamp type of the board (2 bit per PA) 00 : ASD, 01 : Buckeye 
+
+Definition at line 35 of file vpc6.c.
+
+Referenced by vpc6\_\-Setup().\index{vpc6.c@{vpc6.c}!vpc6\_\-PortCfgLoad@{vpc6\_\-PortCfgLoad}}
+\index{vpc6\_\-PortCfgLoad@{vpc6\_\-PortCfgLoad}!vpc6.c@{vpc6.c}}
+\paragraph[{vpc6\_\-PortCfgLoad}]{\setlength{\rightskip}{0pt plus 5cm}int vpc6\_\-PortCfgLoad ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  {\bf DWORD} {\em base}, \/  {\bf WORD} {\em port})}\hfill\label{vpc6_8c_a955d588da5b0d7274438f361309ec07b}
+Load full configuration for a given port. the port is either ASD01 or Buckeye for now. 
+
+Definition at line 84 of file vpc6.c.
+
+Referenced by vpc6\_\-ASDHysteresisSet(), vpc6\_\-ASDModeSet(), and vpc6\_\-ASDThresholdSet().\index{vpc6.c@{vpc6.c}!vpc6\_\-PortDisplay@{vpc6\_\-PortDisplay}}
+\index{vpc6\_\-PortDisplay@{vpc6\_\-PortDisplay}!vpc6.c@{vpc6.c}}
+\paragraph[{vpc6\_\-PortDisplay}]{\setlength{\rightskip}{0pt plus 5cm}void vpc6\_\-PortDisplay ({\bf WORD} {\em type}, \/  {\bf WORD} {\em port}, \/  {\bf DWORD} $\ast$ {\em reg})}\hfill\label{vpc6_8c_a30c15080312a5dbb3bfb9bc4e1b21202}
+decoded printout of readout entry 
+
+Definition at line 220 of file vpc6.c.
+
+Referenced by vpc6\_\-PortRegRBRead(), and vpc6\_\-PortRegRead().\index{vpc6.c@{vpc6.c}!vpc6\_\-PortRegRBRead@{vpc6\_\-PortRegRBRead}}
+\index{vpc6\_\-PortRegRBRead@{vpc6\_\-PortRegRBRead}!vpc6.c@{vpc6.c}}
+\paragraph[{vpc6\_\-PortRegRBRead}]{\setlength{\rightskip}{0pt plus 5cm}int vpc6\_\-PortRegRBRead ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  {\bf DWORD} {\em base}, \/  {\bf WORD} {\em port})}\hfill\label{vpc6_8c_a0d9b6b536c70f925f3abe043310b3f64}
+Read the Readback and Display in a readable form the Port setting No action to the PA board 
+
+Definition at line 155 of file vpc6.c.\index{vpc6.c@{vpc6.c}!vpc6\_\-PortRegRead@{vpc6\_\-PortRegRead}}
+\index{vpc6\_\-PortRegRead@{vpc6\_\-PortRegRead}!vpc6.c@{vpc6.c}}
+\paragraph[{vpc6\_\-PortRegRead}]{\setlength{\rightskip}{0pt plus 5cm}int vpc6\_\-PortRegRead ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  {\bf DWORD} {\em base}, \/  {\bf WORD} {\em port})}\hfill\label{vpc6_8c_a03b97f9c9cb620dfa76f19cefacb4f4e}
+Read the Register and Display in a readable form the Port setting No action to the PA board 
+
+Definition at line 192 of file vpc6.c.\index{vpc6.c@{vpc6.c}!vpc6\_\-PortTypeRead@{vpc6\_\-PortTypeRead}}
+\index{vpc6\_\-PortTypeRead@{vpc6\_\-PortTypeRead}!vpc6.c@{vpc6.c}}
+\paragraph[{vpc6\_\-PortTypeRead}]{\setlength{\rightskip}{0pt plus 5cm}int vpc6\_\-PortTypeRead ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  {\bf DWORD} {\em base}, \/  {\bf WORD} {\em port})}\hfill\label{vpc6_8c_ac870864055cc5eea66f7229a2bd44073}
+Read Port type of the board (either ASD01 or Buckeye for now) return the type of the requested port 
+
+Definition at line 67 of file vpc6.c.
+
+Referenced by vpc6\_\-Status().\index{vpc6.c@{vpc6.c}!vpc6\_\-Setup@{vpc6\_\-Setup}}
+\index{vpc6\_\-Setup@{vpc6\_\-Setup}!vpc6.c@{vpc6.c}}
+\paragraph[{vpc6\_\-Setup}]{\setlength{\rightskip}{0pt plus 5cm}int vpc6\_\-Setup ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  {\bf DWORD} {\em base}, \/  int {\em mode})}\hfill\label{vpc6_8c_a0bf11be8a7c2d0971e5c2bfb1387e36b}
+Sets all the necessary paramters for a given configuration. The configuration is provided by the mode argument. Add your own configuration in the case statement. Let me know your setting if you want to include it in the distribution. 
+\begin{DoxyParams}{Parameters}
+\item[{\em $\ast$mvme}]VME structure \item[{\em base}]Module base address \item[{\em mode}]Configuration mode number \item[{\em $\ast$nentry}]number of entries requested and returned. \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+MVME\_\-SUCCESS 
+\end{DoxyReturn}
+
+
+Definition at line 291 of file vpc6.c.\index{vpc6.c@{vpc6.c}!vpc6\_\-Status@{vpc6\_\-Status}}
+\index{vpc6\_\-Status@{vpc6\_\-Status}!vpc6.c@{vpc6.c}}
+\paragraph[{vpc6\_\-Status}]{\setlength{\rightskip}{0pt plus 5cm}void vpc6\_\-Status ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  {\bf DWORD} {\em base}, \/  {\bf WORD} {\em port})}\hfill\label{vpc6_8c_adfab58684a7e747ca27b3cd175a5e294}
+
+
+Definition at line 329 of file vpc6.c.

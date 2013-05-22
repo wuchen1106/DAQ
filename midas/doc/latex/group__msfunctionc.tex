@@ -1,0 +1,169 @@
+\subsection{System Functions (ss\_\-xxx)}
+\label{group__msfunctionc}\index{System Functions (ss\_\-xxx)@{System Functions (ss\_\-xxx)}}
+\subsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{group__msfunctionc_ga9b90d0865a3eb4720bd39edcaba9edba}{ss\_\-system} (char $\ast$command)
+\item 
+midas\_\-thread\_\-t \hyperlink{group__msfunctionc_ga29342b1b9eaa66a0076dd0876090087d}{ss\_\-thread\_\-create} (\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT}($\ast$thread\_\-func)(void $\ast$), void $\ast$param)
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{group__msfunctionc_gacf452572de3c2f6c5c899bc4a19aeaac}{ss\_\-thread\_\-kill} (midas\_\-thread\_\-t thread\_\-id)
+\item 
+\hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} \hyperlink{group__msfunctionc_ga999b383482224a5a6c4f5974d2625717}{ss\_\-millitime} ()
+\item 
+\hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} \hyperlink{group__msfunctionc_gab7852119bd4dc1e08aa03127d8ca008b}{ss\_\-time} ()
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{group__msfunctionc_gaf877acb3de6be606dd427a84aa7b6dda}{ss\_\-sleep} (\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} millisec)
+\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+dox 
+
+\subsubsection{Function Documentation}
+\index{msfunctionc@{msfunctionc}!ss\_\-millitime@{ss\_\-millitime}}
+\index{ss\_\-millitime@{ss\_\-millitime}!msfunctionc@{msfunctionc}}
+\paragraph[{ss\_\-millitime}]{\setlength{\rightskip}{0pt plus 5cm}{\bf DWORD} ss\_\-millitime ()}\hfill\label{group__msfunctionc_ga999b383482224a5a6c4f5974d2625717}
+dox Returns the actual time in milliseconds with an arbitrary origin. This time may only be used to calculate relative times.
+
+Overruns in the 32 bit value don't hurt since in a subtraction calculated with 32 bit accuracy this overrun cancels (you may think about!).. 
+\begin{DoxyCode}
+...
+DWORD start, stop:
+start = ss_millitime();
+  < do operations >
+stop = ss_millitime();
+printf("Operation took %1.3lf seconds\n",(stop-start)/1000.0);
+...
+\end{DoxyCode}
+ \begin{DoxyReturn}{Returns}
+millisecond time stamp. 
+\end{DoxyReturn}
+
+
+Definition at line 2855 of file system.c.
+
+Referenced by bm\_\-check\_\-buffers(), bm\_\-cleanup\_\-buffer\_\-locked(), bm\_\-open\_\-buffer(), bm\_\-wait\_\-for\_\-free\_\-space(), check\_\-polled\_\-events(), close\_\-buffers(), cm\_\-cleanup(), cm\_\-get\_\-watchdog\_\-info(), cm\_\-set\_\-watchdog\_\-params(), cm\_\-shutdown(), cm\_\-transition1(), db\_\-open\_\-database(), hv\_\-demand(), hv\_\-idle(), hv\_\-ramp(), hv\_\-read(), initialize\_\-equipment(), rotate\_\-wheel(), sc\_\-thread(), scan\_\-fragment(), scheduler(), send\_\-event(), and tr\_\-stop().\index{msfunctionc@{msfunctionc}!ss\_\-sleep@{ss\_\-sleep}}
+\index{ss\_\-sleep@{ss\_\-sleep}!msfunctionc@{msfunctionc}}
+\paragraph[{ss\_\-sleep}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} ss\_\-sleep ({\bf INT} {\em millisec})}\hfill\label{group__msfunctionc_gaf877acb3de6be606dd427a84aa7b6dda}
+dox Suspend the calling process for a certain time.
+
+The function is similar to the sleep() function, but has a resolution of one milliseconds. Under VxWorks the resolution is 1/60 of a second. It uses the socket select() function with a time-\/out. See examples in \hyperlink{group__msfunctionc_gab7852119bd4dc1e08aa03127d8ca008b}{ss\_\-time()} 
+\begin{DoxyParams}{Parameters}
+\item[{\em millisec}]Time in milliseconds to sleep. Zero means infinite (until another process calls ss\_\-wake) \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+SS\_\-SUCCESS 
+\end{DoxyReturn}
+
+
+Definition at line 3093 of file system.c.
+
+Referenced by bm\_\-wait\_\-for\_\-free\_\-space(), cm\_\-shutdown(), device\_\-driver(), initialize\_\-equipment(), main(), mesadc32\_\-MSCF16\_\-GainGet(), mesadc32\_\-MSCF16\_\-GainSet(), mesadc32\_\-MSCF16\_\-IDC(), mesadc32\_\-MSCF16\_\-RCon(), rb\_\-get\_\-rp(), rb\_\-get\_\-wp(), rcWait(), read\_\-trigger\_\-event(), readout\_\-enable(), readout\_\-thread(), register\_\-equipment(), and sc\_\-thread().\index{msfunctionc@{msfunctionc}!ss\_\-system@{ss\_\-system}}
+\index{ss\_\-system@{ss\_\-system}!msfunctionc@{msfunctionc}}
+\paragraph[{ss\_\-system}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} ss\_\-system (char $\ast$ {\em command})}\hfill\label{group__msfunctionc_ga9b90d0865a3eb4720bd39edcaba9edba}
+dox Execute command in a separate process, close all open file descriptors invoke ss\_\-exec() and ignore pid. 
+\begin{DoxyCode}
+{ ...
+  char cmd[256];
+  sprintf(cmd,"%s %s %i %s/%s %1.3lf %d",lazy.commandAfter,
+     lazy.backlabel, lazyst.nfiles, lazy.path, lazyst.backfile,
+     lazyst.file_size/1024.0/1024.0, blockn);
+  cm_msg(MINFO,"Lazy","Exec post file write script:%s",cmd);
+  ss_system(cmd);
+}
+...
+\end{DoxyCode}
+ 
+\begin{DoxyParams}{Parameters}
+\item[{\em command}]Command to execute. \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+SS\_\-SUCCESS or ss\_\-exec() return code 
+\end{DoxyReturn}
+
+
+Definition at line 1865 of file system.c.
+
+Referenced by al\_\-check(), cm\_\-transition1(), and scan\_\-fragment().\index{msfunctionc@{msfunctionc}!ss\_\-thread\_\-create@{ss\_\-thread\_\-create}}
+\index{ss\_\-thread\_\-create@{ss\_\-thread\_\-create}!msfunctionc@{msfunctionc}}
+\paragraph[{ss\_\-thread\_\-create}]{\setlength{\rightskip}{0pt plus 5cm}midas\_\-thread\_\-t ss\_\-thread\_\-create ({\bf INT}($\ast$)(void $\ast$) {\em thread\_\-func}, \/  void $\ast$ {\em param})}\hfill\label{group__msfunctionc_ga29342b1b9eaa66a0076dd0876090087d}
+dox Creates and returns a new thread of execution.
+
+Note the difference when calling from vxWorks versus Linux and Windows. The parameter pointer for a vxWorks call is a VX\_\-TASK\_\-SPAWN structure, whereas for Linux and Windows it is a void pointer. Early versions returned SS\_\-SUCCESS or SS\_\-NO\_\-THREAD instead of thread ID.
+
+Example for VxWorks 
+\begin{DoxyCode}
+...
+VX_TASK_SPAWN tsWatch = {"Watchdog", 100, 0, 2000,  (int) pDevice, 0, 0, 0, 0, 0,
+       0, 0, 0 ,0};
+midas_thread_t thread_id = ss_thread_create((void *) taskWatch, &tsWatch);
+if (thread_id == 0) {
+  printf("cannot spawn taskWatch\n");
+}
+...
+\end{DoxyCode}
+ Example for Linux 
+\begin{DoxyCode}
+...
+midas_thread_t thread_id = ss_thread_create((void *) taskWatch, pDevice);
+if (thread_id == 0) {
+  printf("cannot spawn taskWatch\n");
+}
+...
+\end{DoxyCode}
+ 
+\begin{DoxyParams}{Parameters}
+\item[{\em ($\ast$thread\_\-func)}]Thread function to create. \item[{\em param}]a pointer to a VX\_\-TASK\_\-SPAWN structure for vxWorks and a void pointer for Unix and Windows \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the new thread id or zero on error 
+\end{DoxyReturn}
+
+
+Definition at line 1991 of file system.c.
+
+Referenced by device\_\-driver(), and initialize\_\-equipment().\index{msfunctionc@{msfunctionc}!ss\_\-thread\_\-kill@{ss\_\-thread\_\-kill}}
+\index{ss\_\-thread\_\-kill@{ss\_\-thread\_\-kill}!msfunctionc@{msfunctionc}}
+\paragraph[{ss\_\-thread\_\-kill}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} ss\_\-thread\_\-kill (midas\_\-thread\_\-t {\em thread\_\-id})}\hfill\label{group__msfunctionc_gacf452572de3c2f6c5c899bc4a19aeaac}
+Destroys the thread identified by the passed thread id. The thread id is returned by \hyperlink{group__msfunctionc_ga29342b1b9eaa66a0076dd0876090087d}{ss\_\-thread\_\-create()} on creation.
+
+
+\begin{DoxyCode}
+...
+midas_thread_t thread_id = ss_thread_create((void *) taskWatch, pDevice);
+if (thread_id == 0) {
+  printf("cannot spawn taskWatch\n");
+}
+...
+ss_thread_kill(thread_id);
+...
+\end{DoxyCode}
+ 
+\begin{DoxyParams}{Parameters}
+\item[{\em thread\_\-id}]the thread id of the thread to be killed. \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+SS\_\-SUCCESS if no error, else SS\_\-NO\_\-THREAD 
+\end{DoxyReturn}
+
+
+Definition at line 2064 of file system.c.
+
+Referenced by device\_\-driver().\index{msfunctionc@{msfunctionc}!ss\_\-time@{ss\_\-time}}
+\index{ss\_\-time@{ss\_\-time}!msfunctionc@{msfunctionc}}
+\paragraph[{ss\_\-time}]{\setlength{\rightskip}{0pt plus 5cm}{\bf DWORD} ss\_\-time ()}\hfill\label{group__msfunctionc_gab7852119bd4dc1e08aa03127d8ca008b}
+Returns the actual time in seconds since 1.1.1970 UTC. 
+\begin{DoxyCode}
+...
+DWORD start, stop:
+start = ss_time();
+  ss_sleep(12000);
+stop = ss_time();
+printf("Operation took %1.3lf seconds\n",stop-start);
+...
+\end{DoxyCode}
+ \begin{DoxyReturn}{Returns}
+Time in seconds 
+\end{DoxyReturn}
+
+
+Definition at line 2922 of file system.c.
+
+Referenced by al\_\-check(), al\_\-trigger\_\-alarm(), bm\_\-compose\_\-event(), bm\_\-push\_\-event(), cm\_\-msg(), cm\_\-synchronize(), cm\_\-time(), cm\_\-yield(), db\_\-get\_\-key\_\-time(), db\_\-set\_\-data(), db\_\-set\_\-data\_\-index(), db\_\-set\_\-link\_\-data(), db\_\-set\_\-link\_\-data\_\-index(), db\_\-set\_\-value(), scheduler(), and send\_\-event().

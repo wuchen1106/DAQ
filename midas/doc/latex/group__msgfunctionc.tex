@@ -1,0 +1,252 @@
+\subsection{Midas Message Functions (msg\_\-xxx)}
+\label{group__msgfunctionc}\index{Midas Message Functions (msg\_\-xxx)@{Midas Message Functions (msg\_\-xxx)}}
+\subsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{group__msgfunctionc_ga42f4420ba3e5b4663f3fdd80a586841e}{cm\_\-get\_\-error} (\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} code, char $\ast$string)
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{group__msgfunctionc_gafe6ff62436845805cd87a7ea1bd3b4dd}{cm\_\-set\_\-msg\_\-print} (\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} system\_\-mask, \hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} user\_\-mask, int($\ast$func)(const char $\ast$))
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{group__msgfunctionc_gadac7f1f490117d6cdd4fc39bd7f9d0d5}{cm\_\-msg\_\-log} (\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} message\_\-type, const char $\ast$message)
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{group__msgfunctionc_gacc533051c0100cc554cd28314079e71c}{cm\_\-msg\_\-log1} (\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} message\_\-type, const char $\ast$message, const char $\ast$facility)
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{group__msgfunctionc_gaa28e2fd30622699b67e7b0116da2923c}{cm\_\-msg\_\-flush\_\-buffer} ()
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{group__msgfunctionc_gaac032ca2438c47466bfc9722de6746ea}{cm\_\-msg} (\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} message\_\-type, const char $\ast$filename, \hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} line, const char $\ast$routine, const char $\ast$format,...)
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{group__msgfunctionc_ga2dcad358d4ad50963cf2f34c56201f62}{cm\_\-msg1} (\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} message\_\-type, const char $\ast$filename, \hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} line, const char $\ast$facility, const char $\ast$routine, const char $\ast$format,...)
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{group__msgfunctionc_gab857885ee2ef24ddef12fb3ecf5c4c7e}{cm\_\-msg\_\-register} (void($\ast$func)(HNDLE, HNDLE, \hyperlink{structEVENT__HEADER}{EVENT\_\-HEADER} $\ast$, void $\ast$))
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{group__msgfunctionc_gad92636d84ec9438a25ca6b17c4e6760d}{cm\_\-msg\_\-retrieve} (\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} n\_\-message, char $\ast$message, \hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} buf\_\-size)
+\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+dox dox 
+
+\subsubsection{Function Documentation}
+\index{msgfunctionc@{msgfunctionc}!cm\_\-get\_\-error@{cm\_\-get\_\-error}}
+\index{cm\_\-get\_\-error@{cm\_\-get\_\-error}!msgfunctionc@{msgfunctionc}}
+\paragraph[{cm\_\-get\_\-error}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} cm\_\-get\_\-error ({\bf INT} {\em code}, \/  char $\ast$ {\em string})}\hfill\label{group__msgfunctionc_ga42f4420ba3e5b4663f3fdd80a586841e}
+Convert error code to string. Used after cm\_\-connect\_\-experiment to print error string in command line programs or windows programs. 
+\begin{DoxyParams}{Parameters}
+\item[{\em code}]Error code as defined in \hyperlink{midas_8h}{midas.h} \item[{\em string}]Error string \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+CM\_\-SUCCESS 
+\end{DoxyReturn}
+
+
+Definition at line 315 of file midas.c.
+
+Referenced by cm\_\-connect\_\-experiment().\index{msgfunctionc@{msgfunctionc}!cm\_\-msg@{cm\_\-msg}}
+\index{cm\_\-msg@{cm\_\-msg}!msgfunctionc@{msgfunctionc}}
+\paragraph[{cm\_\-msg}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} cm\_\-msg ({\bf INT} {\em message\_\-type}, \/  const char $\ast$ {\em filename}, \/  {\bf INT} {\em line}, \/  const char $\ast$ {\em routine}, \/  const char $\ast$ {\em format}, \/   {\em ...})}\hfill\label{group__msgfunctionc_gaac032ca2438c47466bfc9722de6746ea}
+This routine can be called whenever an internal error occurs or an informative message is produced. Different message types can be enabled or disabled by setting the type bits via \hyperlink{group__msgfunctionc_gafe6ff62436845805cd87a7ea1bd3b4dd}{cm\_\-set\_\-msg\_\-print()}. \begin{DoxyAttention}{Attention}
+Do not add the \char`\"{}$\backslash$n\char`\"{} escape carriage control at the end of the formated line as it is already added by the client on the receiving side. 
+\begin{DoxyCode}
+   ...
+   cm_msg(MINFO, "my program", "This is a information message only);
+   cm_msg(MERROR, "my program", "This is an error message with status:%d", my_sta
+      tus);
+   cm_msg(MTALK, "my_program", My program is Done!");
+   ...
+\end{DoxyCode}
+ 
+\end{DoxyAttention}
+
+\begin{DoxyParams}{Parameters}
+\item[{\em message\_\-type}](See \hyperlink{F_Midas_Code_and_Libraries_midas_macro}{midas\_\-macro}). \item[{\em filename}]Name of source file where error occured \item[{\em line}]Line number where error occured \item[{\em routine}]Routine name. \item[{\em format}]message to printout, ... Parameters like for printf() \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+CM\_\-SUCCESS 
+\end{DoxyReturn}
+
+
+Definition at line 843 of file midas.c.
+
+Referenced by al\_\-check(), al\_\-reset\_\-alarm(), al\_\-trigger\_\-alarm(), analyzer\_\-init(), bk\_\-list(), bm\_\-cleanup\_\-buffer\_\-locked(), bm\_\-close\_\-buffer(), bm\_\-copy\_\-from\_\-cache(), bm\_\-flush\_\-cache(), bm\_\-open\_\-buffer(), bm\_\-push\_\-event(), bm\_\-receive\_\-event(), bm\_\-remove\_\-event\_\-request(), bm\_\-request\_\-event(), bm\_\-send\_\-event(), bm\_\-set\_\-cache\_\-size(), bm\_\-skip\_\-event(), bm\_\-update\_\-read\_\-pointer(), bm\_\-validate\_\-client\_\-index(), bm\_\-validate\_\-client\_\-pointers(), bm\_\-wait\_\-for\_\-free\_\-space(), bm\_\-wakeup\_\-producers(), cd\_\-hv(), check\_\-polled\_\-events(), close\_\-buffers(), cm\_\-check\_\-client(), cm\_\-check\_\-deferred\_\-transition(), cm\_\-cleanup(), cm\_\-connect\_\-experiment1(), cm\_\-deregister\_\-transition(), cm\_\-disconnect\_\-experiment(), cm\_\-get\_\-watchdog\_\-info(), cm\_\-list\_\-experiments(), cm\_\-register\_\-deferred\_\-transition(), cm\_\-register\_\-transition(), cm\_\-set\_\-client\_\-info(), cm\_\-set\_\-transition\_\-sequence(), cm\_\-shutdown(), cm\_\-transition(), cm\_\-transition1(), db\_\-check\_\-record(), db\_\-close\_\-database(), db\_\-copy(), db\_\-copy\_\-xml(), db\_\-create\_\-key(), db\_\-create\_\-link(), db\_\-create\_\-record(), db\_\-delete\_\-key1(), db\_\-enum\_\-key(), db\_\-find\_\-key(), db\_\-get\_\-data(), db\_\-get\_\-data\_\-index(), db\_\-get\_\-key(), db\_\-get\_\-key\_\-info(), db\_\-get\_\-key\_\-time(), db\_\-get\_\-link(), db\_\-get\_\-link\_\-data(), db\_\-get\_\-lock\_\-cnt(), db\_\-get\_\-record(), db\_\-get\_\-value(), db\_\-load(), db\_\-lock\_\-database(), db\_\-open\_\-database(), db\_\-open\_\-record(), db\_\-paste(), db\_\-paste\_\-node(), db\_\-protect\_\-database(), db\_\-save(), db\_\-save\_\-struct(), db\_\-save\_\-xml(), db\_\-save\_\-xml\_\-key(), db\_\-set\_\-data(), db\_\-set\_\-data\_\-index(), db\_\-set\_\-link\_\-data(), db\_\-set\_\-link\_\-data\_\-index(), db\_\-set\_\-record(), db\_\-set\_\-value(), db\_\-unlock\_\-database(), el\_\-submit(), frontend\_\-init(), frontend\_\-loop(), handFlush(), hs\_\-dump(), hv\_\-init(), initialize\_\-equipment(), load\_\-fragment(), main(), md\_\-dev\_\-os\_\-write(), md\_\-file\_\-ropen(), md\_\-file\_\-wopen(), mfe\_\-set\_\-error(), odbReadUint32(), readout\_\-thread(), receive\_\-trigger\_\-event(), register\_\-equipment(), rpc\_\-flush\_\-event(), rpc\_\-register\_\-functions(), rpc\_\-send\_\-event(), rpc\_\-set\_\-option(), scan\_\-fragment(), scheduler(), send\_\-event(), source\_\-booking(), source\_\-scan(), source\_\-unbooking(), tr\_\-start(), tr\_\-stop(), and update\_\-odb().\index{msgfunctionc@{msgfunctionc}!cm\_\-msg1@{cm\_\-msg1}}
+\index{cm\_\-msg1@{cm\_\-msg1}!msgfunctionc@{msgfunctionc}}
+\paragraph[{cm\_\-msg1}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} cm\_\-msg1 ({\bf INT} {\em message\_\-type}, \/  const char $\ast$ {\em filename}, \/  {\bf INT} {\em line}, \/  const char $\ast$ {\em facility}, \/  const char $\ast$ {\em routine}, \/  const char $\ast$ {\em format}, \/   {\em ...})}\hfill\label{group__msgfunctionc_ga2dcad358d4ad50963cf2f34c56201f62}
+This routine is similar to \hyperlink{group__msgfunctionc_gaac032ca2438c47466bfc9722de6746ea}{cm\_\-msg()}. It differs from \hyperlink{group__msgfunctionc_gaac032ca2438c47466bfc9722de6746ea}{cm\_\-msg()} only by the logging destination being a file given through the argument list i.e:{\bfseries facility} \begin{DoxyInternal}{For internal use only.}
+\begin{DoxyAttention}{Attention}
+Do not add the \char`\"{}$\backslash$n\char`\"{} escape carriage control at the end of the formated line as it is already added by the client on the receiving side. The first arg in the following example uses the predefined macro MINFO which handles automatically the first 3 arguments of the function (see \hyperlink{F_Midas_Code_and_Libraries_midas_macro}{midas\_\-macro}). 
+\begin{DoxyCode}
+ ...
+   cm_msg1(MINFO, "my_log_file", "my_program"," My message status:%d", status);
+   ...
+//----- File my_log_file.log
+Thu Nov  8 17:59:28 2001 [my_program] My message status:1
+\end{DoxyCode}
+ 
+\end{DoxyAttention}
+
+\begin{DoxyParams}{Parameters}
+\item[{\em message\_\-type}]See \hyperlink{F_Midas_Code_and_Libraries_midas_macro}{midas\_\-macro}. \item[{\em filename}]Name of source file where error occured \item[{\em line}]Line number where error occured \item[{\em facility}]Logging file name \item[{\em routine}]Routine name \item[{\em format}]message to printout, ... Parameters like for printf() \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+CM\_\-SUCCESS 
+\end{DoxyReturn}
+\end{DoxyInternal}
+
+
+Definition at line 904 of file midas.c.\index{msgfunctionc@{msgfunctionc}!cm\_\-msg\_\-buffer@{cm\_\-msg\_\-buffer}}
+\index{cm\_\-msg\_\-buffer@{cm\_\-msg\_\-buffer}!msgfunctionc@{msgfunctionc}}
+\paragraph[{cm\_\-msg\_\-buffer}]{\setlength{\rightskip}{0pt plus 5cm}static {\bf INT} cm\_\-msg\_\-buffer (int {\em ts}, \/  int {\em message\_\-type}, \/  const char $\ast$ {\em message})\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}\hfill\label{group__msgfunctionc_ga6ba42e516854f36cf4295d6947067d1a}
+
+
+Definition at line 693 of file midas.c.
+
+Referenced by cm\_\-msg().\index{msgfunctionc@{msgfunctionc}!cm\_\-msg\_\-flush\_\-buffer@{cm\_\-msg\_\-flush\_\-buffer}}
+\index{cm\_\-msg\_\-flush\_\-buffer@{cm\_\-msg\_\-flush\_\-buffer}!msgfunctionc@{msgfunctionc}}
+\paragraph[{cm\_\-msg\_\-flush\_\-buffer}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} cm\_\-msg\_\-flush\_\-buffer ()}\hfill\label{group__msgfunctionc_gaa28e2fd30622699b67e7b0116da2923c}
+This routine can be called to process messages buffered by \hyperlink{group__msgfunctionc_gaac032ca2438c47466bfc9722de6746ea}{cm\_\-msg()}. Normally it is called from \hyperlink{group__cmfunctionc_ga115565c5a1d9591fcabf844c1dd624f8}{cm\_\-yield()} and \hyperlink{group__cmfunctionc_ga7d5a287821786e8dde3d2340826215b2}{cm\_\-disconnect\_\-experiment()} to make sure all accumulated messages are processed. 
+
+Definition at line 750 of file midas.c.
+
+Referenced by cm\_\-connect\_\-experiment(), cm\_\-disconnect\_\-experiment(), cm\_\-shutdown(), and cm\_\-yield().\index{msgfunctionc@{msgfunctionc}!cm\_\-msg\_\-format@{cm\_\-msg\_\-format}}
+\index{cm\_\-msg\_\-format@{cm\_\-msg\_\-format}!msgfunctionc@{msgfunctionc}}
+\paragraph[{cm\_\-msg\_\-format}]{\setlength{\rightskip}{0pt plus 5cm}static {\bf INT} cm\_\-msg\_\-format (char $\ast$ {\em local\_\-message}, \/  int {\em sizeof\_\-local\_\-message}, \/  char $\ast$ {\em send\_\-message}, \/  int {\em sizeof\_\-send\_\-message}, \/  {\bf INT} {\em message\_\-type}, \/  const char $\ast$ {\em filename}, \/  {\bf INT} {\em line}, \/  const char $\ast$ {\em routine}, \/  const char $\ast$ {\em format}, \/  va\_\-list $\ast$ {\em argptr})\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}\hfill\label{group__msgfunctionc_gaddfa3777e3786fbb1f3f6c759e59d7dd}
+
+
+Definition at line 602 of file midas.c.
+
+Referenced by cm\_\-msg().\index{msgfunctionc@{msgfunctionc}!cm\_\-msg\_\-log@{cm\_\-msg\_\-log}}
+\index{cm\_\-msg\_\-log@{cm\_\-msg\_\-log}!msgfunctionc@{msgfunctionc}}
+\paragraph[{cm\_\-msg\_\-log}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} cm\_\-msg\_\-log ({\bf INT} {\em message\_\-type}, \/  const char $\ast$ {\em message})}\hfill\label{group__msgfunctionc_gadac7f1f490117d6cdd4fc39bd7f9d0d5}
+Write message to logging file. Called by cm\_\-msg. \begin{DoxyAttention}{Attention}
+May burn your fingers 
+\end{DoxyAttention}
+
+\begin{DoxyParams}{Parameters}
+\item[{\em message\_\-type}]Message type \item[{\em message}]Message string \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+CM\_\-SUCCESS 
+\end{DoxyReturn}
+
+
+Definition at line 377 of file midas.c.
+
+Referenced by cm\_\-msg\_\-flush\_\-buffer().\index{msgfunctionc@{msgfunctionc}!cm\_\-msg\_\-log1@{cm\_\-msg\_\-log1}}
+\index{cm\_\-msg\_\-log1@{cm\_\-msg\_\-log1}!msgfunctionc@{msgfunctionc}}
+\paragraph[{cm\_\-msg\_\-log1}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} cm\_\-msg\_\-log1 ({\bf INT} {\em message\_\-type}, \/  const char $\ast$ {\em message}, \/  const char $\ast$ {\em facility})}\hfill\label{group__msgfunctionc_gacc533051c0100cc554cd28314079e71c}
+Write message to logging file. Called by \hyperlink{group__msgfunctionc_gaac032ca2438c47466bfc9722de6746ea}{cm\_\-msg()}. \begin{DoxyInternal}{For internal use only.}
+
+\begin{DoxyParams}{Parameters}
+\item[{\em message\_\-type}]Message type \item[{\em message}]Message string \item[{\em facility}]Message facility, filename in which messages will be written \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+CM\_\-SUCCESS 
+\end{DoxyReturn}
+\end{DoxyInternal}
+
+
+Definition at line 469 of file midas.c.
+
+Referenced by cm\_\-msg1().\index{msgfunctionc@{msgfunctionc}!cm\_\-msg\_\-register@{cm\_\-msg\_\-register}}
+\index{cm\_\-msg\_\-register@{cm\_\-msg\_\-register}!msgfunctionc@{msgfunctionc}}
+\paragraph[{cm\_\-msg\_\-register}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} cm\_\-msg\_\-register (void($\ast$)(HNDLE, HNDLE, {\bf EVENT\_\-HEADER} $\ast$, void $\ast$) {\em func})}\hfill\label{group__msgfunctionc_gab857885ee2ef24ddef12fb3ecf5c4c7e}
+Register a dispatch function for receiving system messages.
+\begin{DoxyItemize}
+\item example code from mlxspeaker.c 
+\begin{DoxyCode}
+void receive_message(HNDLE hBuf, HNDLE id, EVENT_HEADER *header, void *message)
+{
+  char str[256], *pc, *sp;
+  // print message
+  printf("%s\n", (char *)(message));
+
+  printf("evID:%x Mask:%x Serial:%i Size:%d\n"
+                 ,header->event_id
+                 ,header->trigger_mask
+                 ,header->serial_number
+                 ,header->data_size);
+  pc = strchr((char *)(message),']')+2;
+  ...
+  // skip none talking message
+  if (header->trigger_mask == MT_TALK ||
+      header->trigger_mask == MT_USER)
+   ...
+}
+
+int main(int argc, char *argv[])
+{
+  ...
+  // now connect to server
+  status = cm_connect_experiment(host_name, exp_name, "Speaker", NULL);
+  if (status != CM_SUCCESS)
+    return 1;
+  // Register callback for messages
+  cm_msg_register(receive_message);
+  ...
+}
+\end{DoxyCode}
+ 
+\begin{DoxyParams}{Parameters}
+\item[{\em func}]Dispatch function. \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+CM\_\-SUCCESS or bm\_\-open\_\-buffer and bm\_\-request\_\-event return status 
+\end{DoxyReturn}
+
+\end{DoxyItemize}
+
+Definition at line 1035 of file midas.c.\index{msgfunctionc@{msgfunctionc}!cm\_\-msg\_\-retrieve@{cm\_\-msg\_\-retrieve}}
+\index{cm\_\-msg\_\-retrieve@{cm\_\-msg\_\-retrieve}!msgfunctionc@{msgfunctionc}}
+\paragraph[{cm\_\-msg\_\-retrieve}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} cm\_\-msg\_\-retrieve ({\bf INT} {\em n\_\-message}, \/  char $\ast$ {\em message}, \/  {\bf INT} {\em buf\_\-size})}\hfill\label{group__msgfunctionc_gad92636d84ec9438a25ca6b17c4e6760d}
+Retrieve old messages from log file 
+\begin{DoxyParams}{Parameters}
+\item[{\em n\_\-message}]Number of messages to retrieve \item[{\em message}]buf\_\-size bytes of messages, separated by \par
+ characters. The returned number of bytes is normally smaller than the initial buf\_\-size, since only full lines are returned. \item[{\em $\ast$buf\_\-size}]Size of message buffer to fill \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+CM\_\-SUCCESS 
+\end{DoxyReturn}
+
+
+Definition at line 1136 of file midas.c.\index{msgfunctionc@{msgfunctionc}!cm\_\-msg\_\-retrieve1@{cm\_\-msg\_\-retrieve1}}
+\index{cm\_\-msg\_\-retrieve1@{cm\_\-msg\_\-retrieve1}!msgfunctionc@{msgfunctionc}}
+\paragraph[{cm\_\-msg\_\-retrieve1}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} cm\_\-msg\_\-retrieve1 (char $\ast$ {\em filename}, \/  {\bf INT} {\em n\_\-message}, \/  char $\ast$ {\em message}, \/  {\bf INT} {\em buf\_\-size})}\hfill\label{group__msgfunctionc_ga489f76d96b5d217fab6da7405ab559f8}
+
+
+Definition at line 1054 of file midas.c.
+
+Referenced by cm\_\-msg\_\-retrieve().\index{msgfunctionc@{msgfunctionc}!cm\_\-msg\_\-send\_\-event@{cm\_\-msg\_\-send\_\-event}}
+\index{cm\_\-msg\_\-send\_\-event@{cm\_\-msg\_\-send\_\-event}!msgfunctionc@{msgfunctionc}}
+\paragraph[{cm\_\-msg\_\-send\_\-event}]{\setlength{\rightskip}{0pt plus 5cm}static {\bf INT} cm\_\-msg\_\-send\_\-event ({\bf INT} {\em ts}, \/  {\bf INT} {\em message\_\-type}, \/  const char $\ast$ {\em send\_\-message})\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}\hfill\label{group__msgfunctionc_ga3f13bc780b6031ab92b5d602a7d97bcd}
+
+
+Definition at line 662 of file midas.c.
+
+Referenced by cm\_\-msg\_\-flush\_\-buffer().\index{msgfunctionc@{msgfunctionc}!cm\_\-set\_\-msg\_\-print@{cm\_\-set\_\-msg\_\-print}}
+\index{cm\_\-set\_\-msg\_\-print@{cm\_\-set\_\-msg\_\-print}!msgfunctionc@{msgfunctionc}}
+\paragraph[{cm\_\-set\_\-msg\_\-print}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} cm\_\-set\_\-msg\_\-print ({\bf INT} {\em system\_\-mask}, \/  {\bf INT} {\em user\_\-mask}, \/  int($\ast$)(const char $\ast$) {\em func})}\hfill\label{group__msgfunctionc_gafe6ff62436845805cd87a7ea1bd3b4dd}
+Set message masks. When a message is generated by calling \hyperlink{group__msgfunctionc_gaac032ca2438c47466bfc9722de6746ea}{cm\_\-msg()}, it can got to two destinatinons. First a user defined callback routine and second to the \char`\"{}SYSMSG\char`\"{} buffer.
+
+A user defined callback receives all messages which satisfy the user\_\-mask.
+
+
+\begin{DoxyCode}
+int message_print(const char *msg)
+{
+  char str[160];
+
+  memset(str, ' ', 159);
+  str[159] = 0;
+  if (msg[0] == '[')
+    msg = strchr(msg, ']')+2;
+  memcpy(str, msg, strlen(msg));
+  ss_printf(0, 20, str);
+  return 0;
+}
+...
+  cm_set_msg_print(MT_ALL, MT_ALL, message_print);
+...
+\end{DoxyCode}
+ 
+\begin{DoxyParams}{Parameters}
+\item[{\em system\_\-mask}]Bit masks for MERROR, MINFO etc. to send system messages. \item[{\em user\_\-mask}]Bit masks for MERROR, MINFO etc. to send messages to the user callback. \item[{\em func}]Function which receives all printout. By setting \char`\"{}puts\char`\"{}, messages are just printed to the screen. \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+CM\_\-SUCCESS 
+\end{DoxyReturn}
+
+
+Definition at line 360 of file midas.c.
+
+Referenced by cm\_\-connect\_\-experiment1(), and main().

@@ -1,0 +1,622 @@
+\subsection{mfe.c File Reference}
+\label{mfe_8c}\index{mfe.c@{mfe.c}}
+
+
+\subsubsection{Define Documentation}
+\index{mfe.c@{mfe.c}!DEFAULT\_\-FE\_\-TIMEOUT@{DEFAULT\_\-FE\_\-TIMEOUT}}
+\index{DEFAULT\_\-FE\_\-TIMEOUT@{DEFAULT\_\-FE\_\-TIMEOUT}!mfe.c@{mfe.c}}
+\paragraph[{DEFAULT\_\-FE\_\-TIMEOUT}]{\setlength{\rightskip}{0pt plus 5cm}\#define DEFAULT\_\-FE\_\-TIMEOUT~60000}\hfill\label{mfe_8c_a093e717ef9582e83efcc2550ef0c28cb}
+
+
+Definition at line 50 of file mfe.c.
+
+Referenced by main().\index{mfe.c@{mfe.c}!EQUIPMENT\_\-COMMON\_\-STR@{EQUIPMENT\_\-COMMON\_\-STR}}
+\index{EQUIPMENT\_\-COMMON\_\-STR@{EQUIPMENT\_\-COMMON\_\-STR}!mfe.c@{mfe.c}}
+\paragraph[{EQUIPMENT\_\-COMMON\_\-STR}]{\setlength{\rightskip}{0pt plus 5cm}\#define EQUIPMENT\_\-COMMON\_\-STR~\char`\"{}$\backslash$Event ID = {\bf WORD} : 0$\backslash$n$\backslash$Trigger mask = {\bf WORD} : 0$\backslash$n$\backslash$Buffer = STRING : \mbox{[}32\mbox{]} SYSTEM$\backslash$n$\backslash$Type = {\bf INT} : 0$\backslash$n$\backslash$Source = {\bf INT} : 0$\backslash$n$\backslash$Format = STRING : \mbox{[}8\mbox{]} FIXED$\backslash$n$\backslash$Enabled = {\bf BOOL} : 0$\backslash$n$\backslash$Read on = {\bf INT} : 0$\backslash$n$\backslash$Period = {\bf INT} : 0$\backslash$n$\backslash$Event limit = DOUBLE : 0$\backslash$n$\backslash$Num subevents = {\bf DWORD} : 0$\backslash$n$\backslash$Log history = {\bf INT} : 0$\backslash$n$\backslash$Frontend host = STRING : \mbox{[}32\mbox{]} $\backslash$n$\backslash$Frontend name = STRING : \mbox{[}32\mbox{]} $\backslash$n$\backslash$Frontend file name = STRING : \mbox{[}256\mbox{]} $\backslash$n$\backslash$Status = STRING : \mbox{[}256\mbox{]} $\backslash$n$\backslash$Status color = STRING : \mbox{[}32\mbox{]} $\backslash$n$\backslash$\char`\"{}}\hfill\label{mfe_8c_ac92b30327caaa939b1b6630775c78ecd}
+
+
+Definition at line 103 of file mfe.c.
+
+Referenced by register\_\-equipment().\index{mfe.c@{mfe.c}!EQUIPMENT\_\-STATISTICS\_\-STR@{EQUIPMENT\_\-STATISTICS\_\-STR}}
+\index{EQUIPMENT\_\-STATISTICS\_\-STR@{EQUIPMENT\_\-STATISTICS\_\-STR}!mfe.c@{mfe.c}}
+\paragraph[{EQUIPMENT\_\-STATISTICS\_\-STR}]{\setlength{\rightskip}{0pt plus 5cm}\#define EQUIPMENT\_\-STATISTICS\_\-STR~\char`\"{}$\backslash$Events sent = DOUBLE : 0$\backslash$n$\backslash$Events per sec. = DOUBLE : 0$\backslash$n$\backslash$kBytes per sec. = DOUBLE : 0$\backslash$n$\backslash$\char`\"{}}\hfill\label{mfe_8c_a6064db0cc46885d207cedb497e3c355e}
+
+
+Definition at line 123 of file mfe.c.
+
+Referenced by register\_\-equipment().\index{mfe.c@{mfe.c}!MFE\_\-ERROR\_\-SIZE@{MFE\_\-ERROR\_\-SIZE}}
+\index{MFE\_\-ERROR\_\-SIZE@{MFE\_\-ERROR\_\-SIZE}!mfe.c@{mfe.c}}
+\paragraph[{MFE\_\-ERROR\_\-SIZE}]{\setlength{\rightskip}{0pt plus 5cm}\#define MFE\_\-ERROR\_\-SIZE~10}\hfill\label{mfe_8c_af37786539963050729ad8fe0696cb29f}
+
+
+Definition at line 2435 of file mfe.c.
+
+Referenced by mfe\_\-error(), and mfe\_\-error\_\-check().\index{mfe.c@{mfe.c}!ODB\_\-UPDATE\_\-TIME@{ODB\_\-UPDATE\_\-TIME}}
+\index{ODB\_\-UPDATE\_\-TIME@{ODB\_\-UPDATE\_\-TIME}!mfe.c@{mfe.c}}
+\paragraph[{ODB\_\-UPDATE\_\-TIME}]{\setlength{\rightskip}{0pt plus 5cm}\#define ODB\_\-UPDATE\_\-TIME~1000}\hfill\label{mfe_8c_a380a50d445745c2da54a29a1f2e5099e}
+
+
+Definition at line 48 of file mfe.c.
+
+Referenced by scheduler().\index{mfe.c@{mfe.c}!SERVER\_\-CACHE\_\-SIZE@{SERVER\_\-CACHE\_\-SIZE}}
+\index{SERVER\_\-CACHE\_\-SIZE@{SERVER\_\-CACHE\_\-SIZE}!mfe.c@{mfe.c}}
+\paragraph[{SERVER\_\-CACHE\_\-SIZE}]{\setlength{\rightskip}{0pt plus 5cm}\#define SERVER\_\-CACHE\_\-SIZE~100000}\hfill\label{mfe_8c_a022c39e327f494dda3664f8888f860f1}
+
+
+Definition at line 46 of file mfe.c.
+
+Referenced by register\_\-equipment(), and scheduler().
+
+\subsubsection{Function Documentation}
+\index{mfe.c@{mfe.c}!begin\_\-of\_\-run@{begin\_\-of\_\-run}}
+\index{begin\_\-of\_\-run@{begin\_\-of\_\-run}!mfe.c@{mfe.c}}
+\paragraph[{begin\_\-of\_\-run}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} begin\_\-of\_\-run ({\bf INT} {\em run\_\-number}, \/  char $\ast$ {\em error})}\hfill\label{mfe_8c_ad8bfe703c49342b9f0275aba77dc7758}
+
+
+Definition at line 285 of file fevmemodules.c.
+
+Referenced by tr\_\-start().\index{mfe.c@{mfe.c}!check\_\-polled\_\-events@{check\_\-polled\_\-events}}
+\index{check\_\-polled\_\-events@{check\_\-polled\_\-events}!mfe.c@{mfe.c}}
+\paragraph[{check\_\-polled\_\-events}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} check\_\-polled\_\-events (void)}\hfill\label{mfe_8c_a6ed70b349943dd2724230ead1d85e4ec}
+
+
+Definition at line 1626 of file mfe.c.
+
+Referenced by tr\_\-stop().\index{mfe.c@{mfe.c}!display@{display}}
+\index{display@{display}!mfe.c@{mfe.c}}
+\paragraph[{display}]{\setlength{\rightskip}{0pt plus 5cm}void display ({\bf BOOL} {\em bInit})}\hfill\label{mfe_8c_a4d77ab19483f67e8240c29a9ff9ca777}
+
+
+Definition at line 1510 of file mfe.c.
+
+Referenced by main(), and scheduler().\index{mfe.c@{mfe.c}!end\_\-of\_\-run@{end\_\-of\_\-run}}
+\index{end\_\-of\_\-run@{end\_\-of\_\-run}!mfe.c@{mfe.c}}
+\paragraph[{end\_\-of\_\-run}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} end\_\-of\_\-run ({\bf INT} {\em run\_\-number}, \/  char $\ast$ {\em error})}\hfill\label{mfe_8c_ae6d798649008b7523c77222bae2d4187}
+
+
+Definition at line 574 of file fevmemodules.c.
+
+Referenced by tr\_\-stop().\index{mfe.c@{mfe.c}!frontend\_\-exit@{frontend\_\-exit}}
+\index{frontend\_\-exit@{frontend\_\-exit}!mfe.c@{mfe.c}}
+\paragraph[{frontend\_\-exit}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} frontend\_\-exit (void)}\hfill\label{mfe_8c_a3b682405038cc4f6af505d7ca6367a4f}
+
+
+Definition at line 278 of file fevmemodules.c.
+
+Referenced by main().\index{mfe.c@{mfe.c}!frontend\_\-init@{frontend\_\-init}}
+\index{frontend\_\-init@{frontend\_\-init}!mfe.c@{mfe.c}}
+\paragraph[{frontend\_\-init}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} frontend\_\-init (void)}\hfill\label{mfe_8c_a802849119d469feb2d1deee1be9593ac}
+
+
+Definition at line 233 of file fevmemodules.c.
+
+Referenced by main().\index{mfe.c@{mfe.c}!frontend\_\-loop@{frontend\_\-loop}}
+\index{frontend\_\-loop@{frontend\_\-loop}!mfe.c@{mfe.c}}
+\paragraph[{frontend\_\-loop}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} frontend\_\-loop (void)}\hfill\label{mfe_8c_ad902740ed5577f2f940454359ec1df1c}
+
+
+Definition at line 621 of file fevmemodules.c.
+
+Referenced by scheduler().\index{mfe.c@{mfe.c}!get\_\-frontend\_\-index@{get\_\-frontend\_\-index}}
+\index{get\_\-frontend\_\-index@{get\_\-frontend\_\-index}!mfe.c@{mfe.c}}
+\paragraph[{get\_\-frontend\_\-index}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} get\_\-frontend\_\-index ()}\hfill\label{mfe_8c_a02d6ae60ddcaddd96c2b7b298eff077e}
+
+
+Definition at line 2426 of file mfe.c.\index{mfe.c@{mfe.c}!get\_\-rate\_\-period@{get\_\-rate\_\-period}}
+\index{get\_\-rate\_\-period@{get\_\-rate\_\-period}!mfe.c@{mfe.c}}
+\paragraph[{get\_\-rate\_\-period}]{\setlength{\rightskip}{0pt plus 5cm}int get\_\-rate\_\-period ()}\hfill\label{mfe_8c_a440b07315fbe46315b56aa8c954952e6}
+
+
+Definition at line 136 of file mfe.c.
+
+Referenced by scheduler().\index{mfe.c@{mfe.c}!initialize\_\-equipment@{initialize\_\-equipment}}
+\index{initialize\_\-equipment@{initialize\_\-equipment}!mfe.c@{mfe.c}}
+\paragraph[{initialize\_\-equipment}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} initialize\_\-equipment (void)}\hfill\label{mfe_8c_a7755389a61fd0afb9b11bc68a2218058}
+
+
+Definition at line 765 of file mfe.c.
+
+Referenced by main().\index{mfe.c@{mfe.c}!interrupt\_\-configure@{interrupt\_\-configure}}
+\index{interrupt\_\-configure@{interrupt\_\-configure}!mfe.c@{mfe.c}}
+\paragraph[{interrupt\_\-configure}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} interrupt\_\-configure ({\bf INT} {\em cmd}, \/  {\bf INT} {\em source}, \/  POINTER\_\-T {\em adr})}\hfill\label{mfe_8c_a681a5d1fe2e8a4735bcf03824ffb3e81}
+
+
+Definition at line 252 of file frontend.c.
+
+Referenced by initialize\_\-equipment(), main(), and readout\_\-enable().\index{mfe.c@{mfe.c}!interrupt\_\-routine@{interrupt\_\-routine}}
+\index{interrupt\_\-routine@{interrupt\_\-routine}!mfe.c@{mfe.c}}
+\paragraph[{interrupt\_\-routine}]{\setlength{\rightskip}{0pt plus 5cm}void interrupt\_\-routine (void)}\hfill\label{mfe_8c_a8b84b3b4051dae0ba00258a3c885c0c7}
+
+
+Definition at line 1306 of file mfe.c.
+
+Referenced by initialize\_\-equipment().\index{mfe.c@{mfe.c}!logger\_\-root@{logger\_\-root}}
+\index{logger\_\-root@{logger\_\-root}!mfe.c@{mfe.c}}
+\paragraph[{logger\_\-root}]{\setlength{\rightskip}{0pt plus 5cm}{\bf BOOL} logger\_\-root ()}\hfill\label{mfe_8c_ace89325172f363d2efd92735e52ec69e}
+
+
+Definition at line 1599 of file mfe.c.
+
+Referenced by check\_\-polled\_\-events(), receive\_\-trigger\_\-event(), and scheduler().\index{mfe.c@{mfe.c}!main@{main}}
+\index{main@{main}!mfe.c@{mfe.c}}
+\paragraph[{main}]{\setlength{\rightskip}{0pt plus 5cm}int main (int {\em argc}, \/  char $\ast$ {\em argv}\mbox{[}$\,$\mbox{]})}\hfill\label{mfe_8c_a0ddf1224851353fc92bfbff6f499fa97}
+
+
+Definition at line 2485 of file mfe.c.\index{mfe.c@{mfe.c}!manual\_\-trigger@{manual\_\-trigger}}
+\index{manual\_\-trigger@{manual\_\-trigger}!mfe.c@{mfe.c}}
+\paragraph[{manual\_\-trigger}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} manual\_\-trigger ({\bf INT} {\em idx}, \/  void $\ast$ {\em prpc\_\-param}\mbox{[}$\,$\mbox{]})}\hfill\label{mfe_8c_aa5db6f0a873100f5d99f5f3518be2425}
+
+
+Definition at line 299 of file mfe.c.
+
+Referenced by initialize\_\-equipment().\index{mfe.c@{mfe.c}!message\_\-print@{message\_\-print}}
+\index{message\_\-print@{message\_\-print}!mfe.c@{mfe.c}}
+\paragraph[{message\_\-print}]{\setlength{\rightskip}{0pt plus 5cm}int message\_\-print (const char $\ast$ {\em msg})}\hfill\label{mfe_8c_a4186dc25477a1b947c5d6ef64bcc4da0}
+
+
+Definition at line 1492 of file mfe.c.
+
+Referenced by main().\index{mfe.c@{mfe.c}!mfe\_\-error@{mfe\_\-error}}
+\index{mfe\_\-error@{mfe\_\-error}!mfe.c@{mfe.c}}
+\paragraph[{mfe\_\-error}]{\setlength{\rightskip}{0pt plus 5cm}void mfe\_\-error (const char $\ast$ {\em error})}\hfill\label{mfe_8c_a96aae5fbd4be3618b2fe6f1030d73ab5}
+
+
+Definition at line 2456 of file mfe.c.\index{mfe.c@{mfe.c}!mfe\_\-error\_\-check@{mfe\_\-error\_\-check}}
+\index{mfe\_\-error\_\-check@{mfe\_\-error\_\-check}!mfe.c@{mfe.c}}
+\paragraph[{mfe\_\-error\_\-check}]{\setlength{\rightskip}{0pt plus 5cm}void mfe\_\-error\_\-check (void)}\hfill\label{mfe_8c_acbf3a0cf2e2a061816bd2d95dd097a20}
+
+
+Definition at line 2467 of file mfe.c.
+
+Referenced by scheduler().\index{mfe.c@{mfe.c}!mfe\_\-set\_\-error@{mfe\_\-set\_\-error}}
+\index{mfe\_\-set\_\-error@{mfe\_\-set\_\-error}!mfe.c@{mfe.c}}
+\paragraph[{mfe\_\-set\_\-error}]{\setlength{\rightskip}{0pt plus 5cm}void mfe\_\-set\_\-error (void($\ast$)(const char $\ast$) {\em dispatcher})}\hfill\label{mfe_8c_ac26d0645ab25d03dd40fa9ea8baa7c0d}
+
+
+Definition at line 2440 of file mfe.c.\index{mfe.c@{mfe.c}!pause\_\-run@{pause\_\-run}}
+\index{pause\_\-run@{pause\_\-run}!mfe.c@{mfe.c}}
+\paragraph[{pause\_\-run}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} pause\_\-run ({\bf INT} {\em run\_\-number}, \/  char $\ast$ {\em error})}\hfill\label{mfe_8c_a164db20cf6c8c81e8c8ca50a590de436}
+
+
+Definition at line 591 of file fevmemodules.c.
+
+Referenced by tr\_\-pause().\index{mfe.c@{mfe.c}!poll\_\-event@{poll\_\-event}}
+\index{poll\_\-event@{poll\_\-event}!mfe.c@{mfe.c}}
+\paragraph[{poll\_\-event}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} poll\_\-event ({\bf INT} {\em source}, \/  {\bf INT} {\em count}, \/  {\bf BOOL} {\em test})}\hfill\label{mfe_8c_a98cc3257284af91fa0e8da10ddf227c8}
+
+
+Definition at line 650 of file fevmemodules.c.
+
+Referenced by check\_\-polled\_\-events(), initialize\_\-equipment(), readout\_\-thread(), and scheduler().\index{mfe.c@{mfe.c}!readout\_\-enable@{readout\_\-enable}}
+\index{readout\_\-enable@{readout\_\-enable}!mfe.c@{mfe.c}}
+\paragraph[{readout\_\-enable}]{\setlength{\rightskip}{0pt plus 5cm}void readout\_\-enable ({\bf BOOL} {\em flag})}\hfill\label{mfe_8c_a1f7c4819ed16e337192ca7426ae273ca}
+
+
+Definition at line 1285 of file mfe.c.
+
+Referenced by initialize\_\-equipment(), main(), scheduler(), tr\_\-pause(), tr\_\-resume(), tr\_\-start(), and tr\_\-stop().\index{mfe.c@{mfe.c}!readout\_\-enabled@{readout\_\-enabled}}
+\index{readout\_\-enabled@{readout\_\-enabled}!mfe.c@{mfe.c}}
+\paragraph[{readout\_\-enabled}]{\setlength{\rightskip}{0pt plus 5cm}int readout\_\-enabled (void)}\hfill\label{mfe_8c_ab6ce300200eebdc71c6a3d5b3760a1ba}
+
+
+Definition at line 1280 of file mfe.c.
+
+Referenced by readout\_\-thread(), and scheduler().\index{mfe.c@{mfe.c}!readout\_\-thread@{readout\_\-thread}}
+\index{readout\_\-thread@{readout\_\-thread}!mfe.c@{mfe.c}}
+\paragraph[{readout\_\-thread}]{\setlength{\rightskip}{0pt plus 5cm}int readout\_\-thread (void $\ast$ {\em param})}\hfill\label{mfe_8c_a1dcae9fe323025ad03d3ec1b5a95263d}
+
+
+Definition at line 1342 of file mfe.c.
+
+Referenced by initialize\_\-equipment().\index{mfe.c@{mfe.c}!receive\_\-trigger\_\-event@{receive\_\-trigger\_\-event}}
+\index{receive\_\-trigger\_\-event@{receive\_\-trigger\_\-event}!mfe.c@{mfe.c}}
+\paragraph[{receive\_\-trigger\_\-event}]{\setlength{\rightskip}{0pt plus 5cm}int receive\_\-trigger\_\-event ({\bf EQUIPMENT} $\ast$ {\em eq})}\hfill\label{mfe_8c_a9cd62f651300e81799cae815b51ca654}
+
+
+Definition at line 1429 of file mfe.c.
+
+Referenced by scheduler(), and tr\_\-stop().\index{mfe.c@{mfe.c}!register\_\-equipment@{register\_\-equipment}}
+\index{register\_\-equipment@{register\_\-equipment}!mfe.c@{mfe.c}}
+\paragraph[{register\_\-equipment}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} register\_\-equipment (void)}\hfill\label{mfe_8c_ab834073e5b665fccaa4eff2a61bc9372}
+
+
+Definition at line 544 of file mfe.c.
+
+Referenced by main().\index{mfe.c@{mfe.c}!resume\_\-run@{resume\_\-run}}
+\index{resume\_\-run@{resume\_\-run}!mfe.c@{mfe.c}}
+\paragraph[{resume\_\-run}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} resume\_\-run ({\bf INT} {\em run\_\-number}, \/  char $\ast$ {\em error})}\hfill\label{mfe_8c_a6cada7e3f07b9fc2b9886263223661d4}
+
+
+Definition at line 604 of file fevmemodules.c.
+
+Referenced by tr\_\-resume().\index{mfe.c@{mfe.c}!rotate\_\-wheel@{rotate\_\-wheel}}
+\index{rotate\_\-wheel@{rotate\_\-wheel}!mfe.c@{mfe.c}}
+\paragraph[{rotate\_\-wheel}]{\setlength{\rightskip}{0pt plus 5cm}void rotate\_\-wheel (void)}\hfill\label{mfe_8c_abb411e407679b5b38f424cc2f9f86b07}
+
+
+Definition at line 1583 of file mfe.c.
+
+Referenced by check\_\-polled\_\-events(), receive\_\-trigger\_\-event(), and scheduler().\index{mfe.c@{mfe.c}!sc\_\-thread@{sc\_\-thread}}
+\index{sc\_\-thread@{sc\_\-thread}!mfe.c@{mfe.c}}
+\paragraph[{sc\_\-thread}]{\setlength{\rightskip}{0pt plus 5cm}int sc\_\-thread (void $\ast$ {\em info})}\hfill\label{mfe_8c_ac5da75a0713cdecd2f46a7301b31c0c4}
+
+
+Definition at line 310 of file mfe.c.
+
+Referenced by device\_\-driver().\index{mfe.c@{mfe.c}!scheduler@{scheduler}}
+\index{scheduler@{scheduler}!mfe.c@{mfe.c}}
+\paragraph[{scheduler}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} scheduler (void)}\hfill\label{mfe_8c_a94c9987508c91ae4827cc231f43b577e}
+
+
+Definition at line 1853 of file mfe.c.
+
+Referenced by main().\index{mfe.c@{mfe.c}!send\_\-all\_\-periodic\_\-events@{send\_\-all\_\-periodic\_\-events}}
+\index{send\_\-all\_\-periodic\_\-events@{send\_\-all\_\-periodic\_\-events}!mfe.c@{mfe.c}}
+\paragraph[{send\_\-all\_\-periodic\_\-events}]{\setlength{\rightskip}{0pt plus 5cm}void send\_\-all\_\-periodic\_\-events ({\bf INT} {\em transition})}\hfill\label{mfe_8c_a3b6c3bbe0dd40506673ff86ca13ebf5b}
+
+
+Definition at line 1252 of file mfe.c.
+
+Referenced by tr\_\-pause(), tr\_\-resume(), tr\_\-start(), and tr\_\-stop().\index{mfe.c@{mfe.c}!send\_\-event@{send\_\-event}}
+\index{send\_\-event@{send\_\-event}!mfe.c@{mfe.c}}
+\paragraph[{send\_\-event}]{\setlength{\rightskip}{0pt plus 5cm}int send\_\-event ({\bf INT} {\em idx}, \/  {\bf BOOL} {\em manual\_\-trig})}\hfill\label{mfe_8c_a467e7d6c77bcbb9259a7167ae1cdf29a}
+
+
+Definition at line 1097 of file mfe.c.
+
+Referenced by scheduler(), and send\_\-all\_\-periodic\_\-events().\index{mfe.c@{mfe.c}!set\_\-equipment\_\-status@{set\_\-equipment\_\-status}}
+\index{set\_\-equipment\_\-status@{set\_\-equipment\_\-status}!mfe.c@{mfe.c}}
+\paragraph[{set\_\-equipment\_\-status}]{\setlength{\rightskip}{0pt plus 5cm}int set\_\-equipment\_\-status (const char $\ast$ {\em name}, \/  const char $\ast$ {\em eqipment\_\-status}, \/  const char $\ast$ {\em status\_\-color})}\hfill\label{mfe_8c_a3ab359e237ee86bc2f53285b7bf2f673}
+
+
+Definition at line 975 of file mfe.c.
+
+Referenced by initialize\_\-equipment().\index{mfe.c@{mfe.c}!set\_\-event\_\-rb@{set\_\-event\_\-rb}}
+\index{set\_\-event\_\-rb@{set\_\-event\_\-rb}!mfe.c@{mfe.c}}
+\paragraph[{set\_\-event\_\-rb}]{\setlength{\rightskip}{0pt plus 5cm}void set\_\-event\_\-rb ({\bf INT} {\em rb})}\hfill\label{mfe_8c_aab90250febb716e08aff848e5382b496}
+
+
+Definition at line 1424 of file mfe.c.\index{mfe.c@{mfe.c}!set\_\-rate\_\-period@{set\_\-rate\_\-period}}
+\index{set\_\-rate\_\-period@{set\_\-rate\_\-period}!mfe.c@{mfe.c}}
+\paragraph[{set\_\-rate\_\-period}]{\setlength{\rightskip}{0pt plus 5cm}void set\_\-rate\_\-period (int {\em ms})}\hfill\label{mfe_8c_a0a854b7675d4589bce8f016a94b2706c}
+
+
+Definition at line 131 of file mfe.c.
+
+Referenced by main().\index{mfe.c@{mfe.c}!tr\_\-pause@{tr\_\-pause}}
+\index{tr\_\-pause@{tr\_\-pause}!mfe.c@{mfe.c}}
+\paragraph[{tr\_\-pause}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} tr\_\-pause ({\bf INT} {\em rn}, \/  char $\ast$ {\em error})}\hfill\label{mfe_8c_a7b3b6a2f570d0b31b1ad13c34536db5a}
+
+
+Definition at line 250 of file mfe.c.
+
+Referenced by main().\index{mfe.c@{mfe.c}!tr\_\-resume@{tr\_\-resume}}
+\index{tr\_\-resume@{tr\_\-resume}!mfe.c@{mfe.c}}
+\paragraph[{tr\_\-resume}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} tr\_\-resume ({\bf INT} {\em rn}, \/  char $\ast$ {\em error})}\hfill\label{mfe_8c_ac69f1c3106f3389ed0dde43e7b86e54d}
+
+
+Definition at line 275 of file mfe.c.
+
+Referenced by main().\index{mfe.c@{mfe.c}!tr\_\-start@{tr\_\-start}}
+\index{tr\_\-start@{tr\_\-start}!mfe.c@{mfe.c}}
+\paragraph[{tr\_\-start}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} tr\_\-start ({\bf INT} {\em rn}, \/  char $\ast$ {\em error})}\hfill\label{mfe_8c_a5ed14877e514f13eeb65a16898b2ba32}
+
+
+Definition at line 145 of file mfe.c.
+
+Referenced by main().\index{mfe.c@{mfe.c}!tr\_\-stop@{tr\_\-stop}}
+\index{tr\_\-stop@{tr\_\-stop}!mfe.c@{mfe.c}}
+\paragraph[{tr\_\-stop}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} tr\_\-stop ({\bf INT} {\em rn}, \/  char $\ast$ {\em error})}\hfill\label{mfe_8c_a5c030a1926f2439e78b7bd0d00221937}
+
+
+Definition at line 187 of file mfe.c.
+
+Referenced by main().\index{mfe.c@{mfe.c}!update\_\-odb@{update\_\-odb}}
+\index{update\_\-odb@{update\_\-odb}!mfe.c@{mfe.c}}
+\paragraph[{update\_\-odb}]{\setlength{\rightskip}{0pt plus 5cm}void update\_\-odb ({\bf EVENT\_\-HEADER} $\ast$ {\em pevent}, \/  HNDLE {\em hKey}, \/  {\bf INT} {\em format})}\hfill\label{mfe_8c_acca4a95b509b37c83c2e76cb88de232a}
+
+
+Definition at line 1001 of file mfe.c.
+
+Referenced by check\_\-polled\_\-events(), receive\_\-trigger\_\-event(), scheduler(), and send\_\-event().
+
+\subsubsection{Variable Documentation}
+\index{mfe.c@{mfe.c}!\_\-readout\_\-enabled\_\-flag@{\_\-readout\_\-enabled\_\-flag}}
+\index{\_\-readout\_\-enabled\_\-flag@{\_\-readout\_\-enabled\_\-flag}!mfe.c@{mfe.c}}
+\paragraph[{\_\-readout\_\-enabled\_\-flag}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf \_\-readout\_\-enabled\_\-flag} = 0\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}\hfill\label{mfe_8c_a5b555b249c0a043a3fc3b948eef7658b}
+
+
+Definition at line 1278 of file mfe.c.
+
+Referenced by readout\_\-enable(), and readout\_\-enabled().\index{mfe.c@{mfe.c}!actual\_\-millitime@{actual\_\-millitime}}
+\index{actual\_\-millitime@{actual\_\-millitime}!mfe.c@{mfe.c}}
+\paragraph[{actual\_\-millitime}]{\setlength{\rightskip}{0pt plus 5cm}{\bf DWORD} {\bf actual\_\-millitime}}\hfill\label{mfe_8c_a74876f64e556e153bb8cce6dfddce810}
+
+
+Definition at line 55 of file mfe.c.
+
+Referenced by check\_\-polled\_\-events(), scan\_\-fragment(), and scheduler().\index{mfe.c@{mfe.c}!actual\_\-time@{actual\_\-time}}
+\index{actual\_\-time@{actual\_\-time}!mfe.c@{mfe.c}}
+\paragraph[{actual\_\-time}]{\setlength{\rightskip}{0pt plus 5cm}{\bf DWORD} {\bf actual\_\-time}}\hfill\label{mfe_8c_a6431147bd66aebfe3ca728d244da1253}
+
+
+Definition at line 54 of file mfe.c.
+
+Referenced by check\_\-polled\_\-events(), interrupt\_\-routine(), readout\_\-thread(), and scheduler().\index{mfe.c@{mfe.c}!auto\_\-restart@{auto\_\-restart}}
+\index{auto\_\-restart@{auto\_\-restart}!mfe.c@{mfe.c}}
+\paragraph[{auto\_\-restart}]{\setlength{\rightskip}{0pt plus 5cm}{\bf DWORD} {\bf auto\_\-restart} = 0}\hfill\label{mfe_8c_a7f7c6b4a8ba5367aa160c2ba35c63f3c}
+
+
+Definition at line 66 of file mfe.c.
+
+Referenced by main(), and scheduler().\index{mfe.c@{mfe.c}!debug@{debug}}
+\index{debug@{debug}!mfe.c@{mfe.c}}
+\paragraph[{debug}]{\setlength{\rightskip}{0pt plus 5cm}{\bf BOOL} {\bf debug}}\hfill\label{mfe_8c_a81f0a890e023743f1b88d0cb7d4f74db}
+
+
+Definition at line 65 of file mfe.c.
+
+Referenced by eb\_\-user(), handFlush(), load\_\-fragment(), main(), scan\_\-fragment(), source\_\-booking(), source\_\-scan(), source\_\-unbooking(), tr\_\-start(), and tr\_\-stop().\index{mfe.c@{mfe.c}!display\_\-period@{display\_\-period}}
+\index{display\_\-period@{display\_\-period}!mfe.c@{mfe.c}}
+\paragraph[{display\_\-period}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} {\bf display\_\-period}}\hfill\label{mfe_8c_ab9cdcefda91459091b0ed33011d0d18c}
+
+
+Definition at line 66 of file fevmemodules.c.
+
+Referenced by initialize\_\-equipment(), main(), rotate\_\-wheel(), scheduler(), tr\_\-pause(), tr\_\-resume(), tr\_\-start(), and tr\_\-stop().\index{mfe.c@{mfe.c}!equipment@{equipment}}
+\index{equipment@{equipment}!mfe.c@{mfe.c}}
+\paragraph[{equipment}]{\setlength{\rightskip}{0pt plus 5cm}{\bf EQUIPMENT} {\bf equipment}\mbox{[}$\,$\mbox{]}}\hfill\label{mfe_8c_aa86ef8764826784b74603ffb23852283}
+
+
+Definition at line 150 of file fevmemodules.c.\index{mfe.c@{mfe.c}!event\_\-buffer@{event\_\-buffer}}
+\index{event\_\-buffer@{event\_\-buffer}!mfe.c@{mfe.c}}
+\paragraph[{event\_\-buffer}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ {\bf event\_\-buffer}}\hfill\label{mfe_8c_ac755035b7fe3f9e7e9c0b9ba691fdf7e}
+
+
+Definition at line 78 of file mfe.c.
+
+Referenced by check\_\-polled\_\-events(), main(), receive\_\-trigger\_\-event(), scheduler(), and send\_\-event().\index{mfe.c@{mfe.c}!event\_\-buffer\_\-size@{event\_\-buffer\_\-size}}
+\index{event\_\-buffer\_\-size@{event\_\-buffer\_\-size}!mfe.c@{mfe.c}}
+\paragraph[{event\_\-buffer\_\-size}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} {\bf event\_\-buffer\_\-size}}\hfill\label{mfe_8c_a4411d7db6f901c968b946ed659d202f6}
+
+
+Definition at line 75 of file fevmemodules.c.
+
+Referenced by initialize\_\-equipment(), and main().\index{mfe.c@{mfe.c}!exp\_\-name@{exp\_\-name}}
+\index{exp\_\-name@{exp\_\-name}!mfe.c@{mfe.c}}
+\paragraph[{exp\_\-name}]{\setlength{\rightskip}{0pt plus 5cm}char {\bf exp\_\-name}\mbox{[}NAME\_\-LENGTH\mbox{]}}\hfill\label{mfe_8c_a11eee1a5e2cef985b90bdfe0bfc8cf76}
+
+
+Definition at line 59 of file mfe.c.
+
+Referenced by main().\index{mfe.c@{mfe.c}!fe\_\-stop@{fe\_\-stop}}
+\index{fe\_\-stop@{fe\_\-stop}!mfe.c@{mfe.c}}
+\paragraph[{fe\_\-stop}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} {\bf fe\_\-stop} = 0}\hfill\label{mfe_8c_a8432f49f703ed2d20248effc3125b0e1}
+
+
+Definition at line 64 of file mfe.c.
+
+Referenced by scheduler().\index{mfe.c@{mfe.c}!frag\_\-buffer@{frag\_\-buffer}}
+\index{frag\_\-buffer@{frag\_\-buffer}!mfe.c@{mfe.c}}
+\paragraph[{frag\_\-buffer}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ {\bf frag\_\-buffer} = NULL}\hfill\label{mfe_8c_aec32e8020846a8167a641ac52c76c5c4}
+
+
+Definition at line 79 of file mfe.c.
+
+Referenced by check\_\-polled\_\-events(), register\_\-equipment(), scheduler(), and send\_\-event().\index{mfe.c@{mfe.c}!frontend\_\-call\_\-loop@{frontend\_\-call\_\-loop}}
+\index{frontend\_\-call\_\-loop@{frontend\_\-call\_\-loop}!mfe.c@{mfe.c}}
+\paragraph[{frontend\_\-call\_\-loop}]{\setlength{\rightskip}{0pt plus 5cm}{\bf BOOL} {\bf frontend\_\-call\_\-loop}}\hfill\label{mfe_8c_a0215c0a842a0e97fe65c7ef5fb7633a5}
+
+
+Definition at line 63 of file fevmemodules.c.
+
+Referenced by scheduler().\index{mfe.c@{mfe.c}!frontend\_\-file\_\-name@{frontend\_\-file\_\-name}}
+\index{frontend\_\-file\_\-name@{frontend\_\-file\_\-name}!mfe.c@{mfe.c}}
+\paragraph[{frontend\_\-file\_\-name}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ {\bf frontend\_\-file\_\-name}}\hfill\label{mfe_8c_ac7fc683b5a25d9607abc270a54db6d97}
+
+
+Definition at line 60 of file fevmemodules.c.
+
+Referenced by register\_\-equipment().\index{mfe.c@{mfe.c}!frontend\_\-index@{frontend\_\-index}}
+\index{frontend\_\-index@{frontend\_\-index}!mfe.c@{mfe.c}}
+\paragraph[{frontend\_\-index}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} {\bf frontend\_\-index} = -\/1}\hfill\label{mfe_8c_a922adac2edf2bc75a7d52bc6c5e2aeb4}
+
+
+Definition at line 68 of file mfe.c.
+
+Referenced by get\_\-frontend\_\-index(), main(), and register\_\-equipment().\index{mfe.c@{mfe.c}!frontend\_\-name@{frontend\_\-name}}
+\index{frontend\_\-name@{frontend\_\-name}!mfe.c@{mfe.c}}
+\paragraph[{frontend\_\-name}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ {\bf frontend\_\-name}}\hfill\label{mfe_8c_ac1f0c6df66e35778b61c611107501ec4}
+
+
+Definition at line 58 of file fevmemodules.c.
+
+Referenced by load\_\-fragment(), main(), odbReadUint32(), register\_\-equipment(), scan\_\-fragment(), source\_\-scan(), tr\_\-pause(), tr\_\-resume(), and tr\_\-start().\index{mfe.c@{mfe.c}!full\_\-frontend\_\-name@{full\_\-frontend\_\-name}}
+\index{full\_\-frontend\_\-name@{full\_\-frontend\_\-name}!mfe.c@{mfe.c}}
+\paragraph[{full\_\-frontend\_\-name}]{\setlength{\rightskip}{0pt plus 5cm}char {\bf full\_\-frontend\_\-name}\mbox{[}256\mbox{]}}\hfill\label{mfe_8c_a98cf62d8ada1b93b7fb57612da25af6a}
+
+
+Definition at line 60 of file mfe.c.
+
+Referenced by display(), main(), and register\_\-equipment().\index{mfe.c@{mfe.c}!hDB@{hDB}}
+\index{hDB@{hDB}!mfe.c@{mfe.c}}
+\paragraph[{hDB}]{\setlength{\rightskip}{0pt plus 5cm}HNDLE {\bf hDB}}\hfill\label{mfe_8c_ab1f60c53f74e806a3b9f687af38d7421}
+
+
+Definition at line 71 of file mfe.c.
+
+Referenced by ana\_\-end\_\-of\_\-run(), analyzer\_\-init(), begin\_\-of\_\-run(), cm\_\-connect\_\-client(), cm\_\-connect\_\-experiment1(), cm\_\-disconnect\_\-experiment(), cm\_\-get\_\-client\_\-info(), cm\_\-msg\_\-log(), cm\_\-msg\_\-log1(), cm\_\-msg\_\-retrieve(), cm\_\-set\_\-watchdog\_\-params(), el\_\-submit(), frontend\_\-init(), frontend\_\-loop(), hv\_\-read(), load\_\-fragment(), logger\_\-root(), main(), odbReadUint32(), register\_\-equipment(), scheduler(), set\_\-equipment\_\-status(), tr\_\-start(), and update\_\-odb().\index{mfe.c@{mfe.c}!host\_\-name@{host\_\-name}}
+\index{host\_\-name@{host\_\-name}!mfe.c@{mfe.c}}
+\paragraph[{host\_\-name}]{\setlength{\rightskip}{0pt plus 5cm}char {\bf host\_\-name}\mbox{[}HOST\_\-NAME\_\-LENGTH\mbox{]}}\hfill\label{mfe_8c_af65cc3664520b7cd0817adc7106f9624}
+
+
+Definition at line 58 of file mfe.c.
+
+Referenced by display(), and main().\index{mfe.c@{mfe.c}!interrupt\_\-eq@{interrupt\_\-eq}}
+\index{interrupt\_\-eq@{interrupt\_\-eq}!mfe.c@{mfe.c}}
+\paragraph[{interrupt\_\-eq}]{\setlength{\rightskip}{0pt plus 5cm}{\bf EQUIPMENT}$\ast$ {\bf interrupt\_\-eq} = NULL}\hfill\label{mfe_8c_ae08e1d173902a2cb83c58d268c6e4d3e}
+
+
+Definition at line 75 of file mfe.c.\index{mfe.c@{mfe.c}!lockout\_\-readout\_\-thread@{lockout\_\-readout\_\-thread}}
+\index{lockout\_\-readout\_\-thread@{lockout\_\-readout\_\-thread}!mfe.c@{mfe.c}}
+\paragraph[{lockout\_\-readout\_\-thread}]{\setlength{\rightskip}{0pt plus 5cm}{\bf BOOL} {\bf lockout\_\-readout\_\-thread} = TRUE}\hfill\label{mfe_8c_ace3256e0c09b9b2d5c109f8dbab3692f}
+
+
+Definition at line 69 of file mfe.c.
+
+Referenced by scheduler().\index{mfe.c@{mfe.c}!manual\_\-trigger\_\-event\_\-id@{manual\_\-trigger\_\-event\_\-id}}
+\index{manual\_\-trigger\_\-event\_\-id@{manual\_\-trigger\_\-event\_\-id}!mfe.c@{mfe.c}}
+\paragraph[{manual\_\-trigger\_\-event\_\-id}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} {\bf manual\_\-trigger\_\-event\_\-id} = 0}\hfill\label{mfe_8c_a8af66bd2f0727f85b7ba0b1670d90427}
+
+
+Definition at line 67 of file mfe.c.
+
+Referenced by manual\_\-trigger(), and scheduler().\index{mfe.c@{mfe.c}!max\_\-bytes\_\-per\_\-sec@{max\_\-bytes\_\-per\_\-sec}}
+\index{max\_\-bytes\_\-per\_\-sec@{max\_\-bytes\_\-per\_\-sec}!mfe.c@{mfe.c}}
+\paragraph[{max\_\-bytes\_\-per\_\-sec}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} {\bf max\_\-bytes\_\-per\_\-sec}}\hfill\label{mfe_8c_a2b17ba35afd9a2623d17e3d3847cd293}
+
+
+Definition at line 62 of file mfe.c.
+
+Referenced by scheduler().\index{mfe.c@{mfe.c}!max\_\-event\_\-size@{max\_\-event\_\-size}}
+\index{max\_\-event\_\-size@{max\_\-event\_\-size}!mfe.c@{mfe.c}}
+\paragraph[{max\_\-event\_\-size}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} {\bf max\_\-event\_\-size}}\hfill\label{mfe_8c_a13adb6e6b95ca2a62bbfe2453d71a1cd}
+
+
+Definition at line 69 of file fevmemodules.c.
+
+Referenced by check\_\-polled\_\-events(), handFlush(), initialize\_\-equipment(), load\_\-fragment(), main(), readout\_\-thread(), scheduler(), send\_\-event(), source\_\-booking(), and source\_\-scan().\index{mfe.c@{mfe.c}!max\_\-event\_\-size\_\-frag@{max\_\-event\_\-size\_\-frag}}
+\index{max\_\-event\_\-size\_\-frag@{max\_\-event\_\-size\_\-frag}!mfe.c@{mfe.c}}
+\paragraph[{max\_\-event\_\-size\_\-frag}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} {\bf max\_\-event\_\-size\_\-frag}}\hfill\label{mfe_8c_a5593758d19398ebc7c3d58d7f05ec160}
+
+
+Definition at line 72 of file fevmemodules.c.
+
+Referenced by check\_\-polled\_\-events(), main(), register\_\-equipment(), scheduler(), and send\_\-event().\index{mfe.c@{mfe.c}!mfe\_\-error\_\-dispatcher@{mfe\_\-error\_\-dispatcher}}
+\index{mfe\_\-error\_\-dispatcher@{mfe\_\-error\_\-dispatcher}!mfe.c@{mfe.c}}
+\paragraph[{mfe\_\-error\_\-dispatcher}]{\setlength{\rightskip}{0pt plus 5cm}void($\ast$ {\bf mfe\_\-error\_\-dispatcher})(const char $\ast$) = NULL}\hfill\label{mfe_8c_af913cd8ed4c73ffcd762ead3c3c4426b}
+
+
+Referenced by mfe\_\-error\_\-check(), and mfe\_\-set\_\-error().\index{mfe.c@{mfe.c}!mfe\_\-error\_\-r@{mfe\_\-error\_\-r}}
+\index{mfe\_\-error\_\-r@{mfe\_\-error\_\-r}!mfe.c@{mfe.c}}
+\paragraph[{mfe\_\-error\_\-r}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf mfe\_\-error\_\-r}}\hfill\label{mfe_8c_a6aa654734441af88ec5dea1877701e49}
+
+
+Definition at line 2437 of file mfe.c.
+
+Referenced by mfe\_\-error\_\-check(), and mfe\_\-set\_\-error().\index{mfe.c@{mfe.c}!mfe\_\-error\_\-str@{mfe\_\-error\_\-str}}
+\index{mfe\_\-error\_\-str@{mfe\_\-error\_\-str}!mfe.c@{mfe.c}}
+\paragraph[{mfe\_\-error\_\-str}]{\setlength{\rightskip}{0pt plus 5cm}char {\bf mfe\_\-error\_\-str}\mbox{[}MFE\_\-ERROR\_\-SIZE\mbox{]}\mbox{[}256\mbox{]}}\hfill\label{mfe_8c_ac94b7f26a74ade71dcc2754df3092a6f}
+
+
+Definition at line 2436 of file mfe.c.
+
+Referenced by mfe\_\-error(), mfe\_\-error\_\-check(), and mfe\_\-set\_\-error().\index{mfe.c@{mfe.c}!mfe\_\-error\_\-w@{mfe\_\-error\_\-w}}
+\index{mfe\_\-error\_\-w@{mfe\_\-error\_\-w}!mfe.c@{mfe.c}}
+\paragraph[{mfe\_\-error\_\-w}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf mfe\_\-error\_\-w}}\hfill\label{mfe_8c_a11d9abe61d69ba03a99f62abadb0c6ad}
+
+
+Definition at line 2437 of file mfe.c.
+
+Referenced by mfe\_\-error(), mfe\_\-error\_\-check(), and mfe\_\-set\_\-error().\index{mfe.c@{mfe.c}!mfe\_\-mutex@{mfe\_\-mutex}}
+\index{mfe\_\-mutex@{mfe\_\-mutex}!mfe.c@{mfe.c}}
+\paragraph[{mfe\_\-mutex}]{\setlength{\rightskip}{0pt plus 5cm}MUTEX\_\-T$\ast$ {\bf mfe\_\-mutex} = NULL}\hfill\label{mfe_8c_a66752afa6ab28c1816463b7339592e3e}
+
+
+Definition at line 2438 of file mfe.c.
+
+Referenced by mfe\_\-error(), mfe\_\-error\_\-check(), and mfe\_\-set\_\-error().\index{mfe.c@{mfe.c}!multithread\_\-eq@{multithread\_\-eq}}
+\index{multithread\_\-eq@{multithread\_\-eq}!mfe.c@{mfe.c}}
+\paragraph[{multithread\_\-eq}]{\setlength{\rightskip}{0pt plus 5cm}{\bf EQUIPMENT}$\ast$ {\bf multithread\_\-eq} = NULL}\hfill\label{mfe_8c_a70168de725104e9390e949e6caa942ec}
+
+
+Definition at line 76 of file mfe.c.\index{mfe.c@{mfe.c}!n\_\-events@{n\_\-events}}
+\index{n\_\-events@{n\_\-events}!mfe.c@{mfe.c}}
+\paragraph[{n\_\-events}]{\setlength{\rightskip}{0pt plus 5cm}int$\ast$ {\bf n\_\-events}}\hfill\label{mfe_8c_a227a2ea01e3cfdb42d885e9314ca304e}
+
+
+Definition at line 81 of file mfe.c.
+
+Referenced by main(), register\_\-equipment(), scheduler(), tr\_\-start(), and tr\_\-stop().\index{mfe.c@{mfe.c}!optimize@{optimize}}
+\index{optimize@{optimize}!mfe.c@{mfe.c}}
+\paragraph[{optimize}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} {\bf optimize} = 0}\hfill\label{mfe_8c_a17033889b9f2e378c3bc26401a399550}
+
+
+Definition at line 63 of file mfe.c.
+
+Referenced by scheduler().\index{mfe.c@{mfe.c}!rate\_\-period@{rate\_\-period}}
+\index{rate\_\-period@{rate\_\-period}!mfe.c@{mfe.c}}
+\paragraph[{rate\_\-period}]{\setlength{\rightskip}{0pt plus 5cm}{\bf DWORD} {\bf rate\_\-period}}\hfill\label{mfe_8c_a5a5eefb72c568f3c9c81d8c9c4b0dddc}
+
+
+Definition at line 56 of file mfe.c.
+
+Referenced by get\_\-rate\_\-period(), and set\_\-rate\_\-period().\index{mfe.c@{mfe.c}!rbh1@{rbh1}}
+\index{rbh1@{rbh1}!mfe.c@{mfe.c}}
+\paragraph[{rbh1}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf rbh1} = 0}\hfill\label{mfe_8c_a1b7abb16c33dc41bd5c97aa08439568e}
+
+
+Definition at line 84 of file mfe.c.
+
+Referenced by initialize\_\-equipment(), interrupt\_\-routine(), and readout\_\-thread().\index{mfe.c@{mfe.c}!rbh1\_\-next@{rbh1\_\-next}}
+\index{rbh1\_\-next@{rbh1\_\-next}!mfe.c@{mfe.c}}
+\paragraph[{rbh1\_\-next}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf rbh1\_\-next} = 0}\hfill\label{mfe_8c_aec9294c38a73a78aa646600cef3e77f5}
+
+
+Definition at line 84 of file mfe.c.
+
+Referenced by readout\_\-thread().\index{mfe.c@{mfe.c}!rbh2@{rbh2}}
+\index{rbh2@{rbh2}!mfe.c@{mfe.c}}
+\paragraph[{rbh2}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf rbh2} = 0}\hfill\label{mfe_8c_a0cc81c4acd29047148a2b696a95b330c}
+
+
+Definition at line 84 of file mfe.c.
+
+Referenced by initialize\_\-equipment(), receive\_\-trigger\_\-event(), and set\_\-event\_\-rb().\index{mfe.c@{mfe.c}!rbh2\_\-next@{rbh2\_\-next}}
+\index{rbh2\_\-next@{rbh2\_\-next}!mfe.c@{mfe.c}}
+\paragraph[{rbh2\_\-next}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf rbh2\_\-next} = 0}\hfill\label{mfe_8c_a57f548429c75f48f83776762f94fd489}
+
+
+Definition at line 84 of file mfe.c.\index{mfe.c@{mfe.c}!readout\_\-thread\_\-active@{readout\_\-thread\_\-active}}
+\index{readout\_\-thread\_\-active@{readout\_\-thread\_\-active}!mfe.c@{mfe.c}}
+\paragraph[{readout\_\-thread\_\-active}]{\setlength{\rightskip}{0pt plus 5cm}volatile int {\bf readout\_\-thread\_\-active} = 0}\hfill\label{mfe_8c_a0e0b5bde115b046964736980402f114e}
+
+
+Definition at line 87 of file mfe.c.
+
+Referenced by main(), readout\_\-enable(), and readout\_\-thread().\index{mfe.c@{mfe.c}!rpc\_\-mode@{rpc\_\-mode}}
+\index{rpc\_\-mode@{rpc\_\-mode}!mfe.c@{mfe.c}}
+\paragraph[{rpc\_\-mode}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} {\bf rpc\_\-mode} = 1}\hfill\label{mfe_8c_a1de1daba819451b18ef6974bb6a33a34}
+
+
+Definition at line 44 of file mfe.c.
+
+Referenced by check\_\-polled\_\-events(), receive\_\-trigger\_\-event(), scheduler(), and send\_\-event().\index{mfe.c@{mfe.c}!run\_\-number@{run\_\-number}}
+\index{run\_\-number@{run\_\-number}!mfe.c@{mfe.c}}
+\paragraph[{run\_\-number}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} {\bf run\_\-number}}\hfill\label{mfe_8c_a16695ea2bfd19f294afe066d6007ab36}
+
+
+Definition at line 53 of file mfe.c.
+
+Referenced by close\_\-buffers(), display(), el\_\-submit(), main(), register\_\-equipment(), scheduler(), tr\_\-pause(), tr\_\-resume(), tr\_\-start(), and tr\_\-stop().\index{mfe.c@{mfe.c}!run\_\-state@{run\_\-state}}
+\index{run\_\-state@{run\_\-state}!mfe.c@{mfe.c}}
+\paragraph[{run\_\-state}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} {\bf run\_\-state}}\hfill\label{mfe_8c_a81f01ccafac403262a2e430c118516a3}
+
+
+Definition at line 52 of file mfe.c.
+
+Referenced by close\_\-buffers(), display(), handFlush(), main(), register\_\-equipment(), scan\_\-fragment(), scheduler(), tr\_\-pause(), tr\_\-resume(), tr\_\-start(), and tr\_\-stop().\index{mfe.c@{mfe.c}!slowcont\_\-eq@{slowcont\_\-eq}}
+\index{slowcont\_\-eq@{slowcont\_\-eq}!mfe.c@{mfe.c}}
+\paragraph[{slowcont\_\-eq}]{\setlength{\rightskip}{0pt plus 5cm}{\bf BOOL} {\bf slowcont\_\-eq} = FALSE}\hfill\label{mfe_8c_a4ab4f1288fd294c7c649291f87355985}
+
+
+Definition at line 77 of file mfe.c.
+
+Referenced by initialize\_\-equipment(), and scheduler().\index{mfe.c@{mfe.c}!stop\_\-all\_\-threads@{stop\_\-all\_\-threads}}
+\index{stop\_\-all\_\-threads@{stop\_\-all\_\-threads}!mfe.c@{mfe.c}}
+\paragraph[{stop\_\-all\_\-threads}]{\setlength{\rightskip}{0pt plus 5cm}volatile int {\bf stop\_\-all\_\-threads} = 0}\hfill\label{mfe_8c_ab8d6a79a86973098e87386a79dfc4bc7}
+
+
+Definition at line 85 of file mfe.c.
+
+Referenced by main(), and readout\_\-thread().

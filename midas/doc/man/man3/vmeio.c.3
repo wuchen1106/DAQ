@@ -1,0 +1,220 @@
+.TH "vmeio.c" 3 "31 May 2012" "Version 2.3.0-0" "Midas" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+vmeio.c \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBvmeio_OutputSet\fP (\fBMVME_INTERFACE\fP *\fBmyvme\fP, \fBDWORD\fP base, \fBDWORD\fP data)"
+.br
+.ti -1c
+.RI "void \fBvmeio_SyncWrite\fP (\fBMVME_INTERFACE\fP *\fBmyvme\fP, \fBDWORD\fP base, \fBDWORD\fP data)"
+.br
+.ti -1c
+.RI "void \fBvmeio_AsyncWrite\fP (\fBMVME_INTERFACE\fP *\fBmyvme\fP, \fBDWORD\fP base, \fBDWORD\fP data)"
+.br
+.ti -1c
+.RI "int \fBvmeio_CsrRead\fP (\fBMVME_INTERFACE\fP *\fBmyvme\fP, \fBDWORD\fP base)"
+.br
+.ti -1c
+.RI "int \fBvmeio_AsyncRead\fP (\fBMVME_INTERFACE\fP *\fBmyvme\fP, \fBDWORD\fP base)"
+.br
+.ti -1c
+.RI "int \fBvmeio_SyncRead\fP (\fBMVME_INTERFACE\fP *\fBmyvme\fP, \fBDWORD\fP base)"
+.br
+.ti -1c
+.RI "void \fBvmeio_StrobeClear\fP (\fBMVME_INTERFACE\fP *\fBmyvme\fP, \fBDWORD\fP base)"
+.br
+.ti -1c
+.RI "void \fBvmeio_IntEnable\fP (\fBMVME_INTERFACE\fP *\fBmyvme\fP, \fBDWORD\fP base, int input)"
+.br
+.ti -1c
+.RI "void \fBvmeio_IntRearm\fP (\fBMVME_INTERFACE\fP *\fBmyvme\fP, \fBDWORD\fP base, int input)"
+.br
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "static void myisrvmeio (int sig, siginfo_t * siginfo, void * extra)\fC [static]\fP"
+.PP
+Definition at line 160 of file vmeio.c.
+.SS "int vmeio_AsyncRead (\fBMVME_INTERFACE\fP * myvme, \fBDWORD\fP base)"Read from the Async register 
+.PP
+\fBParameters:\fP
+.RS 4
+\fImyvme\fP vme structure 
+.br
+\fIbase\fP VMEIO base address 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+Async_Reg 
+.RE
+.PP
+
+.PP
+Definition at line 84 of file vmeio.c.
+.SS "void vmeio_AsyncWrite (\fBMVME_INTERFACE\fP * myvme, \fBDWORD\fP base, \fBDWORD\fP data)"Writee to the Async output (latch mode) 
+.PP
+\fBParameters:\fP
+.RS 4
+\fImyvme\fP vme structure 
+.br
+\fIbase\fP VMEIO base address 
+.br
+\fIdata\fP data to be written 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 54 of file vmeio.c.
+.PP
+Referenced by end_of_run(), pause_run(), and resume_run().
+.SS "int vmeio_CsrRead (\fBMVME_INTERFACE\fP * myvme, \fBDWORD\fP base)"Read the CSR register 
+.PP
+\fBParameters:\fP
+.RS 4
+\fImyvme\fP vme structure 
+.br
+\fIbase\fP VMEIO base address 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+CSR status 
+.RE
+.PP
+
+.PP
+Definition at line 68 of file vmeio.c.
+.PP
+Referenced by init_vme_modules(), and poll_event().
+.SS "void vmeio_IntEnable (\fBMVME_INTERFACE\fP * myvme, \fBDWORD\fP base, int input)"Enable Interrupt source. Only any of the first 8 inputs can generate interrupt. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fImyvme\fP vme structure 
+.br
+\fIbase\fP VMEIO base address 
+.br
+\fIinput\fP inputs 0..7 (LSB) 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 132 of file vmeio.c.
+.SS "void vmeio_IntRearm (\fBMVME_INTERFACE\fP * myvme, \fBDWORD\fP base, int input)"Select Interrupt source and arm interrupt The CSR should be reset before this operation. In Sync mode the strobe and the input have to be in coincidence. In Async mode a logical level on the input will trigger the interrupt. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fImyvme\fP vme structure 
+.br
+\fIbase\fP VMEIO base address 
+.br
+\fIinput\fP inputs 0..7 if 1=> Sync, 0=> Async 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 150 of file vmeio.c.
+.SS "void vmeio_OutputSet (\fBMVME_INTERFACE\fP * myvme, \fBDWORD\fP base, \fBDWORD\fP data)"Set output in pulse mode 
+.PP
+\fBParameters:\fP
+.RS 4
+\fImyvme\fP vme structure 
+.br
+\fIbase\fP VMEIO base address 
+.br
+\fIdata\fP data to be written 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 24 of file vmeio.c.
+.PP
+Referenced by begin_of_run(), disable_trigger(), enable_trigger(), and init_vme_modules().
+.SS "void vmeio_StrobeClear (\fBMVME_INTERFACE\fP * myvme, \fBDWORD\fP base)"Clear Strobe input 
+.PP
+\fBParameters:\fP
+.RS 4
+\fImyvme\fP vme structure 
+.br
+\fIbase\fP VMEIO base address 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 116 of file vmeio.c.
+.PP
+Referenced by init_vme_modules().
+.SS "int vmeio_SyncRead (\fBMVME_INTERFACE\fP * myvme, \fBDWORD\fP base)"Read from the Sync register 
+.PP
+\fBParameters:\fP
+.RS 4
+\fImyvme\fP vme structure 
+.br
+\fIbase\fP VMEIO base address 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+Sync_Reg 
+.RE
+.PP
+
+.PP
+Definition at line 100 of file vmeio.c.
+.SS "void vmeio_SyncWrite (\fBMVME_INTERFACE\fP * myvme, \fBDWORD\fP base, \fBDWORD\fP data)"Write to the sync output (pulse mode) 
+.PP
+\fBParameters:\fP
+.RS 4
+\fImyvme\fP vme structure 
+.br
+\fIbase\fP VMEIO base address 
+.br
+\fIdata\fP data to be written 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 39 of file vmeio.c.
+.PP
+Referenced by resume_run().
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Midas from the source code.

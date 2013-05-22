@@ -1,0 +1,126 @@
+.TH "Midas RPC Functions (rpc_xxx)" 3 "31 May 2012" "Version 2.3.0-0" "Midas" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Midas RPC Functions (rpc_xxx) \- 
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBINT\fP \fBrpc_register_client\fP (const char *name, RPC_LIST *list)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBrpc_register_functions\fP (const RPC_LIST *new_list, \fBINT\fP(*func)(\fBINT\fP, void **))"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBrpc_set_option\fP (HNDLE hConn, \fBINT\fP item, \fBINT\fP value)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBrpc_send_event\fP (\fBINT\fP buffer_handle, void *source, \fBINT\fP buf_size, \fBINT\fP async_flag, \fBINT\fP mode)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBrpc_flush_event\fP ()"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+dox dox dox 
+.SH "Function Documentation"
+.PP 
+.SS "\fBINT\fP rpc_flush_event ()"dox Send event residing in the TCP cache buffer filled by rpc_send_event. This routine should be called when a run is stopped.
+.PP
+\fBReturns:\fP
+.RS 4
+RPC_SUCCESS, RPC_NET_ERROR 
+.RE
+.PP
+
+.PP
+Definition at line 10632 of file midas.c.
+.PP
+Referenced by check_polled_events(), scan_fragment(), scheduler(), send_event(), and tr_stop().
+.SS "\fBINT\fP rpc_register_client (const char * name, RPC_LIST * list)"dox Register RPC client for standalone mode (without standard midas server) 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlist\fP Array of RPC_LIST structures containing function IDs and parameter definitions. The end of the list must be indicated by a function ID of zero. 
+.br
+\fIname\fP Name of this client 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+RPC_SUCCESS 
+.RE
+.PP
+
+.PP
+Definition at line 8440 of file midas.c.
+.SS "\fBINT\fP rpc_register_functions (const RPC_LIST * new_list, \fBINT\fP(*)(\fBINT\fP, void **) func)"Register a set of RPC functions (both as clients or servers) 
+.PP
+\fBParameters:\fP
+.RS 4
+\fInew_list\fP Array of RPC_LIST structures containing function IDs and parameter definitions. The end of the list must be indicated by a function ID of zero. 
+.br
+\fIfunc\fP Default dispatch function
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+RPC_SUCCESS, RPC_NO_MEMORY, RPC_DOUBLE_DEFINED 
+.RE
+.PP
+
+.PP
+Definition at line 8460 of file midas.c.
+.PP
+Referenced by cm_connect_experiment1(), and rpc_register_client().
+.SS "\fBINT\fP rpc_send_event (\fBINT\fP buffer_handle, void * source, \fBINT\fP buf_size, \fBINT\fP async_flag, \fBINT\fP mode)"dox Fast send_event routine which bypasses the RPC layer and sends the event directly at the TCP level. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIbuffer_handle\fP Handle of the buffer to send the event to. Must be obtained via bm_open_buffer. 
+.br
+\fIsource\fP Address of the event to send. It must have a proper event header. 
+.br
+\fIbuf_size\fP Size of event in bytes with header. 
+.br
+\fIasync_flag\fP SYNC / ASYNC flag. In ASYNC mode, the function returns immediately if it cannot send the event over the network. In SYNC mode, it waits until the packet is sent (blocking). 
+.br
+\fImode\fP Determines in which mode the event is sent. If zero, use RPC socket, if one, use special event socket to bypass RPC layer on the server side.
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+BM_INVALID_PARAM, BM_ASYNC_RETURN, RPC_SUCCESS, RPC_NET_ERROR, RPC_NO_CONNECTION, RPC_EXCEED_BUFFER 
+.RE
+.PP
+
+.PP
+Definition at line 10419 of file midas.c.
+.PP
+Referenced by check_polled_events(), receive_trigger_event(), scheduler(), send_event(), and source_scan().
+.SS "\fBINT\fP rpc_set_option (HNDLE hConn, \fBINT\fP item, \fBINT\fP value)"dox Set RPC option 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIhConn\fP RPC connection handle, -1 for server connection, -2 for rpc connect timeout 
+.br
+\fIitem\fP One of RPC_Oxxx 
+.br
+\fIvalue\fP Value to set 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+RPC_SUCCESS 
+.RE
+.PP
+
+.PP
+Definition at line 9492 of file midas.c.
+.PP
+Referenced by bm_receive_event(), cm_transition1(), db_send_changed_records(), main(), scheduler(), and update_odb().
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Midas from the source code.

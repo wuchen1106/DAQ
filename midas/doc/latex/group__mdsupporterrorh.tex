@@ -1,0 +1,76 @@
+\subsection{Midas dump error code}
+\label{group__mdsupporterrorh}\index{Midas dump error code@{Midas dump error code}}
+\subsubsection*{Defines}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{group__mdsupporterrorh_gab1b41e3db6549318f90440ed951d9cf8}{MD\_\-SUCCESS}~1
+\item 
+\#define \hyperlink{group__mdsupporterrorh_ga34a6e506a7e596c2c044e51ed5d8359d}{MD\_\-EVENT\_\-NOT\_\-SWAPPED}~2
+\item 
+\#define \hyperlink{group__mdsupporterrorh_ga34fdf952284be03aca04a46985b2e57f}{MD\_\-DONE}~2
+\item 
+\#define \hyperlink{group__mdsupporterrorh_ga272861cd4d9ff8e05d3f2aafc4489f10}{MD\_\-WRONG\_\-BANK\_\-TYPE}~-\/100
+\item 
+\#define \hyperlink{group__mdsupporterrorh_gae69cfc80b79b199b65adac21a8dad19c}{MD\_\-BANK\_\-NOT\_\-FOUND}~-\/101
+\item 
+\#define \hyperlink{group__mdsupporterrorh_gaff1a819016cbf8084d88e0f78e548b60}{MD\_\-SWAP\_\-ERROR}~-\/102
+\item 
+\#define \hyperlink{group__mdsupporterrorh_ga0491dd8f0e546f496c4059b8c04dd309}{MD\_\-NOMORE\_\-SLOT}~-\/103
+\item 
+\#define \hyperlink{group__mdsupporterrorh_gae2f17985734efbefedfd5956b4e4a0f8}{MD\_\-UNKNOWN\_\-FORMAT}~-\/104
+\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+dox dox 
+
+\subsubsection{Define Documentation}
+\index{mdsupporterrorh@{mdsupporterrorh}!MD\_\-BANK\_\-NOT\_\-FOUND@{MD\_\-BANK\_\-NOT\_\-FOUND}}
+\index{MD\_\-BANK\_\-NOT\_\-FOUND@{MD\_\-BANK\_\-NOT\_\-FOUND}!mdsupporterrorh@{mdsupporterrorh}}
+\paragraph[{MD\_\-BANK\_\-NOT\_\-FOUND}]{\setlength{\rightskip}{0pt plus 5cm}\#define MD\_\-BANK\_\-NOT\_\-FOUND~-\/101}\hfill\label{group__mdsupporterrorh_gae69cfc80b79b199b65adac21a8dad19c}
+Bank not found 
+
+Definition at line 64 of file mdsupport.h.\index{mdsupporterrorh@{mdsupporterrorh}!MD\_\-DONE@{MD\_\-DONE}}
+\index{MD\_\-DONE@{MD\_\-DONE}!mdsupporterrorh@{mdsupporterrorh}}
+\paragraph[{MD\_\-DONE}]{\setlength{\rightskip}{0pt plus 5cm}\#define MD\_\-DONE~2}\hfill\label{group__mdsupporterrorh_ga34fdf952284be03aca04a46985b2e57f}
+Operation complete 
+
+Definition at line 62 of file mdsupport.h.
+
+Referenced by md\_\-all\_\-info\_\-display(), md\_\-physrec\_\-display(), midas\_\-event\_\-get(), midas\_\-event\_\-skip(), and midas\_\-physrec\_\-get().\index{mdsupporterrorh@{mdsupporterrorh}!MD\_\-EVENT\_\-NOT\_\-SWAPPED@{MD\_\-EVENT\_\-NOT\_\-SWAPPED}}
+\index{MD\_\-EVENT\_\-NOT\_\-SWAPPED@{MD\_\-EVENT\_\-NOT\_\-SWAPPED}!mdsupporterrorh@{mdsupporterrorh}}
+\paragraph[{MD\_\-EVENT\_\-NOT\_\-SWAPPED}]{\setlength{\rightskip}{0pt plus 5cm}\#define MD\_\-EVENT\_\-NOT\_\-SWAPPED~2}\hfill\label{group__mdsupporterrorh_ga34a6e506a7e596c2c044e51ed5d8359d}
+Not swapped 
+
+Definition at line 61 of file mdsupport.h.
+
+Referenced by md\_\-event\_\-swap().\index{mdsupporterrorh@{mdsupporterrorh}!MD\_\-NOMORE\_\-SLOT@{MD\_\-NOMORE\_\-SLOT}}
+\index{MD\_\-NOMORE\_\-SLOT@{MD\_\-NOMORE\_\-SLOT}!mdsupporterrorh@{mdsupporterrorh}}
+\paragraph[{MD\_\-NOMORE\_\-SLOT}]{\setlength{\rightskip}{0pt plus 5cm}\#define MD\_\-NOMORE\_\-SLOT~-\/103}\hfill\label{group__mdsupporterrorh_ga0491dd8f0e546f496c4059b8c04dd309}
+No more space for fragment 
+
+Definition at line 66 of file mdsupport.h.\index{mdsupporterrorh@{mdsupporterrorh}!MD\_\-SUCCESS@{MD\_\-SUCCESS}}
+\index{MD\_\-SUCCESS@{MD\_\-SUCCESS}!mdsupporterrorh@{mdsupporterrorh}}
+\paragraph[{MD\_\-SUCCESS}]{\setlength{\rightskip}{0pt plus 5cm}\#define MD\_\-SUCCESS~1}\hfill\label{group__mdsupporterrorh_gab1b41e3db6549318f90440ed951d9cf8}
+Ok 
+
+Definition at line 60 of file mdsupport.h.
+
+Referenced by md\_\-all\_\-info\_\-display(), md\_\-event\_\-swap(), md\_\-file\_\-rclose(), md\_\-file\_\-ropen(), md\_\-file\_\-wclose(), md\_\-physrec\_\-display(), md\_\-physrec\_\-skip(), midas\_\-event\_\-get(), midas\_\-event\_\-skip(), and midas\_\-physrec\_\-get().\index{mdsupporterrorh@{mdsupporterrorh}!MD\_\-SWAP\_\-ERROR@{MD\_\-SWAP\_\-ERROR}}
+\index{MD\_\-SWAP\_\-ERROR@{MD\_\-SWAP\_\-ERROR}!mdsupporterrorh@{mdsupporterrorh}}
+\paragraph[{MD\_\-SWAP\_\-ERROR}]{\setlength{\rightskip}{0pt plus 5cm}\#define MD\_\-SWAP\_\-ERROR~-\/102}\hfill\label{group__mdsupporterrorh_gaff1a819016cbf8084d88e0f78e548b60}
+Error swapping 
+
+Definition at line 65 of file mdsupport.h.\index{mdsupporterrorh@{mdsupporterrorh}!MD\_\-UNKNOWN\_\-FORMAT@{MD\_\-UNKNOWN\_\-FORMAT}}
+\index{MD\_\-UNKNOWN\_\-FORMAT@{MD\_\-UNKNOWN\_\-FORMAT}!mdsupporterrorh@{mdsupporterrorh}}
+\paragraph[{MD\_\-UNKNOWN\_\-FORMAT}]{\setlength{\rightskip}{0pt plus 5cm}\#define MD\_\-UNKNOWN\_\-FORMAT~-\/104}\hfill\label{group__mdsupporterrorh_gae2f17985734efbefedfd5956b4e4a0f8}
+Unknown format (see MDSUPPORT\_\-format) 
+
+Definition at line 67 of file mdsupport.h.
+
+Referenced by md\_\-event\_\-swap(), md\_\-physrec\_\-display(), md\_\-physrec\_\-get(), and md\_\-physrec\_\-skip().\index{mdsupporterrorh@{mdsupporterrorh}!MD\_\-WRONG\_\-BANK\_\-TYPE@{MD\_\-WRONG\_\-BANK\_\-TYPE}}
+\index{MD\_\-WRONG\_\-BANK\_\-TYPE@{MD\_\-WRONG\_\-BANK\_\-TYPE}!mdsupporterrorh@{mdsupporterrorh}}
+\paragraph[{MD\_\-WRONG\_\-BANK\_\-TYPE}]{\setlength{\rightskip}{0pt plus 5cm}\#define MD\_\-WRONG\_\-BANK\_\-TYPE~-\/100}\hfill\label{group__mdsupporterrorh_ga272861cd4d9ff8e05d3f2aafc4489f10}
+Wrong bank type (see MDSUPPORT\_\-Bank\_\-Types) 
+
+Definition at line 63 of file mdsupport.h.

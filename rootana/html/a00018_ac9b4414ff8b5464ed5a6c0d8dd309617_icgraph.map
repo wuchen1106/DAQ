@@ -1,0 +1,6 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$a00018.html#aa39edf28b161928ecd72fd7cf677296d" title="Get Bunch ID." alt="" coords="325,5,563,35"/>
+<area shape="rect" id="node5" href="$a00018.html#a320a27be0c5c69ca93091797c70793b8" title="Get Event ID." alt="" coords="325,59,563,88"/>
+<area shape="rect" id="node7" href="$a00018.html#a4e86d88b1b248e8f9dfadebba2700b99" title="Get the TDC number." alt="" coords="312,112,576,141"/>
+<area shape="rect" id="node9" href="$a00010.html#a488e1fa5ce7c9dbf04ad102236dcf380" title="Process each midas event." alt="" coords="624,112,869,141"/>
+</map>

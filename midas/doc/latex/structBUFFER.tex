@@ -1,0 +1,156 @@
+\subsection{BUFFER Struct Reference}
+\label{structBUFFER}\index{BUFFER@{BUFFER}}
+\subsubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{vt2_8h_a239c7f0d40651c3e419c5b9651507d14}{BOOL} \hyperlink{structBUFFER_a495ba8d2558dac6d40a46564c5067a2c}{attached}
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{structBUFFER_a4deee805992cb9841283440fb95d8a81}{client\_\-index}
+\item 
+\hyperlink{structBUFFER__HEADER}{BUFFER\_\-HEADER} $\ast$ \hyperlink{structBUFFER_a9df49f2ae2aae272c18d34e4cc5a5e94}{buffer\_\-header}
+\item 
+void $\ast$ \hyperlink{structBUFFER_a8a66c13998d446c0a1bad0b5d4a2d248}{buffer\_\-data}
+\item 
+char $\ast$ \hyperlink{structBUFFER_a5d4cfe9131aaa09843127a5b134215c5}{read\_\-cache}
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{structBUFFER_aacd1ded35cffe15d8607b92875036bf5}{read\_\-cache\_\-size}
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{structBUFFER_a1c3ec0bf54a65a805455b0cb522d8fea}{read\_\-cache\_\-rp}
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{structBUFFER_ab83ba3496676cf0cafe65c78bcb9a049}{read\_\-cache\_\-wp}
+\item 
+char $\ast$ \hyperlink{structBUFFER_a99f8e53c723d75ba23267ae71309c6e7}{write\_\-cache}
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{structBUFFER_a88f5da13720c678e5d2facd5a61e15be}{write\_\-cache\_\-size}
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{structBUFFER_a70b3193c3c9315051f94e478bba3ae58}{write\_\-cache\_\-rp}
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{structBUFFER_ac088f845fc97e9ce149b36a94644a9b4}{write\_\-cache\_\-wp}
+\item 
+HNDLE \hyperlink{structBUFFER_a01ca98491bd74578416427054075fc3d}{semaphore}
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{structBUFFER_ae313313f5d3caa148ea750395c88a54f}{shm\_\-handle}
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{structBUFFER_a5e76aa98957c2f9c714ae9825ef4bb94}{index}
+\item 
+\hyperlink{vt2_8h_a239c7f0d40651c3e419c5b9651507d14}{BOOL} \hyperlink{structBUFFER_a9611e4a4e83bdf10fc85a02c6de72da5}{callback}
+\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+
+
+Definition at line 892 of file midas.h.
+
+\subsubsection{Field Documentation}
+\index{BUFFER@{BUFFER}!attached@{attached}}
+\index{attached@{attached}!BUFFER@{BUFFER}}
+\paragraph[{attached}]{\setlength{\rightskip}{0pt plus 5cm}{\bf BOOL} {\bf BUFFER::attached}}\hfill\label{structBUFFER_a495ba8d2558dac6d40a46564c5067a2c}
+TRUE if buffer is attached 
+
+Definition at line 893 of file midas.h.
+
+Referenced by bm\_\-close\_\-buffer(), bm\_\-flush\_\-cache(), bm\_\-open\_\-buffer(), bm\_\-push\_\-event(), bm\_\-receive\_\-event(), bm\_\-send\_\-event(), and bm\_\-skip\_\-event().\index{BUFFER@{BUFFER}!buffer\_\-data@{buffer\_\-data}}
+\index{buffer\_\-data@{buffer\_\-data}!BUFFER@{BUFFER}}
+\paragraph[{buffer\_\-data}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ {\bf BUFFER::buffer\_\-data}}\hfill\label{structBUFFER_a8a66c13998d446c0a1bad0b5d4a2d248}
+pointer to buffer data 
+
+Definition at line 896 of file midas.h.
+
+Referenced by bm\_\-open\_\-buffer().\index{BUFFER@{BUFFER}!buffer\_\-header@{buffer\_\-header}}
+\index{buffer\_\-header@{buffer\_\-header}!BUFFER@{BUFFER}}
+\paragraph[{buffer\_\-header}]{\setlength{\rightskip}{0pt plus 5cm}{\bf BUFFER\_\-HEADER}$\ast$ {\bf BUFFER::buffer\_\-header}}\hfill\label{structBUFFER_a9df49f2ae2aae272c18d34e4cc5a5e94}
+pointer to buffer header 
+
+Definition at line 895 of file midas.h.
+
+Referenced by bm\_\-cleanup(), bm\_\-cleanup\_\-buffer\_\-locked(), bm\_\-close\_\-buffer(), bm\_\-empty\_\-buffers(), bm\_\-flush\_\-cache(), bm\_\-open\_\-buffer(), bm\_\-push\_\-event(), bm\_\-receive\_\-event(), bm\_\-remove\_\-event\_\-request(), bm\_\-send\_\-event(), bm\_\-skip\_\-event(), bm\_\-validate\_\-client\_\-index(), bm\_\-wait\_\-for\_\-free\_\-space(), cm\_\-cleanup(), cm\_\-set\_\-watchdog\_\-params(), and cm\_\-update\_\-last\_\-activity().\index{BUFFER@{BUFFER}!callback@{callback}}
+\index{callback@{callback}!BUFFER@{BUFFER}}
+\paragraph[{callback}]{\setlength{\rightskip}{0pt plus 5cm}{\bf BOOL} {\bf BUFFER::callback}}\hfill\label{structBUFFER_a9611e4a4e83bdf10fc85a02c6de72da5}
+callback defined for this buffer 
+
+Definition at line 908 of file midas.h.
+
+Referenced by bm\_\-open\_\-buffer(), and bm\_\-push\_\-event().\index{BUFFER@{BUFFER}!client\_\-index@{client\_\-index}}
+\index{client\_\-index@{client\_\-index}!BUFFER@{BUFFER}}
+\paragraph[{client\_\-index}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} {\bf BUFFER::client\_\-index}}\hfill\label{structBUFFER_a4deee805992cb9841283440fb95d8a81}
+index to CLIENT str. in buf. 
+
+Definition at line 894 of file midas.h.
+
+Referenced by bm\_\-open\_\-buffer(), and bm\_\-validate\_\-client\_\-index().\index{BUFFER@{BUFFER}!index@{index}}
+\index{index@{index}!BUFFER@{BUFFER}}
+\paragraph[{index}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} {\bf BUFFER::index}}\hfill\label{structBUFFER_a5e76aa98957c2f9c714ae9825ef4bb94}
+connection index / tid 
+
+Definition at line 907 of file midas.h.
+
+Referenced by bm\_\-open\_\-buffer().\index{BUFFER@{BUFFER}!read\_\-cache@{read\_\-cache}}
+\index{read\_\-cache@{read\_\-cache}!BUFFER@{BUFFER}}
+\paragraph[{read\_\-cache}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ {\bf BUFFER::read\_\-cache}}\hfill\label{structBUFFER_a5d4cfe9131aaa09843127a5b134215c5}
+cache for burst read 
+
+Definition at line 897 of file midas.h.
+
+Referenced by bm\_\-copy\_\-from\_\-cache(), bm\_\-dispatch\_\-from\_\-cache(), bm\_\-push\_\-event(), bm\_\-receive\_\-event(), and bm\_\-set\_\-cache\_\-size().\index{BUFFER@{BUFFER}!read\_\-cache\_\-rp@{read\_\-cache\_\-rp}}
+\index{read\_\-cache\_\-rp@{read\_\-cache\_\-rp}!BUFFER@{BUFFER}}
+\paragraph[{read\_\-cache\_\-rp}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} {\bf BUFFER::read\_\-cache\_\-rp}}\hfill\label{structBUFFER_a1c3ec0bf54a65a805455b0cb522d8fea}
+cache read pointer 
+
+Definition at line 899 of file midas.h.
+
+Referenced by bm\_\-copy\_\-from\_\-cache(), bm\_\-dispatch\_\-from\_\-cache(), bm\_\-empty\_\-buffers(), bm\_\-read\_\-cache\_\-has\_\-events(), bm\_\-set\_\-cache\_\-size(), and bm\_\-skip\_\-event().\index{BUFFER@{BUFFER}!read\_\-cache\_\-size@{read\_\-cache\_\-size}}
+\index{read\_\-cache\_\-size@{read\_\-cache\_\-size}!BUFFER@{BUFFER}}
+\paragraph[{read\_\-cache\_\-size}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} {\bf BUFFER::read\_\-cache\_\-size}}\hfill\label{structBUFFER_aacd1ded35cffe15d8607b92875036bf5}
+cache size in bytes 
+
+Definition at line 898 of file midas.h.
+
+Referenced by bm\_\-push\_\-event(), bm\_\-read\_\-cache\_\-has\_\-events(), bm\_\-receive\_\-event(), and bm\_\-set\_\-cache\_\-size().\index{BUFFER@{BUFFER}!read\_\-cache\_\-wp@{read\_\-cache\_\-wp}}
+\index{read\_\-cache\_\-wp@{read\_\-cache\_\-wp}!BUFFER@{BUFFER}}
+\paragraph[{read\_\-cache\_\-wp}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} {\bf BUFFER::read\_\-cache\_\-wp}}\hfill\label{structBUFFER_ab83ba3496676cf0cafe65c78bcb9a049}
+cache write pointer 
+
+Definition at line 900 of file midas.h.
+
+Referenced by bm\_\-copy\_\-from\_\-cache(), bm\_\-dispatch\_\-from\_\-cache(), bm\_\-empty\_\-buffers(), bm\_\-push\_\-event(), bm\_\-read\_\-cache\_\-has\_\-events(), bm\_\-receive\_\-event(), bm\_\-set\_\-cache\_\-size(), and bm\_\-skip\_\-event().\index{BUFFER@{BUFFER}!semaphore@{semaphore}}
+\index{semaphore@{semaphore}!BUFFER@{BUFFER}}
+\paragraph[{semaphore}]{\setlength{\rightskip}{0pt plus 5cm}HNDLE {\bf BUFFER::semaphore}}\hfill\label{structBUFFER_a01ca98491bd74578416427054075fc3d}
+semaphore handle 
+
+Definition at line 905 of file midas.h.\index{BUFFER@{BUFFER}!shm\_\-handle@{shm\_\-handle}}
+\index{shm\_\-handle@{shm\_\-handle}!BUFFER@{BUFFER}}
+\paragraph[{shm\_\-handle}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} {\bf BUFFER::shm\_\-handle}}\hfill\label{structBUFFER_ae313313f5d3caa148ea750395c88a54f}
+handle to shared memory 
+
+Definition at line 906 of file midas.h.
+
+Referenced by bm\_\-close\_\-buffer(), and bm\_\-open\_\-buffer().\index{BUFFER@{BUFFER}!write\_\-cache@{write\_\-cache}}
+\index{write\_\-cache@{write\_\-cache}!BUFFER@{BUFFER}}
+\paragraph[{write\_\-cache}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ {\bf BUFFER::write\_\-cache}}\hfill\label{structBUFFER_a99f8e53c723d75ba23267ae71309c6e7}
+cache for burst read 
+
+Definition at line 901 of file midas.h.
+
+Referenced by bm\_\-flush\_\-cache(), bm\_\-send\_\-event(), and bm\_\-set\_\-cache\_\-size().\index{BUFFER@{BUFFER}!write\_\-cache\_\-rp@{write\_\-cache\_\-rp}}
+\index{write\_\-cache\_\-rp@{write\_\-cache\_\-rp}!BUFFER@{BUFFER}}
+\paragraph[{write\_\-cache\_\-rp}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} {\bf BUFFER::write\_\-cache\_\-rp}}\hfill\label{structBUFFER_a70b3193c3c9315051f94e478bba3ae58}
+cache read pointer 
+
+Definition at line 903 of file midas.h.
+
+Referenced by bm\_\-flush\_\-cache(), and bm\_\-set\_\-cache\_\-size().\index{BUFFER@{BUFFER}!write\_\-cache\_\-size@{write\_\-cache\_\-size}}
+\index{write\_\-cache\_\-size@{write\_\-cache\_\-size}!BUFFER@{BUFFER}}
+\paragraph[{write\_\-cache\_\-size}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} {\bf BUFFER::write\_\-cache\_\-size}}\hfill\label{structBUFFER_a88f5da13720c678e5d2facd5a61e15be}
+cache size in bytes 
+
+Definition at line 902 of file midas.h.
+
+Referenced by bm\_\-flush\_\-cache(), bm\_\-send\_\-event(), and bm\_\-set\_\-cache\_\-size().\index{BUFFER@{BUFFER}!write\_\-cache\_\-wp@{write\_\-cache\_\-wp}}
+\index{write\_\-cache\_\-wp@{write\_\-cache\_\-wp}!BUFFER@{BUFFER}}
+\paragraph[{write\_\-cache\_\-wp}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} {\bf BUFFER::write\_\-cache\_\-wp}}\hfill\label{structBUFFER_ac088f845fc97e9ce149b36a94644a9b4}
+cache write pointer 
+
+Definition at line 904 of file midas.h.
+
+Referenced by bm\_\-flush\_\-cache(), bm\_\-send\_\-event(), and bm\_\-set\_\-cache\_\-size().

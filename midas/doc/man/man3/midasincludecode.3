@@ -1,0 +1,403 @@
+.TH "The midas.h & midas.c" 3 "31 May 2012" "Version 2.3.0-0" "Midas" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+The midas.h & midas.c \- 
+.SS "Modules"
+
+.in +1c
+.ti -1c
+.RI "\fBMidas Define\fP"
+.br
+.ti -1c
+.RI "\fBMidas Macros\fP"
+.br
+.ti -1c
+.RI "\fBMidas Error definition\fP"
+.br
+.ti -1c
+.RI "\fBMidas Structure Declaration\fP"
+.br
+.ti -1c
+.RI "\fBMidas Message Functions (msg_xxx)\fP"
+.br
+.ti -1c
+.RI "\fBMidas Common Functions (cm_xxx)\fP"
+.br
+.ti -1c
+.RI "\fBMidas Buffer Manager Functions (bm_xxx)\fP"
+.br
+.ti -1c
+.RI "\fBMidas RPC Functions (rpc_xxx)\fP"
+.br
+.ti -1c
+.RI "\fBMidas Bank Functions (bk_xxx)\fP"
+.br
+.ti -1c
+.RI "\fBMidas Ring Buffer Functions (rb_xxx)\fP"
+.br
+.in -1c
+.SS "Defines"
+
+.in +1c
+.ti -1c
+.RI "#define \fBMAX_EVENT_SIZE\fP   0x400000"
+.br
+.ti -1c
+.RI "#define \fBTAPE_BUFFER_SIZE\fP   0x8000"
+.br
+.ti -1c
+.RI "#define \fBNET_TCP_SIZE\fP   0xFFFF"
+.br
+.ti -1c
+.RI "#define \fBOPT_TCP_SIZE\fP   8192"
+.br
+.ti -1c
+.RI "#define \fBNET_UDP_SIZE\fP   8192"
+.br
+.ti -1c
+.RI "#define \fBEVENT_BUFFER_NAME\fP   'SYSTEM'"
+.br
+.ti -1c
+.RI "#define \fBDEFAULT_ODB_SIZE\fP   0x100000"
+.br
+.ti -1c
+.RI "#define \fBNAME_LENGTH\fP   32"
+.br
+.ti -1c
+.RI "#define \fBHOST_NAME_LENGTH\fP   256"
+.br
+.ti -1c
+.RI "#define \fBMAX_CLIENTS\fP   64"
+.br
+.ti -1c
+.RI "#define \fBMAX_EVENT_REQUESTS\fP   10"
+.br
+.ti -1c
+.RI "#define \fBMAX_OPEN_RECORDS\fP   256"
+.br
+.ti -1c
+.RI "#define \fBMAX_ODB_PATH\fP   256"
+.br
+.ti -1c
+.RI "#define \fBMAX_EXPERIMENT\fP   32"
+.br
+.ti -1c
+.RI "#define \fBBANKLIST_MAX\fP   1024"
+.br
+.ti -1c
+.RI "#define \fBSTRING_BANKLIST_MAX\fP   BANKLIST_MAX * 4"
+.br
+.ti -1c
+.RI "#define \fBDEFAULT_RPC_TIMEOUT\fP   10000"
+.br
+.ti -1c
+.RI "#define \fBDEFAULT_WATCHDOG_TIMEOUT\fP   10000"
+.br
+.ti -1c
+.RI "#define \fBCH_BS\fP   8"
+.br
+.ti -1c
+.RI "#define \fBLAM_SOURCE\fP(c, s)   (c<<24 | ((s) & 0xFFFFFF))"
+.br
+.ti -1c
+.RI "#define \fBLAM_STATION\fP(s)   (1<<(s-1))"
+.br
+.ti -1c
+.RI "#define \fBLAM_SOURCE_CRATE\fP(c)   (c>>24)"
+.br
+.ti -1c
+.RI "#define \fBLAM_SOURCE_STATION\fP(s)   ((s) & 0xFFFFFF)"
+.br
+.ti -1c
+.RI "#define \fBCNAF\fP   0x1"
+.br
+.ti -1c
+.RI "#define \fBANA_CONTINUE\fP   1"
+.br
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "static HNDLE \fB_hKeyClient\fP = 0"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+dox 
+.SH "Define Documentation"
+.PP 
+.SS "#define ANA_CONTINUE   1"dox dox 
+.PP
+Definition at line 766 of file midas.h.
+.SS "#define ANA_SKIP   0"
+.PP
+Definition at line 767 of file midas.h.
+.SS "#define BANKLIST_MAX   1024"max # of banks in event 
+.PP
+Definition at line 244 of file midas.h.
+.PP
+Referenced by bk_list().
+.SS "#define CH_BS   8"dox special characters 
+.PP
+Definition at line 386 of file midas.h.
+.SS "#define CH_CR   13"
+.PP
+Definition at line 388 of file midas.h.
+.SS "#define CH_DELETE   (CH_EXT+2)"
+.PP
+Definition at line 394 of file midas.h.
+.SS "#define CH_DOWN   (CH_EXT+7)"
+.PP
+Definition at line 399 of file midas.h.
+.SS "#define CH_END   (CH_EXT+3)"
+.PP
+Definition at line 395 of file midas.h.
+.SS "#define CH_EXT   0x100"
+.PP
+Definition at line 390 of file midas.h.
+.SS "#define CH_HOME   (CH_EXT+0)"
+.PP
+Definition at line 392 of file midas.h.
+.SS "#define CH_INSERT   (CH_EXT+1)"
+.PP
+Definition at line 393 of file midas.h.
+.SS "#define CH_LEFT   (CH_EXT+9)"
+.PP
+Definition at line 401 of file midas.h.
+.SS "#define CH_PDOWN   (CH_EXT+5)"
+.PP
+Definition at line 397 of file midas.h.
+.SS "#define CH_PUP   (CH_EXT+4)"
+.PP
+Definition at line 396 of file midas.h.
+.SS "#define CH_RIGHT   (CH_EXT+8)"
+.PP
+Definition at line 400 of file midas.h.
+.SS "#define CH_TAB   9"
+.PP
+Definition at line 387 of file midas.h.
+.SS "#define CH_UP   (CH_EXT+6)"
+.PP
+Definition at line 398 of file midas.h.
+.SS "#define CNAF   0x1"CNAF commands 
+.PP
+Definition at line 431 of file midas.h.
+.PP
+Referenced by cnaf_callback().
+.SS "#define CNAF_CRATE_CLEAR   0x102"
+.PP
+Definition at line 436 of file midas.h.
+.PP
+Referenced by cnaf_callback().
+.SS "#define CNAF_CRATE_ZINIT   0x103"
+.PP
+Definition at line 437 of file midas.h.
+.PP
+Referenced by cnaf_callback().
+.SS "#define CNAF_INHIBIT_CLEAR   0x101"
+.PP
+Definition at line 435 of file midas.h.
+.PP
+Referenced by cnaf_callback().
+.SS "#define CNAF_INHIBIT_SET   0x100"
+.PP
+Definition at line 434 of file midas.h.
+.PP
+Referenced by cnaf_callback().
+.SS "#define CNAF_nQ   0x2"
+.PP
+Definition at line 432 of file midas.h.
+.PP
+Referenced by cnaf_callback().
+.SS "#define CNAF_TEST   0x110"
+.PP
+Definition at line 438 of file midas.h.
+.PP
+Referenced by cnaf_callback().
+.SS "#define DATABASE_VERSION   3"
+.PP
+Definition at line 41 of file midas.h.
+.PP
+Referenced by db_open_database().
+.SS "#define DEFAULT_ODB_SIZE   0x100000"online database 1M 
+.PP
+Definition at line 235 of file midas.h.
+.PP
+Referenced by cm_connect_experiment(), cm_connect_experiment1(), and main().
+.SS "#define DEFAULT_RPC_TIMEOUT   10000"Timeouts [ms] 
+.PP
+Definition at line 252 of file midas.h.
+.SS "#define DEFAULT_WATCHDOG_TIMEOUT   10000"Watchdog 
+.PP
+Definition at line 255 of file midas.h.
+.PP
+Referenced by cm_connect_experiment(), and cm_connect_experiment1().
+.SS "#define EVENT_BUFFER_NAME   'SYSTEM'"buffer name for commands 
+.PP
+Definition at line 234 of file midas.h.
+.SS "#define HOST_NAME_LENGTH   256"length of TCP/IP names 
+.PP
+Definition at line 238 of file midas.h.
+.PP
+Referenced by cm_connect_client(), cm_connect_experiment1(), cm_disconnect_experiment(), cm_set_client_info(), cm_shutdown(), and cm_transition1().
+.SS "#define LAM_SOURCE(c, s)   (c<<24 | ((s) & 0xFFFFFF))"Code the LAM crate and LAM station into a bitwise register. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIc\fP Crate number 
+.br
+\fIs\fP Slot number 
+.RE
+.PP
+
+.PP
+Definition at line 409 of file midas.h.
+.SS "#define LAM_SOURCE_CRATE(c)   (c>>24)"Convert the coded LAM crate to Crate number. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIc\fP coded crate 
+.RE
+.PP
+
+.PP
+Definition at line 421 of file midas.h.
+.PP
+Referenced by poll_event().
+.SS "#define LAM_SOURCE_STATION(s)   ((s) & 0xFFFFFF)"Convert the coded LAM station to Station number. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIs\fP Slot number 
+.RE
+.PP
+
+.PP
+Definition at line 427 of file midas.h.
+.PP
+Referenced by poll_event().
+.SS "#define LAM_STATION(s)   (1<<(s-1))"Code the Station number bitwise for the LAM source. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIs\fP Slot number 
+.RE
+.PP
+
+.PP
+Definition at line 415 of file midas.h.
+.SS "#define MAX_CLIENTS   64"client processes per buf/db 
+.PP
+Definition at line 239 of file midas.h.
+.PP
+Referenced by bm_close_buffer(), bm_open_buffer(), bm_remove_client_locked(), cm_cleanup(), db_close_database(), and db_open_database().
+.SS "#define MAX_EVENT_REQUESTS   10"event requests per client 
+.PP
+Definition at line 240 of file midas.h.
+.SS "#define MAX_EVENT_SIZE   0x400000"dox maximum event size 4MB 
+.PP
+Definition at line 222 of file midas.h.
+.PP
+Referenced by main(), md_file_ropen(), midas_event_skip(), register_equipment(), and source_booking().
+.SS "#define MAX_EXPERIMENT   32"number of different exp. 
+.PP
+Definition at line 243 of file midas.h.
+.PP
+Referenced by cm_connect_experiment1(), cm_list_experiments(), cm_scan_experiments(), and cm_select_experiment().
+.SS "#define MAX_ODB_PATH   256"length of path in ODB 
+.PP
+Definition at line 242 of file midas.h.
+.PP
+Referenced by db_copy().
+.SS "#define MAX_OPEN_RECORDS   256"number of open DB records 
+.PP
+Definition at line 241 of file midas.h.
+.SS "#define MIDAS_TCP_PORT   1175"
+.PP
+Definition at line 248 of file midas.h.
+.PP
+Referenced by cm_list_experiments().
+.SS "#define MIDAS_VERSION   '2.0.0'"
+.PP
+Definition at line 44 of file midas.h.
+.PP
+Referenced by cm_get_version().
+.SS "#define NAME_LENGTH   32"length of names, mult.of 8! 
+.PP
+Definition at line 237 of file midas.h.
+.PP
+Referenced by bm_open_buffer(), cm_check_client(), cm_connect_client(), cm_connect_experiment1(), cm_exist(), cm_get_client_info(), cm_select_experiment(), cm_set_client_info(), cm_shutdown(), cm_transition1(), db_open_database(), hv_init(), hv_update_label(), and load_fragment().
+.SS "#define NET_TCP_SIZE   0xFFFF"maximum TCP transfer size 
+.PP
+Definition at line 230 of file midas.h.
+.PP
+Referenced by rpc_send_event(), and scheduler().
+.SS "#define NET_UDP_SIZE   8192"maximum UDP transfer 
+.PP
+Definition at line 232 of file midas.h.
+.SS "#define OPT_TCP_SIZE   8192"optimal TCP buffer size 
+.PP
+Definition at line 231 of file midas.h.
+.SS "#define STRING_BANKLIST_MAX   BANKLIST_MAX * 4"for \fBbk_list()\fP 
+.PP
+Definition at line 245 of file midas.h.
+.PP
+Referenced by md_bank_event_display().
+.SS "#define TAPE_BUFFER_SIZE   0x8000"buffer size for taping data 
+.PP
+Definition at line 228 of file midas.h.
+.PP
+Referenced by md_file_ropen().
+.SS "#define WATCHDOG_INTERVAL   1000"
+.PP
+Definition at line 253 of file midas.h.
+.PP
+Referenced by cm_set_client_info(), and cm_set_watchdog_params().
+.SH "Variable Documentation"
+.PP 
+.SS "\fBINT\fP \fB_call_watchdog\fP = TRUE\fC [static]\fP"
+.PP
+Definition at line 1332 of file midas.c.
+.SS "char \fB_client_name\fP[NAME_LENGTH]\fC [static]\fP"
+.PP
+Definition at line 1330 of file midas.c.
+.SS "char \fB_experiment_name\fP[NAME_LENGTH]\fC [static]\fP"
+.PP
+Definition at line 1329 of file midas.c.
+.SS "HNDLE \fB_hDB\fP = 0\fC [static]\fP"
+.PP
+Definition at line 1328 of file midas.c.
+.SS "HNDLE \fB_hKeyClient\fP = 0\fC [static]\fP"dox 
+.PP
+Definition at line 1327 of file midas.c.
+.SS "char \fB_path_name\fP[MAX_STRING_LENGTH]\fC [static]\fP"
+.PP
+Definition at line 1331 of file midas.c.
+.SS "\fBINT\fP \fB_semaphore_alarm\fP"
+.PP
+Definition at line 1334 of file midas.c.
+.PP
+Referenced by db_close_database().
+.SS "\fBINT\fP \fB_semaphore_elog\fP"
+.PP
+Definition at line 1334 of file midas.c.
+.PP
+Referenced by db_close_database().
+.SS "\fBINT\fP \fB_semaphore_history\fP"
+.PP
+Definition at line 1334 of file midas.c.
+.PP
+Referenced by db_close_database().
+.SS "\fBINT\fP \fB_semaphore_msg\fP"
+.PP
+Definition at line 1334 of file midas.c.
+.PP
+Referenced by db_close_database().
+.SS "\fBINT\fP \fB_watchdog_timeout\fP = DEFAULT_WATCHDOG_TIMEOUT\fC [static]\fP"
+.PP
+Definition at line 1333 of file midas.c.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Midas from the source code.

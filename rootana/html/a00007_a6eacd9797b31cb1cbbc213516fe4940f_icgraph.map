@@ -1,0 +1,8 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$a00139.html#af1ab5f1dddd620d9b2a2977c18a17450" title="root_server_thread" alt="" coords="280,32,432,61"/>
+<area shape="rect" id="node14" href="$a00007.html#a2d5e8adbfe576012342000ab62e9ac66" title="LockRootGuard::~LockRootGuard" alt="" coords="233,85,479,115"/>
+<area shape="rect" id="node5" href="$a00139.html#ae4c520908e89934574ff6a73619ec5ea" title="root_socket_server" alt="" coords="529,5,681,35"/>
+<area shape="rect" id="node11" href="$a00140.html#a9e7f85724d1297d2f50530af4e1e8847" title="socket_listener" alt="" coords="543,59,668,88"/>
+<area shape="rect" id="node7" href="$a00059.html#aeca754799402cdd99d6eacc8f454d423" title="StartMidasServer" alt="" coords="757,5,896,35"/>
+<area shape="rect" id="node9" href="$a00061.html#af280d129baa10e736ba821d2f6bf4682" title="StartNetDirectoryServer" alt="" coords="732,59,921,88"/>
+</map>

@@ -1,0 +1,399 @@
+\subparagraph{Examples of accessing ODB from a Custom page}\label{RC_mhttpd_custom_ODB_access_examples}
+\par
+
+
+
+
+\par
+ \hypertarget{RC_mhttpd_custom_ODB_access_examples_RC_mhttpd_js_example1}{}\subsubsection{Example of ODB access with HTML and JavaScript equivalent}\label{RC_mhttpd_custom_ODB_access_examples_RC_mhttpd_js_example1}
+The following simple HTML code shows ODB access using JavaScript (ODBGet, ODBEdit) and using the HTML  $<$odb$>$ tag . The output produced by this code is shown below. 
+\begin{DoxyCode}
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 TRANSITIONAL//EN">
+<html><head>
+<title> ODBEdit test</title>
+<!-- include the mhttpd JS library -->
+\htmlonly <script src="/js/mhttpd.js" type="text/javascript"></script> \endhtmlon
+      ly
+
+\htmlonly <script type="text/javascript">
+var my_action = '"/CS/try&"'
+var rn
+var path
+var my_expt="midas";
+
+document.write('</head><body>')
+document.write('<form method="get" name="form2" action='+my_action+'> ')
+document.write('<input name="exp" value="'+my_expt+'" type="hidden">');
+
+document.write('Using Javascript and ODBEdit:<br>')
+path='/runinfo/run number'
+rn = ODBGet(path,"Run Number with format: %d")
+document.writeln('Run Number: '+rn+'<br>')
+document.writeln('Edit Run Number:')
+document.writeln('<a href="#" onclick="ODBEdit(path)" >')
+document.writeln(rn)
+document.writeln('</a>');
+</script> \endhtmlonly
+<br>
+Using HTML :
+<br>
+Using edit=2 ...  Run Number:
+<odb src="/runinfo/run number" edit=2>
+<br>
+Using edit=1 ...  Run Number:
+<odb src="/runinfo/run number" edit=1>
+<br>
+</form>
+</html>
+\end{DoxyCode}
+ \par
+
+
+This code produces the output shown in Figures 1 and 2 below. In Figure 1, a value has been entered using the hyperlink created by the {\bfseries Javascript} function ODBEdit. A {\bfseries popup} box appears in which the user may enter a new value.
+
+\par
+\par
+\par
+ \begin{center} Figure 1: ODB tags under html and javascript -\/ entering an ODB value using Javascript \par
+\par
+\par
+  \end{center}  \par
+\par
+\par
+
+
+Figure 2 shows entering a value using the {\bfseries HTML} tags. The two different styles are shown.
+\begin{DoxyItemize}
+\item {\bfseries edit=2} type produces a pop-\/up box as in the Javascript version
+\item {\bfseries edit=1} type produces an in-\/line input box
+\end{DoxyItemize}
+
+\par
+\par
+\par
+ \begin{center} Figure 2: ODB tags under html and javascript -\/ entering an ODB value using HTML \par
+\par
+\par
+  \par
+\par
+\par
+ \end{center} \hypertarget{RC_mhttpd_custom_ODB_access_examples_RC_mhttpd_js_example2}{}\subsubsection{Example of ODB access with JavaScript functions ODBSet and ODBKey}\label{RC_mhttpd_custom_ODB_access_examples_RC_mhttpd_js_example2}
+The following HTML code shows an example using the JavaScript functions ODBSet and ODBKey. There is no equivalent to these functions available in HTML. The output from this example is shown in Figure 3.
+
+
+\begin{DoxyCode}
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 TRANSITIONAL//EN">
+<html><head>
+<title> ODBEdit test</title>
+\htmlonly <script src="/js/mhttpd.js" type="text/javascript"></script> \endhtmlon
+      ly
+
+\htmlonly <script type="text/javascript">
+var my_action = '"/CS/try&"'
+var rn,ival,irn
+var path="/runinfo/run number";
+var my_expt="midas";
+var message;
+
+function test(path,value)
+{
+var pattern=/DB_NO_KEY/;
+var ival,key
+
+document.write('Function test starting with path: '+path+' value: '+value+'<br>')
+      ;
+document.write('ODBGet with a format parameter:  <br>');
+ival = ODBGet(path,"read:%4.4d");
+document.write(ival+'<br>');
+
+document.write('<br>Now using ODBSet to set a value: <br>');
+document.write('Setting '+path+' to '+value+' with ODBSet<br>') ;
+ODBSet(path,value);
+ival = ODBGet(path)
+document.writeln('Value: '+ival+'<br>')
+
+document.write('<br>Now using ODBKey to get a key using path: '+path+' <br>');
+key = ODBKey(path);
+document.write('<br>Testing response for the pattern: '+pattern+'...');
+ if ( pattern.test(key))
+      document.write('test is TRUE <br>');
+ else
+      document.write('test is FALSE<br>');
+document.write('key array : '+key+'<br>');
+document.write('done<br>');
+return;
+}
+
+
+document.write('</head><body>')
+document.write('<form method="get" name="form2" action='+my_action+'> ')
+document.write('<input name="exp" value="'+my_expt+'" type="hidden">');
+
+irn=ODBGet(path); // remember initial run number
+ODBSet(path,70); // initialize the run number to 70
+
+document.write('Example showing use of ODBGet, ODBSet, ODBKey, ODBGetMsg <br>');
+document.write('First with a good path...<br>');
+document.write('<span style= "color: green;">')
+test("/runinfo/run number", 76);
+document.write('</span>')
+document.write('<br>Then with bad path to show the difference....<br>');
+document.write('<span style= "color: red;">')
+test("/nopath/nokey", 79);
+document.write('</span>')
+message= ODBGetMsg(1);
+document.write('Last message:'+message+'<br>');
+
+ODBSet(path,irn); // rewrite initial run number
+</script> \endhtmlonly
+</form>
+</html>
+\end{DoxyCode}
+
+
+\par
+\par
+\par
+ \begin{center} Figure 3 Output from above example code showing ODB access with JS built-\/in functions \par
+\par
+\par
+  \par
+\par
+\par
+ \end{center} \hypertarget{RC_mhttpd_custom_ODB_access_examples_RC_mhttpd_js_example3}{}\subsubsection{Example of ODB access with arrays}\label{RC_mhttpd_custom_ODB_access_examples_RC_mhttpd_js_example3}
+Accessing ODB values can slow the page update considerably where there are many values to access. The access time can be cut considerably by having most of the input and output data in arrays.
+
+ Note that writing arrays with ODBSet has been supported since \hyperlink{NDF_ndf_may_2010}{May 2010} . 
+
+In the following example, the raw data is provided in two large arrays. Some of this data is used in logical calculations (done in JavaScript) to determine the state of various devices, and the result is output into an array in the ODB in order to colour various items with the use of \char`\"{}fills\char`\"{} on the image pages. \par
+ In this example, the arrays PLCR,PLCA in the odb are read into arrays in JavaScript in the function get\_\-PLC\_\-arrays in the file custom\_\-functions.js. Calculated data stored as an array in the odb are read into an array CAL. 
+\begin{DoxyCode}
+// custom_fuctions.js
+// globals
+var equipment_path='/Equipment/TpcGasPlc/';
+var gascalc_array = equipment_path + 'GasCalc/Variables/Calculated[*]';
+var variables_path = equipment_path + 'Variables/';
+var plcr_path = variables_path + 'PLCR'; // indices of these PLC arrays are in na
+      mes.js
+var plca_path = variables_path + 'PLCA';
+
+var PLCR=[];
+var PLCA=[];
+var CAL=[];
+
+function get_PLC_arrays()
+{  // get the arrays in one go
+   // returns 0=success or 1=failure
+ 
+  var pattern1=/DB_NO_KEY/;
+  var pattern2=/undefined/;
+
+  var i,idx;
+    
+  PLCR =     ODBGet(plcr_path+ '[*]');
+  if ( pattern1.test(PLCR) ||  pattern2.test(PLCR)  )
+  {
+      alert ('get_PLCR_array: ERROR '+PLCR+' from ODBGet('+plcr_path+'[*])' );
+      return 1;
+  } 
+  
+   PLCA = ODBGet(plca_path+ '[*]', "%9.5f"); // the required values are float
+   if ( pattern1.test(PLCA) ||  pattern2.test(PLCA)  )
+   {
+      alert ('get_PLCA_array: ERROR '+PLCA+' from ODBGet('+plca_path+'[*])' );
+      return 1;
+   }
+              
+// get Calculated array
+   CAL = ODBGet(gascalc_array, "%d"); // the required values are INT
+   if ( pattern1.test(CAL) ||  pattern2.test(CAL)  )
+   {
+      alert ('get_CAL_array: ERROR '+CAL+' from ODBGet('+gascalc_array+')' );
+      return 1;
+   }
+
+   return 0; // success
+}
+
+..........
+\end{DoxyCode}
+
+
+For each of the gas pages, various items are calculated and the CAL array is updated for each item. At the end of all calculations, the CAL array is written back into the ODB.
+
+
+\begin{DoxyCode}
+<!-- GasPage.html -->
+.......
+
+<!-- js_functions!   custom_functions.js defined by  ODB key  /custom/js_function
+      s!  -->
+\htmlonly <script type="text/javascript"  src="js_functions!">
+</script> \endhtmlonly
+</head><body>
+
+
+\htmlonly <script>
+//Read all the arrays from the ODB
+var plc_error = get_PLC_arrays();
+.....
+calculate_device(G2VA1_STAT,G2VA1,plc_error); // saves result to CAL array
+......
+calculate_logical(17,PU_Box,plc_error); // saves result to CAL array
+......
+ODBSet(gascalc_array, CAL); // write CAL array into ODB after all calculations
+</script> \endhtmlonly
+</body>
+</html>
+\end{DoxyCode}
+
+
+
+
+\par
+ \label{index_end}
+\hypertarget{index_end}{}
+ \subparagraph{Features using ODB access from a Custom page}\label{RC_mhttpd_custom_ODB_access_features}
+\par
+
+
+
+
+\par
+ This page describes several features with ODB access on a custom page.
+
+
+\begin{DoxyItemize}
+\item \hyperlink{RC_mhttpd_custom_ODB_access_features_RC_mhttpd_custom_checkboxes}{Including checkboxes on a custom page}
+\item \hyperlink{RC_mhttpd_custom_ODB_access_features_RC_mhttpd_js_update_part}{Periodic update of parts of a custom page}
+\item \hyperlink{RC_mhttpd_custom_ODB_access_features_RC_mhttpd_custom_pw_protection}{Password protection of ODB variables accessed from a custom page}
+\end{DoxyItemize}\hypertarget{RC_mhttpd_custom_ODB_access_features_RC_mhttpd_custom_checkboxes}{}\subsubsection{Including checkboxes on a custom page}\label{RC_mhttpd_custom_ODB_access_features_RC_mhttpd_custom_checkboxes}
+The function ODBSet can be used when one clicks on an {\bfseries checkbox} for example: 
+\begin{DoxyCode}
+  <input type="checkbox" onClick="ODBSet('/Logger/Write data',this.checked?'1':'0
+      ')">
+\end{DoxyCode}
+
+
+If used as above, the state of the checkbox must be initialized when the page is loaded. This can be done with some JavaScript code called on initialization, which then uses \hyperlink{RC_mhttpd_custom_ODB_access_RC_mhttpd_custom_odbset}{ODBSet JavaScript function} as described above.
+
+Alternatively, the checkbox can be created using an  $<$odb...$>$  \hyperlink{RC_mhttpd_custom_ODB_access_RC_mhttpd_custom_odb_html}{tag} as follows: 
+\begin{DoxyCode}
+  <odb src="/Logger/Write data" type="checkbox" edit="2" onclick="ODBSet('/Logger
+      /Write data',this.checked?'1':'0')">
+\end{DoxyCode}
+
+
+The special code {\bfseries edit=\char`\"{}2\char`\"{}} instructs mhttpd not to put any JavaScript code into the checkbox tag, since setting this value in the ODB is now handled by the user-\/supplied ODBSet() code.\hypertarget{RC_mhttpd_custom_ODB_access_features_RC_mhttpd_js_example_3}{}\subsubsection{Example of Checkboxes using JavaScript and HTML}\label{RC_mhttpd_custom_ODB_access_features_RC_mhttpd_js_example_3}
+
+\begin{DoxyCode}
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 TRANSITIONAL//EN">
+<html><head>
+<title> ODBEdit test</title>
+<!-- include the mhttpd JS library -->
+\htmlonly <script src="/js/mhttpd.js" type="text/javascript"></script> \endhtmlon
+      ly
+
+\htmlonly <script type="text/javascript">
+
+var my_action = '"/CS/try&"'
+var ival;
+var my_expt="midas";
+</script> \endhtmlonly
+</head><body>
+<form method="get" name="form2" action='+my_action+'>
+<input name="exp" value="'+my_expt+'" type="hidden">
+Write data: <odb src="/Logger/Write data"><br>
+JS Checkbox ... Write Data:
+<input  name="mybox"  type="checkbox"   onClick="ODBSet('/Logger/Write data',this
+      .checked?'1':'0')">
+\htmlonly <script>
+if( ODBGet('/Logger/Write data') =='y')
+  ival=1;
+else
+  ival=0;
+document.write('<br>ival='+ival+'<br>');
+document.form2.mybox.checked=ival  // initialize to the correct value
+</script> \endhtmlonly
+
+<br>HTML checkbox... Write Data:
+  <odb src="/Logger/Write data" type="checkbox" edit="2" onclick="ODBSet('/Logger
+      /Write data',this.checked?'1':'0')">
+<br>
+</form>
+</html>
+\end{DoxyCode}
+
+
+\par
+\par
+\par
+ \begin{center} Figure 4 Output from above code: checkboxes \par
+\par
+\par
+  \par
+\par
+\par
+ \end{center} 
+
+\par
+
+
+\par
+
+
+\label{RC_mhttpd_custom_ODB_access_features_idx_mhttpd_page_custom_refresh_partial}
+\hypertarget{RC_mhttpd_custom_ODB_access_features_idx_mhttpd_page_custom_refresh_partial}{}
+ \hypertarget{RC_mhttpd_custom_ODB_access_features_RC_mhttpd_js_update_part}{}\subsubsection{Periodic update of parts of a custom page}\label{RC_mhttpd_custom_ODB_access_features_RC_mhttpd_js_update_part}
+The functionality of ODBGet together with the
+\begin{DoxyItemize}
+\item {\bfseries window.setInterval()} function
+\end{DoxyItemize}
+
+can be used to update parts of the web page periodically. \par
+ For example the Javascript fragment below contains a function which updates the current run number every 10 seconds in the background : 
+\begin{DoxyCode}
+  window.setInterval("Refresh()", 10000);
+
+  function Refresh() {
+    document.getElementById("run_number").innerHTML = ODBGet('/Runinfo/Run number
+      ');
+  }
+\end{DoxyCode}
+
+
+The custom page has to contain an element with id=\char`\"{}run\_\-number\char`\"{}, such as 
+\begin{DoxyCode}
+  <td id="run_number"></td>
+\end{DoxyCode}
+ \par
+\par
+\hypertarget{RC_mhttpd_custom_ODB_access_features_RC_mhttpd_custom_pw_protection}{}\subsubsection{Password protection of ODB variables accessed from a custom page}\label{RC_mhttpd_custom_ODB_access_features_RC_mhttpd_custom_pw_protection}
+Being able to control an experiment through a web interface of course raises the question of safety. This is not so much about external access (for which there are other protection schemes like host lists etc.) but it's about accidental access by the normal shift crew. If a single click on a web page opens a critical valve, this might be a problem. In order to restrict access to some \char`\"{}experts\char`\"{}, an additional password can be chosen for all or some controls on a custom page.
+
+Password protection is optional, and must be set up by the user. The {\itshape password\/} must be defined as an ODB entry of the form  /Custom/Pwd/$<$password$>$ . If the password is {\itshape CustomPwd\/}, the ODB key /Custom/Pwd/CustomPwd  would be defined.
+
+By using an explicit name, one can use a single password for all controls on a page, or one could use several passwords on the same page. For example, a shift crew password for the less severe controls ({\itshape ShiftPwd\/}), and an \char`\"{}expert\char`\"{} password ({\itshape ExpertPwd\/}) for the critical things.
+
+The ODB would have two passwords defined, i.e.\par
+  /Custom/Pwd/ExpertPwd\par
+ /Custom/Pwd/ShiftPwd\par
+
+
+The password is of course not secure in the sense that it's placed in plain text into the ODB, but its purpose is to prevent accidental modification, rather than malicious interference.
+
+\par
+ Password protection is available for
+\begin{DoxyItemize}
+\item \hyperlink{RC_mhttpd_Image_access_RC_mhttpd_custom_pw}{Password protection of Edit Boxes}
+\item \hyperlink{RC_mhttpd_custom_ODB_access_RC_mhttpd_custom_odbset}{ODBSet JavaScript function}
+\item \hyperlink{RC_mhttpd_Image_access_RC_mhttpd_custom_imagemap_pw}{Area map with password check}
+\end{DoxyItemize}
+
+If password protection {\bfseries is} set up, mhttpd will check the supplied password against the ODB entry, and show an error if they don't match.
+
+\label{index_end}
+\hypertarget{index_end}{}
+
+
+ 

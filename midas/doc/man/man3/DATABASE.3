@@ -1,0 +1,63 @@
+.TH "DATABASE" 3 "31 May 2012" "Version 2.3.0-0" "Midas" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+DATABASE \- 
+.SH SYNOPSIS
+.br
+.PP
+.SH "Detailed Description"
+.PP 
+Definition at line 389 of file msystem.h.
+.SH "Field Documentation"
+.PP 
+.SS "\fBBOOL\fP \fBDATABASE::attached\fP"
+.PP
+Definition at line 391 of file msystem.h.
+.PP
+Referenced by db_close_database(), and db_open_database().
+.SS "\fBINT\fP \fBDATABASE::client_index\fP"
+.PP
+Definition at line 392 of file msystem.h.
+.PP
+Referenced by cm_cleanup(), cm_set_watchdog_params(), cm_update_last_activity(), db_close_database(), and db_open_database().
+.SS "void* \fBDATABASE::database_data\fP"
+.PP
+Definition at line 394 of file msystem.h.
+.PP
+Referenced by db_open_database().
+.SS "\fBDATABASE_HEADER\fP* \fBDATABASE::database_header\fP"
+.PP
+Definition at line 393 of file msystem.h.
+.PP
+Referenced by cm_check_client(), cm_cleanup(), cm_get_watchdog_info(), cm_set_watchdog_params(), cm_update_last_activity(), db_close_database(), db_create_key(), db_delete_key1(), db_enum_key(), db_find_key(), db_get_data(), db_get_data_index(), db_get_key(), db_get_key_info(), db_get_key_time(), db_get_link(), db_get_link_data(), db_get_value(), db_lock_database(), db_open_database(), db_protect_database(), db_set_data(), db_set_data_index(), db_set_link_data(), db_set_link_data_index(), db_set_value(), and db_unlock_database().
+.SS "\fBINT\fP \fBDATABASE::index\fP"
+.PP
+Definition at line 398 of file msystem.h.
+.PP
+Referenced by db_open_database().
+.SS "\fBINT\fP \fBDATABASE::lock_cnt\fP"
+.PP
+Definition at line 396 of file msystem.h.
+.PP
+Referenced by db_get_lock_cnt(), db_lock_database(), db_open_database(), and db_unlock_database().
+.SS "char \fBDATABASE::name\fP[NAME_LENGTH]"
+.PP
+Definition at line 390 of file msystem.h.
+.SS "\fBBOOL\fP \fBDATABASE::protect\fP"
+.PP
+Definition at line 399 of file msystem.h.
+.PP
+Referenced by db_open_database(), and db_protect_database().
+.SS "HNDLE \fBDATABASE::semaphore\fP"
+.PP
+Definition at line 395 of file msystem.h.
+.SS "HNDLE \fBDATABASE::shm_handle\fP"
+.PP
+Definition at line 397 of file msystem.h.
+.PP
+Referenced by db_close_database(), and db_open_database().
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Midas from the source code.

@@ -1,0 +1,420 @@
+.TH "mevb.c" 3 "31 May 2012" "Version 2.3.0-0" "Midas" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+mevb.c \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Defines"
+
+.in +1c
+.ti -1c
+.RI "#define \fBSERVER_CACHE_SIZE\fP   100000"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBINT\fP \fBsource_scan\fP (\fBINT\fP fmt, \fBEQUIPMENT_INFO\fP *eq_info)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBeb_begin_of_run\fP (\fBINT\fP, char *, char *)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBeb_end_of_run\fP (\fBINT\fP, char *)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBeb_user\fP (\fBINT\fP, \fBBOOL\fP mismatch, EBUILDER_CHANNEL *, \fBEVENT_HEADER\fP *, void *, \fBINT\fP *)"
+.br
+.in -1c
+.SH "Define Documentation"
+.PP 
+.SS "#define DEFAULT_FE_TIMEOUT   60000"
+.PP
+Definition at line 27 of file mevb.c.
+.SS "#define EQUIPMENT_COMMON_STR   '\\Event ID = \fBWORD\fP : 0\\n\\Trigger mask = \fBWORD\fP : 0\\n\\Buffer = STRING : [32] SYSTEM\\n\\Type = \fBINT\fP : 0\\n\\Source = \fBINT\fP : 0\\n\\Format = STRING : [8] FIXED\\n\\Enabled = \fBBOOL\fP : 0\\n\\Read on = \fBINT\fP : 0\\n\\Period = \fBINT\fP : 0\\n\\Event limit = DOUBLE : 0\\n\\Num subevents = \fBDWORD\fP : 0\\n\\Log history = \fBINT\fP : 0\\n\\Frontend host = STRING : [32] \\n\\Frontend name = STRING : [32] \\n\\Frontend file name = STRING : [256] \\n\\Status = STRING : [256] \\n\\Status color = STRING : [32] \\n\\'"
+.PP
+Definition at line 86 of file mevb.c.
+.SS "#define EQUIPMENT_STATISTICS_STR   '\\Events sent = DOUBLE : 0\\n\\Events per sec. = DOUBLE : 0\\n\\kBytes per sec. = DOUBLE : 0\\n\\'"
+.PP
+Definition at line 106 of file mevb.c.
+.SS "#define ODB_UPDATE_TIME   1000"
+.PP
+Definition at line 25 of file mevb.c.
+.SS "#define SERVER_CACHE_SIZE   100000"dox 
+.PP
+Definition at line 23 of file mevb.c.
+.SS "#define TIMEOUT_ABORT   300"
+.PP
+Definition at line 31 of file mevb.c.
+.PP
+Referenced by scan_fragment().
+.SH "Function Documentation"
+.PP 
+.SS "\fBINT\fP close_buffers (void)"
+.PP
+Definition at line 948 of file mevb.c.
+.PP
+Referenced by scan_fragment().
+.SS "\fBINT\fP eb_begin_of_run (\fBINT\fP, char *, char *)"Hook to the event builder task at PreStart transition. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIrn\fP run number 
+.br
+\fIUserField\fP argument from /Ebuilder/Settings 
+.br
+\fIerror\fP error string to be passed back to the system. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+EB_SUCCESS 
+.RE
+.PP
+
+.PP
+Definition at line 108 of file ebuser.c.
+.PP
+Referenced by tr_start().
+.SS "\fBINT\fP eb_end_of_run (\fBINT\fP, char *)"Hook to the event builder task at completion of event collection after receiving the Stop transition. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIrn\fP run number 
+.br
+\fIerror\fP error string to be passed back to the system. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+EB_SUCCESS 
+.RE
+.PP
+
+.PP
+Definition at line 123 of file ebuser.c.
+.PP
+Referenced by close_buffers().
+.SS "\fBINT\fP eb_mfragment_add (char * pdest, char * psrce, \fBINT\fP * size)"
+.PP
+Definition at line 486 of file mevb.c.
+.PP
+Referenced by load_fragment().
+.SS "\fBINT\fP eb_user (\fBINT\fP nfrag, \fBBOOL\fP mismatch, EBUILDER_CHANNEL * ebch, \fBEVENT_HEADER\fP * pheader, void * pevent, \fBINT\fP * dest_size)"Hook to the event builder task after the reception of all fragments of the same serial number. The destination event has already the final \fBEVENT_HEADER\fP setup with the data size set to 0. It is than possible to add private data at this point using the proper bank calls. Therefore any new banks created within eb_user will be appearing before the collected banks from the fragments. When using the eb_user with the ODB flag 'user build=y' (equipments/EB/settings) the automatic event builder is skipped. This allow the user to extract selectively from the different fragments the appropriate banks and compose the final destination event. In order to do so, the function 'bk_copy(pevent, ebch[i].pfragment, bankname)' will copy a particular bank from a given fragment.
+.PP
+\fBNote:\fP It exists two Midas event format to address bank size less than 32KB and larger bank size <4GB. This distinction is done by the call bk_init(pevent) for the small bank size and bk_init32(pevent) for large bank size. Within an experiment, this declaration has to be consistant. Therefore the bk_init in the eb_user should follow as well the type of the frontends.
+.PP
+The ebch[] array structure points to nfragment channel structure with the following content: 
+.PP
+.nf
+typedef struct {
+    char  name[32];         // Fragment name (Buffer name).
+    DWORD serial;           // Serial fragment number.
+    char *pfragment;        // Pointer to fragment (EVENT_HEADER *)
+    ...
+} EBUILDER_CHANNEL;
+
+.fi
+.PP
+.PP
+The correct code for including your own MIDAS bank is shown below where \fBTID_xxx\fP is one of the valid Bank type starting with \fBTID_\fP for midas format \fBbank_name\fP is a 4 character descriptor. \fBpdata\fP has to be declared accordingly with the bank type. Refers to the \fBebuser.c\fP source code for further description.
+.PP
+\fB It is not possible to mix within the same destination event different event format! No bk_swap performed when user build is requested. \fP
+.PP
+.PP
+.nf
+  // Event is empty, fill it with BANK_HEADER
+  // If you need to add your own bank at this stage
+
+  // Need to match the decalration in the Frontends.
+  bk_init(pevent);  
+//  bk_init32(pevent);
+  bk_create(pevent, bank_name, TID_xxxx, &pdata);
+  *pdata++ = ...;
+  *dest_size = bk_close(pevent, pdata);
+  pheader->data_size = *dest_size + sizeof(EVENT_HEADER);
+.fi
+.PP
+.PP
+\fBParameters:\fP
+.RS 4
+\fInfrag\fP Number of fragment. 
+.br
+\fImismatch\fP Midas Serial number mismatch flag. 
+.br
+\fIebch\fP Structure to all the fragments. 
+.br
+\fIpheader\fP Destination pointer to the header. 
+.br
+\fIpevent\fP Destination pointer to the bank header. 
+.br
+\fIdest_size\fP Destination event size in bytes. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+EB_SUCCESS 
+.RE
+.PP
+
+.PP
+Definition at line 194 of file ebuser.c.
+.PP
+Referenced by source_scan().
+.SS "\fBINT\fP eb_yfragment_add (char * pdest, char * psrce, \fBINT\fP * size)"
+.PP
+Definition at line 542 of file mevb.c.
+.SS "\fBINT\fP ebuilder_exit (void)"
+.PP
+Definition at line 89 of file ebuser.c.
+.PP
+Referenced by main().
+.SS "\fBINT\fP ebuilder_init (void)"
+.PP
+Definition at line 81 of file ebuser.c.
+.PP
+Referenced by main().
+.SS "\fBINT\fP ebuilder_loop (void)"
+.PP
+Definition at line 95 of file ebuser.c.
+.SS "void free_event_buffer (\fBINT\fP nfrag)"
+.PP
+Definition at line 787 of file mevb.c.
+.PP
+Referenced by main(), source_booking(), and source_unbooking().
+.SS "\fBINT\fP handFlush (void)"
+.PP
+Definition at line 799 of file mevb.c.
+.PP
+Referenced by close_buffers().
+.SS "\fBINT\fP load_fragment (void)"
+.PP
+Definition at line 243 of file mevb.c.
+.PP
+Referenced by main().
+.SS "int main (int argc, char ** argv)"
+.PP
+Definition at line 1157 of file mevb.c.
+.SS "\fBINT\fP register_equipment (void)"
+.PP
+Definition at line 114 of file mevb.c.
+.SS "\fBINT\fP scan_fragment (void)"
+.PP
+Definition at line 325 of file mevb.c.
+.PP
+Referenced by main().
+.SS "\fBINT\fP source_booking (void)"
+.PP
+Definition at line 833 of file mevb.c.
+.PP
+Referenced by tr_start().
+.SS "\fBINT\fP source_scan (\fBINT\fP fmt, \fBEQUIPMENT_INFO\fP * eq_info)"Scan all the fragment source once per call.
+.PP
+.IP "1." 4
+This will retrieve the full midas event not swapped (except the MIDAS_HEADER) for each fragment if possible. The fragment will be stored in the channel event pointer.
+.IP "2." 4
+if after a full nfrag path some frag are still not cellected, it returns with the frag# missing for timeout check.
+.IP "3." 4
+If ALL fragments are present it will check the midas serial# for a full match across all the fragments.
+.IP "4." 4
+If the serial check fails it returns with 'event mismatch' and will abort the event builder but not stop the run for now.
+.IP "5." 4
+If the serial check is passed, it will call the user_build function where the destination event is going to be composed.
+.PP
+.PP
+\fBParameters:\fP
+.RS 4
+\fIfmt\fP Fragment format type 
+.br
+\fIeq_info\fP Equipement pointer 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+EB_NO_MORE_EVENT, EB_COMPOSE_TIMEOUT if different then SUCCESS (bm_compose, rpc_sent error) 
+.RE
+.PP
+
+.PP
+Definition at line 997 of file mevb.c.
+.PP
+Referenced by scan_fragment().
+.SS "\fBINT\fP source_unbooking (void)"
+.PP
+Definition at line 914 of file mevb.c.
+.PP
+Referenced by close_buffers(), and main().
+.SS "\fBINT\fP tr_pause (\fBINT\fP rn, char * error)"
+.PP
+Definition at line 762 of file mevb.c.
+.SS "\fBINT\fP tr_resume (\fBINT\fP rn, char * error)"
+.PP
+Definition at line 744 of file mevb.c.
+.SS "\fBINT\fP tr_start (\fBINT\fP rn, char * error)"
+.PP
+Definition at line 614 of file mevb.c.
+.SS "\fBINT\fP tr_stop (\fBINT\fP rn, char * error)"
+.PP
+Definition at line 771 of file mevb.c.
+.SH "Variable Documentation"
+.PP 
+.SS "\fBBOOL\fP \fBabort_requested\fP = FALSE"
+.PP
+Definition at line 54 of file mevb.c.
+.PP
+Referenced by close_buffers(), scan_fragment(), and tr_start().
+.SS "\fBDWORD\fP \fBactual_millitime\fP"
+.PP
+Definition at line 40 of file mevb.c.
+.SS "\fBDWORD\fP \fBactual_time\fP"
+.PP
+Definition at line 39 of file mevb.c.
+.SS "char \fBbars\fP[] = '|\\\\-/'"
+.PP
+Definition at line 52 of file mevb.c.
+.PP
+Referenced by scan_fragment(), and v1729_TimeCalibrationRun().
+.SS "char \fBbuffer_name\fP[NAME_LENGTH]"
+.PP
+Definition at line 45 of file mevb.c.
+.PP
+Referenced by load_fragment(), and main().
+.SS "\fBBOOL\fP \fBdebug\fP = FALSE"
+.PP
+Definition at line 49 of file mevb.c.
+.SS "\fBBOOL\fP \fBdebug1\fP = FALSE"
+.PP
+Definition at line 49 of file mevb.c.
+.PP
+Referenced by handFlush(), and source_scan().
+.SS "char* \fBdest_event\fP"
+.PP
+Definition at line 47 of file mevb.c.
+.PP
+Referenced by load_fragment(), and source_scan().
+.SS "\fBINT\fP \fBdisplay_period\fP"
+.PP
+Definition at line 66 of file fevmemodules.c.
+.SS "EBUILDER_CHANNEL \fBebch\fP[MAX_CHANNELS]"
+.PP
+Definition at line 34 of file mevb.c.
+.PP
+Referenced by free_event_buffer(), handFlush(), load_fragment(), main(), scan_fragment(), source_booking(), source_scan(), source_unbooking(), tr_resume(), and tr_start().
+.SS "EBUILDER_SETTINGS \fBebset\fP"
+.PP
+Definition at line 33 of file mevb.c.
+.PP
+Referenced by eb_user(), handFlush(), main(), scan_fragment(), source_booking(), source_scan(), and tr_start().
+.SS "\fBEQUIPMENT\fP \fBequipment\fP[]"
+.PP
+Definition at line 150 of file fevmemodules.c.
+.SS "\fBINT\fP \fBevent_buffer_size\fP"
+.PP
+Definition at line 75 of file fevmemodules.c.
+.SS "char \fBexpt_name\fP[NAME_LENGTH]"
+.PP
+Definition at line 44 of file mevb.c.
+.PP
+Referenced by cm_transition1(), and main().
+.SS "\fBBOOL\fP \fBfrontend_call_loop\fP"
+.PP
+Definition at line 63 of file fevmemodules.c.
+.SS "char* \fBfrontend_file_name\fP"
+.PP
+Definition at line 60 of file fevmemodules.c.
+.SS "char* \fBfrontend_name\fP"
+.PP
+Definition at line 58 of file fevmemodules.c.
+.SS "HNDLE \fBhDB\fP"
+.PP
+Definition at line 48 of file mevb.c.
+.SS "HNDLE \fBhEqKey\fP"
+.PP
+Definition at line 48 of file mevb.c.
+.PP
+Referenced by load_fragment().
+.SS "HNDLE \fBhESetKey\fP"
+.PP
+Definition at line 48 of file mevb.c.
+.SS "HNDLE \fBhKey\fP"
+.PP
+Definition at line 48 of file mevb.c.
+.PP
+Referenced by analyzer_init(), cm_connect_client(), cm_delete_client_info(), cm_disconnect_experiment(), cm_get_client_info(), cm_msg_log(), cm_msg_log1(), cm_msg_retrieve(), cm_set_client_info(), cm_set_watchdog_params(), device_driver(), hv_init(), logger_root(), main(), register_equipment(), set_equipment_status(), tr_start(), and validate_odb_array().
+.SS "char \fBhost_name\fP[HOST_NAME_LENGTH]"
+.PP
+Definition at line 43 of file mevb.c.
+.SS "HNDLE \fBhStatKey\fP"
+.PP
+Definition at line 48 of file mevb.c.
+.SS "HNDLE \fBhSubkey\fP"
+.PP
+Definition at line 48 of file mevb.c.
+.PP
+Referenced by cm_connect_client(), cm_exist(), cm_set_client_info(), cm_shutdown(), cm_transition1(), and load_fragment().
+.SS "int \fBi_bar\fP"
+.PP
+Definition at line 53 of file mevb.c.
+.PP
+Referenced by scan_fragment(), and v1729_TimeCalibrationRun().
+.SS "\fBDWORD\fP \fBlast_time\fP"
+.PP
+Definition at line 38 of file mevb.c.
+.PP
+Referenced by sc_thread(), and scan_fragment().
+.SS "\fBINT\fP \fBmax_event_size\fP"
+.PP
+Definition at line 69 of file fevmemodules.c.
+.SS "\fBINT\fP \fBmax_event_size_frag\fP"
+.PP
+Definition at line 72 of file fevmemodules.c.
+.SS "\fBINT\fP(* \fBmeb_fragment_add\fP)(char *, char *, \fBINT\fP *)"
+.PP
+Referenced by load_fragment(), and source_scan().
+.SS "char \fBmevb_svn_revision\fP[] = '$Id: mevb.c 5204 2011-10-06 21:03:34Z amaudruz $'"
+.PP
+Definition at line 42 of file mevb.c.
+.PP
+Referenced by main().
+.SS "\fBINT\fP \fBnfragment\fP"
+.PP
+Definition at line 46 of file mevb.c.
+.PP
+Referenced by handFlush(), load_fragment(), scan_fragment(), source_booking(), source_scan(), source_unbooking(), tr_resume(), and tr_start().
+.SS "\fBDWORD\fP \fBrequest_stop_time\fP = 0"
+.PP
+Definition at line 55 of file mevb.c.
+.PP
+Referenced by close_buffers(), and tr_stop().
+.SS "\fBINT\fP \fBrun_number\fP"
+.PP
+Definition at line 37 of file mevb.c.
+.SS "\fBINT\fP \fBrun_state\fP"
+.PP
+Definition at line 36 of file mevb.c.
+.SS "\fBBOOL\fP \fBstop_requested\fP = TRUE"
+.PP
+Definition at line 54 of file mevb.c.
+.PP
+Referenced by scan_fragment(), tr_start(), and tr_stop().
+.SS "\fBDWORD\fP \fBstop_time\fP = 0"
+.PP
+Definition at line 55 of file mevb.c.
+.PP
+Referenced by close_buffers().
+.SS "int \fBwaiting_for_stop\fP = FALSE\fC [static]\fP"
+.PP
+Definition at line 111 of file mevb.c.
+.PP
+Referenced by scan_fragment(), and tr_stop().
+.SS "\fBBOOL\fP \fBwheel\fP = FALSE"
+.PP
+Definition at line 51 of file mevb.c.
+.PP
+Referenced by main(), and scan_fragment().
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Midas from the source code.

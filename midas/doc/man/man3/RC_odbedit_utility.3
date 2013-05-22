@@ -1,0 +1,154 @@
+.TH "RC_odbedit_utility" 3 "31 May 2012" "Version 2.3.0-0" "Midas" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+RC_odbedit_utility \- odbedit - ODB Editor and run control utility 
+ 
+.br
+ 
+.PP
+
+.br
+.PP
+ \fBodbedit\fP is primarily an \fBOnline Database (ODB)\fP Editor. It also acts as a run control and has limited run monitoring features. It is an alternative to the web-based run control program \fBThe mhttpd daemon\fP.
+.PP
+.IP "\(bu" 2
+\fB Arguments \fP
+.IP "  \(bu" 4
+[-h hostname ] :Specifies host to connect to. See \fBhostname\fP for details.
+.IP "  \(bu" 4
+[-e exptname ] :Specifies the experiment to connect to. See \fBexperiment\fP for details.
+.IP "  \(bu" 4
+[-c command ] :Perform a single command
+.IP "  \(bu" 4
+[-c @commandFile ] :Perform commands in sequence found in the commandFile. Can be used to perform operations in script files. See \fBexamples\fP.
+.IP "  \(bu" 4
+[-s size ] : size in bytes (for \fBODB creation\fP). Specify the size of the ODB file to be created when no shared file is present in the experiment directory (default 128KB).
+.IP "  \(bu" 4
+[-d ODB Subtree] :Specify the initial entry ODB path to go to.
+.IP "  \(bu" 4
+[-g] debug
+.IP "  \(bu" 4
+[-C ] connect to corrupted ODB
+.PP
+
+.PP
+.PP
+.IP "\(bu" 2
+\fB Usage \fP ODBedit has a simple command line interface with command line editing similar to the UNIX tcsh shell. The following edit keys are implemented:
+.IP "  \(bu" 4
+[Backspace] Erase the character left from cursor
+.IP "  \(bu" 4
+[Delete/Ctrl-D] Erase the character under cursor
+.IP "  \(bu" 4
+[Ctrl-W/Ctrl-U] Erase the current line
+.IP "  \(bu" 4
+[Ctrl-K] Erase the line from cursor to end
+.IP "  \(bu" 4
+[Left arrow/Ctrl-B] Move cursor left
+.IP "  \(bu" 4
+[Right arrow/Ctrl-F] Move cursor right
+.IP "  \(bu" 4
+[Home/Ctrl-A] Move cursor to beginning of line
+.IP "  \(bu" 4
+[End/Ctrl-E] Move cursor to end of line
+.IP "  \(bu" 4
+[Up arrow/Ctrl-P] Recall previous command
+.IP "  \(bu" 4
+[Down arrow/Ctrl-N] Recall next command
+.IP "  \(bu" 4
+[Ctrl-F] Find most recent command which starts with current line
+.IP "  \(bu" 4
+[Tab/Ctrl-I] Complete directory. The command \fBls\fP /Sy <tab> yields to \fBls\fP /System.
+.PP
+
+.PP
+.PP
+.IP "\(bu" 2
+\fB Remarks \fP
+.IP "  \(bu" 4
+ODBedit treats the hierarchical online database very much like a file system. Most commands are similar to UNIX file commands like ls, cd, chmod, ln etc. The help command displays a short description of all commands.
+.PP
+
+.PP
+.PP
+The odbedit commands and mode of operation are described fully in the following sections.
+.PP
+ 
+.SH "odbedit command list"
+.PP
+Running \fBodbedit\fP and issuing the command 'help' displays the list of commands: 
+.PP
+.nf
+$ odbedit
+
+[local:pol:S]/>help
+Database commands ([] are options, <> are placeholders):
+
+alarm                   - reset all alarms
+cd <dir>                - change current directory
+chat                    - enter chat mode
+chmod <mode> <key>      - change access mode of a key
+                          1=read | 2=write | 4=delete
+cleanup [client] [-f]   - delete hanging clients [force]
+copy <src> <dest>       - copy a subtree to a new location
+create <type> <key>     - create a key of a certain type
+create <type> <key>[n]  - create an array of size [n]
+del/rm [-l] [-f] <key>  - delete a key and its subkeys
+  -l                      follow links
+  -f                      force deletion without asking
+exec <key>/<cmd>        - execute shell command (stored in key) on server
+export <key> <filename> - export key into ASCII file
+find <pattern>          - find a key with wildcard pattern
+help/? [command]        - print this help [for a specific command]
+hi [analyzer] [id]      - tell analyzer to clear histos
+import <filename> [key] - import ASCII file into string key
+ln <source> <linkname>  - create a link to <source> key
+load <file>             - load database from .ODB file at current position
+ls/dir [-lhvrp] [<pat>] - show database entries which match pattern
+  -l                      detailed info
+  -h                      hex format
+  -v                      only value
+  -r                      show database entries recursively
+  -p                      pause between screens
+make [analyzer name]    - create experim.h
+mem [-v]                - show memeory usage [verbose]
+mkdir <subdir>          - make new <subdir>
+move <key> [top/bottom/[n]] - move key to position in keylist
+msg [type] [user] <msg> - compose user message
+old [n]                 - display old n messages
+passwd                  - change MIDAS password
+pause                   - pause current run
+pwd                     - show current directory
+resume                  - resume current run
+rename <old> <new>      - rename key
+rewind [channel]        - rewind tapes in logger
+save [-c -s -x -cs] <file>  - save database at current position
+                          in ASCII format
+  -c                      as a C structure
+  -s                      as a #define'd string
+  -x                      as a XML file
+set <key> <value>       - set the value of a key
+set <key>[i] <value>    - set the value of index i
+set <key>[*] <value>    - set the value of all indices of a key
+set <key>[i..j] <value> - set the value of all indices i..j
+scl [-w]                - show all active clients [with watchdog info]
+shutdown <client>/all   - shutdown individual or all clients
+sor                     - show open records in current subtree
+start [number][now][-v] - start a run [with a specific number],
+                          [now] w/o asking parameters, [-v] debug output
+stop [-v]               - stop current run, [-v] debug output
+trunc <key> <index>     - truncate key to [index] values
+ver                     - show MIDAS library version
+webpasswd               - change WWW password for mhttpd
+wait <key>              - wait for key to get modified
+quit/exit               - exit
+
+.fi
+.PP
+.PP
+
+.br
+ 
+.PP
+ 

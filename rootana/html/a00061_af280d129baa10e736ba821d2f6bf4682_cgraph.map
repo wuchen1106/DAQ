@@ -1,0 +1,10 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$a00060.html#a7a5b2fe6305f7eee49ef669d43aed3bc" title="NetDirectoryExport" alt="" coords="247,5,404,35"/>
+<area shape="rect" id="node5" href="$a00139.html#ae4c520908e89934574ff6a73619ec5ea" title="root_socket_server" alt="" coords="249,59,401,88"/>
+<area shape="rect" id="node15" href="$a00140.html#a9e7f85724d1297d2f50530af4e1e8847" title="socket_listener" alt="" coords="263,112,388,141"/>
+<area shape="rect" id="node18" href="$a00062.html#aae77a7cf2fc9f586fcfcb244ce1e9cc6" title="StartLockRootTimer" alt="" coords="247,165,404,195"/>
+<area shape="rect" id="node7" href="$a00139.html#af1ab5f1dddd620d9b2a2977c18a17450" title="root_server_thread" alt="" coords="453,85,605,115"/>
+<area shape="rect" id="node9" href="$a00139.html#a46bb444c1c19c18f6e1cc93126bdd2b2" title="ReadFolderPointer" alt="" coords="669,59,816,88"/>
+<area shape="rect" id="node11" href="$a00007.html#a6eacd9797b31cb1cbbc213516fe4940f" title="LockRootGuard::Unlock" alt="" coords="655,112,831,141"/>
+<area shape="rect" id="node13" href="$a00062.html#a78a97bb7d60bd863c98e75e86e4dc3a0" title="UnlockRoot" alt="" coords="881,112,977,141"/>
+</map>

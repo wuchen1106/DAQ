@@ -1,0 +1,79 @@
+\subsection{adcsum.c File Reference}
+\label{adcsum_8c}\index{adcsum.c@{adcsum.c}}
+
+
+\subsubsection{Define Documentation}
+\index{adcsum.c@{adcsum.c}!DEFINE\_\-TESTS@{DEFINE\_\-TESTS}}
+\index{DEFINE\_\-TESTS@{DEFINE\_\-TESTS}!adcsum.c@{adcsum.c}}
+\paragraph[{DEFINE\_\-TESTS}]{\setlength{\rightskip}{0pt plus 5cm}\#define DEFINE\_\-TESTS}\hfill\label{adcsum_8c_a31569d5acde1be6aa6ef7c8f3a705e75}
+
+
+Definition at line 22 of file adcsum.c.\index{adcsum.c@{adcsum.c}!PI@{PI}}
+\index{PI@{PI}!adcsum.c@{adcsum.c}}
+\paragraph[{PI}]{\setlength{\rightskip}{0pt plus 5cm}\#define PI~3.14159265359}\hfill\label{adcsum_8c_a598a3330b3c21701223ee0ca14316eca}
+
+
+Definition at line 33 of file adcsum.c.
+
+\subsubsection{Function Documentation}
+\index{adcsum.c@{adcsum.c}!adc\_\-summing@{adc\_\-summing}}
+\index{adc\_\-summing@{adc\_\-summing}!adcsum.c@{adcsum.c}}
+\paragraph[{adc\_\-summing}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} adc\_\-summing ({\bf EVENT\_\-HEADER} $\ast$ {\em pheader}, \/  void $\ast$ {\em pevent})}\hfill\label{adcsum_8c_aedcf19b16c2e259c198765bf3c10cde9}
+
+
+Definition at line 87 of file adcsum.c.\index{adcsum.c@{adcsum.c}!adc\_\-summing\_\-bor@{adc\_\-summing\_\-bor}}
+\index{adc\_\-summing\_\-bor@{adc\_\-summing\_\-bor}!adcsum.c@{adcsum.c}}
+\paragraph[{adc\_\-summing\_\-bor}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} adc\_\-summing\_\-bor ({\bf INT} {\em run\_\-number})}\hfill\label{adcsum_8c_ae46098121be2a9edc7739515c96fd8bc}
+\index{adcsum.c@{adcsum.c}!adc\_\-summing\_\-init@{adc\_\-summing\_\-init}}
+\index{adc\_\-summing\_\-init@{adc\_\-summing\_\-init}!adcsum.c@{adcsum.c}}
+\paragraph[{adc\_\-summing\_\-init}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} adc\_\-summing\_\-init (void)}\hfill\label{adcsum_8c_a51c765a64de2c9724513173b04621120}
+
+
+Definition at line 72 of file adcsum.c.\index{adcsum.c@{adcsum.c}!ADC\_\-SUMMING\_\-PARAM\_\-STR@{ADC\_\-SUMMING\_\-PARAM\_\-STR}}
+\index{ADC\_\-SUMMING\_\-PARAM\_\-STR@{ADC\_\-SUMMING\_\-PARAM\_\-STR}!adcsum.c@{adcsum.c}}
+\paragraph[{ADC\_\-SUMMING\_\-PARAM\_\-STR}]{\setlength{\rightskip}{0pt plus 5cm}ADC\_\-SUMMING\_\-PARAM\_\-STR (adc\_\-summing\_\-param\_\-str)}\hfill\label{adcsum_8c_ac1ce062d6d59b5b4b49b3f31a7d47ed9}
+\index{adcsum.c@{adcsum.c}!DEF\_\-TEST@{DEF\_\-TEST}}
+\index{DEF\_\-TEST@{DEF\_\-TEST}!adcsum.c@{adcsum.c}}
+\paragraph[{DEF\_\-TEST}]{\setlength{\rightskip}{0pt plus 5cm}DEF\_\-TEST (high\_\-sum)}\hfill\label{adcsum_8c_a620477cc033ef6e43877cfda019f7fe6}
+\index{adcsum.c@{adcsum.c}!DEF\_\-TEST@{DEF\_\-TEST}}
+\index{DEF\_\-TEST@{DEF\_\-TEST}!adcsum.c@{adcsum.c}}
+\paragraph[{DEF\_\-TEST}]{\setlength{\rightskip}{0pt plus 5cm}DEF\_\-TEST (low\_\-sum)}\hfill\label{adcsum_8c_a2a258b626ab744fc5ce8c6534c524cf5}
+
+
+\subsubsection{Variable Documentation}
+\index{adcsum.c@{adcsum.c}!adc\_\-summing\_\-module@{adc\_\-summing\_\-module}}
+\index{adc\_\-summing\_\-module@{adc\_\-summing\_\-module}!adcsum.c@{adcsum.c}}
+\paragraph[{adc\_\-summing\_\-module}]{\setlength{\rightskip}{0pt plus 5cm}{\bf ANA\_\-MODULE} {\bf adc\_\-summing\_\-module}}\hfill\label{adcsum_8c_a5304a76f0819218c694defe1e049c584}
+{\bfseries Initial value:}
+\begin{DoxyCode}
+ {
+   "ADC summing",               
+   "Stefan Ritt",               
+   adc_summing,                 
+   NULL,                        
+   NULL,                        
+   adc_summing_init,            
+   NULL,                        
+   &adc_summing_param,          
+   sizeof(adc_summing_param),   
+   adc_summing_param_str,       
+}
+\end{DoxyCode}
+
+
+Definition at line 53 of file adcsum.c.\index{adcsum.c@{adcsum.c}!adc\_\-summing\_\-param@{adc\_\-summing\_\-param}}
+\index{adc\_\-summing\_\-param@{adc\_\-summing\_\-param}!adcsum.c@{adcsum.c}}
+\paragraph[{adc\_\-summing\_\-param}]{\setlength{\rightskip}{0pt plus 5cm}{\bf ADC\_\-SUMMING\_\-PARAM} {\bf adc\_\-summing\_\-param}}\hfill\label{adcsum_8c_a2b6d31f6ef3ff3d2d8591890fc419bdf}
+
+
+Definition at line 38 of file adcsum.c.\index{adcsum.c@{adcsum.c}!hAdcAvg@{hAdcAvg}}
+\index{hAdcAvg@{hAdcAvg}!adcsum.c@{adcsum.c}}
+\paragraph[{hAdcAvg}]{\setlength{\rightskip}{0pt plus 5cm}TH1D $\ast$ {\bf hAdcAvg}\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}\hfill\label{adcsum_8c_a9f9e9d41dc2d6fe9be3a458841d40666}
+
+
+Definition at line 68 of file adcsum.c.\index{adcsum.c@{adcsum.c}!hAdcSum@{hAdcSum}}
+\index{hAdcSum@{hAdcSum}!adcsum.c@{adcsum.c}}
+\paragraph[{hAdcSum}]{\setlength{\rightskip}{0pt plus 5cm}TH1D$\ast$ {\bf hAdcSum}\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}\hfill\label{adcsum_8c_aba6afd881740f71b5a57bd2a9257b7b5}
+
+
+Definition at line 68 of file adcsum.c.

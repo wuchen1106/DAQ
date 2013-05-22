@@ -1,0 +1,171 @@
+.TH "RC_mhttpd_custom_ODB_access_features" 3 "31 May 2012" "Version 2.3.0-0" "Midas" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+RC_mhttpd_custom_ODB_access_features \- Features using ODB access from a Custom page 
+
+.br
+.PP
+.PP
+
+.br
+ This page describes several features with ODB access on a custom page.
+.PP
+.IP "\(bu" 2
+\fBIncluding checkboxes on a custom page\fP
+.IP "\(bu" 2
+\fBPeriodic update of parts of a custom page\fP
+.IP "\(bu" 2
+\fBPassword protection of ODB variables accessed from a custom page\fP
+.PP
+.SH "Including checkboxes on a custom page"
+.PP
+The function ODBSet can be used when one clicks on an \fBcheckbox\fP for example: 
+.PP
+.nf
+  <input type='checkbox' onClick='ODBSet('/Logger/Write data',this.checked?'1':'0')'>
+
+.fi
+.PP
+.PP
+If used as above, the state of the checkbox must be initialized when the page is loaded. This can be done with some JavaScript code called on initialization, which then uses \fBODBSet JavaScript function\fP as described above.
+.PP
+Alternatively, the checkbox can be created using an  <odb...>  \fBtag\fP as follows: 
+.PP
+.nf
+  <odb src='/Logger/Write data' type='checkbox' edit='2' onclick='ODBSet('/Logger/Write data',this.checked?'1':'0')'>
+
+.fi
+.PP
+.PP
+The special code \fBedit='2'\fP instructs mhttpd not to put any JavaScript code into the checkbox tag, since setting this value in the ODB is now handled by the user-supplied ODBSet() code.
+.SH "Example of Checkboxes using JavaScript and HTML"
+.PP
+.PP
+.nf
+<!DOCTYPE HTML PUBLIC '-//W3C//DTD HTML 4.0 TRANSITIONAL//EN'>
+<html><head>
+<title> ODBEdit test</title>
+<!-- include the mhttpd JS library -->
+\htmlonly <script src='/js/mhttpd.js' type='text/javascript'></script> \endhtmlonly
+
+\htmlonly <script type='text/javascript'>
+
+var my_action = ''/CS/try&''
+var ival;
+var my_expt='midas';
+</script> \endhtmlonly
+</head><body>
+<form method='get' name='form2' action='+my_action+'>
+<input name='exp' value=''+my_expt+'' type='hidden'>
+Write data: <odb src='/Logger/Write data'><br>
+JS Checkbox ... Write Data:
+<input  name='mybox'  type='checkbox'   onClick='ODBSet('/Logger/Write data',this.checked?'1':'0')'>
+\htmlonly <script>
+if( ODBGet('/Logger/Write data') =='y')
+  ival=1;
+else
+  ival=0;
+document.write('<br>ival='+ival+'<br>');
+document.form2.mybox.checked=ival  // initialize to the correct value
+</script> \endhtmlonly
+
+<br>HTML checkbox... Write Data:
+  <odb src='/Logger/Write data' type='checkbox' edit='2' onclick='ODBSet('/Logger/Write data',this.checked?'1':'0')'>
+<br>
+</form>
+</html>
+.fi
+.PP
+.PP
+
+.br
+
+.br
+
+.br
+  Figure 4 Output from above code: checkboxes 
+.br
+
+.br
+
+.br
+  
+.br
+
+.br
+
+.br
+ 
+.PP
+
+.br
+.PP
+
+.br
+.PP
+ 
+.SH "Periodic update of parts of a custom page"
+.PP
+The functionality of ODBGet together with the
+.IP "\(bu" 2
+\fBwindow.setInterval()\fP function
+.PP
+.PP
+can be used to update parts of the web page periodically. 
+.br
+ For example the Javascript fragment below contains a function which updates the current run number every 10 seconds in the background : 
+.PP
+.nf
+  window.setInterval('Refresh()', 10000);
+
+  function Refresh() {
+    document.getElementById('run_number').innerHTML = ODBGet('/Runinfo/Run number');
+  }
+
+.fi
+.PP
+.PP
+The custom page has to contain an element with id='run_number', such as 
+.PP
+.nf
+  <td id='run_number'></td>
+
+.fi
+.PP
+ 
+.br
+
+.br
+.SH "Password protection of ODB variables accessed from a custom page"
+.PP
+Being able to control an experiment through a web interface of course raises the question of safety. This is not so much about external access (for which there are other protection schemes like host lists etc.) but it's about accidental access by the normal shift crew. If a single click on a web page opens a critical valve, this might be a problem. In order to restrict access to some 'experts', an additional password can be chosen for all or some controls on a custom page.
+.PP
+Password protection is optional, and must be set up by the user. The \fIpassword\fP must be defined as an ODB entry of the form  /Custom/Pwd/<password> . If the password is \fICustomPwd\fP, the ODB key /Custom/Pwd/CustomPwd  would be defined.
+.PP
+By using an explicit name, one can use a single password for all controls on a page, or one could use several passwords on the same page. For example, a shift crew password for the less severe controls (\fIShiftPwd\fP), and an 'expert' password (\fIExpertPwd\fP) for the critical things.
+.PP
+The ODB would have two passwords defined, i.e.
+.br
+  /Custom/Pwd/ExpertPwd
+.br
+ /Custom/Pwd/ShiftPwd
+.br
+.PP
+The password is of course not secure in the sense that it's placed in plain text into the ODB, but its purpose is to prevent accidental modification, rather than malicious interference.
+.PP
+
+.br
+ Password protection is available for
+.IP "\(bu" 2
+\fBPassword protection of Edit Boxes\fP
+.IP "\(bu" 2
+\fBODBSet JavaScript function\fP
+.IP "\(bu" 2
+\fBArea map with password check\fP
+.PP
+.PP
+If password protection \fBis\fP set up, mhttpd will check the supplied password against the ODB entry, and show an error if they don't match.
+.PP
+.PP
+ 

@@ -1,0 +1,14 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$a00015.html#ac2d58ceff032ecbd7dab209301034eb1" title="Add a templated function that returns event data in the format that we want." alt="" coords="308,59,548,88"/>
+<area shape="rect" id="node5" href="$a00010.html#a488e1fa5ce7c9dbf04ad102236dcf380" title="Process each midas event." alt="" coords="691,5,936,35"/>
+<area shape="rect" id="node11" href="$a00015.html#a073a13cfde065b88bbfbc3f31e92ae26" title="TDataContainer::GetMidasEvent" alt="" coords="305,112,551,141"/>
+<area shape="rect" id="node14" href="$a00015.html#a91a75987f816396f556de3619ae3c366" title="TDataContainer::TDataContainer" alt="" coords="304,165,552,195"/>
+<area shape="rect" id="node16" href="$a00010.html#a378d2b4e5d93437808b5dc5496dd3ab8" title="This method can be implemented by users to update user histograms." alt="" coords="309,219,547,248"/>
+<area shape="rect" id="node18" href="$a00037.html#adb28b4bea380c50a1bba7a03266e606a" title="TRootanaDisplay::UpdatePlotsAction" alt="" coords="293,272,563,301"/>
+<area shape="rect" id="node7" href="$a00039.html#af28d2599411ff7369e5c524cda7fe025" title="Update the histograms for this canvas." alt="" coords="631,59,996,88"/>
+<area shape="rect" id="node9" href="$a00013.html#ad83f3a6bc10f9f59f081e529b54fe131" title="Update the histograms for this canvas." alt="" coords="611,112,1016,141"/>
+<area shape="rect" id="node20" href="$a00037.html#a59288bcf3bd2f6bcb8c7d2ee2db85b43" title="TRootanaDisplay::BeginRun" alt="" coords="711,165,916,195"/>
+<area shape="rect" id="node22" href="$a00037.html#a23f4d591f375d3415e48f46f648e130d" title="TRootanaDisplay::EndRun" alt="" coords="717,219,909,248"/>
+<area shape="rect" id="node24" href="$a00037.html#a85792355354ecf3a141b293e902de217" title="Process each midas event." alt="" coords="676,272,951,301"/>
+<area shape="rect" id="node26" href="$a00037.html#ae790ba3e2b2132743846f0f191bf4d18" title="TRootanaDisplay::Reset" alt="" coords="721,325,905,355"/>
+</map>

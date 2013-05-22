@@ -1,0 +1,151 @@
+\subsection{ANALYZE\_\-REQUEST Struct Reference}
+\label{structANALYZE__REQUEST}\index{ANALYZE\_\-REQUEST@{ANALYZE\_\-REQUEST}}
+\subsubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+char \hyperlink{structANALYZE__REQUEST_abc24698c600ca2b3eec735b84832d0b0}{event\_\-name} \mbox{[}NAME\_\-LENGTH\mbox{]}
+\item 
+\hyperlink{structAR__INFO}{AR\_\-INFO} \hyperlink{structANALYZE__REQUEST_abb8861e2bf01fae8d66f0f49ca6cd74c}{ar\_\-info}
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT}($\ast$ \hyperlink{structANALYZE__REQUEST_ae0728031c8b33ebc32851d6c2099a8f9}{analyzer} )(\hyperlink{structEVENT__HEADER}{EVENT\_\-HEADER} $\ast$, void $\ast$)
+\item 
+\hyperlink{structANA__MODULE}{ANA\_\-MODULE} $\ast$$\ast$ \hyperlink{structANALYZE__REQUEST_a84e88396cff69efebe3dad2289fe70c9}{ana\_\-module}
+\item 
+\hyperlink{structBANK__LIST}{BANK\_\-LIST} $\ast$ \hyperlink{structANALYZE__REQUEST_a3130441b33d46c2072cd2c38d7a21497}{bank\_\-list}
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{structANALYZE__REQUEST_ab9f17100ff718ee4da42cdd86a7f3cab}{rwnt\_\-buffer\_\-size}
+\item 
+\hyperlink{vt2_8h_a239c7f0d40651c3e419c5b9651507d14}{BOOL} \hyperlink{structANALYZE__REQUEST_a08306810e609b1e3854d3e19abe3a919}{use\_\-tests}
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{structANALYZE__REQUEST_af8540a32d1515c676b0d052fd03125d0}{status}
+\item 
+HNDLE \hyperlink{structANALYZE__REQUEST_afe5109f95d2a2c6406d5b6a6c661479e}{buffer\_\-handle}
+\item 
+HNDLE \hyperlink{structANALYZE__REQUEST_a2ee7a01967465e8a725bb968246c01de}{request\_\-id}
+\item 
+HNDLE \hyperlink{structANALYZE__REQUEST_a4da294a6f7f01e5521cbb0933c7f5b40}{hkey\_\-variables}
+\item 
+HNDLE \hyperlink{structANALYZE__REQUEST_a7c9dd18e861558a006b694b3c9f197a1}{hkey\_\-common}
+\item 
+void $\ast$ \hyperlink{structANALYZE__REQUEST_a9a0765582d554039a03d79a119c60558}{addr}
+\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+struct \{\\
+\} \hyperlink{structANALYZE__REQUEST_ad0d985c8ce031a4515988723e07b2ee0}{number}\\
+
+\end{tabbing}\item 
+\hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} \hyperlink{structANALYZE__REQUEST_abf605e9e770da11f91f501febd274aad}{events\_\-received}
+\item 
+\hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} \hyperlink{structANALYZE__REQUEST_aeaa47cc2392bfdc8a1ee1a459082c876}{events\_\-written}
+\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+
+
+Definition at line 1119 of file midas.h.
+
+\subsubsection{Field Documentation}
+\index{ANALYZE\_\-REQUEST@{ANALYZE\_\-REQUEST}!addr@{addr}}
+\index{addr@{addr}!ANALYZE_REQUEST@{ANALYZE\_\-REQUEST}}
+\paragraph[{addr}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ {\bf ANALYZE\_\-REQUEST::addr}}\hfill\label{structANALYZE__REQUEST_a9a0765582d554039a03d79a119c60558}
+Buffer for CWNT filling 
+
+Definition at line 1133 of file midas.h.\index{ANALYZE\_\-REQUEST@{ANALYZE\_\-REQUEST}!ana\_\-module@{ana\_\-module}}
+\index{ana\_\-module@{ana\_\-module}!ANALYZE_REQUEST@{ANALYZE\_\-REQUEST}}
+\paragraph[{ana\_\-module}]{\setlength{\rightskip}{0pt plus 5cm}{\bf ANA\_\-MODULE}$\ast$$\ast$ {\bf ANALYZE\_\-REQUEST::ana\_\-module}}\hfill\label{structANALYZE__REQUEST_a84e88396cff69efebe3dad2289fe70c9}
+List of analyzer modules 
+
+Definition at line 1123 of file midas.h.\index{ANALYZE\_\-REQUEST@{ANALYZE\_\-REQUEST}!analyzer@{analyzer}}
+\index{analyzer@{analyzer}!ANALYZE_REQUEST@{ANALYZE\_\-REQUEST}}
+\paragraph[{analyzer}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT}($\ast$ {\bf ANALYZE\_\-REQUEST::analyzer})({\bf EVENT\_\-HEADER} $\ast$, void $\ast$)}\hfill\label{structANALYZE__REQUEST_ae0728031c8b33ebc32851d6c2099a8f9}
+Pointer to user analyzer routine \index{ANALYZE\_\-REQUEST@{ANALYZE\_\-REQUEST}!ar\_\-info@{ar\_\-info}}
+\index{ar\_\-info@{ar\_\-info}!ANALYZE_REQUEST@{ANALYZE\_\-REQUEST}}
+\paragraph[{ar\_\-info}]{\setlength{\rightskip}{0pt plus 5cm}{\bf AR\_\-INFO} {\bf ANALYZE\_\-REQUEST::ar\_\-info}}\hfill\label{structANALYZE__REQUEST_abb8861e2bf01fae8d66f0f49ca6cd74c}
+From above 
+
+Definition at line 1121 of file midas.h.\index{ANALYZE\_\-REQUEST@{ANALYZE\_\-REQUEST}!ar\_\-stats@{ar\_\-stats}}
+\index{ar\_\-stats@{ar\_\-stats}!ANALYZE_REQUEST@{ANALYZE\_\-REQUEST}}
+\paragraph[{ar\_\-stats}]{\setlength{\rightskip}{0pt plus 5cm}{\bf AR\_\-STATS} {\bf ANALYZE\_\-REQUEST::ar\_\-stats}}\hfill\label{structANALYZE__REQUEST_a069e2a89b82e12f5257325227343b4c0}
+
+
+Definition at line 1141 of file midas.h.\index{ANALYZE\_\-REQUEST@{ANALYZE\_\-REQUEST}!bank\_\-list@{bank\_\-list}}
+\index{bank\_\-list@{bank\_\-list}!ANALYZE_REQUEST@{ANALYZE\_\-REQUEST}}
+\paragraph[{bank\_\-list}]{\setlength{\rightskip}{0pt plus 5cm}{\bf BANK\_\-LIST}$\ast$ {\bf ANALYZE\_\-REQUEST::bank\_\-list}}\hfill\label{structANALYZE__REQUEST_a3130441b33d46c2072cd2c38d7a21497}
+List of banks for event 
+
+Definition at line 1124 of file midas.h.\index{ANALYZE\_\-REQUEST@{ANALYZE\_\-REQUEST}!buffer\_\-handle@{buffer\_\-handle}}
+\index{buffer\_\-handle@{buffer\_\-handle}!ANALYZE_REQUEST@{ANALYZE\_\-REQUEST}}
+\paragraph[{buffer\_\-handle}]{\setlength{\rightskip}{0pt plus 5cm}HNDLE {\bf ANALYZE\_\-REQUEST::buffer\_\-handle}}\hfill\label{structANALYZE__REQUEST_afe5109f95d2a2c6406d5b6a6c661479e}
+MIDAS buffer handle 
+
+Definition at line 1129 of file midas.h.\index{ANALYZE\_\-REQUEST@{ANALYZE\_\-REQUEST}!event\_\-name@{event\_\-name}}
+\index{event\_\-name@{event\_\-name}!ANALYZE_REQUEST@{ANALYZE\_\-REQUEST}}
+\paragraph[{event\_\-name}]{\setlength{\rightskip}{0pt plus 5cm}char {\bf ANALYZE\_\-REQUEST::event\_\-name}\mbox{[}NAME\_\-LENGTH\mbox{]}}\hfill\label{structANALYZE__REQUEST_abc24698c600ca2b3eec735b84832d0b0}
+Event name 
+
+Definition at line 1120 of file midas.h.\index{ANALYZE\_\-REQUEST@{ANALYZE\_\-REQUEST}!events\_\-received@{events\_\-received}}
+\index{events\_\-received@{events\_\-received}!ANALYZE_REQUEST@{ANALYZE\_\-REQUEST}}
+\paragraph[{events\_\-received}]{\setlength{\rightskip}{0pt plus 5cm}{\bf DWORD} {\bf ANALYZE\_\-REQUEST::events\_\-received}}\hfill\label{structANALYZE__REQUEST_abf605e9e770da11f91f501febd274aad}
+number of events sent 
+
+Definition at line 1139 of file midas.h.\index{ANALYZE\_\-REQUEST@{ANALYZE\_\-REQUEST}!events\_\-written@{events\_\-written}}
+\index{events\_\-written@{events\_\-written}!ANALYZE_REQUEST@{ANALYZE\_\-REQUEST}}
+\paragraph[{events\_\-written}]{\setlength{\rightskip}{0pt plus 5cm}{\bf DWORD} {\bf ANALYZE\_\-REQUEST::events\_\-written}}\hfill\label{structANALYZE__REQUEST_aeaa47cc2392bfdc8a1ee1a459082c876}
+number of events written 
+
+Definition at line 1140 of file midas.h.\index{ANALYZE\_\-REQUEST@{ANALYZE\_\-REQUEST}!hkey\_\-common@{hkey\_\-common}}
+\index{hkey\_\-common@{hkey\_\-common}!ANALYZE_REQUEST@{ANALYZE\_\-REQUEST}}
+\paragraph[{hkey\_\-common}]{\setlength{\rightskip}{0pt plus 5cm}HNDLE {\bf ANALYZE\_\-REQUEST::hkey\_\-common}}\hfill\label{structANALYZE__REQUEST_a7c9dd18e861558a006b694b3c9f197a1}
+Key to common subtree 
+
+Definition at line 1132 of file midas.h.\index{ANALYZE\_\-REQUEST@{ANALYZE\_\-REQUEST}!hkey\_\-variables@{hkey\_\-variables}}
+\index{hkey\_\-variables@{hkey\_\-variables}!ANALYZE_REQUEST@{ANALYZE\_\-REQUEST}}
+\paragraph[{hkey\_\-variables}]{\setlength{\rightskip}{0pt plus 5cm}HNDLE {\bf ANALYZE\_\-REQUEST::hkey\_\-variables}}\hfill\label{structANALYZE__REQUEST_a4da294a6f7f01e5521cbb0933c7f5b40}
+Key to variables subtree in ODB 
+
+Definition at line 1131 of file midas.h.\index{ANALYZE\_\-REQUEST@{ANALYZE\_\-REQUEST}!init\_\-string@{init\_\-string}}
+\index{init\_\-string@{init\_\-string}!ANALYZE_REQUEST@{ANALYZE\_\-REQUEST}}
+\paragraph[{init\_\-string}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$$\ast$ {\bf ANALYZE\_\-REQUEST::init\_\-string}}\hfill\label{structANALYZE__REQUEST_a5548cf9631c680e83a6a3715a14b16f5}
+
+
+Definition at line 1127 of file midas.h.\index{ANALYZE\_\-REQUEST@{ANALYZE\_\-REQUEST}!number@{number}}
+\index{number@{number}!ANALYZE_REQUEST@{ANALYZE\_\-REQUEST}}
+\paragraph[{number}]{\setlength{\rightskip}{0pt plus 5cm}struct \{ ... \}   {\bf ANALYZE\_\-REQUEST::number}}\hfill\label{structANALYZE__REQUEST_ad0d985c8ce031a4515988723e07b2ee0}
+Buffer for event number for CWNT \index{ANALYZE\_\-REQUEST@{ANALYZE\_\-REQUEST}!request\_\-id@{request\_\-id}}
+\index{request\_\-id@{request\_\-id}!ANALYZE_REQUEST@{ANALYZE\_\-REQUEST}}
+\paragraph[{request\_\-id}]{\setlength{\rightskip}{0pt plus 5cm}HNDLE {\bf ANALYZE\_\-REQUEST::request\_\-id}}\hfill\label{structANALYZE__REQUEST_a2ee7a01967465e8a725bb968246c01de}
+Event request handle 
+
+Definition at line 1130 of file midas.h.\index{ANALYZE\_\-REQUEST@{ANALYZE\_\-REQUEST}!run@{run}}
+\index{run@{run}!ANALYZE_REQUEST@{ANALYZE\_\-REQUEST}}
+\paragraph[{run}]{\setlength{\rightskip}{0pt plus 5cm}{\bf DWORD} {\bf ANALYZE\_\-REQUEST::run}}\hfill\label{structANALYZE__REQUEST_a8ab25f33bbb1a45800975dd5d87b0caf}
+
+
+Definition at line 1135 of file midas.h.\index{ANALYZE\_\-REQUEST@{ANALYZE\_\-REQUEST}!rwnt\_\-buffer\_\-size@{rwnt\_\-buffer\_\-size}}
+\index{rwnt\_\-buffer\_\-size@{rwnt\_\-buffer\_\-size}!ANALYZE_REQUEST@{ANALYZE\_\-REQUEST}}
+\paragraph[{rwnt\_\-buffer\_\-size}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} {\bf ANALYZE\_\-REQUEST::rwnt\_\-buffer\_\-size}}\hfill\label{structANALYZE__REQUEST_ab9f17100ff718ee4da42cdd86a7f3cab}
+Size in events of RW N-\/tuple buf 
+
+Definition at line 1125 of file midas.h.\index{ANALYZE\_\-REQUEST@{ANALYZE\_\-REQUEST}!serial@{serial}}
+\index{serial@{serial}!ANALYZE_REQUEST@{ANALYZE\_\-REQUEST}}
+\paragraph[{serial}]{\setlength{\rightskip}{0pt plus 5cm}{\bf DWORD} {\bf ANALYZE\_\-REQUEST::serial}}\hfill\label{structANALYZE__REQUEST_a8eb5dfa05ce631ead9382cdafc82c8df}
+
+
+Definition at line 1136 of file midas.h.\index{ANALYZE\_\-REQUEST@{ANALYZE\_\-REQUEST}!status@{status}}
+\index{status@{status}!ANALYZE_REQUEST@{ANALYZE\_\-REQUEST}}
+\paragraph[{status}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} {\bf ANALYZE\_\-REQUEST::status}}\hfill\label{structANALYZE__REQUEST_af8540a32d1515c676b0d052fd03125d0}
+One of FE\_\-xxx 
+
+Definition at line 1128 of file midas.h.\index{ANALYZE\_\-REQUEST@{ANALYZE\_\-REQUEST}!time@{time}}
+\index{time@{time}!ANALYZE_REQUEST@{ANALYZE\_\-REQUEST}}
+\paragraph[{time}]{\setlength{\rightskip}{0pt plus 5cm}{\bf DWORD} {\bf ANALYZE\_\-REQUEST::time}}\hfill\label{structANALYZE__REQUEST_a66d92551c9b1ce76463d4d5da7facafb}
+
+
+Definition at line 1137 of file midas.h.\index{ANALYZE\_\-REQUEST@{ANALYZE\_\-REQUEST}!use\_\-tests@{use\_\-tests}}
+\index{use\_\-tests@{use\_\-tests}!ANALYZE_REQUEST@{ANALYZE\_\-REQUEST}}
+\paragraph[{use\_\-tests}]{\setlength{\rightskip}{0pt plus 5cm}{\bf BOOL} {\bf ANALYZE\_\-REQUEST::use\_\-tests}}\hfill\label{structANALYZE__REQUEST_a08306810e609b1e3854d3e19abe3a919}
+Use tests for this event 
+
+Definition at line 1126 of file midas.h.

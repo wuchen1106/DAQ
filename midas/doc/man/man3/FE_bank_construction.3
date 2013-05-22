@@ -1,0 +1,492 @@
+.TH "FE_bank_construction" 3 "31 May 2012" "Version 2.3.0-0" "Midas" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+FE_bank_construction \- Bank construction in an Event readout routine 
+ 
+.br
+ 
+.PP
+
+.br
+.PP
+A readout event will often need to construct banks in which the data is to be sent out. The \fBbank format\fP is declared in the \fBEquipment list\fP , e.g. 
+.PP
+.nf
+    EQUIPMENT equipment[] = {
+
+      { 'Trigger',            // equipment name
+        {
+          ...
+          'Midas',            // format
+          ...
+      ...  
+
+.fi
+.PP
+.PP
+Refer to the following sections for an explanation of event composition depending on the event type selected:
+.IP "\(bu" 2
+\fBFIXED format Event readout\fP,
+.IP "\(bu" 2
+\fBMIDAS event construction\fP,
+.PP
+.PP
+
+.br
+ 
+.PP
+ 
+.br
+  
+.SH "FIXED format Event readout"
+.PP
+The \fBFIXED format\fP is the simplest event format. The event length is fixed and is mapped to a C structure that is filled by the readout routine. Since the standard MIDAS analyzer cannot work with this format, it is only recommended for an experiment which uses its own analyzer and wants to avoid the overhead of a bank structure, or for monitoring purposes in the ODB.
+.PP
+
+.br
+ There are several ways of defining fixed events. For fixed events, the structure has to be defined twice: once for the compiler in the form of a C structure, and once for the ODB in form of an ASCII representation. There are several ways of doing this. The ASCII string may be supplied to the system as the \fBinit string\fP in the equipment list as follows:
+.PP
+Example of FIXED format event:   \fBFixed Event Definition\fP 
+.br
+A fixed event with two ADC and TDC values:  The \fBtrigger_event_str\fP has to be defined before the equipment list and a reference to it has to be placed in the equipment list like:  The \fBReadout routine\fP 
+.br
+The <...> statements are filled with the appropriate code accessing the hardware:  
+.PP
+.PP
+.nf
+typedef struct {
+  int adc0;
+  int adc1;
+  int tdc0;
+  int tdc1;
+  TRIGGER_EVENT;
+}
+char *trigger_event_str[] = {
+'adc0 = INT : 0',
+'adc1 = INT : 0',
+'tdc0 = INT : 0',
+'tdc1 = INT : 0',
+  ASUM_BANK;
+}
+.fi
+.PP
+  
+.PP
+.PP
+.nf
+ {
+  'FIXED',            // FIXED format
+...
+  read_trigger_event, // readout routine 
+  NULL,NULL,
+  trigger_event_str,  // init string 
+ ,
+.fi
+.PP
+ 
+.PP
+.PP
+.nf
+INT read_trigger_event(char *pevent)
+{
+TRIGGER_EVENT *ptrg;
+
+  ptrg = (TRIGGER_EVENT *) pevent;
+  ptrg->adc0 = <...>;
+  ptrg->adc1 = <...>;
+  ptrg->tdc0 = <...>;
+  ptrg->tdc1 = <...>;
+
+  return sizeof(TRIGGER_EVENT);
+.fi
+.PP
+.PP
+Example of definition of FIXED format using Equipment field 'init string' 
+.br
+ Alternatively, the structure may be defined first in the ODB, under /Equipment/<eqp_name>/Variables, and supplied to the readout routine by the frontend program including 'experim.h', as follows:
+.PP
+C structure from \fI\fBexperim.h\fP:\fP   ASCII representation from \fI\fBexperim.h\fP\fP :   
+.PP
+.nf
+#define INFO_ODB_EVENT_DEFINED
+
+typedef struct {
+  DWORD     helicity;
+  DWORD     current_cycle;
+  DWORD     current_scan;
+  double    current_hel_thr;
+  DWORD     rf_state;
+  DWORD     fluor_monitor_counts;
+  float     epicsdev_set_v_;
+  float     epicsdev_read_v_;
+  float     campdev_set;
+  float     campdev_read;
+  DWORD     last_failed_thr_test;
+} INFO_ODB_EVENT;
+
+.fi
+.PP
+ 
+.PP
+.nf
+#define INFO_ODB_EVENT_STR(_name)
+           char *_name[] = {\
+'[.]',\
+'helicity = DWORD : 0',\
+'current cycle = DWORD : 54',\
+'current scan = DWORD : 5',\
+'Current Hel thr = DOUBLE : 0',\
+'RF state = DWORD : 0',\
+'Fluor monitor counts = DWORD : 0',\
+'EpicsDev Set(V) = FLOAT : 0',\
+'EpicsDev Read(V) = FLOAT : 0',\
+'Campdev set = FLOAT : 0',\
+'Campdev read = FLOAT : 0',\
+'last failed thr test = DWORD : 0',\
+'',\
+NULL }
+
+.fi
+.PP
+ Example of structure from \fB\fBexperim.h\fP\fP for a fixed event 
+.PP
+ The \fBEquipment definition\fP for this fixed event might be : 
+.PP
+.nf
+ { 'Info ODB',     /* equipment name */
+    10, 0,         /* event ID, trigger mask */
+    '',            /* no banks sent */
+    EQ_PERIODIC,   /* equipment type */
+    0,             /* interrupt source */
+    'FIXED',       /* format */
+    TRUE,          /* enabled */
+    RO_RUNNING | RO_ODB | 
+          RO_EOR,  /* read when running; 
+                      send to odb */
+    500,           /* polling period */
+    0,             /* event limit */
+    0,             /* number of sub-events */
+    0,             /* log history */
+    '', '', '',
+    info_odb,      /* readout routine */
+    NULL,NULL,NULL,
+  },
+
+.fi
+.PP
+.PP
+The \fBfrontend.c\fP program would then include \fBexperim.h\fP to gain access to the structure. 
+.br
+It is a good idea to check the record size and/or create the record in the odb when using C structures from \fBexperim.h\fP, to make sure that the structure is identical in the odb to that in \fBexperim.h\fP. 
+.br
+ The \fB main program \fP might look like this:
+.PP
+.PP
+.nf
+/* frontend.c */
+....
+
+#include experim.h
+
+INFO_ODB_EVENT cyinfo;
+INFO_ODB_EVENT_STR(info_odb_event_str);
+HNDLE hInfo;
+INT status, size;
+char   str_set[256];
+....
+
+sprintf(str_set,'/Equipment/INFO ODB/Variables');
+
+/* create record /Equipment/INFO ODB/Variables to make sure it exists  */
+ /* find the key for info odb */
+  status = db_find_key(hDB, 0, str_set, &hInfo);
+  if (status != DB_SUCCESS)
+    {
+      printf( 'Key %s not found; creating record for info odb\n',str_set);
+      status = db_create_record(hDB, 0, str_set, strcomb(info_odb_event_str));
+    }
+  /* check the record size */
+  status = db_get_record_size(hDB, hInfo, 0, &size);
+  if (sizeof(INFO_ODB_EVENT) != size)
+     {
+        cm_msg(MERROR, 'bnmr_init', 'error; record sizes do not match');
+        return DB_TYPE_MISMATCH;
+     }
+
+  .......    
+.fi
+.PP
+.PP
+A \fBreadout routine\fP for this fixed event is as follows: 
+.PP
+.nf
+INT info_odb(char * pevent, INT off)
+/* - periodic equipment updating the ODB ONLY
+   - no event generation for the data stream.
+*/
+{
+
+  /* fill various values */
+  cyinfo.helicity = gbl_ppg_hel;
+  cyinfo.current_cycle = gbl_CYCLE_N;
+  cyinfo.current_scan = gbl_SCAN_N;
+  cyinfo.epicsdev_set_v_ = epics_params.Epics_val;
+  cyinfo.epicsdev_read_v_ = epics_params.Epics_read;
+  cyinfo.campdev_set = 0;   
+  cyinfo.campdev_read = 0; 
+    
+
+  memcpy(pevent, (char *)&(cyinfo.helicity), sizeof(cyinfo));
+  pevent += sizeof(cyinfo);
+  logMsg ('info_odb %d size:%d\n',gbl_CYCLE_N,sizeof(cyinfo),0,0,0,0);
+  return sizeof(cyinfo);
+}
+
+.fi
+.PP
+ 
+.br
+ The output from a FIXED event of this type sent to the ODB using \fBmhttpd\fP is shown \fBhere\fP.
+.PP
+More \fBexamples of FIXED events\fP can be found in the \fBslow controls device drivers\fP, for example ../examples/slowcont/frontend.c and ../drivers/class/hv.c
+.PP
+
+.br
+ 
+.PP
+ 
+.br
+   
+.SH "MIDAS event construction"
+.PP
+The \fBMIDAS event format\fP is a variable length event format. It uses 'banks' as subsets of an event. A bank is composed of a bank header followed by the data. The bank header itself is made of 3 fields i.e:
+.IP "\(bu" 2
+bank name (4 characters)
+.IP "\(bu" 2
+bank type
+.IP "\(bu" 2
+bank length
+.PP
+.PP
+Usually a bank contains an array of values that logically belong together. For example, an experiment can generate an ADC bank, a TDC bank and a bank with trigger information. The length of a bank can vary from one event to another due to zero suppression from the hardware. Besides the variable data length support of the bank structure, another main advantage is the possibility for the analyzer to add more (calculated) banks during the analysis process to the event in process. After the first analysis stage, the event can contain in addition to the the raw ADC bank, a bank with calibrated ADC values called CADC for example. In this CADC bank the raw ADC values could be offset or gain-corrected.
+.PP
+.PP
+.SS "Midas Data Types"
+Midas defines its own \fB data types \fP for OS compatibility. It is suggested that you use them in order to ensure correct compilation when moving code from one OS to another.
+.PP
+\fIfloat\fP and \fIdouble\fP retain OS definition.
+.PP
+.IP "\(bu" 2
+BYTE unsigned char
+.IP "\(bu" 2
+WORD unsigned short int (16bits word)
+.IP "\(bu" 2
+DWORD unsigned 32bits word
+.IP "\(bu" 2
+INT signed 32bits word
+.IP "\(bu" 2
+BOOL OS dependent.
+.PP
+.PP
+When defining a data type either in the frontend code for bank definition or in user code to define ODB variables, Midas requires the use of its own data type declaration. The list below shows the main Type IDentification to be used (refer to \fBMidas Define\fP for complete listing):
+.PP
+.IP "\(bu" 2
+TID_BYTE unsigned byte 0 255
+.IP "\(bu" 2
+TID_SBYTE signed BYTE -128 127
+.IP "\(bu" 2
+TID_CHAR single character 0 255
+.IP "\(bu" 2
+TID_WORD two BYTE 0 65535
+.IP "\(bu" 2
+TID_SHORT signed WORD -32768 32767
+.IP "\(bu" 2
+TID_DWORD four bytes 0 2**32-1
+.IP "\(bu" 2
+TID_INT signed DWORD -2**31 2**31-1
+.IP "\(bu" 2
+TID_BOOL four bytes bool 0 1
+.IP "\(bu" 2
+TID_FLOAT four bytes float format
+.IP "\(bu" 2
+TID_DOUBLE eight bytes float format
+.PP
+.PP
+.PP
+  
+.SS "Creation of MIDAS banks"
+MIDAS banks are created in the frontend readout code with calls to the MIDAS library. The following routines are available:
+.IP "\(bu" 2
+\fBbk_init()\fP , \fBbk_init32()\fP Initializes a bank structure in an event. 
+.br
+Note that bk_init32 can be used to reduce the size of very large banks, where the data will fit into a 32-bit word
+.IP "\(bu" 2
+\fBbk_create()\fP Creates a bank with a given name (exactly four characters)
+.IP "\(bu" 2
+\fBbk_close()\fP Closes a bank previously opened with \fBbk_create()\fP.
+.IP "\(bu" 2
+\fBbk_locate()\fP Locates a bank within an event by its name.
+.IP "\(bu" 2
+\fBbk_iterate()\fP Returns bank and data pointers to each bank in the event.
+.IP "\(bu" 2
+\fBbk_list()\fP Constructs a string with all the banks' names in the event.
+.IP "\(bu" 2
+\fBbk_size()\fP Returns the size in bytes of all banks including the bank headers in an event.
+.PP
+.PP
+
+.br
+ Examples for VME and CAMAC hardware are shown here.
+.PP
+The VME example reads out a VME ADC module into one MIDAS bank. In the CAMAC example the event will contain two banks: one for the ADC data and one for the TDC data.
+.PP
+VME :  CAMAC :  
+.PP
+.nf
+INT read_trigger_event(char *pevent, INT off)
+{
+#if defined VADC0_CODE
+  DWORD  *pdata;
+#endif
+ evlimit = SERIAL_NUMBER(pevent);
+
+#if defined VADC0_CODE
+  /* create structured ADC0 bank */
+  bk_create(pevent, 'ADC0', TID_DWORD, &pdata);
+  v792_EvtCntRead(myvme, VADC0_BASE, &evtcnt);
+  /* Read Event */
+  v792_EventRead(myvme, VADC0_BASE, pdata, &nentry);
+  pdata += nentry;
+  bk_close(pevent, pdata);
+  v792_DataClear(myvme, VADC0_BASE);
+  return bk_size(pevent);
+#else
+  return 0; /* no event */
+#endif
+
+
+}
+
+.fi
+.PP
+  
+.PP
+.PP
+.nf
+INT read_trigger_event(char *pevent)
+{
+WORD *pdata, a;
+
+  // init bank structure 
+  bk_init(pevent);
+
+  // create ADC bank 
+  bk_create(pevent, 'ADC0', TID_WORD, &pdata);
+
+  // read ADC bank 
+  for (a=0 ; a<8 ; a++)
+    cami(1, 1, a, 0, pdata++);
+
+  bk_close(pevent, pdata);
+
+  // create TDC bank 
+  bk_create(pevent, 'TDC0', TID_WORD, &pdata);
+
+  // read TDC bank 
+  for (a=0 ; a<8 ; a++)
+    cami(1, 2, a, 0, pdata++);
+
+  bk_close(pevent, pdata);
+
+  return bk_size(pevent);
+.fi
+.PP
+ Readout routines showing Midas Bank construction 
+.br
+.PP
+Upon normal completion, the readout routine returns the event size in bytes. If the event is not valid, the routine can return zero. In this case no event is sent to the back-end. This can be used to implement a software event filter (sometimes called 'third level trigger').
+.PP
+Examples of unpacking the data from Midas banks are shown in the \fBSECTION 7: Data Analysis\fP section.
+.PP
+
+.br
+ 
+.PP
+ 
+.br
+.SS "Midas Event header manipulation"
+ Every event travelling through the Midas system has a 'Event Header' containing the minimum information required to identify its contents. The size of the header has been kept as small as possible in order to minimize its impact on the data rate as well as on the data storage requirment. The following Macros in the \fBMIDAS Code and Libraries\fP are available for manipulating Midas event headers. They permit reading or overrideing the content of the event header, as long as the argument of the macro refers to the top of the Midas event (pevent). This argument (pevent) is available in the frontend code in any of the user readout functions.
+.PP
+The Macros are also available to the user analyzer code, which retrieves the event and provide direct access to the event header (pheader) and to the user part of the event (pevent). Sub-functions using pevent would then be able to get back the header through the use of the macros.
+.PP
+.IP "\(bu" 2
+\fBTRIGGER_MASK\fP
+.IP "\(bu" 2
+\fBEVENT_ID\fP
+.IP "\(bu" 2
+\fBSERIAL_NUMBER\fP
+.IP "\(bu" 2
+\fBTIME_STAMP\fP
+.PP
+.PP
+ The following frontend C-code fragments from a running experiment demonstrate the use of these Macros :
+.IP "\(bu" 2
+example 1 
+.PP
+.nf
+INT read_ge_event(char *pevent, INT offset)
+{
+  static WORD *pdata;
+  INT i, x, q;
+  WORD temp;
+ 
+  // Change the time stamp in millisecond for the Super event
+  TIME_STAMP(pevent) = ss_millitime();
+  
+  bk_init(pevent);
+  bk_create(pevent, 'GERM', TID_WORD, &pdata);
+  ...
+}
+
+.fi
+.PP
+
+.PP
+.PP
+.IP "\(bu" 2
+example 2
+.PP
+.PP
+.PP
+.nf
+  ...
+  lam = *((DWORD *)pevent);
+
+  if (lam & LAM_STATION(JW_N))
+
+  {
+    ...
+    // compose event header
+    TRIGGER_MASK(pevent) = JW_MASK;
+    EVENT_ID(pevent)     = JW_ID;
+    SERIAL_NUMBER(pevent)= eq->serial_number++;
+    // read MCS event
+    size = read_mcs_event(pevent);
+    // Correct serial in case event is empty 
+    if (size == 0)
+      SERIAL_NUMBER(pevent) = eq->serial_number--;
+    ...
+  }
+  ...
+.fi
+.PP
+.PP
+.PP
+ 
+.br
+.PP
+.PP
+
+.br
+  

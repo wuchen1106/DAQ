@@ -1,0 +1,93 @@
+.TH "BUFFER_HEADER" 3 "31 May 2012" "Version 2.3.0-0" "Midas" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+BUFFER_HEADER \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "char \fBname\fP [NAME_LENGTH]"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBnum_clients\fP"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBmax_client_index\fP"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBsize\fP"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBread_pointer\fP"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBwrite_pointer\fP"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBnum_in_events\fP"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBnum_out_events\fP"
+.br
+.ti -1c
+.RI "\fBBUFFER_CLIENT\fP \fBclient\fP [MAX_CLIENTS]"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 876 of file midas.h.
+.SH "Field Documentation"
+.PP 
+.SS "\fBBUFFER_CLIENT\fP \fBBUFFER_HEADER::client\fP[MAX_CLIENTS]"entries for clients 
+.PP
+Definition at line 886 of file midas.h.
+.PP
+Referenced by bm_cleanup(), bm_cleanup_buffer_locked(), bm_close_buffer(), bm_flush_cache(), bm_open_buffer(), bm_push_event(), bm_receive_event(), bm_remove_client_locked(), bm_send_event(), bm_skip_event(), bm_update_read_pointer(), bm_validate_client_index(), bm_wait_for_free_space(), bm_wakeup_producers(), cm_cleanup(), cm_set_watchdog_params(), and cm_update_last_activity().
+.SS "\fBINT\fP \fBBUFFER_HEADER::max_client_index\fP"index of last client 
+.PP
+Definition at line 879 of file midas.h.
+.PP
+Referenced by bm_cleanup_buffer_locked(), bm_close_buffer(), bm_flush_cache(), bm_open_buffer(), bm_remove_client_locked(), bm_send_event(), bm_update_read_pointer(), bm_validate_client_index(), bm_wakeup_producers(), and cm_cleanup().
+.SS "char \fBBUFFER_HEADER::name\fP[NAME_LENGTH]"name of buffer 
+.PP
+Definition at line 877 of file midas.h.
+.PP
+Referenced by bm_check_buffers(), bm_cleanup_buffer_locked(), bm_close_buffer(), bm_flush_cache(), bm_open_buffer(), bm_push_event(), bm_send_event(), bm_validate_client_index(), bm_validate_client_pointers(), bm_wait_for_free_space(), and cm_cleanup().
+.SS "\fBINT\fP \fBBUFFER_HEADER::num_clients\fP"no of active clients 
+.PP
+Definition at line 878 of file midas.h.
+.PP
+Referenced by bm_close_buffer(), bm_open_buffer(), and bm_remove_client_locked().
+.SS "\fBINT\fP \fBBUFFER_HEADER::num_in_events\fP"no of received events 
+.PP
+Definition at line 883 of file midas.h.
+.PP
+Referenced by bm_flush_cache(), and bm_send_event().
+.SS "\fBINT\fP \fBBUFFER_HEADER::num_out_events\fP"no of distributed events 
+.PP
+Definition at line 884 of file midas.h.
+.PP
+Referenced by bm_push_event(), and bm_receive_event().
+.SS "\fBINT\fP \fBBUFFER_HEADER::read_pointer\fP"read pointer 
+.PP
+Definition at line 881 of file midas.h.
+.PP
+Referenced by bm_flush_cache(), bm_receive_event(), bm_send_event(), bm_update_read_pointer(), bm_validate_client_pointers(), bm_wait_for_free_space(), and bm_wakeup_producers().
+.SS "\fBINT\fP \fBBUFFER_HEADER::size\fP"size of data area in bytes 
+.PP
+Definition at line 880 of file midas.h.
+.PP
+Referenced by bm_flush_cache(), bm_open_buffer(), bm_push_event(), bm_receive_event(), bm_send_event(), bm_update_read_pointer(), bm_validate_client_pointers(), bm_wait_for_free_space(), and bm_wakeup_producers().
+.SS "\fBINT\fP \fBBUFFER_HEADER::write_pointer\fP"write pointer 
+.PP
+Definition at line 882 of file midas.h.
+.PP
+Referenced by bm_flush_cache(), bm_open_buffer(), bm_push_event(), bm_receive_event(), bm_send_event(), bm_skip_event(), bm_update_read_pointer(), bm_validate_client_pointers(), bm_wait_for_free_space(), and bm_wakeup_producers().
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Midas from the source code.

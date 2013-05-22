@@ -1,0 +1,2142 @@
+.TH "RC_odbedit_examples" 3 "31 May 2012" "Version 2.3.0-0" "Midas" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+RC_odbedit_examples \- Using odbedit 
+ 
+.br
+ 
+.PP
+.PD 0
+.IP "\(bu" 2
+\fBSetting odbedit's prompt\fP 
+.PD 0
+
+.IP "  \(bu" 4
+\fBExamples of changing the odbedit prompt:\fP 
+.PP
+
+.IP "\(bu" 2
+\fBODB Creation\fP 
+.IP "\(bu" 2
+\fBODB Key names: UPPER/lower case, spaces in key names\fP 
+.IP "\(bu" 2
+\fBCorrupted ODB\fP 
+.IP "\(bu" 2
+\fBUsing the external command (the -c argument)\fP 
+.PD 0
+
+.IP "  \(bu" 4
+\fBExamples of scripts sending odbedit commands\fP 
+.PD 0
+
+.IP "    \(bu" 6
+\fBShell script run at end-of-run\fP 
+.IP "    \(bu" 6
+\fBShell script run at beginning of run\fP 
+.PP
+
+.PP
+
+.IP "\(bu" 2
+\fBExamples using odbedit commands\fP 
+.PD 0
+
+.IP "  \(bu" 4
+\fBcd - change current directory\fP 
+.IP "  \(bu" 4
+\fBchat - enter chat mode\fP 
+.IP "  \(bu" 4
+\fBchmod - change access mode\fP 
+.IP "  \(bu" 4
+\fBcreate - create a key of a certain type\fP 
+.IP "  \(bu" 4
+\fBexport - export ASCII file\fP 
+.IP "  \(bu" 4
+\fBhelp - list of commands\fP 
+.IP "  \(bu" 4
+\fBimport - import ASCII file\fP 
+.IP "  \(bu" 4
+\fBln - create a link\fP 
+.IP "  \(bu" 4
+\fBload - load database from a saved file\fP 
+.IP "  \(bu" 4
+\fBls - list the database entries\fP 
+.IP "  \(bu" 4
+\fBmake - create experim.h\fP 
+.IP "  \(bu" 4
+\fBmkdir - make new subdirectory\fP 
+.IP "  \(bu" 4
+\fBmove - move a key to a new position\fP 
+.IP "  \(bu" 4
+\fBmsg - send a user message\fP 
+.IP "  \(bu" 4
+\fBold - display old messages\fP 
+.IP "  \(bu" 4
+\fBpasswd - change/set up the MIDAS password\fP 
+.IP "  \(bu" 4
+\fBpwd - show current directory\fP 
+.IP "  \(bu" 4
+\fBrename - rename a key\fP 
+.IP "  \(bu" 4
+\fBrm/del - delete a key and its subkeys\fP 
+.IP "  \(bu" 4
+\fBset - set the value of a key\fP 
+.IP "  \(bu" 4
+\fBsor - show open records\fP 
+.IP "  \(bu" 4
+\fBsave - save database at current position\fP 
+.IP "  \(bu" 4
+\fBscl - show active clients\fP 
+.IP "  \(bu" 4
+\fBsh - shutdown a client\fP 
+.IP "  \(bu" 4
+\fBstart - start a run\fP 
+.IP "  \(bu" 4
+\fBstop - stop a run\fP 
+.IP "  \(bu" 4
+\fBtrunc - truncate a key\fP 
+.IP "  \(bu" 4
+\fBwebpasswd - change/set up the web password for mhttpd\fP 
+.PP
+
+.PP
+.PP
+.PP
+.SH "Setting odbedit's prompt"
+.PP
+When 'odbedit' is entered on the command line, it returns a prompt, e.g. 
+.PP
+.nf
+odbedit
+[local:midas:S]/>
+
+.fi
+.PP
+ The format of the \fBprompt\fP (in the above example \fB [local:midas:S]/> \fP ) is controlled in the ODB by the key \fB /System/Prompt \fP. The default value is shown below: 
+.PP
+.nf
+odbedit
+[local:midas:S]/>cd /System/
+[local:midas:S]/System>ls
+Clients                         
+Tmp                             
+Client Notify                   0
+Prompt                          [%h:%e:%s]%p>
+
+.fi
+.PP
+ 
+.br
+ where the meanings of the Prompt symbols are shown below:
+.PP
+\fBSymbol\fP  \fBSubstitute\fP   %\fBh\fP Host name  %\fBe\fP  Experiment name  %\fBs\fP  Run state symbols (U,S,P,R)  %\fBS\fP  Run state long form (Unknown,Stopped,Pause,Running)  %\fBp\fP  Current ODB Path  %\fBt\fP  Current time  Above: Meaning of Prompt symbols 
+.SS "Examples of changing the odbedit prompt:"
+.PD 0
+.IP "1." 4
+Set the prompt to show the \fB long-form of the run state \fP 
+.PP
+.nf
+  [local:midas:S]/System>set Prompt '[%h:%e:%S]%p>'
+  [local:midas:Stopped]/System>
+
+.fi
+.PP
+ 
+.IP "2." 4
+Set the prompt to the phrase \fBmy_prompt\fP 
+.PP
+.nf
+    [local:midas:Stopped]/System>set Prompt my_prompt>
+    my_prompt>
+
+.fi
+.PP
+.PP
+
+.IP "3." 4
+Set the prompt to \fB name the fields \fP (i.e. Host, Expt, State, Path) 
+.PP
+.nf
+    my_prompt>set Prompt [Host:%h-Expt:%e:State:%s]Path:%p>
+    [Host:local-Expt:midas-State:S]Path:/System>
+
+.fi
+.PP
+.PP
+
+.IP "4." 4
+Set the prompt to the \fBcurrent\fP \fBtime\fP 
+.PP
+.nf
+    [Host:local-Expt:midas-State:S]Path:/System>set Prompt '%t>'
+    13:29:08>
+
+.fi
+.PP
+.PP
+.PP
+.PP
+ 
+.PP
+.SH "ODB Creation"
+.PP
+After installation of MIDAS, before any other tasks are started, the ODB is created for the first time by starting the \fBodbedit utility\fP. This automatically creates all the shared-memory files needed for the experiment. By default, these files will be created in the area indicated in the \fBexptab file\fP for your experiment. 
+.br
+ If MIDAS_EXPT_NAME is defined, this experiment will be used, unless superceded by the -e option (see \fBodbedit\fP). 
+.br
+ 
+.PP
+.nf
+[mpet@titan01 ~/online]$ ls .*.SHM
+ls: No match.
+[mpet@titan01 ~/online] odbedit
+[local:mpet:Stopped]/>quit
+[mpet@titan01 ~/online]$ ls .*.SHM
+.ALARM.SHM  .ELOG.SHM  .HISTORY.SHM  .MSG.SHM  .ODB.SHM  .SYSMSG.SHM  .SYSTEM.SHM
+
+.fi
+.PP
+.PP
+The default size of the ODB is 128KB. A different size can be specified by using the -s option (see \fBodbedit utility\fP) e.g. 
+.PP
+.nf
+odbedit -s 204000
+
+.fi
+.PP
+.PP
+The other shared memory files created are the system buffer .SYSTEM.SHM, the \fBsystem messaging\fP buffer .SYSMSG.SHM, the message buffer .MSG.SHM, 
+.PP
+\fBTodo\fP
+.RS 4
+( MSG.SHM what for? )
+.RE
+.PP
+the \fBhistory\fP buffer .HISTORY.SHM, the \fBElog\fP buffer .ELOG.SHM, the alarm buffer .ALARM.SHM . 
+.br
+.PP
+\fBNote:\fP 
+.br
+to change the size of the event buffer(s) (e.g. SYSTEM buffer) see \fBIncrease the Event Buffer Size(s)\fP . 
+.br
+  Running odbedit for the first time creates the trees /Runinfo, /Experiment, /System in the ODB.  Each application will then add its own set of \fBparameters\fP to the database depending on its requirements. For example, starting the \fBMIDAS logger\fP will cause the tree /Logger to be created.
+.PP
+.PP
+ 
+.br
+  
+.SH "ODB Key names: UPPER/lower case, spaces in key names"
+.PP
+\fBODB Key names are case-independent,\fP 
+.PP
+.nf
+[mpet@titan01 ~/online] odbedit
+[local:mpet:Stopped]/>ls
+PerlRC
+[local:mpet:Stopped]/>ls perlrc
+ControlVariables
+RunControl
+Tunes
+[local:mpet:Stopped]/>ls PERLRC
+ControlVariables
+RunControl
+Tunes
+
+.fi
+.PP
+ \fBKey names containing spaces must be enclosed in quotes\fP 
+.PP
+.nf
+[local:mpet:Stopped]/>ls '/Equipment/TITAN_ACQ/ppg cycle/'
+transition_HV
+stdpulse_START
+begin_scan
+stdpulse_3
+
+.fi
+.PP
+ If the quotes are omitted 
+.PP
+.nf
+[local:mpet:Stopped]/>ls /Equipment/TITAN_ACQ/ppg cycle
+key /Equipment/TITAN_ACQ/ppg not found
+
+.fi
+.PP
+ Using \fBTAB completion,\fP one could write 
+.PP
+.nf
+[local:mpet:Stopped]/>ls /Equipment/TITAN_ACQ/ppg  
+
+.fi
+.PP
+ then pressing the TAB key would replace the line above with that below 
+.PP
+.nf
+[local:mpet:Stopped]/>ls '/Equipment/TITAN_ACQ/ppg cycle/ 
+
+.fi
+.PP
+ then press ENTER key to see the list 
+.PP
+.nf
+transition_HV
+stdpulse_START
+begin_scan
+stdpulse_3
+
+.fi
+.PP
+.PP
+ 
+.PP
+.SH "Corrupted ODB"
+.PP
+If the \fBOnline Database\fP becomes corrupted, \fBodbedit\fP may no longer work, and other clients will also fail to open the database. In this case, the old ODB should be deleted and a new one created. The contents of the ODB can be reloaded from a \fBsaved file\fP. Since the ODB may become corrupted, it is advisable to \fBsave a copy automatically\fP at the end of each run. 
+.br
+ To delete the corrupted ODB, delete the *.SHM files created in the area indicated in the \fBexptab file\fP for your experiment. 
+.PP
+.nf
+[mpet@titan01 ~/online]$ ls .*.SHM
+.ALARM.SHM  .ELOG.SHM  .HISTORY.SHM  .MSG.SHM  .ODB.SHM  .SYSMSG.SHM  .SYSTEM.SHM
+[mpet@titan01 ~/online]$ rm .*.SHM
+
+.fi
+.PP
+ Create new *.SHM files by running odbedit (see \fBODB Creation\fP), then load a \fBsaved file\fP containing the latest copy of the odb contents. 
+.PP
+.nf
+[mpet@titan01 ~/online] odbedit
+[local:mpet:Stopped]/>load mpet.odb
+
+.fi
+.PP
+.PP
+
+.br
+ 
+.PP
+ 
+.br
+.PP
+ 
+.SS "Using the external command (the  -c argument)"
+\fBodbedit - ODB Editor and run control utility\fP -c argument In the simplest case, a single odbedit command can be entered on the command line, 
+.PP
+.nf
+[pol@isdaq01 src]$ odbedit -c start
+Starting run #401
+Run #401 started
+[pol@isdaq01 src]$ odbedit -c stop
+Run #401 stopped
+
+.fi
+.PP
+ or a value can be set (note the use of the \fBodbedit\fP \fB-d\fP argument) 
+.PP
+.nf
+[pol@isdaq01 pol]$ odbedit -d /test -c 'set testval 3'
+[pol@isdaq01 pol]$ odb
+[local:pol:S]/>ls test
+testval                         3
+
+[pol@isdaq01 pol]$ odbedit -d /test -c 'ls testval'
+testval 
+
+.fi
+.PP
+.PP
+Note that the syntax to create an ODB STRING array using the '-c' command is 
+.PP
+.nf
+odbedit -c 'create STRING Test[1][40]'
+odbedit -c 'create STRING Test[8][40]'
+
+.fi
+.PP
+.PP
+A filename containing a number of odbedit commands can also be entered, using the \fBodbedit\fP -c @commandfile argument e.g. 
+.PP
+.nf
+[pol@isdaq01 pol]$ odbedit -d /test <b> -c @testfile.com </b>
+testval                         4
+Starting run #403
+Run #403 started
+Run #403 paused
+Run #403 stopped
+[pol@isdaq01 pol]$ 
+
+.fi
+.PP
+ where the file 'testfile' contains odbedit commands, such as 
+.PP
+.nf
+set testval 4
+ls testval
+start
+stop
+
+.fi
+.PP
+ This external command feature of odbedit allows for sophisticated scripts to be created that can manipulate the odb. 
+.br
+Such scripts can for example
+.IP "\(bu" 2
+check ODB \fBparameters\fP prior to beginning of run
+.IP "\(bu" 2
+send run \fBparameters\fP to the electronic logbook
+.IP "\(bu" 2
+act as a run controller, starting and stopping a series of runs with varying \fBparameters\fP
+.PP
+.PP
+Some examples are shown below.
+.SS "Examples of scripts sending odbedit commands"
+.IP "\(bu" 2
+\fBShell script run at end-of-run\fP
+.IP "\(bu" 2
+\fBShell script run at beginning of run\fP
+.PP
+.PP
+See also \fBMPET perlscripts to perform run control\fP .
+.PP
+ 
+.SS "Shell script run at end-of-run"
+This script runs at the end of run, and reads some \fBparameters\fP from the odb and sends them to the elog by using the \fBmelog - submits an entry to the Elog\fP. To make the script run at end of run, the name of the script is entered in the 'Execute on stop run' key in the \fBThe ODB /Programs tree\fP .
+.PP
+.PP
+.nf
+#!/bin/tcsh
+
+# This script is started at the end of each run. It takes some parameters
+# from the odb and creates an entry in the elog 
+#
+# Match to at_start_run.csh script
+# Check for input files
+if ($#argv == 1) then
+  if (-e $1) then
+    echo 'Processing from file'
+    set cmd = `echo 'load '$1`
+    odb -e $MIDAS_EXPT_NAME -c '$cmd'
+  endif
+endif
+echo 'exp:   $MIDAS_EXPT_NAME'
+
+# This is the file where the elog entry is saved temporarily
+set fin = '/home/$MIDAS_EXPT_NAME/tmp/info_for_elog.txt'
+if (-e $fin) then
+  rm -f $fin
+endif
+touch $fin
+
+# set port for mhttpd
+set port='8080'
+
+# Start collecting information from ODB first
+set Run_number = `odb -e $MIDAS_EXPT_NAME -c 'ls '/Runinfo/Run number''`
+set number = `echo $Run_number | awk '{print $3}'`
+set sample = `odb -e $MIDAS_EXPT_NAME -c 'ls '/Experiment/Edit on Start/sample''`
+set Sample = `echo $sample | awk '{print $2}'`
+set temperature = `odb -e $MIDAS_EXPT_NAME -c 'ls '/Experiment/Edit on Start/temperature''`
+set T = `echo $temperature | awk '{print $2}'`
+set field = `odb -e $MIDAS_EXPT_NAME -c 'ls '/Experiment/Edit on Start/field''`
+set H = `echo $field | awk '{print $2}'`
+set RF = '??'
+set experimenter = `odb -e $MIDAS_EXPT_NAME -c 'ls '/Experiment/Edit on Start/experimenter''`
+set author = `echo $experimenter | awk '{print $2}'`
+set run_title = `odb -e $MIDAS_EXPT_NAME -c 'ls '/Experiment/Edit on Start/run_title''`
+set title = `echo $run_title | awk -F'run_title' '{print $2}'`
+set experiment_number = `odb -e $MIDAS_EXPT_NAME -c 'ls '/Experiment/Edit on Start/experiment number''`
+set exp_num = `echo $experiment_number | awk '{print $3}'`
+set Experiment_name = `odb -e $MIDAS_EXPT_NAME -c 'ls '/Equipment/FIFO_acq/sis mcs/Input/Experiment name''`
+set type = `echo $Experiment_name | awk '{print $3}'`
+set type_dir = `echo 'ls -r /PPG/PPG'$type`
+
+# Now create the temporary file to be sent to the elog
+echo 'Run # $number' >> $fin
+odb -e $MIDAS_EXPT_NAME -c 'ls '/Runinfo/Start time'' >> $fin
+odb -e $MIDAS_EXPT_NAME -c 'ls '/Runinfo/Stop time'' >> $fin
+echo '$Sample at T = $T K, H = $H T and RF = $RF mW'>> $fin
+echo 'Run Title   : $title' >> $fin
+echo 'Experimenter: $author' >> $fin
+echo 'Experiment #: $exp_num' >> $fin
+echo '-------------------------------------------------------------' >>$fin
+odb -e $MIDAS_EXPT_NAME -c '$type_dir' >> $fin
+echo '-------------------------------------------------------------' >>$fin
+
+if ('x$Sample' == 'x') then 
+   set Sample = 'none'
+endif
+
+if ('x$author' == 'x') then 
+   set author = 'Auto'
+endif
+
+# Send information to the elog
+
+echo 'about to send elog (expt $MIDAS_EXPT_NAME, port $port)'
+melog -h isdaq01 -p $port -l $MIDAS_EXPT_NAME -a author=$author -a Type='Automatic Elog' -a System='Elog' -a Subject='$Sample'  -m $fin
+cat $fin
+
+# done
+.fi
+.PP
+  
+.PP
+.SS "Shell script run at beginning of run"
+The following example is part of a shell script run at the beginning of run for the TRIUMF BNMR experiment to check the status of various slow controls required for logging during the run. To make the script run at beginning of run, the name of the script is entered in the 'Execute on start run' key in the \fBThe ODB /Programs tree\fP .
+.PP
+.PP
+.nf
+#!/bin/csh
+#
+
+# Add an input parameter
+#  0 default
+#  1 (for redo camp slow controls from custom page) to stop statistics being zeroed
+#  2 (redo epics slow controls from custom page)
+#
+#
+# NOTE: msg [type] [user] <msg> - compose user message
+#
+#  odb msg 1 -> error msg  (in black/red)
+#  odb msg 2 -> info msg   (in black/white)
+
+#echo 'argv: $argv ; number of args: $#argv'
+set param = 0
+if  ($#argv > 0) then
+    set param = $argv[1];
+   endif
+#echo 'param: $param ;  $MIDAS_EXPT_NAME'
+
+set my_path = '/home/$MIDAS_EXPT_NAME/online/$MIDAS_EXPT_NAME/bin'
+#echo 'my_path:$my_path'
+
+odb -e $MIDAS_EXPT_NAME -c 'msg 'at_start_run'  '(at start) starting with param= $param' '
+
+# clear elog (camp log) alarm flag
+odb -e $MIDAS_EXPT_NAME -c 'set '/equipment/fifo_acq/client flags/elog alarm' 0'
+# clear epicslog alarm flag
+odb -e $MIDAS_EXPT_NAME -c 'set '/equipment/fifo_acq/client flags/epicslog alarm' 0'
+
+if ($param == 1) then
+# redo CAMP only
+   odb -e $MIDAS_EXPT_NAME -c 'msg 'at_start_run'  '(at start) sets camp ok to 4''
+   odb -e $MIDAS_EXPT_NAME -c 'set '/equipment/camp/settings/camp ok' 4' # camp_ok = 4 indicates redoing CAMP only
+else if  ($param == 2) then
+# redo EPICS only
+   odb -e $MIDAS_EXPT_NAME -c 'msg 'at_start_run'  '(at start) sets epics ok to4''
+   odb -e $MIDAS_EXPT_NAME -c 'set '/equipment/epicslog/settings/epics ok' 4' #epics_ok =4 indicates redoing EPICS only
+else
+# run start - redo EPICS and CAMP
+   odb -e $MIDAS_EXPT_NAME  -c 'msg 'at_start_run'  '(at start) sets epics ok and camp ok to 2' '
+   odb -e $MIDAS_EXPT_NAME -c 'set '/equipment/camp/settings/camp ok' 2'      #camp_ok=2 indicates redoing CAMP
+   odb -e $MIDAS_EXPT_NAME -c 'set '/equipment/epicslog/settings/epics ok' 2' #epics_ok=2 indicates redoing EPICS
+endif
+
+if ($param == 0 || $param == 2) then
+#
+#  Check epics logged variables
+#
+   odb -e $MIDAS_EXPT_NAME -c 'msg 'at_start_run' 'calling check_epics.csh' '
+   $my_path/check_epics.csh
+    set stat = $status
+    if ($stat != 0) then
+       echo 'error return from check_epics.csh'
+       odb -e $MIDAS_EXPT_NAME -c 'msg '1' 'at_start_run' 'error return from check_epics.csh' '
+       odb -e $MIDAS_EXPT_NAME -c 'set '/equipment/epicslog/settings/epics ok' 0
+' # EPICS failure
+    else
+       odb -e $MIDAS_EXPT_NAME -c 'msg 'at_start_run' 'after check_epics.csh (success)' '
+       odb -e $MIDAS_EXPT_NAME -c 'set '/equipment/epicslog/settings/epics ok' 1' # EPICS success
+    endif
+
+else
+   odb -e $MIDAS_EXPT_NAME -c 'msg 'at_start_run' '(at start) NOT calling check_epics.csh ($param)' '
+endif
+
+if ($param == 2) then  # checks epics only ; no camp
+  exit
+endif
+
+ ..............
+    etc.
+.fi
+.PP
+.PP
+.PP
+.SH "Examples using odbedit commands"
+.PP
+Here are some examples of the most commonly used \fBodbedit\fP commands:
+.SS "pwd - show current directory"
+ One of the \fBodbedit\fP \fBcommands\fP 
+.br
+
+.br
+ 
+.PP
+.nf
+$ odbedit
+[local:mpet:Stopped]/>
+[local:mpet:Stopped]/>pwd
+/
+
+.fi
+.PP
+.PP
+.PP
+.SS "cd - change current directory"
+ One of the \fBodbedit\fP \fBcommands\fP 
+.br
+
+.br
+.PP
+.PP
+.nf
+cd <dir>                - change current directory
+.fi
+.PP
+ For example, 
+.PP
+.nf
+[local:mpet:Stopped]/>cd system
+[local:mpet:Stopped]/>pwd
+/System
+
+.fi
+.PP
+.PP
+.PP
+.SS "chat  - enter chat mode"
+This mode is used to communicate with another person also running odbedit on the same experiment. It is useful where a telephone connection is not available. e.g. 
+.br
+ Anna's console Fred's console 
+.PP
+.nf
+[anna@isdaq01 ~]$ odb -e bnmr -h dasdevpc
+[dasdevpc:bnmr:S]/>chat
+Your name> anna
+Exit chat mode with empty line.
+> hi
+12:46:12 [anna] hi
+12:46:51 [ODBEdit2] Program ODBEdit on host dasdevpc started
+12:47:21 [fred] hi
+> hi
+12:47:34 [anna] hi fred
+12:48:12 [fred] please cycle crate power now
+> done - all lights green
+12:48:21 [anna] done - all lights green
+> bye
+12:50:27 [anna] bye
+>
+[dasdevpc:bnmr:S]/>
+
+.fi
+.PP
+  
+.PP
+.nf
+odbedit -e bnmr
+[fred@dasdevpc ~]$ odb -e bnmr
+[local:bnmr:S]/>chat
+Your name> fred
+Exit chat mode with empty line.
+> hi
+12:47:21 [fred] hi
+12:47:34 [anna] hi fred
+> please cycle crate power now
+12:48:12 [fred] please cycle crate power now
+12:48:21 [anna] done - all lights green
+12:50:27 [anna] bye
+>
+[local:bnmr:S]/>  
+
+.fi
+.PP
+   Two users communicate using \fBchat\fP mode
+.PP
+The chat conversation can also be heard over the speakers if \fBm[lx]speaker - audible messaging\fP is running.
+.PP
+ 
+.PP
+.SS "chmod - change access mode"
+The access mode can be changed with the chmod command between
+.PP
+.IP "\(bu" 2
+1 read R
+.IP "\(bu" 2
+2 write W
+.IP "\(bu" 2
+4 delete D
+.PP
+.PP
+By default the access mode of ODB keys are RWD i.e. the permission is to Read, Write or Delete them. To avoid them being inadvertently changed or deleted the mode can be set to read-only, e.g 
+.PP
+.nf
+[local:t2kgas:S]GasMain.gif>chmod 1 background
+Are you sure to change the mode of key
+  /Custom/Images/GasMain.gif/background
+and all its subkeys
+to mode [R]? (y/[n]) y
+[local:t2kgas:S]GasMain.gif>ls -lt
+Key name                        Type    #Val  Size  Last Opn Mode Value
+---------------------------------------------------------------------------
+refresh time (s)                DWORD   1     4     13h  0   RWD  10
+background                      STRING  1     256   13h  0   R    /home/suz/online/t2kgas/images/GasMain.gif
+labels                          DIR
+fills                           DIR
+
+.fi
+.PP
+ After setting the mode to read-only, the key cannot be written to: 
+.PP
+.nf
+[local:t2kgas:S]GasMain.gif>set background dddd
+Write access not allowed
+
+.fi
+.PP
+ or deleted 
+.PP
+.nf
+[local:t2kgas:S]GasMain.gif>rm background
+Are you sure to delete the key
+'/Custom/Images/GasMain.gif/background'
+(y/[n]) y
+deletion of key not allowed
+[local:t2kgas:S]GasMain.gif> 
+
+.fi
+.PP
+.PP
+To restore the key to mode RWD, 
+.PP
+.nf
+[local:t2kgas:S]GasMain.gif>chmod 7 background
+Are you sure to change the mode of key
+  /Custom/Images/GasMain.gif/background
+and all its subkeys
+to mode [RWD]? (y/[n]) y
+[local:t2kgas:S]GasMain.gif>ls -lt
+Key name                        Type    #Val  Size  Last Opn Mode Value
+---------------------------------------------------------------------------
+refresh time (s)                DWORD   1     4     13h  0   RWD  10
+background                      STRING  1     256   13h  0   RWD  /home/suz/online/t2kgas/images/GasMain.gif
+labels                          DIR
+fills                           DIR
+[local:t2kgas:S]GasMain.gif>
+
+.fi
+.PP
+.PP
+.PP
+.SS "ls - list the database entries"
+.PP
+.nf
+ls/dir [-lhvrp] [<pat>] - show database entries which match pattern
+  -l                      detailed info
+  -h                      hex format
+  -v                      only value
+  -r                      show database entries recursively
+  -p                      pause between screens
+.fi
+.PP
+ 
+.br
+List the keys ('dir' is an alternative to 'ls'). 
+.PP
+.nf
+[local:mpet:Stopped]/System>ls
+Clients
+Tmp
+Client Notify                   0
+Prompt                          [%h:%e:%S]%p>
+[local:mpet:Stopped]/System>     
+
+.fi
+.PP
+ 
+.br
+The '-l' option gives detailed information, such as the key type and size 
+.PP
+.nf
+[local:mpet:Stopped]/>ls /experiment
+Name                            mpet
+Buffer sizes
+Variables
+Edit on start
+[local:mpet:Stopped]/>ls -lt  /experiment
+Key name                        Type    #Val  Size  Last Opn Mode Value
+---------------------------------------------------------------------------
+Name                            STRING  1     32    3m   0   RWD  mpet
+Buffer sizes                    DIR
+Variables                       DIR
+Edit on start                   DIR
+
+.fi
+.PP
+ 
+.br
+The recursive option '-r' shows the database entries recursively 
+.PP
+.nf
+[local:pol:S]/>ls -r ppg
+PPG
+    PPGcommon
+        Experiment name -> /Equipment/FIFO_acq/sis mcs/Input/Experiment name
+                                1h
+        CFG path -> /Equipment/FIFO_acq/sis mcs/Input/CFG path
+                                /home/pol/online/pol/ppcobj
+        PPG path -> /Equipment/FIFO_acq/sis mcs/Input/PPG path
+                                /home/pol/online/ppg-templates
+        Time slice (ms) -> /Equipment/FIFO_acq/sis mcs/Input/Time slice (ms)
+                                1e-04
+        Minimal delay (ms) -> /Equipment/FIFO_acq/sis mcs/Input/Minimal delay (ms)
+                                0.0005
+        DAQ service time (ms) -> /Equipment/FIFO_acq/sis mcs/Input/DAQ service time (ms)
+                                3000
+
+.fi
+.PP
+ 
+.br
+The values can be displayed in hexadecimal using the '-h' option 
+.PP
+.nf
+[local:pol:S]/>ls  '/Equipment/FIFO_acq/sis mcs/Input/e00 rf frequency (Hz)'
+e00 rf frequency (Hz)           22064585
+[local:pol:S]/>ls  -h '/Equipment/FIFO_acq/sis mcs/Input/e00 rf frequency (Hz)'
+e00 rf frequency (Hz)           0x150ADC9
+
+.fi
+.PP
+ 
+.br
+or the value only displayed with the '-v' option 
+.PP
+.nf
+[local:pol:S]/test>ls
+val                             5
+[local:pol:S]/test>ls -v
+5
+
+.fi
+.PP
+.PP
+.PP
+.SS "mkdir - make new subdirectory"
+.PP
+.nf
+mkdir <subdir>          - make new <subdir>
+.fi
+.PP
+ 
+.br
+This example shows how to make a new subdirectory '/custom'. 
+.PP
+.nf
+[mpet@titan01 ~/online] odbedit
+[local:mpet:Stopped]/>ls
+System
+Programs
+Experiment
+Runinfo
+Alarms
+
+[local:mpet:Stopped]/>mkdir custom
+[local:mpet:Stopped]/>ls
+System
+Programs
+Experiment
+Runinfo
+Alarms
+Custom
+
+.fi
+.PP
+.PP
+More than one level of subdirectory can be made with one command 
+.PP
+.nf
+[local:pol:S]/>mkdir /Equipment/test/settings
+[local:pol:S]/>ls /Equipment
+test
+[local:pol:S]/>ls /Equipment/test
+[local:pol:S]/>
+settings
+
+.fi
+.PP
+.PP
+.PP
+.SS "msg - send a user message"
+This command can be used to send a message to any client that is receiving MIDAS messages, including the MIDAS message logger, e.g 
+.PP
+.nf
+[local:cg:S]/>
+16:30:48 [fred] hi
+[local:cg:S]/>msg george 'is there a problem?'
+[george,USER] is there a problem?
+16:30:48 [fred] power supply has failed
+
+.fi
+.PP
+.PP
+The messages have gone into the MIDAS log (see \fBbelow\fP).
+.PP
+.PP
+.SS "old - display old messages"
+This command displays the last N MIDAS messages, e.g. 
+.PP
+.nf
+[local:customgas:S]/>old 9
+Fri May 21 13:36:27 2010 [ODBEdit,INFO] Program ODBEdit on host dasdevpc2 started
+Fri May 21 13:36:40 2010 [ODBEdit,INFO] Program ODBEdit on host dasdevpc2 stopped
+Mon May 31 15:56:28 2010 [ODBEdit,INFO] Program ODBEdit on host dasdevpc2 started
+Wed Jun  9 20:49:42 2010 [mhttpd] Program mhttpd on host dasdevpc2 stopped
+Wed Jun  9 20:49:42 2010 [mhttpd] Program mhttpd on host dasdevpc2 started
+Wed Jun 16 16:27:51 2010 [fred] hi
+Wed Jun 16 16:29:15 2010 [fred] hi
+Wed Jun 16 16:30:10 2010 [george] is there a problem?
+Wed Jun 16 16:30:48 2010 [fred] power supply has failed
+
+.fi
+.PP
+.PP
+.PP
+.SS "passwd - change/set up the MIDAS password"
+Example is shown \fBhere\fP.
+.PP
+.PP
+.SS "webpasswd - change/set up the web password for mhttpd"
+Example is shown \fBhere\fP.
+.PP
+.PP
+.SS "move - move a key to a new position"
+.PP
+.nf
+move <key> [top/bottom/[n]] - move key to position in keylist
+.fi
+.PP
+.PP
+The 'move' command provides a means of re-ordering the keys. 
+.PP
+.nf
+[local:mpet:Stopped]/>ls
+System
+Programs
+Experiment
+Runinfo
+Alarms
+Custom
+
+.fi
+.PP
+.PP
+The key 'custom' can be moved to the top (or bottom) of the list, e.g. 
+.PP
+.nf
+[local:mpet:Stopped]/>move custom top
+[local:mpet:Stopped]/>ls
+Custom
+System
+Programs
+Experiment
+Runinfo
+Alarms
+
+.fi
+.PP
+.PP
+or to any position, e.g. 
+.PP
+.nf
+[local:mpet:Stopped]/>move custom 1
+[local:mpet:Stopped]/>ls
+System
+Custom
+Programs
+Experiment
+Runinfo
+Alarms
+
+.fi
+.PP
+.PP
+.PP
+.SS "rename - rename a key"
+.PP
+.nf
+rename <old> <new>      - rename key
+.fi
+.PP
+ 
+.br
+ 
+.PP
+.nf
+[local:pol:S]/>ls 'my string'
+my string                       this is a test string
+[local:pol:S]/>rename 'my string' 'your string'
+[local:pol:S]/>ls
+your string                       this is a test string
+
+.fi
+.PP
+.PP
+.PP
+.SS "copy - copy a subtree"
+.PP
+.nf
+copy <src> <dest>       - copy a subtree to a new location
+\code
+To make a copy of a subtree:
+\code
+[local:pol:S]/>ls test
+testval                         4
+[local:pol:S]/>copy test test1
+[local:pol:S]/>ls
+test
+test1
+[local:pol:S]/>ls test1
+testval       
+.fi
+.PP
+.PP
+.PP
+.SS "import -  import ASCII file"
+.PP
+.nf
+import  <filename> [key]    - import ASCII file into string key 
+.fi
+.PP
+.PP
+e.g. import an \fBInternal custom page\fP into a key, 
+.PP
+.nf
+Tue> odbedit
+[local:midas:Stopped]>cd custom
+[local:midas:Stopped]/Custom>import mcustom.html   <-- import an html file
+  Key name: Test&  
+
+.fi
+.PP
+.PP
+.PP
+.SS "export -  export ASCII file"
+.PP
+.nf
+export  <filename> [key]    - import ASCII file into string key 
+.fi
+.PP
+.PP
+e.g. export an \fBInternal custom page\fP into a key,
+.PP
+.PP
+.nf
+  [local:midas:Stopped]/>cd Custom/
+  [local:midas:Stopped]/Custom>export test&
+  File name: mcustom.html
+  [local:midas:Stopped]/Custom>
+.fi
+.PP
+.PP
+.PP
+.SS "ln - create a link"
+.PP
+.nf
+ln <source> <linkname>  - create a link to <source> key
+.fi
+.PP
+.PP
+The \fBEdit on start\fP area often contains links to ODB \fBparameters\fP e.g. 
+.PP
+.nf
+[local:mpet:Stopped]/Experiment>cd '/Experiment/Edit on start/
+[local:mpet:Stopped]Edit on start>ls
+num ppg cycles                  /Equipment/TITAN_acq/ppg cycle/begin_scan/loop count -> 50
+Pedestals run                   n
+Write Data                      /Logger/Write data -> y
+Capture delay (ms)              /Equipment/TITAN_acq/ppg cycle/evset_2/time offset (ms) -> 0.0955
+PLT pulsedown delay (ms)        /Equipment/TITAN_acq/ppg cycle/pulse_1/time offset (ms) -> 0.0922
+Start Frequency in MHz          /Experiment/Variables/StartFreq (MHz) -> 1.4588775
+End Frequency in MHz            /Experiment/Variables/EndFreq (MHz) -> 1.4588815
+Number of frequency steps       /Experiment/Variables/NFreq -> 41
+Feedbackfilename                /Feedback/fbfilename -> /home/mpet/online/mpetfeedbackfnv1.txt
+
+.fi
+.PP
+.PP
+These links were made using the 'ln' command, e.g. 
+.PP
+.nf
+[local:mpet:Stopped]Edit on start>ln  '/Equipment/TITAN_acq/ppg cycle/evset_2/time offset (ms)' 'Capture delay (ms)'
+
+.fi
+.PP
+.PP
+.PP
+.SS "create - create a key of a certain type"
+.PP
+.nf
+create <type> <key>     - create a key of a certain type
+create <type> <key>[n]  - create an array of size [n]
+.fi
+.PP
+.PP
+Keys can be created of the types supported by MIDAS i.e. 
+.br
+ INT DWORD BOOL FLOAT DOUBLE STRING
+.PP
+.PP
+.nf
+[local:pol:S]/test>create dword my_dword
+[local:pol:S]/test>create int my_int
+[local:pol:S]/test>create float my_float
+[local:pol:S]/test>create double my_double
+[local:pol:S]/test>create bool my_bool
+[local:pol:S]/>create string 'my string'
+String length [32]: 64
+
+[local:pol:S]/test>ls
+my_dword                        0
+my_int                          0
+my_float                        0
+my_double                       0
+my_bool                         n
+my_string
+
+[local:pol:S]/test>ls -lt
+Key name                        Type    #Val  Size  Last Opn Mode Value
+---------------------------------------------------------------------------
+my_dword                        DWORD   1     4     >99d 0   RWD  0
+my_int                          INT     1     4     >99d 0   RWD  0
+my_float                        FLOAT   1     4     >99d 0   RWD  0
+my_double                       DOUBLE  1     8     >99d 0   RWD  0
+my_bool                         BOOL    1     4     >99d 0   RWD  n
+my_string                       STRING  1     62    9s   0   RWD
+[local:pol:S]/test>
+.fi
+.PP
+.PP
+Arrays of all these types can also be created, e.g. 
+.PP
+.nf
+[local:pol:S]/test>create int fred[5]
+[local:pol:S]/test>ls
+fred
+                                0
+                                0
+                                0
+                                0
+                                0
+
+.fi
+.PP
+.PP
+The \fBset\fP command is used to assign values to the keys.
+.PP
+.PP
+.SS "set - set the value of a key"
+.PP
+.nf
+set <key> <value>       - set the value of a key
+set <key>[i] <value>    - set the value of index i
+set <key>[*] <value>    - set the value of all indices of a key
+set <key>[i..j] <value> - set the value of all indices i..j
+.fi
+.PP
+.PP
+After keys are \fBcreated\fP, they can be assigned values with the \fBset\fP command: 
+.PP
+.nf
+[pol@isdaq01 src]$ odb
+[local:pol:S]/>create string 'my string'
+String length [32]: 64
+[local:pol:S]/>ls -lt 'my string'
+Key name                        Type    #Val  Size  Last Opn Mode Value
+---------------------------------------------------------------------------
+my string                       STRING  1     64    9s   0   RWD
+[local:pol:S]/>set 'my string' 'this is a test string'
+[local:pol:S]/>ls 'my string'
+my string                       this is a test string
+[local:pol:S]/>create INT ival
+[local:pol:S]/>set ival 8
+[local:pol:S]/>ls -lt ival
+Key name                        Type    #Val  Size  Last Opn Mode Value
+---------------------------------------------------------------------------
+ival                            INT     1     4     3s   0   RWD  8
+[local:pol:S]/>ls ival
+ival                            8
+[local:pol:S]/>   
+
+.fi
+.PP
+.PP
+Values of \fBarrays\fP can also be set:
+.PP
+.PP
+.nf
+[local:pol:S]/test>set fred[4] 6
+[local:pol:S]/test>ls
+fred
+                                0
+                                0
+                                0
+                                0
+                                6
+[local:pol:S]/test>set fred 2
+[local:pol:S]/test>ls
+fred
+                                2
+                                0
+                                0
+                                0
+                                6
+[local:pol:S]/test>set fred[*] 5
+[local:pol:S]/test>ls
+fred
+                                5
+                                5
+                                5
+                                5
+                                5
+[local:pol:S]/test>set fred[1..3] 6
+[local:pol:S]/test>ls
+fred
+                                5
+                                6
+                                6
+                                6
+                                5
+[local:pol:S]/test>           
+.fi
+.PP
+.PP
+The array can easily be expanded (see also \fBtrunc\fP) :
+.PP
+.PP
+.nf
+[local:pol:S]/test>set fred[8] 9
+[local:pol:S]/test>ls
+fred
+                                5
+                                6
+                                6
+                                6
+                                5
+                                0
+                                0
+                                0
+                                9
+.fi
+.PP
+.PP
+ \fBNOTE\fP that the 'set' command may not work if the ODB parameter is \fBwrite-protected\fP. See \fBchmod - change access mode\fP and \fBLock when Running\fP.
+.PP
+.PP
+.SS "chmod - change access mode"
+.PP
+.nf
+chmod <mode> <key>       change access mode of a key
+                          1=read | 2=write | 3=RWD | 4=delete
+.fi
+.PP
+.PP
+By default, a key is created in mode 3 (i.e. RWD read/write/delete). The \fBchmod\fP command may be used to change the protection of the key. 
+.PP
+.nf
+[local:bnmr:S]/>create int my_test
+[local:bnmr:S]/>set my_test 3
+[local:bnmr:S]/>ls -lt my_test
+Key name                        Type    #Val  Size  Last Opn Mode Value
+---------------------------------------------------------------------------
+my_test                         INT     1     4     20s  0   RWD  3
+[local:bnmr:S]/>chmod 1 my_test
+Are you sure to change the mode of key
+  /my_test
+and all its subkeys
+to mode [R]? (y/[n]) y
+[local:bnmr:S]/>ls -lt my_test
+Key name                        Type    #Val  Size  Last Opn Mode Value
+---------------------------------------------------------------------------
+my_test                         INT     1     4     46s  0   R    3
+[local:bnmr:S]/>set my_test 6
+Write access not allowed
+[local:bnmr:S]/> 
+
+.fi
+.PP
+.PP
+\fBNOTE:\fP 
+.br
+ 
+.br
+Write protection when running can also be performed - see \fBLock when Running\fP.
+.PP
+.PP
+.SS "trunc  - truncate a key"
+.PP
+.nf
+trunc <key> <index>     - truncate key to [index] values
+.fi
+.PP
+.PP
+This command is used to truncate or expand an array. 
+.PP
+.nf
+[local:pol:S]/>ls fred 
+fred
+                                5
+                                6
+                                6
+                                6
+                                5
+                                0
+                                0
+                                0
+                                9
+[local:pol:S]/>trunc fred 4
+[local:pol:S]/>ls fred
+fred
+                                5
+                                6
+                                6
+                                6
+[local:pol:S]/>trunc fred 9
+[local:pol:S]/>ls fred
+fred
+                                5
+                                6
+                                6
+                                6
+                                0
+                                0
+                                0
+                                0
+                                0
+
+.fi
+.PP
+.PP
+
+.br
+ 
+.PP
+.SS "rm/del - delete a key and its subkeys"
+.PP
+.nf
+del/rm [-l] [-f] <key>  - delete a key and its subkeys
+  -l                      follow links
+  -f                      force deletion without asking
+.fi
+.PP
+ 
+.br
+.PP
+.PP
+.nf
+[local:pol:S]/>rm ival
+Are you sure to delete the key
+'/ival'
+(y/[n]) y
+ 
+[local:pol:S]/>rm test/try
+Are you sure to delete the key '/test/try'
+and all its subkeys? (y/[n]) y
+[local:pol:S]/> 
+.fi
+.PP
+.PP
+If you answer 'n' the key will not be deleted.
+.PP
+.PP
+.SS "sor - show open records"
+This shows which records are open, i.e. \fBhot-linked\fP . 
+.PP
+.nf
+[local:mpet:Stopped]/>sor
+/Runinfo/Requested transition open 1 times by fempet
+/Equipment/Trigger/Common open 1 times by fempet
+/Equipment/Trigger/Statistics open 1 times by fempet
+/Equipment/Trigger/Statistics/Events per sec. open 1 times by Logger
+/Equipment/Trigger/Statistics/kBytes per sec. open 1 times by Logger
+/Equipment/Trigger/Settings open 1 times by fempet
+/Equipment/Scaler/Common open 1 times by fempet
+/Equipment/Scaler/Statistics open 1 times by fempet
+/Equipment/SlowDac/Variables open 1 times by Logger
+/Equipment/SlowDac/Variables/Demand open 1 times by fesdac
+/Equipment/SlowDac/Common open 1 times by fesdac
+/Equipment/SlowDac/Statistics open 1 times by fesdac
+/Equipment/Beamline/Settings/Names open 1 times by scEpics
+/Equipment/Beamline/Settings/Update Threshold Measured open 1 times by scEpics
+/Equipment/Beamline/Common open 1 times by scEpics
+/Equipment/Beamline/Variables open 1 times by Logger
+/Equipment/Beamline/Variables/Demand open 1 times by scEpics
+/Equipment/Beamline/Statistics open 1 times by scEpics
+/Equipment/RF/Variables open 1 times by Logger
+/Equipment/TITAN_ACQ/Common open 1 times by fempet
+/Equipment/TITAN_ACQ/Statistics open 1 times by fempet
+[local:mpet:Stopped]/>    
+
+.fi
+.PP
+.PP
+.PP
+.SS "save - save database at current position"
+.PP
+.nf
+save [-c -s -x -cs] <file>  - save database at current position
+                          in ASCII format
+  -c                      as a C structure
+  -s                      as a #define'd string
+  -x                      as a XML file
+.fi
+.PP
+ Saving the database regularly is essential in case the database becomes corrupted (see \fBCorrupted ODB\fP). To save the complete database into an ASCII file, 
+.PP
+.nf
+[mpet@titan01 ~/online] odbedit
+[local:mpet:Stopped]/>save mpet.odb
+
+.fi
+.PP
+ 
+.br
+ This example shows how to save part of the database in an \fBASCII\fP file 
+.PP
+.nf
+[local:pol:S]>cd '/Equipment/Info ODB/'
+[local:pol:S]Info ODB>save info.odb
+
+.fi
+.PP
+ \fBContents\fP of info.odb : 
+.PP
+.nf
+[/Equipment/Info ODB/Common]
+Event ID = WORD : 10
+Trigger mask = WORD : 0
+Buffer = STRING : [32] 
+Type = INT : 1
+Source = INT : 0
+Format = STRING : [8] FIXED
+Enabled = BOOL : y
+Read on = INT : 273
+Period = INT : 500
+Event limit = DOUBLE : 0
+Num subevents = DWORD : 0
+Log history = INT : 0
+Frontend host = STRING : [32] vwisac2
+Frontend name = STRING : [32] fePOL
+Frontend file name = STRING : [256] febnmr.c
+
+[/Equipment/Info ODB/Variables]
+helicity = DWORD : 0
+current cycle = DWORD : 2
+cancelled cycle = DWORD : 1
+current scan = DWORD : 1
+Ref P+ thr = DOUBLE : 0
+Ref Laser thr = DOUBLE : 10138
+Ref Fcup thr = DOUBLE : 0
+Current P+ thr = DOUBLE : 0
+Current Laser thr = DOUBLE : 10138
+Current Fcup thr = DOUBLE : 0
+RF state = DWORD : 0
+Fluor monitor counts = DWORD : 50010
+EpicsDev Set(V) = FLOAT : 0
+EpicsDev Read(V) = FLOAT : 0
+Campdev set = FLOAT : 0
+Campdev read = FLOAT : 0
+Pol DAC set = DOUBLE : 0
+Pol DAC read = DOUBLE : 0
+last failed thr test = DWORD : 0
+cycle when last failed thr = DWORD : 0
+
+[/Equipment/Info ODB/Statistics]
+Events sent = DOUBLE : 0
+Events per sec. = DOUBLE : 0
+kBytes per sec. = DOUBLE : 0
+
+.fi
+.PP
+.PP
+\fBSave as a C structure\fP 
+.PP
+.nf
+[local:pol:S]Info ODB>save  -c cfile.c
+
+.fi
+.PP
+  \fBSave as a #defined structure \fP 
+.PP
+.nf
+[local:pol:S]Info ODB>save  -s cfile.h
+
+.fi
+.PP
+  
+.PP
+\fBContents\fP of cfile.c : \fBContents\fP of cfile.h :   
+.PP
+.nf
+typedef struct {
+  struct {
+    WORD      event_id;
+    WORD      trigger_mask;
+    char      buffer[32];
+    INT       type;
+    INT       source;
+    char      format[8];
+    BOOL      enabled;
+    INT       read_on;
+    INT       period;
+    double    event_limit;
+    DWORD     num_subevents;
+    INT       log_history;
+    char      frontend_host[32];
+    char      frontend_name[32];
+    char      frontend_file_name[256];
+  } common;
+  struct {
+    DWORD     helicity;
+    DWORD     current_cycle;
+    DWORD     cancelled_cycle;
+    DWORD     current_scan;
+    double    ref_p__thr;
+    double    ref_laser_thr;
+    double    ref_fcup_thr;
+    double    current_p__thr;
+ double    current_laser_thr;
+    double    current_fcup_thr;
+    DWORD     rf_state;
+    DWORD     fluor_monitor_counts;
+    float     epicsdev_set_v_;
+    float     epicsdev_read_v_;
+    float     campdev_set;
+    float     campdev_read;
+    double    pol_dac_set;
+    double    pol_dac_read;
+    DWORD     last_failed_thr_test;
+    DWORD     cycle_when_last_failed_thr;
+  } variables;
+  struct {
+    double    events_sent;
+    double    events_per_sec_;
+    double    kbytes_per_sec_;
+  } statistics;
+} INFO_ODB;
+
+.fi
+.PP
+ 
+.PP
+.PP
+.nf
+#define INFO_ODB(_name) char *_name[] = {\
+'[Common]',\
+'Event ID = WORD : 10',\
+'Trigger mask = WORD : 0',\
+'Buffer = STRING : [32] ',\
+'Type = INT : 1',\
+'Source = INT : 0',\
+'Format = STRING : [8] FIXED',\
+'Enabled = BOOL : y',\
+'Read on = INT : 273',\
+'Period = INT : 500',\
+'Event limit = DOUBLE : 0',\
+'Num subevents = DWORD : 0',\
+'Log history = INT : 0',\
+'Frontend host = STRING : [32] vwisac2',\
+'Frontend name = STRING : [32] fePOL',\
+'Frontend file name = STRING : [256] febnmr.c',\
+'',\
+'[Variables]',\
+'helicity = DWORD : 0',\
+'current cycle = DWORD : 2',\
+'cancelled cycle = DWORD : 1',\
+'current scan = DWORD : 1',\
+'Ref P+ thr = DOUBLE : 0',\
+'Ref Laser thr = DOUBLE : 10138',\
+'Ref Fcup thr = DOUBLE : 0',\
+'Current P+ thr = DOUBLE : 0',\
+'Current Laser thr = DOUBLE : 10138',\
+'Current Fcup thr = DOUBLE : 0',\
+'RF state = DWORD : 0',\
+'Fluor monitor counts = DWORD : 50010',\
+'EpicsDev Set(V) = FLOAT : 0',\
+'EpicsDev Read(V) = FLOAT : 0',\
+'Campdev set = FLOAT : 0',\
+'Campdev read = FLOAT : 0',\
+'Pol DAC set = DOUBLE : 0',\
+'Pol DAC read = DOUBLE : 0',\
+'last failed thr test = DWORD : 0',\
+'cycle when last failed thr = DWORD : 0',\
+'',\
+'[Statistics]',\
+'Events sent = DOUBLE : 0',\
+'Events per sec. = DOUBLE : 0',\
+'kBytes per sec. = DOUBLE : 0',\
+'',\
+NULL }
+.fi
+.PP
+  
+.PP
+\fB Save as an XML structure \fP 
+.PP
+.nf
+[local:pol:S]Info ODB>save  -x xinfo.xml
+
+.fi
+.PP
+ \fBContents\fP of xinfo.xml : 
+.PP
+.nf
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<!-- created by MXML on Wed Sep 23 13:27:05 2009 -->
+<odb root='/Equipment/Info ODB' filename='xinfo.xml' xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xsi:noNamespaceSchemaLocation='/home/pol/packages/midas/odb.xsd'>
+  <dir name='Common'>
+    <key name='Event ID' type='WORD'>10</key>
+    <key name='Trigger mask' type='WORD'>0</key>
+    <key name='Buffer' type='STRING' size='32'></key>
+    <key name='Type' type='INT'>1</key>
+    <key name='Source' type='INT'>0</key>
+    <key name='Format' type='STRING' size='8'>FIXED</key>
+    <key name='Enabled' type='BOOL'>y</key>
+    <key name='Read on' type='INT'>273</key>
+    <key name='Period' type='INT'>500</key>
+    <key name='Event limit' type='DOUBLE'>0</key>
+    <key name='Num subevents' type='DWORD'>0</key>
+    <key name='Log history' type='INT'>0</key>
+    <key name='Frontend host' type='STRING' size='32'>vwisac2</key>
+    <key name='Frontend name' type='STRING' size='32'>fePOL</key>
+    <key name='Frontend file name' type='STRING' size='256'>febnmr.c</key>
+  </dir>
+  <dir name='Variables'>
+    <key name='helicity' type='DWORD'>0</key>
+    <key name='current cycle' type='DWORD'>2</key>
+    <key name='cancelled cycle' type='DWORD'>1</key>
+    <key name='current scan' type='DWORD'>1</key>
+    <key name='Ref P+ thr' type='DOUBLE'>0</key>
+    <key name='Ref Laser thr' type='DOUBLE'>10138</key>
+    <key name='Ref Fcup thr' type='DOUBLE'>0</key>
+    <key name='Current P+ thr' type='DOUBLE'>0</key>
+    <key name='Current Laser thr' type='DOUBLE'>10138</key>
+    <key name='Current Fcup thr' type='DOUBLE'>0</key>
+    <key name='RF state' type='DWORD'>0</key>
+    <key name='Fluor monitor counts' type='DWORD'>50010</key>
+    <key name='EpicsDev Set(V)' type='FLOAT'>0</key>
+    <key name='EpicsDev Read(V)' type='FLOAT'>0</key>
+    <key name='Campdev set' type='FLOAT'>0</key>
+    <key name='Campdev read' type='FLOAT'>0</key>
+    <key name='Pol DAC set' type='DOUBLE'>0</key>
+    <key name='Pol DAC read' type='DOUBLE'>0</key>
+    <key name='last failed thr test' type='DWORD'>0</key>
+    <key name='cycle when last failed thr' type='DWORD'>0</key>
+  </dir>
+  <dir name='Statistics'>
+    <key name='Events sent' type='DOUBLE'>0</key>
+    <key name='Events per sec.' type='DOUBLE'>0</key>
+    <key name='kBytes per sec.' type='DOUBLE'>0</key>
+  </dir>
+</odb>
+
+.fi
+.PP
+.PP
+.PP
+.SS "load - load database from a saved file"
+.PP
+.nf
+load <file>             - load database from .ODB file at current position
+.fi
+.PP
+ To load the \fBcomplete\fP database from an ASCII file containing a previously \fBsaved\fP database: 
+.PP
+.nf
+[mpet@titan01 ~/online] odbedit
+[local:mpet:Stopped]/>load mpet.odb
+
+.fi
+.PP
+ The entire database need not be loaded. \fBSaved ASCII files\fP can be made of just a part of the database, and these can be reloaded into the database. Since the full path is given in the saved file, the file can be loaded from any position in the database. The saved ASCII file may of course be edited prior to loading, if keynames or values need to be changed. If the keys in the load file do not exist, they will be created. If they do exist, the values from the file will be loaded. 
+.PP
+.nf
+[mpet@titan01 ~/online] odbedit
+[local:mpet:Stopped]/>load awg0.odb
+
+.fi
+.PP
+ 
+.br
+.PP
+ 
+.PP
+.SS "make - create experim.h"
+.PP
+.nf
+make [analyzer name]    - create experim.h
+.fi
+.PP
+ The \fBmake\fP command creates in the current directory \fB\fBexperim.h\fP\fP, a file containing C structures which can be included into frontend and analyzer code to enable easy access to the odb \fBparameters\fP (see also RC_experim_dot_h 'using experim.h with hot-links' 
+.br
+ In order to include the \fBanalyzer section\fP, the ODB key \fB/<Analyzer>/Parameters\fP has to be present, where <Analyzer> is the name of the analyzer. The command used is then 'make \\<Analyzer> ' 
+.br
+ The following example does not have an Analyzer key. 
+.PP
+.nf
+[pol@isdaq01 pol]$ odbedit
+[local:pol:S]/>make
+Analyzer 'Analyzer' not found in ODB, skipping analyzer parameters
+'experim.h' has been written to /home/pol/online/pol
+
+.fi
+.PP
+ Here is an part of \fBexperim.h\fP for an experiment, showing the 'Experiment' tree and one of the 'Equipment' trees 
+.PP
+.nf
+/********************************************************************\
+
+  Name:         experim.h
+  Created by:   ODBedit program
+
+  Contents:     This file contains C structures for the 'Experiment'
+                tree in the ODB and the '/Analyzer/Parameters' tree.
+
+
+                Additionally, it contains the 'Settings' subtree for
+                all items listed under '/Equipment' as well as their
+                event definition.
+
+                It can be used by the frontend and analyzer to work
+                with these information.
+
+                All C structures are accompanied with a string represen-
+                tation which can be used in the db_create_record function
+                to setup an ODB structure which matches the C structure.
+
+  Created on:   Wed Sep 23 13:10:52 2009
+
+\********************************************************************/
+
+#define EXP_EDIT_DEFINED
+
+typedef struct {
+  char      run_title[88];
+  DWORD     experiment_number;
+  char      experimenter[32];
+  char      sample[15];
+  char      orientation[15];
+  char      temperature[15];
+  char      field[15];
+  char      element[24];
+  INT       mass;
+  INT       dc_offset_v_;
+  double    ion_source__kv_;
+  double    laser_wavelength__nm_;
+  BOOL      active;
+  INT       num_scans;
+  char      source_hv_bias[12];
+  BOOL      edit_run_number;
+} EXP_EDIT;
+
+#define EXP_EDIT_STR(_name) char *_name[] = {\
+'[.]',\
+'run_title = STRING : [88] test',\
+'experiment number = DWORD : 1',\
+'experimenter = STRING : [32] Matt ',\
+'sample = STRING : [15] test',\
+'orientation = STRING : [15] ',\
+'temperature = STRING : [15] ',\
+'field = STRING : [15] ',\
+'Element = STRING : [24] li',\
+'Mass = INT : 7',\
+'DC offset(V) = INT : 0',\
+'Ion source (kV) = DOUBLE : 30',\
+'Laser wavelength (nm) = DOUBLE : 123456789',\
+'write data = LINK : [35] /Logger/Channels/0/Settings/Active',\
+'Number of scans = LINK : [47] /Equipment/FIFO_acq/sis mcs/hardware/num scans',\
+'Source HV Bias = STRING : [12] OLIS',\
+'Edit run number = BOOL : y',\
+'',\
+NULL }
+
+
+
+
+#ifndef EXCL_CYCLE_SCALERS
+
+#define CYCLE_SCALERS_COMMON_DEFINED
+
+typedef struct {
+  WORD      event_id;
+  WORD      trigger_mask;
+  char      buffer[32];
+  INT       type;
+  INT       source;
+  char      format[8];
+  BOOL      enabled;
+  INT       read_on;
+  INT       period;
+  double    event_limit;
+  DWORD     num_subevents;
+  INT       log_history;
+  char      frontend_host[32];
+  char      frontend_name[32];
+  char      frontend_file_name[256];
+} CYCLE_SCALERS_COMMON;
+
+#define CYCLE_SCALERS_COMMON_STR(_name) char *_name[] = {\
+'[.]',\
+'Event ID = WORD : 3',\
+'Trigger mask = WORD : 1',\
+'Buffer = STRING : [32] SYSTEM',\
+'Type = INT : 1',\
+'Source = INT : 0',\
+'Format = STRING : [8] MIDAS',\
+'Enabled = BOOL : y',\
+'Read on = INT : 257',\
+'Period = INT : 100',\
+'Event limit = DOUBLE : 0',\
+'Num subevents = DWORD : 0',\
+'Log history = INT : 0',\
+'Frontend host = STRING : [32] vwisac2',\
+'Frontend name = STRING : [32] fePOL',\
+'Frontend file name = STRING : [256] febnmr.c',\
+'',\
+NULL }
+
+#define CYCLE_SCALERS_SETTINGS_DEFINED
+
+typedef struct {
+  char      names[6][32];
+} CYCLE_SCALERS_SETTINGS;
+
+#define CYCLE_SCALERS_SETTINGS_STR(_name) char *_name[] = {\
+'[.]',\
+'Names = STRING[6] :',\
+'[32] Scaler_B%SIS Ref pulse',\
+'[32] Scaler_B%Fluor. mon',\
+'[32] Scaler_B%P+ beam',\
+'[32] Scaler_B%Laser power',\
+'[32] Scaler_B%Faraday Cup 15',\
+'[32] Scaler_B%Locking Feedback',\
+'',\
+NULL }
+
+#endif
+
+...................
+
+etc.
+
+.fi
+.PP
+.PP
+ 
+.PP
+.SS "scl - show active clients"
+.PP
+.nf
+scl [-w]                - show all active clients [with watchdog info]
+.fi
+.PP
+ 
+.br
+ 
+.PP
+.nf
+[local:mpet:Stopped]/>scl
+Name                Host
+rucompet            titan01.triumf.ca
+Logger              titan01.triumf.ca
+scEpics             titan01.triumf.ca
+fesdac              lxmpet.triumf.ca
+fempet              lxmpet.triumf.ca
+mhttpd              titan01.triumf.ca
+ODBEdit             titan01.triumf.ca
+
+.fi
+.PP
+.PP
+.PP
+.SS "sh - shutdown a client"
+.PP
+.nf
+shutdown <client>/all   - shutdown individual or all clients
+.fi
+.PP
+ 
+.br
+ 
+.PP
+.nf
+[local:mpet:Stopped]/>sh rucompet
+[local:mpet:Stopped]/>scl
+Name                Host
+Logger              titan01.triumf.ca
+scEpics             titan01.triumf.ca
+fesdac              lxmpet.triumf.ca
+fempet              lxmpet.triumf.ca
+mhttpd              titan01.triumf.ca
+ODBEdit             titan01.triumf.ca
+
+.fi
+.PP
+.PP
+ 
+.PP
+.SS "start - start a run"
+.PP
+.nf
+start [number][now][-v] - start a run [with a specific number],
+                          [now] w/o asking parameters, [-v] debug output
+.fi
+.PP
+ 
+.br
+.PP
+The odbedit \fBstart\fP command is used to start a run.
+.PP
+
+.br
+ 
+.SS "Run start examples"
+In the following example, the run number of the new run is supplied. 
+.PP
+.nf
+[local:Default:S]/Experiment>start 503
+
+.fi
+.PP
+ 
+.br
+.PP
+In the example below, the run number is not specified. The system will start the next consecutive run. 
+.PP
+.nf
+[local:Default:S]/Experiment>start
+Run number [30004]: 
+Are the above parameters correct? ([y]/n/q): y
+
+.fi
+.PP
+ The user may edit the run number before continuing by typing 'n'. Typing 'y' will start the run, and typing 'q' will abort the run start. 
+.br
+.PP
+In the above example, there are no \fBedit-on-start paramaters\fP defined by the user. If any are defined, the command 'start' will display the 'edit on start' \fBparameters\fP e.g.
+.SS "Run Start example with 'Edit on Start' parameters"
+Note that when using odbedit, Parameter comments are NOT visible, and the run number IS editable. 
+.PP
+.nf
+[local:bnmr:S]/>start 
+run_title : 2e test
+experiment number : 9999
+experimenter : gdm
+sample : NA
+orientation : 
+temperature : 285.12K
+field : 0G
+Number of scans : 0
+write data : y
+Run number [30004]:
+
+.fi
+.PP
+.PP
+
+.br
+ 
+.SS "Run Start Example with 'start now'"
+ By entering the command \fB'start now'\fP, all defined \fBEdit-on-Start parameters\fP can be skipped. 
+.PP
+.nf
+[local:bnmr:S]/>start now
+Starting run #30129
+Run #30129 started
+
+.fi
+.PP
+.SS "Run Start Example with '-v' verbose option"
+ Using the \fB'-v'\fP (verbose) option is useful for debugging. It prints messages as each client is started. 
+.PP
+.nf
+[local:bnmr:S]/>start -v
+run_title : test
+experiment number : 1165
+experimenter : gdm
+sample : GaAs
+orientation : 100
+temperature : 286.01K
+field : 0.00G
+Number of cycles : 0
+write data : y
+Run number [30128]:
+Are the above parameters correct? ([y]/n/q): y
+
+.fi
+.PP
+  
+.PP
+.nf
+Starting run #30128
+Setting run number 30128 in ODB
+---- Transition START started ----
+
+==== Found client 'Logger' with sequence number 200
+Connecting to client 'Logger' on host isdaq01...
+Connection established to client 'Logger' on host isdaq01
+Executing RPC transition client 'Logger' on host isdaq01...
+RPC transition finished client 'Logger' on host isdaq01 with status 1
+
+==== Found client 'mheader' with sequence number 200
+Connecting to client 'mheader' on host isdaq01...
+Connection established to client 'mheader' on host isdaq01
+Executing RPC transition client 'mheader' on host isdaq01...
+RPC transition finished client 'mheader' on host isdaq01 with status 1
+
+==== Found client 'rf_config' with sequence number 350
+Connecting to client 'rf_config' on host isdaq01...
+Connection established to client 'rf_config' on host isdaq01
+Executing RPC transition client 'rf_config' on host isdaq01...
+RPC transition finished client 'rf_config' on host isdaq01 with status 1
+
+==== Found client 'rf_config' with sequence number 400
+Connecting to client 'rf_config' on host isdaq01...
+Connection established to client 'rf_config' on host isdaq01
+Executing RPC transition client 'rf_config' on host isdaq01...
+RPC transition finished client 'rf_config' on host isdaq01 with status 1
+
+==== Found client 'Mdarc' with sequence number 450
+Connecting to client 'Mdarc' on host isdaq01...
+Connection established to client 'Mdarc' on host isdaq01
+Executing RPC transition client 'Mdarc' on host isdaq01...
+RPC transition finished client 'Mdarc' on host isdaq01 with status 1
+
+==== Found client 'Epics' with sequence number 500
+Connecting to client 'Epics' on host isdaq01...
+Connection established to client 'Epics' on host isdaq01
+Executing RPC transition client 'Epics' on host isdaq01...
+RPC transition finished client 'Epics' on host isdaq01 with status 1
+
+==== Found client 'mheader' with sequence number 500
+Connecting to client 'mheader' on host isdaq01...
+Connection established to client 'mheader' on host isdaq01
+Executing RPC transition client 'mheader' on host isdaq01...
+RPC transition finished client 'mheader' on host isdaq01 with status 1
+
+==== Found client 'Mdarc' with sequence number 500
+Connecting to client 'Mdarc' on host isdaq01...
+Connection established to client 'Mdarc' on host isdaq01
+Executing RPC transition client 'Mdarc' on host isdaq01...
+RPC transition finished client 'Mdarc' on host isdaq01 with status 1
+
+==== Found client 'feBNMR' with sequence number 500
+Connecting to client 'feBNMR' on host bnmrhmvw...
+Connection established to client 'feBNMR' on host bnmrhmvw
+Executing RPC transition client 'feBNMR' on host bnmrhmvw...
+RPC transition finished client 'feBNMR' on host bnmrhmvw with status 1
+
+.fi
+.PP
+.PP
+.PP
+  
+.SS "stop - stop a run"
+.PP
+.nf
+stop [-v]               - stop current run, [-v] debug output
+.fi
+.PP
+ 
+.br
+ 
+.PP
+.nf
+[local:pol:R]/>stop
+Run #399 stopped
+[local:pol:S]/>  
+
+.fi
+.PP
+  'Stop now' can be used to force a stop if there is a deferred transition. If there is no deferred transition, the 'stop now' is the same as 'stop'. 
+.PP
+.nf
+local:bnmr:R]/>stop now
+Run #30129 stopped
+
+.fi
+.PP
+ Using the '-v' (verbose) option is useful for debugging. It prints a message as each client is stopped.
+.PP
+.PP
+.PP
+.nf
+[local:bnmr:R]/>stop -v
+---- Transition STOP started ----
+
+==== Found client 'mheader' with sequence number 200
+Connecting to client 'mheader' on host isdaq01...
+Connection established to client 'mheader' on host isdaq01
+Executing RPC transition client 'mheader' on host isdaq01...
+RPC transition finished client 'mheader' on host isdaq01 with status 1
+
+==== Found client 'Epics' with sequence number 500
+Connecting to client 'Epics' on host isdaq01...
+Connection established to client 'Epics' on host isdaq01
+Executing RPC transition client 'Epics' on host isdaq01...
+RPC transition finished client 'Epics' on host isdaq01 with status 1
+
+==== Found client 'rf_config' with sequence number 500
+Connecting to client 'rf_config' on host isdaq01...
+Connection established to client 'rf_config' on host isdaq01
+Executing RPC transition client 'rf_config' on host isdaq01...
+RPC transition finished client 'rf_config' on host isdaq01 with status 1
+
+==== Found client 'mheader' with sequence number 500
+Connecting to client 'mheader' on host isdaq01...
+Connection established to client 'mheader' on host isdaq01
+Executing RPC transition client 'mheader' on host isdaq01...
+RPC transition finished client 'mheader' on host isdaq01 with status 1
+
+==== Found client 'feBNMR' with sequence number 500
+Connecting to client 'feBNMR' on host bnmrhmvw...
+Connection established to client 'feBNMR' on host bnmrhmvw
+Executing RPC transition client 'feBNMR' on host bnmrhmvw...
+RPC transition finished client 'feBNMR' on host bnmrhmvw with status 1
+
+==== Found client 'mheader' with sequence number 600
+Connecting to client 'mheader' on host isdaq01...
+Connection established to client 'mheader' on host isdaq01
+Executing RPC transition client 'mheader' on host isdaq01...
+RPC transition finished client 'mheader' on host isdaq01 with status 1
+
+==== Found client 'Mdarc' with sequence number 600
+Connecting to client 'Mdarc' on host isdaq01...
+Connection established to client 'Mdarc' on host isdaq01
+Executing RPC transition client 'Mdarc' on host isdaq01...
+RPC transition finished client 'Mdarc' on host isdaq01 with status 1
+
+==== Found client 'feBNMR' with sequence number 750
+Connecting to client 'feBNMR' on host bnmrhmvw...
+Connection established to client 'feBNMR' on host bnmrhmvw
+Executing RPC transition client 'feBNMR' on host bnmrhmvw...
+RPC transition finished client 'feBNMR' on host bnmrhmvw with status 1
+
+==== Found client 'Logger' with sequence number 800
+Connecting to client 'Logger' on host isdaq01...
+Connection established to client 'Logger' on host isdaq01
+Executing RPC transition client 'Logger' on host isdaq01...
+RPC transition finished client 'Logger' on host isdaq01 with status 1
+
+---- Transition STOP finished ----
+Run #30128 stopped
+.fi
+.PP
+.PP
+
+.br
+ 
+.PP
+ 

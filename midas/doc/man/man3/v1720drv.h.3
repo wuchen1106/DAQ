@@ -1,0 +1,126 @@
+.TH "v1720drv.h" 3 "31 May 2012" "Version 2.3.0-0" "Midas" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+v1720drv.h \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "int \fBv1720_Setup\fP (\fBMVME_INTERFACE\fP *mvme, uint32_t a32base, int mode)"
+.br
+.ti -1c
+.RI "uint32_t \fBv1720_DataBlockRead\fP (\fBMVME_INTERFACE\fP *mvme, uint32_t a32base, uint32_t *pdest, uint32_t *nentry)"
+.br
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "void v1720_AcqCtl (\fBMVME_INTERFACE\fP * mvme, uint32_t a32base, uint32_t operation)"
+.PP
+Definition at line 145 of file v1720.c.
+.SS "void v1720_Align64Set (\fBMVME_INTERFACE\fP * mvme, uint32_t base)"
+.PP
+Definition at line 139 of file v1720.c.
+.SS "uint32_t v1720_BufferFree (\fBMVME_INTERFACE\fP * mvme, uint32_t base, int nbuffer)"
+.PP
+Definition at line 233 of file v1720.c.
+.SS "uint32_t v1720_BufferFreeRead (\fBMVME_INTERFACE\fP * mvme, uint32_t a32base)"
+.PP
+Definition at line 246 of file v1720.c.
+.SS "uint32_t v1720_BufferOccupancy (\fBMVME_INTERFACE\fP * mvme, uint32_t a32base, uint32_t channel)"
+.PP
+Definition at line 224 of file v1720.c.
+.SS "void v1720_ChannelConfig (\fBMVME_INTERFACE\fP * mvme, uint32_t base, uint32_t operation)"
+.PP
+Definition at line 181 of file v1720.c.
+.SS "void v1720_ChannelCtl (\fBMVME_INTERFACE\fP * mvme, uint32_t a32base, uint32_t reg, uint32_t mask)"
+.PP
+Definition at line 67 of file v1720.c.
+.SS "int v1720_ChannelDACGet (\fBMVME_INTERFACE\fP * mvme, uint32_t base, uint32_t channel, uint32_t * dac)"
+.PP
+Definition at line 126 of file v1720.c.
+.SS "void v1720_ChannelDACSet (\fBMVME_INTERFACE\fP * mvme, uint32_t base, uint32_t channel, uint32_t dac)"
+.PP
+Definition at line 116 of file v1720.c.
+.SS "uint32_t v1720_ChannelGet (\fBMVME_INTERFACE\fP * mvme, uint32_t base, uint32_t channel, uint32_t what)"
+.PP
+Definition at line 86 of file v1720.c.
+.SS "void v1720_ChannelOUThresholdSet (\fBMVME_INTERFACE\fP * mvme, uint32_t base, uint32_t channel, uint32_t threshold)"
+.PP
+Definition at line 107 of file v1720.c.
+.SS "void v1720_ChannelSet (\fBMVME_INTERFACE\fP * mvme, uint32_t base, uint32_t channel, uint32_t what, uint32_t that)"
+.PP
+Definition at line 73 of file v1720.c.
+.SS "void v1720_ChannelThresholdSet (\fBMVME_INTERFACE\fP * mvme, uint32_t base, uint32_t channel, uint32_t threshold)"
+.PP
+Definition at line 98 of file v1720.c.
+.SS "uint32_t v1720_DataBlockRead (\fBMVME_INTERFACE\fP * mvme, uint32_t base, uint32_t * pdest, uint32_t * nentry)"v1720_DataBlockRead Read N entries (32bit) 
+.PP
+\fBParameters:\fP
+.RS 4
+\fImvme\fP vme structure 
+.br
+\fIbase\fP base address 
+.br
+\fIpdest\fP Destination pointer 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+nentry 
+.RE
+.PP
+
+.PP
+Definition at line 275 of file v1720.c.
+.SS "uint32_t v1720_DataRead (\fBMVME_INTERFACE\fP * mvme, uint32_t a32base, uint32_t * pdata, uint32_t n32w)"
+.PP
+Definition at line 252 of file v1720.c.
+.SS "void v1720_info (\fBMVME_INTERFACE\fP * mvme, uint32_t a32base, int * nch, uint32_t * n32w)"
+.PP
+Definition at line 202 of file v1720.c.
+.SS "uint32_t v1720_RegisterRead (\fBMVME_INTERFACE\fP * mvme, uint32_t a32base, int offset)"
+.PP
+Definition at line 43 of file v1720.c.
+.SS "void v1720_RegisterWrite (\fBMVME_INTERFACE\fP * mvme, uint32_t a32base, int offset, uint32_t value)"
+.PP
+Definition at line 49 of file v1720.c.
+.SS "void v1720_Reset (\fBMVME_INTERFACE\fP * mvme, uint32_t a32base)"
+.PP
+Definition at line 55 of file v1720.c.
+.SS "int v1720_Setup (\fBMVME_INTERFACE\fP * mvme, uint32_t base, int mode)"Sets all the necessary paramters for a given configuration. The configuration is provided by the mode argument. Add your own configuration in the case statement. Let me know your setting if you want to include it in the distribution.
+.IP "\(bu" 2
+\fBMode 1\fP :
+.PP
+.PP
+\fBParameters:\fP
+.RS 4
+\fI*mvme\fP VME structure 
+.br
+\fIbase\fP Module base address 
+.br
+\fImode\fP Configuration mode number 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+0: OK. -1: Bad 
+.RE
+.PP
+
+.PP
+Definition at line 319 of file v1720.c.
+.SS "void v1720_Status (\fBMVME_INTERFACE\fP * mvme, uint32_t a32base)"
+.PP
+Definition at line 296 of file v1720.c.
+.PP
+Referenced by v1720_Setup().
+.SS "void v1720_TrgCtl (\fBMVME_INTERFACE\fP * mvme, uint32_t a32base, uint32_t reg, uint32_t mask)"
+.PP
+Definition at line 61 of file v1720.c.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Midas from the source code.

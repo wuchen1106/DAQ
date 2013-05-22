@@ -1,0 +1,497 @@
+\subsection{mevb.c File Reference}
+\label{mevb_8c}\index{mevb.c@{mevb.c}}
+\subsubsection*{Defines}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{mevb_8c_a022c39e327f494dda3664f8888f860f1}{SERVER\_\-CACHE\_\-SIZE}~100000
+\end{DoxyCompactItemize}
+\subsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{mevb_8c_ae77cd1e2416ccddffaec80b061b300e6}{source\_\-scan} (\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} fmt, \hyperlink{structEQUIPMENT__INFO}{EQUIPMENT\_\-INFO} $\ast$eq\_\-info)
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{mevb_8c_aac338f16c26978fda836e729d5c6e366}{eb\_\-begin\_\-of\_\-run} (\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT}, char $\ast$, char $\ast$)
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{mevb_8c_a98d66006b73521032c8d02040f6cf4b8}{eb\_\-end\_\-of\_\-run} (\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT}, char $\ast$)
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{mevb_8c_a9f20cb62a85e635ba6b858b380cf1b49}{eb\_\-user} (\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT}, \hyperlink{vt2_8h_a239c7f0d40651c3e419c5b9651507d14}{BOOL} mismatch, EBUILDER\_\-CHANNEL $\ast$, \hyperlink{structEVENT__HEADER}{EVENT\_\-HEADER} $\ast$, void $\ast$, \hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} $\ast$)
+\end{DoxyCompactItemize}
+
+
+\subsubsection{Define Documentation}
+\index{mevb.c@{mevb.c}!DEFAULT\_\-FE\_\-TIMEOUT@{DEFAULT\_\-FE\_\-TIMEOUT}}
+\index{DEFAULT\_\-FE\_\-TIMEOUT@{DEFAULT\_\-FE\_\-TIMEOUT}!mevb.c@{mevb.c}}
+\paragraph[{DEFAULT\_\-FE\_\-TIMEOUT}]{\setlength{\rightskip}{0pt plus 5cm}\#define DEFAULT\_\-FE\_\-TIMEOUT~60000}\hfill\label{mevb_8c_a093e717ef9582e83efcc2550ef0c28cb}
+
+
+Definition at line 27 of file mevb.c.\index{mevb.c@{mevb.c}!EQUIPMENT\_\-COMMON\_\-STR@{EQUIPMENT\_\-COMMON\_\-STR}}
+\index{EQUIPMENT\_\-COMMON\_\-STR@{EQUIPMENT\_\-COMMON\_\-STR}!mevb.c@{mevb.c}}
+\paragraph[{EQUIPMENT\_\-COMMON\_\-STR}]{\setlength{\rightskip}{0pt plus 5cm}\#define EQUIPMENT\_\-COMMON\_\-STR~\char`\"{}$\backslash$Event ID = {\bf WORD} : 0$\backslash$n$\backslash$Trigger mask = {\bf WORD} : 0$\backslash$n$\backslash$Buffer = STRING : \mbox{[}32\mbox{]} SYSTEM$\backslash$n$\backslash$Type = {\bf INT} : 0$\backslash$n$\backslash$Source = {\bf INT} : 0$\backslash$n$\backslash$Format = STRING : \mbox{[}8\mbox{]} FIXED$\backslash$n$\backslash$Enabled = {\bf BOOL} : 0$\backslash$n$\backslash$Read on = {\bf INT} : 0$\backslash$n$\backslash$Period = {\bf INT} : 0$\backslash$n$\backslash$Event limit = DOUBLE : 0$\backslash$n$\backslash$Num subevents = {\bf DWORD} : 0$\backslash$n$\backslash$Log history = {\bf INT} : 0$\backslash$n$\backslash$Frontend host = STRING : \mbox{[}32\mbox{]} $\backslash$n$\backslash$Frontend name = STRING : \mbox{[}32\mbox{]} $\backslash$n$\backslash$Frontend file name = STRING : \mbox{[}256\mbox{]} $\backslash$n$\backslash$Status = STRING : \mbox{[}256\mbox{]} $\backslash$n$\backslash$Status color = STRING : \mbox{[}32\mbox{]} $\backslash$n$\backslash$\char`\"{}}\hfill\label{mevb_8c_ac92b30327caaa939b1b6630775c78ecd}
+
+
+Definition at line 86 of file mevb.c.\index{mevb.c@{mevb.c}!EQUIPMENT\_\-STATISTICS\_\-STR@{EQUIPMENT\_\-STATISTICS\_\-STR}}
+\index{EQUIPMENT\_\-STATISTICS\_\-STR@{EQUIPMENT\_\-STATISTICS\_\-STR}!mevb.c@{mevb.c}}
+\paragraph[{EQUIPMENT\_\-STATISTICS\_\-STR}]{\setlength{\rightskip}{0pt plus 5cm}\#define EQUIPMENT\_\-STATISTICS\_\-STR~\char`\"{}$\backslash$Events sent = DOUBLE : 0$\backslash$n$\backslash$Events per sec. = DOUBLE : 0$\backslash$n$\backslash$kBytes per sec. = DOUBLE : 0$\backslash$n$\backslash$\char`\"{}}\hfill\label{mevb_8c_a6064db0cc46885d207cedb497e3c355e}
+
+
+Definition at line 106 of file mevb.c.\index{mevb.c@{mevb.c}!ODB\_\-UPDATE\_\-TIME@{ODB\_\-UPDATE\_\-TIME}}
+\index{ODB\_\-UPDATE\_\-TIME@{ODB\_\-UPDATE\_\-TIME}!mevb.c@{mevb.c}}
+\paragraph[{ODB\_\-UPDATE\_\-TIME}]{\setlength{\rightskip}{0pt plus 5cm}\#define ODB\_\-UPDATE\_\-TIME~1000}\hfill\label{mevb_8c_a380a50d445745c2da54a29a1f2e5099e}
+
+
+Definition at line 25 of file mevb.c.\index{mevb.c@{mevb.c}!SERVER\_\-CACHE\_\-SIZE@{SERVER\_\-CACHE\_\-SIZE}}
+\index{SERVER\_\-CACHE\_\-SIZE@{SERVER\_\-CACHE\_\-SIZE}!mevb.c@{mevb.c}}
+\paragraph[{SERVER\_\-CACHE\_\-SIZE}]{\setlength{\rightskip}{0pt plus 5cm}\#define SERVER\_\-CACHE\_\-SIZE~100000}\hfill\label{mevb_8c_a022c39e327f494dda3664f8888f860f1}
+dox 
+
+Definition at line 23 of file mevb.c.\index{mevb.c@{mevb.c}!TIMEOUT\_\-ABORT@{TIMEOUT\_\-ABORT}}
+\index{TIMEOUT\_\-ABORT@{TIMEOUT\_\-ABORT}!mevb.c@{mevb.c}}
+\paragraph[{TIMEOUT\_\-ABORT}]{\setlength{\rightskip}{0pt plus 5cm}\#define TIMEOUT\_\-ABORT~300}\hfill\label{mevb_8c_af15dc3019d3e199bca5c6d936f2b4c1d}
+
+
+Definition at line 31 of file mevb.c.
+
+Referenced by scan\_\-fragment().
+
+\subsubsection{Function Documentation}
+\index{mevb.c@{mevb.c}!close\_\-buffers@{close\_\-buffers}}
+\index{close\_\-buffers@{close\_\-buffers}!mevb.c@{mevb.c}}
+\paragraph[{close\_\-buffers}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} close\_\-buffers (void)}\hfill\label{mevb_8c_a091f4532881474587352f1b2d36e86d0}
+
+
+Definition at line 948 of file mevb.c.
+
+Referenced by scan\_\-fragment().\index{mevb.c@{mevb.c}!eb\_\-begin\_\-of\_\-run@{eb\_\-begin\_\-of\_\-run}}
+\index{eb\_\-begin\_\-of\_\-run@{eb\_\-begin\_\-of\_\-run}!mevb.c@{mevb.c}}
+\paragraph[{eb\_\-begin\_\-of\_\-run}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} eb\_\-begin\_\-of\_\-run ({\bf INT}, \/  char $\ast$, \/  char $\ast$)}\hfill\label{mevb_8c_aac338f16c26978fda836e729d5c6e366}
+Hook to the event builder task at PreStart transition. 
+\begin{DoxyParams}{Parameters}
+\item[{\em rn}]run number \item[{\em UserField}]argument from /Ebuilder/Settings \item[{\em error}]error string to be passed back to the system. \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+EB\_\-SUCCESS 
+\end{DoxyReturn}
+
+
+Definition at line 108 of file ebuser.c.
+
+Referenced by tr\_\-start().\index{mevb.c@{mevb.c}!eb\_\-end\_\-of\_\-run@{eb\_\-end\_\-of\_\-run}}
+\index{eb\_\-end\_\-of\_\-run@{eb\_\-end\_\-of\_\-run}!mevb.c@{mevb.c}}
+\paragraph[{eb\_\-end\_\-of\_\-run}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} eb\_\-end\_\-of\_\-run ({\bf INT}, \/  char $\ast$)}\hfill\label{mevb_8c_a98d66006b73521032c8d02040f6cf4b8}
+Hook to the event builder task at completion of event collection after receiving the Stop transition. 
+\begin{DoxyParams}{Parameters}
+\item[{\em rn}]run number \item[{\em error}]error string to be passed back to the system. \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+EB\_\-SUCCESS 
+\end{DoxyReturn}
+
+
+Definition at line 123 of file ebuser.c.
+
+Referenced by close\_\-buffers().\index{mevb.c@{mevb.c}!eb\_\-mfragment\_\-add@{eb\_\-mfragment\_\-add}}
+\index{eb\_\-mfragment\_\-add@{eb\_\-mfragment\_\-add}!mevb.c@{mevb.c}}
+\paragraph[{eb\_\-mfragment\_\-add}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} eb\_\-mfragment\_\-add (char $\ast$ {\em pdest}, \/  char $\ast$ {\em psrce}, \/  {\bf INT} $\ast$ {\em size})}\hfill\label{mevb_8c_aa24716d8ff65fa3f0a2dbc5979ed486a}
+
+
+Definition at line 486 of file mevb.c.
+
+Referenced by load\_\-fragment().\index{mevb.c@{mevb.c}!eb\_\-user@{eb\_\-user}}
+\index{eb\_\-user@{eb\_\-user}!mevb.c@{mevb.c}}
+\paragraph[{eb\_\-user}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} eb\_\-user ({\bf INT} {\em nfrag}, \/  {\bf BOOL} {\em mismatch}, \/  EBUILDER\_\-CHANNEL $\ast$ {\em ebch}, \/  {\bf EVENT\_\-HEADER} $\ast$ {\em pheader}, \/  void $\ast$ {\em pevent}, \/  {\bf INT} $\ast$ {\em dest\_\-size})}\hfill\label{mevb_8c_a9f20cb62a85e635ba6b858b380cf1b49}
+Hook to the event builder task after the reception of all fragments of the same serial number. The destination event has already the final \hyperlink{structEVENT__HEADER}{EVENT\_\-HEADER} setup with the data size set to 0. It is than possible to add private data at this point using the proper bank calls. Therefore any new banks created within eb\_\-user will be appearing before the collected banks from the fragments. When using the eb\_\-user with the ODB flag \char`\"{}user build=y\char`\"{} (equipments/EB/settings) the automatic event builder is skipped. This allow the user to extract selectively from the different fragments the appropriate banks and compose the final destination event. In order to do so, the function \char`\"{}bk\_\-copy(pevent, ebch\mbox{[}i\mbox{]}.pfragment, bankname)\char`\"{} will copy a particular bank from a given fragment.
+
+{\bfseries Note:} It exists two Midas event format to address bank size less than 32KB and larger bank size $<$4GB. This distinction is done by the call bk\_\-init(pevent) for the small bank size and bk\_\-init32(pevent) for large bank size. Within an experiment, this declaration has to be consistant. Therefore the bk\_\-init in the eb\_\-user should follow as well the type of the frontends.
+
+The ebch\mbox{[}\mbox{]} array structure points to nfragment channel structure with the following content: 
+\begin{DoxyCode}
+typedef struct {
+    char  name[32];         // Fragment name (Buffer name).
+    DWORD serial;           // Serial fragment number.
+    char *pfragment;        // Pointer to fragment (EVENT_HEADER *)
+    ...
+} EBUILDER_CHANNEL;
+\end{DoxyCode}
+
+
+The correct code for including your own MIDAS bank is shown below where {\bfseries TID\_\-xxx} is one of the valid Bank type starting with {\bfseries TID\_\-} for midas format {\bfseries bank\_\-name} is a 4 character descriptor. {\bfseries pdata} has to be declared accordingly with the bank type. Refers to the \hyperlink{ebuser_8c}{ebuser.c} source code for further description.
+
+{\bfseries  It is not possible to mix within the same destination event different event format! No bk\_\-swap performed when user build is requested. }
+
+
+\begin{DoxyCode}
+  // Event is empty, fill it with BANK_HEADER
+  // If you need to add your own bank at this stage
+
+  // Need to match the decalration in the Frontends.
+  bk_init(pevent);  
+//  bk_init32(pevent);
+  bk_create(pevent, bank_name, TID_xxxx, &pdata);
+  *pdata++ = ...;
+  *dest_size = bk_close(pevent, pdata);
+  pheader->data_size = *dest_size + sizeof(EVENT_HEADER);
+\end{DoxyCode}
+
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em nfrag}]Number of fragment. \item[{\em mismatch}]Midas Serial number mismatch flag. \item[{\em ebch}]Structure to all the fragments. \item[{\em pheader}]Destination pointer to the header. \item[{\em pevent}]Destination pointer to the bank header. \item[{\em dest\_\-size}]Destination event size in bytes. \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+EB\_\-SUCCESS 
+\end{DoxyReturn}
+
+
+Definition at line 194 of file ebuser.c.
+
+Referenced by source\_\-scan().\index{mevb.c@{mevb.c}!eb\_\-yfragment\_\-add@{eb\_\-yfragment\_\-add}}
+\index{eb\_\-yfragment\_\-add@{eb\_\-yfragment\_\-add}!mevb.c@{mevb.c}}
+\paragraph[{eb\_\-yfragment\_\-add}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} eb\_\-yfragment\_\-add (char $\ast$ {\em pdest}, \/  char $\ast$ {\em psrce}, \/  {\bf INT} $\ast$ {\em size})}\hfill\label{mevb_8c_a5c203d3d6b404df3d86fdec3f227c8b5}
+
+
+Definition at line 542 of file mevb.c.\index{mevb.c@{mevb.c}!ebuilder\_\-exit@{ebuilder\_\-exit}}
+\index{ebuilder\_\-exit@{ebuilder\_\-exit}!mevb.c@{mevb.c}}
+\paragraph[{ebuilder\_\-exit}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} ebuilder\_\-exit (void)}\hfill\label{mevb_8c_a0e3b6efa306fec216605016a189b169c}
+
+
+Definition at line 89 of file ebuser.c.
+
+Referenced by main().\index{mevb.c@{mevb.c}!ebuilder\_\-init@{ebuilder\_\-init}}
+\index{ebuilder\_\-init@{ebuilder\_\-init}!mevb.c@{mevb.c}}
+\paragraph[{ebuilder\_\-init}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} ebuilder\_\-init (void)}\hfill\label{mevb_8c_aaa366445f644177970cb424a96623769}
+
+
+Definition at line 81 of file ebuser.c.
+
+Referenced by main().\index{mevb.c@{mevb.c}!ebuilder\_\-loop@{ebuilder\_\-loop}}
+\index{ebuilder\_\-loop@{ebuilder\_\-loop}!mevb.c@{mevb.c}}
+\paragraph[{ebuilder\_\-loop}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} ebuilder\_\-loop (void)}\hfill\label{mevb_8c_a9507ec9b5b35bd9f7f92c16aa183ccd9}
+
+
+Definition at line 95 of file ebuser.c.\index{mevb.c@{mevb.c}!free\_\-event\_\-buffer@{free\_\-event\_\-buffer}}
+\index{free\_\-event\_\-buffer@{free\_\-event\_\-buffer}!mevb.c@{mevb.c}}
+\paragraph[{free\_\-event\_\-buffer}]{\setlength{\rightskip}{0pt plus 5cm}void free\_\-event\_\-buffer ({\bf INT} {\em nfrag})}\hfill\label{mevb_8c_a3d3a2bd919d3f50f2f7473d15ee43dc0}
+
+
+Definition at line 787 of file mevb.c.
+
+Referenced by main(), source\_\-booking(), and source\_\-unbooking().\index{mevb.c@{mevb.c}!handFlush@{handFlush}}
+\index{handFlush@{handFlush}!mevb.c@{mevb.c}}
+\paragraph[{handFlush}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} handFlush (void)}\hfill\label{mevb_8c_a6395f2a900d9448058797454509af451}
+
+
+Definition at line 799 of file mevb.c.
+
+Referenced by close\_\-buffers().\index{mevb.c@{mevb.c}!load\_\-fragment@{load\_\-fragment}}
+\index{load\_\-fragment@{load\_\-fragment}!mevb.c@{mevb.c}}
+\paragraph[{load\_\-fragment}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} load\_\-fragment (void)}\hfill\label{mevb_8c_aab6feb9327461cbb6493302aefb17412}
+
+
+Definition at line 243 of file mevb.c.
+
+Referenced by main().\index{mevb.c@{mevb.c}!main@{main}}
+\index{main@{main}!mevb.c@{mevb.c}}
+\paragraph[{main}]{\setlength{\rightskip}{0pt plus 5cm}int main (int {\em argc}, \/  char $\ast$$\ast$ {\em argv})}\hfill\label{mevb_8c_a3c04138a5bfe5d72780bb7e82a18e627}
+
+
+Definition at line 1157 of file mevb.c.\index{mevb.c@{mevb.c}!register\_\-equipment@{register\_\-equipment}}
+\index{register\_\-equipment@{register\_\-equipment}!mevb.c@{mevb.c}}
+\paragraph[{register\_\-equipment}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} register\_\-equipment (void)}\hfill\label{mevb_8c_ab834073e5b665fccaa4eff2a61bc9372}
+
+
+Definition at line 114 of file mevb.c.\index{mevb.c@{mevb.c}!scan\_\-fragment@{scan\_\-fragment}}
+\index{scan\_\-fragment@{scan\_\-fragment}!mevb.c@{mevb.c}}
+\paragraph[{scan\_\-fragment}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} scan\_\-fragment (void)}\hfill\label{mevb_8c_ac2e393bd6512bf4102e2bbfdccd54f8d}
+
+
+Definition at line 325 of file mevb.c.
+
+Referenced by main().\index{mevb.c@{mevb.c}!source\_\-booking@{source\_\-booking}}
+\index{source\_\-booking@{source\_\-booking}!mevb.c@{mevb.c}}
+\paragraph[{source\_\-booking}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} source\_\-booking (void)}\hfill\label{mevb_8c_a99690888a7fc7d2ea83b4006c4644596}
+
+
+Definition at line 833 of file mevb.c.
+
+Referenced by tr\_\-start().\index{mevb.c@{mevb.c}!source\_\-scan@{source\_\-scan}}
+\index{source\_\-scan@{source\_\-scan}!mevb.c@{mevb.c}}
+\paragraph[{source\_\-scan}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} source\_\-scan ({\bf INT} {\em fmt}, \/  {\bf EQUIPMENT\_\-INFO} $\ast$ {\em eq\_\-info})}\hfill\label{mevb_8c_ae77cd1e2416ccddffaec80b061b300e6}
+Scan all the fragment source once per call.
+
+
+\begin{DoxyEnumerate}
+\item This will retrieve the full midas event not swapped (except the MIDAS\_\-HEADER) for each fragment if possible. The fragment will be stored in the channel event pointer.
+\item if after a full nfrag path some frag are still not cellected, it returns with the frag\# missing for timeout check.
+\item If ALL fragments are present it will check the midas serial\# for a full match across all the fragments.
+\item If the serial check fails it returns with \char`\"{}event mismatch\char`\"{} and will abort the event builder but not stop the run for now.
+\item If the serial check is passed, it will call the user\_\-build function where the destination event is going to be composed.
+\end{DoxyEnumerate}
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em fmt}]Fragment format type \item[{\em eq\_\-info}]Equipement pointer \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+EB\_\-NO\_\-MORE\_\-EVENT, EB\_\-COMPOSE\_\-TIMEOUT if different then SUCCESS (bm\_\-compose, rpc\_\-sent error) 
+\end{DoxyReturn}
+
+
+Definition at line 997 of file mevb.c.
+
+Referenced by scan\_\-fragment().\index{mevb.c@{mevb.c}!source\_\-unbooking@{source\_\-unbooking}}
+\index{source\_\-unbooking@{source\_\-unbooking}!mevb.c@{mevb.c}}
+\paragraph[{source\_\-unbooking}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} source\_\-unbooking (void)}\hfill\label{mevb_8c_a74e27fd802209a7c0cb777a1bd841ca5}
+
+
+Definition at line 914 of file mevb.c.
+
+Referenced by close\_\-buffers(), and main().\index{mevb.c@{mevb.c}!tr\_\-pause@{tr\_\-pause}}
+\index{tr\_\-pause@{tr\_\-pause}!mevb.c@{mevb.c}}
+\paragraph[{tr\_\-pause}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} tr\_\-pause ({\bf INT} {\em rn}, \/  char $\ast$ {\em error})}\hfill\label{mevb_8c_a7b3b6a2f570d0b31b1ad13c34536db5a}
+
+
+Definition at line 762 of file mevb.c.\index{mevb.c@{mevb.c}!tr\_\-resume@{tr\_\-resume}}
+\index{tr\_\-resume@{tr\_\-resume}!mevb.c@{mevb.c}}
+\paragraph[{tr\_\-resume}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} tr\_\-resume ({\bf INT} {\em rn}, \/  char $\ast$ {\em error})}\hfill\label{mevb_8c_ac69f1c3106f3389ed0dde43e7b86e54d}
+
+
+Definition at line 744 of file mevb.c.\index{mevb.c@{mevb.c}!tr\_\-start@{tr\_\-start}}
+\index{tr\_\-start@{tr\_\-start}!mevb.c@{mevb.c}}
+\paragraph[{tr\_\-start}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} tr\_\-start ({\bf INT} {\em rn}, \/  char $\ast$ {\em error})}\hfill\label{mevb_8c_a5ed14877e514f13eeb65a16898b2ba32}
+
+
+Definition at line 614 of file mevb.c.\index{mevb.c@{mevb.c}!tr\_\-stop@{tr\_\-stop}}
+\index{tr\_\-stop@{tr\_\-stop}!mevb.c@{mevb.c}}
+\paragraph[{tr\_\-stop}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} tr\_\-stop ({\bf INT} {\em rn}, \/  char $\ast$ {\em error})}\hfill\label{mevb_8c_a5c030a1926f2439e78b7bd0d00221937}
+
+
+Definition at line 771 of file mevb.c.
+
+\subsubsection{Variable Documentation}
+\index{mevb.c@{mevb.c}!abort\_\-requested@{abort\_\-requested}}
+\index{abort\_\-requested@{abort\_\-requested}!mevb.c@{mevb.c}}
+\paragraph[{abort\_\-requested}]{\setlength{\rightskip}{0pt plus 5cm}{\bf BOOL} {\bf abort\_\-requested} = FALSE}\hfill\label{mevb_8c_a54839dc95559831239bc7ca9cc118392}
+
+
+Definition at line 54 of file mevb.c.
+
+Referenced by close\_\-buffers(), scan\_\-fragment(), and tr\_\-start().\index{mevb.c@{mevb.c}!actual\_\-millitime@{actual\_\-millitime}}
+\index{actual\_\-millitime@{actual\_\-millitime}!mevb.c@{mevb.c}}
+\paragraph[{actual\_\-millitime}]{\setlength{\rightskip}{0pt plus 5cm}{\bf DWORD} {\bf actual\_\-millitime}}\hfill\label{mevb_8c_a74876f64e556e153bb8cce6dfddce810}
+
+
+Definition at line 40 of file mevb.c.\index{mevb.c@{mevb.c}!actual\_\-time@{actual\_\-time}}
+\index{actual\_\-time@{actual\_\-time}!mevb.c@{mevb.c}}
+\paragraph[{actual\_\-time}]{\setlength{\rightskip}{0pt plus 5cm}{\bf DWORD} {\bf actual\_\-time}}\hfill\label{mevb_8c_a6431147bd66aebfe3ca728d244da1253}
+
+
+Definition at line 39 of file mevb.c.\index{mevb.c@{mevb.c}!bars@{bars}}
+\index{bars@{bars}!mevb.c@{mevb.c}}
+\paragraph[{bars}]{\setlength{\rightskip}{0pt plus 5cm}char {\bf bars}\mbox{[}$\,$\mbox{]} = \char`\"{}$|$$\backslash$$\backslash$-\//\char`\"{}}\hfill\label{mevb_8c_a3e94d2c0bc333fdca8dd2a5fae330940}
+
+
+Definition at line 52 of file mevb.c.
+
+Referenced by scan\_\-fragment(), and v1729\_\-TimeCalibrationRun().\index{mevb.c@{mevb.c}!buffer\_\-name@{buffer\_\-name}}
+\index{buffer\_\-name@{buffer\_\-name}!mevb.c@{mevb.c}}
+\paragraph[{buffer\_\-name}]{\setlength{\rightskip}{0pt plus 5cm}char {\bf buffer\_\-name}\mbox{[}NAME\_\-LENGTH\mbox{]}}\hfill\label{mevb_8c_a93bc09c1f5f9f26a081d11962971f301}
+
+
+Definition at line 45 of file mevb.c.
+
+Referenced by load\_\-fragment(), and main().\index{mevb.c@{mevb.c}!debug@{debug}}
+\index{debug@{debug}!mevb.c@{mevb.c}}
+\paragraph[{debug}]{\setlength{\rightskip}{0pt plus 5cm}{\bf BOOL} {\bf debug} = FALSE}\hfill\label{mevb_8c_a81f0a890e023743f1b88d0cb7d4f74db}
+
+
+Definition at line 49 of file mevb.c.\index{mevb.c@{mevb.c}!debug1@{debug1}}
+\index{debug1@{debug1}!mevb.c@{mevb.c}}
+\paragraph[{debug1}]{\setlength{\rightskip}{0pt plus 5cm}{\bf BOOL} {\bf debug1} = FALSE}\hfill\label{mevb_8c_a82520b043965043ff385537ae610c8ad}
+
+
+Definition at line 49 of file mevb.c.
+
+Referenced by handFlush(), and source\_\-scan().\index{mevb.c@{mevb.c}!dest\_\-event@{dest\_\-event}}
+\index{dest\_\-event@{dest\_\-event}!mevb.c@{mevb.c}}
+\paragraph[{dest\_\-event}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ {\bf dest\_\-event}}\hfill\label{mevb_8c_abcf1b50608e9f6963bcec52b95e1cc8c}
+
+
+Definition at line 47 of file mevb.c.
+
+Referenced by load\_\-fragment(), and source\_\-scan().\index{mevb.c@{mevb.c}!display\_\-period@{display\_\-period}}
+\index{display\_\-period@{display\_\-period}!mevb.c@{mevb.c}}
+\paragraph[{display\_\-period}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} {\bf display\_\-period}}\hfill\label{mevb_8c_ab9cdcefda91459091b0ed33011d0d18c}
+
+
+Definition at line 66 of file fevmemodules.c.\index{mevb.c@{mevb.c}!ebch@{ebch}}
+\index{ebch@{ebch}!mevb.c@{mevb.c}}
+\paragraph[{ebch}]{\setlength{\rightskip}{0pt plus 5cm}EBUILDER\_\-CHANNEL {\bf ebch}\mbox{[}MAX\_\-CHANNELS\mbox{]}}\hfill\label{mevb_8c_a20754034bec49b7ee4e69ef89078443f}
+
+
+Definition at line 34 of file mevb.c.
+
+Referenced by free\_\-event\_\-buffer(), handFlush(), load\_\-fragment(), main(), scan\_\-fragment(), source\_\-booking(), source\_\-scan(), source\_\-unbooking(), tr\_\-resume(), and tr\_\-start().\index{mevb.c@{mevb.c}!ebset@{ebset}}
+\index{ebset@{ebset}!mevb.c@{mevb.c}}
+\paragraph[{ebset}]{\setlength{\rightskip}{0pt plus 5cm}EBUILDER\_\-SETTINGS {\bf ebset}}\hfill\label{mevb_8c_a70fcf09808475481c64facd46bd95dfc}
+
+
+Definition at line 33 of file mevb.c.
+
+Referenced by eb\_\-user(), handFlush(), main(), scan\_\-fragment(), source\_\-booking(), source\_\-scan(), and tr\_\-start().\index{mevb.c@{mevb.c}!equipment@{equipment}}
+\index{equipment@{equipment}!mevb.c@{mevb.c}}
+\paragraph[{equipment}]{\setlength{\rightskip}{0pt plus 5cm}{\bf EQUIPMENT} {\bf equipment}\mbox{[}$\,$\mbox{]}}\hfill\label{mevb_8c_aa86ef8764826784b74603ffb23852283}
+
+
+Definition at line 150 of file fevmemodules.c.\index{mevb.c@{mevb.c}!event\_\-buffer\_\-size@{event\_\-buffer\_\-size}}
+\index{event\_\-buffer\_\-size@{event\_\-buffer\_\-size}!mevb.c@{mevb.c}}
+\paragraph[{event\_\-buffer\_\-size}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} {\bf event\_\-buffer\_\-size}}\hfill\label{mevb_8c_a4411d7db6f901c968b946ed659d202f6}
+
+
+Definition at line 75 of file fevmemodules.c.\index{mevb.c@{mevb.c}!expt\_\-name@{expt\_\-name}}
+\index{expt\_\-name@{expt\_\-name}!mevb.c@{mevb.c}}
+\paragraph[{expt\_\-name}]{\setlength{\rightskip}{0pt plus 5cm}char {\bf expt\_\-name}\mbox{[}NAME\_\-LENGTH\mbox{]}}\hfill\label{mevb_8c_a72ed5035970a7c95a9a3e9faeb64cc1c}
+
+
+Definition at line 44 of file mevb.c.
+
+Referenced by cm\_\-transition1(), and main().\index{mevb.c@{mevb.c}!frontend\_\-call\_\-loop@{frontend\_\-call\_\-loop}}
+\index{frontend\_\-call\_\-loop@{frontend\_\-call\_\-loop}!mevb.c@{mevb.c}}
+\paragraph[{frontend\_\-call\_\-loop}]{\setlength{\rightskip}{0pt plus 5cm}{\bf BOOL} {\bf frontend\_\-call\_\-loop}}\hfill\label{mevb_8c_a0215c0a842a0e97fe65c7ef5fb7633a5}
+
+
+Definition at line 63 of file fevmemodules.c.\index{mevb.c@{mevb.c}!frontend\_\-file\_\-name@{frontend\_\-file\_\-name}}
+\index{frontend\_\-file\_\-name@{frontend\_\-file\_\-name}!mevb.c@{mevb.c}}
+\paragraph[{frontend\_\-file\_\-name}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ {\bf frontend\_\-file\_\-name}}\hfill\label{mevb_8c_ac7fc683b5a25d9607abc270a54db6d97}
+
+
+Definition at line 60 of file fevmemodules.c.\index{mevb.c@{mevb.c}!frontend\_\-name@{frontend\_\-name}}
+\index{frontend\_\-name@{frontend\_\-name}!mevb.c@{mevb.c}}
+\paragraph[{frontend\_\-name}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ {\bf frontend\_\-name}}\hfill\label{mevb_8c_ac1f0c6df66e35778b61c611107501ec4}
+
+
+Definition at line 58 of file fevmemodules.c.\index{mevb.c@{mevb.c}!hDB@{hDB}}
+\index{hDB@{hDB}!mevb.c@{mevb.c}}
+\paragraph[{hDB}]{\setlength{\rightskip}{0pt plus 5cm}HNDLE {\bf hDB}}\hfill\label{mevb_8c_ab1f60c53f74e806a3b9f687af38d7421}
+
+
+Definition at line 48 of file mevb.c.\index{mevb.c@{mevb.c}!hEqKey@{hEqKey}}
+\index{hEqKey@{hEqKey}!mevb.c@{mevb.c}}
+\paragraph[{hEqKey}]{\setlength{\rightskip}{0pt plus 5cm}HNDLE {\bf hEqKey}}\hfill\label{mevb_8c_a5a2c83bfdd4f24036f93557d58ddaaca}
+
+
+Definition at line 48 of file mevb.c.
+
+Referenced by load\_\-fragment().\index{mevb.c@{mevb.c}!hESetKey@{hESetKey}}
+\index{hESetKey@{hESetKey}!mevb.c@{mevb.c}}
+\paragraph[{hESetKey}]{\setlength{\rightskip}{0pt plus 5cm}HNDLE {\bf hESetKey}}\hfill\label{mevb_8c_a6a5e7c07c31df2cab3fcb8a42b8ba5a5}
+
+
+Definition at line 48 of file mevb.c.\index{mevb.c@{mevb.c}!hKey@{hKey}}
+\index{hKey@{hKey}!mevb.c@{mevb.c}}
+\paragraph[{hKey}]{\setlength{\rightskip}{0pt plus 5cm}HNDLE {\bf hKey}}\hfill\label{mevb_8c_a8cd567d23219ba7fc83280cf20caf1c2}
+
+
+Definition at line 48 of file mevb.c.
+
+Referenced by analyzer\_\-init(), cm\_\-connect\_\-client(), cm\_\-delete\_\-client\_\-info(), cm\_\-disconnect\_\-experiment(), cm\_\-get\_\-client\_\-info(), cm\_\-msg\_\-log(), cm\_\-msg\_\-log1(), cm\_\-msg\_\-retrieve(), cm\_\-set\_\-client\_\-info(), cm\_\-set\_\-watchdog\_\-params(), device\_\-driver(), hv\_\-init(), logger\_\-root(), main(), register\_\-equipment(), set\_\-equipment\_\-status(), tr\_\-start(), and validate\_\-odb\_\-array().\index{mevb.c@{mevb.c}!host\_\-name@{host\_\-name}}
+\index{host\_\-name@{host\_\-name}!mevb.c@{mevb.c}}
+\paragraph[{host\_\-name}]{\setlength{\rightskip}{0pt plus 5cm}char {\bf host\_\-name}\mbox{[}HOST\_\-NAME\_\-LENGTH\mbox{]}}\hfill\label{mevb_8c_af65cc3664520b7cd0817adc7106f9624}
+
+
+Definition at line 43 of file mevb.c.\index{mevb.c@{mevb.c}!hStatKey@{hStatKey}}
+\index{hStatKey@{hStatKey}!mevb.c@{mevb.c}}
+\paragraph[{hStatKey}]{\setlength{\rightskip}{0pt plus 5cm}HNDLE {\bf hStatKey}}\hfill\label{mevb_8c_aaa2f4cdc4de66789595d8d5e7f335a4e}
+
+
+Definition at line 48 of file mevb.c.\index{mevb.c@{mevb.c}!hSubkey@{hSubkey}}
+\index{hSubkey@{hSubkey}!mevb.c@{mevb.c}}
+\paragraph[{hSubkey}]{\setlength{\rightskip}{0pt plus 5cm}HNDLE {\bf hSubkey}}\hfill\label{mevb_8c_aac58a320ae0ebf75ec6d8a273184b463}
+
+
+Definition at line 48 of file mevb.c.
+
+Referenced by cm\_\-connect\_\-client(), cm\_\-exist(), cm\_\-set\_\-client\_\-info(), cm\_\-shutdown(), cm\_\-transition1(), and load\_\-fragment().\index{mevb.c@{mevb.c}!i\_\-bar@{i\_\-bar}}
+\index{i\_\-bar@{i\_\-bar}!mevb.c@{mevb.c}}
+\paragraph[{i\_\-bar}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf i\_\-bar}}\hfill\label{mevb_8c_ade74138e2dbba9881cd402a933c6a375}
+
+
+Definition at line 53 of file mevb.c.
+
+Referenced by scan\_\-fragment(), and v1729\_\-TimeCalibrationRun().\index{mevb.c@{mevb.c}!last\_\-time@{last\_\-time}}
+\index{last\_\-time@{last\_\-time}!mevb.c@{mevb.c}}
+\paragraph[{last\_\-time}]{\setlength{\rightskip}{0pt plus 5cm}{\bf DWORD} {\bf last\_\-time}}\hfill\label{mevb_8c_a5fecce64b1b883ada4ac0bc410fb3304}
+
+
+Definition at line 38 of file mevb.c.
+
+Referenced by sc\_\-thread(), and scan\_\-fragment().\index{mevb.c@{mevb.c}!max\_\-event\_\-size@{max\_\-event\_\-size}}
+\index{max\_\-event\_\-size@{max\_\-event\_\-size}!mevb.c@{mevb.c}}
+\paragraph[{max\_\-event\_\-size}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} {\bf max\_\-event\_\-size}}\hfill\label{mevb_8c_a13adb6e6b95ca2a62bbfe2453d71a1cd}
+
+
+Definition at line 69 of file fevmemodules.c.\index{mevb.c@{mevb.c}!max\_\-event\_\-size\_\-frag@{max\_\-event\_\-size\_\-frag}}
+\index{max\_\-event\_\-size\_\-frag@{max\_\-event\_\-size\_\-frag}!mevb.c@{mevb.c}}
+\paragraph[{max\_\-event\_\-size\_\-frag}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} {\bf max\_\-event\_\-size\_\-frag}}\hfill\label{mevb_8c_a5593758d19398ebc7c3d58d7f05ec160}
+
+
+Definition at line 72 of file fevmemodules.c.\index{mevb.c@{mevb.c}!meb\_\-fragment\_\-add@{meb\_\-fragment\_\-add}}
+\index{meb\_\-fragment\_\-add@{meb\_\-fragment\_\-add}!mevb.c@{mevb.c}}
+\paragraph[{meb\_\-fragment\_\-add}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT}($\ast$ {\bf meb\_\-fragment\_\-add})(char $\ast$, char $\ast$, {\bf INT} $\ast$)}\hfill\label{mevb_8c_a9f9e958aee5b923e5f70dcde9887c3dc}
+
+
+Referenced by load\_\-fragment(), and source\_\-scan().\index{mevb.c@{mevb.c}!mevb\_\-svn\_\-revision@{mevb\_\-svn\_\-revision}}
+\index{mevb\_\-svn\_\-revision@{mevb\_\-svn\_\-revision}!mevb.c@{mevb.c}}
+\paragraph[{mevb\_\-svn\_\-revision}]{\setlength{\rightskip}{0pt plus 5cm}char {\bf mevb\_\-svn\_\-revision}\mbox{[}$\,$\mbox{]} = \char`\"{}\$Id: mevb.c 5204 2011-\/10-\/06 21:03:34Z amaudruz \$\char`\"{}}\hfill\label{mevb_8c_a0c8579ec0c4d461763b34cdd30489b80}
+
+
+Definition at line 42 of file mevb.c.
+
+Referenced by main().\index{mevb.c@{mevb.c}!nfragment@{nfragment}}
+\index{nfragment@{nfragment}!mevb.c@{mevb.c}}
+\paragraph[{nfragment}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} {\bf nfragment}}\hfill\label{mevb_8c_ae4c245d2fd266607104c0ceb0bd946bf}
+
+
+Definition at line 46 of file mevb.c.
+
+Referenced by handFlush(), load\_\-fragment(), scan\_\-fragment(), source\_\-booking(), source\_\-scan(), source\_\-unbooking(), tr\_\-resume(), and tr\_\-start().\index{mevb.c@{mevb.c}!request\_\-stop\_\-time@{request\_\-stop\_\-time}}
+\index{request\_\-stop\_\-time@{request\_\-stop\_\-time}!mevb.c@{mevb.c}}
+\paragraph[{request\_\-stop\_\-time}]{\setlength{\rightskip}{0pt plus 5cm}{\bf DWORD} {\bf request\_\-stop\_\-time} = 0}\hfill\label{mevb_8c_ae237aa4969c90d76e4a488ae0adaca5c}
+
+
+Definition at line 55 of file mevb.c.
+
+Referenced by close\_\-buffers(), and tr\_\-stop().\index{mevb.c@{mevb.c}!run\_\-number@{run\_\-number}}
+\index{run\_\-number@{run\_\-number}!mevb.c@{mevb.c}}
+\paragraph[{run\_\-number}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} {\bf run\_\-number}}\hfill\label{mevb_8c_a16695ea2bfd19f294afe066d6007ab36}
+
+
+Definition at line 37 of file mevb.c.\index{mevb.c@{mevb.c}!run\_\-state@{run\_\-state}}
+\index{run\_\-state@{run\_\-state}!mevb.c@{mevb.c}}
+\paragraph[{run\_\-state}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} {\bf run\_\-state}}\hfill\label{mevb_8c_a81f01ccafac403262a2e430c118516a3}
+
+
+Definition at line 36 of file mevb.c.\index{mevb.c@{mevb.c}!stop\_\-requested@{stop\_\-requested}}
+\index{stop\_\-requested@{stop\_\-requested}!mevb.c@{mevb.c}}
+\paragraph[{stop\_\-requested}]{\setlength{\rightskip}{0pt plus 5cm}{\bf BOOL} {\bf stop\_\-requested} = TRUE}\hfill\label{mevb_8c_aacd845a847a6b6025d7b3601b5c0f24b}
+
+
+Definition at line 54 of file mevb.c.
+
+Referenced by scan\_\-fragment(), tr\_\-start(), and tr\_\-stop().\index{mevb.c@{mevb.c}!stop\_\-time@{stop\_\-time}}
+\index{stop\_\-time@{stop\_\-time}!mevb.c@{mevb.c}}
+\paragraph[{stop\_\-time}]{\setlength{\rightskip}{0pt plus 5cm}{\bf DWORD} {\bf stop\_\-time} = 0}\hfill\label{mevb_8c_aa27c44984703cbd8fb250f9d117470c5}
+
+
+Definition at line 55 of file mevb.c.
+
+Referenced by close\_\-buffers().\index{mevb.c@{mevb.c}!waiting\_\-for\_\-stop@{waiting\_\-for\_\-stop}}
+\index{waiting\_\-for\_\-stop@{waiting\_\-for\_\-stop}!mevb.c@{mevb.c}}
+\paragraph[{waiting\_\-for\_\-stop}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf waiting\_\-for\_\-stop} = FALSE\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}\hfill\label{mevb_8c_aa819b0f18f39d3f5f9da24c951d61cd8}
+
+
+Definition at line 111 of file mevb.c.
+
+Referenced by scan\_\-fragment(), and tr\_\-stop().\index{mevb.c@{mevb.c}!wheel@{wheel}}
+\index{wheel@{wheel}!mevb.c@{mevb.c}}
+\paragraph[{wheel}]{\setlength{\rightskip}{0pt plus 5cm}{\bf BOOL} {\bf wheel} = FALSE}\hfill\label{mevb_8c_a9380288545f4ad20cbcfde18c079f4a0}
+
+
+Definition at line 51 of file mevb.c.
+
+Referenced by main(), and scan\_\-fragment().

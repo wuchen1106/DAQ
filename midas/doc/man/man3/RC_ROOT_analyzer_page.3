@@ -1,0 +1,31 @@
+.TH "RC_ROOT_analyzer_page" 3 "31 May 2012" "Version 2.3.0-0" "Midas" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+RC_ROOT_analyzer_page \- Custom Page showing ROOT analyzer output 
+ 
+.br
+ 
+.PP
+Many MIDAS experiments work with ROOT based analyzers today. One problem there is that the graphical output of the root analyzer can only be seen through the X server and not through the web. At the MEG experiment, this problem was solved in an elegant way: The ROOT analyzer runs in the background, using a 'virtual' X server called Xvfb. It plots its output (several panels) normally using this X server, then saves this panels every ten seconds into GIF files. These GIF files are then served through mhttpd using a custom page. The output looks like this:
+.PP
+
+.br
+  Custom page showing ROOT Analyzer (MEG Experiment)   
+.br
+ The buttons on the left sides are actually HTML buttons on that custom page overlaid to the GIF image, which in this case shows one of the 800 PMT channels digitized at 1.6 GSPS. With these buttons one can cycle through the different GIF images, which then automatically update ever ten seconds. Of course it is not possible to feed interaction back to the analyzer (i.e. the waveform cannot be fitted interactively) but for monitoring an experiment in production mode this tool is extremely helpful, since it is seamlessly integrated into mhttpd. All the magic is done with JavaScript, and the buttons are overlaid on the graphics using CSS with absolute positioning. The analysis ratio on the top right is also done with JavaScript accessing the required information from the ODB. 
+.br
+.PP
+The custom page file is shown here:
+.PP
+.IP "\(bu" 2
+\fBHTML code for the MEG ROOT Analyzer page\fP
+.PP
+.PP
+For details using Xvfb server, please contact Ryu Sawada <sawada@icepp.s.u-tokyo.ac.jp>.
+.PP
+
+.br
+ 
+.br
+   

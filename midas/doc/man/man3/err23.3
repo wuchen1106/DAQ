@@ -1,0 +1,299 @@
+.TH "Online Database error codes" 3 "31 May 2012" "Version 2.3.0-0" "Midas" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Online Database error codes \- 
+.SS "Defines"
+
+.in +1c
+.ti -1c
+.RI "#define \fBDB_SUCCESS\fP   1"
+.br
+.ti -1c
+.RI "#define \fBDB_CREATED\fP   302"
+.br
+.ti -1c
+.RI "#define \fBDB_NO_MEMORY\fP   303"
+.br
+.ti -1c
+.RI "#define \fBDB_INVALID_NAME\fP   304"
+.br
+.ti -1c
+.RI "#define \fBDB_INVALID_HANDLE\fP   305"
+.br
+.ti -1c
+.RI "#define \fBDB_NO_SLOT\fP   306"
+.br
+.ti -1c
+.RI "#define \fBDB_NO_SEMAPHORE\fP   307"
+.br
+.ti -1c
+.RI "#define \fBDB_MEMSIZE_MISMATCH\fP   308"
+.br
+.ti -1c
+.RI "#define \fBDB_INVALID_PARAM\fP   309"
+.br
+.ti -1c
+.RI "#define \fBDB_FULL\fP   310"
+.br
+.ti -1c
+.RI "#define \fBDB_KEY_EXIST\fP   311"
+.br
+.ti -1c
+.RI "#define \fBDB_NO_KEY\fP   312"
+.br
+.ti -1c
+.RI "#define \fBDB_KEY_CREATED\fP   313"
+.br
+.ti -1c
+.RI "#define \fBDB_TRUNCATED\fP   314"
+.br
+.ti -1c
+.RI "#define \fBDB_TYPE_MISMATCH\fP   315"
+.br
+.ti -1c
+.RI "#define \fBDB_NO_MORE_SUBKEYS\fP   316"
+.br
+.ti -1c
+.RI "#define \fBDB_FILE_ERROR\fP   317"
+.br
+.ti -1c
+.RI "#define \fBDB_NO_ACCESS\fP   318"
+.br
+.ti -1c
+.RI "#define \fBDB_STRUCT_SIZE_MISMATCH\fP   319"
+.br
+.ti -1c
+.RI "#define \fBDB_OPEN_RECORD\fP   320"
+.br
+.ti -1c
+.RI "#define \fBDB_OUT_OF_RANGE\fP   321"
+.br
+.ti -1c
+.RI "#define \fBDB_INVALID_LINK\fP   322"
+.br
+.ti -1c
+.RI "#define \fBDB_CORRUPTED\fP   323"
+.br
+.ti -1c
+.RI "#define \fBDB_STRUCT_MISMATCH\fP   324"
+.br
+.ti -1c
+.RI "#define \fBDB_TIMEOUT\fP   325"
+.br
+.ti -1c
+.RI "#define \fBDB_VERSION_MISMATCH\fP   326"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+dox dox 
+.SH "Define Documentation"
+.PP 
+.SS "#define DB_CORRUPTED   323".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 589 of file midas.h.
+.PP
+Referenced by db_create_key(), and db_find_key().
+.SS "#define DB_CREATED   302".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 568 of file midas.h.
+.PP
+Referenced by cm_connect_experiment1(), and db_open_database().
+.SS "#define DB_FILE_ERROR   317".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 583 of file midas.h.
+.PP
+Referenced by db_load(), db_save(), db_save_struct(), and db_save_xml().
+.SS "#define DB_FULL   310".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 576 of file midas.h.
+.PP
+Referenced by db_create_key(), db_set_data(), db_set_data_index(), db_set_link_data(), db_set_link_data_index(), and db_set_value().
+.SS "#define DB_INVALID_HANDLE   305".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 571 of file midas.h.
+.PP
+Referenced by cm_get_watchdog_info(), db_close_database(), db_close_record(), db_create_key(), db_delete_key1(), db_enum_key(), db_find_key(), db_get_data(), db_get_data_index(), db_get_key(), db_get_key_info(), db_get_key_time(), db_get_link(), db_get_link_data(), db_get_lock_cnt(), db_get_value(), db_lock_database(), db_protect_database(), db_save_struct(), db_set_data(), db_set_data_index(), db_set_link_data(), db_set_link_data_index(), db_unlock_database(), db_update_record(), rb_delete(), rb_get_buffer_level(), rb_get_rp(), rb_get_wp(), rb_increment_rp(), and rb_increment_wp().
+.SS "#define DB_INVALID_LINK   322".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 588 of file midas.h.
+.PP
+Referenced by db_find_key(), db_get_data(), db_get_key(), db_set_data(), and db_set_data_index().
+.SS "#define DB_INVALID_NAME   304".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 570 of file midas.h.
+.PP
+Referenced by db_open_database().
+.SS "#define DB_INVALID_PARAM   309".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 575 of file midas.h.
+.PP
+Referenced by db_create_key(), db_get_value(), db_open_database(), db_set_data(), db_set_link_data(), db_set_value(), rb_create(), rb_increment_rp(), and rb_increment_wp().
+.SS "#define DB_KEY_CREATED   313".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 579 of file midas.h.
+.SS "#define DB_KEY_EXIST   311".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 577 of file midas.h.
+.PP
+Referenced by db_create_key(), and db_paste_node().
+.SS "#define DB_MEMSIZE_MISMATCH   308".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 574 of file midas.h.
+.SS "#define DB_NO_ACCESS   318".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 584 of file midas.h.
+.PP
+Referenced by db_create_key(), db_delete_key1(), db_find_key(), db_get_data(), db_get_data_index(), db_get_link_data(), db_get_value(), db_open_record(), db_paste_node(), db_set_data(), db_set_data_index(), db_set_link_data(), db_set_link_data_index(), db_set_value(), and register_equipment().
+.SS "#define DB_NO_KEY   312".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 578 of file midas.h.
+.PP
+Referenced by cm_delete_client_info(), cm_exist(), cm_shutdown(), db_check_record(), db_create_key(), db_create_link(), db_create_record(), db_find_key(), db_get_value(), db_paste(), db_paste_node(), db_set_value(), and register_equipment().
+.SS "#define DB_NO_MEMORY   303".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 569 of file midas.h.
+.PP
+Referenced by db_copy(), db_copy_xml(), db_load(), db_open_database(), db_open_record(), db_paste(), db_save_xml_key(), and rb_create().
+.SS "#define DB_NO_MORE_SUBKEYS   316".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 582 of file midas.h.
+.PP
+Referenced by al_check(), cm_connect_client(), cm_exist(), cm_set_client_info(), cm_shutdown(), cm_transition1(), db_enum_key(), logger_root(), and update_odb().
+.SS "#define DB_NO_SEMAPHORE   307".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 573 of file midas.h.
+.PP
+Referenced by db_lock_database(), and db_open_database().
+.SS "#define DB_NO_SLOT   306".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 572 of file midas.h.
+.PP
+Referenced by db_open_database().
+.SS "#define DB_OPEN_RECORD   320".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 586 of file midas.h.
+.PP
+Referenced by db_create_record(), and db_delete_key1().
+.SS "#define DB_OUT_OF_RANGE   321".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 587 of file midas.h.
+.PP
+Referenced by db_get_data_index().
+.SS "#define DB_STRUCT_MISMATCH   324".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 590 of file midas.h.
+.PP
+Referenced by cm_connect_experiment1(), db_check_record(), and register_equipment().
+.SS "#define DB_STRUCT_SIZE_MISMATCH   319".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 585 of file midas.h.
+.PP
+Referenced by db_get_record(), db_open_record(), and db_set_record().
+.SS "#define DB_SUCCESS   1".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 567 of file midas.h.
+.PP
+Referenced by al_check(), al_reset_alarm(), al_trigger_alarm(), analyzer_init(), begin_of_run(), cm_check_client(), cm_connect_client(), cm_connect_experiment1(), cm_delete_client_info(), cm_deregister_transition(), cm_exist(), cm_get_client_info(), cm_msg_log(), cm_msg_log1(), cm_msg_retrieve(), cm_register_deferred_transition(), cm_register_transition(), cm_set_client_info(), cm_set_transition_sequence(), cm_shutdown(), cm_transition1(), db_check_record(), db_close_all_records(), db_close_database(), db_close_record(), db_copy(), db_copy_xml(), db_create_key(), db_create_link(), db_create_record(), db_delete_key1(), db_enum_key(), db_find_key(), db_get_data(), db_get_data_index(), db_get_key(), db_get_key_info(), db_get_key_time(), db_get_link(), db_get_link_data(), db_get_record(), db_get_record_size(), db_get_value(), db_load(), db_lock_database(), db_open_database(), db_open_record(), db_paste(), db_paste_node(), db_protect_database(), db_save(), db_save_struct(), db_save_xml(), db_save_xml_key(), db_send_changed_records(), db_set_data(), db_set_data_index(), db_set_link_data(), db_set_link_data_index(), db_set_record(), db_set_value(), db_sprintf(), db_sprintff(), db_unlock_database(), db_update_record(), el_submit(), frontend_init(), hv_init(), interrupt_routine(), load_fragment(), logger_root(), main(), rb_create(), rb_delete(), rb_get_buffer_level(), rb_get_rp(), rb_get_wp(), rb_increment_rp(), rb_increment_wp(), rb_set_nonblocking(), readout_thread(), register_equipment(), scheduler(), set_equipment_status(), tr_start(), update_odb(), and validate_odb_array().
+.SS "#define DB_TIMEOUT   325".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 591 of file midas.h.
+.PP
+Referenced by db_lock_database(), rb_get_rp(), rb_get_wp(), readout_thread(), and receive_trigger_event().
+.SS "#define DB_TRUNCATED   314".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 580 of file midas.h.
+.PP
+Referenced by db_check_record(), db_copy(), db_copy_xml(), db_create_record(), db_get_data(), db_get_data_index(), db_get_link_data(), db_get_value(), db_paste(), and db_save().
+.SS "#define DB_TYPE_MISMATCH   315".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 581 of file midas.h.
+.PP
+Referenced by db_get_data(), db_get_data_index(), db_get_link_data(), db_get_value(), db_paste_node(), db_paste_xml(), db_set_data(), db_set_data_index(), db_set_link_data(), db_set_link_data_index(), and db_set_value().
+.SS "#define DB_VERSION_MISMATCH   326".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 592 of file midas.h.
+.PP
+Referenced by db_open_database().
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Midas from the source code.

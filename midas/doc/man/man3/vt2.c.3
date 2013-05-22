@@ -1,0 +1,50 @@
+.TH "vt2.c" 3 "31 May 2012" "Version 2.3.0-0" "Midas" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+vt2.c \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "int \fBvt2_FifoLevelRead\fP (\fBMVME_INTERFACE\fP *mvme, \fBDWORD\fP base)"
+.br
+.ti -1c
+.RI "int \fBvt2_CycleNumberRead\fP (\fBMVME_INTERFACE\fP *mvme, \fBDWORD\fP base)"
+.br
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "int udelay (int usec)"
+.PP
+Definition at line 18 of file vt2.c.
+.SS "int vt2_CSRRead (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base)"
+.PP
+Definition at line 86 of file vt2.c.
+.SS "int vt2_CycleNumberRead (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base)"return the cycle number (10 bit) 
+.PP
+Definition at line 73 of file vt2.c.
+.SS "void vt2_CycleReset (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base, int fset)"
+.PP
+Definition at line 136 of file vt2.c.
+.SS "int vt2_FifoLevelRead (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base)"return the Fifo level which is 64bits x 2048 with Almost full at 2000. the returned value is on 11 bits. It should be used as 2*level during read as the data is 64 bit wide. Data field 20bits : [0eaf][0000 0] 7FF fEmpty, fAlmostFull, Full, level 
+.PP
+Definition at line 54 of file vt2.c.
+.SS "int vt2_FifoRead (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base, \fBDWORD\fP * pdest, int nentry)"
+.PP
+Definition at line 33 of file vt2.c.
+.SS "void vt2_IntEnable (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base, int flag)"
+.PP
+Definition at line 108 of file vt2.c.
+.SS "void vt2_KeepAlive (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base, int fset)"
+.PP
+Definition at line 122 of file vt2.c.
+.SS "void vt2_ManReset (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base)"
+.PP
+Definition at line 98 of file vt2.c.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Midas from the source code.

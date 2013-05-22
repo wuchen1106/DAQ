@@ -1,0 +1,105 @@
+.TH "RC_mhttpd_ODB_page" 3 "31 May 2012" "Version 2.3.0-0" "Midas" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+RC_mhttpd_ODB_page \- ODB page 
+ 
+.br
+.PP
+.PP
+ 
+.br
+.PP
+The ODB page is displayed by clicking on the 'ODB' \fBpage switch button\fP (\fBif present\fP) on the \fBmain status page\fP.
+.PP
+
+.br
+
+.br
+
+.br
+   Clicking on the 'ODB' button will bring up a page showing the root tree of the ODB  
+.br
+
+.br
+
+.br
+   
+.br
+
+.br
+
+.br
+.PP
+The ODB page initially displays the ODB \fBroot\fP \fBtree\fP. Clicking on the hyperlink '/', then one of the other hyperlinks ( e.g. 'Equipment') will take you to the requested ODB field. Depending on the \fBsecurity\fP, read/write access to any ODB field can be gained .
+.PP
+The ODB page includes the useful capabilities of \fBediting\fP the ODB values and \fBcreating\fP or \fBdeleting\fP new keys. But for copying ODB trees, saving and reloading the ODB, re-ordering the keys etc., the much more powerful \fBodbedit\fP utility must be used. 
+.br
+
+.br
+.PP
+\fBExamples:\fP 
+.PP
+.IP "\(bu" 2
+\fBChanging a variable\fP
+.IP "\(bu" 2
+\fBCreating a subdirectory and an array\fP
+.PP
+.SH "Changing a variable"
+.PP
+This example shows how to change the variable 'PA' under the /Equipment/PA/Settings/Channels ODB directory. If the ODB is \fBWrite protected\fP (as in the example below) a \fB popup window will request the web password \fP before you can change a value.
+.PP
+
+.br
+
+.br
+
+.br
+   ODB page access  
+.br
+
+.br
+
+.br
+   
+.br
+
+.br
+
+.br
+ 
+.br
+.SH "Creating a subdirectory and an array"
+.PP
+The following sequence shows how to
+.IP "\(bu" 2
+create the subdirectory \fB'Settings'\fP in the ODB tree /Equipment/Detector,
+.IP "\(bu" 2
+create an array called \fB'Names'\fP in the Settings subdirectory,
+.IP "\(bu" 2
+fill the first element of \fB'Names'\fP with the string \fB'LeftFront'\fP 
+.PP
+.PP
+
+.br
+
+.br
+
+.br
+   Creating subdirectory 'Settings' and the array 'Names' 
+.br
+
+.br
+
+.br
+   
+.br
+
+.br
+
+.br
+.PP
+.PP
+
+.br
+  

@@ -1,0 +1,146 @@
+\subsection{v1740.c File Reference}
+\label{v1740_8c}\index{v1740.c@{v1740.c}}
+\subsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+uint32\_\-t \hyperlink{v1740_8c_a70d16d4fead8e9ea39dd9fcbddca7307}{v1740\_\-DataBlockRead} (\hyperlink{structMVME__INTERFACE}{MVME\_\-INTERFACE} $\ast$mvme, uint32\_\-t base, uint32\_\-t $\ast$pdest, uint32\_\-t $\ast$nentry)
+\item 
+int \hyperlink{v1740_8c_a3dac1849caf521655aa250acea6786ac}{v1740\_\-Setup} (\hyperlink{structMVME__INTERFACE}{MVME\_\-INTERFACE} $\ast$mvme, uint32\_\-t base, int mode)
+\end{DoxyCompactItemize}
+
+
+\subsubsection{Function Documentation}
+\index{v1740.c@{v1740.c}!regRead@{regRead}}
+\index{regRead@{regRead}!v1740.c@{v1740.c}}
+\paragraph[{regRead}]{\setlength{\rightskip}{0pt plus 5cm}static uint32\_\-t regRead ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  uint32\_\-t {\em base}, \/  int {\em offset})\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}\hfill\label{v1740_8c_a2296a7241a9fb55be401fb5c9845c7b7}
+
+
+Definition at line 24 of file v1740.c.
+
+Referenced by v1740\_\-AcqCtl(), v1740\_\-BufferFree(), v1740\_\-BufferFreeRead(), v1740\_\-BufferOccupancy(), v1740\_\-DataRead(), v1740\_\-GroupConfig(), v1740\_\-GroupGet(), v1740\_\-GroupSet(), v1740\_\-info(), v1740\_\-RegisterRead(), and v1740\_\-Status().\index{v1740.c@{v1740.c}!regWrite@{regWrite}}
+\index{regWrite@{regWrite}!v1740.c@{v1740.c}}
+\paragraph[{regWrite}]{\setlength{\rightskip}{0pt plus 5cm}static void regWrite ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  uint32\_\-t {\em base}, \/  int {\em offset}, \/  uint32\_\-t {\em value})\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}\hfill\label{v1740_8c_af268fb97f4bcf3a3c0d4e2839c5a2a93}
+
+
+Definition at line 35 of file v1740.c.
+
+Referenced by v1740\_\-AcqCtl(), v1740\_\-BufferFree(), v1740\_\-GroupConfig(), v1740\_\-GroupCtl(), v1740\_\-GroupSet(), v1740\_\-RegisterWrite(), v1740\_\-Reset(), v1740\_\-Setup(), and v1740\_\-TrgCtl().\index{v1740.c@{v1740.c}!v1740\_\-AcqCtl@{v1740\_\-AcqCtl}}
+\index{v1740\_\-AcqCtl@{v1740\_\-AcqCtl}!v1740.c@{v1740.c}}
+\paragraph[{v1740\_\-AcqCtl}]{\setlength{\rightskip}{0pt plus 5cm}void v1740\_\-AcqCtl ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  uint32\_\-t {\em base}, \/  uint32\_\-t {\em operation})}\hfill\label{v1740_8c_a104acdee75049a0dc8393eb047c5fa11}
+
+
+Definition at line 98 of file v1740.c.\index{v1740.c@{v1740.c}!v1740\_\-BufferFree@{v1740\_\-BufferFree}}
+\index{v1740\_\-BufferFree@{v1740\_\-BufferFree}!v1740.c@{v1740.c}}
+\paragraph[{v1740\_\-BufferFree}]{\setlength{\rightskip}{0pt plus 5cm}uint32\_\-t v1740\_\-BufferFree ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  uint32\_\-t {\em base}, \/  int {\em nbuffer})}\hfill\label{v1740_8c_aac2f1a0ff0d9d81afe98cfe0f6837c45}
+
+
+Definition at line 191 of file v1740.c.\index{v1740.c@{v1740.c}!v1740\_\-BufferFreeRead@{v1740\_\-BufferFreeRead}}
+\index{v1740\_\-BufferFreeRead@{v1740\_\-BufferFreeRead}!v1740.c@{v1740.c}}
+\paragraph[{v1740\_\-BufferFreeRead}]{\setlength{\rightskip}{0pt plus 5cm}uint32\_\-t v1740\_\-BufferFreeRead ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  uint32\_\-t {\em base})}\hfill\label{v1740_8c_a77ab5a5ee13dc62e36b948c637a5cdda}
+
+
+Definition at line 204 of file v1740.c.\index{v1740.c@{v1740.c}!v1740\_\-BufferOccupancy@{v1740\_\-BufferOccupancy}}
+\index{v1740\_\-BufferOccupancy@{v1740\_\-BufferOccupancy}!v1740.c@{v1740.c}}
+\paragraph[{v1740\_\-BufferOccupancy}]{\setlength{\rightskip}{0pt plus 5cm}uint32\_\-t v1740\_\-BufferOccupancy ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  uint32\_\-t {\em base}, \/  uint32\_\-t {\em group})}\hfill\label{v1740_8c_ab09f1a9680e515f1c4a37756d889fb50}
+
+
+Definition at line 182 of file v1740.c.\index{v1740.c@{v1740.c}!v1740\_\-DataBlockRead@{v1740\_\-DataBlockRead}}
+\index{v1740\_\-DataBlockRead@{v1740\_\-DataBlockRead}!v1740.c@{v1740.c}}
+\paragraph[{v1740\_\-DataBlockRead}]{\setlength{\rightskip}{0pt plus 5cm}uint32\_\-t v1740\_\-DataBlockRead ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  uint32\_\-t {\em base}, \/  uint32\_\-t $\ast$ {\em pdest}, \/  uint32\_\-t $\ast$ {\em nentry})}\hfill\label{v1740_8c_a70d16d4fead8e9ea39dd9fcbddca7307}
+v1740\_\-DataBlockRead Read N entries (32bit) 
+\begin{DoxyParams}{Parameters}
+\item[{\em mvme}]vme structure \item[{\em base}]base address \item[{\em pdest}]Destination pointer \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+nentry 
+\end{DoxyReturn}
+
+
+Definition at line 235 of file v1740.c.\index{v1740.c@{v1740.c}!v1740\_\-DataRead@{v1740\_\-DataRead}}
+\index{v1740\_\-DataRead@{v1740\_\-DataRead}!v1740.c@{v1740.c}}
+\paragraph[{v1740\_\-DataRead}]{\setlength{\rightskip}{0pt plus 5cm}uint32\_\-t v1740\_\-DataRead ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  uint32\_\-t {\em base}, \/  uint32\_\-t $\ast$ {\em pdata}, \/  uint32\_\-t {\em n32w})}\hfill\label{v1740_8c_abbde2b06e5b344062c08333c888fb03c}
+
+
+Definition at line 210 of file v1740.c.\index{v1740.c@{v1740.c}!v1740\_\-GroupConfig@{v1740\_\-GroupConfig}}
+\index{v1740\_\-GroupConfig@{v1740\_\-GroupConfig}!v1740.c@{v1740.c}}
+\paragraph[{v1740\_\-GroupConfig}]{\setlength{\rightskip}{0pt plus 5cm}void v1740\_\-GroupConfig ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  uint32\_\-t {\em base}, \/  uint32\_\-t {\em operation})}\hfill\label{v1740_8c_a4366f9498ad2c7a493ae8ef0ae47e79f}
+
+
+Definition at line 140 of file v1740.c.\index{v1740.c@{v1740.c}!v1740\_\-GroupCtl@{v1740\_\-GroupCtl}}
+\index{v1740\_\-GroupCtl@{v1740\_\-GroupCtl}!v1740.c@{v1740.c}}
+\paragraph[{v1740\_\-GroupCtl}]{\setlength{\rightskip}{0pt plus 5cm}void v1740\_\-GroupCtl ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  uint32\_\-t {\em base}, \/  uint32\_\-t {\em reg}, \/  uint32\_\-t {\em mask})}\hfill\label{v1740_8c_a45bbe7e39955954ac3835bb332ab3558}
+
+
+Definition at line 67 of file v1740.c.\index{v1740.c@{v1740.c}!v1740\_\-GroupGet@{v1740\_\-GroupGet}}
+\index{v1740\_\-GroupGet@{v1740\_\-GroupGet}!v1740.c@{v1740.c}}
+\paragraph[{v1740\_\-GroupGet}]{\setlength{\rightskip}{0pt plus 5cm}uint32\_\-t v1740\_\-GroupGet ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  uint32\_\-t {\em base}, \/  uint32\_\-t {\em channel}, \/  uint32\_\-t {\em what})}\hfill\label{v1740_8c_a944b30b0d5a1020671125ffca5a73420}
+
+
+Definition at line 87 of file v1740.c.\index{v1740.c@{v1740.c}!v1740\_\-GroupSet@{v1740\_\-GroupSet}}
+\index{v1740\_\-GroupSet@{v1740\_\-GroupSet}!v1740.c@{v1740.c}}
+\paragraph[{v1740\_\-GroupSet}]{\setlength{\rightskip}{0pt plus 5cm}void v1740\_\-GroupSet ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  uint32\_\-t {\em base}, \/  uint32\_\-t {\em channel}, \/  uint32\_\-t {\em what}, \/  uint32\_\-t {\em that})}\hfill\label{v1740_8c_aa7ab1ae041ccb35fea9b5174e1290a2e}
+
+
+Definition at line 73 of file v1740.c.\index{v1740.c@{v1740.c}!v1740\_\-info@{v1740\_\-info}}
+\index{v1740\_\-info@{v1740\_\-info}!v1740.c@{v1740.c}}
+\paragraph[{v1740\_\-info}]{\setlength{\rightskip}{0pt plus 5cm}void v1740\_\-info ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  uint32\_\-t {\em base}, \/  int $\ast$ {\em ngroups}, \/  uint32\_\-t $\ast$ {\em n32word})}\hfill\label{v1740_8c_a6dbfbf9f82b07c28bdb78f514790a418}
+
+
+Definition at line 161 of file v1740.c.
+
+Referenced by v1740\_\-DataBlockRead().\index{v1740.c@{v1740.c}!v1740\_\-RegisterRead@{v1740\_\-RegisterRead}}
+\index{v1740\_\-RegisterRead@{v1740\_\-RegisterRead}!v1740.c@{v1740.c}}
+\paragraph[{v1740\_\-RegisterRead}]{\setlength{\rightskip}{0pt plus 5cm}uint32\_\-t v1740\_\-RegisterRead ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  uint32\_\-t {\em base}, \/  int {\em offset})}\hfill\label{v1740_8c_a61bf6dbf7007cd3aef362ee7690786d2}
+
+
+Definition at line 43 of file v1740.c.\index{v1740.c@{v1740.c}!v1740\_\-RegisterWrite@{v1740\_\-RegisterWrite}}
+\index{v1740\_\-RegisterWrite@{v1740\_\-RegisterWrite}!v1740.c@{v1740.c}}
+\paragraph[{v1740\_\-RegisterWrite}]{\setlength{\rightskip}{0pt plus 5cm}void v1740\_\-RegisterWrite ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  uint32\_\-t {\em base}, \/  int {\em offset}, \/  uint32\_\-t {\em value})}\hfill\label{v1740_8c_ad8e262d9f291dc5a7ef6239617dec840}
+
+
+Definition at line 49 of file v1740.c.\index{v1740.c@{v1740.c}!v1740\_\-Reset@{v1740\_\-Reset}}
+\index{v1740\_\-Reset@{v1740\_\-Reset}!v1740.c@{v1740.c}}
+\paragraph[{v1740\_\-Reset}]{\setlength{\rightskip}{0pt plus 5cm}void v1740\_\-Reset ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  uint32\_\-t {\em base})}\hfill\label{v1740_8c_a49b1258739e06b27bfaf8b96ebe7d899}
+
+
+Definition at line 55 of file v1740.c.\index{v1740.c@{v1740.c}!v1740\_\-Setup@{v1740\_\-Setup}}
+\index{v1740\_\-Setup@{v1740\_\-Setup}!v1740.c@{v1740.c}}
+\paragraph[{v1740\_\-Setup}]{\setlength{\rightskip}{0pt plus 5cm}int v1740\_\-Setup ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  uint32\_\-t {\em base}, \/  int {\em mode})}\hfill\label{v1740_8c_a3dac1849caf521655aa250acea6786ac}
+Sets all the necessary paramters for a given configuration. The configuration is provided by the mode argument. Add your own configuration in the case statement. Let me know your setting if you want to include it in the distribution.
+\begin{DoxyItemize}
+\item {\bfseries Mode 1} :
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em $\ast$mvme}]VME structure \item[{\em base}]Module base address \item[{\em mode}]Configuration mode number \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0: OK. -\/1: Bad 
+\end{DoxyReturn}
+
+
+Definition at line 292 of file v1740.c.\index{v1740.c@{v1740.c}!v1740\_\-Status@{v1740\_\-Status}}
+\index{v1740\_\-Status@{v1740\_\-Status}!v1740.c@{v1740.c}}
+\paragraph[{v1740\_\-Status}]{\setlength{\rightskip}{0pt plus 5cm}void v1740\_\-Status ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  uint32\_\-t {\em base})}\hfill\label{v1740_8c_a63433b3b12494b29e5c56ea9dfc1642b}
+
+
+Definition at line 257 of file v1740.c.
+
+Referenced by v1740\_\-Setup().\index{v1740.c@{v1740.c}!v1740\_\-TrgCtl@{v1740\_\-TrgCtl}}
+\index{v1740\_\-TrgCtl@{v1740\_\-TrgCtl}!v1740.c@{v1740.c}}
+\paragraph[{v1740\_\-TrgCtl}]{\setlength{\rightskip}{0pt plus 5cm}void v1740\_\-TrgCtl ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  uint32\_\-t {\em base}, \/  uint32\_\-t {\em reg}, \/  uint32\_\-t {\em mask})}\hfill\label{v1740_8c_acb51bdaa8ecfb75b3f49cf1f084fc8e8}
+
+
+Definition at line 61 of file v1740.c.
+
+\subsubsection{Variable Documentation}
+\index{v1740.c@{v1740.c}!V1740\_\-NSAMPLES\_\-MODE@{V1740\_\-NSAMPLES\_\-MODE}}
+\index{V1740\_\-NSAMPLES\_\-MODE@{V1740\_\-NSAMPLES\_\-MODE}!v1740.c@{v1740.c}}
+\paragraph[{V1740\_\-NSAMPLES\_\-MODE}]{\setlength{\rightskip}{0pt plus 5cm}uint32\_\-t {\bf V1740\_\-NSAMPLES\_\-MODE}\mbox{[}11\mbox{]}}\hfill\label{v1740_8c_a78b75f453b30a36664143259097a05cd}
+{\bfseries Initial value:}
+\begin{DoxyCode}
+ { (1024*192), (512*192), (256*192), (128*192), (64*192), (32*192)
+                               ,(16*192), (8*192), (4*192), (2*192), (192)}
+\end{DoxyCode}
+
+
+Definition at line 17 of file v1740.c.

@@ -1,0 +1,92 @@
+.TH "RC_mhttpd_MSCB_page" 3 "31 May 2012" "Version 2.3.0-0" "Midas" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+RC_mhttpd_MSCB_page \- MSCB page 
+
+.br
+ 
+.PP
+.PP
+The MSCB (MIDAS Slow Control Bus) page is a new page that has been recently implemented in mhttpd (\fBDec 2009\fP) .
+.PP
+
+.br
+ This allows web access to all devices in an \fCMSCB system\fP and to their variables:
+.PP
+
+.br
+
+.br
+
+.br
+   An example of an MSCB page 
+.br
+
+.br
+
+.br
+   
+.br
+
+.br
+
+.br
+ 
+.br
+.PP
+In order to create the MSCB page, the flag 
+.br
+ \fB-DHAVE_MSCB\fP 
+.br
+ must be present in the Makefile for mhttpd. This is now the default in the Makefile from SVN, but it can be taken out for experiments not using MSCB. If the flag is present, mhttpd is linked against \fBmidas/mscb/mscb.c\fP and has direct access to all mscb ethernet submasters (USB access is currently disabled on purpose there). The presence of the flag \fB-DHAVE_MSCB\fP will cause the MSCB button to appear on the main status page by default, unless the \fBmenu buttons\fP have been customized, in which case the MSCB key must be listed in the ODB Key /Experiment/Menu Buttons
+.br
+e.g. 
+.PP
+.nf
+/Experiment/Menu Buttons = Start, ODB, Messages, ELog, Alarms, Programs, History, MSCB, Config, Help
+
+.fi
+.PP
+.PP
+The MSCB page uses the ODB Tree \fB/MSCB/Submasters/...\fP to obtain a list of all available submasters:
+.br
+.PP
+.PP
+.nf
+[local:MEG:R]/MSCB>ls -r
+MSCB
+    Submaster
+        mscb004
+            Pwd                 xxxxx
+            Comment             BTS
+            Address             1
+        mscb034
+            Pwd                 xxxxx
+            Comment             XEC HV & LED
+            Address
+                                0
+                                1
+                                2
+.fi
+.PP
+.PP
+Each submaster tree contains an optional password needed by that submaster, an optional comment (which will be displayed on the 'Submaster' list on the web page), and an array of node addresses.
+.br
+ 
+.br
+ These trees can be created by hand, but they are also created automatically by mhttpd if the /MSCB/Submaster entry is not present in the ODB. In this case, the equipment list is scanned and all MSCB devices and addresses are collected from locations such as 
+.br
+ /Equipment/<name>/Settings/Devices/Input/Device
+.br
+.PP
+or 
+.br
+ /Equipment/<name>/Settings/Devices/<name>/MSCB Device
+.br
+ which are the locations for MSCB submasters used by the \fBmscbdev.c\fP and \fBmscbhvr.c\fP device drivers. Once the tree is created, it will not be touched again by mhttpd, so devices can be removed or reordered by hand.
+.br
+ 
+.br
+.PP
+  

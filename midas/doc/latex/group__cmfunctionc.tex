@@ -1,0 +1,741 @@
+\subsection{Midas Common Functions (cm\_\-xxx)}
+\label{group__cmfunctionc}\index{Midas Common Functions (cm\_\-xxx)@{Midas Common Functions (cm\_\-xxx)}}
+\subsubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structTR__CLIENT}{TR\_\-CLIENT}
+\end{DoxyCompactItemize}
+\subsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{group__cmfunctionc_ga89d09a1a52a983be86ef502614fe555c}{cm\_\-synchronize} (\hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} $\ast$seconds)
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{group__cmfunctionc_gac340cbe250a502de8befa8c0beeac945}{cm\_\-asctime} (char $\ast$str, \hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} buf\_\-size)
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{group__cmfunctionc_gaf53e87e278dd31007a84cf643eddba2b}{cm\_\-time} (\hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} $\ast$t)
+\item 
+char $\ast$ \hyperlink{group__cmfunctionc_ga9e7d38eff9b9d85d57fc2f4b2aacc9ab}{cm\_\-get\_\-version} ()
+\item 
+int \hyperlink{group__cmfunctionc_ga2bdca42b13df835e667b9258cb41c7e2}{cm\_\-get\_\-revision} ()
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{group__cmfunctionc_ga006e27d46e2dd0eedde0a753f1b9ed67}{cm\_\-set\_\-path} (const char $\ast$path)
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{group__cmfunctionc_gacfe11e1f0404bc4112d749eb0793671e}{cm\_\-get\_\-path} (char $\ast$path)
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{group__cmfunctionc_gafe97f63815e3eacedd504bca6b22032a}{cm\_\-set\_\-experiment\_\-name} (const char $\ast$name)
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{group__cmfunctionc_ga0ca8a626fc6fbdbfde87294eb38ad94d}{cm\_\-get\_\-experiment\_\-name} (char $\ast$name, int name\_\-length)
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{group__cmfunctionc_gacd0316ccf242cd450281c5fd153a985b}{cm\_\-scan\_\-experiments} (void)
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{group__cmfunctionc_gace4f91b59217b2dc6216065cc41377a1}{cm\_\-delete\_\-client\_\-info} (HNDLE \hyperlink{mevb_8c_ab1f60c53f74e806a3b9f687af38d7421}{hDB}, \hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} pid)
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{group__cmfunctionc_ga43f5554b3e5296a0f92ec3d6aa15ed30}{cm\_\-check\_\-client} (HNDLE \hyperlink{mevb_8c_ab1f60c53f74e806a3b9f687af38d7421}{hDB}, HNDLE hKeyClient)
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{group__cmfunctionc_gae50ca92a705efaed76dd1204a3caa32e}{cm\_\-set\_\-client\_\-info} (HNDLE \hyperlink{mevb_8c_ab1f60c53f74e806a3b9f687af38d7421}{hDB}, HNDLE $\ast$hKeyClient, char $\ast$\hyperlink{mevb_8c_af65cc3664520b7cd0817adc7106f9624}{host\_\-name}, char $\ast$client\_\-name, \hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} hw\_\-type, char $\ast$password, \hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} watchdog\_\-timeout)
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{group__cmfunctionc_ga0aa3002f758a710360b90a50500fc784}{cm\_\-get\_\-client\_\-info} (char $\ast$client\_\-name)
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{group__cmfunctionc_gaa483e7c17ff962fd6cdfa581f4989f54}{cm\_\-get\_\-environment} (char $\ast$\hyperlink{mevb_8c_af65cc3664520b7cd0817adc7106f9624}{host\_\-name}, int host\_\-name\_\-size, char $\ast$\hyperlink{mfe_8c_a11eee1a5e2cef985b90bdfe0bfc8cf76}{exp\_\-name}, int exp\_\-name\_\-size)
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{group__cmfunctionc_ga1e96495bb5b89e4ea770a1ea7bc7787b}{cm\_\-connect\_\-experiment} (const char $\ast$\hyperlink{mevb_8c_af65cc3664520b7cd0817adc7106f9624}{host\_\-name}, const char $\ast$\hyperlink{mfe_8c_a11eee1a5e2cef985b90bdfe0bfc8cf76}{exp\_\-name}, const char $\ast$client\_\-name, void($\ast$func)(char $\ast$))
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{group__cmfunctionc_ga4dfbe7e4683c5f1e7f7cc1f6f998bdda}{cm\_\-connect\_\-experiment1} (const char $\ast$\hyperlink{mevb_8c_af65cc3664520b7cd0817adc7106f9624}{host\_\-name}, const char $\ast$\hyperlink{mfe_8c_a11eee1a5e2cef985b90bdfe0bfc8cf76}{exp\_\-name}, const char $\ast$client\_\-name, void($\ast$func)(char $\ast$), \hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{analyzer_8c_a7503268889a084b74a968787ffc025b7}{odb\_\-size}, \hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} watchdog\_\-timeout)
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{group__cmfunctionc_gad7e8e8d4f9d89c17133b09505539b351}{cm\_\-list\_\-experiments} (const char $\ast$\hyperlink{mevb_8c_af65cc3664520b7cd0817adc7106f9624}{host\_\-name}, char \hyperlink{mfe_8c_a11eee1a5e2cef985b90bdfe0bfc8cf76}{exp\_\-name}\mbox{[}MAX\_\-EXPERIMENT\mbox{]}\mbox{[}NAME\_\-LENGTH\mbox{]})
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{group__cmfunctionc_ga5b4ff6bff1fa714ea4697e317d39ea0f}{cm\_\-select\_\-experiment} (const char $\ast$\hyperlink{mevb_8c_af65cc3664520b7cd0817adc7106f9624}{host\_\-name}, char $\ast$\hyperlink{mfe_8c_a11eee1a5e2cef985b90bdfe0bfc8cf76}{exp\_\-name})
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{group__cmfunctionc_ga6a8a21234c7ce94bdf26bbcbcf778a39}{cm\_\-connect\_\-client} (char $\ast$client\_\-name, HNDLE $\ast$hConn)
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{group__cmfunctionc_ga084b807db46901ac411824a94f59645d}{cm\_\-disconnect\_\-client} (HNDLE hConn, \hyperlink{vt2_8h_a239c7f0d40651c3e419c5b9651507d14}{BOOL} bShutdown)
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{group__cmfunctionc_ga7d5a287821786e8dde3d2340826215b2}{cm\_\-disconnect\_\-experiment} (void)
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{group__cmfunctionc_gadf088255bf3e91f3efe83c7e5f0cd733}{cm\_\-set\_\-experiment\_\-database} (HNDLE \hyperlink{mevb_8c_ab1f60c53f74e806a3b9f687af38d7421}{hDB}, HNDLE hKeyClient)
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{group__cmfunctionc_ga16b33b70783a3f5ba98b4094149d12b7}{cm\_\-get\_\-experiment\_\-database} (HNDLE $\ast$\hyperlink{mevb_8c_ab1f60c53f74e806a3b9f687af38d7421}{hDB}, HNDLE $\ast$hKeyClient)
+\item 
+static int \hyperlink{group__cmfunctionc_gab85c5c492c0ebadafe7b08fde9a4e946}{bm\_\-validate\_\-client\_\-index} (const \hyperlink{structBUFFER}{BUFFER} $\ast$buf, \hyperlink{vt2_8h_a239c7f0d40651c3e419c5b9651507d14}{BOOL} abort\_\-if\_\-invalid)
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{group__cmfunctionc_gaf98a4288e4c02da7c75f3e0326ff0e72}{cm\_\-set\_\-watchdog\_\-params} (\hyperlink{vt2_8h_a239c7f0d40651c3e419c5b9651507d14}{BOOL} call\_\-watchdog, \hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} timeout)
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{group__cmfunctionc_ga1873a038ab84d2f812f92c02fed97eea}{cm\_\-get\_\-watchdog\_\-params} (\hyperlink{vt2_8h_a239c7f0d40651c3e419c5b9651507d14}{BOOL} $\ast$call\_\-watchdog, \hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} $\ast$timeout)
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{group__cmfunctionc_ga31688f905a1b4a3271dfea8b178e1108}{cm\_\-get\_\-watchdog\_\-info} (HNDLE \hyperlink{mevb_8c_ab1f60c53f74e806a3b9f687af38d7421}{hDB}, char $\ast$client\_\-name, \hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} $\ast$timeout, \hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} $\ast$last)
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{group__cmfunctionc_ga00950930acadf846be75239b6d0e80dc}{cm\_\-register\_\-transition} (\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} transition, \hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT}($\ast$func)(\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT}, char $\ast$), \hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} sequence\_\-number)
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{group__cmfunctionc_gac4b2b97d9cd12320b6f910f32e131aef}{cm\_\-set\_\-transition\_\-sequence} (\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} transition, \hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} sequence\_\-number)
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{group__cmfunctionc_gaa043c651932a8d63ce6104a9ad79f370}{cm\_\-register\_\-deferred\_\-transition} (\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} transition, \hyperlink{vt2_8h_a239c7f0d40651c3e419c5b9651507d14}{BOOL}($\ast$func)(\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT}, \hyperlink{vt2_8h_a239c7f0d40651c3e419c5b9651507d14}{BOOL}))
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{group__cmfunctionc_gabc9cc8ea21e435ffff94d359686897e3}{cm\_\-check\_\-deferred\_\-transition} ()
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{group__cmfunctionc_ga0dd9a488ef81843f8a64c7930ad40f06}{cm\_\-transition1} (\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} transition, \hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{mevb_8c_a16695ea2bfd19f294afe066d6007ab36}{run\_\-number}, char $\ast$errstr, \hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} errstr\_\-size, \hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} async\_\-flag, \hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} debug\_\-flag)
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{group__cmfunctionc_ga115565c5a1d9591fcabf844c1dd624f8}{cm\_\-yield} (\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} millisec)
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{group__cmfunctionc_ga609631cf55247d2e58069bae08419a86}{cm\_\-execute} (const char $\ast$command, char $\ast$result, \hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} bufsize)
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{group__cmfunctionc_ga01682993f1aa1d5a4ed22de45ecf45fe}{cm\_\-shutdown} (const char $\ast$name, \hyperlink{vt2_8h_a239c7f0d40651c3e419c5b9651507d14}{BOOL} bUnique)
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{group__cmfunctionc_gafb034d850f13190ba256f235fcea5298}{cm\_\-exist} (const char $\ast$name, \hyperlink{vt2_8h_a239c7f0d40651c3e419c5b9651507d14}{BOOL} bUnique)
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{group__cmfunctionc_ga6208deae04212a3f234d80fe3185f86d}{cm\_\-cleanup} (const char $\ast$client\_\-name, \hyperlink{vt2_8h_a239c7f0d40651c3e419c5b9651507d14}{BOOL} ignore\_\-timeout)
+\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+dox dox
+
+dox 
+
+\subsubsection{Function Documentation}
+\index{cmfunctionc@{cmfunctionc}!bm\_\-validate\_\-client\_\-index@{bm\_\-validate\_\-client\_\-index}}
+\index{bm\_\-validate\_\-client\_\-index@{bm\_\-validate\_\-client\_\-index}!cmfunctionc@{cmfunctionc}}
+\paragraph[{bm\_\-validate\_\-client\_\-index}]{\setlength{\rightskip}{0pt plus 5cm}static int bm\_\-validate\_\-client\_\-index (const {\bf BUFFER} $\ast$ {\em buf}, \/  {\bf BOOL} {\em abort\_\-if\_\-invalid})\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}\hfill\label{group__cmfunctionc_gab85c5c492c0ebadafe7b08fde9a4e946}
+dox 
+
+Definition at line 2726 of file midas.c.
+
+Referenced by bm\_\-cleanup(), bm\_\-close\_\-buffer(), bm\_\-empty\_\-buffers(), bm\_\-flush\_\-cache(), bm\_\-push\_\-event(), bm\_\-receive\_\-event(), bm\_\-remove\_\-event\_\-request(), bm\_\-send\_\-event(), bm\_\-skip\_\-event(), bm\_\-wait\_\-for\_\-free\_\-space(), cm\_\-cleanup(), cm\_\-set\_\-watchdog\_\-params(), and cm\_\-update\_\-last\_\-activity().\index{cmfunctionc@{cmfunctionc}!cm\_\-asctime@{cm\_\-asctime}}
+\index{cm\_\-asctime@{cm\_\-asctime}!cmfunctionc@{cmfunctionc}}
+\paragraph[{cm\_\-asctime}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} cm\_\-asctime (char $\ast$ {\em str}, \/  {\bf INT} {\em buf\_\-size})}\hfill\label{group__cmfunctionc_gac340cbe250a502de8befa8c0beeac945}
+Get time from MIDAS server and set local time. 
+\begin{DoxyParams}{Parameters}
+\item[{\em str}]return time string \item[{\em buf\_\-size}]Maximum size of str \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+CM\_\-SUCCESS 
+\end{DoxyReturn}
+
+
+Definition at line 1286 of file midas.c.
+
+Referenced by al\_\-trigger\_\-alarm(), and cm\_\-transition1().\index{cmfunctionc@{cmfunctionc}!cm\_\-check\_\-client@{cm\_\-check\_\-client}}
+\index{cm\_\-check\_\-client@{cm\_\-check\_\-client}!cmfunctionc@{cmfunctionc}}
+\paragraph[{cm\_\-check\_\-client}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} cm\_\-check\_\-client (HNDLE {\em hDB}, \/  HNDLE {\em hKeyClient})}\hfill\label{group__cmfunctionc_ga43f5554b3e5296a0f92ec3d6aa15ed30}
+Check if a client with a /system/client/xxx entry has a valid entry in the ODB client table. If not, remove that client from the /system/client tree. 
+\begin{DoxyParams}{Parameters}
+\item[{\em hDB}]Handle to online database \item[{\em hKeyClient}]Handle to client key \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+CM\_\-SUCCESS, CM\_\-NO\_\-CLIENT 
+\end{DoxyReturn}
+
+
+Definition at line 1604 of file midas.c.
+
+Referenced by cm\_\-set\_\-client\_\-info(), and cm\_\-transition1().\index{cmfunctionc@{cmfunctionc}!cm\_\-check\_\-deferred\_\-transition@{cm\_\-check\_\-deferred\_\-transition}}
+\index{cm\_\-check\_\-deferred\_\-transition@{cm\_\-check\_\-deferred\_\-transition}!cmfunctionc@{cmfunctionc}}
+\paragraph[{cm\_\-check\_\-deferred\_\-transition}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} cm\_\-check\_\-deferred\_\-transition ()}\hfill\label{group__cmfunctionc_gabc9cc8ea21e435ffff94d359686897e3}
+Check for any deferred transition. If a deferred transition handler has been registered via the cm\_\-register\_\-deferred\_\-transition function, this routine should be called regularly. It checks if a transition request is pending. If so, it calld the registered handler if the transition should be done and then actually does the transition. \begin{DoxyReturn}{Returns}
+CM\_\-SUCCESS, $<$error$>$ Error from \hyperlink{group__cmfunctionc_ga376defd443d6bdfcca3830b99986a48d}{cm\_\-transition()} 
+\end{DoxyReturn}
+
+
+Definition at line 3346 of file midas.c.
+
+Referenced by scheduler().\index{cmfunctionc@{cmfunctionc}!cm\_\-cleanup@{cm\_\-cleanup}}
+\index{cm\_\-cleanup@{cm\_\-cleanup}!cmfunctionc@{cmfunctionc}}
+\paragraph[{cm\_\-cleanup}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} cm\_\-cleanup (const char $\ast$ {\em client\_\-name}, \/  {\bf BOOL} {\em ignore\_\-timeout})}\hfill\label{group__cmfunctionc_ga6208deae04212a3f234d80fe3185f86d}
+Remove hanging clients independent of their watchdog timeout.
+
+Since this function does not obey the client watchdog timeout, it should be only called to remove clients which have their watchdog checking turned off or which are known to be dead. The normal client removement is done via cm\_\-watchdog().
+
+Currently (Sept. 02) there are two applications for that:
+\begin{DoxyEnumerate}
+\item The ODBEdit command \char`\"{}cleanup\char`\"{}, which can be used to remove clients which have their watchdog checking off, like the analyzer started with the \char`\"{}-\/d\char`\"{} flag for a debugging session.
+\item The frontend init code to remove previous frontends. This can be helpful if a frontend dies. Normally, one would have to wait 60 sec. for a crashed frontend to be removed. Only then one can start again the frontend. Since the frontend init code contains a call to cm\_\-cleanup($<$frontend\_\-name$>$), one can restart a frontend immediately.
+\end{DoxyEnumerate}
+
+Added ignore\_\-timeout on Nov.03. A logger might have an increased tiemout of up to 60 sec. because of tape operations. If ignore\_\-timeout is FALSE, the logger is then not killed if its inactivity is less than 60 sec., while in the previous implementation it was always killed after 2$\ast$WATCHDOG\_\-INTERVAL. 
+\begin{DoxyParams}{Parameters}
+\item[{\em client\_\-name}]Client name, if zero check all clients \item[{\em ignore\_\-timeout}]If TRUE, ignore a possible increased timeout defined by each client. \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+CM\_\-SUCCESS 
+\end{DoxyReturn}
+
+
+Definition at line 5381 of file midas.c.
+
+Referenced by cm\_\-transition1(), and main().\index{cmfunctionc@{cmfunctionc}!cm\_\-connect\_\-client@{cm\_\-connect\_\-client}}
+\index{cm\_\-connect\_\-client@{cm\_\-connect\_\-client}!cmfunctionc@{cmfunctionc}}
+\paragraph[{cm\_\-connect\_\-client}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} cm\_\-connect\_\-client (char $\ast$ {\em client\_\-name}, \/  HNDLE $\ast$ {\em hConn})}\hfill\label{group__cmfunctionc_ga6a8a21234c7ce94bdf26bbcbcf778a39}
+Connect to a MIDAS client of the current experiment \begin{DoxyInternal}{For internal use only.}
+
+\begin{DoxyParams}{Parameters}
+\item[{\em client\_\-name}]Name of client to connect to. This name is set by the other client via the cm\_\-connect\_\-experiment call. \item[{\em hConn}]Connection handle \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+CM\_\-SUCCESS, CM\_\-NO\_\-CLIENT 
+\end{DoxyReturn}
+\end{DoxyInternal}
+
+
+Definition at line 2431 of file midas.c.\index{cmfunctionc@{cmfunctionc}!cm\_\-connect\_\-experiment@{cm\_\-connect\_\-experiment}}
+\index{cm\_\-connect\_\-experiment@{cm\_\-connect\_\-experiment}!cmfunctionc@{cmfunctionc}}
+\paragraph[{cm\_\-connect\_\-experiment}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} cm\_\-connect\_\-experiment (const char $\ast$ {\em host\_\-name}, \/  const char $\ast$ {\em exp\_\-name}, \/  const char $\ast$ {\em client\_\-name}, \/  void($\ast$)(char $\ast$) {\em func})}\hfill\label{group__cmfunctionc_ga1e96495bb5b89e4ea770a1ea7bc7787b}
+dox This function connects to an existing MIDAS experiment. This must be the first call in a MIDAS application. It opens three TCP connection to the remote host (one for RPC calls, one to send events and one for hot-\/link notifications from the remote host) and writes client information into the ODB under /System/Clients. \begin{DoxyAttention}{Attention}
+All MIDAS applications should evaluate the MIDAS\_\-SERVER\_\-HOST and MIDAS\_\-EXPT\_\-NAME environment variables as defaults to the host name and experiment name (see \hyperlink{BuildingOptions_Environment_variables}{Environment\_\-variables}). For that purpose, the function \hyperlink{group__cmfunctionc_gaa483e7c17ff962fd6cdfa581f4989f54}{cm\_\-get\_\-environment()} should be called prior to \hyperlink{group__cmfunctionc_ga1e96495bb5b89e4ea770a1ea7bc7787b}{cm\_\-connect\_\-experiment()}. If command line \hyperlink{structparameters}{parameters} -\/h and -\/e are used, the evaluation should be done between \hyperlink{group__cmfunctionc_gaa483e7c17ff962fd6cdfa581f4989f54}{cm\_\-get\_\-environment()} and \hyperlink{group__cmfunctionc_ga1e96495bb5b89e4ea770a1ea7bc7787b}{cm\_\-connect\_\-experiment()}. The function \hyperlink{group__cmfunctionc_ga7d5a287821786e8dde3d2340826215b2}{cm\_\-disconnect\_\-experiment()} must be called before a MIDAS application exits. 
+\begin{DoxyCode}
+#include <stdio.h>
+#include <midas.h>
+main(int argc, char *argv[])
+{
+  INT  status, i;
+  char host_name[256],exp_name[32];
+
+  // get default values from environment
+  cm_get_environment(host_name, exp_name);
+
+  // parse command line parameters
+  for (i=1 ; i<argc ; i++)
+    {
+    if (argv[i][0] == '-')
+      {
+      if (i+1 >= argc || argv[i+1][0] == '-')
+        goto usage;
+      if (argv[i][1] == 'e')
+        strcpy(exp_name, argv[++i]);
+      else if (argv[i][1] == 'h')
+        strcpy(host_name, argv[++i]);
+      else
+        {
+usage:
+        printf("usage: test [-h Hostname] [-e Experiment]\n\n");
+        return 1;
+        }
+      }
+    }
+  status = cm_connect_experiment(host_name, exp_name, "Test", NULL);
+  if (status != CM_SUCCESS)
+    return 1;
+  ...do operations...
+  cm_disconnect_experiment();
+}
+\end{DoxyCode}
+ 
+\end{DoxyAttention}
+
+\begin{DoxyParams}{Parameters}
+\item[{\em host\_\-name}]Specifies host to connect to. Must be a valid IP host name. The string can be empty (\char`\"{}\char`\"{}) if to connect to the local computer. \item[{\em exp\_\-name}]Specifies the experiment to connect to. If this string is empty, the number of defined experiments in exptab is checked. If only one experiment is defined, the function automatically connects to this one. If more than one experiment is defined, a list is presented and the user can interactively select one experiment. \item[{\em client\_\-name}]Client name of the calling program as it can be seen by others (like the scl command in ODBEdit). \item[{\em func}]Callback function to read in a password if security has been enabled. In all command line applications this function is NULL which invokes an internal ss\_\-gets() function to read in a password. In windows environments (MS Windows, X Windows) a function can be supplied to open a dialog box and read in the password. The argument of this function must be the returned password. \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+CM\_\-SUCCESS, CM\_\-UNDEF\_\-EXP, CM\_\-SET\_\-ERROR, RPC\_\-NET\_\-ERROR \par
+ CM\_\-VERSION\_\-MISMATCH MIDAS library version different on local and remote computer 
+\end{DoxyReturn}
+
+
+Definition at line 2051 of file midas.c.
+
+Referenced by main().\index{cmfunctionc@{cmfunctionc}!cm\_\-connect\_\-experiment1@{cm\_\-connect\_\-experiment1}}
+\index{cm\_\-connect\_\-experiment1@{cm\_\-connect\_\-experiment1}!cmfunctionc@{cmfunctionc}}
+\paragraph[{cm\_\-connect\_\-experiment1}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} cm\_\-connect\_\-experiment1 (const char $\ast$ {\em host\_\-name}, \/  const char $\ast$ {\em exp\_\-name}, \/  const char $\ast$ {\em client\_\-name}, \/  void($\ast$)(char $\ast$) {\em func}, \/  {\bf INT} {\em odb\_\-size}, \/  {\bf DWORD} {\em watchdog\_\-timeout})}\hfill\label{group__cmfunctionc_ga4dfbe7e4683c5f1e7f7cc1f6f998bdda}
+Connect to a MIDAS experiment (to the online database) on a specific host. \begin{DoxyInternal}{For internal use only.}
+\end{DoxyInternal}
+
+
+Definition at line 2074 of file midas.c.
+
+Referenced by cm\_\-connect\_\-experiment(), and main().\index{cmfunctionc@{cmfunctionc}!cm\_\-delete\_\-client\_\-info@{cm\_\-delete\_\-client\_\-info}}
+\index{cm\_\-delete\_\-client\_\-info@{cm\_\-delete\_\-client\_\-info}!cmfunctionc@{cmfunctionc}}
+\paragraph[{cm\_\-delete\_\-client\_\-info}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} cm\_\-delete\_\-client\_\-info (HNDLE {\em hDB}, \/  {\bf INT} {\em pid})}\hfill\label{group__cmfunctionc_gace4f91b59217b2dc6216065cc41377a1}
+Delete client info from database 
+\begin{DoxyParams}{Parameters}
+\item[{\em hDB}]Database handle \item[{\em pid}]PID of entry to delete, zero for this process. \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+CM\_\-SUCCESS 
+\end{DoxyReturn}
+
+
+Definition at line 1547 of file midas.c.
+
+Referenced by cm\_\-check\_\-client(), cm\_\-cleanup(), cm\_\-disconnect\_\-experiment(), and cm\_\-shutdown().\index{cmfunctionc@{cmfunctionc}!cm\_\-deregister\_\-transition@{cm\_\-deregister\_\-transition}}
+\index{cm\_\-deregister\_\-transition@{cm\_\-deregister\_\-transition}!cmfunctionc@{cmfunctionc}}
+\paragraph[{cm\_\-deregister\_\-transition}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} cm\_\-deregister\_\-transition ({\bf INT} {\em transition})}\hfill\label{group__cmfunctionc_gabc04b8293c8387a6ea4f506edf746df7}
+
+
+Definition at line 3166 of file midas.c.\index{cmfunctionc@{cmfunctionc}!cm\_\-disconnect\_\-client@{cm\_\-disconnect\_\-client}}
+\index{cm\_\-disconnect\_\-client@{cm\_\-disconnect\_\-client}!cmfunctionc@{cmfunctionc}}
+\paragraph[{cm\_\-disconnect\_\-client}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} cm\_\-disconnect\_\-client (HNDLE {\em hConn}, \/  {\bf BOOL} {\em bShutdown})}\hfill\label{group__cmfunctionc_ga084b807db46901ac411824a94f59645d}
+Disconnect from a MIDAS client 
+\begin{DoxyParams}{Parameters}
+\item[{\em hConn}]Connection handle obtained via \hyperlink{group__cmfunctionc_ga6a8a21234c7ce94bdf26bbcbcf778a39}{cm\_\-connect\_\-client()} \item[{\em bShutdown}]If TRUE, disconnect from client and shut it down (exit the client program) by sending a RPC\_\-SHUTDOWN message \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+see rpc\_\-client\_\-disconnect() 
+\end{DoxyReturn}
+
+
+Definition at line 2497 of file midas.c.\index{cmfunctionc@{cmfunctionc}!cm\_\-disconnect\_\-experiment@{cm\_\-disconnect\_\-experiment}}
+\index{cm\_\-disconnect\_\-experiment@{cm\_\-disconnect\_\-experiment}!cmfunctionc@{cmfunctionc}}
+\paragraph[{cm\_\-disconnect\_\-experiment}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} cm\_\-disconnect\_\-experiment (void)}\hfill\label{group__cmfunctionc_ga7d5a287821786e8dde3d2340826215b2}
+Disconnect from a MIDAS experiment. \begin{DoxyAttention}{Attention}
+Should be the last call to a MIDAS library function in an application before it exits. This function removes the client information from the ODB, disconnects all TCP connections and frees all internal allocated memory. See \hyperlink{group__cmfunctionc_ga1e96495bb5b89e4ea770a1ea7bc7787b}{cm\_\-connect\_\-experiment()} for example. 
+\end{DoxyAttention}
+\begin{DoxyReturn}{Returns}
+CM\_\-SUCCESS 
+\end{DoxyReturn}
+
+
+Definition at line 2511 of file midas.c.
+
+Referenced by cm\_\-connect\_\-experiment1(), main(), and register\_\-equipment().\index{cmfunctionc@{cmfunctionc}!cm\_\-execute@{cm\_\-execute}}
+\index{cm\_\-execute@{cm\_\-execute}!cmfunctionc@{cmfunctionc}}
+\paragraph[{cm\_\-execute}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} cm\_\-execute (const char $\ast$ {\em command}, \/  char $\ast$ {\em result}, \/  {\bf INT} {\em bufsize})}\hfill\label{group__cmfunctionc_ga609631cf55247d2e58069bae08419a86}
+Executes command via system() call 
+\begin{DoxyParams}{Parameters}
+\item[{\em command}]Command string to execute \item[{\em result}]stdout of command \item[{\em bufsize}]string size in byte \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+CM\_\-SUCCESS 
+\end{DoxyReturn}
+
+
+Definition at line 4288 of file midas.c.\index{cmfunctionc@{cmfunctionc}!cm\_\-exist@{cm\_\-exist}}
+\index{cm\_\-exist@{cm\_\-exist}!cmfunctionc@{cmfunctionc}}
+\paragraph[{cm\_\-exist}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} cm\_\-exist (const char $\ast$ {\em name}, \/  {\bf BOOL} {\em bUnique})}\hfill\label{group__cmfunctionc_gafb034d850f13190ba256f235fcea5298}
+Check if a MIDAS client exists in current experiment 
+\begin{DoxyParams}{Parameters}
+\item[{\em name}]Client name \item[{\em bUnique}]If true, look for the exact client name. If false, look for namexxx where xxx is a any number \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+CM\_\-SUCCESS, CM\_\-NO\_\-CLIENT 
+\end{DoxyReturn}
+
+
+Definition at line 5290 of file midas.c.
+
+Referenced by al\_\-check(), and main().\index{cmfunctionc@{cmfunctionc}!cm\_\-get\_\-client\_\-info@{cm\_\-get\_\-client\_\-info}}
+\index{cm\_\-get\_\-client\_\-info@{cm\_\-get\_\-client\_\-info}!cmfunctionc@{cmfunctionc}}
+\paragraph[{cm\_\-get\_\-client\_\-info}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} cm\_\-get\_\-client\_\-info (char $\ast$ {\em client\_\-name})}\hfill\label{group__cmfunctionc_ga0aa3002f758a710360b90a50500fc784}
+Get info about the current client 
+\begin{DoxyParams}{Parameters}
+\item[{\em $\ast$client\_\-name}]Client name. \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+CM\_\-SUCCESS, CM\_\-UNDEF\_\-EXP 
+\end{DoxyReturn}
+
+
+Definition at line 1876 of file midas.c.
+
+Referenced by bm\_\-open\_\-buffer().\index{cmfunctionc@{cmfunctionc}!cm\_\-get\_\-environment@{cm\_\-get\_\-environment}}
+\index{cm\_\-get\_\-environment@{cm\_\-get\_\-environment}!cmfunctionc@{cmfunctionc}}
+\paragraph[{cm\_\-get\_\-environment}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} cm\_\-get\_\-environment (char $\ast$ {\em host\_\-name}, \/  int {\em host\_\-name\_\-size}, \/  char $\ast$ {\em exp\_\-name}, \/  int {\em exp\_\-name\_\-size})}\hfill\label{group__cmfunctionc_gaa483e7c17ff962fd6cdfa581f4989f54}
+Returns MIDAS environment variables. \begin{DoxyAttention}{Attention}
+This function can be used to evaluate the standard MIDAS environment variables before connecting to an experiment (see \hyperlink{BuildingOptions_Environment_variables}{Environment\_\-variables}). The usual way is that the host name and experiment name are first derived from the environment variables MIDAS\_\-SERVER\_\-HOST and MIDAS\_\-EXPT\_\-NAME. They can then be superseded by command line \hyperlink{structparameters}{parameters} with -\/h and -\/e flags. 
+\begin{DoxyCode}
+#include <stdio.h>
+#include <midas.h>
+main(int argc, char *argv[])
+{
+  INT  status, i;
+  char host_name[256],exp_name[32];
+
+  // get default values from environment
+  cm_get_environment(host_name, exp_name);
+
+  // parse command line parameters
+  for (i=1 ; i<argc ; i++)
+    {
+    if (argv[i][0] == '-')
+      {
+      if (i+1 >= argc || argv[i+1][0] == '-')
+        goto usage;
+      if (argv[i][1] == 'e')
+        strcpy(exp_name, argv[++i]);
+      else if (argv[i][1] == 'h')
+        strcpy(host_name, argv[++i]);
+      else
+        {
+usage:
+        printf("usage: test [-h Hostname] [-e Experiment]\n\n");
+        return 1;
+        }
+      }
+    }
+  status = cm_connect_experiment(host_name, exp_name, "Test", NULL);
+  if (status != CM_SUCCESS)
+    return 1;
+    ...do anyting...
+  cm_disconnect_experiment();
+}
+\end{DoxyCode}
+ 
+\end{DoxyAttention}
+
+\begin{DoxyParams}{Parameters}
+\item[{\em host\_\-name}]Contents of MIDAS\_\-SERVER\_\-HOST environment variable. \item[{\em host\_\-name\_\-size}]string length \item[{\em exp\_\-name}]Contents of MIDAS\_\-EXPT\_\-NAME environment variable. \item[{\em exp\_\-name\_\-size}]string length \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+CM\_\-SUCCESS 
+\end{DoxyReturn}
+
+
+Definition at line 1952 of file midas.c.
+
+Referenced by main().\index{cmfunctionc@{cmfunctionc}!cm\_\-get\_\-experiment\_\-database@{cm\_\-get\_\-experiment\_\-database}}
+\index{cm\_\-get\_\-experiment\_\-database@{cm\_\-get\_\-experiment\_\-database}!cmfunctionc@{cmfunctionc}}
+\paragraph[{cm\_\-get\_\-experiment\_\-database}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} cm\_\-get\_\-experiment\_\-database (HNDLE $\ast$ {\em hDB}, \/  HNDLE $\ast$ {\em hKeyClient})}\hfill\label{group__cmfunctionc_ga16b33b70783a3f5ba98b4094149d12b7}
+dox Get the handle to the ODB from the currently connected experiment.
+
+\begin{DoxyAttention}{Attention}
+This function returns the handle of the online database (ODB) which can be used in future db\_\-xxx() calls. The hkeyclient key handle can be used to access the client information in the ODB. If the client key handle is not needed, the parameter can be NULL. 
+\begin{DoxyCode}
+HNDLE hDB, hkeyclient;
+ char  name[32];
+ int   size;
+ db_get_experiment_database(&hdb, &hkeyclient);
+ size = sizeof(name);
+ db_get_value(hdb, hkeyclient, "Name", name, &size, TID_STRING, TRUE);
+ printf("My name is %s\n", name);
+\end{DoxyCode}
+ 
+\end{DoxyAttention}
+
+\begin{DoxyParams}{Parameters}
+\item[{\em hDB}]Database handle. \item[{\em hKeyClient}]Handle for key where search starts, zero for root. \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+CM\_\-SUCCESS 
+\end{DoxyReturn}
+
+
+Definition at line 2669 of file midas.c.
+
+Referenced by al\_\-check(), al\_\-get\_\-alarms(), al\_\-reset\_\-alarm(), al\_\-trigger\_\-alarm(), ana\_\-end\_\-of\_\-run(), analyzer\_\-init(), bm\_\-open\_\-buffer(), cm\_\-connect\_\-client(), cm\_\-deregister\_\-transition(), cm\_\-disconnect\_\-experiment(), cm\_\-exist(), cm\_\-get\_\-client\_\-info(), cm\_\-msg\_\-log(), cm\_\-msg\_\-log1(), cm\_\-msg\_\-retrieve(), cm\_\-register\_\-deferred\_\-transition(), cm\_\-register\_\-transition(), cm\_\-set\_\-transition\_\-sequence(), cm\_\-set\_\-watchdog\_\-params(), cm\_\-shutdown(), cm\_\-transition1(), el\_\-submit(), hv\_\-init(), hv\_\-read(), and main().\index{cmfunctionc@{cmfunctionc}!cm\_\-get\_\-experiment\_\-name@{cm\_\-get\_\-experiment\_\-name}}
+\index{cm\_\-get\_\-experiment\_\-name@{cm\_\-get\_\-experiment\_\-name}!cmfunctionc@{cmfunctionc}}
+\paragraph[{cm\_\-get\_\-experiment\_\-name}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} cm\_\-get\_\-experiment\_\-name (char $\ast$ {\em name}, \/  int {\em name\_\-length})}\hfill\label{group__cmfunctionc_ga0ca8a626fc6fbdbfde87294eb38ad94d}
+Return the experiment name 
+\begin{DoxyParams}{Parameters}
+\item[{\em name}]Pointer to user string, size should be at least NAME\_\-LENGTH \item[{\em name\_\-size}]Size of user string \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+CM\_\-SUCCESS 
+\end{DoxyReturn}
+
+
+Definition at line 1418 of file midas.c.\index{cmfunctionc@{cmfunctionc}!cm\_\-get\_\-path@{cm\_\-get\_\-path}}
+\index{cm\_\-get\_\-path@{cm\_\-get\_\-path}!cmfunctionc@{cmfunctionc}}
+\paragraph[{cm\_\-get\_\-path}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} cm\_\-get\_\-path (char $\ast$ {\em path})}\hfill\label{group__cmfunctionc_gacfe11e1f0404bc4112d749eb0793671e}
+Return the path name previously set with cm\_\-set\_\-path. 
+\begin{DoxyParams}{Parameters}
+\item[{\em path}]Pathname \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+CM\_\-SUCCESS 
+\end{DoxyReturn}
+
+
+Definition at line 1385 of file midas.c.
+
+Referenced by cm\_\-connect\_\-experiment1(), cm\_\-msg\_\-log(), cm\_\-msg\_\-log1(), and cm\_\-msg\_\-retrieve().\index{cmfunctionc@{cmfunctionc}!cm\_\-get\_\-path1@{cm\_\-get\_\-path1}}
+\index{cm\_\-get\_\-path1@{cm\_\-get\_\-path1}!cmfunctionc@{cmfunctionc}}
+\paragraph[{cm\_\-get\_\-path1}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} cm\_\-get\_\-path1 (char $\ast$ {\em path}, \/  int {\em path\_\-size})}\hfill\label{group__cmfunctionc_ga2e1de5d518d7be99062d074c5482ae88}
+
+
+Definition at line 1392 of file midas.c.\index{cmfunctionc@{cmfunctionc}!cm\_\-get\_\-revision@{cm\_\-get\_\-revision}}
+\index{cm\_\-get\_\-revision@{cm\_\-get\_\-revision}!cmfunctionc@{cmfunctionc}}
+\paragraph[{cm\_\-get\_\-revision}]{\setlength{\rightskip}{0pt plus 5cm}int cm\_\-get\_\-revision ()}\hfill\label{group__cmfunctionc_ga2bdca42b13df835e667b9258cb41c7e2}
+Return svn revision number of current MIDAS library as a string \begin{DoxyReturn}{Returns}
+revision number 
+\end{DoxyReturn}
+
+
+Definition at line 1354 of file midas.c.\index{cmfunctionc@{cmfunctionc}!cm\_\-get\_\-version@{cm\_\-get\_\-version}}
+\index{cm\_\-get\_\-version@{cm\_\-get\_\-version}!cmfunctionc@{cmfunctionc}}
+\paragraph[{cm\_\-get\_\-version}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ cm\_\-get\_\-version ()}\hfill\label{group__cmfunctionc_ga9e7d38eff9b9d85d57fc2f4b2aacc9ab}
+Return version number of current MIDAS library as a string \begin{DoxyReturn}{Returns}
+version number 
+\end{DoxyReturn}
+
+
+Definition at line 1345 of file midas.c.\index{cmfunctionc@{cmfunctionc}!cm\_\-get\_\-watchdog\_\-info@{cm\_\-get\_\-watchdog\_\-info}}
+\index{cm\_\-get\_\-watchdog\_\-info@{cm\_\-get\_\-watchdog\_\-info}!cmfunctionc@{cmfunctionc}}
+\paragraph[{cm\_\-get\_\-watchdog\_\-info}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} cm\_\-get\_\-watchdog\_\-info (HNDLE {\em hDB}, \/  char $\ast$ {\em client\_\-name}, \/  {\bf DWORD} $\ast$ {\em timeout}, \/  {\bf DWORD} $\ast$ {\em last})}\hfill\label{group__cmfunctionc_ga31688f905a1b4a3271dfea8b178e1108}
+Return watchdog information about specific client 
+\begin{DoxyParams}{Parameters}
+\item[{\em hDB}]ODB handle \item[{\em client\_\-name}]ODB client name \item[{\em timeout}]Timeout for this application in seconds \item[{\em last}]Last time watchdog was called in msec \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+CM\_\-SUCCESS, CM\_\-NO\_\-CLIENT, DB\_\-INVALID\_\-HANDLE 
+\end{DoxyReturn}
+
+
+Definition at line 2942 of file midas.c.\index{cmfunctionc@{cmfunctionc}!cm\_\-get\_\-watchdog\_\-params@{cm\_\-get\_\-watchdog\_\-params}}
+\index{cm\_\-get\_\-watchdog\_\-params@{cm\_\-get\_\-watchdog\_\-params}!cmfunctionc@{cmfunctionc}}
+\paragraph[{cm\_\-get\_\-watchdog\_\-params}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} cm\_\-get\_\-watchdog\_\-params ({\bf BOOL} $\ast$ {\em call\_\-watchdog}, \/  {\bf DWORD} $\ast$ {\em timeout})}\hfill\label{group__cmfunctionc_ga1873a038ab84d2f812f92c02fed97eea}
+Return the current watchdog \hyperlink{structparameters}{parameters} 
+\begin{DoxyParams}{Parameters}
+\item[{\em call\_\-watchdog}]Call the cm\_\-watchdog routine periodically \item[{\em timeout}]Timeout for this application in seconds \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+CM\_\-SUCCESS 
+\end{DoxyReturn}
+
+
+Definition at line 2922 of file midas.c.
+
+Referenced by bm\_\-open\_\-buffer(), cm\_\-connect\_\-experiment1(), cm\_\-set\_\-client\_\-info(), and db\_\-open\_\-database().\index{cmfunctionc@{cmfunctionc}!cm\_\-list\_\-experiments@{cm\_\-list\_\-experiments}}
+\index{cm\_\-list\_\-experiments@{cm\_\-list\_\-experiments}!cmfunctionc@{cmfunctionc}}
+\paragraph[{cm\_\-list\_\-experiments}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} cm\_\-list\_\-experiments (const char $\ast$ {\em host\_\-name}, \/  char {\em exp\_\-name}\mbox{[}MAX\_\-EXPERIMENT\mbox{]}\mbox{[}NAME\_\-LENGTH\mbox{]})}\hfill\label{group__cmfunctionc_gad7e8e8d4f9d89c17133b09505539b351}
+Connect to a MIDAS server and return all defined experiments in $\ast$exp\_\-name\mbox{[}MAX\_\-EXPERIMENTS\mbox{]} 
+\begin{DoxyParams}{Parameters}
+\item[{\em host\_\-name}]Internet host name. \item[{\em exp\_\-name}]list of experiment names \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+CM\_\-SUCCESS, RPC\_\-NET\_\-ERROR 
+\end{DoxyReturn}
+
+
+Definition at line 2278 of file midas.c.
+
+Referenced by cm\_\-select\_\-experiment().\index{cmfunctionc@{cmfunctionc}!cm\_\-register\_\-deferred\_\-transition@{cm\_\-register\_\-deferred\_\-transition}}
+\index{cm\_\-register\_\-deferred\_\-transition@{cm\_\-register\_\-deferred\_\-transition}!cmfunctionc@{cmfunctionc}}
+\paragraph[{cm\_\-register\_\-deferred\_\-transition}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} cm\_\-register\_\-deferred\_\-transition ({\bf INT} {\em transition}, \/  {\bf BOOL}($\ast$)({\bf INT}, {\bf BOOL}) {\em func})}\hfill\label{group__cmfunctionc_gaa043c651932a8d63ce6104a9ad79f370}
+dox Register a deferred transition handler. If a client is registered as a deferred transition handler, it may defer a requested transition by returning FALSE until a certain condition (like a motor reaches its end position) is reached. 
+\begin{DoxyParams}{Parameters}
+\item[{\em transition}]One of TR\_\-xxx \item[{\em ($\ast$func)}]Function which gets called whenever a transition is requested. If it returns FALSE, the transition is not performed. \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+CM\_\-SUCCESS, $<$error$>$ Error from ODB access 
+\end{DoxyReturn}
+
+
+Definition at line 3289 of file midas.c.\index{cmfunctionc@{cmfunctionc}!cm\_\-register\_\-transition@{cm\_\-register\_\-transition}}
+\index{cm\_\-register\_\-transition@{cm\_\-register\_\-transition}!cmfunctionc@{cmfunctionc}}
+\paragraph[{cm\_\-register\_\-transition}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} cm\_\-register\_\-transition ({\bf INT} {\em transition}, \/  {\bf INT}($\ast$)({\bf INT}, char $\ast$) {\em func}, \/  {\bf INT} {\em sequence\_\-number})}\hfill\label{group__cmfunctionc_ga00950930acadf846be75239b6d0e80dc}
+dox Registers a callback function for run transitions. This function internally registers the transition callback function and publishes its request for transition notification by writing a transition request to /System/Clients/$<$pid$>$/Transition XXX. Other clients making a transition scan the transition requests of all clients and call their transition callbacks via RPC.
+
+Clients can register for transitions (Start/Stop/Pause/Resume) in a given sequence. All sequence numbers given in the registration are sorted on a transition and the clients are contacted in ascending order. By default, all programs register with a sequence number of 500. The logger however uses 200 for start, so that it can open files before the other clients are contacted, and 800 for stop, so that the files get closed when all other clients have gone already through the stop trantition.
+
+The callback function returns CM\_\-SUCCESS if it can perform the transition or a value larger than one in case of error. An error string can be copied into the error variable. \begin{DoxyAttention}{Attention}
+The callback function will be called on transitions from inside the \hyperlink{group__cmfunctionc_ga115565c5a1d9591fcabf844c1dd624f8}{cm\_\-yield()} function which therefore must be contained in the main program loop. 
+\begin{DoxyCode}
+INT start(INT run_number, char *error)
+{
+  if (<not ok>)
+    {
+    strcpy(error, "Cannot start because ...");
+    return 2;
+    }
+  printf("Starting run %d\n", run_number);
+  return CM_SUCCESS;
+}
+main()
+{
+  ...
+  cm_register_transition(TR_START, start, 500);
+  do
+    {
+    status = cm_yield(1000);
+    } while (status != RPC_SHUTDOWN &&
+             status != SS_ABORT);
+  ...
+}
+\end{DoxyCode}
+ 
+\end{DoxyAttention}
+
+\begin{DoxyParams}{Parameters}
+\item[{\em transition}]Transition to register for (see \hyperlink{RC_Run_States_and_Transitions_state_transition}{state\_\-transition}) \item[{\em func}]Callback function. \item[{\em sequence\_\-number}]Sequence number for that transition (1..1000) \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+CM\_\-SUCCESS 
+\end{DoxyReturn}
+
+
+Definition at line 3101 of file midas.c.
+
+Referenced by main().\index{cmfunctionc@{cmfunctionc}!cm\_\-scan\_\-experiments@{cm\_\-scan\_\-experiments}}
+\index{cm\_\-scan\_\-experiments@{cm\_\-scan\_\-experiments}!cmfunctionc@{cmfunctionc}}
+\paragraph[{cm\_\-scan\_\-experiments}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} cm\_\-scan\_\-experiments (void)}\hfill\label{group__cmfunctionc_gacd0316ccf242cd450281c5fd153a985b}
+dox Scan the \char`\"{}exptab\char`\"{} file for MIDAS experiment names and save them for later use by rpc\_\-server\_\-accept(). The file is first searched under \$MIDAS/exptab if present, then the directory from argv\mbox{[}0\mbox{]} is probed. \begin{DoxyReturn}{Returns}
+CM\_\-SUCCESS\par
+ CM\_\-UNDEF\_\-EXP exptab not found and MIDAS\_\-DIR not set 
+\end{DoxyReturn}
+
+
+Definition at line 1454 of file midas.c.
+
+Referenced by cm\_\-connect\_\-experiment1(), and cm\_\-list\_\-experiments().\index{cmfunctionc@{cmfunctionc}!cm\_\-select\_\-experiment@{cm\_\-select\_\-experiment}}
+\index{cm\_\-select\_\-experiment@{cm\_\-select\_\-experiment}!cmfunctionc@{cmfunctionc}}
+\paragraph[{cm\_\-select\_\-experiment}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} cm\_\-select\_\-experiment (const char $\ast$ {\em host\_\-name}, \/  char $\ast$ {\em exp\_\-name})}\hfill\label{group__cmfunctionc_ga5b4ff6bff1fa714ea4697e317d39ea0f}
+Connect to a MIDAS server and select an experiment from the experiments available on this server \begin{DoxyInternal}{For internal use only.}
+
+\begin{DoxyParams}{Parameters}
+\item[{\em host\_\-name}]Internet host name. \item[{\em exp\_\-name}]list of experiment names \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+CM\_\-SUCCESS, RPC\_\-NET\_\-ERROR 
+\end{DoxyReturn}
+\end{DoxyInternal}
+
+
+Definition at line 2392 of file midas.c.
+
+Referenced by cm\_\-connect\_\-experiment1().\index{cmfunctionc@{cmfunctionc}!cm\_\-set\_\-client\_\-info@{cm\_\-set\_\-client\_\-info}}
+\index{cm\_\-set\_\-client\_\-info@{cm\_\-set\_\-client\_\-info}!cmfunctionc@{cmfunctionc}}
+\paragraph[{cm\_\-set\_\-client\_\-info}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} cm\_\-set\_\-client\_\-info (HNDLE {\em hDB}, \/  HNDLE $\ast$ {\em hKeyClient}, \/  char $\ast$ {\em host\_\-name}, \/  char $\ast$ {\em client\_\-name}, \/  {\bf INT} {\em hw\_\-type}, \/  char $\ast$ {\em password}, \/  {\bf DWORD} {\em watchdog\_\-timeout})}\hfill\label{group__cmfunctionc_gae50ca92a705efaed76dd1204a3caa32e}
+Set client information in online database and return handle 
+\begin{DoxyParams}{Parameters}
+\item[{\em hDB}]Handle to online database \item[{\em hKeyClient}]returned key \item[{\em host\_\-name}]server name \item[{\em client\_\-name}]Name of this program as it will be seen by other clients. \item[{\em hw\_\-type}]Type of byte order \item[{\em password}]MIDAS password \item[{\em watchdog\_\-timeout}]Default watchdog timeout, can be overwritten by ODB setting /programs/$<$name$>$/Watchdog timeout \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+CM\_\-SUCCESS 
+\end{DoxyReturn}
+
+
+Definition at line 1702 of file midas.c.
+
+Referenced by cm\_\-connect\_\-experiment1().\index{cmfunctionc@{cmfunctionc}!cm\_\-set\_\-experiment\_\-database@{cm\_\-set\_\-experiment\_\-database}}
+\index{cm\_\-set\_\-experiment\_\-database@{cm\_\-set\_\-experiment\_\-database}!cmfunctionc@{cmfunctionc}}
+\paragraph[{cm\_\-set\_\-experiment\_\-database}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} cm\_\-set\_\-experiment\_\-database (HNDLE {\em hDB}, \/  HNDLE {\em hKeyClient})}\hfill\label{group__cmfunctionc_gadf088255bf3e91f3efe83c7e5f0cd733}
+Set the handle to the ODB for the currently connected experiment 
+\begin{DoxyParams}{Parameters}
+\item[{\em hDB}]Database handle \item[{\em hKeyClient}]Key handle of client structure \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+CM\_\-SUCCESS 
+\end{DoxyReturn}
+
+
+Definition at line 2602 of file midas.c.
+
+Referenced by cm\_\-connect\_\-experiment1(), and cm\_\-disconnect\_\-experiment().\index{cmfunctionc@{cmfunctionc}!cm\_\-set\_\-experiment\_\-name@{cm\_\-set\_\-experiment\_\-name}}
+\index{cm\_\-set\_\-experiment\_\-name@{cm\_\-set\_\-experiment\_\-name}!cmfunctionc@{cmfunctionc}}
+\paragraph[{cm\_\-set\_\-experiment\_\-name}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} cm\_\-set\_\-experiment\_\-name (const char $\ast$ {\em name})}\hfill\label{group__cmfunctionc_gafe97f63815e3eacedd504bca6b22032a}
+Set name of the experiment 
+\begin{DoxyParams}{Parameters}
+\item[{\em name}]Experiment name \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+CM\_\-SUCCESS 
+\end{DoxyReturn}
+
+
+Definition at line 1405 of file midas.c.
+
+Referenced by cm\_\-connect\_\-experiment1().\index{cmfunctionc@{cmfunctionc}!cm\_\-set\_\-path@{cm\_\-set\_\-path}}
+\index{cm\_\-set\_\-path@{cm\_\-set\_\-path}!cmfunctionc@{cmfunctionc}}
+\paragraph[{cm\_\-set\_\-path}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} cm\_\-set\_\-path (const char $\ast$ {\em path})}\hfill\label{group__cmfunctionc_ga006e27d46e2dd0eedde0a753f1b9ed67}
+Set path to actual experiment. This function gets called by cm\_\-connect\_\-experiment if the connection is established to a local experiment (not through the TCP/IP server). The path is then used for all shared memory routines. 
+\begin{DoxyParams}{Parameters}
+\item[{\em path}]Pathname \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+CM\_\-SUCCESS 
+\end{DoxyReturn}
+
+
+Definition at line 1368 of file midas.c.
+
+Referenced by cm\_\-connect\_\-experiment1().\index{cmfunctionc@{cmfunctionc}!cm\_\-set\_\-transition\_\-sequence@{cm\_\-set\_\-transition\_\-sequence}}
+\index{cm\_\-set\_\-transition\_\-sequence@{cm\_\-set\_\-transition\_\-sequence}!cmfunctionc@{cmfunctionc}}
+\paragraph[{cm\_\-set\_\-transition\_\-sequence}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} cm\_\-set\_\-transition\_\-sequence ({\bf INT} {\em transition}, \/  {\bf INT} {\em sequence\_\-number})}\hfill\label{group__cmfunctionc_gac4b2b97d9cd12320b6f910f32e131aef}
+Change the transition sequence for the calling program. 
+\begin{DoxyParams}{Parameters}
+\item[{\em transition}]TR\_\-START, TR\_\-PAUSE, TR\_\-RESUME or TR\_\-STOP. \item[{\em sequence\_\-number}]New sequence number, should be between 1 and 1000 \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+CM\_\-SUCCESS 
+\end{DoxyReturn}
+
+
+Definition at line 3225 of file midas.c.\index{cmfunctionc@{cmfunctionc}!cm\_\-set\_\-watchdog\_\-params@{cm\_\-set\_\-watchdog\_\-params}}
+\index{cm\_\-set\_\-watchdog\_\-params@{cm\_\-set\_\-watchdog\_\-params}!cmfunctionc@{cmfunctionc}}
+\paragraph[{cm\_\-set\_\-watchdog\_\-params}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} cm\_\-set\_\-watchdog\_\-params ({\bf BOOL} {\em call\_\-watchdog}, \/  {\bf DWORD} {\em timeout})}\hfill\label{group__cmfunctionc_gaf98a4288e4c02da7c75f3e0326ff0e72}
+Sets the internal watchdog flags and the own timeout. If call\_\-watchdog is TRUE, the cm\_\-watchdog routine is called periodically from the system to show other clients that this application is \char`\"{}alive\char`\"{}. On UNIX systems, the alarm() timer is used which is then not available for user purposes.
+
+The timeout specifies the time, after which the calling application should be considered \char`\"{}dead\char`\"{} by other clients. Normally, the cm\_\-watchdog() routines is called periodically. If a client crashes, this does not occur any more. Then other clients can detect this and clear all buffer and database entries of this application so they are not blocked any more. If this application should not checked by others, the timeout can be specified as zero. It might be useful for debugging purposes to do so, because if a debugger comes to a breakpoint and stops the application, the periodic call of cm\_\-watchdog is disabled and the client looks like dead.
+
+If the timeout is not zero, but the watchdog is not called (call\_\-watchdog == FALSE), the user must ensure to call cm\_\-watchdog periodically with a period of WATCHDOG\_\-INTERVAL milliseconds or less.
+
+An application which calles system routines which block the alarm signal for some time, might increase the timeout to the maximum expected blocking time before issuing the calls. One example is the logger doing Exabyte tape IO, which can take up to one minute. 
+\begin{DoxyParams}{Parameters}
+\item[{\em call\_\-watchdog}]Call the cm\_\-watchdog routine periodically \item[{\em timeout}]Timeout for this application in ms \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+CM\_\-SUCCESS 
+\end{DoxyReturn}
+
+
+Definition at line 2809 of file midas.c.
+
+Referenced by cm\_\-connect\_\-experiment1(), cm\_\-set\_\-client\_\-info(), and main().\index{cmfunctionc@{cmfunctionc}!cm\_\-shutdown@{cm\_\-shutdown}}
+\index{cm\_\-shutdown@{cm\_\-shutdown}!cmfunctionc@{cmfunctionc}}
+\paragraph[{cm\_\-shutdown}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} cm\_\-shutdown (const char $\ast$ {\em name}, \/  {\bf BOOL} {\em bUnique})}\hfill\label{group__cmfunctionc_ga01682993f1aa1d5a4ed22de45ecf45fe}
+Shutdown (exit) other MIDAS client 
+\begin{DoxyParams}{Parameters}
+\item[{\em name}]Client name or \char`\"{}all\char`\"{} for all clients \item[{\em bUnique}]If true, look for the exact client name. If false, look for namexxx where xxx is a any number.\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+CM\_\-SUCCESS, CM\_\-NO\_\-CLIENT, DB\_\-NO\_\-KEY 
+\end{DoxyReturn}
+
+
+Definition at line 5176 of file midas.c.
+
+Referenced by cm\_\-transition1(), and main().\index{cmfunctionc@{cmfunctionc}!cm\_\-synchronize@{cm\_\-synchronize}}
+\index{cm\_\-synchronize@{cm\_\-synchronize}!cmfunctionc@{cmfunctionc}}
+\paragraph[{cm\_\-synchronize}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} cm\_\-synchronize ({\bf DWORD} $\ast$ {\em seconds})}\hfill\label{group__cmfunctionc_ga89d09a1a52a983be86ef502614fe555c}
+Get time from MIDAS server and set local time. 
+\begin{DoxyParams}{Parameters}
+\item[{\em seconds}]Time in seconds \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+CM\_\-SUCCESS 
+\end{DoxyReturn}
+
+
+Definition at line 1258 of file midas.c.
+
+Referenced by main().\index{cmfunctionc@{cmfunctionc}!cm\_\-time@{cm\_\-time}}
+\index{cm\_\-time@{cm\_\-time}!cmfunctionc@{cmfunctionc}}
+\paragraph[{cm\_\-time}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} cm\_\-time ({\bf DWORD} $\ast$ {\em t})}\hfill\label{group__cmfunctionc_gaf53e87e278dd31007a84cf643eddba2b}
+Get time from ss\_\-time on server. 
+\begin{DoxyParams}{Parameters}
+\item[{\em t}]string \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+CM\_\-SUCCESS 
+\end{DoxyReturn}
+
+
+Definition at line 1304 of file midas.c.
+
+Referenced by cm\_\-transition1().\index{cmfunctionc@{cmfunctionc}!cm\_\-transition@{cm\_\-transition}}
+\index{cm\_\-transition@{cm\_\-transition}!cmfunctionc@{cmfunctionc}}
+\paragraph[{cm\_\-transition}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} cm\_\-transition ({\bf INT} {\em transition}, \/  {\bf INT} {\em run\_\-number}, \/  char $\ast$ {\em errstr}, \/  {\bf INT} {\em errstr\_\-size}, \/  {\bf INT} {\em async\_\-flag}, \/  {\bf INT} {\em debug\_\-flag})}\hfill\label{group__cmfunctionc_ga376defd443d6bdfcca3830b99986a48d}
+
+
+Definition at line 4117 of file midas.c.
+
+Referenced by cm\_\-check\_\-deferred\_\-transition(), frontend\_\-loop(), main(), scan\_\-fragment(), and scheduler().\index{cmfunctionc@{cmfunctionc}!cm\_\-transition1@{cm\_\-transition1}}
+\index{cm\_\-transition1@{cm\_\-transition1}!cmfunctionc@{cmfunctionc}}
+\paragraph[{cm\_\-transition1}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} cm\_\-transition1 ({\bf INT} {\em transition}, \/  {\bf INT} {\em run\_\-number}, \/  char $\ast$ {\em errstr}, \/  {\bf INT} {\em errstr\_\-size}, \/  {\bf INT} {\em async\_\-flag}, \/  {\bf INT} {\em debug\_\-flag})}\hfill\label{group__cmfunctionc_ga0dd9a488ef81843f8a64c7930ad40f06}
+Performs a run transition (Start/Stop/Pause/Resume).
+
+Synchronous/Asynchronous flag. If set to ASYNC, the transition is done asynchronously, meaning that clients are connected and told to execute their callback routine, but no result is awaited. The return value is specified by the transition callback function on the remote clients. If all callbacks can perform the transition, CM\_\-SUCCESS is returned. If one callback cannot perform the transition, the return value of this callback is returned from \hyperlink{group__cmfunctionc_ga376defd443d6bdfcca3830b99986a48d}{cm\_\-transition()}. The async\_\-flag is usually FALSE so that transition callbacks can block a run transition in case of problems and return an error string. The only exception are situations where a run transition is performed automatically by a program which cannot block in a transition. For example the logger can cause a run stop when a disk is nearly full but it cannot block in the \hyperlink{group__cmfunctionc_ga376defd443d6bdfcca3830b99986a48d}{cm\_\-transition()} function since it has its own run stop callback which must flush buffers and close disk files and tapes. 
+\begin{DoxyCode}
+...
+    i = 1;
+    db_set_value(hDB, 0, "/Runinfo/Transition in progress", &i, sizeof(INT), 1, 
+      TID_INT);
+
+      status = cm_transition(TR_START, new_run_number, str, sizeof(str), SYNC, de
+      bug_flag);
+      if (status != CM_SUCCESS)
+      {
+        // in case of error
+        printf("Error: %s\n", str);
+      }
+    ...
+\end{DoxyCode}
+ 
+\begin{DoxyParams}{Parameters}
+\item[{\em transition}]TR\_\-START, TR\_\-PAUSE, TR\_\-RESUME or TR\_\-STOP. \item[{\em run\_\-number}]New run number. If zero, use current run number plus one. \item[{\em errstr}]returned error string. \item[{\em errstr\_\-size}]Size of error string. \item[{\em async\_\-flag}]SYNC: synchronization flag (SYNC:wait completion, ASYNC: retun immediately) \item[{\em debug\_\-flag}]If 1 output debugging information, if 2 output via \hyperlink{group__msgfunctionc_gaac032ca2438c47466bfc9722de6746ea}{cm\_\-msg()}. \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+CM\_\-SUCCESS, $<$error$>$ error code from remote client 
+\end{DoxyReturn}
+
+
+Definition at line 3439 of file midas.c.
+
+Referenced by cm\_\-transition().\index{cmfunctionc@{cmfunctionc}!cm\_\-yield@{cm\_\-yield}}
+\index{cm\_\-yield@{cm\_\-yield}!cmfunctionc@{cmfunctionc}}
+\paragraph[{cm\_\-yield}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} cm\_\-yield ({\bf INT} {\em millisec})}\hfill\label{group__cmfunctionc_ga115565c5a1d9591fcabf844c1dd624f8}
+dox Central yield functions for clients. This routine should be called in an infinite loop by a client in order to give the MIDAS system the opportunity to receive commands over RPC channels, update database records and receive events. 
+\begin{DoxyParams}{Parameters}
+\item[{\em millisec}]Timeout in millisec. If no message is received during the specified timeout, the routine returns. If millisec=-\/1, it only returns when receiving an RPC\_\-SHUTDOWN message. \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+CM\_\-SUCCESS, RPC\_\-SHUTDOWN 
+\end{DoxyReturn}
+
+
+Definition at line 4229 of file midas.c.
+
+Referenced by scan\_\-fragment(), and scheduler().\index{cmfunctionc@{cmfunctionc}!tr\_\-compare@{tr\_\-compare}}
+\index{tr\_\-compare@{tr\_\-compare}!cmfunctionc@{cmfunctionc}}
+\paragraph[{tr\_\-compare}]{\setlength{\rightskip}{0pt plus 5cm}int tr\_\-compare (const void $\ast$ {\em arg1}, \/  const void $\ast$ {\em arg2})}\hfill\label{group__cmfunctionc_ga0a3c6097ceeaa7dcbe2bb3ea6a768e70}
+
+
+Definition at line 3394 of file midas.c.
+
+Referenced by cm\_\-transition1().

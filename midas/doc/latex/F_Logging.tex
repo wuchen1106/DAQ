@@ -1,0 +1,2847 @@
+\subsubsection{Customizing the MIDAS data logging}\label{F_Logging_Data}
+\label{F_Logging_Data_idx_Logging_Data}
+\hypertarget{F_Logging_Data_idx_Logging_Data}{}
+ 
+
+\par
+
+
+When mlogger is started for the first time, it will create default /Logger and /History trees. The following information will be displayed (providing mlogger has NOT been started as a daemon) : 
+\begin{DoxyCode}
+$ mlogger
+Log     directory is /home/midas/online/
+Data    directory is same as Log unless specified in channels/
+History directory is same as Log
+ELog    directory is same as Log
+
+MIDAS logger started. Stop with "!"
+\end{DoxyCode}
+
+
+Most of the keys in the /Logger ODB tree are used to customize logging of the data. There are also keys to customize the Messaging system. The /Logger tree also may contain optional keys relevent to storing the History and Elog files (i.e. the \hyperlink{F_History_logging_F_Logger_History_Dir}{History} and \hyperlink{F_Elog_F_Logger_Elog_Dir}{Elog} Keys). The optional subtree /Logger/SQL is described in the section \hyperlink{F_mySQL}{mySQL database}. The \hyperlink{F_History_logging_F_ODB_History_tree}{ODB /History tree} is described in the section \hyperlink{F_History_logging}{History Logging} . and the \hyperlink{F_Elog_F_ODB_Elog_Tree}{The ODB /Elog Tree} in the \hyperlink{F_Elog}{Elog} section.
+
+\label{F_Logging_Data_idx_ODB_tree_Logger}
+\hypertarget{F_Logging_Data_idx_ODB_tree_Logger}{}
+ \hypertarget{F_Logging_Data_F_Logger_tree}{}\subsubsection{/Logger ODB tree}\label{F_Logging_Data_F_Logger_tree}
+The following example shows a /logger tree as created by \hyperlink{F_Logging_F_mlogger_utility}{mlogger}. See also \hyperlink{F_Logging_Data_F_Logger_tree_keys}{Explanation of the keys in the ODB /Logger tree} .
+
+
+\begin{DoxyCode}
+Key name                        Type    #Val  Size  Last Opn Mode Value
+---------------------------------------------------------------------------
+Logger                          DIR
+    Data dir                    STRING  1     256   4h   0   RWD  /home/midas/onl
+      ine
+    Message file                STRING  1     256   22h  0   RWD  midas.log
+    Write data                  BOOL    1     4     2h   0   RWD  y
+    ODB Dump                    BOOL    1     4     22h  0   RWD  n
+    ODB Dump File               STRING  1     256   22h  0   RWD  run%05d.odb
+    Auto restart                BOOL    1     4     22h  0   RWD  n
+    Auto restart delay          INT     1     4     94h  0   RWD  0
+    Tape message                BOOL    1     4     15h  0   RWD  y
+    ODBC_Debug                  INT     1     4     >99d 0   RWD  0
+    ODBC_DSN                    STRING  1     256   >99d 0   RWD
+    Channels                    DIR
+        0 
+            Settings            DIR
+                Active          BOOL    1     4     1h   0   RWD  y
+                Type            STRING  1     8     1h   0   RWD  Disk
+                Filename        STRING  1     256   1h   0   RWD  run%05d.mid
+                Format          STRING  1     8     1h   0   RWD  MIDAS
+                Compression     INT     1     4     94h  0   RWD  0
+                ODB Dump        BOOL    1     4     1h   0   RWD  y
+                Log messages    DWORD   1     4     1h   0   RWD  0
+                Buffer          STRING  1     32    1h   0   RWD  SYSTEM
+                Event ID        INT     1     4     1h   0   RWD  -1
+                Trigger Mask    INT     1     4     1h   0   RWD  -1
+                Event limit     DWORD   1     4     1h   0   RWD  0
+                Byte limit      DOUBLE  1     8     1h   0   RWD  0
+                Subrun Byte limiDOUBLE  1     8     >99d 0   RWD  0
+                Tape capacity   DOUBLE  1     8     1h   0   RWD  0
+                Subdir format   STRING  1     32    7h   0   RWD
+                Current filenameSTRING  1     256   7h   0   RWD
+                  
+            Statistics          DIR
+                Events written  DOUBLE  1     8     1h   0   RWD  0
+                Bytes written   DOUBLE  1     8     1h   0   RWD  0
+                Bytes written toDOUBLE  1     8     1h   0   RWD  0
+                Files written   INT     1     4     1h   0   RWD  0
+\end{DoxyCode}
+ \par
+ 
+
+ \par
+ \hypertarget{F_Logging_Data_F_Logger_tree_keys}{}\subsubsection{Explanation of the keys in the ODB /Logger tree}\label{F_Logging_Data_F_Logger_tree_keys}
+An example of a default /Logger tree is shown \hyperlink{F_Logging_Data_F_Logger_tree}{above}. This table also includes the optional keys that the user may create. The following table is an index to the explanation of each key in the /Logger tree. \par
+ \begin{table}[h]\begin{TabularC}{5}
+\hline
+{\bfseries /Logger}  &\par
+  &\par
+  &\par
+  &\par
+   \\\cline{1-5}
+\par
+  &\hyperlink{F_Logging_Data_F_Logger_Data_Dir}{Data dir}  &\par
+  &\par
+  &\par
+   \\\cline{1-5}
+\par
+  &\hyperlink{F_Logging_Data_F_Logger_Message_File}{Message file}  &\par
+  &\par
+  &\par
+   \\\cline{1-5}
+\par
+  &\hyperlink{F_Logging_Data_F_Logger_Auto_Restart}{Auto restart}  &\par
+  &\par
+  &\par
+   \\\cline{1-5}
+\par
+  &\hyperlink{F_Logging_Data_F_Logger_Auto_Restart_Delay}{Auto restart delay}  &\par
+  &\par
+  &\par
+   \\\cline{1-5}
+\par
+  &\hyperlink{F_Logging_Data_F_Logger_Run_Duration}{Run Duration} (optional)  &\par
+  &\par
+  &\par
+   \\\cline{1-5}
+\par
+  &\hyperlink{F_Logging_Data_F_Logger_Write_Data}{Write data}  &\par
+  &\par
+  &\par
+   \\\cline{1-5}
+\par
+  &\hyperlink{F_Logging_Data_F_Logger_ODB_Dump}{ODB Dump}  &\par
+  &\par
+  &\par
+   \\\cline{1-5}
+\par
+  &\hyperlink{F_Logging_Data_F_Logger_ODB_Dump_File}{OBD Dump File}  &\par
+  &\par
+  &\par
+   \\\cline{1-5}
+\par
+  &\hyperlink{F_Logging_Data_F_Logger_Tape_Message}{Tape Message}  &\par
+  &\par
+  &\par
+   \\\cline{1-5}
+\par
+  &\hyperlink{F_Logging_Data_F_Logger_Channels}{Channels}  &\par
+  &\par
+  &\par
+   \\\cline{1-5}
+\par
+  &\hyperlink{F_History_logging_F_Logger_History_Dir}{History Dir} \hyperlink{F_Logging_Data_F_Logger_Optional_Keys}{(Optional)}  &\par
+  &\par
+  &\par
+   \\\cline{1-5}
+\par
+  &\hyperlink{F_Elog_F_Logger_Elog_Dir}{Elog Dir} \hyperlink{F_Logging_Data_F_Logger_Optional_Keys}{(Optional)}  &\par
+  &\par
+  &\par
+   \\\cline{1-5}
+\par
+  &\hyperlink{F_mySQL_F_Logger_mySQL}{SQL} \hyperlink{F_Logging_Data_F_Logger_Optional_Keys}{(Optional)}  &\par
+  &\par
+  &\par
+  
+
+\\\cline{1-5}
+\end{TabularC}
+\centering
+\caption{Above: The ODB /Logger tree. Click on a key for details. }
+\end{table}
+
+
+\par
+ 
+
+ \par
+
+
+\begin{table}[h]\begin{TabularC}{3}
+\hline
+Keys in the ODB tree /Logger   \\\cline{1-1}
+ODB Key  &Type  &Explanation  
+
+\\\cline{1-3}
+\label{F_Logging_Data_idx_midas_message-file_location}
+\hypertarget{F_Logging_Data_idx_midas_message-file_location}{}
+ \label{F_Logging_Data_F_Logger_Data_Dir}
+\hypertarget{F_Logging_Data_F_Logger_Data_Dir}{}
+ Data dir  &STRING  &Specifies in which directory files produced by \hyperlink{F_Logging_F_mlogger_utility}{mlogger} should be written. Once the Logger is running, {\bfseries \char`\"{}Data Dir\char`\"{}} will be pointing to the location of
+\begin{DoxyItemize}
+\item the data file(s) (unless overruled by \hyperlink{F_Logging_Data_F_Logger_CS_Filename}{Filename}).
+\item the message log file (unless overruled by \hyperlink{F_Logging_Data_F_Logger_Message_File}{Message file}) ,
+\item the ODB dump files (unless overruled by \hyperlink{F_Logging_Data_F_Logger_ODB_Dump_File}{ODB Dump file} ),
+\end{DoxyItemize}
+
+and the optional
+\begin{DoxyItemize}
+\item elog files (unless overruled by \hyperlink{F_Elog_F_Logger_Elog_Dir}{Elog Dir})
+\item history files (unless overruled by \hyperlink{F_History_logging_F_Logger_History_Dir}{History Dir}). \label{F_Logging_Data_F_Logger_Dir_Separator}
+\hypertarget{F_Logging_Data_F_Logger_Dir_Separator}{}
+  When \hyperlink{F_Logging_Data_F_Logger_multiple_logging_channels}{Multiple Logging Channels} are enabled,
+\begin{DoxyItemize}
+\item by default the data path for {\bfseries all} the channels is set to the same location, given by \hyperlink{F_Logging_Data_F_Logger_Data_Dir}{Data Dir}.
+\item If different directories have to be assigned to individual logging channels, the ODB key \hyperlink{F_Logging_Data_F_Logger_CS_Filename}{/Logger/channels/$<$channel-\/number$>$/Settings/Filename} can contain the full path of the location of the {\bfseries }.mid, .ybs, .asc file.
+\item If this key contains the full directory path (i.e. contains the OS specific {\bfseries DIR\_\-SEPARATOR} (e.g. \char`\"{}/\char`\"{} for Linux or \char`\"{}$\backslash$\char`\"{} for Windows), then the {\bfseries global} \hyperlink{F_Logging_Data_F_Logger_Data_Dir}{Data Dir} will be {\bfseries overwritten with the setting for that particular channel}. For example, if
+\begin{DoxyItemize}
+\item Key \hyperlink{F_Logging_Data_F_Logger_CS_Filename}{Filename} contains {\itshape \char`\"{}run\%05.mid\char`\"{}\/}. \hyperlink{F_Logging_Data_F_Logger_Data_Dir}{Data Dir} will {\bfseries not} be overwritten
+\item Key \hyperlink{F_Logging_Data_F_Logger_CS_Filename}{Filename} contains {\itshape \char`\"{}/data1/ch1log/run\%05.mid\char`\"{}\/}. \hyperlink{F_Logging_Data_F_Logger_Data_Dir}{Data Dir} {\bfseries will} be overwritten   
+\end{DoxyItemize}
+\end{DoxyItemize}
+\end{DoxyItemize}\\\cline{1-3}
+\label{F_Logging_Data_idx_midas_message-file_name}
+\hypertarget{F_Logging_Data_idx_midas_message-file_name}{}
+ \label{F_Logging_Data_F_Logger_Message_File}
+\hypertarget{F_Logging_Data_F_Logger_Message_File}{}
+ Message file  &STRING  &Specifies the {\bfseries filename} of the \hyperlink{F_Messaging_F_Log_File}{message log}, which is a simple ASCII file containing all the messages from the MIDAS message system. The default filename is {\bfseries  \char`\"{}midas.log\char`\"{} }. This file can can be viewed at any time to see a record of what happened in an experiment, since each entry is time-\/stamped (see \hyperlink{F_Messaging_F_Log_File}{example}).  
+
+\\\cline{1-3}
+\label{F_Logging_Data_F_Logger_Auto_Restart}
+\hypertarget{F_Logging_Data_F_Logger_Auto_Restart}{}
+ Auto restart  &BOOL  &When this flag is set to \char`\"{}y\char`\"{} (i.e. TRUE), a new run is automatically restarted when the previous run has been stopped by the logger due to an event or byte limit. Default value is \char`\"{}n\char`\"{}. The run start can be prevented by the user manually e.g. from \hyperlink{RC_odbedit_utility}{odbedit}.  this key may be accessed from the mhttpd main status page \hyperlink{RC_mhttpd_status_page_features_RC_mhttpd_status_Run_info}{Run status information} as {\bfseries \char`\"{}restart\char`\"{}}.  
+
+\\\cline{1-3}
+\label{F_Logging_Data_F_Logger_Auto_Restart_Delay}
+\hypertarget{F_Logging_Data_F_Logger_Auto_Restart_Delay}{}
+ Auto restart delay  &INT  &Providing \hyperlink{F_Logging_Data_F_Logger_Auto_Restart}{Auto restart} is set TRUE, the automatic start of the next run will be delayed by this number of milliseconds.  
+
+\\\cline{1-3}
+\label{F_Logging_Data_F_Logger_Run_Duration}
+\hypertarget{F_Logging_Data_F_Logger_Run_Duration}{}
+ Run duration  &INT  &Optional value new since \hyperlink{NDF_ndf_sep_2009}{Sep 2009} This key allows for runs with a certain duration. To use this option, the user creates and sets this variable to a non-\/zero {\bfseries integer} value (in seconds). After a run has lasted for this duration, it will be stopped automatically by the logger. To automatically produce {\bfseries sequences of runs all with the same duration}, also set the \hyperlink{F_Logging_Data_F_Logger_Auto_Restart}{Auto restart} flag to \char`\"{}y\char`\"{} .  
+
+\\\cline{1-3}
+\label{F_Logging_Data_F_Logger_Write_Data}
+\hypertarget{F_Logging_Data_F_Logger_Write_Data}{}
+ Write data  &BOOL  &Global flag which enables or disables data logging for all channels. Default value is \char`\"{}y\char`\"{} (data logging enabled). It can be set to \char`\"{}n\char`\"{} (FALSE) temporarily to make a short test run without data logging. The key Write data is a predefined logger key for enabling data logging.  The \hyperlink{F_Logging_Data_F_Logger_CS_Active}{Active} key (in the \hyperlink{F_Logging_Data_F_Logger_Settings}{/Logger/Channels/$<$channel-\/number$>$} tree) must {\bfseries also} be set to \char`\"{}y\char`\"{} for the data from that channel to be logged.
+
+
+
+\\\cline{1-3}
+\label{F_Logging_Data_F_Logger_ODB_Dump}
+\hypertarget{F_Logging_Data_F_Logger_ODB_Dump}{}
+ ODB Dump \label{F_Logging_Data_idx_ODB_Dump_to-ascii-file}
+\hypertarget{F_Logging_Data_idx_ODB_Dump_to-ascii-file}{}
+ \label{F_Logging_Data_idx_ODB_Dump_to-xml-file}
+\hypertarget{F_Logging_Data_idx_ODB_Dump_to-xml-file}{}
+  &BOOL  &If this flag is set to \char`\"{}y\char`\"{}, a dump of the complete ODB will be written to the file specified by \hyperlink{F_Logging_Data_F_Logger_ODB_Dump_File}{ODB Dump file} at the end of each run. Default value is \char`\"{}n\char`\"{}. 
+\begin{DoxyItemize}
+\item The ODB contents is {\bfseries always} saved into a file \char`\"{}last.xml\char`\"{} at the beginning of each run regardless of the setting of this key.
+\item The ODB contents can also be saved into the data stream as an event (see \hyperlink{F_Logging_Data_F_Logger_CS_ODB_Dump}{ODB Dump per logging channel}).  
+\end{DoxyItemize}
+
+\\\cline{1-3}
+\label{F_Logging_Data_F_Logger_ODB_Dump_File}
+\hypertarget{F_Logging_Data_F_Logger_ODB_Dump_File}{}
+ ODB Dump File  &STRING  &Specifies the filename in which the dump of the complete ODB will be written at the end of each run if the \hyperlink{F_Logging_Data_F_Logger_ODB_Dump}{ODB Dump} flag is set to \char`\"{}y\char`\"{}. The default value is {\itshape \char`\"{}run\%05d.odb\char`\"{}\/}. If this filename has the extension \char`\"{}.xml\char`\"{} or \char`\"{}.XML\char`\"{} the file will be written in XML format, otherwise in ASCII format. For a description of the format see \hyperlink{group__odbfunctionc_ga9fcec4712c44e1ef199297aad9ea99c5}{db\_\-copy\_\-xml()} or \hyperlink{group__odbfunctionc_ga165f2428c082852ff2ac1e8c4c78d607}{db\_\-copy()} respectively. \par
+ If this filename contains a \char`\"{}\%\char`\"{}, the \char`\"{}\%\char`\"{} will be replaced by the current run number (cf. format string of printf() C function). The format specifier \char`\"{}\%05d\char`\"{} from the example would be evaluated to a five digit run number with leading zeros e.g. run00002.odb. The ODB dump file can be used for off-\/line analysis to check run \hyperlink{structparameters}{parameters} etc. (see also \hyperlink{F_Logging_Data_F_Logger_CS_ODB_Dump}{ODB Dump per logging channel}).
+
+
+\begin{DoxyItemize}
+\item {\bfseries Note:} The location of the ODB dump files can also be specified in this field. If the \hyperlink{F_Logging_Data_F_Logger_ODB_Dump_File}{ODB Dump File} string contains a \hyperlink{F_Logging_Data_F_Logger_Dir_Separator}{DIR\_\-SEPARATOR} as in the following example, it is considered as an absolute path. If no {\bfseries DIR\_\-SEPARATOR} is present, the dump file will be written to the location given by \hyperlink{F_Logging_Data_F_Logger_Data_Dir}{Data dir}.
+\end{DoxyItemize}
+
+
+\begin{DoxyCode}
+  [local:Default:S]/Logger>ls
+  Data dir                        /scr0/spring2009
+  Message file                    midas.log 
+  Auto restart                     n
+  Write data                      y
+  ODB Dump                        n
+  ODB Dump File                   run%05d.odb
+  Tape message                    y 
+ Channels
+  [local:Default:S]/Logger>set OD
+  [local:Default:S]/Logger>set OD
+  ODB Dump
+  ODB Dump File
+  [local:Default:S]/Logger>set "ODB Dump File" "/mypath/run%06d.odb"
+  [local:Default:S]/Logger>ls
+  Data dir                        /scr0/spring2009
+  Message file                    midas.log
+  Auto restart                    n
+  Write data                      y
+  ODB Dump                        n
+  ODB Dump File                   /scr0/dump/run%06d.odb
+  Tape message                    y
+ Channels
+\end{DoxyCode}
+  
+
+\\\cline{1-3}
+\label{F_Logging_Data_F_Logger_Tape_Message}
+\hypertarget{F_Logging_Data_F_Logger_Tape_Message}{}
+ Tape message  &BOOL  &If set to \char`\"{}y\char`\"{}, MIDAS messages during mounting tapes and writing of EOF marks are generated. This can be useful for slow tapes to inform all users in a counting house about the tape status. Default value is \char`\"{}y\char`\"{}.   \\\cline{1-3}
+\label{F_Logging_Data_F_Logger_ODBC_Debug}
+\hypertarget{F_Logging_Data_F_Logger_ODBC_Debug}{}
+ ODBC\_\-Debug  &INT  &Optional key created if ODBC is installed (see \hyperlink{BuildingOptions_BO_building_option}{Building Options}). Used by the \hyperlink{F_History_logging_F_History_sql_internal}{MIDAS SQL History system} . Set to 1 to see all SQL commands. Default value is 0.  
+
+\\\cline{1-3}
+\label{F_Logging_Data_F_Logger_ODBC_DSN}
+\hypertarget{F_Logging_Data_F_Logger_ODBC_DSN}{}
+ ODBC\_\-DSN  &STRING  &Optional key created if ODBC is installed (see \hyperlink{BuildingOptions_BO_building_option}{Building Options}). Default value is blank. See \hyperlink{F_History_logging_F_History_sql_internal}{MIDAS SQL History system} for details.  
+
+\\\cline{1-3}
+\label{F_Logging_Data_F_Logger_Channels}
+\hypertarget{F_Logging_Data_F_Logger_Channels}{}
+ Channels \label{F_Logging_Data_idx_Logging_Channels_multiple}
+\hypertarget{F_Logging_Data_idx_Logging_Channels_multiple}{}
+  &DIR  &This is a subdirectory under the \hyperlink{F_Logging_Data_F_Logger_tree}{/Logger ODB tree} which contains settings for individual channels. By default, only channel \char`\"{}0\char`\"{} is created. See \hyperlink{F_Logging_Data_F_Logger_multiple_logging_channels}{Multiple Logging Channels} .  
+
+\\\cline{1-3}
+History dir  &STRING  &This optional key is used to reassign the location of history files. See \hyperlink{F_History_logging_F_Logger_History_Files_Location}{Location of History Files} .  
+
+\\\cline{1-3}
+Elog dir  &STRING  &This optional key is used to reassign the location of elog files. See \hyperlink{F_Elog_F_Logger_Elog_Files_Location}{Location of Elog Files} .  
+
+\\\cline{1-3}
+\hyperlink{F_mySQL_F_Logger_mySQL}{SQL}  &DIR  &Optional directory for SQL. See \hyperlink{F_mySQL_F_Logger_mySQL}{mySQL} .   \\\cline{1-3}
+\end{TabularC}
+\centering
+\caption{Above: meaning of keys in the /Logger ODB tree }
+\end{table}
+\hypertarget{F_Logging_Data_F_Logger_multiple_logging_channels}{}\subsubsection{Multiple Logging Channels}\label{F_Logging_Data_F_Logger_multiple_logging_channels}
+By default, only {\bfseries one} logging channel is created (Logging Channel 0). To create {\bfseries multiple} logging channels, an existing Channel subtree can be copied, e.g. to create a second logging channel (Channel 1) using \hyperlink{RC_odbedit_utility}{odbedit} :
+
+
+\begin{DoxyCode}
+  [local]cd /Logger
+  [loca]]Logger>cd channels
+  [local]Channels>ls 
+  0
+  [local]Channels>copy 0 1
+  [local]Channels>ls 
+  0
+  1
+\end{DoxyCode}
+
+
+
+\begin{DoxyItemize}
+\item If more than one logging channel is defined, there will be a {\bfseries Settings tree for each channel} (0,1...). Thus the \hyperlink{structparameters}{parameters} for {\bfseries each} logging channel can be set {\bfseries individually}.
+\item To send different events to different logging channels, they may be selected by \hyperlink{F_Logging_Data_F_Logger_CS_Event_ID}{Event ID} or \hyperlink{F_Logging_Data_F_Logger_CS_Trigger_Mask}{Trigger Mask}. See also \hyperlink{F_Logging_Data_F_Logger_Event_Filtering}{Event Filtering} .
+\end{DoxyItemize}\hypertarget{F_Logging_Data_F_Logger_Settings}{}\subsubsection{Explanation of keys in the ODB /Logger/Channels tree}\label{F_Logging_Data_F_Logger_Settings}
+The keys in the ODB /Logger/Channels/$<$channel-\/number$>$/Settings  tree are shown below. By default, {\itshape  $<$channel-\/number$>$ \/} has the value 0 (for Logging Channel 0). \par
+ If \hyperlink{F_Logging_Data_F_Logger_multiple_logging_channels}{Multiple Logging Channels} are defined, there will be a Settings tree for each defined Logging Channel. The tree /Logger/Channels/0/Settings is shown below.
+
+\par
+
+
+\begin{table}[h]\begin{TabularC}{5}
+\hline
+\par
+  &\hyperlink{F_Logging_Data_F_Logger_Channels}{Channels}  &\par
+  &\par
+  &\par
+   \\\cline{1-5}
+\par
+  &\par
+  &\hyperlink{F_Logging_Data_F_Logger_Settings}{0}  &\par
+  &\par
+   \\\cline{1-5}
+\par
+  &\par
+  &\par
+  &\hyperlink{F_Logging_Data_F_Logger_Settings}{Settings} &\par
+   \\\cline{1-5}
+\par
+  &\par
+  &\par
+  &\par
+  &\hyperlink{F_Logging_Data_F_Logger_CS_Active}{Active}   \\\cline{1-5}
+\par
+  &\par
+  &\par
+  &\par
+  &\hyperlink{F_Logging_Data_F_Logger_CS_Type}{Type}   \\\cline{1-5}
+\par
+  &\par
+  &\par
+  &\par
+  &\hyperlink{F_Logging_Data_F_Logger_CS_Filename}{Filename}   \\\cline{1-5}
+\par
+  &\par
+  &\par
+  &\par
+  &\hyperlink{F_Logging_Data_F_Logger_CS_Format}{Format}   \\\cline{1-5}
+\par
+  &\par
+  &\par
+  &\par
+  &\hyperlink{F_Logging_Data_F_Logger_CS_Compression}{Compression}   \\\cline{1-5}
+\par
+  &\par
+  &\par
+  &\par
+  &\hyperlink{F_Logging_Data_F_Logger_CS_ODB_Dump}{ODB Dump}   \\\cline{1-5}
+\par
+  &\par
+  &\par
+  &\par
+  &\hyperlink{F_Logging_Data_F_Logger_CS_Log_Messages}{Log messages}   \\\cline{1-5}
+\par
+  &\par
+  &\par
+  &\par
+  &\hyperlink{F_Logging_Data_F_Logger_CS_Buffer}{Buffer}   \\\cline{1-5}
+\par
+  &\par
+  &\par
+  &\par
+  &\hyperlink{F_Logging_Data_F_Logger_Event_Filtering}{Event Filtering}   \\\cline{1-5}
+\par
+  &\par
+  &\par
+  &\par
+  &\hyperlink{F_Logging_Data_F_Logger_CS_Event_ID}{Event ID}   \\\cline{1-5}
+\par
+  &\par
+  &\par
+  &\par
+  &\hyperlink{F_Logging_Data_F_Logger_CS_Trigger_Mask}{Trigger mask}   \\\cline{1-5}
+\par
+  &\par
+  &\par
+  &\par
+  &\hyperlink{F_Logging_Data_F_Logger_CS_Event_Limit}{Event limit}   \\\cline{1-5}
+\par
+  &\par
+  &\par
+  &\par
+  &\hyperlink{F_Logging_Data_F_Logger_CS_Byte_Limit}{Byte limit}   \\\cline{1-5}
+\par
+  &\par
+  &\par
+  &\par
+  &\hyperlink{F_Logging_Data_F_Logger_CS_Subrun_Byte_Limit}{Subrun Byte limit}   \\\cline{1-5}
+\par
+  &\par
+  &\par
+  &\par
+  &\hyperlink{F_Logging_Data_F_Logger_CS_Tape_Capacity}{Tape capacity}   \\\cline{1-5}
+\par
+  &\par
+  &\par
+  &\par
+  &\hyperlink{F_Logging_Data_F_Logger_CS_Subdir_Format}{Subdir format}   \\\cline{1-5}
+\par
+  &\par
+  &\par
+  &\par
+  &\hyperlink{F_Logging_Data_F_Logger_CS_Current_Filename}{Current Filename}   \\\cline{1-5}
+\par
+  &\par
+  &\par
+  &\hyperlink{F_Logging_Data_F_Logger_CStat_Statistics}{Statistics} &\par
+   \\\cline{1-5}
+\par
+  &\par
+  &\par
+  &\par
+  &\hyperlink{F_Logging_Data_F_Logger_CStat_Events_Written}{Events written}   \\\cline{1-5}
+\par
+  &\par
+  &\par
+  &\par
+  &\hyperlink{F_Logging_Data_F_Logger_CStat_Bytes_Written}{Bytes written}   \\\cline{1-5}
+\par
+  &\par
+  &\par
+  &\par
+  &\hyperlink{F_Logging_Data_F_Logger_CStat_Bytes_Written_Uncompressed}{Bytes written uncompressed}   \\\cline{1-5}
+\par
+  &\par
+  &\par
+  &\par
+  &\hyperlink{F_Logging_Data_F_Logger_CStat_Bytes_Written_Total}{Bytes written total}   \\\cline{1-5}
+\par
+  &\par
+  &\par
+  &\par
+  &\hyperlink{F_Logging_Data_F_Logger_CStat_Files_Written}{Files written}   \\\cline{1-5}
+\end{TabularC}
+\centering
+\caption{Above: The ODB /Logger/Channels/0/Settings tree. Click on a key for details. }
+\end{table}
+
+
+\par
+ 
+
+ \par
+ \label{F_Logging_Data_F_logger_channels_settings}
+\hypertarget{F_Logging_Data_F_logger_channels_settings}{}
+ \label{F_Logging_Data_idx_FTP_mlogger}
+\hypertarget{F_Logging_Data_idx_FTP_mlogger}{}
+ \begin{table}[h]\begin{TabularC}{3}
+\hline
+Keys in the ODB tree /Logger/Channels/0/Settings   \\\cline{1-1}
+ODB Key  &Type  &Explanation 
+
+\\\cline{1-3}
+\label{F_Logging_Data_F_Logger_CS_Active}
+\hypertarget{F_Logging_Data_F_Logger_CS_Active}{}
+ Active  &BOOL  &If set to \char`\"{}y\char`\"{} logging channel is {\bfseries active}. Data is only logged for channels that are active. See also \hyperlink{F_Logging_Data_F_Logger_Write_Data}{Write Data} key. Set to \char`\"{}n\char`\"{} to disable data logging from this channel. Default value is \char`\"{}y\char`\"{}.  
+
+\\\cline{1-3}
+\label{F_Logging_Data_F_Logger_CS_Type}
+\hypertarget{F_Logging_Data_F_Logger_CS_Type}{}
+ Type  &STRING  &Specify the type of media on which the logging should take place. It can be {\bfseries \char`\"{}Disk\char`\"{}}, {\bfseries \char`\"{}Tape\char`\"{}} or {\bfseries \char`\"{}FTP\char`\"{}} (see \hyperlink{F_Logging_Data_F_Logger_CS_Filename}{Filename}). Default value is \char`\"{}Disk\char`\"{}.  
+
+\\\cline{1-3}
+\label{F_Logging_Data_F_Logger_CS_Filename}
+\hypertarget{F_Logging_Data_F_Logger_CS_Filename}{}
+ Filename \label{F_Logging_Data_idx_FTP_server}
+\hypertarget{F_Logging_Data_idx_FTP_server}{}
+  &STRING  &
+\begin{DoxyItemize}
+\item for {\bfseries  disk logging }, specifies the name of a file to contain the data. Default value is {\itshape \char`\"{}run\%05d.mid\char`\"{}\/} where {\itshape \char`\"{}\%05d\char`\"{}\/} is replaced by the current run number in the same way as described for the \hyperlink{F_Logging_Data_F_Logger_ODB_Dump_File}{ODB Dump file} key. This key may contain a directory string in addition to a filename, so that different logging channels may have their data logged into specific directories. If the key does NOT also contain a directory string, the directory given in the key \hyperlink{F_Logging_Data_F_Logger_Data_Dir}{Data dir} will be used. The filename must match the \hyperlink{F_Logging_Data_F_Logger_CS_Format}{Format} Key specified below.
+\end{DoxyItemize}
+
+
+\begin{DoxyItemize}
+\item for {\bfseries  tape logging }, the filename specifies a tape device i.e.
+\begin{DoxyItemize}
+\item /dev/nrmt0 or /dev/nst0 under UNIX or
+\item $\backslash$$\backslash$.$\backslash$tape0 under Windows NT.
+\end{DoxyItemize}
+\item In {\bfseries  FTP mode }, the data is written directly to a remote computer via FTP. {\bfseries \char`\"{}Filename\char`\"{}} specifies the access information for the FTP server. It has the following format:
+\end{DoxyItemize}
+
+
+\begin{DoxyCode}
+  <host name>, <port number>, <user name>, <password>, <directory>, <file name>
+\end{DoxyCode}
+ for example 
+\begin{DoxyCode}
+  myhost.my.domain,21,john,password,/usr/users/data,run%05d.mid
+\end{DoxyCode}
+ The normal FTP port number is 21, or 1021 for a Unitree Archive like the one used at the Paul Scherrer Institute. By using the FTP mode, a back-\/end computer can write directly to the archive.
+
+
+
+\\\cline{1-3}
+\label{F_Logging_Data_F_Logger_CS_Format}
+\hypertarget{F_Logging_Data_F_Logger_CS_Format}{}
+ \label{F_Logging_Data_idx_Logging_Data_Format}
+\hypertarget{F_Logging_Data_idx_Logging_Data_Format}{}
+ Format  &STRING  &Specifies the format to be used for writing the data to the logging channel. It can take one of four values: {\bfseries MIDAS, ROOT, ASCII and DUMP}. \par
+
+
+For {\bfseries disk} {\bfseries logging}, the extension for the \hyperlink{F_Logging_Data_F_Logger_CS_Filename}{Filename} Key above must match one of the following:
+\begin{DoxyItemize}
+\item {\bfseries  .mid } for {\bfseries MIDAS} (or {\bfseries .mid.gz} -\/ see \hyperlink{F_Logging_Data_F_Logger_CS_Compression}{Compression})
+\item {\bfseries  .root } for {\bfseries ROOT} 
+\item {\bfseries  .asc } for {\bfseries ASCII} 
+\item {\bfseries  .txt } for {\bfseries DUMP} 
+\end{DoxyItemize}
+
+For {\bfseries ROOT} {\bfseries format} the data logger will automatically convert the format specified in the frontend \hyperlink{FE_table_FE_tbl_Format}{equipment list} to ROOT format (see \hyperlink{FE_table_FE_tbl_Format}{format} for details). The {\bfseries  ASCII format } converts events into readable text format which can be easily analyzed by programs that have problems reading binary data. While the ASCII format tries to minimize the file size by printing one event per line, the {\bfseries DUMP} {\bfseries format} gives a very detailed ASCII representation of the event including bank information, serial numbers etc., so it should be used mainly for diagnostics. 
+
+
+
+\\\cline{1-3}
+\label{F_Logging_Data_F_Logger_CS_Compression}
+\hypertarget{F_Logging_Data_F_Logger_CS_Compression}{}
+ Compression \label{F_Logging_Data_idx_Logging_Data_Format_compression}
+\hypertarget{F_Logging_Data_idx_Logging_Data_Format_compression}{}
+  &INT  &If the Compression Level is set to 0, compression is turned off. If set $>$ 0, the data files are compressed before being written. In this case,
+\begin{DoxyItemize}
+\item the file extension \char`\"{}.gz\char`\"{} must be appended to the \hyperlink{F_Logging_Data_F_Logger_CS_Filename}{Filename} Key (see also \hyperlink{F_Logging_Data_F_Logger_CS_Format}{Format} Key)
+\item and ZLIB support must be compiled into the MIDAS package (see \hyperlink{BuildingOptions_BO_NEED_ZLIB}{NEED\_\-ZLIB} ).
+\end{DoxyItemize}
+
+This feature applies only to files saved onto {\bfseries disk} in MIDAS format. ROOT format is already compressed.  
+
+\\\cline{1-3}
+\label{F_Logging_Data_F_Logger_CS_ODB_Dump}
+\hypertarget{F_Logging_Data_F_Logger_CS_ODB_Dump}{}
+ ODB Dump \label{F_Logging_Data_idx_ODB_Dump_to-logging-channel}
+\hypertarget{F_Logging_Data_idx_ODB_Dump_to-logging-channel}{}
+  &BOOL  &If this flag is set, a complete dump of the ODB is performed {\bfseries to this logging channel} before and after every run. The ODB content is dumped in one long ASCII string reflecting the status at begin-\/of-\/run event and at end-\/of-\/run event. These special events have an ID of EVENTID\_\-BOR and EVENTID\_\-EOR and a serial number equal to the current run number, and are not visible using the \hyperlink{RC_Monitor_RC_mdump_utility}{mdump} utility. An analyzer in the off-\/line analysis stage can use these special events to restore the ODB to its online state.  The dump of the ODB into the event stream for this logger channel is independent of the \hyperlink{F_Logging_Data_F_Logger_ODB_Dump}{/Logger/ODB Dump} parameter, which is used to dump the ODB to an ASCII or XML file on disk.  
+
+\\\cline{1-3}
+\label{F_Logging_Data_F_Logger_CS_Log_Messages}
+\hypertarget{F_Logging_Data_F_Logger_CS_Log_Messages}{}
+ Log messages  &DWORD  &This is a bit-\/field for logging system messages as message events along with the event data from the experiment. \par
+ If a bit in this field is set, the respective system message is written to the logging channel as a message event with an ID of EVENTID\_\-MESSAGE (0x8002). The bits are 1 for error, 2 for info, 4 for debug, 8 for user, 16 for log, 32 for talk, 64 for call messages and 255 to log all messages. For an explanation of these messages refer to \hyperlink{F_MainElements_F_Buffer_Manager_overview}{Buffer Manager} , \hyperlink{F_Logging_Data_F_Logger_CS_Event_ID}{Event ID} and the \hyperlink{F_Logging_Data_F_Logger_CS_Trigger_Mask}{Trigger Mask}.  
+
+\\\cline{1-3}
+\label{F_Logging_Data_F_Logger_CS_Buffer}
+\hypertarget{F_Logging_Data_F_Logger_CS_Buffer}{}
+ Buffer  &STRING  &This specifies the buffer where the logger will find the event. It is usually set to \char`\"{}SYSTEM\char`\"{} and is specified in the \hyperlink{FE_table_FE_tbl_Buffer}{equipment list} for this event.  
+
+\\\cline{1-3}
+\label{F_Logging_Data_F_Logger_Event_Filtering}
+\hypertarget{F_Logging_Data_F_Logger_Event_Filtering}{}
+ Event Filtering \label{F_Logging_Data_idx_Event_Filter}
+\hypertarget{F_Logging_Data_idx_Event_Filter}{}
+  &STRING  &By specifying a buffer other than the \char`\"{}SYSTEM\char`\"{} buffer, {\bfseries event filters} can be implemented. For example, an analyzer can request all events from the \char`\"{}SYSTEM\char`\"{} buffer, but only write acceptable events to a new buffer called \char`\"{}FILTERED\char`\"{}. When the logger is set to now request only events from the new buffer instead of the \char`\"{}SYSTEM\char`\"{} buffer, only filtered events are logged. \par
+ Event selection for logging channels can also be done by specifying the \hyperlink{F_Logging_Data_F_Logger_CS_Event_ID}{Event ID} and/or the \hyperlink{F_Logging_Data_F_Logger_CS_Trigger_Mask}{Trigger mask}.  
+
+\\\cline{1-3}
+\label{F_Logging_Data_F_Logger_CS_Event_ID}
+\hypertarget{F_Logging_Data_F_Logger_CS_Event_ID}{}
+ Event ID \label{F_Logging_Data_idx_Event_log-by-ID}
+\hypertarget{F_Logging_Data_idx_Event_log-by-ID}{}
+  &INT  &This is the ID of the event(s) to be logged. It is specified in the \hyperlink{FE_table_FE_tbl_EventID}{equipment list} for this event. To log events with {\bfseries any} ID, the Event ID is set to -\/1 (EVENTID\_\-ALL). The Event ID parameter and/or the \hyperlink{F_Logging_Data_F_Logger_CS_Trigger_Mask}{Trigger Mask} may be used to select events to be sent to different logging channels, or as an \hyperlink{F_Logging_Data_F_Logger_Event_Filtering}{Event Filtering} system.  
+
+\\\cline{1-3}
+\label{F_Logging_Data_F_Logger_CS_Trigger_Mask}
+\hypertarget{F_Logging_Data_F_Logger_CS_Trigger_Mask}{}
+ Trigger Mask  &INT  &Specifies which events to log. See \hyperlink{FE_table}{Explanation of Equipment list parameters} to see how events may be selected by their \hyperlink{FE_table_FE_tbl_TrigMask}{trigger mask}. \par
+ For a logging channel to receive all events, -\/1 is used for both the \hyperlink{F_Logging_Data_F_Logger_CS_Event_ID}{Event ID} and the Trigger Mask. \par
+ This parameter and/or the \hyperlink{F_Logging_Data_F_Logger_CS_Event_ID}{Event ID} may be used to select events to be sent to particular logging channels, or for \hyperlink{F_Logging_Data_F_Logger_Event_Filtering}{Event Filtering}.  
+
+\\\cline{1-3}
+\label{F_Logging_Data_F_Logger_CS_Event_Limit}
+\hypertarget{F_Logging_Data_F_Logger_CS_Event_Limit}{}
+ Event Limit \label{F_Logging_Data_idx_Event_Limit}
+\hypertarget{F_Logging_Data_idx_Event_Limit}{}
+  &DWORD  &This field can be used to stop a run when set to a non-\/zero value. The statistics value \hyperlink{F_Logging_Data_F_Logger_CStat_Events_Written}{Events Written} is checked against th limit {\bfseries Event limit} . When this condition is reached, the run is stopped automatically by the logger. The next run can then be started automatically if desired (see \hyperlink{F_Logging_Data_F_Logger_Auto_Restart}{Auto restart} ).  
+
+\\\cline{1-3}
+\label{F_Logging_Data_F_Logger_CS_Byte_Limit}
+\hypertarget{F_Logging_Data_F_Logger_CS_Byte_Limit}{}
+ Byte limit \label{F_Logging_Data_idx_Byte_Limit}
+\hypertarget{F_Logging_Data_idx_Byte_Limit}{}
+  &DOUBLE  &This field can be used to stop a run when set to a non-\/zero value. The statistics value \hyperlink{F_Logging_Data_F_Logger_CStat_Bytes_Written}{Bytes written} is checked against the limit {\bfseries Byte limit} . When this conditions is reached, the run is stopped automatically by the logger. The next run can then be started automatically if desired (see \hyperlink{F_Logging_Data_F_Logger_Auto_Restart}{Auto restart} ).  
+
+\\\cline{1-3}
+\label{F_Logging_Data_F_Logger_CS_Subrun_Byte_Limit}
+\hypertarget{F_Logging_Data_F_Logger_CS_Subrun_Byte_Limit}{}
+ Subrun Byte limit \label{F_Logging_Data_idx_Byte_Limit_Subrun}
+\hypertarget{F_Logging_Data_idx_Byte_Limit_Subrun}{}
+  &DOUBLE  &\begin{Desc}
+\item[\hyperlink{todo__todo000005}{Todo}]More information needed about defining subruns\end{Desc}
+This field can be used to stop a subrun when set to a non-\/zero value. When this conditions is reached, the run is stopped automatically by the logger. The next run can then be started automatically if desired (see \hyperlink{F_Logging_Data_F_Logger_Auto_Restart}{Auto restart} ).  
+
+\\\cline{1-3}
+\label{F_Logging_Data_F_Logger_CS_Tape_Capacity}
+\hypertarget{F_Logging_Data_F_Logger_CS_Tape_Capacity}{}
+ Tape capacity  &DOUBLE  &This field can be used to stop a run when set to a non-\/zero value. The statistics value \hyperlink{F_Logging_Data_F_Logger_CStat_Bytes_Written_Total}{Bytes written total} in the is checked against the limit {\bfseries Tape capacity}. When this conditions is reached, the run is stopped automatically by the logger.  
+
+\\\cline{1-3}
+\label{F_Logging_Data_F_Logger_CS_Subdir_Format}
+\hypertarget{F_Logging_Data_F_Logger_CS_Subdir_Format}{}
+ Subdir format  &STRING  &This field optionally specifies a subdirectory, which is appended to the directory string in the key \hyperlink{F_Logging_Data_F_Logger_CS_Filename}{Filename}.
+
+It is used to place the data log file into a date-\/stamped subdirectory. This is useful where a large numbers of datafiles are produced, or experiments are active for a long time period, and it is desirable to store the data in sub-\/directories according to their date. This can be done automatically using the {\bfseries Subdir format} field.
+
+If the {\bfseries Subdir format} field is not empty, the data log file will be placed in a subdirectory. The name of this subdirectory is composed by the given {\bfseries Subdir format} string. Its format follows the definition of the system call strftime() . (See man strftime). Ordinary characters placed in the format string are copied to the output character array \char`\"{}s\char`\"{} without conversion. Conversion specifiers are introduced by a '\%' character, and are replaced in \char`\"{}s\char`\"{} as follows for the most common ones:
+\begin{DoxyItemize}
+\item \%Y : Year (ex: 2002)
+\item \%y : Year (range:00..99)
+\item \%m : Month (range: 01..12)
+\item \%d : Day (range: 00..31)
+\end{DoxyItemize}
+
+The other characters are: \%a, \%A, \%b, \%B, \%c, \%C, \%d, \%D, \%e, \%E, \%G, \%g, \%h, \%H, \%I, \%j, \%k, \%l, \%m, \%M, \%n, \%O, \%p, \%P, \%r, \%R, \%s, \%S, \%t, \%T, \%u, \%U, \%V, \%w, \%W, \%x, \%X, \%y, \%Y, \%z, \%Z, \%+. (See man strftime for explanation).  
+
+\\\cline{1-3}
+\label{F_Logging_Data_F_Logger_CS_Current_Filename}
+\hypertarget{F_Logging_Data_F_Logger_CS_Current_Filename}{}
+ Current filename  &STRING  &will reflect the full path of the current saved data file.     \\\cline{1-3}
+\end{TabularC}
+\centering
+\caption{Above: meaning of keys in the /Logger/Channels/{\itshape $<$channel-\/number$>$\/}/Settings ODB tree }
+\end{table}
+\hypertarget{F_Logging_Data_F_Logger_CStat_Statistics}{}\subsubsection{/Logger/Channels/0/Statistics tree}\label{F_Logging_Data_F_Logger_CStat_Statistics}
+The keys in the /Logger/Channels/0/Statistics  tree are shown below. If more than one logging channel is defined, there will be a {\bfseries  Statistics tree for each defined channel} (see \hyperlink{F_Logging_Data_F_Logger_Channels}{multiple channels}).
+
+Periodic updates of the statistics branch is performed automatically.
+
+\begin{table}[h]\begin{TabularC}{3}
+\hline
+Keys in the ODB tree /Logger/Channels/0/Statistics   \\\cline{1-1}
+ODB Key  &Type  &Explanation 
+
+\\\cline{1-3}
+\label{F_Logging_Data_F_Logger_CStat_Events_Written}
+\hypertarget{F_Logging_Data_F_Logger_CStat_Events_Written}{}
+ events written  &DOUBLE  &Number of events written. Cleared at begin of run. {\bfseries Events written} statistics are used to determine when to stop a run automatically by checking against \hyperlink{F_Logging_Data_F_Logger_CS_Event_Limit}{Event Limit}.
+
+
+
+\\\cline{1-3}
+\label{F_Logging_Data_F_Logger_CStat_Bytes_Written}
+\hypertarget{F_Logging_Data_F_Logger_CStat_Bytes_Written}{}
+ Bytes written  &DOUBLE  &Number of bytes written. Cleared at begin of run. {\bfseries Bytes written} statistics are used to determine when to stop a run automatically by checking against \hyperlink{F_Logging_Data_F_Logger_CS_Byte_Limit}{Byte Limit}.  
+
+\\\cline{1-3}
+\label{F_Logging_Data_F_Logger_CStat_Bytes_Written_Uncompressed}
+\hypertarget{F_Logging_Data_F_Logger_CStat_Bytes_Written_Uncompressed}{}
+ Bytes written uncompressed  &DOUBLE  &If \hyperlink{F_Logging_Data_F_Logger_CS_Compression}{Compression level} is 0 (i.e. not compressed), the values of {\bfseries Bytes written uncompressed} and {\bfseries Bytes written} will be identical.  
+
+\\\cline{1-3}
+\label{F_Logging_Data_F_Logger_CStat_Bytes_Written_Total}
+\hypertarget{F_Logging_Data_F_Logger_CStat_Bytes_Written_Total}{}
+ Bytes written total  &DOUBLE  &Total number of bytes written. Cleared only when a tape is rewound with the \hyperlink{RC_odbedit}{ODBEdit} command {\bfseries rewind}. The {\bfseries Bytes written total} entry can therefore be used as an indicator of when a tape is full by checking against the limit \hyperlink{F_Logging_Data_F_Logger_CS_Tape_Capacity}{Tape capacity}.
+
+
+
+\\\cline{1-3}
+\label{F_Logging_Data_F_Logger_CStat_Files_Written}
+\hypertarget{F_Logging_Data_F_Logger_CStat_Files_Written}{}
+ files written  &INT  &Number of files written. Cleared only when a tape is rewound with the \hyperlink{RC_odbedit}{ODBEdit} command {\bfseries rewind}. {\bfseries Files written} value can be used off-\/line to determine how many files on a tape have to be skipped in order to reach a specific run.   \\\cline{1-3}
+\end{TabularC}
+\centering
+\caption{Above: meaning of keys in the /Logger/Channels/0/Statistics ODB tree }
+\end{table}
+
+
+\par
+ 
+
+ \par
+\hypertarget{F_Logging_Data_F_Logger_Optional_Keys}{}\subsubsection{Optional SQL subtree in the ODB /Logger tree}\label{F_Logging_Data_F_Logger_Optional_Keys}
+The \char`\"{}SQL\char`\"{} optional subdirectory may be created in the \hyperlink{F_Logging_Data_F_Logger_tree}{/Logger ODB tree} . See \hyperlink{F_mySQL}{Logging information to a mySQL database} for details.
+
+
+
+\label{index_end}
+\hypertarget{index_end}{}
+ \subsubsection{Messaging}\label{F_Messaging}
+\label{F_Messaging_idx_Messaging}
+\hypertarget{F_Messaging_idx_Messaging}{}
+ \label{F_Messaging_idx_Logging_Messaging}
+\hypertarget{F_Messaging_idx_Logging_Messaging}{}
+
+
+
+
+\par
+
+
+Any client can produce status or error messages with a single call to \hyperlink{group__msgfunctionc_gaac032ca2438c47466bfc9722de6746ea}{cm\_\-msg()} using the MIDAS library, e.g. 
+\begin{DoxyCode}
+ status = db_find_key(hDB, 0, "/Equipment/Cycle_scalers/Settings/",&hKey);
+  if(status != DB_SUCCESS && status != DB_NO_KEY)
+    {
+      cm_msg(MERROR, "begin_of_run", "error accessing \"/Equipment/Cycle_scalers/
+      Settings/\"  (%d)",status);
+      return status;
+    }
+\end{DoxyCode}
+
+
+Depending on the \hyperlink{F_Messaging_F_message_types}{message type}, these messages are forwarded to any other clients who may be available to receive these messages, as well as to a central \hyperlink{F_Messaging_F_Log_File}{MIDAS Log file}. The message system is based on the buffer manager scheme, but with a dedicated header to identify the type of message. A dedicated buffer (i.e. shared memory) \hyperlink{RC_odbedit_examples_RC_odbedit_create_ODB}{.SYSMSG.SHM} is used to receive and distribute messages.
+
+\begin{Desc}
+\item[\hyperlink{todo__todo000006}{Todo}]what is .MSG.SHM used for?\end{Desc}
+\par
+ \label{F_Messaging_idx_message_types}
+\hypertarget{F_Messaging_idx_message_types}{}
+ \label{F_Messaging_F_message_types}
+\hypertarget{F_Messaging_F_message_types}{}
+ Predefined Message Macros contained in the MIDAS library cover most of the message requirements. These Macros compact the 3 first arguments of the \hyperlink{group__msgfunctionc_gaac032ca2438c47466bfc9722de6746ea}{cm\_\-msg()} call. The Macro replaces the type of message, the routine name and the line number in the C-\/code. See example in \hyperlink{group__msgfunctionc_gaac032ca2438c47466bfc9722de6746ea}{cm\_\-msg()}.
+
+The available message types ( defined in \hyperlink{midas_8h}{midas.h} ) for use with \hyperlink{group__msgfunctionc_gaac032ca2438c47466bfc9722de6746ea}{cm\_\-msg()} are:
+\begin{DoxyItemize}
+\item \hyperlink{group__mdefineh_gac2d967025ca0f84f611d568f4ede934a}{MERROR} : For error (MT\_\-ERROR, \_\-\_\-FILE\_\-\_\-, \_\-\_\-LINE\_\-\_\-)
+\item \hyperlink{group__mdefineh_ga6e27d8876a43afce3ee4dd16527cbb9e}{MINFO} : For info (MT\_\-INFO, \_\-\_\-FILE\_\-\_\-, \_\-\_\-LINE\_\-\_\-)
+\item \hyperlink{group__mdefineh_gad769dc7be0dc5189e019d56664a18655}{MDEBUG} : For debug (MT\_\-DEBUG, \_\-\_\-FILE\_\-\_\-, \_\-\_\-LINE\_\-\_\-)
+\item \hyperlink{group__mdefineh_ga34e08186e736dbd7f0b61a23a8ad8d0f}{MUSER} : Produced by interactive user (MT\_\-USER, \_\-\_\-FILE\_\-\_\-, \_\-\_\-LINE\_\-\_\-)
+\item \hyperlink{group__mdefineh_ga953a810cf5034c603bdcad8840223ddc}{MLOG} : Info message which is only logged (MT\_\-LOG, \_\-\_\-FILE\_\-\_\-, \_\-\_\-LINE\_\-\_\-)
+\item \hyperlink{group__mdefineh_gad6a8d32f94873258d0eebcbe5b24a78e}{MTALK} : Info message for speech system (MT\_\-TALK, \_\-\_\-FILE\_\-\_\-, \_\-\_\-LINE\_\-\_\-)
+\item \hyperlink{group__mdefineh_ga9f2fa3417c41f059c815b9c0eba73db2}{MCALL} : Info message for telephone call (MT\_\-CALL, \_\-\_\-FILE\_\-\_\-, \_\-\_\-LINE\_\-\_\-)
+\end{DoxyItemize}
+
+\par
+ \label{F_Messaging_idx_message_log-file}
+\hypertarget{F_Messaging_idx_message_log-file}{}
+ 
+
+ \hypertarget{F_Messaging_F_Log_File}{}\subsubsection{MIDAS Log file}\label{F_Messaging_F_Log_File}
+MIDAS provides a general log file for recording system and user messages across the different components of the data acquisition clients. The default name of this file is {\bfseries \char`\"{}midas.log\char`\"{}}, It is not necessary for \hyperlink{F_Logging_F_mlogger_utility}{mlogger} to be running for the MIDAS message logging system to work. As soon as any MIDAS application is started, the log file is produced. \par
+ \label{F_Messaging_idx_message_log-file_location}
+\hypertarget{F_Messaging_idx_message_log-file_location}{}
+ The location of this file is dependent on the setup of the experiment.
+
+
+\begin{DoxyItemize}
+\item {\bfseries with} the /Logger tree :
+\begin{DoxyItemize}
+\item If the \hyperlink{F_Logging_Data_F_Logger_tree}{/Logger ODB tree} exists (i.e. has been created by \hyperlink{F_Logging_F_mlogger_utility}{mlogger}) the message file will be located in the defined directory specified by the key \hyperlink{F_Logging_Data_F_Logger_Data_Dir}{/Logger/Data dir} .
+\item The {\bfseries name} of the message file may be changed using the ODB key \hyperlink{F_Logging_Data_F_Logger_Message_File}{/Logger/Message File}.
+\end{DoxyItemize}
+\end{DoxyItemize}
+
+
+\begin{DoxyItemize}
+\item {\bfseries without} the /Logger tree :
+\begin{DoxyItemize}
+\item If the ODB /Logger tree does NOT exist , i.e. the MIDAS standard logger \hyperlink{F_Logging_F_mlogger_utility}{mlogger} is not being used, then the location of the log file will be in the {\bfseries  experiment-\/specific } directory defined by either
+\begin{DoxyItemize}
+\item the \hyperlink{BuildingOptions_BO_Environment_variables}{Environment Variable} named \hyperlink{BuildingOptions_BO_MIDAS_DIR}{MIDAS\_\-DIR} , or if this not defined,
+\item the \hyperlink{Q_Linux_Q_Linux_Exptab}{exptab file} .
+\end{DoxyItemize}
+\end{DoxyItemize}
+\end{DoxyItemize}
+
+\par
+
+
+The MIDAS log file contains system and user messages generated by any application connected to the given experiment.
+
+The predefined \hyperlink{F_Messaging_F_message_types}{MIDAS Message macros} provide a list of defined messages types.
+
+
+\begin{DoxyCode}
+Fri Mar 24 10:48:40 2000 [CHAOS] Run 8362 started
+Fri Mar 24 10:48:40 2000 [Logger] Run #8362 started
+Fri Mar 24 10:55:04 2000 [Lazy_Tape] cni-043[10] (cp:383.6s) /dev/nst0/run08360.y
+      bs 849.896MB file NEW
+Fri Mar 24 11:24:03 2000 [MStatus] Program MStatus on host umelba started
+Fri Mar 24 11:24:03 2000 [MStatus] Program MStatus on host umelba stopped
+Fri Mar 24 11:27:02 2000 [Logger] stopping run after having received 1200000 even
+      ts
+Fri Mar 24 11:27:03 2000 [CHAOS] Run 8362 stopped
+Fri Mar 24 11:27:03 2000 [SUSI] saving info in run log
+Fri Mar 24 11:27:03 2000 [Logger] Run #8362 stopped
+Fri Mar 24 11:27:13 2000 [Logger] starting new run
+Fri Mar 24 11:27:14 2000 [CHAOS] Run 8363 started
+Fri Mar 24 11:27:14 2000 [CHAOS] odb_access_file -I- /Equipment/kos_trigger/Dump 
+      not found
+Fri Mar 24 11:27:14 2000 [Logger] Run #8363 started
+Fri Mar 24 11:33:47 2000 [Lazy_Tape] cni-043[11] (cp:391.8s) /dev/nst0/run08361.y
+      bs 850.209MB file NEW
+Fri Mar 24 11:42:35 2000 [CHAOS] Run 8363 stopped
+Fri Mar 24 11:42:40 2000 [SUSI] saving info in run log
+Fri Mar 24 11:42:41 2000 [ODBEdit] Run #8363 stopped
+Fri Mar 24 12:19:57 2000 [MChart] client [umelba.Triumf.CA]MChart failed watchdog
+       test after 10 sec
+Fri Mar 24 12:19:57 2000 [MChart] Program MChart on host koslx0 stopped
+\end{DoxyCode}
+ \par
+ \par
+ 
+
+ \hypertarget{F_Messaging_F_mspeaker_utility}{}\subsubsection{m\mbox{[}lx\mbox{]}speaker -\/ audible messaging}\label{F_Messaging_F_mspeaker_utility}
+{\bfseries mspeaker}, mlxspeaker are utilities which listen to the MIDAS messages system and pipe these messages to a speech synthesizer application. {\bfseries mspeaker} is for the Windows based system and interface to the \href{http://www.fbyte.com}{\tt FirstByte/ProVoice package}. The {\bfseries mlxspeaker} is for the Linux based system and interface to the \href{http://www.cstr.ed.ac.uk/projects/festival}{\tt Festival} speech synthesis package.
+
+If either package is used, the speech synthesis system has to be installed prior to the activation of the {\bfseries mspeaker}, or {\bfseries mlxspeaker} utilities.
+
+
+\begin{DoxyItemize}
+\item {\bfseries  Arguments }
+\begin{DoxyItemize}
+\item \mbox{[}-\/h \mbox{]} : help
+\item \mbox{[}-\/h hostname \mbox{]} : host name
+\item \mbox{[}-\/e exptname \mbox{]} : experiment name
+\item \mbox{[}-\/t mt\_\-talk\_\-cmd\mbox{]} : Specify the talk alert command (ux only).
+\item \mbox{[}-\/u mt\_\-user\_\-cmd\mbox{]} : Specify the user alert command (ux only).
+\item \mbox{[}-\/s shut up time\mbox{]}: Specify the min time interval between alert \mbox{[}s\mbox{]} The -\/t \& -\/u switch require a command equivalent to: '-\/t play -\/-\/volume=0.3 file.wav'
+\item \mbox{[}-\/D \mbox{]} : start program as a daemon
+\end{DoxyItemize}
+\end{DoxyItemize}
+
+
+\begin{DoxyItemize}
+\item {\bfseries  Usage } 
+\begin{DoxyCode}
+> mlxspeaker -D
+\end{DoxyCode}
+
+\end{DoxyItemize}
+
+
+
+\label{index_end}
+\hypertarget{index_end}{}
+ \subsubsection{Logging information to a mySQL database}\label{F_mySQL}
+\label{F_mySQL_idx_Logging_mySQL}
+\hypertarget{F_mySQL_idx_Logging_mySQL}{}
+ \label{F_mySQL_idx_mySQL}
+\hypertarget{F_mySQL_idx_mySQL}{}
+ 
+
+\par
+ \label{F_mySQL_idx_mySQL_database}
+\hypertarget{F_mySQL_idx_mySQL_database}{}
+ \hypertarget{F_mySQL_F_Logger_mySQL}{}\subsubsection{mySQL}\label{F_mySQL_F_Logger_mySQL}
+The logger is able to store information in a {\bfseries mySQL} database. This option is an alternative to the \hyperlink{DataAnalysis_DA_run_log_file}{runlog.txt} file handled by the \hyperlink{DataAnalysis_DA_Midas_Analyzer}{MIDAS Analyzer} . The two main advantages using the SQL are:
+\begin{DoxyItemize}
+\item The recording is done by the logger and therefore is independent of the user analyzer.
+\item The definition of the \hyperlink{structparameters}{parameters} to be recorded in the database is entirely setup in the ODB under the /Logger/SQL tree.
+\end{DoxyItemize}
+
+The SQL option is enabled by the preprocessor flag \hyperlink{BuildingOptions_BO_NEED_MYSQL}{NEED\_\-MYSQL} at \hyperlink{BuildingOptions_BO_building_option}{build time}. This option, when enabled, will cause \hyperlink{F_Logging_F_mlogger_utility}{mlogger} to create a subtree SQL under the \hyperlink{F_Logging_Data_F_Logger_tree}{/Logger ODB tree} . This tree contains information for mySQL access with the predefined mySQL database name {\itshape \char`\"{}Midas\char`\"{}\/} and table {\itshape \char`\"{}Runlog\char`\"{}\/}. Under two dedicated subdirectories {\bfseries Link\_\-BOR} and {\bfseries Link\_\-EOR}, predefined links exists which will be used at BOR and EOR respectively for storing parameter values into the database. These elements are ODB links allowing the user to extend the list with any parameter in the ODB database. This logger mySQL option may replace or complement the \hyperlink{DataAnalysis_DA_run_log_file}{runlog.txt} functionality of the \hyperlink{analyzer_8c_a8e03cbe2637bd6f4488a659c9f23d29e}{ana\_\-end\_\-of\_\-run()} function from the \hyperlink{analyzer_8c}{analyzer.c}.
+
+\label{F_mySQL_F_Logger_SQL_tree}
+\hypertarget{F_mySQL_F_Logger_SQL_tree}{}
+ The following example shows a /Logger/SQL tree as created by \hyperlink{F_Logging_F_mlogger_utility}{mlogger} See \hyperlink{F_mySQL_F_Logger_SQL_keys}{below} for an explanation of the meaning of each key. 
+\begin{DoxyCode}
+[local:midas:S]/Logger>ls -lr SQL
+Key name                        Type    #Val  Size  Last Opn Mode Value
+---------------------------------------------------------------------------
+SQL                         DIR
+    Create database             BOOL    1     4     27s  0   RWD  n
+    Write data                  BOOL    1     4     27s  0   RWD  n
+    Hostname                    STRING  1     80    27s  0   RWD  localhost
+    Username                    STRING  1     80    27s  0   RWD  root
+    Password                    STRING  1     80    27s  0   RWD
+    Database                    STRING  1     32    27s  0   RWD  midas
+    Table                       STRING  1     80    27s  0   RWD  Runlog
+    Logfile                     STRING  1     80    27s  0   RWD  sql.log
+    Links BOR                   DIR
+        Run number              LINK    1     20    58s  0   RWD  /Runinfo/Run nu
+      mber
+        Start time              LINK    1     20    58s  0   RWD  /Runinfo/Start 
+      time
+    Links EOR                   DIR
+        Stop time               LINK    1     19    4m   0   RWD  /Runinfo/Stop 
+      time
+\end{DoxyCode}
+\hypertarget{F_mySQL_F_Logger_SQL_keys}{}\subsubsection{Explanation of the keys in the ODB /Logger/SQL tree}\label{F_mySQL_F_Logger_SQL_keys}
+An example of a /Logger/SQL tree is shown \hyperlink{F_mySQL_F_Logger_SQL_tree}{above}. The table below serves as an index to the explanation of each key in this tree.
+
+\par
+ \begin{table}[h]\begin{TabularC}{5}
+\hline
+\hyperlink{F_Logging_Data_F_Logger_tree}{/Logger} \par
+  &\par
+  &\par
+  &\par
+  &\par
+   \\\cline{1-5}
+\par
+  &{\bfseries /SQL}  &\par
+  &\par
+  &\par
+   \\\cline{1-5}
+\par
+  &\par
+  &\hyperlink{F_mySQL_F_Logger_SQL_Create_Database}{Create Database}  &\par
+  &\par
+   \\\cline{1-5}
+\par
+  &\par
+  &\hyperlink{F_mySQL_F_Logger_SQL_Write_data}{Write data}  &\par
+  &\par
+   \\\cline{1-5}
+\par
+  &\par
+  &\hyperlink{F_mySQL_F_Logger_SQL_Hostname}{Hostname}  &\par
+  &\par
+   \\\cline{1-5}
+\par
+  &\par
+  &\hyperlink{F_mySQL_F_Logger_SQL_Username}{Username}  &\par
+  &\par
+   \\\cline{1-5}
+\par
+  &\par
+  &\hyperlink{F_mySQL_F_Logger_SQL_Password}{Password}  &\par
+  &\par
+   \\\cline{1-5}
+\par
+  &\par
+  &\hyperlink{F_mySQL_F_Logger_SQL_Database}{Database}  &\par
+  &\par
+   \\\cline{1-5}
+\par
+  &\par
+  &\hyperlink{F_mySQL_F_Logger_SQL_Table}{Table}  &\par
+  &\par
+   \\\cline{1-5}
+\par
+  &\par
+  &\hyperlink{F_mySQL_F_Logger_SQL_Links_BOR}{Links BOR}  &\par
+  &\par
+   \\\cline{1-5}
+\par
+  &\par
+  &\hyperlink{F_mySQL_F_Logger_Links_EOR}{Links EOR}  &\par
+  &\par
+   \\\cline{1-5}
+\end{TabularC}
+\centering
+\caption{The ODB /Logger/SQL tree. Click on a key for explanation. }
+\end{table}
+\par
+
+
+\par
+ \begin{table}[h]\begin{TabularC}{2}
+\hline
+Keys in the ODB tree /Logger/SQL   \\\cline{1-1}
+ODB Key  &Explanation  
+
+\\\cline{1-2}
+\label{F_mySQL_F_Logger_SQL_Create_Database}
+\hypertarget{F_mySQL_F_Logger_SQL_Create_Database}{}
+ Create Database  &BOOL value. If this flag is set, the SQL database will be created.  
+
+\\\cline{1-2}
+\label{F_mySQL_F_Logger_SQL_Write_data}
+\hypertarget{F_mySQL_F_Logger_SQL_Write_data}{}
+ Write data  &BOOL value. If this flag is set , the data will be written to the SQL database. (provided the logger is also set to \hyperlink{F_Logging_Data_F_Logger_Write_Data}{write the data}).  
+
+\\\cline{1-2}
+\label{F_mySQL_F_Logger_SQL_Hostname}
+\hypertarget{F_mySQL_F_Logger_SQL_Hostname}{}
+ Hostname  &The name of the host where the SQL database is located.  
+
+\\\cline{1-2}
+\label{F_mySQL_F_Logger_SQL_Username}
+\hypertarget{F_mySQL_F_Logger_SQL_Username}{}
+ Username  &Username for access to the SQL Database.  
+
+\\\cline{1-2}
+\label{F_mySQL_F_Logger_SQL_Password}
+\hypertarget{F_mySQL_F_Logger_SQL_Password}{}
+ Password  &(Encoded) Password for access to the SQL Database.  
+
+\\\cline{1-2}
+\label{F_mySQL_F_Logger_SQL_Database}
+\hypertarget{F_mySQL_F_Logger_SQL_Database}{}
+ Database  &Name of the SQL Database (predefined as \char`\"{}midas\char`\"{}).  
+
+\\\cline{1-2}
+\label{F_mySQL_F_Logger_SQL_Table}
+\hypertarget{F_mySQL_F_Logger_SQL_Table}{}
+ Table  &Name of the Table in the SQL Database (predefined as \char`\"{}Runlog\char`\"{}).  
+
+\\\cline{1-2}
+\label{F_mySQL_F_Logger_SQL_Links_BOR}
+\hypertarget{F_mySQL_F_Logger_SQL_Links_BOR}{}
+ Links BOR  &This directory contains links to \hyperlink{structparameters}{parameters} in the ODB that are to be saved in the SQL Database at Begin-\/of-\/run. The links
+\begin{DoxyItemize}
+\item Run number
+\item Start time are created automatically by the logger the first time it runs. The user may add other links as desired.  
+\end{DoxyItemize}
+
+\\\cline{1-2}
+\label{F_mySQL_F_Logger_Links_EOR}
+\hypertarget{F_mySQL_F_Logger_Links_EOR}{}
+ Links EOR  &This directory contains links to \hyperlink{structparameters}{parameters} in the ODB that are to be saved in the SQL Database at End-\/of-\/run. The link
+\begin{DoxyItemize}
+\item Stop time is created automatically by the logger the first time it runs. The user may add other links as desired.   
+\end{DoxyItemize}\\\cline{1-2}
+\end{TabularC}
+\centering
+\caption{Above: meaning of keys in the /Logger/SQL ODB tree }
+\end{table}
+\par
+ 
+
+\label{index_end}
+\hypertarget{index_end}{}
+ \subsubsection{History Logging}\label{F_History_logging}
+\par
+ \label{F_History_logging_idx_Logging_History}
+\hypertarget{F_History_logging_idx_Logging_History}{}
+ \label{F_History_logging_idx_History_Logging}
+\hypertarget{F_History_logging_idx_History_Logging}{}
+ 
+
+\par
+ \label{F_History_logging_idx_history_system}
+\hypertarget{F_History_logging_idx_history_system}{}
+\hypertarget{F_History_logging_F_History_System}{}\subsubsection{MIDAS History System}\label{F_History_logging_F_History_System}
+\begin{Desc}
+\item[\hyperlink{todo__todo000007}{Todo}]The history section needs to be reviewed\end{Desc}
+The history system is an add-\/on capability built into the \hyperlink{F_Logging_F_mlogger_utility}{MIDAS data logger} to record useful information in parallel to the data logging. This information is recorded with a time stamp and saved into a history file (in a \hyperlink{F_History_logging_F_History_format}{special format} of the form of a database) for later retrieval. One set of files is created per day containing all the requested history events. The history data may be displayed in graphical form using the \hyperlink{RC_mhttpd_utility}{mhttpd} MIDAS webserver utility, giving the user an easy way of seeing how experimental variables have changed with time. \par
+ The history logging will be in action {\bfseries only} if the logger is running, but it is not necessary to have any logging channel enabled.
+
+ See also \hyperlink{F_History_logging_F_History_sql_internal}{MIDAS SQL History system} , where the History is saved into an SQL database instead of a History file. ( \hyperlink{NDF_ndf_jan_2009}{Jan 2009} ). \hypertarget{F_History_logging_F_Logger_History_Files_Location}{}\subsubsection{Location of History Files}\label{F_History_logging_F_Logger_History_Files_Location}
+\label{F_History_logging_F_Logger_History_Dir}
+\hypertarget{F_History_logging_F_Logger_History_Dir}{}
+
+
+\label{F_History_logging_idx_history_files_location}
+\hypertarget{F_History_logging_idx_history_files_location}{}
+ By default, \hyperlink{F_History_logging}{history} files are written into the directory path given by the ODB key \hyperlink{F_Logging_Data_F_Logger_Data_Dir}{Data Dir} in the \hyperlink{F_Logging_Data_F_Logger_tree}{/Logger ODB tree}.
+
+This location can be changed by use of the ODB Key History dir in the \hyperlink{F_Logging_Data_F_Logger_tree_keys}{/Logger} directory. This key is optional and doesn't appear by default in the \hyperlink{F_Logging_Data_F_Logger_tree}{/Logger ODB tree}. If this key IS present the location of the history files is reassigned to the defined path.\hypertarget{F_History_logging_F_Logger_Create_History_Dir}{}\paragraph{Creation of ODB Key  \char`\"{}/Logger/History dir\char`\"{}}\label{F_History_logging_F_Logger_Create_History_Dir}
+Using the \hyperlink{RC_mhttpd_ODB_page}{mhttpd ODB editor} or the \hyperlink{RC_odbedit_examples_RC_odbedit_cr}{odbedit command create} as shown below, the user may add this key: 
+\begin{DoxyCode}
+[local:Default:S]/Logger>create string "History dir"
+String length [32]:128
+[local:Default:S]/Logger>set "History dir" /mypath/history/2009
+[local:Default:S]/Logger>move Channels bottom
+[local:Default:S]/Logger>ls
+  Data dir                        /scr0/spring2009
+  Message file                    midas.log 
+  Auto restart                     n
+  Write data                      y
+  ODB Dump                        n
+  ODB Dump File                   run%05d.odb
+  Tape message                    y 
+  Elog dir                        /mypath/elog/2009
+  History dir                     /mypath/history/2009
+  Channels
+\end{DoxyCode}
+
+
+\par
+ 
+
+ \par
+\hypertarget{F_History_logging_F_History_Event_Types}{}\subsubsection{Types of History Events}\label{F_History_logging_F_History_Event_Types}
+There are two basic types of history events, which are defined in different ways:
+
+
+\begin{DoxyItemize}
+\item {\bfseries \char`\"{}Frontend\char`\"{}} History event \par
+ Composed in the frontend. See \hyperlink{F_History_logging_F_Frontend_History_Event}{Frontend History Event} for details.
+
+
+\item {\bfseries \char`\"{}Virtual\char`\"{}} History event \par
+Composed within the Online Database (ODB) under the specific tree /History/Links (see \hyperlink{F_History_logging_F_ODB_History_tree}{ODB History tree})
+
+
+\end{DoxyItemize}
+
+Both these history event definitions {\bfseries take effect when the data logger gets a \char`\"{}start run\char`\"{} transition}. Any modifications made during the run are not applied until the start of the next run.
+
+\par
+ 
+
+ \par
+ \label{F_History_logging_idx_History_events}
+\hypertarget{F_History_logging_idx_History_events}{}
+ \hypertarget{F_History_logging_F_Frontend_History_Event}{}\subsubsection{Frontend History Event}\label{F_History_logging_F_Frontend_History_Event}
+Each \hyperlink{FrontendOperation_FE_sw_equipment}{Equipment} has the capability to generate {\bfseries  \char`\"{}history data\char`\"{} }. \par
+   To enable the history logging system for an Equipment, the \hyperlink{FE_table_FE_tbl_History}{Log History} field in the corresponding \hyperlink{FrontendOperation_FE_Equipment_list}{Equipment List} is set non-\/zero.
+
+
+
+This value also controls how {\bfseries frequently} the history events are generated. A reasonable value to set for the History value is \char`\"{}60\char`\"{}, so that the history events are generated once per minute. This value will appear in the ODB \hyperlink{FE_ODB_equipment_tree}{/Equipment tree} as the key /Equipment/$<$equipment-\/name$>$/Common/Log history (where $<$equipment-\/name$>$ is the name of the Equipment -\/ see also \hyperlink{FE_ODB_equipment_tree_FE_ODB_equipment_common}{The ODB /Equipment/$<$equipment-\/name$>$/Common subtree} ).
+
+\par
+ Enabling the history system for an Equipment causes the event contents to be copied to the /Equipment/$<$equipment-\/name$>$/Variables tree of the ODB for the use of the \hyperlink{F_MainElements_F_History_System_overview}{History system} . The contents of the event will then be completely copied into the history files, using the definition of the event as {\bfseries  tag names } for every element of the event. \par
+
+
+The main data path for the frontend History Event is as follows:
+\begin{DoxyEnumerate}
+\item The user code in the frontend equipment \hyperlink{FE_eq_event_routines_FE_readout_routine}{Event Readout routines} reads the data, placing it into a \hyperlink{FE_bank_construction_FE_MIDAS_event_construction}{MIDAS data bank}
+\item In \hyperlink{mfe_8c}{mfe.c}, if /Equipment/$<$equipment-\/name$>$/Common/Log history $>$ 0 (i.e. the history system is enabled for this equipment), this data bank is written into ODB (by \hyperlink{mfe_8c_acca4a95b509b37c83c2e76cb88de232a}{update\_\-odb()}).
+\end{DoxyEnumerate}
+
+\label{F_History_logging_idx_hotlink_history-event}
+\hypertarget{F_History_logging_idx_hotlink_history-event}{}
+ \label{F_History_logging_F_history_hot_link}
+\hypertarget{F_History_logging_F_history_hot_link}{}
+ The frequency of ODB writes is limited by ODB\_\-UPDATE\_\-TIME (1/sec in \hyperlink{mfe_8c}{mfe.c} rev 4298).
+\begin{DoxyEnumerate}
+\item The odb write triggers an odb \hyperlink{RC_Hot_Link}{hot-\/link} into \hyperlink{F_Logging_F_mlogger_utility}{mlogger}
+\item The hot-\/link calls mlogger.c::log\_\-history(), which calls hs\_\-write() to write the data into the history file. The frequency of the history writes is specified by the number of seconds between writes stored in the ODB key /Equipment/$<${\itshape Equipment-\/Name\/}$>$/Common/Log history.
+\item history.c::hs\_\-write() or history\_\-odbc::hs\_\-write\_\-odbc() writes the data into a history file or into an SQL database.
+\end{DoxyEnumerate}
+
+The internal structure of MIDAS history files is documented in \hyperlink{F_History_logging_F_History_format}{History format} . \par
+
+
+\label{F_History_logging_idx_history_enable}
+\hypertarget{F_History_logging_idx_history_enable}{}
+ \hypertarget{F_History_logging_F_Enable_History_Event}{}\paragraph{Enable the History system for a frontend event}\label{F_History_logging_F_Enable_History_Event}
+After \hyperlink{F_History_logging_F_Frontend_History_Event}{enabling} the history system for an Equipment, {\bfseries  restart the frontend }. The ODB key /equipment/Equipment-\/Name/Common/Log history will have been updated with the new value. It may be changed manually if necessary, using \hyperlink{RC_mhttpd_ODB_page}{mhttpd} or the \hyperlink{RC_odbedit_examples_RC_odbedit_set}{odbedit set command}. Then {\bfseries  restart \hyperlink{F_Logging_F_mlogger_utility}{mlogger} } . The data from the equipment should now appear in the \hyperlink{RC_mhttpd_History_page}{mhttpd history page} and in the history file (\hyperlink{F_History_logging_F_mhdump_utility}{mhdump} can be used to read the history file).
+
+\label{F_History_logging_idx_history_tags_new}
+\hypertarget{F_History_logging_idx_history_tags_new}{}
+ \hypertarget{F_History_logging_F_new_history_tags}{}\subparagraph{New History Tags}\label{F_History_logging_F_new_history_tags}
+Note on NEW format of  /History/Tags Version 4435 of \hyperlink{F_Logging_F_mlogger_utility}{mlogger} and \hyperlink{RC_mhttpd_utility}{mhttpd} and later:  \par
+
+
+The mlogger/mhttpd implementation of /History/Tags has proved troublesome and we are moving away from it. The \hyperlink{F_History_logging_F_History_sql_internal}{SQL database history implementation} ( \hyperlink{NDF_ndf_jan_2009}{Jan 2009} ) already does not use it . \par
+During the present transition period:
+
+
+\begin{DoxyItemize}
+\item Implementations starting with Version 4435 of \hyperlink{F_Logging_F_mlogger_utility}{mlogger} and \hyperlink{RC_mhttpd_utility}{mhttpd} (i.e. {\bfseries \char`\"{}new\char`\"{}} versions) will now work without /History/Tags.  The history tags are read directly from the history files themselves. Two downsides to this are 
+\begin{DoxyEnumerate}
+\item it is slower and tags become non-\/persistent 
+\item if some frontends have not been running for a while, their variables may vanish from the history panel editor. 
+\end{DoxyEnumerate}To run in this mode, set /History/DisableTags to \char`\"{}y\char`\"{}. Existing /History/Tags will be automatically deleted. 
+\item for the above 2 reasons, using /History/Tags is still recommended, but the format of the tags is now changed to simplify management and reduce odb size. mlogger will automatically convert the tags to this new format (this is why you should make a backup of your ODB). 
+\item using \char`\"{}old\char`\"{} (i.e. pre Version 4435) mlogger with \char`\"{}new\char`\"{} mhttpd is OK: new mhttpd understands both formats of /History/Tags. 
+\item using \char`\"{}old\char`\"{} mhttpd with \char`\"{}new\char`\"{} mlogger is OK {\bfseries provided the ODB key /History/CreateOldTags is set to \char`\"{}y\char`\"{} before starting} mlogger. 
+\end{DoxyItemize}
+
+\label{F_History_logging_idx_history_tags_old}
+\hypertarget{F_History_logging_idx_history_tags_old}{}
+\hypertarget{F_History_logging_F_history_old_tags}{}\subparagraph{Definition of old-\/style history tags}\label{F_History_logging_F_history_old_tags}
+Prior to versions 4435 of \hyperlink{F_Logging_F_mlogger_utility}{mlogger} and \hyperlink{RC_mhttpd_utility}{mhttpd}, {\bfseries old-\/style} history tags were generated. The {\bfseries history variable name} for each element of the Frontend History Event was composed as follows, where 
+\begin{DoxyItemize}
+\item {\bfseries \char`\"{}equipment-\/name\char`\"{}} is the name of the equipment, and 
+\item {\bfseries \char`\"{}bankname\char`\"{}} is the name of a bank generated by the {\bfseries \char`\"{}equipment-\/name\char`\"{}} equipment :
+
+
+\begin{DoxyItemize}
+\item In the case of a \hyperlink{FE_Data_format_FE_Midas_format}{MIDAS format} event:
+
+
+\begin{DoxyItemize}
+\item {\bfseries If the ODB key} /Equipment/equipment-\/name/Settings/Names $<$bankname$>$\mbox{[} \mbox{]} {\bfseries IS present}, 
+\begin{DoxyItemize}
+\item the {\bfseries history} {\bfseries name} is composed of the corresponding name found in the  Names $<$bankname$>$\mbox{[} \mbox{]} array. 
+\item The {\bfseries size} of this array must match the size of the /equipment/equipment-\/name/Variables/$<$bankname$>$\mbox{[} \mbox{]} array, or an error will be generated. 
+\end{DoxyItemize}
+\item {\bfseries Otherwise} the {\bfseries history} {\bfseries name} is composed of the bank name followed by the corresponding index of the element. 
+\end{DoxyItemize}See \hyperlink{RC_mhttpd_Equipment_page_RC_mhttpd_Equipment_example4}{example} .
+
+
+\item In the case of a \hyperlink{FE_bank_construction_FE_FIXED_event_readout}{Fixed format} event :
+
+
+\begin{DoxyItemize}
+\item {\bfseries No} array : the names of the individual element under /Equipment/equipment-\/name/Variables/ are used for the history name composition. 
+\item {\bfseries With} array: if the key /Equipment/equipment-\/name/Settings/Names\mbox{[} \mbox{]} exists, each element of the array is referenced using the corresponding name of the ../Settings/Names\mbox{[} \mbox{]} array. 
+\end{DoxyItemize}
+\end{DoxyItemize}
+\end{DoxyItemize}\hypertarget{F_History_logging_F_example_FE_history_event}{}\paragraph{Example Frontend History Event (old-\/style History tags)}\label{F_History_logging_F_example_FE_history_event}
+The \hyperlink{RC_mhttpd_Equipment_page_RC_mhttpd_Equipment_example4}{example} shows the ODB keys for a Frontend Equipment named \char`\"{}Target\char`\"{} that sends out data in two \hyperlink{FE_bank_construction_FE_MIDAS_event_construction}{Midas banks} named \char`\"{}TGT\_\-\char`\"{} and \char`\"{}SCAL\char`\"{}. For simplicity, only the \char`\"{}TGT\_\-\char`\"{} bank is discussed here. The relevent keys are reproduced below.
+
+\par
+The key \char`\"{}/Equipment/Target/Settings/Names TGT\_\-\char`\"{} is defined as a 7-\/element array containing the variable names. The key /Equipment/Target/Variables/TGT\_\- is also present, and contains 7 elements, matching the number of elements in the \char`\"{}Names TGT\_\-\char`\"{} array. \par
+ Had the latter key {\bfseries not} been present, the history variable names would be {\bfseries TGT\_\-0 ... TGT\_\-6.} \par
+ 
+\begin{DoxyCode}
+[host:chaos:Running]cd /Equipment/Target
+
+[host:chaos:Running]Target>ls -l -r
+Key name                        Type    #Val  Size  Last Opn Mode Value
+---------------------------------------------------------------------------
+Target                          DIR
+    settings                    DIR
+        Names TGT_              STRING  7     32    10h  0   RWD  
+                                        [0]             Time
+                                        [1]             Cryostat vacuum
+                                        [2]             Heat Pipe pressure
+                                        [3]             Target pressure
+                                        [4]             Target temperature
+                                        [5]             Shield temperature
+                                        [6]             Diode temperature
+    Common                      DIR
+          ...
+    Variables                   DIR
+
+        TGT_                    FLOAT   7     4     10s  0   RWD  
+                                        [0]             114059
+                                        [1]             4.661
+                                        [2]             23.16
+                                        [3]             -0.498
+                                        [4]             22.888
+                                        [5]             82.099
+                                        [6]             40
+    Statistics                  DIR
+          ...
+\end{DoxyCode}
+
+
+\par
+ 
+
+ \par
+ \label{F_History_logging_idx_history_ODB-tree}
+\hypertarget{F_History_logging_idx_history_ODB-tree}{}
+ \label{F_History_logging_idx_ODB_tree_History}
+\hypertarget{F_History_logging_idx_ODB_tree_History}{}
+\hypertarget{F_History_logging_F_ODB_History_tree}{}\subsubsection{ODB /History tree}\label{F_History_logging_F_ODB_History_tree}
+\label{F_History_logging_idx_logger_utility_mlogger}
+\hypertarget{F_History_logging_idx_logger_utility_mlogger}{}
+ The first time \hyperlink{F_Logging_F_mlogger_utility}{mlogger} is run, it creates the /History  tree. This tree is created using the variables found in the /Equipment tree. For the \char`\"{}Target\char`\"{} equipment defined above, the /History tree produced is as follows:
+
+
+\begin{DoxyCode}
+16:51:24 [Logger,INFO] Program Logger on host dasdevpc2 started
+[local:midas:S]/History>ls -lt
+[local:midas:S]/History>ls -lr
+Key name                        Type    #Val  Size  Last Opn Mode Value
+---------------------------------------------------------------------------
+History                         DIR
+    Links                       DIR
+    PerVariableHistory          INT     1     4     46s  0   RWD  0
+    DisableTags                 BOOL    1     4     46s  0   RWD  n
+    Tags                        DIR
+        2                       STRING  8     96    46s  0   RWD
+                                        [0]             Target
+                                        [1]             9[1] Time
+                                        [2]             9[1] Cryostat vacuum
+                                        [3]             9[1] Heat Pipe pressure
+                                        [4]             9[1] Target pressure
+                                        [5]             9[1] Target temperature
+                                        [6]             9[1] Shield temperature
+                                        [7]             9[1] Diode temperature
+\end{DoxyCode}
+
+
+If a \hyperlink{FE_eqdec}{Frontend Trigger Equipment} is defined, i.e. an Equipment whose name is \char`\"{}Trigger\char`\"{}, extra keys will be created as follows, where the 2 trigger fields are symbolic links to the given path. The sub-\/tree System defines a \char`\"{}virtual\char`\"{} equipment and is assigned a particular \char`\"{}History Event ID\char`\"{} by the system.
+
+
+\begin{DoxyCode}
+[local:midas:S]/History>ls -lrt
+Key name                        Type    #Val  Size  Last Opn Mode Value
+---------------------------------------------------------------------------
+History                         DIR
+    Links                       DIR
+        System                  DIR
+            Trigger per sec. -> /Equipment/Trigger/Statistics/Events per sec.
+                                DOUBLE  1     8     >99d 1   RWD  0
+            Trigger kB per sec. -> /Equipment/Trigger/Statistics/kBytes per sec.
+                                DOUBLE  1     8     >99d 1   RWD  0
+    PerVariableHistory          INT     1     4     2h   0   RWD  0
+    DisableTags                 BOOL    1     4     2h   0   RWD  n
+    Tags                        DIR
+        2                       STRING  5     96    24s  0   RWD
+                                        [0]             trigger
+                                        [1]             7[1] dummy
+                                        [2]             7[1] test
+                                        [3]             6[6] SCLR
+                                        [4]             9[6] RATE
+        10                      STRING  3     96    3m   0   RWD
+                                        [0]             System
+                                        [1]             10[1] Trigger per sec.
+                                        [2]             10[1] Trigger kB per sec 
+                                        .
+\end{DoxyCode}
+
+
+A second sub-\/tree is added to the /History by the \hyperlink{RC_mhttpd_utility}{MIDAS web server} when the \hyperlink{RC_mhttpd_History_page}{History} button on the main status page is pressed.
+
+
+\begin{DoxyCode}
+[local:midas:S]/History>ls -l -r Display
+Key name                        Type    #Val  Size  Last Opn Mode Value
+---------------------------------------------------------------------------
+Display                         DIR
+  Default                       DIR
+    Trigger rate                DIR
+        Variables               STRING  2     32    36h  0   RWD
+                                        [0]             System:Trigger per sec.
+                                        [1]             System:Trigger kB per sec
+      .
+        Factor                  FLOAT   2     4     36h  0   RWD
+                                        [0]             1
+                                        [1]             1
+        Timescale               INT     1     4     36h  0   RWD  3600
+        Zero ylow               BOOL    1     4     36h  0   RWD  y
+\end{DoxyCode}
+
+
+This defines a default history display under the MIDAS web server as long as the reference to \char`\"{}System\char`\"{} is correct. See \hyperlink{RC_mhttpd_History_page}{History page} and the \hyperlink{F_History_logging_F_History_tree_keys}{table below} for more information about these these fields.\hypertarget{F_History_logging_F_History_tree_keys}{}\subsubsection{Explanation of the keys in the ODB /History tree}\label{F_History_logging_F_History_tree_keys}
+\begin{table}[h]\begin{TabularC}{7}
+\hline
+Keys in the ODB /History tree  
+
+\\\cline{1-1}
+ODB Key  &Type 
+
+&Explanation  
+
+\\\cline{1-3}
+History  &\par
+ &\par
+ &\par
+ &\par
+ &DIR  &directory containing...  
+
+\\\cline{1-7}
+\par
+ &\label{F_History_logging_F_History_links}
+\hypertarget{F_History_logging_F_History_links}{}
+ Links  &\par
+ &\par
+ &\par
+ &DIR  &directory containing...  
+
+\\\cline{1-7}
+\par
+ &\label{F_History_logging_F_History_System_dir}
+\hypertarget{F_History_logging_F_History_System_dir}{}
+ System  &\par
+ &\par
+ &\par
+ &DIR  &info  
+
+\\\cline{1-7}
+\par
+ &\par
+ &Trigger per sec.  &\par
+ &\par
+ &DOUBLE  &link to /Equipment/Trigger/Statistics/Events per sec.  
+
+\\\cline{1-7}
+\par
+ &\par
+ &Trigger kB per sec.  &\par
+ &\par
+ &DOUBLE  &link to /Equipment/Trigger/Statistics/kBytes per sec.  
+
+\\\cline{1-7}
+\par
+ &\label{F_History_logging_F_History_pervar}
+\hypertarget{F_History_logging_F_History_pervar}{}
+ PerVariableHistory  &\par
+ &\par
+ &\par
+ &INT  &Enables/Disables the per-\/variable History. This key appears starting with version 4203 of mlogger. See \hyperlink{F_History_logging_F_History_sql_pervariable}{Note2}  
+
+\\\cline{1-7}
+\par
+ &\label{F_History_logging_F_History_Disable_tags}
+\hypertarget{F_History_logging_F_History_Disable_tags}{}
+ DisableTags  &\par
+ &\par
+ &\par
+ &BOOL  &Set this key to \char`\"{}y\char`\"{} if reading the history tags directly from the history files. Set to \char`\"{}n\char`\"{} to read the history tags from the ODB. This key appears starting with version 4435 of mlogger. See \hyperlink{F_History_logging_F_new_history_tags}{Note1}  
+
+\\\cline{1-7}
+\par
+ &\label{F_History_logging_F_History_CreateOldTags}
+\hypertarget{F_History_logging_F_History_CreateOldTags}{}
+ CreateOldTags  &\par
+ &\par
+ &\par
+ &BOOL  &Set this key to \char`\"{}y\char`\"{} to force creation of /History/Tags using the old format. This key appears starting with version 4435 of mlogger. See \hyperlink{F_History_logging_F_new_history_tags}{Note1}.
+
+
+
+\\\cline{1-7}
+\par
+ &\label{F_History_logging_F_History_tags}
+\hypertarget{F_History_logging_F_History_tags}{}
+ Tags  &\par
+ &\par
+ &\par
+ &DIR  &subtree containing the old-\/style History tags. See \hyperlink{F_History_logging_F_new_history_tags}{Note1}  
+
+\\\cline{1-7}
+\par
+ &\par
+ &\label{F_History_logging_F_History_2}
+\hypertarget{F_History_logging_F_History_2}{}
+ 2  &\par
+ &\par
+ &STRING  &Array containing ... \begin{Desc}
+\item[\hyperlink{todo__todo000008}{Todo}]Explanation needed  \end{Desc}
+\\\cline{1-7}
+\par
+ &\par
+ &10  &\par
+ &\par
+ &STRING  &Array of length 3 containing ... \begin{Desc}
+\item[\hyperlink{todo__todo000009}{Todo}]Explanation needed\end{Desc}
+
+
+\\\cline{1-7}
+\par
+ &\label{F_History_logging_F_History_Display}
+\hypertarget{F_History_logging_F_History_Display}{}
+ Display  &\par
+ &\par
+ &\par
+ &DIR  &\par
+  
+
+\\\cline{1-7}
+\par
+ &\par
+ &Default  &\par
+ &\par
+ &DIR  &\par
+  
+
+\\\cline{1-7}
+\par
+ &\par
+ &\par
+ &Trigger Rate  &\par
+ &DIR  &\par
+  
+
+\\\cline{1-7}
+\par
+ &\par
+ &\par
+ &\par
+ &Variables  &STRING  &Array containing ... \begin{Desc}
+\item[\hyperlink{todo__todo000010}{Todo}]Explanation needed  \end{Desc}
+\\\cline{1-7}
+\par
+ &\par
+ &\par
+ &\par
+ &Factor  &FLOAT  &Array containing ... \begin{Desc}
+\item[\hyperlink{todo__todo000011}{Todo}]Explanation needed  \end{Desc}
+\\\cline{1-7}
+\par
+ &\par
+ &\par
+ &\par
+ &Timescale  &INT  &Appears as an input box on the \hyperlink{RC_mhttpd_History_page}{History page} . Timescale is in date format.  
+
+\\\cline{1-7}
+\par
+ &\par
+ &\par
+ &\par
+ &Zero ylow  &BOOL  &Appears as a button on the \hyperlink{RC_mhttpd_History_page}{History page} . \begin{Desc}
+\item[\hyperlink{todo__todo000012}{Todo}]Explanation needed   \end{Desc}
+\\\cline{1-7}
+\end{TabularC}
+\centering
+\caption{Above: meaning of keys in the /History ODB tree }
+\end{table}
+\hypertarget{F_History_logging_F_customizing_History}{}\subsubsection{Customizing the History logging}\label{F_History_logging_F_customizing_History}
+The History logging is customized by changing the values in the ODB /history tree. This tree is created automatically when the logger is started.
+
+
+
+ \label{F_History_logging_idx_ODBC_SQL-history-system}
+\hypertarget{F_History_logging_idx_ODBC_SQL-history-system}{}
+ \hypertarget{F_History_logging_F_History_sql_internal}{}\subsubsection{MIDAS SQL History system}\label{F_History_logging_F_History_sql_internal}
+ (SQL History System added \hyperlink{NDF_ndf_jan_2009}{Jan 2009} ).  \par
+This section describes the internal workings of the MIDAS SQL history system.
+
+The SQL history system implements the MIDAS history using a \hyperlink{F_mySQL_F_Logger_mySQL}{SQL database} for data storage instead of flat binary files.
+
+The SQL history code lives in a separate files {\bfseries history.h} and {\bfseries history\_\-sql.cxx}. The present implentation uses the \hyperlink{BuildingOptions_BO_HAVE_ODBC}{ODBC} API for accessing SQL databases.  As of revision 4433, only MySQL database is supported, with support for PgSQL written and partially tested but not enabled. Drivers for SQL DB APIs other than ODBC should be easy to add in {\bfseries history\_\-sql} and most SQL operations are done using an interface class.
+
+Preliminary testing with MySQL and PgSQL indicates that disk space requirements are the same for both storage mechanisms using flat binary files or either of the 2 SQL databases. All 3 tested storage mechanisms store the data uncompressed. (Observed gzip-\/1 compression ratios from CERN-\/ALPHA history files are 50\% or better).
+
+\label{F_History_logging_idx_slow-control_MySQL-database}
+\hypertarget{F_History_logging_idx_slow-control_MySQL-database}{}
+ Preliminary testing also indicates that MySQL database is \char`\"{}not too slow\char`\"{} for use by T2K/ND280 slow control system. Using MySQL, performance seems to improve somewhat compared to traditional history because each SQL table is stored into a separate file, compared to everything-\/in-\/one-\/file in traditional MIDAS history.\hypertarget{F_History_logging_F_History_sql_enable}{}\paragraph{How to enable writing history to SQL}\label{F_History_logging_F_History_sql_enable}
+In order to setup a MySQL database, the following is needed:
+\begin{DoxyItemize}
+\item the server hostname and port number
+\item database name
+\item user name and password.
+\end{DoxyItemize}
+
+It is recommended to create 3 different users:
+\begin{DoxyItemize}
+\item a \char`\"{}root\char`\"{} user with full priveleges,
+\item a \char`\"{}reader\char`\"{} user with read-\/only priveleges
+\item and a \char`\"{}writer\char`\"{} user with \char`\"{}insert, create table, and add column\char`\"{} priveleges (no permission to drop table, remove columns, etc)
+\end{DoxyItemize}
+
+
+\begin{DoxyEnumerate}
+\item Setup a MySQL database (RHEL/SL 5) 
+\begin{DoxyCode}
+ssh root@localhost
+service mysqld start
+/usr/bin/mysql_secure_installation (enter current password for root: press <enter
+      >, then accept default answer "Y" to all questions)
+mysqladmin -p create history
+using mysql-administrator, create 2 users:
+history_writer, with database "history" schema privileges: select, insert, create
+      , alter
+history_reader, with database "history" schema privileges: select
+\end{DoxyCode}
+ 
+\item setup \$HOME/.odbc.ini file: 
+\begin{DoxyCode}
+cat $HOME/.odbc.ini
+[history_writer]
+Description  = history_writer
+Driver       = /usr/lib64/libmyodbc3.so
+SERVER       = ladd05.triumf.ca
+PORT         =
+Database     = history
+OPTION       = 3
+SOCKET       =
+User         = history_writer
+Password     = ******
+[history_reader]
+Description  = history_reader
+Driver       = /usr/lib64/libmyodbc3.so
+SERVER       = ladd05.triumf.ca
+PORT         =
+Database     = history
+OPTION       = 3
+SOCKET       =
+User         = history_reader
+Password     = 
+\end{DoxyCode}
+ \label{F_History_logging_F_History_sql_pervariable}
+\hypertarget{F_History_logging_F_History_sql_pervariable}{}
+ 
+\item set key /History/PerVariableHistory to 1 \par
+({\bfseries BEWARE!} This will change the format of normal MIDAS history files. You do not have to enable per-\/variable history to use the SQL interface, but the layout of SQL tables may be suboptimal in the same way the layout of data in the MIDAS history file is suboptimal). 
+\item set ODB keys 
+\begin{DoxyItemize}
+\item /Logger/ODBC\_\-DSN to \char`\"{}history\_\-writer\char`\"{} 
+\item /Logger/ODBC\_\-Debug to 0 (or 1 to see all SQL commands) 
+\end{DoxyItemize}
+\item run mlogger -\/v, and observe how it issues SQL commands to create the tables and columns corresponding to MIDAS history events and tags. 
+\item mlogger is programmed to raise alarms if connection to SQL database is interrupted or if some events cannot be written into the database (i.e. data type mismatch, SQL syntax errors, etc). The traditional MIDAS history never raised alarms because it \char`\"{}never failed\char`\"{} -\/ other than from \char`\"{}disk full\char`\"{} errors, which are immediately obvious. 
+\end{DoxyEnumerate}\hypertarget{F_History_logging_F_History_sql_enable}{}\paragraph{How to enable writing history to SQL}\label{F_History_logging_F_History_sql_enable}
+
+\begin{DoxyEnumerate}
+\item set key /History/ODBC\_\-DSN to \char`\"{}history\_\-reader\char`\"{} 
+\item restart mhttpd (may not be required?) 
+\item from this moment mhttpd will only use history information from the SQL database to make history plots and to extract history variable names for the history plot editor. The /History/Tags and /History/Events keys are not used. The on-\/disk .hst \& co history are not used. \begin{Desc}
+\item[\hyperlink{todo__todo000013}{Todo}]What is the co history?\end{Desc}
+
+\item variable names presented to the user may change from MIDAS names to SQL names (use the history panel \char`\"{}Label\char`\"{} text fields to create permanent plot labels). 
+\end{DoxyEnumerate}\hypertarget{F_History_logging_F_SQL_Layout}{}\paragraph{Layout of SQL tables:}\label{F_History_logging_F_SQL_Layout}
+
+\begin{DoxyItemize}
+\item one table is created for each history event. Table name is the same as the history event name (as reported by \hyperlink{F_History_logging_F_mhdump_utility}{mhdump}). 
+\item one column is created for each history tag (history variable). Column name is the same as the tag name (as reported by \hyperlink{F_History_logging_F_mhdump_utility}{mhdump}). For array tags, one column is created for each array element: array a\mbox{[}3\mbox{]} will produce columns a\_\-0, a\_\-1 and a\_\-2. 
+\item 2 special columns are always created: {\bfseries \_\-i\_\-time} and {\bfseries \_\-t\_\-time} are the timestamps in the UNIX-\/time integer format and in the SQL \char`\"{}time\char`\"{} format. (A priori, it is not clear which timestamp format is more useful for end users. mhttpd uses the \_\-i\_\-time integer time format). Note that this timestamp is the time when mlogger receives the hot-\/link signal (see \hyperlink{F_History_logging_F_history_hot_link}{above}) and it can be a few seconds behind the time when the user placed the data into the MIDAS bank. For high precision (and sub-\/second time resolution) time stamps, users should generate their own timestamps and include them as part of the data itself. 
+\item a special table called {\bfseries \_\-history\_\-index} is created to remember the mapping between SQL names and MIDAS names for event names, variable name and tag names. 
+\end{DoxyItemize}\hypertarget{F_History_logging_F_SQL_Schema}{}\paragraph{Schema Evolution:}\label{F_History_logging_F_SQL_Schema}
+
+\begin{DoxyItemize}
+\item when new data fields are added, new SQL columns are created automatically 
+\item existing SQL columns are never deleted 
+\item arrays are expanded automatically, and arrays never shrink. 
+\item if the type of a data field changes, a conflict may occur with existing SQL columns, for example if previous type was \char`\"{}FLOAT\char`\"{} and new type is \char`\"{}DOUBLE\char`\"{}, the existing SQL columns would have the SQL data type \char`\"{}float\char`\"{}, too narrow to store new values. mlogger will complain about this. Such conflicts may be resolved by changing the type of the SQL column using SQL tools. In general, SQL names are created from MIDAS names by replacing all non-\/alphanumerical characters to an underscore \char`\"{}\_\-\char`\"{}. If this procedure creates duplicate column names, the column names and made unique by appending them with a random number, i.e. MIDAS names \char`\"{}A+B\char`\"{} and \char`\"{}A-\/B\char`\"{} will be translated to \char`\"{}A\_\-B\char`\"{} and \char`\"{}A\_\-B\_\-12345\char`\"{} (random integer). True MIDAS names are saved into the \_\-history\_\-index. 
+\end{DoxyItemize}
+
+\par
+
+
+\par
+ \hypertarget{F_History_logging_F_mh2sql_utility}{}\subsubsection{mh2sql -\/ import history files into SQL database.}\label{F_History_logging_F_mh2sql_utility}
+\par
+
+
+mh2sql imports history files into an SQL database in the same way as if they were written into the database by mlogger.
+
+
+\begin{DoxyItemize}
+\item {\bfseries Arguments:} \mbox{[}-\/h \mbox{]} : help -\/ prints this help message
+\end{DoxyItemize}
+
+
+\begin{DoxyItemize}
+\item {\bfseries  Usage } mh2sql odbc\_\-dsn file1.hst file2.hst ...
+\end{DoxyItemize}
+
+\par
+
+
+\par
+ \hypertarget{F_History_logging_F_mhist_utility}{}\subsubsection{mhist  -\/ history data retriever}\label{F_History_logging_F_mhist_utility}
+History data retriever.
+
+
+\begin{DoxyItemize}
+\item {\bfseries  Arguments }
+\begin{DoxyItemize}
+\item \mbox{[}-\/h \mbox{]} : help
+\item \mbox{[}-\/e Event ID\mbox{]} : specify event ID
+\item \mbox{[}-\/v Variable Name\mbox{]} : specify variable name for given Event ID
+\item \mbox{[}-\/i Index\mbox{]} : index of variables which are arrays
+\item \mbox{[}-\/i Index1:Index2\mbox{]} index range of variables which are arrays (max 50)
+\item \mbox{[}-\/t Interval\mbox{]} : minimum interval in sec. between two displayed records
+\item \mbox{[}-\/h Hours\mbox{]} : display between some hours ago and now
+\item \mbox{[}-\/d Days\mbox{]} : display between some days ago and now
+\item \mbox{[}-\/f File\mbox{]} : specify history file explicitly
+\item \mbox{[}-\/s Start date\mbox{]} : specify start date DDMMYY\mbox{[}.HHMM\mbox{[}SS\mbox{]}\mbox{]}
+\item \mbox{[}-\/p End date\mbox{]} : specify end date DDMMYY\mbox{[}.HHMM\mbox{[}SS\mbox{]}\mbox{]}
+\item \mbox{[}-\/l\mbox{]} : list available events and variables
+\item \mbox{[}-\/b\mbox{]} : display time stamp in decimal format
+\item \mbox{[}-\/z\mbox{]} : History directory (def: cwd).
+\end{DoxyItemize}
+\end{DoxyItemize}
+
+
+\begin{DoxyItemize}
+\item {\bfseries  Usage }
+\item {\bfseries  Example } 
+\begin{DoxyCode}
+  --- All variables of event ID 9 during last hour with at least 5 minutes interv
+      al.
+  > mhist
+  Available events:
+  ID 9: Target
+  ID 5: CHV
+  ID 6: B12Y
+  ID 20: System
+
+  Select event ID: 9
+
+  Available variables:
+  0: Time
+  1: Cryostat vacuum
+  2: Heat Pipe pressure
+  3: Target pressure
+  4: Target temperature
+  5: Shield temperature
+  6: Diode temperature
+
+  Select variable (0..6,-1 for all): -1
+
+  How many hours: 1
+
+  Interval [sec]: 300
+
+  Date    Time    Cryostat vacuum Heat Pipe pressure  Target pressure Target temp
+      erature      Shield temperature      Diode temperature
+  Jun 19 10:26:23 2000    104444  4.614   23.16   -0.498  22.931  82.163  40
+  Jun 19 10:31:24 2000    104956  4.602   23.16   -0.498  22.892  82.108  40
+  Jun 19 10:36:24 2000    105509  4.597   23.099  -0.498  22.892  82.126  40
+  Jun 19 10:41:33 2000    110021  4.592   23.16   -0.498  22.856  82.08   40
+  Jun 19 10:46:40 2000    110534  4.597   23.147  -0.498  22.892  82.117  40
+  Jun 19 10:51:44 2000    111046  4.622   23.172  -0.498  22.907  82.117  40
+  Jun 19 10:56:47 2000    111558  4.617   23.086  -0.498  22.892  82.117  40
+  Jun 19 11:01:56 2000    112009  4.624   23.208  -0.498  22.892  82.117  40
+  Jun 19 11:07:00 2000    112521  4.629   23.172  -0.498  22.896  82.099  40
+  Jun 19 11:12:05 2000    113034  4.639   23.074  -0.498  22.896  82.117  40
+  Jun 19 11:17:09 2000    113546  4.644   23.172  -0.498  22.892  82.126  40
+  Jun 19 11:22:15 2000    114059  4.661   23.16   -0.498  22.888  82.099  40
+\end{DoxyCode}
+
+\end{DoxyItemize}
+
+
+\begin{DoxyItemize}
+\item Single variable \char`\"{}I-\/WC1+\_\-Anode\char`\"{} of event 5 every hour over the full April 24/2000.
+\end{DoxyItemize}
+
+
+\begin{DoxyCode}
+   mhist -e 5 -v "I-WC1+_Anode" -t 3600 -s 240400 -p 250400
+  Apr 24 00:00:09 2000    160
+  Apr 24 01:00:12 2000    160
+  Apr 24 02:00:13 2000    160
+  Apr 24 03:00:14 2000    160
+  Apr 24 04:00:21 2000    180
+  Apr 24 05:00:26 2000    0
+  Apr 24 06:00:31 2000    160
+  Apr 24 07:00:37 2000    160
+  Apr 24 08:00:40 2000    160
+  Apr 24 09:00:49 2000    160
+  Apr 24 10:00:52 2000    160
+  Apr 24 11:01:01 2000    160
+  Apr 24 12:01:03 2000    160
+  Apr 24 13:01:03 2000    0
+  Apr 24 14:01:04 2000    0
+  Apr 24 15:01:05 2000    -20
+  Apr 24 16:01:11 2000    0
+  Apr 24 17:01:14 2000    0
+  Apr 24 18:01:19 2000    -20
+  Apr 24 19:01:19 2000    0
+  Apr 24 20:01:21 2000    0
+  Apr 24 21:01:23 2000    0
+  Apr 24 22:01:32 2000    0
+  Apr 24 23:01:39 2000    0
+\end{DoxyCode}
+
+\begin{DoxyItemize}
+\item {\bfseries  Remarks }: History data can be retrieved and displayed through the MIDAS web page (see \hyperlink{RC_mhttpd_utility}{mhttpd}).
+\end{DoxyItemize}
+
+
+\begin{DoxyItemize}
+\item {\bfseries  Example } \begin{center}  MIDAS Web History display.  \end{center} 
+\end{DoxyItemize}
+
+
+
+
+
+\label{F_History_logging_idx_mhdump-utility}
+\hypertarget{F_History_logging_idx_mhdump-utility}{}
+ \label{F_History_logging_idx_history_dump-files}
+\hypertarget{F_History_logging_idx_history_dump-files}{}
+ \hypertarget{F_History_logging_F_mhdump_utility}{}\subsubsection{mhdump -\/ dump history files}\label{F_History_logging_F_mhdump_utility}
+{\bfseries mhdump} is intended to be easier to use, compared to \hyperlink{F_History_logging_F_mhist_utility}{mhist}. By default it reads and decodes all the data in the given .hst files, with options to limit the decoding to specified events and tags, and an option to omit the event and tag names from the output.
+
+mhdump is completely standalone and does not require MIDAS header files and libraries. 
+\begin{DoxyCode}
+$ mhdump
+Usage: mhdump [-h] [-L] [-n] [-t] [-E event_id] [-T tag_name] file1.hst file2.hst
+       ...
+
+Switches:
+  -h --- print this help message
+  -L --- list tag definitions only
+  -t --- omit tag definitions
+  -n --- omit variable names
+
+Examples:
+  To list all existing tags: mhdump -L file1.hst file2.hst ...
+  To show data for all events, all tags: mhdump file1.hst file2.hst ...
+  To show all data for event 0: mhdump -E 0 file1.hst file2.hst ...
+  To show data for event 0, tag "State": mhdump -n -E 0 -T State file1.hst file2.
+      hst ...
+  To show data for event 3, tag "MCRT", array index 5: mhdump -n -E 3 -T MCRT[5] 
+      file1.hst file2.hst ...
+\end{DoxyCode}
+
+
+The mhdump source code and a description of the .hst file format are here: 
+\begin{DoxyCode}
+http://daq-plone.triumf.ca/SR/MIDAS/utils/mhdump/
+\end{DoxyCode}
+
+
+\par
+
+
+\par
+
+
+\label{F_History_logging_idx_History_file_format}
+\hypertarget{F_History_logging_idx_History_file_format}{}
+ \hypertarget{F_History_logging_F_History_format}{}\subsubsection{History format}\label{F_History_logging_F_History_format}
+MIDAS history data are written to MIDAS .hst files. For a complete working example of reading these files, look at mhdump.cxx.
+
+This is the internal format of MIDAS .hst files (reverse engineered by K.Olchanski).
+
+History file consists of definition records and data records. Definition records for each history event always preceed data records for this event. Other than that, definition and data records are present in the file in no particular order. If data definition changes at some point, the new definition record is written to the file and new data records follow using the new format.
+
+The data is written in native-\/endian format and big-\/endian history files (i.e. written on PowerPC-\/based computer) would not read on little-\/endian computers (i.e. Intel/AMD CPUs).
+
+When decoding history data records, be aware that the data is written on the format returned by \hyperlink{group__odbfunctionc_ga8d8bb0ee338e5fbc46fed2c29e697540}{db\_\-get\_\-data()}, and follow certain alignement rules. Misaligned data may contain empty padding bytes. 
+\begin{DoxyCode}
+definition record:
+   struct HIST_RECORD:
+      uint32_t record_type = 0x46445348 (RT_DEF)
+      uint32_t event_id    = history event id
+      uint32_t time        = unix time
+      uint32_t def_offset  = 0
+      uint32_t data_size   = size in bytes of following data = ntags*sizeof(TAG)
+   event name:
+      char name[NAME_LENGTH] = name of this event (fixed size, 32 bytes)
+   struct TAG [0]
+      char name[NAME_LENGTH] = tag name (fixed size, 32 bytes)
+      uint32_t type          = type of the data (TID_DOUBLE, etc)
+      uint32_t n_data        = 1 for single variables, number of array elements f
+      or arrays
+   struct TAG [1]
+      ...
+   struct TAG [ntags-1]
+      ...
+\end{DoxyCode}
+
+
+
+\begin{DoxyCode}
+data record:
+   struct HIST_RECORD: (same as above)
+      uint32_t record_type = 0x41445348 (RT_DATA)
+      uint32_t event_id    = history event id
+      uint32_t time        = unix time
+      uint32_t def_offset  = ???
+      uint32_t data_size   = size in bytes of following data
+   event data
+      char[data_size]      = history data for this event (see mhdump.cxx and exam
+      ples below on decoding this data
+\end{DoxyCode}
+ To decode the \char`\"{}event data\char`\"{} blob in a data record, one should parse the data definition for this event and remember the contents of all tag definitions. One way to parse the data is by computing the \char`\"{}offset\char`\"{} for each tag by adding up the tag size for each tag. For each tag, the corresponding data size is the product of n\_\-data and the size of the MIDAS type, given in this table (extracted from \hyperlink{midas_8c}{midas.c}):
+
+
+\begin{DoxyCode}
+/* data type sizes */
+int tid_size[] = {
+   0,                           /* tid == 0 not defined                          
+           */
+   1,                           /* TID_BYTE      unsigned byte         0       25
+      5    */
+   1,                           /* TID_SBYTE     signed byte         -128      12
+      7    */
+   1,                           /* TID_CHAR      single character      0       25
+      5    */
+   2,                           /* TID_WORD      two bytes             0      655
+      35   */
+
+   2,                           /* TID_SHORT     signed word        -32768    327
+      67   */
+   4,                           /* TID_DWORD     four bytes            0      2^3
+      2-1  */
+   4,                           /* TID_INT       signed dword        -2^31    2^3
+      1-1  */
+   4,                           /* TID_BOOL      four bytes bool       0        1
+           */
+   4,                           /* TID_FLOAT     4 Byte float format             
+           */
+   8,                           /* TID_DOUBLE    8 Byte float format             
+           */
+   1,                           /* TID_BITFIELD  8 Bits Bitfield    00000000 1111
+      1111 */
+   0,                           /* TID_STRING    zero terminated string          
+           */
+   0,                           /* TID_ARRAY     variable length array of unkown 
+      type */
+   0,                           /* TID_STRUCT    C structure                     
+           */
+   0,                           /* TID_KEY       key in online database          
+           */
+   0                            /* TID_LINK      link in online database         
+           */
+
+};
+\end{DoxyCode}
+
+
+Example code for computing tag offsets: 
+\begin{DoxyCode}
+int offset = 0;
+for (int itag=0; itag&lt;ntags; itag++) {
+   int size = tags[itag].n_data * tid_size[tags[itag].type];
+   type_for_tag[itag] = tags[itag].type;
+   offset_for_tag[itag] = offset;
+   offset += size;
+}
+\end{DoxyCode}
+
+
+Example code for decoding the event data blob: 
+\begin{DoxyCode}
+char *buf = new char[data_size];
+fread(buf, 1, data_size, f); // read data blob from file
+
+int itag = ...; // the tag we want to look at
+int j    = ...; // array index inside the tag
+
+int offset = offset_for_tag[itag];
+void* ptr = (void*)(buf+offset);
+
+switch (type_for_tag[itag]) {
+   default:
+      printf("unknownType%d ",type_for_tag[itag]);
+      break;
+   case 6: /* DWORD */
+      printf("%u ",((uint32_t*)ptr)[j]);
+      break;
+}
+\end{DoxyCode}
+
+
+\par
+ 
+
+\label{index_end}
+\hypertarget{index_end}{}
+ \subsubsection{Electronic logbook (Elog)}\label{F_Elog}
+\par
+ 
+
+\par
+ \label{F_Elog_idx_Elog_Introduction}
+\hypertarget{F_Elog_idx_Elog_Introduction}{}
+ \label{F_Elog_idx_Logging_Elog}
+\hypertarget{F_Elog_idx_Logging_Elog}{}
+ \hypertarget{F_Elog_F_Elog_Intro}{}\subsubsection{Introduction}\label{F_Elog_F_Elog_Intro}
+The Electronic logbook (Elog) is an alternative way of recording experiment information. This is implemented through the MIDAS web server \hyperlink{RC_mhttpd_utility}{mhttpd} (see \hyperlink{RC_mhttpd_Elog_page}{Elog page}).\hypertarget{F_Elog_F_Logger_Elog_Files_Location}{}\subsubsection{Location of Elog Files}\label{F_Elog_F_Logger_Elog_Files_Location}
+\label{F_Elog_F_Logger_Elog_Dir}
+\hypertarget{F_Elog_F_Logger_Elog_Dir}{}
+ \label{F_Elog_idx_Elog_Files_location}
+\hypertarget{F_Elog_idx_Elog_Files_location}{}
+ By default, \hyperlink{F_Elog}{elog} files are written into the directory path given by the ODB key \hyperlink{F_Logging_Data_F_Logger_Data_Dir}{Data Dir} in \hyperlink{F_Logging_Data_F_Logger_tree}{/Logger ODB tree} .
+
+This location can be changed by use of the ODB Key Elog dir in the \hyperlink{F_Logging_Data_F_Logger_tree}{/Logger ODB tree} . This key is optional and doesn't appear by default in the /Logger tree. \par
+ If this key {\bfseries is} present, the location of the \hyperlink{F_Elog}{Electronic logbook (Elog)} files is reassigned to the defined path.\hypertarget{F_Elog_F_Logger_Create_Elog_Dir}{}\paragraph{Creation of ODB Key Elog Dir}\label{F_Elog_F_Logger_Create_Elog_Dir}
+Using the \hyperlink{RC_mhttpd_ODB_page}{mhttpd ODB editor} or the \hyperlink{RC_odbedit_examples_RC_odbedit_cr}{odbedit command create} as shown below, the user may add this key: 
+\begin{DoxyCode}
+[local:Default:S]/Logger>create string "Elog dir"
+String length [32]:128
+[local:Default:S]/Logger>set "Elog dir" /mypath/elog/2009
+\end{DoxyCode}
+
+
+\par
+ 
+
+ \par
+\hypertarget{F_Elog_F_Elog_Custom}{}\subsubsection{Customizing the Elog}\label{F_Elog_F_Elog_Custom}
+The Electronic logbook (Elog) is an alternative way of recording experiment information. This is implemented through the MIDAS web server \hyperlink{RC_mhttpd_utility}{mhttpd} (see \hyperlink{RC_mhttpd_Elog_page}{Elog page} ). The /Elog tree is created automatically when the MIDAS Logger (mlogger) is started for the first time. The definition of the options are described in \hyperlink{F_Elog_F_ODB_Elog_Tree}{The ODB /Elog Tree}.
+
+\label{F_Elog_idx_ODB_tree_Elog}
+\hypertarget{F_Elog_idx_ODB_tree_Elog}{}
+ \hypertarget{F_Elog_F_ODB_Elog_Tree}{}\paragraph{The ODB /Elog Tree}\label{F_Elog_F_ODB_Elog_Tree}
+This tree describes the Elog settings used through the MIDAS web server. See \hyperlink{RC_mhttpd_Elog_page}{mhttpd Elog page} for setting up the different Elog page displays. The meaning of each key is described in the \hyperlink{F_Elog_F_ODB_Elog_Tree_Keys}{table below}.
+
+
+\begin{DoxyCode}
+[local:midas:S]/Elog>ls -lr
+Key name                        Type    #Val  Size  Last Opn Mode Value
+---------------------------------------------------------------------------
+Elog                            DIR
+   Email                       STRING  1     64    25h  0   RWD  midas@triumf.ca
+    Display run number          BOOL    1     4     25h  0   RWD  y
+    Allow delete                BOOL    1     4     25h  0   RWD  n
+    Types                       STRING  20    32    25h  0   RWD  
+                                        [0]             Routine
+                                        [1]             Shift summary
+                                        [2]             Minor error
+                                        [3]             Severe error
+                                        [4]             Fix
+                                        [5]             Question
+                                        [6]             Info
+                                        [7]             Modification
+                                        [8]             Reply
+                                        [9]             Alarm
+                                        [10]            Test
+                                        [11]            Other
+                                        [12]            
+                                        [13]            
+                                        [14]            
+                                        [15]            
+                                        [16]            
+                                        [17]            
+                                        [18]            
+                                        [19]            
+    Systems                     STRING  20    32    25h  0   RWD  
+                                        [0]             General
+                                        [1]             DAQ
+                                        [2]             Detector
+                                        [3]             Electronics
+                                        [4]             Target
+                                        [5]             Beamline
+                                        [6]             
+                                        [7]             
+                                        [8]             
+                                        [9]             
+                                        [10]            
+                                        [11]            
+                                        [12]            
+                                        [13]            
+                                        [14]            
+                                        [15]            
+                                        [16]            
+                                        [17]            
+                                        [18]            
+                                        [19]  
+Buttons                         STRING  4     32    >99d 0   RWD  
+                                        [0]             8h
+                                        [1]             24h
+                                        [2]             3d
+                                        [3]             7d
+Host name                       STRING  1     256   >99d 0   RWD  myhost.triumf.c
+      a
+Email DAQ                       STRING  1     45    >99d 0   RWD  daq@triumf.ca,j
+      ohndoe@triumf.ca
+Email Detector                  STRING  1     32    >99d 0   RWD  janedoe@triumf.
+      ca
+SMTP host                       STRING  1     32    >99d 0   RWD  localhost
+\end{DoxyCode}
+\hypertarget{F_Elog_F_ODB_Elog_Tree_Keys}{}\paragraph{Meaning of the keys in the /Elog tree}\label{F_Elog_F_ODB_Elog_Tree_Keys}
+\begin{table}[h]\begin{TabularC}{4}
+\hline
+\multirow{1}{\linewidth}{Keys in ODB /Elog tree\par
+  
+
+}\\\cline{1-1}
+Key\par
+  &Type\par
+  &Explanation\par
+  
+
+\\\cline{1-3}
+Elog  &\par
+  &DIR\par
+  &Directory containing information for the Elog (Electronic log book)  
+
+\\\cline{1-4}
+\par
+  &\label{F_Elog_idx_Elog_Email}
+\hypertarget{F_Elog_idx_Elog_Email}{}
+ \label{F_Elog_F_Email}
+\hypertarget{F_Elog_F_Email}{}
+ Email  &STRING\par
+  &Defines the Email address for the Elog reply. When a user replies to an Elog message, the message with be sent to this address.  
+
+\\\cline{1-4}
+\par
+  &\label{F_Elog_F_Display_RN}
+\hypertarget{F_Elog_F_Display_RN}{}
+ Display run number  &BOOL\par
+  &Enable/disable the run number display in the Elog entries.  
+
+\\\cline{1-4}
+\par
+  &\label{F_Elog_F_Allow_Delete}
+\hypertarget{F_Elog_F_Allow_Delete}{}
+ Allow delete  &BOOL\par
+  &Permits or prevents Elog entries from being deleted  
+
+\\\cline{1-4}
+\par
+  &\label{F_Elog_F_Types}
+\hypertarget{F_Elog_F_Types}{}
+ Types  &STRING\par
+  &Pre-\/defined array of allowed types displayed when composing an Elog entry. A maximum of 20 types are available. The list will be terminated by the encounter of the first blank type. Users can adjust this list as desired.  
+
+\\\cline{1-4}
+\par
+  &\label{F_Elog_F_Systems}
+\hypertarget{F_Elog_F_Systems}{}
+ Systems  &STRING\par
+  &Pre-\/defined array of categories displayed when composing an Elog entry. A maximum of 20 types are available. The list will be terminated by the encounter of the first blank type. Users can adjust this list as desired.  
+
+\\\cline{1-4}
+\par
+  &\label{F_Elog_F_Buttons}
+\hypertarget{F_Elog_F_Buttons}{}
+ Buttons  &STRING\par
+  &Permits the user to easily recall Elog messages for up to four possible time spans. The example above shows that all messages in the last 8 hours, 24 hours, 3 days or 7 days can be recalled by pressing the appropriate button.  
+
+\\\cline{1-4}
+\par
+  &\label{F_Elog_F_Host_name}
+\hypertarget{F_Elog_F_Host_name}{}
+ Host name  &STRING\par
+  &Host name  
+
+\\\cline{1-4}
+\par
+  &\label{F_Elog_F_Email_DAQ}
+\hypertarget{F_Elog_F_Email_DAQ}{}
+ Email DAQ  &STRING\par
+  &Optional field(s) created by user. It may be desirable that a person receives an email copy of all elog messages sent under a particular system type. The example shows that email copies of messages sent under the System types of \char`\"{}DAQ\char`\"{} and \char`\"{}Detector\char`\"{} will be sent to the addresses listed.  
+
+\\\cline{1-4}
+\par
+  &\label{F_Elog_F_SMTP_Host}
+\hypertarget{F_Elog_F_SMTP_Host}{}
+ SMTP host  &STRING\par
+  &Mail server address for routing the composed Elog message to the destination.  
+
+\\\cline{1-4}
+\end{TabularC}
+\centering
+\caption{Above: Explanation of keys in ODB /Elog tree }
+\end{table}
+
+
+The optional subtree /Elog/Forms is described on the \hyperlink{RC_mhttpd_Elog_page_RC_mhttpd_Internal_Elog_shift_check}{mhttpd Elog page}.
+
+\par
+ 
+
+ \par
+
+
+\label{F_Elog_idx_melog-utility}
+\hypertarget{F_Elog_idx_melog-utility}{}
+ \label{F_Elog_Elog_submit-entry}
+\hypertarget{F_Elog_Elog_submit-entry}{}
+ \hypertarget{F_Elog_F_melog_utility}{}\subsubsection{melog        -\/ submits an entry to the Elog}\label{F_Elog_F_melog_utility}
+Electronic Log utility. Submit full Elog entry to the specified Elog port.
+
+
+\begin{DoxyItemize}
+\item {\bfseries  Arguments }
+\begin{DoxyItemize}
+\item \mbox{[}-\/h \mbox{]} : help
+\item \mbox{[}-\/h hostname \mbox{]} : host name
+\item \mbox{[}-\/l exptname or logbook \mbox{]}
+\item \mbox{[}-\/u username password \mbox{]}
+\item \mbox{[}-\/f $<$attachment$>$ \mbox{]} : up to 10 files.
+\item -\/a $<$attribute$>$=$<$value$>$ : up to 20 attributes. The attribute \char`\"{}Author=...\char`\"{} must at least be present for submission of Elog.
+\item -\/m $<$textfile$>$ $|$ text$>$ Arguments with blanks must be enclosed in quotes. The elog message can either be submitted on the command line or in a file with the -\/m flag. Multiple attributes and attachments can be supplied.
+\end{DoxyItemize}
+\end{DoxyItemize}
+
+
+\begin{DoxyItemize}
+\item {\bfseries  Usage } By default the attributes are \char`\"{}Author\char`\"{}, \char`\"{}Type\char`\"{}, \char`\"{}System\char`\"{} and \char`\"{}Subject\char`\"{}. The \char`\"{}Author\char`\"{} attribute has to be present in the elog command in order to successfully submit the message. If multiple attributes are required append before \char`\"{}text\char`\"{} field the full specification of the attribute. In case of multiple attachements, only one \char`\"{}-\/f\char`\"{} is required followed by up to 10 file names. 
+\begin{DoxyCode}
+ >melog -h myhost -p 8081 -l myexpt -a author=pierre "Just a elog message"
+ >melog -h myhost -p 8081 -l myexpt -a author=pierre -f file2attach.txt \
+                 "Just this message with an attachement"
+ >melog -h myhost -p 8081 -l myexpt -a author=pierre -m file_containing_the_messa
+      ge.txt
+ >melog -h myhost -p 8081 -l myexpt -a Author=pierre -a Type=routine -a system=ge
+      neral \
+                 -a Subject="my test" "A full Elog message"
+\end{DoxyCode}
+
+\item {\bfseries  Remarks } none so far
+\end{DoxyItemize}
+
+
+
+\label{index_end}
+\hypertarget{index_end}{}
+ \subsubsection{Logging Utilities}\label{F_LogUtil}
+\par
+ 
+
+\par
+ \label{F_LogUtil_idx_Logging_lazylogger}
+\hypertarget{F_LogUtil_idx_Logging_lazylogger}{}
+ \label{F_LogUtil_idx_lazylogger-utility}
+\hypertarget{F_LogUtil_idx_lazylogger-utility}{}
+ \hypertarget{F_LogUtil_F_lazylogger_utility}{}\subsubsection{lazylogger  -\/ logger to copy/move stored files}\label{F_LogUtil_F_lazylogger_utility}
+lazylogger is an application which decouples the data acquisition from the data logging mechanism. The need for such application has been dictated by the slow response time of some of the media logging devices (i.e. tape devices). Delay due to tape mounting, retensioning and repositioning implies that the data acquisition has to be held until operation completion. By using \hyperlink{F_Logging_F_mlogger_utility}{mlogger} to log data to disk in a first stage and then using lazylogger to copy or move the stored files to the \char`\"{}slow device\char`\"{}, we can keep the acquisition running without interruption.
+\begin{DoxyItemize}
+\item Multiple lazyloggers can be running simultaneously on the same computer, each one taking care of a particular channel.
+\item Each lazylogger channel will have a dedicated ODB tree (see \hyperlink{F_LogUtil_F_ODB_Lazy_Tree}{ODB /Lazy Tree} ) containing its own information.
+\item All the lazylogger channels will be in the ODB under /Lazy/$<$channel-\/name$>$/...
+\item Each channel tree is composed of three sub-\/trees Settings, Statistics, List.
+\end{DoxyItemize}
+
+The Settings and Statistics trees are self-\/explanatory, and contain the operational \hyperlink{structparameters}{parameters} of the channel(s). The List key will have a dynamic list of run numbers which have been successfully dealt with by the lazylogger channel. This list won't exist until the first successful operation of the channel is completed. \label{F_LogUtil_idx_FTP_channel_lazylogger}
+\hypertarget{F_LogUtil_idx_FTP_channel_lazylogger}{}
+ While the lazylogger was developed specifically for tape device, it also supports data file transfer to FTP repository system. Improvement towards a more generic support has been done which includes:
+\begin{DoxyItemize}
+\item dynamic directory destination based on run number or date.
+\item compression copy.
+\item \char`\"{}stay behind=0\char`\"{} support.
+\item Script copy support.
+\end{DoxyItemize}
+
+
+\begin{DoxyItemize}
+\item {\bfseries  Arguments }
+\begin{DoxyItemize}
+\item \mbox{[}-\/h \mbox{]} : help.
+\item \mbox{[}-\/h hostname \mbox{]} : host name.
+\item \mbox{[}-\/e exptname \mbox{]} : experiment name.
+\item \mbox{[}-\/D \mbox{]} : start program as a daemon.
+\item \mbox{[}-\/c channel \mbox{]} : logging channel. Specify the lazylogger to activate.
+\item \mbox{[}-\/z \mbox{]} : zap statistics. Clear the statistics tree of all the defined lazylogger channels.
+\end{DoxyItemize}
+\end{DoxyItemize}
+
+\par
+
+
+\par
+
+
+\label{F_LogUtil_ODB_tree_Lazy}
+\hypertarget{F_LogUtil_ODB_tree_Lazy}{}
+ \hypertarget{F_LogUtil_F_ODB_Lazy_Tree}{}\subsubsection{ODB /Lazy Tree}\label{F_LogUtil_F_ODB_Lazy_Tree}
+This tree is used by the lazylogger (if running). It is created with default \hyperlink{structparameters}{parameters} on the first activation of the \hyperlink{F_LogUtil_F_lazylogger_utility}{lazylogger utility} . This task connects to a defined channel (e.g. Tape, Disk) when started. Multiple instances of the program can run concurrently, connecting to a different channel (see \hyperlink{F_LogUtil_F_lazylogger_utility}{lazylogger} above).
+
+The following example shows a /lazy tree with a {\itshape  $<$channel-\/name$>$ \/} of {\bfseries \char`\"{}Disk\char`\"{}}. A sub-\/tree /lazy/disk has been created, containing sub-\/trees \char`\"{}Settings\char`\"{} and \char`\"{}Statistics\char`\"{} . A third sub-\/tree \char`\"{}List\char`\"{} will be created after the first successful operation of the channel. The contents of these sub-\/trees is discussed below (see \hyperlink{F_LogUtil_F_ODB_Lazy_Settings}{Settings}, \hyperlink{F_LogUtil_F_ODB_Lazy_Statistics}{Statistics} and \hyperlink{F_LogUtil_F_ODB_Lazy_List}{List} subtrees.) 
+\begin{DoxyCode}
+[local:pol:S]/>ls /lazy/disk
+Settings
+Statistics
+List
+\end{DoxyCode}
+
+
+\par
+
+
+\par
+ \hypertarget{F_LogUtil_F_ODB_Lazy_Settings_example}{}\paragraph{Example of the  ODB /Lazy/$<$channel\_\-name$>$/Settings subtree}\label{F_LogUtil_F_ODB_Lazy_Settings_example}
+An example of the Settings subtree for a lazylogger channel is shown below:
+
+
+\begin{DoxyCode}
+    Settings                      DIR
+        Maintain free space(%)    INT     1     4     3m   0   RWD  0
+        Stay behind               INT     1     4     3m   0   RWD  -3
+        Alarm Class               STRING  1     32    3m   0   RWD  
+        Running condition         STRING  1     128   3m   0   RWD  ALWAYS
+        Data dir                  STRING  1     256   3m   0   RWD  /home/midas/o
+      nline
+        Data format               STRING  1     8     3m   0   RWD  MIDAS
+        Filename format           STRING  1     128   3m   0   RWD  run%05d.mid
+        Backup type               STRING  1     8     3m   0   RWD  Tape
+        Execute after rewind      STRING  1     64    3m   0   RWD  
+        Path                      STRING  1     128   3m   0   RWD  
+        Capacity (Bytes)          FLOAT   1     4     3m   0   RWD  5e+09
+        List label                STRING  1     128   3m   0   RWD  
+  Execute before writing file     STRING  1     64    11h  0   RWD  lazy_prewrite
+      .csh
+  Execute after writing file      STRING  1     64    11h  0   RWD  rundb_addrun.
+      pl
+  Modulo.Position                 STRING  1     8     11h  0   RWD  2.1
+  Tape Data Append                BOOL    1     4     11h  0   RWD  y
+\end{DoxyCode}
+
+
+\par
+
+
+\par
+ \hypertarget{F_LogUtil_F_ODB_Lazy_Settings}{}\paragraph{Explanation of the Keys in the  ODB /Lazy/$<$channel\_\-name$>$/Settings  subtree}\label{F_LogUtil_F_ODB_Lazy_Settings}
+The following table explains the meaning of the keys in the Settings subtree. An example of the subtree is shown \hyperlink{F_LogUtil_F_ODB_Lazy_Settings_example}{above}.
+
+\begin{table}[h]\begin{TabularC}{4}
+\hline
+Keys in the ODB tree /Lazy/$<$channel\_\-name$>$/Settings   \\\cline{1-1}
+ODB Key  &Type &Explanation 
+
+\\\cline{1-3}
+Settings  &\par
+ &DIR &ODB Settings subtree for a Lazylogger channel.  
+
+\\\cline{1-4}
+\par
+  &\label{F_LogUtil_F_Lazy_maintain_free_space}
+\hypertarget{F_LogUtil_F_Lazy_maintain_free_space}{}
+ Maintain free space(\%) &INT &As the data Logger (mlogger) runs independently from the \hyperlink{F_LogUtil_F_lazylogger_utility}{Lazylogger}, the data logging device (e.g. disk) contains all the recorded data files. Under this condition, Lazylogger can be instructed to \char`\"{}purge\char`\"{} the disk after successful backup of the data onto a \char`\"{}slow device\char`\"{} (e.g. tape). The \char`\"{}Maintain free space($\backslash$\%)\char`\"{} parameter controls the percentage of disk space required to be maintained as free (for \char`\"{}none\char`\"{} set to 0). 
+\begin{DoxyItemize}
+\item The conditions that must {\bfseries ALL} be satisfied before {\bfseries removing} a data file are defined as: 
+\begin{DoxyEnumerate}
+\item The data file corresponding to the given run number following the format declared under \hyperlink{F_LogUtil_F_Lazy_filename_format}{Settings/Filename format} IS PRESENT on the \hyperlink{F_LogUtil_F_Lazy_data_dir}{Settings/Data Dir} path. 
+\item The given run number MUST appear anywhere under the \hyperlink{F_LogUtil_F_ODB_Lazy_List}{Settings/List/} directory of ALL the Lazy channels having the same \hyperlink{F_LogUtil_F_Lazy_filename_format}{Settings/Filename format} as this channel. 
+\item The given run number MUST appear anywhere under the \hyperlink{F_LogUtil_F_ODB_Lazy_List}{Settings/List/} directory of that channel 
+\end{DoxyEnumerate}
+\end{DoxyItemize}
+
+\\\cline{1-4}
+\par
+  &\label{F_LogUtil_F_Lazy_stay_behind}
+\hypertarget{F_LogUtil_F_Lazy_stay_behind}{}
+ Stay behind  &INT &This parameter defines how many consecutive data files should be kept between the current run and the last lazylogger run.
+\begin{DoxyItemize}
+\item {\bfseries  Example with \char`\"{}Stay behind = -\/3\char`\"{} }:
+\end{DoxyItemize}
+\begin{DoxyEnumerate}
+\item Current acquisition run number 253 -\/$>$ run00253.mid is being logged by mlogger.
+\item Files available on the disk corresponding to runs \#248, \#249, \#250, \#251, \#252.
+\item Lazylogger will start backing up run \#250 as soon as the new run 254 starts.
+\item \char`\"{}Stay behind = -\/3\char`\"{} corresponds to 3 files untouched on the disk (\#251, \#252, \#253).
+\end{DoxyEnumerate}
+
+If the sign (+/-\/) of the {\bfseries \char`\"{}Stay behind\char`\"{}} parameter is
+\begin{DoxyItemize}
+\item {\bfseries negative:} the lazylogger will {\bfseries always} scan the entire disk at the \char`\"{}Data Dir\char`\"{} path, from the oldest to the most recent file present for backup.
+\item {\bfseries positive:} lazylogger will {\bfseries backup} starting from -\/x behind the current acquisition run number. Run order will be ignored.  
+\end{DoxyItemize}
+
+\\\cline{1-4}
+\par
+  &\label{F_LogUtil_F_Lazy_alarm_class}
+\hypertarget{F_LogUtil_F_Lazy_alarm_class}{}
+ Alarm Class  &STRING &Specify the \hyperlink{RC_customize_ODB_RC_alarm_classes}{Alarm class} to be used in case of an alarm being triggered.  
+
+\\\cline{1-4}
+\par
+  &\label{F_LogUtil_F_Lazy_running_condition}
+\hypertarget{F_LogUtil_F_Lazy_running_condition}{}
+ Running Condition  &STRING &Specify the type of condition for which the lazylogger should be actived. By default lazylogger is {\bfseries ALWAYS} running. The choices are
+\begin{DoxyItemize}
+\item ALWAYS, NEVER, WHILE\_\-NO\_\-ACQ\_\-RUNNING,
+\item or a condition based on a single field of the ODB key$<$=$>$value
+\end{DoxyItemize}
+
+{\bfseries  Example }: In the case of high data rate acquisition it could be necessary to activate the lazylogger only
+\begin{DoxyItemize}
+\item when the run is either paused or stopped (i.e. WHILE\_\-NO\_\-ACQ\_\-RUNNING) 
+\begin{DoxyCode}
+      odbedit> set "Running condition" WHILE_ACQ_NOT_RUNNING
+\end{DoxyCode}
+
+\item or when some external condition is satisfied such as \char`\"{}low beam intensity\char`\"{}. 
+\begin{DoxyCode}
+      odbedit> set "Running condition" "/alias/max_rate \< 200"
+\end{DoxyCode}
+  
+\end{DoxyItemize}
+
+\\\cline{1-4}
+\par
+  &\label{F_LogUtil_F_Lazy_data_dir}
+\hypertarget{F_LogUtil_F_Lazy_data_dir}{}
+ Data dir  &STRING &Specifies the data directory path of the data logging device (e.g. disk). If the Key \char`\"{}Data Dir\char`\"{} is present, the contents is taken as the path, otherwise the current directory is used (i.e. the path where the lazylogger client was started).  
+
+\\\cline{1-4}
+\par
+  &\label{F_LogUtil_F_Lazy_data_format}
+\hypertarget{F_LogUtil_F_Lazy_data_format}{}
+ Data format  &STRING &Specifies the Data Format of the data files. Currently supported formats are {\bfseries MIDAS} (Note that YBOS is no longer supported -\/ see \hyperlink{NDF_ndf_sep_2010}{Sep 2010}).  
+
+\\\cline{1-4}
+\par
+  &\label{F_LogUtil_F_Lazy_filename_format}
+\hypertarget{F_LogUtil_F_Lazy_filename_format}{}
+ Filename format  &STRING &Specifies the file format of the data files on the data logging device (i.e. disk). This should be the same \hyperlink{F_Logging_Data_F_Logger_CS_Filename}{filename format} as used by the data logger to save the files.  
+
+\\\cline{1-4}
+\par
+  &\label{F_LogUtil_F_Lazy_backup_type}
+\hypertarget{F_LogUtil_F_Lazy_backup_type}{}
+ Backup type  &STRING &Specifies the \char`\"{}slow device\char`\"{} backup type. Default {\bfseries Tape}. =======
+\begin{DoxyItemize}
+\item {\bfseries \mbox{[}Data dir\mbox{]}} Specify the Data directory path of the data files. By default if the \char`\"{}/Logger/Data Dir\char`\"{} is present, the pointed value is taken otherwise the current directory where lazylogger has been started is used. \par
+\par
+
+\item {\bfseries \mbox{[}Data format\mbox{]}} Specify the Data format of the data files. Currently supported formats are: {\bfseries MIDAS} (Note that {\bfseries YBOS} format is no longer supported -\/ see \hyperlink{NDF_ndf_sep_2010}{Sep 2010} ). \par
+\par
+
+\item {\bfseries \mbox{[}Filename format\mbox{]}} Specify the file format of the data files. Same format as given for the data logger. \par
+\par
+
+\item {\bfseries \mbox{[}Backup type\mbox{]}} Specify the \char`\"{}slow device\char`\"{} backup type. Default {\bfseries Tape}. $>$$>$$>$$>$$>$$>$$>$ .r4846 Can be {\bfseries Disk} or {\bfseries Ftp}.  
+\end{DoxyItemize}
+
+\\\cline{1-4}
+\par
+  &\label{F_LogUtil_F_Lazy_execute_after_rewind}
+\hypertarget{F_LogUtil_F_Lazy_execute_after_rewind}{}
+ Execute after rewind  &STRING &Specifies an optional script to run after completion of a lazylogger backup set (see below \char`\"{}Capacity (Bytes)\char`\"{}).  
+
+\\\cline{1-4}
+\par
+  &\label{F_LogUtil_F_Lazy_path}
+\hypertarget{F_LogUtil_F_Lazy_path}{}
+ Path  &STRING &Specifies the \char`\"{}slow device\char`\"{} path. Three possible types of Path:
+\begin{DoxyItemize}
+\item For Tape : {\bfseries /dev/nst0-\/} (UNIX like).
+\item For Disk : {\bfseries /data1/myexpt} 
+\item For Ftp : {\bfseries  host,port,user,password,directory}  
+\end{DoxyItemize}
+
+\\\cline{1-4}
+\par
+  &\label{F_LogUtil_F_Lazy_capacity}
+\hypertarget{F_LogUtil_F_Lazy_capacity}{}
+ Capacity (Bytes)  &STRING &Specifies the maximum \char`\"{}slow device\char`\"{} capacity in bytes. When this capacity is reached,the lazylogger will close the backup device and clear the \hyperlink{F_LogUtil_F_Lazy_list_label}{List Label} field to prevent further backup. It will also rewind the stream device if possible.  
+
+\\\cline{1-4}
+\par
+  &\label{F_LogUtil_F_Lazy_list_label}
+\hypertarget{F_LogUtil_F_Lazy_list_label}{}
+ List label  &STRING &Specify a label for a set of backed up files to the \char`\"{}slow device\char`\"{}. This label is used only internaly by the lazylogger for creating a new array composed of the backed up runs under the \hyperlink{F_LogUtil_F_ODB_Lazy_List}{/Settings/List} subdirectory, until the \hyperlink{F_LogUtil_F_Lazy_capacity}{Capacity} value has been reached. Once the backup set is complete, lazylogger will clear the \char`\"{}List label\char`\"{} field and therefore prevent any further backup until a non-\/empty \char`\"{}List label\char`\"{} is entered again. On the other hand the list label will remain under the /List key to display all run being backed up until the corresponding files have been removed from the disk.  
+
+\\\cline{1-4}
+\par
+  &\label{F_LogUtil_F_Lazy_exec_prew_file}
+\hypertarget{F_LogUtil_F_Lazy_exec_prew_file}{}
+ Exec preW file  &STRING &Permits a script to be run before the begining of the lazy job. The {\bfseries arguments} passed to the scripts are: {\bfseries input file name , output file name, current block number}.  
+
+\\\cline{1-4}
+\par
+  &\label{F_LogUtil_F_Lazy_exec_postw_file}
+\hypertarget{F_LogUtil_F_Lazy_exec_postw_file}{}
+ Exec postW file  &STRING &Permits a script to be run after the completion of the lazy job. The {\bfseries  arguments } passed to the scripts are: {\bfseries list label, current job number, source path, file name, file size in MB, current block number}.  
+
+\\\cline{1-4}
+\par
+  &\label{F_LogUtil_F_Lazy_modulo_position}
+\hypertarget{F_LogUtil_F_Lazy_modulo_position}{}
+ Modulo.Position  &STRING &This field is for multiple instances of the lazylogger where each instance works on a sub-\/set of run number. By specifying the Modulo.Position you're telling the current lazy instance how many instances are simultaneously running (3.) and the position of which this instance is assigned to (.1) As an example for 3 lazyloggers running simultaneously the field assignment should be : 
+\begin{DoxyCode}
+  Channel    Field    Run#
+  Lazy_1     3.0      21, 24, 27, ...
+  Lazy_2     3.1      22, 25, 28, ...
+  Lazy_3     3.2      23, 26, 29, ...
+\end{DoxyCode}
+
+
+In the example of the /Settings tree \hyperlink{F_LogUtil_F_ODB_Lazy_Settings_example}{above}, the Modulo.Position is set to 2.1 , indicating this is instance 1, and two lazyloggers are running.  
+
+\\\cline{1-4}
+\par
+  &\label{F_LogUtil_F_Lazy_tape_data_append}
+\hypertarget{F_LogUtil_F_Lazy_tape_data_append}{}
+ Tape Data Append  &BOOL &If this key is set to \char`\"{}y\char`\"{}, the spooling of the Tape device to the End\_\-of\_\-Device (EOD) before starting the lazy job is {\bfseries enabled}. This command is valid only for \char`\"{}Backup Type\char`\"{} Tape. If this flag is not enabled the lazy job starts at the current tape position.   \\\cline{1-4}
+\end{TabularC}
+\centering
+\caption{Above: meaning of keys in the /Lazy/$<$channel\_\-name$>$/Settings ODB tree }
+\end{table}
+
+
+\par
+
+
+\par
+ \hypertarget{F_LogUtil_F_ODB_Lazy_Statistics}{}\paragraph{The  ODB /Lazy/$<$channel\_\-name$>$/Statistics subtree}\label{F_LogUtil_F_ODB_Lazy_Statistics}
+The Statistics ODB subtree contains general information about the status of the current lazylogger channel.
+
+An example of the Statistics subtree for a lazylogger channel is shown below:
+
+
+\begin{DoxyCode}
+[local:pol:S]/>ls /lazy/disk/Statistics/
+Backup file                     000321.mid
+File size (Bytes)               0
+KBytes copied                   0
+Total Bytes copied              0
+Copy progress (%)               0
+Copy Rate (Bytes per s)         0
+Backup status (%)               0
+Number of Files                 173
+Current Lazy run                321
+\end{DoxyCode}
+
+
+\par
+
+
+\par
+\hypertarget{F_LogUtil_F_ODB_Lazy_List}{}\paragraph{The  ODB /Lazy/$<$channel\_\-name$>$/List subtree}\label{F_LogUtil_F_ODB_Lazy_List}
+The List ODB subtree will contain arrays of run number associated with the array name backup-\/set label (see \hyperlink{F_LogUtil_F_Lazy_list_label}{list label}) . Any run number appearing in any of the arrays is considered to have been backed up.
+
+An example of the List subtree for a lazylogger channel is shown below. In this case, the \hyperlink{F_LogUtil_F_Lazy_list_label}{list label} was set to \char`\"{}archive\char`\"{}.
+
+
+\begin{DoxyCode}
+[local:pol:S]/>ls /lazy/disk/List
+archive
+                                230
+                                231
+                                232
+                                233
+                                234
+                                235
+                                236
+                                237
+\end{DoxyCode}
+
+
+\par
+
+
+\par
+\hypertarget{F_LogUtil_F_ODB_Lazy_setup}{}\subsubsection{Setting up the Lazylogger}\label{F_LogUtil_F_ODB_Lazy_setup}
+The Lazylogger requires to be {\bfseries setup} before data file can be moved. This setup consists of 4 steps:
+
+
+\begin{DoxyEnumerate}
+\item Invoke the lazylogger once for setting up the appropriate ODB tree and exit. In this example, the channel is \char`\"{}Tape\char`\"{}. 
+\begin{DoxyCode}
+  >lazylogger -c Tape
+\end{DoxyCode}
+ 
+\item Edit the newly created ODB tree. Set the Settings field(s) to match your requirements. 
+\begin{DoxyCode}
+> odbedit -e midas
+[local:midas:Stopped]/>cd /Lazy/tape/
+[local:midas:Stopped]tape>ls
+[local:midas:Stopped]tape>ls -lr
+Key name                        Type    #Val  Size  Last Opn Mode Value
+---------------------------------------------------------------------------
+tape                            DIR
+    Settings                    DIR
+        Maintain free space(%)  INT     1     4     3m   0   RWD  0
+        Stay behind             INT     1     4     3m   0   RWD  -3
+        Alarm Class             STRING  1     32    3m   0   RWD  
+        Running condition       STRING  1     128   3m   0   RWD  ALWAYS
+        Data dir                STRING  1     256   3m   0   RWD  /home/midas/onl
+      ine
+        Data format             STRING  1     8     3m   0   RWD  MIDAS
+        Filename format         STRING  1     128   3m   0   RWD  run%05d.mid
+        Backup type             STRING  1     8     3m   0   RWD  Tape
+        Execute after rewind    STRING  1     64    3m   0   RWD  
+        Path                    STRING  1     128   3m   0   RWD  
+        Capacity (Bytes)        FLOAT   1     4     3m   0   RWD  5e+09
+        List label              STRING  1     128   3m   0   RWD  
+    Statistics                  DIR
+        Backup file             STRING  1     128   3m   0   RWD  none 
+        File size [Bytes]       DOUBLE  1     4     3m   0   RWD  0
+        KBytes copied           DOUBLE  1     4     3m   0   RWD  0
+        Total Bytes copied      DOUBLE  1     4     3m   0   RWD  0
+        Copy progress [%]       DOUBLE  1     4     3m   0   RWD  0
+        Copy Rate [bytes per s] DOUBLE  1     4     3m   0   RWD  0
+        Backup status [%]       DOUBLE  1     4     3m   0   RWD  0
+        Number of Files         INT     1     4     3m   0   RWD  0
+        Current Lazy run        INT     1     4     3m   0   RWD  0
+[local:midas:Stopped]tape>cd Settings/
+[local:midas:Stopped]Settings>set "Data dir" /data
+[local:midas:Stopped]Settings>set "Capacity (Bytes)" 15e9
+\end{DoxyCode}
+ 
+\item Start lazylogger in the background 
+\begin{DoxyCode}
+>lazylogger -c Tape -D
+\end{DoxyCode}
+ 
+\item At this point, the lazylogger is running and waiting for the \hyperlink{F_LogUtil_F_Lazy_list_label}{list label} key to be defined before starting the copy procedure. The \hyperlink{RC_Monitor_RC_mstat_utility}{mstat} utility will display information regarding the status of the lazylogger. 
+\begin{DoxyCode}
+> odbedit -e midas
+[local:midas:Stopped]/>cd /Lazy/tape/Settings
+[local:midas:Stopped]Settings>set "List label" cni-043
+\end{DoxyCode}
+
+
+\par
+
+
+\par
+
+
+
+\end{DoxyEnumerate}\hypertarget{F_LogUtil_F_ODB_Lazy_operation}{}\paragraph{Operation of the Lazylogger}\label{F_LogUtil_F_ODB_Lazy_operation}
+For every major operation of the lazylogger a message is sent to the Message buffer and will be appended to the default MIDAS log file (\hyperlink{F_Messaging_F_Log_File}{midas.log}). These messages are the only mean of finding out What/When/Where/How the lazylogger has operated on a data file. A fragment of the {\bfseries midas.log} for the chaos experiment is shown below. In this case, the \hyperlink{F_LogUtil_F_Lazy_maintain_free_space}{Maintain free space(\%)} field was enabled which produces the cleanup of the data files and the entry in the {\bfseries List} tree after copy. 
+\begin{DoxyCode}
+Fri Mar 24 14:40:08 2000 [Lazy_Tape] 8351 (rm:16050ms) /scr0/spring2000/run08351.
+      ybs file REMOVED
+Fri Mar 24 14:40:08 2000 [Lazy_Tape] Tape run#8351 entry REMOVED
+Fri Mar 24 14:59:55 2000 [Logger] stopping run after having received 1200000 even
+      ts
+Fri Mar 24 14:59:56 2000 [CHAOS] Run 8366 stopped
+Fri Mar 24 14:59:56 2000 [Logger] Run #8366 stopped
+Fri Mar 24 14:59:57 2000 [SUSI] saving info in run log
+Fri Mar 24 15:00:07 2000 [Logger] starting new run
+
+Fri Mar 24 15:00:07 2000 [CHAOS] Run 8367 started
+Fri Mar 24 15:00:07 2000 [Logger] Run #8367 started
+Fri Mar 24 15:06:59 2000 [Lazy_Tape] cni-043[15] (cp:410.6s) /dev/nst0/run08365.y
+      bs 864.020MB file NEW
+Fri Mar 24 15:07:35 2000 [Lazy_Tape] 8352 (rm:25854ms) /scr0/spring2000/run08352.
+      ybs file REMOVED
+Fri Mar 24 15:07:35 2000 [Lazy_Tape] Tape run#8352 entry REMOVED
+Fri Mar 24 15:27:09 2000 [Lazy_Tape] 8353 (rm:23693ms) /scr0/spring2000/run08353.
+      ybs file REMOVED
+Fri Mar 24 15:27:09 2000 [Lazy_Tape] Tape run#8353 entry REMOVED
+Fri Mar 24 15:33:22 2000 [Logger] stopping run after having received 1200000 even
+      ts
+Fri Mar 24 15:33:22 2000 [CHAOS] Run 8367 stopped
+Fri Mar 24 15:33:23 2000 [Logger] Run #8367 stopped
+Fri Mar 24 15:33:24 2000 [SUSI] saving info in run log
+Fri Mar 24 15:33:33 2000 [Logger] starting new run
+Fri Mar 24 15:33:34 2000 [CHAOS] Run 8368 started
+Fri Mar 24 15:33:34 2000 [Logger] Run #8368 started
+Fri Mar 24 15:40:18 2000 [Lazy_Tape] cni-043[16] (cp:395.4s) /dev/nst0/run08366.y
+      bs 857.677MB file NEW
+Fri Mar 24 15:50:15 2000 [Lazy_Tape] 8354 (rm:28867ms) /scr0/spring2000/run08354.
+      ybs file REMOVED
+Fri Mar 24 15:50:15 2000 [Lazy_Tape] Tape run#8354 entry REMOVED
+...
+\end{DoxyCode}
+
+\begin{DoxyItemize}
+\item Once the lazylogger has started a job on a data file, trying to terminate the application will result in producing a log message informing the user of the actual percentage of the backup completed so far. This message will repeat itself until completion of the backup, and only then the lazylogger application will terminate.
+\item If an interruption of the lazylogger is forced (kill...), the state of the backup device is undetermined. Recovery is not possible, and the full backup set has to be redone. In order to do this, you need:
+\item To rewind the backup device.
+\item Delete the /Lazy/$<$channel\_\-name$>$/List/$<$list label$>$ array.
+\item Restart the lazylogger with the -\/z switch which will \char`\"{}zap\char`\"{} the statistics entries.
+\item In order to facilitate the recovery procedure, lazylogger produces an ODB ASCII file of the lazy channel tree after completion of successful operation. This file ({\bfseries Tape\_\-recover.odb}) stored in \hyperlink{F_LogUtil_F_Lazy_data_dir}{Data dir} can be used for ODB as well as lazylogger recovery.
+\end{DoxyItemize}
+
+\par
+
+
+\par
+
+
+\par
+
+
+\label{F_LogUtil_idx_mchart-utility}
+\hypertarget{F_LogUtil_idx_mchart-utility}{}
+ \label{F_LogUtil_idx_stripchart}
+\hypertarget{F_LogUtil_idx_stripchart}{}
+ \hypertarget{F_LogUtil_F_mchart_utility}{}\subsubsection{mchart       -\/ assembles data for stripchart}\label{F_LogUtil_F_mchart_utility}
+mchart is a periodic data retriever of a specific path in the ODB, which can be used in conjunction with a stripchart graphic program. The mchart/stripchart feature has been largely superceded by the \hyperlink{F_History_logging_F_History_System}{MIDAS History System} .
+
+
+\begin{DoxyItemize}
+\item In the first of two-\/step procedure, a specific path in the ODB can be scanned for composing a configuration file by extracting all numerical data references {\bfseries file.conf} .
+\item In the second step, the mchart will produce (at a fixed time interval) a refreshed data file containing the values of the numerical data specified in the configuration file. This file is then available for a stripchart program to be used for a chart-\/recording type of graph. Two possible stripcharts available are:
+\end{DoxyItemize}
+
+\label{F_LogUtil_F_gstripchart}
+\hypertarget{F_LogUtil_F_gstripchart}{}
+
+
+
+\begin{DoxyItemize}
+\item {\bfseries gstripchart} The configuration file generated by mchart is compatible with the GNU stripchart which permits sophisticated data equation manipulation. On the other hand, the data display is not very fancy and provides just a basic chart recorder.
+\item \hyperlink{F_LogUtil_F_stripchartfile}{stripchart -\/ graphical stripchart data display} This tcl/tk application written by Gertjan Hofman provides a far better graphical chart recorder display tool, it also permits history save-\/set display, but the equation scheme is not implemented.
+\end{DoxyItemize}
+
+
+\begin{DoxyItemize}
+\item {\bfseries  Arguments }
+\begin{DoxyItemize}
+\item \mbox{[}-\/h \mbox{]} : help
+\item \mbox{[}-\/h hostname \mbox{]} : host name.
+\item \mbox{[}-\/e exptname \mbox{]} : experiment name.
+\item \mbox{[}-\/D \mbox{]} : start program as a daemon.
+\item \mbox{[}-\/u time\mbox{]} : data update periodicity (def:5s).
+\item \mbox{[}-\/f file\mbox{]} : file name (+.conf: if using existing file).
+\item \mbox{[}-\/q ODBpath\mbox{]} : ODB tree path for extraction of the variables.
+\item \mbox{[}-\/c \mbox{]} : ONLY creates the configuration file for later use.
+\item \mbox{[}-\/b lower\_\-value\mbox{]} : sets general lower limit for all variables.
+\item \mbox{[}-\/t upper\_\-value\mbox{]} : sets general upper limit for all variables.
+\item \mbox{[}-\/g \mbox{]} : spawn the graphical stripchart if available.
+\item \mbox{[}-\/gg \mbox{]} : force the use of gstripchart for graphic.
+\item \mbox{[}-\/gh \mbox{]} : force the use of stripchart (tcl/tk) for graphic.
+\end{DoxyItemize}
+\end{DoxyItemize}
+
+
+\begin{DoxyItemize}
+\item {\bfseries  Usage }: The configuration contains one entry for each variable found under the ODBpath requested. The format is described in the gstripchart documentation.
+\end{DoxyItemize}
+
+Once the configuration file has been created, it is possible to apply any valid operation (equation) to the \hyperlink{structparameters}{parameters} of the file following the gstripchart syntax.
+
+In the case of the use of the {\itshape stripchart\/} from G.Hofman, only the \char`\"{}filename\char`\"{}, \char`\"{}pattern\char`\"{}, \char`\"{}maximum\char`\"{}, \char`\"{}minimum\char`\"{} fields are used.
+
+When using mchart with -\/D Argument, it is necessary to have the \hyperlink{BuildingOptions_BO_MCHART_DIR}{MCHART\_\-DIR} defined in order to allow the daemon to find the location of the configuration and data files (see \hyperlink{BuildingOptions_BO_Environment_variables}{Environment variables}).
+
+
+\begin{DoxyCode}
+chaos:~/chart> more trigger.conf 
+#Equipment:            >/equipment/kos_trigger/statistics
+menu:                   on
+slider:                 on
+type:                   gtk
+minor_ticks:            12
+major_ticks:            6
+chart-interval:         1.000
+chart-filter:           0.500
+slider-interval:        0.200
+slider-filter:          0.200
+begin:        Events_sent
+  filename:     /home/chaos/chart/trigger
+  fields:       2
+  pattern:      Events_sent
+  equation:     \$2
+  color:        \$blue
+  maximum:      1083540.00
+  minimum:      270885.00
+  id_char:      1
+end:            Events_sent
+begin:        Events_per_sec.
+  filename:     /home/chaos/chart/trigger
+  fields:       2
+  pattern:      Events_per_sec.
+  equation:     $2
+  color:        \$red
+  maximum:      1305.56
+  minimum:      326.39
+  id_char:      1
+end:            Events_per_sec.
+begin:        kBytes_per_sec.
+  filename:     /home/chaos/chart/trigger
+  fields:       2
+  pattern:      kBytes_per_sec.
+  equation:     $2
+  color:        \$brown
+
+  maximum:      898.46
+  minimum:      224.61
+  id_char:      1
+end:            kBytes_per_sec.
+\end{DoxyCode}
+
+
+A second file (data file) will be updated a fixed interval by the \{{\itshape mchart\}\/} utility. 
+\begin{DoxyCode}
+  chaos:~/chart> more trigger
+    Events_sent 6.620470e+05
+    Events_per_sec. 6.463608e+02
+    kBytes_per_sec. 4.424778e+02
+\end{DoxyCode}
+
+
+
+\begin{DoxyItemize}
+\item {\bfseries  Example }
+\end{DoxyItemize}
+
+
+\begin{DoxyItemize}
+\item Creation with ODBpath being one array and one element of 2 sitting under variables/: 
+\begin{DoxyCode}
+  chaos:~/chart> mchart -f chvv -q /equipment/chv/variables/chvv -c
+  chaos:~/chart> ls -l chvv*
+  -rw-r--r--   1 chaos    users         474 Apr 18 14:37 chvv
+  -rw-r--r--   1 chaos    users        4656 Apr 18 14:37 chvv.conf
+\end{DoxyCode}
+
+\item Creation with ODBpath of all the sub-\/keys sittings in variables: 
+\begin{DoxyCode}
+  mchart -e myexpt -h myhost -f chv -q /equipment/chv/variables -c
+\end{DoxyCode}
+
+\item Creation and running in debug: 
+\begin{DoxyCode}
+  chaos:~/chart> mchart -f chv -q /equipment/chv/variables -d
+  CHVV : size:68
+
+  #name:17 #Values:17
+  CHVI : size:68
+\end{DoxyCode}
+
+\item Running a pre-\/existing conf file (chv.conf) debug: 
+\begin{DoxyCode}
+  chaos:~/chart> mchart -f chv.conf -d
+  CHVV : size:68
+  #name:17 #Values:17
+  CHVI : size:68
+  #name:17 #Values:17
+\end{DoxyCode}
+
+\item Running a pre-\/existing configuration file and spawning \hyperlink{F_LogUtil_F_gstripchart}{F\_\-gstripchart} : 
+\begin{DoxyCode}
+  chaos:~/chart> mchart -f chv.conf -gg
+  spawning graph with gstripchart -g 500x200-200-800 -f /home/chaos/chart/chv.con
+      f ...
+\end{DoxyCode}
+
+\end{DoxyItemize}
+
+
+\begin{DoxyItemize}
+\item Running a pre-\/existing configuration file and spawning stripchart, this will work only if Tcl/Tk and bltwish packages are installed and the stripchart.tcl has been installed through the MIDAS Makefile. 
+\begin{DoxyCode}
+  chaos:~/chart> mchart -f chv.conf -gh
+  spawning graph with stripchart /home/chaos/chart/chv.conf ...
+\end{DoxyCode}
+
+\end{DoxyItemize}
+
+\label{F_LogUtil_idx_mtape_utility}
+\hypertarget{F_LogUtil_idx_mtape_utility}{}
+ 
+
+ \hypertarget{F_LogUtil_F_mtape_utility}{}\subsubsection{mtape  -\/ tape manipulation}\label{F_LogUtil_F_mtape_utility}
+Tape manipulation utility.
+
+
+\begin{DoxyItemize}
+\item {\bfseries  Arguments }
+\begin{DoxyItemize}
+\item \mbox{[}-\/h \mbox{]} : help
+\item \mbox{[}-\/h hostname \mbox{]} : host name
+\item \mbox{[}-\/e exptname \mbox{]} : experiment name
+\item \mbox{[}-\/D \mbox{]} : start program as a daemon
+\end{DoxyItemize}
+\end{DoxyItemize}
+
+
+\begin{DoxyItemize}
+\item {\bfseries  Usage }
+\item {\bfseries  Example } 
+\begin{DoxyCode}
+ >mtape
+\end{DoxyCode}
+
+\end{DoxyItemize}
+
+
+
+ \hypertarget{F_LogUtil_F_stripchartfile}{}\subsubsection{stripchart   -\/ graphical stripchart data display}\label{F_LogUtil_F_stripchartfile}
+This is a tcl file (stripchart.tcl) which operates on \hyperlink{F_LogUtil_F_mchart_utility}{mchart -\/ assembles data for stripchart} data or on MIDAS history save-\/set files (see also \hyperlink{F_History_logging_F_History_System}{MIDAS History System}).
+
+
+\begin{DoxyItemize}
+\item {\bfseries  Arguments }
+\begin{DoxyItemize}
+\item \mbox{[}-\/mhist \mbox{]} : start stripchart for MIDAS history data.
+\end{DoxyItemize}
+\item {\bfseries  Usage }: stripchart $<$-\/options$>$ $<$config-\/file$>$ -\/mhist: (look at history file -\/default) -\/dmhist: debug mhist -\/debug: debug stripchart -\/config\_\-file: see F\_\-mchart\_\-utility 
+\begin{DoxyCode}
+ > stripchart.tcl -debug
+
+ > stripchart.tcl
+\end{DoxyCode}
+
+\item {\bfseries  Example } 
+\begin{DoxyCode}
+ > stripchart.tcl -h
+\end{DoxyCode}
+
+\end{DoxyItemize}
+
+\begin{center}  gstripchart display with \hyperlink{structparameters}{parameters} and data pop-\/up.  \end{center} 
+
+\begin{center}  stripchart.tcl mhist mode: main window with pull-\/downs.  \end{center} 
+
+\begin{center}  stripchart.tcl Online data, running in conjunction with mchart  \end{center} 
+
+
+
+\par
+ \label{index_end}
+\hypertarget{index_end}{}
+ 

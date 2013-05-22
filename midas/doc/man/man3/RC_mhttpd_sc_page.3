@@ -1,0 +1,115 @@
+.TH "RC_mhttpd_sc_page" 3 "31 May 2012" "Version 2.3.0-0" "Midas" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+RC_mhttpd_sc_page \- Slow Control page 
+ 
+.br
+.PP
+.PP
+
+.br
+ 
+.SH "Introduction"
+.PP
+The Slow Control page refers to the specific display of a \fBSlow Control Equipment\fP (see \fBSlow Control System\fP). This is a special \fBEquipment page\fP that may be accessed from the \fBmain status page\fP by clicking on the \fBEquipment Hyperlink\fP. The Slow Control page will show a parameter table (such as those shown below). Parameters that are editable will be hyperlinked for parameter modification. This option is possible only if the parameter names have a particular \fBname\fP \fBsyntax\fP.
+.SH "Name Syntax for Slow Control Page"
+.PP
+The name syntax is similar to that already described on the \fBEquipment Page\fP, where the Equipment variables are located in the /Equipment/<equipment-name>/Variables subtree with the matching information defined under the /Equipment/<equipment-name>/Settings subtree. Additinally, for a Slow Control Equipment each variable in the table may be \fBeditable\fP depending on the following rules :
+.PP
+.IP "\(bu" 2
+If the variable name is defined under the 'Settings/' directory
+.IP "  1." 6
+as one of the following names, it will be editable by default:
+.IP "    \(bu" 6
+in a \fB'Demand'\fP array or
+.IP "    \(bu" 6
+in an \fB'Output'\fP array or
+.IP "    \(bu" 6
+as \fB'D_<var_name>'\fP 
+.PP
+
+.PP
+
+.PP
+.PP
+.IP "1." 4
+the variable is ALSO defined under the array'Settings/Editable[]'
+.IP "  \(bu" 4
+it will be editable.
+.PP
+
+.PP
+.PP
+This information will be combined to compose a table. 
+.PP
+.nf
+[local:Default:S]/>cd Equipment/MSCB/Settings/
+[local:Default:S]Settings>ls
+[local:Default:S]Settings>ls
+Names
+                                Drift Voltage (KV)
+                                Drift Current (uA)
+                                uC Temperature (C)
+DD
+Offset
+                                0
+                                1
+                                1
+Gain
+                                0
+                                3
+                                4
+Editable                        Gain
+
+.fi
+.PP
+.PP
+
+.br
+
+.br
+
+.br
+   Slow control Equipment page. 
+.br
+
+.br
+
+.br
+   
+.br
+
+.br
+
+.br
+.PP
+The following is an example of a Slow Control Page from another experiment, showing a High Voltage system for two crates, with multiple \fBparameters\fP set up.
+.PP
+
+.br
+
+.br
+
+.br
+   Slow control page for a High Voltage system. 
+.br
+
+.br
+
+.br
+   
+.br
+
+.br
+
+.br
+.PP
+
+.br
+.PP
+.PP
+
+.br
+.PP
+ 

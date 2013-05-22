@@ -1,0 +1,14 @@
+<map id="G" name="G">
+<area shape="rect" id="node2" href="$a00012.html" title="TCanvasHandleBase" alt="" coords="1931,8,2088,37"/>
+<area shape="rect" id="node14" href="$a00037.html" title="TRootanaDisplay" alt="" coords="1943,712,2076,741"/>
+<area shape="rect" id="node9" href="$a00023.html" title="THistogramArrayBase" alt="" coords="1925,1745,2093,1774"/>
+<area shape="rect" id="node11" href="$a00044.html" title="std::vector\&lt;TH1*\&gt;" alt="" coords="1459,1745,1613,1774"/>
+<area shape="rect" id="node16" href="$a00038.html" title="TRootanaEventLoop" alt="" coords="1457,425,1615,454"/>
+<area shape="rect" id="node22" href="$a00019.html" title="TDirectory" alt="" coords="996,694,1089,724"/>
+<area shape="rect" id="node24" href="$a00033.html" title="TNamed" alt="" coords="631,790,708,820"/>
+<area shape="rect" id="node44" href="$a00015.html" title="TDataContainer" alt="" coords="977,212,1108,241"/>
+<area shape="rect" id="node48" href="$a00030.html" title="MIDAS event." alt="" coords="615,176,724,205"/>
+<area shape="rect" id="node50" href="$a00029.html" title="Event header." alt="" coords="231,318,415,348"/>
+<area shape="rect" id="node70" href="$a00024.html" title="TMainDisplayWindow" alt="" coords="1456,1314,1616,1344"/>
+<area shape="rect" id="node65" href="$a00045.html" title="Interface class for ODB access." alt="" coords="997,369,1088,398"/>
+</map>

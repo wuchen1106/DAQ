@@ -1,0 +1,153 @@
+.TH "FE_event_notification" 3 "31 May 2012" "Version 2.3.0-0" "Midas" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+FE_event_notification \- Frontend Event Notification 
+
+.br
+ 
+.PP
+We have already seen how some values in the Equipment/Settings area are \fBautomatically hot-linked\fP for convenience. Most frontends also contain user-defined \fBhot-links\fP for event notification. These are often used to set or read back hardware value(s) with \fBimmediate\fP \fBeffect\fP, based on the user changing a setting in the ODB. These are described (with an example) in \fBEvent Notification (Hot-Link)\fP .
+.PP
+
+.br
+.PP
+
+.br
+  
+.SH "Deferred Transition"
+.PP
+This option permits the user to \fBpostpone any transition issued by any requester until some condition is satisfied.\fP 
+.br
+ For example:
+.IP "\(bu" 2
+It may not be advisable to pause or stop a run until some hardware has turned off a particular valve.
+.IP "\(bu" 2
+The start of the acquisition system should be postponed until the beam rate has been stable for a given period of time.
+.IP "\(bu" 2
+While active, a particular acquisition system should not be interrupted until the 'cycle' is completed.
+.PP
+.PP
+In these examples, any application having access to the state of the hardware can register to be a 'transition Deferred' client. The MIDAS system will then catch any transition request and postpone the trigger of such a transition until the condition is satisfied. 
+.br
+ The Deferred_Transition requires 3 steps for setup:
+.PP
+.IP "\(bu" 2
+Register for the deferred transition. 
+.PP
+.nf
+    //-- Frontend Init
+    INT frontend_init()
+    {
+      INT    status, index, size;
+      BOOL   found=FALSE;
+
+      // register for deferred transition
+
+      cm_register_deferred_transition(TR_STOP, wait_end_cycle);
+      cm_register_deferred_transition(TR_PAUSE, wait_end_cycle);
+      ...  
+
+.fi
+.PP
+
+.IP "\(bu" 2
+Provide callback function to serve the deferred transition 
+.PP
+.nf
+  //-- Deferred transition callback
+  BOOL wait_end_cycle(int transition, BOOL first)
+  {
+    if (first)
+    {
+      transition_PS_requested = TRUE;
+      return FALSE;
+
+
+    }
+
+    if (end_of_mcs_cycle)
+
+    {
+      transition_PS_requested = FALSE;
+      end_of_mcs_cycle = FALSE;
+      return TRUE;
+
+    else
+      return FALSE;
+    ...
+
+.fi
+.PP
+
+.IP "\(bu" 2
+Implement the condition code
+.PP
+.PP
+.PP
+.nf
+  ... In this case at the end of the readout function...
+    ...
+
+  INT read_mcs_event(char *pevent, INT offset)
+  {
+    ...
+
+    if (transition_PS_requested)
+    {
+      // Prevent getting a new MCS event by skipping re_arm_cycle and GE by GE_DISABLE LAM
+      cam_lam_disable(JW_C,JW_N);
+      cam_lam_disable(GE_C,GE_N);
+      cam_lam_clear(JW_C,JW_N);
+
+      cam_lam_clear(GE_C,GE_N);
+      camc(GE_C,GE_N,0,GE_DISABLE);
+      end_of_mcs_cycle = TRUE;
+
+    re_arm_cycle(); 
+   return bk_size(pevent);
+.fi
+.PP
+.PP
+In the example above,
+.PP
+.IP "\(bu" 2
+The frontend code is registered for PAUSE and STOP using \fIcm_register_deferred_transition\fP. 
+.br
+ The second argument \fIwait_end_cycle\fP is the declaration of the callback function.
+.PP
+.PP
+.IP "\(bu" 2
+The callback function \fIwait_end_cycle\fP will be called as soon as the transition is requested with the Boolean flag \fIfirst\fP set to TRUE.
+.IP "\(bu" 2
+By setting \fItransition_PS_requested\fP to TRUE , the user will be provided with the acknowledgment of the transition request.
+.IP "\(bu" 2
+By returning FALSE from the callback, the transition is prevented from occurring.
+.PP
+.PP
+.IP "\(bu" 2
+As soon as the user condition is satisfied (end_of_mcs_cycle = TRUE), the return code in the callback will be set to TRUE and the requested transition will be issued.
+.PP
+.PP
+The Deferred transition appears in the ODB under \fB/runinfo/Requested transition\fP and will contain the transition code (see \fBMIDAS State and Transition Codes\fP ).
+.PP
+When the system is in deferred state, an ODBedit override command can be issued to \fBforce\fP the transition to happen. eg: 
+.PP
+.nf
+C:\online>odbedit
+ [local]/>stop now 
+ [local]/>start now
+
+.fi
+.PP
+.PP
+This overide will call the transition function regardless of the state of the hardware involved.
+.PP
+
+.br
+ 
+.PP
+
+.br
+.PP
+ 

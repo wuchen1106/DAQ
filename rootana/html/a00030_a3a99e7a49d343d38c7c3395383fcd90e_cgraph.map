@@ -1,0 +1,5 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$a00030.html#a892acc37f677273cb286c1cc18174bf1" title="returns &quot;true&quot; if event uses 32&#45;bit banks" alt="" coords="276,5,455,35"/>
+<area shape="rect" id="node5" href="$a00030.html#af2ad694c11698d4c7145328c742cec4a" title="iterate through 16&#45;bit data banks" alt="" coords="265,59,465,88"/>
+<area shape="rect" id="node7" href="$a00030.html#a31219788e979aa3485cbf2e98dccd848" title="iterate through 32&#45;bit data banks" alt="" coords="257,112,473,141"/>
+</map>

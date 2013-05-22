@@ -1,0 +1,367 @@
+\subsection{Midas VME standard}
+\label{group__mvmestdinclude}\index{Midas VME standard@{Midas VME standard}}
+\subsubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structMVME__INTERFACE}{MVME\_\-INTERFACE}
+\end{DoxyCompactItemize}
+\subsubsection*{Modules}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{group__mvmestdfunctionh}{VME Functions (mvme\_\-xxx)}
+\end{DoxyCompactItemize}
+\subsubsection*{Defines}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{group__mvmestdinclude_ga1671785ba0bbf639935547e7b1d3f641}{MVME\_\-SUCCESS}~1
+\item 
+\#define \hyperlink{group__mvmestdinclude_ga7e9bd9d8731cf357b74b477d86e3871e}{MVME\_\-DMODE\_\-D8}~1
+\item 
+\#define \hyperlink{group__mvmestdinclude_ga36525e38132744a48e26d7ee2b158d2c}{MVME\_\-DMODE\_\-D16}~2
+\item 
+\#define \hyperlink{group__mvmestdinclude_ga1106eeff8cdbd2cfb5516f7feea8c1ff}{MVME\_\-DMODE\_\-D32}~3
+\item 
+\#define \hyperlink{group__mvmestdinclude_ga072f6459693256bff0c351153baf6dc5}{MVME\_\-DMODE\_\-D64}~4
+\item 
+\#define \hyperlink{group__mvmestdinclude_gad828794144a2e8bc886603ec200ae285}{MVME\_\-DMODE\_\-RAMD16}~5
+\item 
+\#define \hyperlink{group__mvmestdinclude_gaf33ae8d3aca31ae4679f0a12647071b8}{MVME\_\-DMODE\_\-RAMD32}~6
+\item 
+\#define \hyperlink{group__mvmestdinclude_ga9da3a119be8e2aaf29f8858495e6b2b8}{MVME\_\-DMODE\_\-LM}~7
+\item 
+\#define \hyperlink{group__mvmestdinclude_ga820b9a818f3f5b5741c6bd20ebf0cead}{MVME\_\-BLT\_\-NONE}~1
+\item 
+\#define \hyperlink{group__mvmestdinclude_ga27ecf7af5c7788bc6e59ad1084112759}{MVME\_\-BLT\_\-BLT32}~2
+\item 
+\#define \hyperlink{group__mvmestdinclude_ga29f0f94e8421c77f5bd0da963fbab2ab}{MVME\_\-BLT\_\-MBLT64}~3
+\item 
+\#define \hyperlink{group__mvmestdinclude_gac50f921d73b6b2e78540d734bed2cf05}{MVME\_\-BLT\_\-2EVME}~4
+\item 
+\#define \hyperlink{group__mvmestdinclude_gab2a0692732d5c4514218c4eeb9257567}{MVME\_\-BLT\_\-2ESST}~5
+\item 
+\#define \hyperlink{group__mvmestdinclude_ga8555fba49268cce0bc9daf90c3c052ff}{MVME\_\-BLT\_\-BLT32FIFO}~6
+\item 
+\#define \hyperlink{group__mvmestdinclude_gaab423ba16ad8c2f328862e7090cea712}{MVME\_\-BLT\_\-MBLT64FIFO}~7
+\item 
+\#define \hyperlink{group__mvmestdinclude_ga2b64419d5ad7dc206d4b4005368e6651}{MVME\_\-BLT\_\-2EVMEFIFO}~8
+\item 
+\#define \hyperlink{group__mvmestdinclude_ga8e19f6f8b7c77ba0700df4c8b4980163}{MVME\_\-AM\_\-A32\_\-SB}~(0x0F)
+\item 
+\#define \hyperlink{group__mvmestdinclude_gab1a3c7875d40430fa853e67739c78371}{MVME\_\-AM\_\-A32\_\-SP}~(0x0E)
+\item 
+\#define \hyperlink{group__mvmestdinclude_gac37a7339f5a193bdf0265f49aedb4696}{MVME\_\-AM\_\-A32\_\-SD}~(0x0D)
+\item 
+\#define \hyperlink{group__mvmestdinclude_ga89dedae70a7277e2091f7a7f66d28a01}{MVME\_\-AM\_\-A32\_\-NB}~(0x0B)
+\item 
+\#define \hyperlink{group__mvmestdinclude_ga2ad16250f1ba34f2990d8a88e62beb24}{MVME\_\-AM\_\-A32\_\-NP}~(0x0A)
+\item 
+\#define \hyperlink{group__mvmestdinclude_gafc80e688bd7646b4e6a52a49ab42d9b9}{MVME\_\-AM\_\-A32\_\-ND}~(0x09)
+\item 
+\#define \hyperlink{group__mvmestdinclude_gac536941f770602aece8422c1116dc1bd}{MVME\_\-AM\_\-A32\_\-SMBLT}~(0x0C)
+\item 
+\#define \hyperlink{group__mvmestdinclude_ga4a2020bb04f39a29cca6e3dc07615664}{MVME\_\-AM\_\-A32\_\-NMBLT}~(0x08)
+\item 
+\#define \hyperlink{group__mvmestdinclude_gafb3974875e67dd56677d8827da813aed}{MVME\_\-AM\_\-A24\_\-SB}~(0x3F)
+\item 
+\#define \hyperlink{group__mvmestdinclude_ga086f24604509da1e2cedd0593b3deaab}{MVME\_\-AM\_\-A24\_\-SP}~(0x3E)
+\item 
+\#define \hyperlink{group__mvmestdinclude_ga660f4364bb3473787e104621504a102b}{MVME\_\-AM\_\-A24\_\-SD}~(0x3D)
+\item 
+\#define \hyperlink{group__mvmestdinclude_ga7df6e64988001896058d216dc3e375a1}{MVME\_\-AM\_\-A24\_\-NB}~(0x3B)
+\item 
+\#define \hyperlink{group__mvmestdinclude_ga330662e4b7f7f421c8c12c9ec63128e3}{MVME\_\-AM\_\-A24\_\-NP}~(0x3A)
+\item 
+\#define \hyperlink{group__mvmestdinclude_ga803ae58eabffb7258a6b07843c6c2523}{MVME\_\-AM\_\-A24\_\-ND}~(0x39)
+\item 
+\#define \hyperlink{group__mvmestdinclude_ga06bd96ee4af5c67cde69e923e50d463f}{MVME\_\-AM\_\-A24\_\-SMBLT}~(0x3C)
+\item 
+\#define \hyperlink{group__mvmestdinclude_ga7b46ba6108b0d9b5248318ca29e9df95}{MVME\_\-AM\_\-A24\_\-NMBLT}~(0x38)
+\item 
+\#define \hyperlink{group__mvmestdinclude_gaf0a01859770bb4849814cd77f2812908}{MVME\_\-AM\_\-A16\_\-SD}~(0x2D)
+\item 
+\#define \hyperlink{group__mvmestdinclude_gaac7d8e02b3139be0c6943e1d2f0a8361}{MVME\_\-AM\_\-A16\_\-ND}~(0x29)
+\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+dox 
+
+\subsubsection{Define Documentation}
+\index{mvmestdinclude@{mvmestdinclude}!MVME\_\-ACCESS\_\-ERROR@{MVME\_\-ACCESS\_\-ERROR}}
+\index{MVME\_\-ACCESS\_\-ERROR@{MVME\_\-ACCESS\_\-ERROR}!mvmestdinclude@{mvmestdinclude}}
+\paragraph[{MVME\_\-ACCESS\_\-ERROR}]{\setlength{\rightskip}{0pt plus 5cm}\#define MVME\_\-ACCESS\_\-ERROR~7}\hfill\label{group__mvmestdinclude_ga727cbc169f0f84cbe9fe93051a74491f}
+
+
+Definition at line 67 of file mvmestd.h.\index{mvmestdinclude@{mvmestdinclude}!MVME\_\-AM\_\-A16@{MVME\_\-AM\_\-A16}}
+\index{MVME\_\-AM\_\-A16@{MVME\_\-AM\_\-A16}!mvmestdinclude@{mvmestdinclude}}
+\paragraph[{MVME\_\-AM\_\-A16}]{\setlength{\rightskip}{0pt plus 5cm}\#define MVME\_\-AM\_\-A16~MVME\_\-AM\_\-A16\_\-SD}\hfill\label{group__mvmestdinclude_gacff1e71dbcb7a864f560fe5b0458512c}
+
+
+Definition at line 130 of file mvmestd.h.
+
+Referenced by regRead(), regReadFloat(), regWrite(), and regWriteFloat().\index{mvmestdinclude@{mvmestdinclude}!MVME\_\-AM\_\-A16\_\-ND@{MVME\_\-AM\_\-A16\_\-ND}}
+\index{MVME\_\-AM\_\-A16\_\-ND@{MVME\_\-AM\_\-A16\_\-ND}!mvmestdinclude@{mvmestdinclude}}
+\paragraph[{MVME\_\-AM\_\-A16\_\-ND}]{\setlength{\rightskip}{0pt plus 5cm}\#define MVME\_\-AM\_\-A16\_\-ND~(0x29)}\hfill\label{group__mvmestdinclude_gaac7d8e02b3139be0c6943e1d2f0a8361}
+A16 Short Non-\/Privileged Data Access 
+
+Definition at line 128 of file mvmestd.h.
+
+Referenced by VPPGRegRead(), and VPPGRegWrite().\index{mvmestdinclude@{mvmestdinclude}!MVME\_\-AM\_\-A16\_\-SD@{MVME\_\-AM\_\-A16\_\-SD}}
+\index{MVME\_\-AM\_\-A16\_\-SD@{MVME\_\-AM\_\-A16\_\-SD}!mvmestdinclude@{mvmestdinclude}}
+\paragraph[{MVME\_\-AM\_\-A16\_\-SD}]{\setlength{\rightskip}{0pt plus 5cm}\#define MVME\_\-AM\_\-A16\_\-SD~(0x2D)}\hfill\label{group__mvmestdinclude_gaf0a01859770bb4849814cd77f2812908}
+A16 Short Supervisory Data Access 
+
+Definition at line 127 of file mvmestd.h.\index{mvmestdinclude@{mvmestdinclude}!MVME\_\-AM\_\-A24@{MVME\_\-AM\_\-A24}}
+\index{MVME\_\-AM\_\-A24@{MVME\_\-AM\_\-A24}!mvmestdinclude@{mvmestdinclude}}
+\paragraph[{MVME\_\-AM\_\-A24}]{\setlength{\rightskip}{0pt plus 5cm}\#define MVME\_\-AM\_\-A24~MVME\_\-AM\_\-A24\_\-SD}\hfill\label{group__mvmestdinclude_ga501fb1503ced266bf69999572dd9f54f}
+
+
+Definition at line 124 of file mvmestd.h.
+
+Referenced by regRead(), regWrite(), v1190\_\-Read16(), v1190\_\-Read32(), v1190\_\-Write16(), v560\_\-Read(), v895\_\-readReg16(), v895\_\-readReg8(), v895\_\-writeReg16(), and v895\_\-writeReg8().\index{mvmestdinclude@{mvmestdinclude}!MVME\_\-AM\_\-A24\_\-D64@{MVME\_\-AM\_\-A24\_\-D64}}
+\index{MVME\_\-AM\_\-A24\_\-D64@{MVME\_\-AM\_\-A24\_\-D64}!mvmestdinclude@{mvmestdinclude}}
+\paragraph[{MVME\_\-AM\_\-A24\_\-D64}]{\setlength{\rightskip}{0pt plus 5cm}\#define MVME\_\-AM\_\-A24\_\-D64~MVME\_\-AM\_\-A24\_\-SMBLT}\hfill\label{group__mvmestdinclude_gaac9badc5fe696517d50141d72246e63f}
+
+
+Definition at line 125 of file mvmestd.h.\index{mvmestdinclude@{mvmestdinclude}!MVME\_\-AM\_\-A24\_\-NB@{MVME\_\-AM\_\-A24\_\-NB}}
+\index{MVME\_\-AM\_\-A24\_\-NB@{MVME\_\-AM\_\-A24\_\-NB}!mvmestdinclude@{mvmestdinclude}}
+\paragraph[{MVME\_\-AM\_\-A24\_\-NB}]{\setlength{\rightskip}{0pt plus 5cm}\#define MVME\_\-AM\_\-A24\_\-NB~(0x3B)}\hfill\label{group__mvmestdinclude_ga7df6e64988001896058d216dc3e375a1}
+A24 Standard Non-\/Privileged Block Transfer 
+
+Definition at line 118 of file mvmestd.h.\index{mvmestdinclude@{mvmestdinclude}!MVME\_\-AM\_\-A24\_\-ND@{MVME\_\-AM\_\-A24\_\-ND}}
+\index{MVME\_\-AM\_\-A24\_\-ND@{MVME\_\-AM\_\-A24\_\-ND}!mvmestdinclude@{mvmestdinclude}}
+\paragraph[{MVME\_\-AM\_\-A24\_\-ND}]{\setlength{\rightskip}{0pt plus 5cm}\#define MVME\_\-AM\_\-A24\_\-ND~(0x39)}\hfill\label{group__mvmestdinclude_ga803ae58eabffb7258a6b07843c6c2523}
+A24 Standard Non-\/Privileged Data Access 
+
+Definition at line 120 of file mvmestd.h.
+
+Referenced by begin\_\-of\_\-run(), frontend\_\-init(), vmeio\_\-AsyncRead(), vmeio\_\-AsyncWrite(), vmeio\_\-CsrRead(), vmeio\_\-IntEnable(), vmeio\_\-IntRearm(), vmeio\_\-OutputSet(), vmeio\_\-StrobeClear(), vmeio\_\-SyncRead(), and vmeio\_\-SyncWrite().\index{mvmestdinclude@{mvmestdinclude}!MVME\_\-AM\_\-A24\_\-NMBLT@{MVME\_\-AM\_\-A24\_\-NMBLT}}
+\index{MVME\_\-AM\_\-A24\_\-NMBLT@{MVME\_\-AM\_\-A24\_\-NMBLT}!mvmestdinclude@{mvmestdinclude}}
+\paragraph[{MVME\_\-AM\_\-A24\_\-NMBLT}]{\setlength{\rightskip}{0pt plus 5cm}\#define MVME\_\-AM\_\-A24\_\-NMBLT~(0x38)}\hfill\label{group__mvmestdinclude_ga7b46ba6108b0d9b5248318ca29e9df95}
+A24 Multiplexed Block Transfer (D64) 
+
+Definition at line 122 of file mvmestd.h.\index{mvmestdinclude@{mvmestdinclude}!MVME\_\-AM\_\-A24\_\-NP@{MVME\_\-AM\_\-A24\_\-NP}}
+\index{MVME\_\-AM\_\-A24\_\-NP@{MVME\_\-AM\_\-A24\_\-NP}!mvmestdinclude@{mvmestdinclude}}
+\paragraph[{MVME\_\-AM\_\-A24\_\-NP}]{\setlength{\rightskip}{0pt plus 5cm}\#define MVME\_\-AM\_\-A24\_\-NP~(0x3A)}\hfill\label{group__mvmestdinclude_ga330662e4b7f7f421c8c12c9ec63128e3}
+A24 Standard Non-\/Privileged Program Access 
+
+Definition at line 119 of file mvmestd.h.\index{mvmestdinclude@{mvmestdinclude}!MVME\_\-AM\_\-A24\_\-SB@{MVME\_\-AM\_\-A24\_\-SB}}
+\index{MVME\_\-AM\_\-A24\_\-SB@{MVME\_\-AM\_\-A24\_\-SB}!mvmestdinclude@{mvmestdinclude}}
+\paragraph[{MVME\_\-AM\_\-A24\_\-SB}]{\setlength{\rightskip}{0pt plus 5cm}\#define MVME\_\-AM\_\-A24\_\-SB~(0x3F)}\hfill\label{group__mvmestdinclude_gafb3974875e67dd56677d8827da813aed}
+A24 Standard Supervisory Block Transfer 
+
+Definition at line 115 of file mvmestd.h.\index{mvmestdinclude@{mvmestdinclude}!MVME\_\-AM\_\-A24\_\-SD@{MVME\_\-AM\_\-A24\_\-SD}}
+\index{MVME\_\-AM\_\-A24\_\-SD@{MVME\_\-AM\_\-A24\_\-SD}!mvmestdinclude@{mvmestdinclude}}
+\paragraph[{MVME\_\-AM\_\-A24\_\-SD}]{\setlength{\rightskip}{0pt plus 5cm}\#define MVME\_\-AM\_\-A24\_\-SD~(0x3D)}\hfill\label{group__mvmestdinclude_ga660f4364bb3473787e104621504a102b}
+A24 Standard Supervisory Data Access 
+
+Definition at line 117 of file mvmestd.h.\index{mvmestdinclude@{mvmestdinclude}!MVME\_\-AM\_\-A24\_\-SMBLT@{MVME\_\-AM\_\-A24\_\-SMBLT}}
+\index{MVME\_\-AM\_\-A24\_\-SMBLT@{MVME\_\-AM\_\-A24\_\-SMBLT}!mvmestdinclude@{mvmestdinclude}}
+\paragraph[{MVME\_\-AM\_\-A24\_\-SMBLT}]{\setlength{\rightskip}{0pt plus 5cm}\#define MVME\_\-AM\_\-A24\_\-SMBLT~(0x3C)}\hfill\label{group__mvmestdinclude_ga06bd96ee4af5c67cde69e923e50d463f}
+A24 Multiplexed Block Transfer (D64) 
+
+Definition at line 121 of file mvmestd.h.\index{mvmestdinclude@{mvmestdinclude}!MVME\_\-AM\_\-A24\_\-SP@{MVME\_\-AM\_\-A24\_\-SP}}
+\index{MVME\_\-AM\_\-A24\_\-SP@{MVME\_\-AM\_\-A24\_\-SP}!mvmestdinclude@{mvmestdinclude}}
+\paragraph[{MVME\_\-AM\_\-A24\_\-SP}]{\setlength{\rightskip}{0pt plus 5cm}\#define MVME\_\-AM\_\-A24\_\-SP~(0x3E)}\hfill\label{group__mvmestdinclude_ga086f24604509da1e2cedd0593b3deaab}
+A24 Standard Supervisory Program Access 
+
+Definition at line 116 of file mvmestd.h.\index{mvmestdinclude@{mvmestdinclude}!MVME\_\-AM\_\-A32@{MVME\_\-AM\_\-A32}}
+\index{MVME\_\-AM\_\-A32@{MVME\_\-AM\_\-A32}!mvmestdinclude@{mvmestdinclude}}
+\paragraph[{MVME\_\-AM\_\-A32}]{\setlength{\rightskip}{0pt plus 5cm}\#define MVME\_\-AM\_\-A32~MVME\_\-AM\_\-A32\_\-SD}\hfill\label{group__mvmestdinclude_gab5aa731abf25394516158c9336191f52}
+
+
+Definition at line 112 of file mvmestd.h.
+
+Referenced by mesadc32\_\-ReadData(), regRead(), regReadReg(), regWrite(), regWriteReg(), v1720\_\-DataBlockRead(), v1740\_\-DataBlockRead(), and v1740\_\-DataRead().\index{mvmestdinclude@{mvmestdinclude}!MVME\_\-AM\_\-A32\_\-D64@{MVME\_\-AM\_\-A32\_\-D64}}
+\index{MVME\_\-AM\_\-A32\_\-D64@{MVME\_\-AM\_\-A32\_\-D64}!mvmestdinclude@{mvmestdinclude}}
+\paragraph[{MVME\_\-AM\_\-A32\_\-D64}]{\setlength{\rightskip}{0pt plus 5cm}\#define MVME\_\-AM\_\-A32\_\-D64~MVME\_\-AM\_\-A32\_\-SMBLT}\hfill\label{group__mvmestdinclude_ga7ef374bd677d3af92a18658a9045aed4}
+
+
+Definition at line 113 of file mvmestd.h.
+
+Referenced by sis3820\_\-FifoRead().\index{mvmestdinclude@{mvmestdinclude}!MVME\_\-AM\_\-A32\_\-NB@{MVME\_\-AM\_\-A32\_\-NB}}
+\index{MVME\_\-AM\_\-A32\_\-NB@{MVME\_\-AM\_\-A32\_\-NB}!mvmestdinclude@{mvmestdinclude}}
+\paragraph[{MVME\_\-AM\_\-A32\_\-NB}]{\setlength{\rightskip}{0pt plus 5cm}\#define MVME\_\-AM\_\-A32\_\-NB~(0x0B)}\hfill\label{group__mvmestdinclude_ga89dedae70a7277e2091f7a7f66d28a01}
+A32 Extended Non-\/Privileged Block 
+
+Definition at line 106 of file mvmestd.h.\index{mvmestdinclude@{mvmestdinclude}!MVME\_\-AM\_\-A32\_\-ND@{MVME\_\-AM\_\-A32\_\-ND}}
+\index{MVME\_\-AM\_\-A32\_\-ND@{MVME\_\-AM\_\-A32\_\-ND}!mvmestdinclude@{mvmestdinclude}}
+\paragraph[{MVME\_\-AM\_\-A32\_\-ND}]{\setlength{\rightskip}{0pt plus 5cm}\#define MVME\_\-AM\_\-A32\_\-ND~(0x09)}\hfill\label{group__mvmestdinclude_gafc80e688bd7646b4e6a52a49ab42d9b9}
+A32 Extended Non-\/Privileged Data 
+
+Definition at line 108 of file mvmestd.h.\index{mvmestdinclude@{mvmestdinclude}!MVME\_\-AM\_\-A32\_\-NMBLT@{MVME\_\-AM\_\-A32\_\-NMBLT}}
+\index{MVME\_\-AM\_\-A32\_\-NMBLT@{MVME\_\-AM\_\-A32\_\-NMBLT}!mvmestdinclude@{mvmestdinclude}}
+\paragraph[{MVME\_\-AM\_\-A32\_\-NMBLT}]{\setlength{\rightskip}{0pt plus 5cm}\#define MVME\_\-AM\_\-A32\_\-NMBLT~(0x08)}\hfill\label{group__mvmestdinclude_ga4a2020bb04f39a29cca6e3dc07615664}
+A32 Multiplexed Block Transfer (D64) 
+
+Definition at line 110 of file mvmestd.h.\index{mvmestdinclude@{mvmestdinclude}!MVME\_\-AM\_\-A32\_\-NP@{MVME\_\-AM\_\-A32\_\-NP}}
+\index{MVME\_\-AM\_\-A32\_\-NP@{MVME\_\-AM\_\-A32\_\-NP}!mvmestdinclude@{mvmestdinclude}}
+\paragraph[{MVME\_\-AM\_\-A32\_\-NP}]{\setlength{\rightskip}{0pt plus 5cm}\#define MVME\_\-AM\_\-A32\_\-NP~(0x0A)}\hfill\label{group__mvmestdinclude_ga2ad16250f1ba34f2990d8a88e62beb24}
+A32 Extended Non-\/Privileged Program 
+
+Definition at line 107 of file mvmestd.h.\index{mvmestdinclude@{mvmestdinclude}!MVME\_\-AM\_\-A32\_\-SB@{MVME\_\-AM\_\-A32\_\-SB}}
+\index{MVME\_\-AM\_\-A32\_\-SB@{MVME\_\-AM\_\-A32\_\-SB}!mvmestdinclude@{mvmestdinclude}}
+\paragraph[{MVME\_\-AM\_\-A32\_\-SB}]{\setlength{\rightskip}{0pt plus 5cm}\#define MVME\_\-AM\_\-A32\_\-SB~(0x0F)}\hfill\label{group__mvmestdinclude_ga8e19f6f8b7c77ba0700df4c8b4980163}
+A32 Extended Supervisory Block 
+
+Definition at line 103 of file mvmestd.h.\index{mvmestdinclude@{mvmestdinclude}!MVME\_\-AM\_\-A32\_\-SD@{MVME\_\-AM\_\-A32\_\-SD}}
+\index{MVME\_\-AM\_\-A32\_\-SD@{MVME\_\-AM\_\-A32\_\-SD}!mvmestdinclude@{mvmestdinclude}}
+\paragraph[{MVME\_\-AM\_\-A32\_\-SD}]{\setlength{\rightskip}{0pt plus 5cm}\#define MVME\_\-AM\_\-A32\_\-SD~(0x0D)}\hfill\label{group__mvmestdinclude_gac37a7339f5a193bdf0265f49aedb4696}
+A32 Extended Supervisory Data 
+
+Definition at line 105 of file mvmestd.h.\index{mvmestdinclude@{mvmestdinclude}!MVME\_\-AM\_\-A32\_\-SMBLT@{MVME\_\-AM\_\-A32\_\-SMBLT}}
+\index{MVME\_\-AM\_\-A32\_\-SMBLT@{MVME\_\-AM\_\-A32\_\-SMBLT}!mvmestdinclude@{mvmestdinclude}}
+\paragraph[{MVME\_\-AM\_\-A32\_\-SMBLT}]{\setlength{\rightskip}{0pt plus 5cm}\#define MVME\_\-AM\_\-A32\_\-SMBLT~(0x0C)}\hfill\label{group__mvmestdinclude_gac536941f770602aece8422c1116dc1bd}
+A32 Multiplexed Block Transfer (D64) 
+
+Definition at line 109 of file mvmestd.h.\index{mvmestdinclude@{mvmestdinclude}!MVME\_\-AM\_\-A32\_\-SP@{MVME\_\-AM\_\-A32\_\-SP}}
+\index{MVME\_\-AM\_\-A32\_\-SP@{MVME\_\-AM\_\-A32\_\-SP}!mvmestdinclude@{mvmestdinclude}}
+\paragraph[{MVME\_\-AM\_\-A32\_\-SP}]{\setlength{\rightskip}{0pt plus 5cm}\#define MVME\_\-AM\_\-A32\_\-SP~(0x0E)}\hfill\label{group__mvmestdinclude_gab1a3c7875d40430fa853e67739c78371}
+A32 Extended Supervisory Program 
+
+Definition at line 104 of file mvmestd.h.\index{mvmestdinclude@{mvmestdinclude}!MVME\_\-AM\_\-DEFAULT@{MVME\_\-AM\_\-DEFAULT}}
+\index{MVME\_\-AM\_\-DEFAULT@{MVME\_\-AM\_\-DEFAULT}!mvmestdinclude@{mvmestdinclude}}
+\paragraph[{MVME\_\-AM\_\-DEFAULT}]{\setlength{\rightskip}{0pt plus 5cm}\#define MVME\_\-AM\_\-DEFAULT~MVME\_\-AM\_\-A32}\hfill\label{group__mvmestdinclude_ga481a89249ecd693bee64d828f9be9ebd}
+
+
+Definition at line 132 of file mvmestd.h.\index{mvmestdinclude@{mvmestdinclude}!MVME\_\-BLT\_\-2ESST@{MVME\_\-BLT\_\-2ESST}}
+\index{MVME\_\-BLT\_\-2ESST@{MVME\_\-BLT\_\-2ESST}!mvmestdinclude@{mvmestdinclude}}
+\paragraph[{MVME\_\-BLT\_\-2ESST}]{\setlength{\rightskip}{0pt plus 5cm}\#define MVME\_\-BLT\_\-2ESST~5}\hfill\label{group__mvmestdinclude_gab2a0692732d5c4514218c4eeb9257567}
+two edge source synchrnous transfer 
+
+Definition at line 96 of file mvmestd.h.\index{mvmestdinclude@{mvmestdinclude}!MVME\_\-BLT\_\-2EVME@{MVME\_\-BLT\_\-2EVME}}
+\index{MVME\_\-BLT\_\-2EVME@{MVME\_\-BLT\_\-2EVME}!mvmestdinclude@{mvmestdinclude}}
+\paragraph[{MVME\_\-BLT\_\-2EVME}]{\setlength{\rightskip}{0pt plus 5cm}\#define MVME\_\-BLT\_\-2EVME~4}\hfill\label{group__mvmestdinclude_gac50f921d73b6b2e78540d734bed2cf05}
+two edge block transfer 
+
+Definition at line 95 of file mvmestd.h.\index{mvmestdinclude@{mvmestdinclude}!MVME\_\-BLT\_\-2EVMEFIFO@{MVME\_\-BLT\_\-2EVMEFIFO}}
+\index{MVME\_\-BLT\_\-2EVMEFIFO@{MVME\_\-BLT\_\-2EVMEFIFO}!mvmestdinclude@{mvmestdinclude}}
+\paragraph[{MVME\_\-BLT\_\-2EVMEFIFO}]{\setlength{\rightskip}{0pt plus 5cm}\#define MVME\_\-BLT\_\-2EVMEFIFO~8}\hfill\label{group__mvmestdinclude_ga2b64419d5ad7dc206d4b4005368e6651}
+two edge block transfer with FIFO mode 
+
+Definition at line 99 of file mvmestd.h.\index{mvmestdinclude@{mvmestdinclude}!MVME\_\-BLT\_\-BLT32@{MVME\_\-BLT\_\-BLT32}}
+\index{MVME\_\-BLT\_\-BLT32@{MVME\_\-BLT\_\-BLT32}!mvmestdinclude@{mvmestdinclude}}
+\paragraph[{MVME\_\-BLT\_\-BLT32}]{\setlength{\rightskip}{0pt plus 5cm}\#define MVME\_\-BLT\_\-BLT32~2}\hfill\label{group__mvmestdinclude_ga27ecf7af5c7788bc6e59ad1084112759}
+32-\/bit block transfer 
+
+Definition at line 93 of file mvmestd.h.
+
+Referenced by v1190\_\-DataRead().\index{mvmestdinclude@{mvmestdinclude}!MVME\_\-BLT\_\-BLT32FIFO@{MVME\_\-BLT\_\-BLT32FIFO}}
+\index{MVME\_\-BLT\_\-BLT32FIFO@{MVME\_\-BLT\_\-BLT32FIFO}!mvmestdinclude@{mvmestdinclude}}
+\paragraph[{MVME\_\-BLT\_\-BLT32FIFO}]{\setlength{\rightskip}{0pt plus 5cm}\#define MVME\_\-BLT\_\-BLT32FIFO~6}\hfill\label{group__mvmestdinclude_ga8555fba49268cce0bc9daf90c3c052ff}
+FIFO mode, don't increment address 
+
+Definition at line 97 of file mvmestd.h.\index{mvmestdinclude@{mvmestdinclude}!MVME\_\-BLT\_\-MBLT64@{MVME\_\-BLT\_\-MBLT64}}
+\index{MVME\_\-BLT\_\-MBLT64@{MVME\_\-BLT\_\-MBLT64}!mvmestdinclude@{mvmestdinclude}}
+\paragraph[{MVME\_\-BLT\_\-MBLT64}]{\setlength{\rightskip}{0pt plus 5cm}\#define MVME\_\-BLT\_\-MBLT64~3}\hfill\label{group__mvmestdinclude_ga29f0f94e8421c77f5bd0da963fbab2ab}
+multiplexed 64-\/bit block transfer 
+
+Definition at line 94 of file mvmestd.h.
+
+Referenced by sis3820\_\-FifoRead(), v1720\_\-DataBlockRead(), and v1740\_\-DataBlockRead().\index{mvmestdinclude@{mvmestdinclude}!MVME\_\-BLT\_\-MBLT64FIFO@{MVME\_\-BLT\_\-MBLT64FIFO}}
+\index{MVME\_\-BLT\_\-MBLT64FIFO@{MVME\_\-BLT\_\-MBLT64FIFO}!mvmestdinclude@{mvmestdinclude}}
+\paragraph[{MVME\_\-BLT\_\-MBLT64FIFO}]{\setlength{\rightskip}{0pt plus 5cm}\#define MVME\_\-BLT\_\-MBLT64FIFO~7}\hfill\label{group__mvmestdinclude_gaab423ba16ad8c2f328862e7090cea712}
+FIFO mode, don't increment address 
+
+Definition at line 98 of file mvmestd.h.\index{mvmestdinclude@{mvmestdinclude}!MVME\_\-BLT\_\-NONE@{MVME\_\-BLT\_\-NONE}}
+\index{MVME\_\-BLT\_\-NONE@{MVME\_\-BLT\_\-NONE}!mvmestdinclude@{mvmestdinclude}}
+\paragraph[{MVME\_\-BLT\_\-NONE}]{\setlength{\rightskip}{0pt plus 5cm}\#define MVME\_\-BLT\_\-NONE~1}\hfill\label{group__mvmestdinclude_ga820b9a818f3f5b5741c6bd20ebf0cead}
+normal programmed IO 
+
+Definition at line 92 of file mvmestd.h.\index{mvmestdinclude@{mvmestdinclude}!MVME\_\-DMODE\_\-D16@{MVME\_\-DMODE\_\-D16}}
+\index{MVME\_\-DMODE\_\-D16@{MVME\_\-DMODE\_\-D16}!mvmestdinclude@{mvmestdinclude}}
+\paragraph[{MVME\_\-DMODE\_\-D16}]{\setlength{\rightskip}{0pt plus 5cm}\#define MVME\_\-DMODE\_\-D16~2}\hfill\label{group__mvmestdinclude_ga36525e38132744a48e26d7ee2b158d2c}
+D16 
+
+Definition at line 81 of file mvmestd.h.
+
+Referenced by lrs1190\_\-CountRead(), lrs1190\_\-Disable(), lrs1190\_\-Enable(), lrs1190\_\-H2Read(), lrs1190\_\-I4Read(), lrs1190\_\-L2Read(), lrs1190\_\-Reset(), mvme\_\-read16(), regRead(), regReadFloat(), regReadReg(), regWrite(), regWriteFloat(), regWriteReg(), v1190\_\-AcqModeRead(), v1190\_\-ContinuousSet(), v1190\_\-DataReady(), v1190\_\-EvtStored(), v1190\_\-GeoWrite(), v1190\_\-LEResolutionSet(), v1190\_\-MicroFlush(), v1190\_\-MicroRead(), v1190\_\-MicroWrite(), v1190\_\-OffsetSet(), v1190\_\-Read16(), v1190\_\-ResolutionRead(), v1190\_\-SetEdgeDetection(), v1190\_\-Setup(), v1190\_\-SoftClear(), v1190\_\-SoftReset(), v1190\_\-SoftTrigger(), v1190\_\-Status(), v1190\_\-TdcIdList(), v1190\_\-TriggerMatchingSet(), v1190\_\-WidthSet(), v1190\_\-Write16(), v1729\_\-AcqStart(), v1729\_\-ChannelSelect(), v1729\_\-DataRead(), v1729\_\-FrqSamplingSet(), v1729\_\-isTrigger(), v1729\_\-NColsGet(), v1729\_\-NColsSet(), v1729\_\-OrderData(), v1729\_\-PedestalRun(), v1729\_\-PostTrigSet(), v1729\_\-PreTrigSet(), v1729\_\-Reset(), v1729\_\-Setup(), v1729\_\-SoftTrigger(), v1729\_\-Status(), v1729\_\-TimeCalibrationRun(), v1729\_\-TriggerTypeSet(), v792\_\-BitSet2Clear(), v792\_\-BitSet2Read(), v792\_\-BitSet2Set(), v792\_\-ControlRegister1Read(), v792\_\-ControlRegister1Write(), v792\_\-CSR1Read(), v792\_\-CSR2Read(), v792\_\-DataClear(), v792\_\-DataReady(), v792\_\-EmptyEnable(), v792\_\-EvtCntRead(), v792\_\-EvtCntReset(), v792\_\-EvtTriggerSet(), v792\_\-IntDisable(), v792\_\-IntEnable(), v792\_\-IntSet(), v792\_\-isBusy(), v792\_\-isPresent(), v792\_\-LowThDisable(), v792\_\-LowThEnable(), v792\_\-OnlineSet(), v792\_\-Read16(), v792\_\-Setup(), v792\_\-SingleShotReset(), v792\_\-SoftReset(), v792\_\-Status(), v792\_\-ThresholdRead(), v792\_\-ThresholdWrite(), v792\_\-Trigger(), v792\_\-Write16(), v895\_\-readReg16(), and v895\_\-writeReg16().\index{mvmestdinclude@{mvmestdinclude}!MVME\_\-DMODE\_\-D32@{MVME\_\-DMODE\_\-D32}}
+\index{MVME\_\-DMODE\_\-D32@{MVME\_\-DMODE\_\-D32}!mvmestdinclude@{mvmestdinclude}}
+\paragraph[{MVME\_\-DMODE\_\-D32}]{\setlength{\rightskip}{0pt plus 5cm}\#define MVME\_\-DMODE\_\-D32~3}\hfill\label{group__mvmestdinclude_ga1106eeff8cdbd2cfb5516f7feea8c1ff}
+D32 
+
+Definition at line 82 of file mvmestd.h.
+
+Referenced by begin\_\-of\_\-run(), frontend\_\-init(), interrupt\_\-configure(), lrs1151\_\-Clear(), lrs1151\_\-Read(), lrs1190\_\-H2Read(), lrs1190\_\-I4Read(), lrs1190\_\-L2Read(), mesadc32\_\-ReadData(), mvme\_\-read32(), regRead(), regWrite(), sis3801\_\-channel\_\-enable(), sis3801\_\-CSR\_\-read(), sis3801\_\-CSR\_\-write(), sis3801\_\-dwell\_\-time(), sis3801\_\-FIFO\_\-clear(), sis3801\_\-FIFO\_\-flush(), sis3801\_\-HFIFO\_\-read(), sis3801\_\-input\_\-mode(), sis3801\_\-int\_\-attach(), sis3801\_\-int\_\-source(), sis3801\_\-int\_\-source\_\-disable(), sis3801\_\-int\_\-source\_\-enable(), sis3801\_\-IRQ\_\-REG\_\-read(), sis3801\_\-IRQ\_\-REG\_\-write(), sis3801\_\-module\_\-ID(), sis3801\_\-module\_\-reset(), sis3801\_\-next\_\-logic(), sis3801\_\-ref1(), sis3801\_\-Setup(), v1190\_\-DataRead(), v1190\_\-EventRead(), v1190\_\-EvtCounter(), v1190\_\-Read32(), v1720\_\-DataBlockRead(), v1740\_\-DataBlockRead(), v1740\_\-DataRead(), v560\_\-Read(), v792\_\-DataRead(), v792\_\-EventRead(), vmeio\_\-AsyncRead(), vmeio\_\-AsyncWrite(), vmeio\_\-CsrRead(), vmeio\_\-IntEnable(), vmeio\_\-IntRearm(), vmeio\_\-OutputSet(), vmeio\_\-StrobeClear(), vmeio\_\-SyncRead(), vmeio\_\-SyncWrite(), vpc6\_\-ASDHysteresisSet(), vpc6\_\-ASDModeSet(), vpc6\_\-ASDRegSet(), vpc6\_\-ASDThresholdSet(), vpc6\_\-CfgRetrieve(), vpc6\_\-isPortBusy(), vpc6\_\-PATypeRead(), vpc6\_\-PATypeWrite(), vpc6\_\-PortCfgLoad(), vpc6\_\-PortRegRBRead(), vpc6\_\-PortRegRead(), vpc6\_\-PortTypeRead(), vpc6\_\-Setup(), vpc6\_\-Status(), vt2\_\-CSRRead(), vt2\_\-CycleNumberRead(), vt2\_\-CycleReset(), vt2\_\-FifoLevelRead(), vt2\_\-FifoRead(), vt2\_\-IntEnable(), vt2\_\-KeepAlive(), vt2\_\-ManReset(), vt48\_\-EventRead(), vt48\_\-RegPrint(), vt48\_\-RegRead(), vt48\_\-RegWrite(), vt48\_\-Setup(), vt48\_\-Status(), vt48\_\-WindowOffsetSet(), and vt48\_\-WindowSet().\index{mvmestdinclude@{mvmestdinclude}!MVME\_\-DMODE\_\-D64@{MVME\_\-DMODE\_\-D64}}
+\index{MVME\_\-DMODE\_\-D64@{MVME\_\-DMODE\_\-D64}!mvmestdinclude@{mvmestdinclude}}
+\paragraph[{MVME\_\-DMODE\_\-D64}]{\setlength{\rightskip}{0pt plus 5cm}\#define MVME\_\-DMODE\_\-D64~4}\hfill\label{group__mvmestdinclude_ga072f6459693256bff0c351153baf6dc5}
+D64 
+
+Definition at line 83 of file mvmestd.h.\index{mvmestdinclude@{mvmestdinclude}!MVME\_\-DMODE\_\-D8@{MVME\_\-DMODE\_\-D8}}
+\index{MVME\_\-DMODE\_\-D8@{MVME\_\-DMODE\_\-D8}!mvmestdinclude@{mvmestdinclude}}
+\paragraph[{MVME\_\-DMODE\_\-D8}]{\setlength{\rightskip}{0pt plus 5cm}\#define MVME\_\-DMODE\_\-D8~1}\hfill\label{group__mvmestdinclude_ga7e9bd9d8731cf357b74b477d86e3871e}
+data modes D8 
+
+Definition at line 80 of file mvmestd.h.
+
+Referenced by v895\_\-readReg8(), v895\_\-writeReg8(), VPPGRegRead(), and VPPGRegWrite().\index{mvmestdinclude@{mvmestdinclude}!MVME\_\-DMODE\_\-DEFAULT@{MVME\_\-DMODE\_\-DEFAULT}}
+\index{MVME\_\-DMODE\_\-DEFAULT@{MVME\_\-DMODE\_\-DEFAULT}!mvmestdinclude@{mvmestdinclude}}
+\paragraph[{MVME\_\-DMODE\_\-DEFAULT}]{\setlength{\rightskip}{0pt plus 5cm}\#define MVME\_\-DMODE\_\-DEFAULT~MVME\_\-DMODE\_\-D32}\hfill\label{group__mvmestdinclude_ga41e0dc98ddaafced795fb252812d6ff4}
+
+
+Definition at line 88 of file mvmestd.h.\index{mvmestdinclude@{mvmestdinclude}!MVME\_\-DMODE\_\-LM@{MVME\_\-DMODE\_\-LM}}
+\index{MVME\_\-DMODE\_\-LM@{MVME\_\-DMODE\_\-LM}!mvmestdinclude@{mvmestdinclude}}
+\paragraph[{MVME\_\-DMODE\_\-LM}]{\setlength{\rightskip}{0pt plus 5cm}\#define MVME\_\-DMODE\_\-LM~7}\hfill\label{group__mvmestdinclude_ga9da3a119be8e2aaf29f8858495e6b2b8}
+local memory mapped to VME 
+
+Definition at line 86 of file mvmestd.h.\index{mvmestdinclude@{mvmestdinclude}!MVME\_\-DMODE\_\-RAMD16@{MVME\_\-DMODE\_\-RAMD16}}
+\index{MVME\_\-DMODE\_\-RAMD16@{MVME\_\-DMODE\_\-RAMD16}!mvmestdinclude@{mvmestdinclude}}
+\paragraph[{MVME\_\-DMODE\_\-RAMD16}]{\setlength{\rightskip}{0pt plus 5cm}\#define MVME\_\-DMODE\_\-RAMD16~5}\hfill\label{group__mvmestdinclude_gad828794144a2e8bc886603ec200ae285}
+RAM memory of VME adapter 
+
+Definition at line 84 of file mvmestd.h.\index{mvmestdinclude@{mvmestdinclude}!MVME\_\-DMODE\_\-RAMD32@{MVME\_\-DMODE\_\-RAMD32}}
+\index{MVME\_\-DMODE\_\-RAMD32@{MVME\_\-DMODE\_\-RAMD32}!mvmestdinclude@{mvmestdinclude}}
+\paragraph[{MVME\_\-DMODE\_\-RAMD32}]{\setlength{\rightskip}{0pt plus 5cm}\#define MVME\_\-DMODE\_\-RAMD32~6}\hfill\label{group__mvmestdinclude_gaf33ae8d3aca31ae4679f0a12647071b8}
+RAM memory of VME adapter 
+
+Definition at line 85 of file mvmestd.h.\index{mvmestdinclude@{mvmestdinclude}!MVME\_\-INVALID\_\-PARAM@{MVME\_\-INVALID\_\-PARAM}}
+\index{MVME\_\-INVALID\_\-PARAM@{MVME\_\-INVALID\_\-PARAM}!mvmestdinclude@{mvmestdinclude}}
+\paragraph[{MVME\_\-INVALID\_\-PARAM}]{\setlength{\rightskip}{0pt plus 5cm}\#define MVME\_\-INVALID\_\-PARAM~5}\hfill\label{group__mvmestdinclude_ga7b4c0f280cd16a612cdbb7b8de7ef7f7}
+
+
+Definition at line 65 of file mvmestd.h.\index{mvmestdinclude@{mvmestdinclude}!MVME\_\-NO\_\-CRATE@{MVME\_\-NO\_\-CRATE}}
+\index{MVME\_\-NO\_\-CRATE@{MVME\_\-NO\_\-CRATE}!mvmestdinclude@{mvmestdinclude}}
+\paragraph[{MVME\_\-NO\_\-CRATE}]{\setlength{\rightskip}{0pt plus 5cm}\#define MVME\_\-NO\_\-CRATE~3}\hfill\label{group__mvmestdinclude_gaaec0f6d5a127f40010a889f7da83ae98}
+
+
+Definition at line 63 of file mvmestd.h.\index{mvmestdinclude@{mvmestdinclude}!MVME\_\-NO\_\-INTERFACE@{MVME\_\-NO\_\-INTERFACE}}
+\index{MVME\_\-NO\_\-INTERFACE@{MVME\_\-NO\_\-INTERFACE}!mvmestdinclude@{mvmestdinclude}}
+\paragraph[{MVME\_\-NO\_\-INTERFACE}]{\setlength{\rightskip}{0pt plus 5cm}\#define MVME\_\-NO\_\-INTERFACE~2}\hfill\label{group__mvmestdinclude_ga2d9377a6c82702226dbcebf66f30d636}
+
+
+Definition at line 62 of file mvmestd.h.\index{mvmestdinclude@{mvmestdinclude}!MVME\_\-NO\_\-MEM@{MVME\_\-NO\_\-MEM}}
+\index{MVME\_\-NO\_\-MEM@{MVME\_\-NO\_\-MEM}!mvmestdinclude@{mvmestdinclude}}
+\paragraph[{MVME\_\-NO\_\-MEM}]{\setlength{\rightskip}{0pt plus 5cm}\#define MVME\_\-NO\_\-MEM~6}\hfill\label{group__mvmestdinclude_ga1a17e560c1bd89c378077963e2521437}
+
+
+Definition at line 66 of file mvmestd.h.\index{mvmestdinclude@{mvmestdinclude}!MVME\_\-SUCCESS@{MVME\_\-SUCCESS}}
+\index{MVME\_\-SUCCESS@{MVME\_\-SUCCESS}!mvmestdinclude@{mvmestdinclude}}
+\paragraph[{MVME\_\-SUCCESS}]{\setlength{\rightskip}{0pt plus 5cm}\#define MVME\_\-SUCCESS~1}\hfill\label{group__mvmestdinclude_ga1671785ba0bbf639935547e7b1d3f641}
+dox 
+
+Definition at line 61 of file mvmestd.h.
+
+Referenced by v1720\_\-DataBlockRead(), and v1740\_\-DataBlockRead().\index{mvmestdinclude@{mvmestdinclude}!MVME\_\-UNSUPPORTED@{MVME\_\-UNSUPPORTED}}
+\index{MVME\_\-UNSUPPORTED@{MVME\_\-UNSUPPORTED}!mvmestdinclude@{mvmestdinclude}}
+\paragraph[{MVME\_\-UNSUPPORTED}]{\setlength{\rightskip}{0pt plus 5cm}\#define MVME\_\-UNSUPPORTED~4}\hfill\label{group__mvmestdinclude_gaea48d85f04ab842c42d90d0d370dcaa1}
+
+
+Definition at line 64 of file mvmestd.h.
+
+\subsubsection{Typedef Documentation}
+\index{mvmestdinclude@{mvmestdinclude}!mvme\_\-addr\_\-t@{mvme\_\-addr\_\-t}}
+\index{mvme\_\-addr\_\-t@{mvme\_\-addr\_\-t}!mvmestdinclude@{mvmestdinclude}}
+\paragraph[{mvme\_\-addr\_\-t}]{\setlength{\rightskip}{0pt plus 5cm}typedef unsigned int {\bf mvme\_\-addr\_\-t}}\hfill\label{group__mvmestdinclude_ga589085bbef4f3f52d4a39a316d743e05}
+
+
+Definition at line 71 of file mvmestd.h.\index{mvmestdinclude@{mvmestdinclude}!mvme\_\-locaddr\_\-t@{mvme\_\-locaddr\_\-t}}
+\index{mvme\_\-locaddr\_\-t@{mvme\_\-locaddr\_\-t}!mvmestdinclude@{mvmestdinclude}}
+\paragraph[{mvme\_\-locaddr\_\-t}]{\setlength{\rightskip}{0pt plus 5cm}typedef unsigned int {\bf mvme\_\-locaddr\_\-t}}\hfill\label{group__mvmestdinclude_ga458ecf14084c55560abf951271875d73}
+
+
+Definition at line 72 of file mvmestd.h.\index{mvmestdinclude@{mvmestdinclude}!mvme\_\-size\_\-t@{mvme\_\-size\_\-t}}
+\index{mvme\_\-size\_\-t@{mvme\_\-size\_\-t}!mvmestdinclude@{mvmestdinclude}}
+\paragraph[{mvme\_\-size\_\-t}]{\setlength{\rightskip}{0pt plus 5cm}typedef unsigned int {\bf mvme\_\-size\_\-t}}\hfill\label{group__mvmestdinclude_ga01d0cfb7d3dd7f89dee14b82d6cd4c3b}
+
+
+Definition at line 73 of file mvmestd.h.

@@ -1,0 +1,356 @@
+\section{Roody.cxx File Reference}
+\label{Roody_8cxx}\index{Roody.cxx@{Roody.cxx}}
+{\ttfamily \#include $<$stdio.h$>$}\par
+{\ttfamily \#include $<$math.h$>$}\par
+{\ttfamily \#include \char`\"{}RoodyXML.h\char`\"{}}\par
+{\ttfamily \#include \char`\"{}Roody.h\char`\"{}}\par
+{\ttfamily \#include \char`\"{}TAxisLimitsDialog.h\char`\"{}}\par
+{\ttfamily \#include \char`\"{}TROOT.h\char`\"{}}\par
+{\ttfamily \#include \char`\"{}TCutG.h\char`\"{}}\par
+{\ttfamily \#include \char`\"{}TNtuple.h\char`\"{}}\par
+{\ttfamily \#include \char`\"{}TGraph.h\char`\"{}}\par
+{\ttfamily \#include \char`\"{}TVirtualX.h\char`\"{}}\par
+{\ttfamily \#include \char`\"{}TGListTree.h\char`\"{}}\par
+{\ttfamily \#include \char`\"{}TGClient.h\char`\"{}}\par
+{\ttfamily \#include \char`\"{}TGLabel.h\char`\"{}}\par
+{\ttfamily \#include \char`\"{}TGButton.h\char`\"{}}\par
+{\ttfamily \#include \char`\"{}TGMsgBox.h\char`\"{}}\par
+{\ttfamily \#include \char`\"{}TGMenu.h\char`\"{}}\par
+{\ttfamily \#include \char`\"{}TGCanvas.h\char`\"{}}\par
+{\ttfamily \#include \char`\"{}TGTextDialog.h\char`\"{}}\par
+{\ttfamily \#include \char`\"{}TCanvas.h\char`\"{}}\par
+{\ttfamily \#include \char`\"{}TFrame.h\char`\"{}}\par
+{\ttfamily \#include \char`\"{}TH1.h\char`\"{}}\par
+{\ttfamily \#include \char`\"{}TSystem.h\char`\"{}}\par
+{\ttfamily \#include \char`\"{}TFile.h\char`\"{}}\par
+{\ttfamily \#include \char`\"{}TKey.h\char`\"{}}\par
+{\ttfamily \#include \char`\"{}TGStatusBar.h\char`\"{}}\par
+{\ttfamily \#include \char`\"{}TExec.h\char`\"{}}\par
+{\ttfamily \#include \char`\"{}TStyle.h\char`\"{}}\par
+{\ttfamily \#include \char`\"{}TTimer.h\char`\"{}}\par
+{\ttfamily \#include \char`\"{}TContextMenu.h\char`\"{}}\par
+{\ttfamily \#include \char`\"{}TClassMenuItem.h\char`\"{}}\par
+{\ttfamily \#include \char`\"{}TSocket.h\char`\"{}}\par
+{\ttfamily \#include \char`\"{}MTGListTree.h\char`\"{}}\par
+{\ttfamily \#include \char`\"{}TPeakFindPanel.h\char`\"{}}\par
+{\ttfamily \#include \char`\"{}TGFileDialog.h\char`\"{}}\par
+{\ttfamily \#include \char`\"{}TPaveLabel.h\char`\"{}}\par
+{\ttfamily \#include \char`\"{}DataSourceBase.h\char`\"{}}\par
+{\ttfamily \#include \char`\"{}DataSourceTDirectory.h\char`\"{}}\par
+{\ttfamily \#include \char`\"{}DataSourceTNetFolder.h\char`\"{}}\par
+{\ttfamily \#include \char`\"{}DataSourceTFile.h\char`\"{}}\par
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class {\bf MemDebug}
+\item 
+class {\bf OptStatMenu}
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef std::map$<$ std::string, DataSourceBase $\ast$ $>$ {\bf DataSourcesMap}
+\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum {\bf Action} \{ {\bf A\_\-ITEM} =  1, 
+{\bf A\_\-FOLDER} =  2, 
+{\bf A\_\-SOURCE} =  3, 
+{\bf A\_\-GROUP} =  4
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void {\bf breakhere} (void)
+\item 
+static TGListTreeItem $\ast$ {\bf FindItem} (ObjectPath src)
+\item 
+{\bf ClassImp} ({\bf Roody})
+\item 
+static std::string {\bf PathToString} (const ObjectPath \&src)
+\item 
+static std::vector$<$ std::string $>$ {\bf split} (char sep, const std::string \&str)
+\item 
+static std::vector$<$ int $>$ {\bf toInt} (const std::vector$<$ std::string $>$ \&vec)
+\item 
+static ObjectPath {\bf StringToPath} (const std::string \&source)
+\item 
+static void {\bf DrawVec} (TVirtualPad $\ast$canvas, const {\bf PadObjectVec} $\ast$padvec)
+\item 
+static void {\bf CopyAttrs} (TObject $\ast$dest, TObject $\ast$src)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+TList $\ast$ {\bf gAllObjects} = NULL
+\item 
+std::map$<$ TGListTreeItem $\ast$, {\bf Action} $>$ {\bf gItemActions}
+\item 
+std::map$<$ ObjectPath, TObject $\ast$ $>$ {\bf gObjectCache}
+\item 
+{\bf DataSourcesMap} {\bf gDataSources}
+\item 
+std::map$<$ TGListTreeItem $\ast$, ObjectPath $>$ {\bf gItemSources}
+\item 
+std::map$<$ ObjectPath, std::string $>$ {\bf gObjectClasses}
+\item 
+std::map$<$ std::string, std::vector$<$ TGListTreeItem $\ast$ $>$ $>$ {\bf gGroupContents}
+\item 
+std::map$<$ TVirtualPad $\ast$, {\bf PadObjectVec} $>$ {\bf gPadContents}
+\end{DoxyCompactItemize}
+
+
+\subsection{Typedef Documentation}
+\index{Roody.cxx@{Roody.cxx}!DataSourcesMap@{DataSourcesMap}}
+\index{DataSourcesMap@{DataSourcesMap}!Roody.cxx@{Roody.cxx}}
+\subsubsection[{DataSourcesMap}]{\setlength{\rightskip}{0pt plus 5cm}typedef std::map$<$std::string,DataSourceBase$\ast$$>$ {\bf DataSourcesMap}}\label{Roody_8cxx_a983be03604153205d83c4c28d8b2891e}
+
+
+Definition at line 103 of file Roody.cxx.
+
+
+
+\subsection{Enumeration Type Documentation}
+\index{Roody.cxx@{Roody.cxx}!Action@{Action}}
+\index{Action@{Action}!Roody.cxx@{Roody.cxx}}
+\subsubsection[{Action}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf Action}}\label{Roody_8cxx_a8bb1ef53467e4f61410d12822d922498}
+\begin{Desc}
+\item[Enumerator: ]\par
+\begin{description}
+\index{A\_\-ITEM@{A\_\-ITEM}!Roody.cxx@{Roody.cxx}}\index{Roody.cxx@{Roody.cxx}!A\_\-ITEM@{A\_\-ITEM}}\item[{\em 
+A\_\-ITEM\label{Roody_8cxx_a8bb1ef53467e4f61410d12822d922498ad4f8562da213e20133393364451c5b44}
+}]\index{A\_\-FOLDER@{A\_\-FOLDER}!Roody.cxx@{Roody.cxx}}\index{Roody.cxx@{Roody.cxx}!A\_\-FOLDER@{A\_\-FOLDER}}\item[{\em 
+A\_\-FOLDER\label{Roody_8cxx_a8bb1ef53467e4f61410d12822d922498a506cbac1e552dac39438f1257f0a48db}
+}]\index{A\_\-SOURCE@{A\_\-SOURCE}!Roody.cxx@{Roody.cxx}}\index{Roody.cxx@{Roody.cxx}!A\_\-SOURCE@{A\_\-SOURCE}}\item[{\em 
+A\_\-SOURCE\label{Roody_8cxx_a8bb1ef53467e4f61410d12822d922498a2c9efb4d17b30eba2326dab6d8763d1a}
+}]\index{A\_\-GROUP@{A\_\-GROUP}!Roody.cxx@{Roody.cxx}}\index{Roody.cxx@{Roody.cxx}!A\_\-GROUP@{A\_\-GROUP}}\item[{\em 
+A\_\-GROUP\label{Roody_8cxx_a8bb1ef53467e4f61410d12822d922498a6d4bfa6b698453562f3ea0888b3362ad}
+}]\end{description}
+\end{Desc}
+
+
+
+Definition at line 89 of file Roody.cxx.
+
+
+
+\subsection{Function Documentation}
+\index{Roody.cxx@{Roody.cxx}!breakhere@{breakhere}}
+\index{breakhere@{breakhere}!Roody.cxx@{Roody.cxx}}
+\subsubsection[{breakhere}]{\setlength{\rightskip}{0pt plus 5cm}void breakhere (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{Roody_8cxx_a45fabe6b04ca0d46e19eafb959f7e224}
+
+
+Definition at line 53 of file Roody.cxx.
+
+
+
+Referenced by MemDebug::$\sim$MemDebug().
+
+\index{Roody.cxx@{Roody.cxx}!ClassImp@{ClassImp}}
+\index{ClassImp@{ClassImp}!Roody.cxx@{Roody.cxx}}
+\subsubsection[{ClassImp}]{\setlength{\rightskip}{0pt plus 5cm}ClassImp (
+\begin{DoxyParamCaption}
+\item[{{\bf Roody}}]{}
+\end{DoxyParamCaption}
+)}\label{Roody_8cxx_a5861c5fc317d54e234ae903b790f66bc}
+\index{Roody.cxx@{Roody.cxx}!CopyAttrs@{CopyAttrs}}
+\index{CopyAttrs@{CopyAttrs}!Roody.cxx@{Roody.cxx}}
+\subsubsection[{CopyAttrs}]{\setlength{\rightskip}{0pt plus 5cm}static void CopyAttrs (
+\begin{DoxyParamCaption}
+\item[{TObject $\ast$}]{dest, }
+\item[{TObject $\ast$}]{src}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  [static]}}\label{Roody_8cxx_a35052114725da8bb9a9096092e87faf3}
+
+
+Definition at line 1133 of file Roody.cxx.
+
+
+
+Referenced by Roody::AddPadToVec().
+
+\index{Roody.cxx@{Roody.cxx}!DrawVec@{DrawVec}}
+\index{DrawVec@{DrawVec}!Roody.cxx@{Roody.cxx}}
+\subsubsection[{DrawVec}]{\setlength{\rightskip}{0pt plus 5cm}static void DrawVec (
+\begin{DoxyParamCaption}
+\item[{TVirtualPad $\ast$}]{canvas, }
+\item[{const {\bf PadObjectVec} $\ast$}]{padvec}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  [static]}}\label{Roody_8cxx_a476cf59022d4777bd4f30611b1060fe6}
+
+
+Definition at line 1069 of file Roody.cxx.
+
+
+
+Referenced by Roody::DrawItemOnPad(), Roody::RedrawCanvas(), Roody::SetupZones(), and Roody::ZoomOption().
+
+\index{Roody.cxx@{Roody.cxx}!FindItem@{FindItem}}
+\index{FindItem@{FindItem}!Roody.cxx@{Roody.cxx}}
+\subsubsection[{FindItem}]{\setlength{\rightskip}{0pt plus 5cm}static TGListTreeItem$\ast$ FindItem (
+\begin{DoxyParamCaption}
+\item[{ObjectPath}]{src}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  [static]}}\label{Roody_8cxx_aa45a52d0850f8e533dde19ee80e62194}
+
+
+Definition at line 111 of file Roody.cxx.
+
+
+
+Referenced by MTGListTree::HandleButton(), Roody::RestoreFile(), and Roody::RestoreObjects().
+
+\index{Roody.cxx@{Roody.cxx}!PathToString@{PathToString}}
+\index{PathToString@{PathToString}!Roody.cxx@{Roody.cxx}}
+\subsubsection[{PathToString}]{\setlength{\rightskip}{0pt plus 5cm}static std::string PathToString (
+\begin{DoxyParamCaption}
+\item[{const ObjectPath \&}]{src}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  [static]}}\label{Roody_8cxx_afcdd7d98940322cf5d3bee7f259e4628}
+
+
+Definition at line 261 of file Roody.cxx.
+
+
+
+Referenced by Roody::SaveFile(), and Roody::SaveFilePadContents().
+
+\index{Roody.cxx@{Roody.cxx}!split@{split}}
+\index{split@{split}!Roody.cxx@{Roody.cxx}}
+\subsubsection[{split}]{\setlength{\rightskip}{0pt plus 5cm}static std::vector$<$std::string$>$ split (
+\begin{DoxyParamCaption}
+\item[{char}]{sep, }
+\item[{const std::string \&}]{str}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  [static]}}\label{Roody_8cxx_a627fff1fe2fcbaca685dcd2e79087bef}
+
+
+Definition at line 272 of file Roody.cxx.
+
+
+
+Referenced by Roody::ConnectServer(), Roody::OpenZoneDialog(), Roody::RestoreFile(), and StringToPath().
+
+\index{Roody.cxx@{Roody.cxx}!StringToPath@{StringToPath}}
+\index{StringToPath@{StringToPath}!Roody.cxx@{Roody.cxx}}
+\subsubsection[{StringToPath}]{\setlength{\rightskip}{0pt plus 5cm}static ObjectPath StringToPath (
+\begin{DoxyParamCaption}
+\item[{const std::string \&}]{source}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  [static]}}\label{Roody_8cxx_a3488eb532681756764342f2b647dfd35}
+
+
+Definition at line 311 of file Roody.cxx.
+
+
+
+Referenced by Roody::RestoreFile(), and Roody::RestoreObjects().
+
+\index{Roody.cxx@{Roody.cxx}!toInt@{toInt}}
+\index{toInt@{toInt}!Roody.cxx@{Roody.cxx}}
+\subsubsection[{toInt}]{\setlength{\rightskip}{0pt plus 5cm}static std::vector$<$int$>$ toInt (
+\begin{DoxyParamCaption}
+\item[{const std::vector$<$ std::string $>$ \&}]{vec}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  [static]}}\label{Roody_8cxx_a788304d1e01753ea552251ad32485baf}
+
+
+Definition at line 303 of file Roody.cxx.
+
+
+
+Referenced by Roody::OpenZoneDialog(), and Roody::RestoreFile().
+
+
+
+\subsection{Variable Documentation}
+\index{Roody.cxx@{Roody.cxx}!gAllObjects@{gAllObjects}}
+\index{gAllObjects@{gAllObjects}!Roody.cxx@{Roody.cxx}}
+\subsubsection[{gAllObjects}]{\setlength{\rightskip}{0pt plus 5cm}TList$\ast$ {\bf gAllObjects} = NULL}\label{Roody_8cxx_a228bf9afef4c54d62ad5d408db7311d0}
+
+
+Definition at line 97 of file Roody.cxx.
+
+
+
+Referenced by Roody::AddObjectToVec(), Roody::AddPadToVec(), and Roody::Roody().
+
+\index{Roody.cxx@{Roody.cxx}!gDataSources@{gDataSources}}
+\index{gDataSources@{gDataSources}!Roody.cxx@{Roody.cxx}}
+\subsubsection[{gDataSources}]{\setlength{\rightskip}{0pt plus 5cm}{\bf DataSourcesMap} {\bf gDataSources}}\label{Roody_8cxx_a9af39400d262b56f7e186b62b786c424}
+
+
+Definition at line 104 of file Roody.cxx.
+
+
+
+Referenced by Roody::AddDataSource(), Roody::CloseSource(), Roody::GetObject(), Roody::ProcessMessage(), Roody::ReopenSource(), Roody::ResetAll(), and Roody::ResetItem().
+
+\index{Roody.cxx@{Roody.cxx}!gGroupContents@{gGroupContents}}
+\index{gGroupContents@{gGroupContents}!Roody.cxx@{Roody.cxx}}
+\subsubsection[{gGroupContents}]{\setlength{\rightskip}{0pt plus 5cm}std::map$<$std::string,std::vector$<$TGListTreeItem$\ast$$>$ $>$ {\bf gGroupContents}}\label{Roody_8cxx_a84676ea47b401c2f644bcef0359b27d7}
+
+
+Definition at line 109 of file Roody.cxx.
+
+\index{Roody.cxx@{Roody.cxx}!gItemActions@{gItemActions}}
+\index{gItemActions@{gItemActions}!Roody.cxx@{Roody.cxx}}
+\subsubsection[{gItemActions}]{\setlength{\rightskip}{0pt plus 5cm}std::map$<$TGListTreeItem$\ast$, {\bf Action}$>$ {\bf gItemActions}}\label{Roody_8cxx_a48bffd501d6381c5876ae14bfaee41cf}
+
+
+Definition at line 99 of file Roody.cxx.
+
+
+
+Referenced by Roody::AddDataSource(), Roody::AddHistogramToGroup(), Roody::GetFolderItems(), Roody::MakeNewGroup(), and Roody::ProcessMessage().
+
+\index{Roody.cxx@{Roody.cxx}!gItemSources@{gItemSources}}
+\index{gItemSources@{gItemSources}!Roody.cxx@{Roody.cxx}}
+\subsubsection[{gItemSources}]{\setlength{\rightskip}{0pt plus 5cm}std::map$<$TGListTreeItem$\ast$,ObjectPath$>$ {\bf gItemSources}}\label{Roody_8cxx_af77fd30c760f8c2c99d2f9b8e1f99c00}
+
+
+Definition at line 106 of file Roody.cxx.
+
+
+
+Referenced by Roody::AddDataSource(), Roody::AddHistogramToGroup(), Roody::DrawItemOnPad(), FindItem(), Roody::ResetItem(), and Roody::SaveFile().
+
+\index{Roody.cxx@{Roody.cxx}!gObjectCache@{gObjectCache}}
+\index{gObjectCache@{gObjectCache}!Roody.cxx@{Roody.cxx}}
+\subsubsection[{gObjectCache}]{\setlength{\rightskip}{0pt plus 5cm}std::map$<$ObjectPath,TObject$\ast$$>$ {\bf gObjectCache}}\label{Roody_8cxx_a82dfd284f9a1cee6b3b751ed52c8fcc2}
+
+
+Definition at line 101 of file Roody.cxx.
+
+
+
+Referenced by Roody::GetObject(), Roody::ProcessMessage(), Roody::ReopenSource(), and Roody::RereadObject().
+
+\index{Roody.cxx@{Roody.cxx}!gObjectClasses@{gObjectClasses}}
+\index{gObjectClasses@{gObjectClasses}!Roody.cxx@{Roody.cxx}}
+\subsubsection[{gObjectClasses}]{\setlength{\rightskip}{0pt plus 5cm}std::map$<$ObjectPath,std::string$>$ {\bf gObjectClasses}}\label{Roody_8cxx_ab15243e54e971d543df4cc286b5733d0}
+
+
+Definition at line 107 of file Roody.cxx.
+
+
+
+Referenced by Roody::DrawItemOnPad().
+
+\index{Roody.cxx@{Roody.cxx}!gPadContents@{gPadContents}}
+\index{gPadContents@{gPadContents}!Roody.cxx@{Roody.cxx}}
+\subsubsection[{gPadContents}]{\setlength{\rightskip}{0pt plus 5cm}std::map$<$TVirtualPad$\ast$,{\bf PadObjectVec}$>$ {\bf gPadContents}}\label{Roody_8cxx_aaa13e34ee096e30cf2cc881c4ef61afe}
+
+
+Definition at line 201 of file Roody.cxx.
+
+
+
+Referenced by Roody::AddPadToVec(), Roody::DrawItemOnPad(), DrawVec(), Roody::RedrawCanvas(), Roody::SaveFile(), Roody::SetupZones(), and Roody::ZoomOption().
+

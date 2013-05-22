@@ -1,0 +1,206 @@
+.TH "v1729.c" 3 "31 May 2012" "Version 2.3.0-0" "Midas" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+v1729.c \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "int \fBv1729_Setup\fP (\fBMVME_INTERFACE\fP *mvme, \fBDWORD\fP base, int mode)"
+.br
+.ti -1c
+.RI "int \fBv1729_TimeCalibrationRun\fP (\fBMVME_INTERFACE\fP *mvme, \fBDWORD\fP base, int flag)"
+.br
+.ti -1c
+.RI "int \fBv1729_PedestalRun\fP (\fBMVME_INTERFACE\fP *mvme, \fBDWORD\fP base, int loop, int flag)"
+.br
+.ti -1c
+.RI "int \fBv1729_OrderData\fP (\fBMVME_INTERFACE\fP *mvme, \fBDWORD\fP base, \fBWORD\fP *srce, int *dest, int nch, int chan, int npt)"
+.br
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "void v1729_AcqStart (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base)"
+.PP
+Definition at line 29 of file v1729.c.
+.PP
+Referenced by begin_of_run(), read_trigger_event(), v1729_PedestalRun(), and v1729_TimeCalibrationRun().
+.SS "void v1729_ChannelSelect (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base, int value)"
+.PP
+Definition at line 276 of file v1729.c.
+.PP
+Referenced by v1729_Setup().
+.SS "void v1729_DataRead (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base, \fBWORD\fP * pdest, int nch, int npt)"
+.PP
+Definition at line 183 of file v1729.c.
+.PP
+Referenced by read_trigger_event(), and v1729_PedestalRun().
+.SS "void v1729_FrqSamplingSet (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base, int value)"
+.PP
+Definition at line 298 of file v1729.c.
+.PP
+Referenced by v1729_Setup().
+.SS "int v1729_isTrigger (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base)"
+.PP
+Definition at line 206 of file v1729.c.
+.PP
+Referenced by read_trigger_event(), v1729_PedestalRun(), and v1729_TimeCalibrationRun().
+.SS "int v1729_NColsGet (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base)"
+.PP
+Definition at line 264 of file v1729.c.
+.PP
+Referenced by v1729_OrderData(), and v1729_Status().
+.SS "void v1729_NColsSet (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base, int value)"
+.PP
+Definition at line 253 of file v1729.c.
+.PP
+Referenced by v1729_Setup().
+.SS "int v1729_OrderData (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base, \fBWORD\fP * srce, int * dest, int nch, int chan, int npt)"Re-order given channel from srce to dest len is for now frozen to V1729_MAX_CHANNEL_SIZE Does pedestal subtraction if enabled (ped_ok) Doesn't correct for timing.
+.PP
+NOTE: destination cell index[k] computed as 2560+j+end_cell instead of manual formula [2] page 13 (2560+j-end_cell). 
+.PP
+Definition at line 595 of file v1729.c.
+.PP
+Referenced by read_trigger_event().
+.SS "int v1729_PedestalRun (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base, int loop, int flag)"Pedestal extraction. Requires to module to be in setup mode 7 (soft trigger). Show major improvment in the WF reconstruction, but still has 20 bin periodic spikes.
+.PP
+Code not yet guarantee to be fully correct... 
+.PP
+Definition at line 426 of file v1729.c.
+.PP
+Referenced by frontend_init().
+.SS "void v1729_PostTrigSet (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base, int value)"
+.PP
+Definition at line 230 of file v1729.c.
+.PP
+Referenced by begin_of_run(), and v1729_Setup().
+.SS "void v1729_PreTrigSet (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base, int value)"
+.PP
+Definition at line 218 of file v1729.c.
+.PP
+Referenced by v1729_Setup().
+.SS "void v1729_Reset (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base)"
+.PP
+Definition at line 41 of file v1729.c.
+.SS "int v1729_Setup (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base, int mode)"Sets all the necessary paramters for a given configuration. The configuration is provided by the mode argument. Add your own configuration in the case statement. Let me know your setting if you want to include it in the distribution. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fI*mvme\fP VME structure 
+.br
+\fIbase\fP Module base address 
+.br
+\fImode\fP Configuration mode number 
+.br
+\fI*nentry\fP number of entries requested and returned. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+MVME_SUCCESS 
+.RE
+.PP
+
+.PP
+Definition at line 63 of file v1729.c.
+.PP
+Referenced by begin_of_run(), v1729_PedestalRun(), and v1729_TimeCalibrationRun().
+.SS "void v1729_SoftTrigger (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base)"
+.PP
+Definition at line 287 of file v1729.c.
+.PP
+Referenced by v1729_PedestalRun().
+.SS "int v1729_Status (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base)"
+.PP
+Definition at line 139 of file v1729.c.
+.PP
+Referenced by begin_of_run().
+.SS "int v1729_TimeCalibrationRun (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base, int flag)"Does Time calibration of all 4 channels. Requires the module to be in random Vernier mode (setup 8). Trigger internally generated for the whole memory.
+.PP
+! Code not yet guarantee to be correct. 
+.PP
+Definition at line 318 of file v1729.c.
+.PP
+Referenced by frontend_init().
+.SS "void v1729_TriggerTypeSet (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base, int value)"
+.PP
+Definition at line 242 of file v1729.c.
+.PP
+Referenced by v1729_Setup().
+.SH "Variable Documentation"
+.PP 
+.SS "float \fBCorr_vernier\fP[4]\fC [static]\fP"
+.PP
+Definition at line 18 of file v1729.c.
+.PP
+Referenced by v1729_OrderData().
+.SS "int \fBdebug\fP = 1"
+.PP
+Definition at line 17 of file v1729.c.
+.SS "int \fBend_cell\fP\fC [static]\fP"
+.PP
+Definition at line 19 of file v1729.c.
+.PP
+Referenced by v1729_OrderData(), and v1729_PedestalRun().
+.SS "int \fBget_ref\fP = 1\fC [static]\fP"
+.PP
+Definition at line 19 of file v1729.c.
+.PP
+Referenced by v1729_DataRead(), and v1729_OrderData().
+.SS "int \fBlMAXVER\fP\fC [static]\fP"
+.PP
+Definition at line 24 of file v1729.c.
+.PP
+Referenced by v1729_OrderData(), and v1729_TimeCalibrationRun().
+.SS "int \fBlMINVER\fP\fC [static]\fP"
+.PP
+Definition at line 24 of file v1729.c.
+.PP
+Referenced by v1729_OrderData(), and v1729_TimeCalibrationRun().
+.SS "int \fBncol\fP\fC [static]\fP"
+.PP
+Definition at line 19 of file v1729.c.
+.PP
+Referenced by v1729_OrderData(), and v1729_Status().
+.SS "float \fBped\fP[4][V1729_MAX_CHANNEL_SIZE+3]\fC [static]\fP"
+.PP
+Definition at line 21 of file v1729.c.
+.PP
+Referenced by v1729_PedestalRun().
+.SS "int \fBped_ok\fP = 0\fC [static]\fP"
+.PP
+Definition at line 23 of file v1729.c.
+.PP
+Referenced by v1729_PedestalRun().
+.SS "float \fBpedestals\fP[V1729_RAM_SIZE]\fC [static]\fP"
+.PP
+Definition at line 21 of file v1729.c.
+.PP
+Referenced by v1729_OrderData(), and v1729_PedestalRun().
+.SS "float \fBpedestalsRms\fP[V1729_RAM_SIZE]\fC [static]\fP"
+.PP
+Definition at line 22 of file v1729.c.
+.PP
+Referenced by v1729_PedestalRun().
+.SS "\fBWORD\fP \fBpost_trig\fP\fC [static]\fP"
+.PP
+Definition at line 20 of file v1729.c.
+.PP
+Referenced by v1729_OrderData(), and v1729_PedestalRun().
+.SS "int \fBtrig_rec\fP\fC [static]\fP"
+.PP
+Definition at line 19 of file v1729.c.
+.PP
+Referenced by v1729_OrderData(), and v1729_PedestalRun().
+.SS "int \fBvernier_ok\fP = 0\fC [static]\fP"
+.PP
+Definition at line 25 of file v1729.c.
+.PP
+Referenced by v1729_TimeCalibrationRun().
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Midas from the source code.

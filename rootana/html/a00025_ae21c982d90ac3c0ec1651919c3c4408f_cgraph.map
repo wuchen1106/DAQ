@@ -1,0 +1,9 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$a00001.html#a443b40b9580f1526f7fa70004dcfa338" title="Get the channel number." alt="" coords="247,5,460,35"/>
+<area shape="rect" id="node5" href="$a00001.html#a62a119c1982b39fb1897d47a75bfec39" title="Get the ADC measurement." alt="" coords="227,59,480,88"/>
+<area shape="rect" id="node7" href="$a00025.html#af82a811777286082686b5f33245def8a" title="Get the Vector of ADC Measurements." alt="" coords="223,112,484,141"/>
+<area shape="rect" id="node9" href="$a00025.html#ae6671d5cc46d4e4cf10af3d21c9502c1" title="Get Module ID." alt="" coords="243,165,464,195"/>
+<area shape="rect" id="node11" href="$a00021.html#a66b4bb4135957c849d2989db6d1f0479" title="TGenericData::GetName" alt="" coords="257,219,449,248"/>
+<area shape="rect" id="node13" href="$a00025.html#a8030fa6e87c4105463d131365d5facbe" title="TMesytecData::GetTimeStamp" alt="" coords="235,272,472,301"/>
+<area shape="rect" id="node15" href="$a00001.html#ad9144745e8621747452e2850a26db5ef" title="Is Out Of Range?" alt="" coords="239,325,468,355"/>
+</map>

@@ -1,0 +1,478 @@
+\par
+ 
+
+\par
+\hypertarget{Quickstart_Q_QuickStartIntro}{}\subsection{Introduction}\label{Quickstart_Q_QuickStartIntro}
+{\bfseries  This page is under revision to better reflect the latest installation and basic operation of the {\bfseries MIDAS package}. }
+
+These pages contain a step-\/by-\/step description of the installation procedure of the MIDAS package on several platforms, as well as the procedure to run a demo sample experiment. Once this is successful, the frontend or the analyzer can be moved to another computer to test the remote connection capability.\hypertarget{Quickstart_Q_SVN}{}\subsection{MIDAS Package Source (SVN and tarball)}\label{Quickstart_Q_SVN}
+The {\bfseries MIDAS source code} is subject to the \href{http://www.gnu.org/copyleft/gpl.html}{\tt GPL}
+
+An \href{http://savannah.psi.ch/viewcvs/trunk/?root=midas}{\tt online SVN web site } is available for the latest developments and for easy download. See specific instructions under \hyperlink{Q_Linux_Q_Linux_Midas_Installation}{Linux} or \hyperlink{Q_Windows_Q_Windows_installation}{Windows}.
+
+The MIDAS Package source (tarball) and some binaries are also kept in \href{http://midas.psi.ch/download}{\tt PSI } or at \href{http://ladd00.triumf.ca/~daqweb/ftp/}{\tt TRIUMF }.\hypertarget{Quickstart_Q_Quickstart_Installation}{}\subsection{MIDAS Installation}\label{Quickstart_Q_Quickstart_Installation}
+Even though MIDAS is available for multiple platforms, presently only instructions for the following are available:  
+\begin{DoxyEnumerate}
+\item \hyperlink{Q_Linux}{MIDAS Linux Installation} 
+\item \hyperlink{Q_Windows}{MIDAS Windows Installation} 
+\end{DoxyEnumerate}
+
+\par
+ 
+
+\label{index_end}
+\hypertarget{index_end}{}
+ \subsection{Quickstart Linux}\label{Q_Linux}
+\par
+ 
+
+\par
+\hypertarget{Q_Linux_Q_Linux_system_requirements}{}\subsubsection{System Requirements}\label{Q_Linux_Q_Linux_system_requirements}
+not yet specified\hypertarget{Q_Linux_Q_Linux_installation}{}\subsubsection{Installation}\label{Q_Linux_Q_Linux_installation}
+Throughout the following description the MIDAS package is assumed to be installed under the directory {\bfseries \$HOME/packages/midas} \par
+ while the experiment specific directory is {\bfseries \$HOME/online} . The user name is {\itshape johnfoo\/}. \par
+\hypertarget{Q_Linux_Q_Linux_Environment_Variables}{}\paragraph{Environment Variables}\label{Q_Linux_Q_Linux_Environment_Variables}
+The following \hyperlink{BuildingOptions_BO_Environment_variables}{Environment variables} needs to be setup, e.g.: csh: 
+\begin{DoxyCode}
+  #!/bin/echo You must source
+  setenv CVS_RSH ssh
+  setenv MIDASSYS $HOME/packages/midas  
+  setenv ROOTSYS  $HOME/packages/root   ** do not setup ROOTSYS if NOT using ROOT
+      
+  setenv MIDAS_EXPTAB $HOME/online/exptab ** if not setup,  defaults to  /etc/exp
+      tab
+  setenv PATH .:$MIDASSYS/linux/bin:$HOME/packages/roody/bin:$ROOTSYS/bin:$PATH
+  #end
+\end{DoxyCode}
+ \par
+ bash: 
+\begin{DoxyCode}
+  #!/bin/echo You must source
+  export CVS_RSH=ssh
+  export MIDASSYS=$HOME/packages/midas  
+  export ROOTSYS=$HOME/packages/root   ** do not setup ROOTSYS if NOT using ROOT
+  export MIDAS_EXPTAB=$HOME/online/exptab ** if not setup,  defaults to  /etc/exp
+      tab
+  export PATH=.:$MIDASSYS/linux/bin:$HOME/packages/roody/bin:$ROOTSYS/bin:$PATH
+  #end
+\end{DoxyCode}
+
+\begin{DoxyItemize}
+\item mkdir \$HOME/packages
+\item Logout and login again, or source .cshrc (source .bashrc) for the change to take effect. \par
+
+\end{DoxyItemize}
+
+\label{Q_Linux_idx_ROOT_installation}
+\hypertarget{Q_Linux_idx_ROOT_installation}{}
+ \hypertarget{Q_Linux_Q_Linux_Root_Installation}{}\paragraph{ROOT Package Installation}\label{Q_Linux_Q_Linux_Root_Installation}
+For full MIDAS operation {\bfseries ROOT} is needed for the data logging and analysis packages.
+
+
+\begin{DoxyItemize}
+\item Identify the Linux version: RH9 (Red Hat Linux 9), FC3 (Fedora Core 3), RHEL4/SL4 (Red Hat Enterprise LInux 4/Scientific Linux 4): more /etc/redhat-\/release
+\item cd \$HOME/packages
+\item ln -\/s /triumfcs/trshare/olchansk/root/root\_\-vNNN\_\-VVV root, where NNN is the latest available version of ROOT (\char`\"{}ls -\/l /triumfcs/trshare/olchansk/root\char`\"{}) and VVV is the Linux version code (RH9, FC3, SL4, etc). For example: /triumfcs/trshare/olchansk/root/root\_\-v5.10.00\_\-SL40
+\item Check that ROOT works: \char`\"{}echo \$ROOTSYS\char`\"{}, \char`\"{}\$ROOTSYS/bin/root\char`\"{} \par
+ \par
+ {\bfseries Note:} ROOT is not essential to run MIDAS. Some experiments use a custom logger or analyser. If ROOT is NOT installed, the environment variable ROOTSYS must be removed: 
+\begin{DoxyCode}
+      unsetenv ROOTSYS
+\end{DoxyCode}
+
+\end{DoxyItemize}
+
+\par
+\hypertarget{Q_Linux_Q_Linux_Midas_Installation}{}\paragraph{MIDAS Package Installation}\label{Q_Linux_Q_Linux_Midas_Installation}
+The source code can be extracted from the \href{http://savannah.psi.ch/viewcvs/trunk/?root=midas}{\tt SVN repository}. Anonymous access is available under the username {\bfseries svn} and password {\bfseries svn} which may be required several time. The SVN web interface provides a quick {\bfseries tarball}. This suggested extraction method is shown below. \par
+ The MIDAS package requires the {\bfseries mxml} auxiliary package which can be found at the same SVN site as MIDAS. mxml and MIDAS are extracted at the same directory level as follows: 
+\begin{DoxyCode}
+  cd $HOME/packages
+  svn co svn+ssh://svn@savannah.psi.ch/afs/psi.ch/project/meg/svn/midas/trunk mid
+      as
+  svn co svn+ssh://svn@savannah.psi.ch/afs/psi.ch/project/meg/svn/mxml/trunk mxml
+      
+  cd midas
+  make
+  ls $MIDASSYS/linux/bin   ... should contains odbedit and all the MIDAS applicat
+      ions.
+\end{DoxyCode}
+ \par
+
+
+\label{Q_Linux_idx_ROME_installation}
+\hypertarget{Q_Linux_idx_ROME_installation}{}
+ \hypertarget{Q_Linux_Q_Linux_Rome_Installation}{}\paragraph{ROME Package Installation}\label{Q_Linux_Q_Linux_Rome_Installation}
+The PSI ROME analysis package can be found at \href{http://midas.psi.ch/rome/index.html}{\tt ROME analyzer} The same extraction procedure as for the MIDAS package can be followed. For its operation please refer to the \href{http://midas.psi.ch/rome/index.html}{\tt ROME web site}. 
+\begin{DoxyCode}
+  cd $HOME/packages
+  svn co svn+ssh://svn@savannah.psi.ch/afs/psi.ch/project/meg/svn/rome/trunk rome
+      
+  cd rome
+  make
+\end{DoxyCode}
+
+
+\label{Q_Linux_idx_ROODY_installation}
+\hypertarget{Q_Linux_idx_ROODY_installation}{}
+ \hypertarget{Q_Linux_Q_Linux_Roody_Installation}{}\paragraph{ROODY Package Installation}\label{Q_Linux_Q_Linux_Roody_Installation}
+\href{http://ladd00.triumf.ca/~daqweb/doc/roody/html}{\tt ROODY} is a Histogram display tool. This package is supported by the Triumf DAQ group. Its installation is similar to the MIDAS package. 
+\begin{DoxyCode}
+  cd $HOME/packages
+  svn checkout svn://ladd00.triumf.ca/roody/trunk roody
+  cd roody
+  make
+  $HOME/packages/roody/bin/roody   ... to run the program
+\end{DoxyCode}
+
+
+
+
+ \hypertarget{Q_Linux_Q_Linux_Basic_Test}{}\subsubsection{Basic test}\label{Q_Linux_Q_Linux_Basic_Test}
+\hypertarget{Q_Linux_Q_Linux_Hardware_Requirements}{}\paragraph{Hardware Requirements}\label{Q_Linux_Q_Linux_Hardware_Requirements}
+These instructions assume that accessibility to hardware such as VME or CAMAC is available. An ADC is also required, with signals sent to its gate.\hypertarget{Q_Linux_Q_Linux_Software_Requirements}{}\paragraph{Software Requirements}\label{Q_Linux_Q_Linux_Software_Requirements}
+Packages ROOT, MIDAS and ROODY have been installed.\hypertarget{Q_Linux_Q_Linux_Expt_Setup}{}\paragraph{How to Setup the MIDAS Experiment}\label{Q_Linux_Q_Linux_Expt_Setup}
+NOTE: these instructions provide {\bfseries local} access to the experiment. For {\bfseries remote} access, refer to \hyperlink{Q_Linux_Q_Linux_Installation_Considerations}{Installation Considerations} .
+
+
+\begin{DoxyItemize}
+\item Create a new user for this daq system (johnfoo)
+\item login as the new user
+\item mkdir online
+\item cd online
+\item mkdir elog history data
+\item create the \hyperlink{Q_Linux_Q_Linux_Exptab}{exptab} file \char`\"{}\$HOME/online/exptab\char`\"{} following the example below
+\begin{DoxyItemize}
+\item The first parameter is the MIDAS experiment name e.g. \char`\"{}simptest1\char`\"{}
+\item The second parameter is the location of MIDAS shared memory buffers e.g.\char`\"{}/home/johnfoo/online\char`\"{} (by convention, \$HOME/online),
+\item the third parameter is the username e.g. \char`\"{}johnfoo\char`\"{} 
+\begin{DoxyCode}
+  simptest1 /home/johnfoo/online johnfoo
+\end{DoxyCode}
+ \label{RC_customize_ODB_start-all}
+\hypertarget{RC_customize_ODB_start-all}{}
+
+\end{DoxyItemize}
+\item copy \$MIDASSYS/examples/experiment/$\ast$ to the online directory.
+\item make (creates frontend executable frontend.exe) 
+\begin{DoxyCode}
+  cd online
+  cp $MIDASSYS/examples/experiment/* .
+  make
+\end{DoxyCode}
+
+\item The analyzer will build properly if ROOT has been previously installed.
+\item At this point the frontend and the analyzer should be ready if no error where generated during the build. By running the script {\bfseries  start\_\-daq.sh } several midas applications will be started in sequence.
+\begin{DoxyEnumerate}
+\item Cleanup previous midas application (if any).
+\item Start the midas web server \mbox{[}mhttpd\mbox{]}
+\item Start the frontend application in its own xterm (for debugging purpose).
+\item Start the analyzer application in its own xterm (for debugging purpose).
+\item Start the Midas Data logger \mbox{[}mlogger\mbox{]}
+\end{DoxyEnumerate}
+\end{DoxyItemize}
+
+
+\begin{DoxyCode}
+   $ sh ./start_daq
+\end{DoxyCode}
+
+
+
+\begin{DoxyItemize}
+\item Once all these applications are running, you can invoke the Midas web page by using your browser to \href{http://localhost:8081}{\tt http://localhost:8081} . A Midas run status page should be appearing with multiple buttons for run control as well as equipment listing and application listing. Please refers to \hyperlink{RC_mhttpd}{mhttpd: the MIDAS Web-\/based Run Control utility} for further information.
+\item You can also run the MIDAS Online Editor \mbox{[}odbedit\mbox{]} in a new terminal to provide you command line access to the database.
+\begin{DoxyItemize}
+\item The content of the database is accessible with Unix-\/like commands. There are directories related to specifics of the Midas environment. One in particular is the \char`\"{}Logger\char`\"{}. Please refer to \hyperlink{F_Logging_Data}{Customizing the MIDAS data logging} for discussion on the different logger configuration options.
+\end{DoxyItemize}
+\item Run can be started and stopped under odbedit or through the web page.
+\item While a run is in progress, the midas application {\bfseries mdump} will provide you an event dump of the collected data from the running frontend.
+\item For further data processing/analysis, either the {\bfseries  midas analyzer } or the \href{http://daq-plone.triumf.ca/SR/rootana}{\tt rootana } can used for data display as well. 
+\begin{DoxyCode}
+    $odbedit
+        [local:exp:S]> ls
+        ...
+        [local:exp:S]> help
+        ...
+        [local:exp:S]> start
+        [local:exp:S]> exit
+        ...
+        $ mdump
+\end{DoxyCode}
+ \par
+
+\end{DoxyItemize}
+
+
+
+ \hypertarget{Q_Linux_Q_Linux_Installation_Considerations}{}\subsubsection{Installation Considerations}\label{Q_Linux_Q_Linux_Installation_Considerations}
+\hypertarget{Q_Linux_Q_Linux_Remote_Access}{}\paragraph{Remote Access to the experiment}\label{Q_Linux_Q_Linux_Remote_Access}
+While the above description in \hyperlink{Q_Linux_Q_Linux_Expt_Setup}{How to Setup the MIDAS Experiment} installs MIDAS under user privilege for standard operation, MIDAS can also be installed in a more general way under root privilege. This method allows remote access to the package through the xinetd daemon mechanism. In order to implement this, some extra steps are necessary as described here.
+
+
+\begin{DoxyItemize}
+\item {\bfseries  It is to be noted that remote access can be also obtained under user privilege by starting the Midas server \mbox{[}mserver\mbox{]} by hand.} 
+\begin{DoxyCode}
+  $ mserver -D
+\end{DoxyCode}
+
+\end{DoxyItemize}
+
+Several system files needs to be modified (as root) for the full MIDAS implementation.
+\begin{DoxyItemize}
+\item {\bfseries /etc/services :} For remote access, inclusion of the \char`\"{}midas\char`\"{} service is needed. Add following line: 
+\begin{DoxyCode}
+  # midas service
+  midas           1175/tcp                        # Midas server
+\end{DoxyCode}
+
+\item {\bfseries /etc/xinetd.d/midas :} Daemon definition. Create new file named {\bfseries midas} 
+\begin{DoxyCode}
+  service midas
+  {
+           flags                   = REUSE NOLIBWRAP
+           socket_type             = stream
+           wait                    = no
+           user                    = root
+           server                  = /usr/local/bin/mserver
+           log_on_success          += USERID HOST PID
+           log_on_failure          += USERID HOST
+           disable                 = no
+  }
+\end{DoxyCode}
+
+\item {\bfseries /etc/ld.so.conf :} Dynamic Linked library list. Add directory pointing to location of the midas.so file (add /usr/local/lib). 
+\begin{DoxyCode}
+  /usr/local/lib
+\end{DoxyCode}
+ The system is now build by default in static, which makes it unecessary to setup the .so path through either the environment {\bfseries LD\_\-LIBRARY\_\-PATH} or the ld.so.conf.
+\item {\bfseries /etc/exptab :} MIDAS Experiment definition file (see below). \par
+\par
+
+\end{DoxyItemize}
+
+\label{Q_Linux_idx_experiment_multiple}
+\hypertarget{Q_Linux_idx_experiment_multiple}{}
+ \label{Q_Linux_idx_exptab}
+\hypertarget{Q_Linux_idx_exptab}{}
+ \hypertarget{Q_Linux_Q_Linux_Exptab}{}\paragraph{Definition of Experiments (exptab)}\label{Q_Linux_Q_Linux_Exptab}
+The MIDAS system supports {\bfseries  multiple experiments running at the same time on a single computer}. Even though it may not be efficient, this capability makes sense when the experiments are simple detector lab setups which share hardware resources for data collection. In order to support this feature, MIDAS requires a uniquely identified set of \hyperlink{structparameters}{parameters} for each experiment that is used to define the location of the Online Database. \par
+\par
+ Every experiment under MIDAS has its own ODB. In order to differentiate them, an experiment {\bfseries  name and directory } are assigned to each experiment. This allows several experiments to run concurrently on the same host using a common MIDAS installation. \par
+\par
+ Whenever a application specific to a particular experiment is started, the experiment name can be specified as a command line argument, or as an environment variable. \par
+\par
+ A list of all possible running experiments on a given machine is kept in the file {\bfseries exptab}. This file {\bfseries exptab} is expected by default to be located under {\bfseries /etc/exptab}. This default location can be overwritten by the \hyperlink{BuildingOptions_BO_Environment_variables}{Environment Variable} \hyperlink{BuildingOptions_BO_MIDAS_EXPTAB}{MIDAS\_\-EXPTAB}. \par
+\par
+ {\bfseries The} exptab file defines each experiment on the machine, with one line per experiment. Each line contains three \hyperlink{structparameters}{parameters}, i.e: {\bfseries experiment name}, {\bfseries experiment directory name} and {\bfseries user name}. For example: 
+\begin{DoxyCode}
+  #
+  # Midas experiment list
+  test   /home/johnfoo/online     johnfoo
+  decay  /home/jackfoo/decay_daq  jackfoo
+\end{DoxyCode}
+ \par
+ Experiments not defined in {\bfseries exptab} are not accessible remotely, but can still be accessed locally using the \hyperlink{BuildingOptions_BO_Environment_variables}{environment variable} \hyperlink{BuildingOptions_BO_MIDAS_DIR}{MIDAS\_\-DIR} if defined. This environment variable superceeds the {\bfseries exptab} definition. \par
+  Where more than one experiment is defined, the default name of the experiment to connect to can be provided using the \hyperlink{BuildingOptions_BO_MIDAS_EXPT_NAME}{MIDAS\_\-EXPT\_\-NAME} environment variable.
+
+
+
+ \hypertarget{Q_Linux_Q_Linux_Demo_Examples}{}\subsubsection{Demo examples}\label{Q_Linux_Q_Linux_Demo_Examples}
+The midas file structure contains examples of code which should be used as a template. In the {\bfseries  midas/examples/experiment} directory you will find a full set for frontend and analysis code. The building of this example is performed with the {\bfseries Makefile} of this directory. 
+\begin{DoxyCode}
+  #-------------------------------------------------------------------
+  # The following lines define directories. Adjust if necessary
+  #                 
+  DRV_DIR   = $(MIDASSYS)/drivers/bus
+  INC_DIR   = $(MIDASSYS)/include
+  LIB_DIR   = $(MIDASSYS)/linux/lib
+\end{DoxyCode}
+
+
+For testing the system, you can start the frontend as follow: 
+\begin{DoxyCode}
+  > frontend
+  Event buffer size      :     100000
+  Buffer allocation      : 2 x 100000
+  System max event size  :     524288
+  User max event size    :     10000
+  User max frag. size    :     5242880
+  # of events per buffer :     10
+  
+  Connect to experiment ...Available experiments on local computer:
+  0 : test         
+  1 : decay
+  Select number:0                    <---- predefined experiment from exptab file
+      
+
+  Sample Frontend connected to <local>. Press "!" to exit                 17:27:4
+      7
+  ===============================================================================
+      =
+  Run status:   Stopped    Run number 0
+  ===============================================================================
+      =
+  Equipment     Status     Events     Events/sec Rate[kB/s] ODB->FE    FE->ODB
+  -------------------------------------------------------------------------------
+      -
+  Trigger       OK         0          0.0        0.0        0          0
+  Scaler        OK         0          0.0        0.0        0          0
+\end{DoxyCode}
+ In a different terminal window 
+\begin{DoxyCode}
+  >odbedit
+  Available experiments on local computer:
+  0 : test
+  1 : decay
+  Select number: 0
+  [local:test:S]/>start now
+  Starting run #1
+  17:28:58 [ODBEdit] Run #1 started
+  [local:test:R]/>
+\end{DoxyCode}
+ The run has been started as seen in the frontend terminal window. See the \hyperlink{frontend_8c}{frontend.c} for data generation code. 
+\begin{DoxyCode}
+  Sample Frontend connected to <local>. Press "!" to exit                 17:29:0
+      7
+  ===============================================================================
+      =
+  Run status:   Running    Run number 1
+  ===============================================================================
+      =
+  Equipment     Status     Events     Events/sec Rate[kB/s] ODB->FE    FE->ODB
+  -------------------------------------------------------------------------------
+      -
+  Trigger       OK         865        99.3       5.4        0          9
+  Scaler        OK         1          0.0        0.0        0          1
+\end{DoxyCode}
+
+
+\par
+
+
+\par
+ 
+
+\par
+
+
+\label{index_end}
+\hypertarget{index_end}{}
+ \subsection{Quickstart Windows}\label{Q_Windows}
+\par
+ 
+
+\par
+\hypertarget{Q_Windows_Q_Windows_system_requirements}{}\subsubsection{System Requirements}\label{Q_Windows_Q_Windows_system_requirements}
+not yet specified\hypertarget{Q_Windows_Q_Windows_installation}{}\subsubsection{Installation}\label{Q_Windows_Q_Windows_installation}
+Throughout the following description the MIDAS package is assumed to be found under the directory {\bfseries  \%SystemDrive\%$\backslash$midas } \par
+The experiment-\/specific directory is {\bfseries \%SystemDrive\%$\backslash$online}. The user name is {\itshape johnfoo\/}.
+
+
+\begin{DoxyItemize}
+\item The package extraction under Windows is similar to the Linux. The \hyperlink{Quickstart_Q_SVN}{SVN} site is used to gather the midas and mxml. The method can be the tarball or the \hyperlink{Quickstart_Q_SVN}{svn} using the \href{http://tortoisesvn.net}{\tt Tortoise package}.
+\end{DoxyItemize}
+
+
+\begin{DoxyItemize}
+\item Using the tarball mechanism: 
+\begin{DoxyCode}
+ - Go to http://savannah.psi.ch/viewcvs/trunk/?root=midas
+ - Click "Download tarball"
+ - Extract trunk to %SystemDrive%
+ - Rename trunk to midas
+ - Go to http://savannah.psi.ch/viewcvs/trunk/?root=mxml
+ - Click "Download tarball"
+ - Extract trunk to %SystemDrive%
+ - Rename trunk to mxml
+\end{DoxyCode}
+
+\end{DoxyItemize}
+
+
+\begin{DoxyItemize}
+\item Using the svn command under cygwin (pwd \char`\"{}svn\char`\"{} will be asked twice): 
+\begin{DoxyCode}
+ cd %SystemDrive%\
+ svn co svn+ssh://svn@savannah.psi.ch/afs/psi.ch/project/meg/svn/midas/trunk mida
+      s
+ svn co svn+ssh://svn@savannah.psi.ch/afs/psi.ch/project/meg/svn/mxml/trunk mxml
+\end{DoxyCode}
+
+\end{DoxyItemize}
+
+
+\begin{DoxyItemize}
+\item Using the Tortoise package under windows (pwd \char`\"{}svn\char`\"{} will be requested twice)
+\begin{DoxyItemize}
+\item Using the file browser go to the \%SystemDrive\%
+\item right click and select \char`\"{}SVN checkout\char`\"{}
+\item Fill the \char`\"{}URL of Repository:\char`\"{} with svn+ssh://svn@savannah.psi.ch/afs/psi.ch/project/meg/svn/midas/trunk
+\item Fill the \char`\"{}Checkout directory\char`\"{} with C:$\backslash$midas
+\item Start transfer.
+\item Do the same for mxml
+\item right click and select \char`\"{}SVN checkout\char`\"{}
+\item Fill the URL of Repository: with svn+ssh://svn@savannah.psi.ch/afs/psi.ch/project/meg/svn/mxml/trunk
+\item Fill the \char`\"{}Checkout directory\char`\"{} with C:$\backslash$mxml
+\item Start transfer.
+\end{DoxyItemize}
+\end{DoxyItemize}\hypertarget{Q_Windows_Q_Windows_Environment_Variables}{}\paragraph{Environment Variables}\label{Q_Windows_Q_Windows_Environment_Variables}
+Environment variables needs to be setup prior the MIDAS build;
+\begin{DoxyItemize}
+\item from the \char`\"{}system properties\char`\"{} -\/$>$ advanced -\/$>$ Environment Variables, define new system variables {\bfseries MIDASSYS} to {\bfseries c:$\backslash$midas} (installation location).
+\item from the \char`\"{}system properties\char`\"{} -\/$>$ advanced -\/$>$ Environment Variables, add to PATH system variables {\bfseries \char`\"{}\%MIDASSYS\%$\backslash$nt$\backslash$bin\char`\"{}} 
+\item create file {\bfseries \%SystemRoot\%$\backslash$system32$\backslash$exptab} with the following content. 
+\begin{DoxyCode}
+  test c:\online johnfoo 
+\end{DoxyCode}
+
+\end{DoxyItemize}
+
+
+\begin{DoxyItemize}
+\item The MIDAS build requires the Microsoft Visual C++ (200x) or .NET. the corresponding environment variables for the compiler need to be set prior the MIDAS build. A batch file can be found under C:$\backslash$Program Files$\backslash$Microsoft Visual Studio 5$\backslash$Common7$\backslash$Tools$\backslash$vsvar32.bat or similar... The build then can be started as follow. 
+\begin{DoxyCode}
+  cd %MIDASSYS%
+  nmake -f makefile.nt
+\end{DoxyCode}
+ \par
+
+\end{DoxyItemize}
+
+
+
+ \hypertarget{Q_Windows_Q_Windows_Basic_Test}{}\subsubsection{Basic test}\label{Q_Windows_Q_Windows_Basic_Test}
+\hypertarget{Q_Windows_Q_Windows_Hardware_Requirements}{}\paragraph{Hardware Requirements}\label{Q_Windows_Q_Windows_Hardware_Requirements}
+These instructions assume that accessibility to hardware such as VME or CAMAC is available.\hypertarget{Q_Windows_Q_Windows_Software_Requirements}{}\paragraph{Software Requirements}\label{Q_Windows_Q_Windows_Software_Requirements}
+MIDAS packages has been installed.\hypertarget{Q_Windows_Q_Windows_Expt_Setup}{}\paragraph{How to Setup the MIDAS Experiment}\label{Q_Windows_Q_Windows_Expt_Setup}
+
+\begin{DoxyItemize}
+\item Open three \char`\"{}Command Prompt\char`\"{} windows. 
+\begin{DoxyCode}
+  -w1 cd \
+  -w1 mkdir online
+  -w1 copy %MIDASSYS%\examples\experiement\frontend.exe .
+  -w1 frontend.exe
+  -w2 start mhttpd 
+  -w3 start odbedit
+  -w3 odbedit> scl
+      Name                Host
+      Sample Frontend     yourhost
+      ODBEdit             yourhost
+\end{DoxyCode}
+
+\item Start a web brower and go to \href{http://localhost}{\tt http://localhost}
+\item Click Start, confirm run number, click refresh... Stop run.
+\end{DoxyItemize}
+
+
+\begin{DoxyItemize}
+\item Please refer to the rest of this \hyperlink{Organization}{manual} for further description of the system operation. \par
+ \label{index_end}
+\hypertarget{index_end}{}
+
+\end{DoxyItemize}
+
+\par
+  \par
+ 

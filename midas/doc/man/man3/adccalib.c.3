@@ -1,0 +1,75 @@
+.TH "adccalib.c" 3 "31 May 2012" "Version 2.3.0-0" "Midas" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+adccalib.c \- 
+.SH SYNOPSIS
+.br
+.PP
+.SH "Define Documentation"
+.PP 
+.SS "#define ADC_N_BINS   500"
+.PP
+Definition at line 67 of file adccalib.c.
+.PP
+Referenced by adc_calib_init().
+.SS "#define ADC_X_HIGH   4000"
+.PP
+Definition at line 69 of file adccalib.c.
+.PP
+Referenced by adc_calib_init().
+.SS "#define ADC_X_LOW   0"
+.PP
+Definition at line 68 of file adccalib.c.
+.PP
+Referenced by adc_calib_init().
+.SH "Function Documentation"
+.PP 
+.SS "\fBINT\fP adc_calib (\fBEVENT_HEADER\fP * pheader, void * pevent)"
+.PP
+Definition at line 106 of file adccalib.c.
+.SS "\fBINT\fP adc_calib_bor (\fBINT\fP run_number)"
+.PP
+Definition at line 92 of file adccalib.c.
+.SS "\fBINT\fP adc_calib_eor (\fBINT\fP run_number)"
+.PP
+Definition at line 99 of file adccalib.c.
+.SS "\fBINT\fP adc_calib_init (void)"
+.PP
+Definition at line 71 of file adccalib.c.
+.SS "ADC_CALIBRATION_PARAM_STR (adc_calibration_param_str)"
+.SH "Variable Documentation"
+.PP 
+.SS "\fBANA_MODULE\fP \fBadc_calib_module\fP"\fBInitial value:\fP
+.PP
+.nf
+ {
+   'ADC calibration',           
+   'Stefan Ritt',               
+   adc_calib,                   
+   adc_calib_bor,               
+   adc_calib_eor,               
+   adc_calib_init,              
+   NULL,                        
+   &adccalib_param,             
+   sizeof(adccalib_param),      
+   adc_calibration_param_str,   
+}
+.fi
+.PP
+Definition at line 48 of file adccalib.c.
+.SS "\fBADC_CALIBRATION_PARAM\fP \fBadccalib_param\fP"
+.PP
+Definition at line 35 of file adccalib.c.
+.SS "\fBEXP_PARAM\fP \fBexp_param\fP"
+.PP
+Definition at line 51 of file analyzer.c.
+.SS "TH1D* \fBhAdcHists\fP[N_ADC]\fC [static]\fP"
+.PP
+Definition at line 63 of file adccalib.c.
+.SS "\fBRUNINFO\fP \fBruninfo\fP"
+.PP
+Definition at line 49 of file analyzer.c.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Midas from the source code.

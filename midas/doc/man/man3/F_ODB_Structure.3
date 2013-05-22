@@ -1,0 +1,60 @@
+.TH "F_ODB_Structure" 3 "31 May 2012" "Version 2.3.0-0" "Midas" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+F_ODB_Structure \- ODB Structure 
+ 
+.PP
+
+.br
+ The Online Database contains information that System and User wants to share. Basically all transactions for experiment setup and monitoring go through the ODB. The ODB also contains some specific system information related to the 'MIDAS client' currently involved in an experiment (/system).
+.PP
+Each ODB field or so called \fB\fBKEY\fP\fP is accessible by the user through
+.IP "\(bu" 2
+either interactively (see \fBodbedit\fP or \fBmhtppd\fP )
+.IP "\(bu" 2
+or by C-programming (see functions db_xxx in \fBMIDAS Code and Libraries\fP).
+.PP
+.PP
+The ODB information is stored in a 'tree/branch' structure where each branch refers to a specific set of data. On the first invocation of the database (first MIDAS application) a minimal system record will be created. Later on each application will add its own set of \fBparameters\fP to the database depending on its requirement. For instance, starting the task \fBodbedit\fP for the first time will cause the trees /Runinfo, /Experiment, /System to be created. The application \fBmlogger\fP will add its own trees (i.e.  /Logger /History ).
+.PP
+The ODB is the main communication platform between MIDAS applications. As such, the contents of the ODB is application dependent. Several optional trees (and subtrees) can be added by the user in order to provide extra functionality of the system. Such optional trees or subtrees are /Alias, /Script, /Experiment/Edit on Start, /Experiment/Security, /Custom, /Experiment/Run \fBparameters\fP etc.
+.PP
+The ODB is of course available to the users for storage of data and communication between their own custom clients. Users are expected to customize the ODB for their experiments, by addding their own trees, subtrees and keys as desired, as well as customizing the existing system keys to suit their own needs.
+.PP
+.PP
+The following lists many of the standard MIDAS ODB trees, with links into the documentation:
+.PP
+.IP "\(bu" 2
+\fB/Alarms tree\fP
+.IP "\(bu" 2
+\fB/Alias tree\fP
+.IP "\(bu" 2
+\fB/Custom tree\fP
+.IP "\(bu" 2
+\fB/CustomScript tree\fP
+.IP "\(bu" 2
+\fB/Ebuilder tree\fP
+.IP "\(bu" 2
+\fB/Elog tree\fP
+.IP "\(bu" 2
+\fB/Equipment tree\fP
+.IP "\(bu" 2
+\fB/Experiment tree\fP
+.IP "\(bu" 2
+\fB/History tree\fP
+.IP "\(bu" 2
+\fB/Lazy tree\fP
+.IP "\(bu" 2
+\fB/Logger tree\fP
+.IP "\(bu" 2
+\fB/Programs tree\fP
+.IP "\(bu" 2
+\fB/Runinfo tree\fP
+.IP "\(bu" 2
+\fB/Script tree\fP
+.IP "\(bu" 2
+\fB/System tree\fP
+.PP
+.PP
+  

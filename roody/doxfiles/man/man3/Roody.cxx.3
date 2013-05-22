@@ -1,0 +1,278 @@
+.TH "Roody.cxx" 3 "Thu Apr 26 2012" "Roody" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Roody.cxx \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <stdio.h>\fP
+.br
+\fC#include <math.h>\fP
+.br
+\fC#include 'RoodyXML.h'\fP
+.br
+\fC#include 'Roody.h'\fP
+.br
+\fC#include 'TAxisLimitsDialog.h'\fP
+.br
+\fC#include 'TROOT.h'\fP
+.br
+\fC#include 'TCutG.h'\fP
+.br
+\fC#include 'TNtuple.h'\fP
+.br
+\fC#include 'TGraph.h'\fP
+.br
+\fC#include 'TVirtualX.h'\fP
+.br
+\fC#include 'TGListTree.h'\fP
+.br
+\fC#include 'TGClient.h'\fP
+.br
+\fC#include 'TGLabel.h'\fP
+.br
+\fC#include 'TGButton.h'\fP
+.br
+\fC#include 'TGMsgBox.h'\fP
+.br
+\fC#include 'TGMenu.h'\fP
+.br
+\fC#include 'TGCanvas.h'\fP
+.br
+\fC#include 'TGTextDialog.h'\fP
+.br
+\fC#include 'TCanvas.h'\fP
+.br
+\fC#include 'TFrame.h'\fP
+.br
+\fC#include 'TH1.h'\fP
+.br
+\fC#include 'TSystem.h'\fP
+.br
+\fC#include 'TFile.h'\fP
+.br
+\fC#include 'TKey.h'\fP
+.br
+\fC#include 'TGStatusBar.h'\fP
+.br
+\fC#include 'TExec.h'\fP
+.br
+\fC#include 'TStyle.h'\fP
+.br
+\fC#include 'TTimer.h'\fP
+.br
+\fC#include 'TContextMenu.h'\fP
+.br
+\fC#include 'TClassMenuItem.h'\fP
+.br
+\fC#include 'TSocket.h'\fP
+.br
+\fC#include 'MTGListTree.h'\fP
+.br
+\fC#include 'TPeakFindPanel.h'\fP
+.br
+\fC#include 'TGFileDialog.h'\fP
+.br
+\fC#include 'TPaveLabel.h'\fP
+.br
+\fC#include 'DataSourceBase.h'\fP
+.br
+\fC#include 'DataSourceTDirectory.h'\fP
+.br
+\fC#include 'DataSourceTNetFolder.h'\fP
+.br
+\fC#include 'DataSourceTFile.h'\fP
+.br
+
+.SS "Classes"
+
+.in +1c
+.ti -1c
+.RI "class \fBMemDebug\fP"
+.br
+.ti -1c
+.RI "class \fBOptStatMenu\fP"
+.br
+.in -1c
+.SS "Typedefs"
+
+.in +1c
+.ti -1c
+.RI "typedef std::map< std::string, DataSourceBase * > \fBDataSourcesMap\fP"
+.br
+.in -1c
+.SS "Enumerations"
+
+.in +1c
+.ti -1c
+.RI "enum \fBAction\fP { \fBA_ITEM\fP =  1, \fBA_FOLDER\fP =  2, \fBA_SOURCE\fP =  3, \fBA_GROUP\fP =  4 }"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBbreakhere\fP (void)"
+.br
+.ti -1c
+.RI "static TGListTreeItem * \fBFindItem\fP (ObjectPath src)"
+.br
+.ti -1c
+.RI "\fBClassImp\fP (\fBRoody\fP)"
+.br
+.ti -1c
+.RI "static std::string \fBPathToString\fP (const ObjectPath &src)"
+.br
+.ti -1c
+.RI "static std::vector< std::string > \fBsplit\fP (char sep, const std::string &str)"
+.br
+.ti -1c
+.RI "static std::vector< int > \fBtoInt\fP (const std::vector< std::string > &vec)"
+.br
+.ti -1c
+.RI "static ObjectPath \fBStringToPath\fP (const std::string &source)"
+.br
+.ti -1c
+.RI "static void \fBDrawVec\fP (TVirtualPad *canvas, const \fBPadObjectVec\fP *padvec)"
+.br
+.ti -1c
+.RI "static void \fBCopyAttrs\fP (TObject *dest, TObject *src)"
+.br
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "TList * \fBgAllObjects\fP = NULL"
+.br
+.ti -1c
+.RI "std::map< TGListTreeItem *, \fBAction\fP > \fBgItemActions\fP"
+.br
+.ti -1c
+.RI "std::map< ObjectPath, TObject * > \fBgObjectCache\fP"
+.br
+.ti -1c
+.RI "\fBDataSourcesMap\fP \fBgDataSources\fP"
+.br
+.ti -1c
+.RI "std::map< TGListTreeItem *, ObjectPath > \fBgItemSources\fP"
+.br
+.ti -1c
+.RI "std::map< ObjectPath, std::string > \fBgObjectClasses\fP"
+.br
+.ti -1c
+.RI "std::map< std::string, std::vector< TGListTreeItem * > > \fBgGroupContents\fP"
+.br
+.ti -1c
+.RI "std::map< TVirtualPad *, \fBPadObjectVec\fP > \fBgPadContents\fP"
+.br
+.in -1c
+.SH "Typedef Documentation"
+.PP 
+.SS "typedef std::map<std::string,DataSourceBase*> \fBDataSourcesMap\fP"
+.PP
+Definition at line 103 of file Roody.cxx.
+.SH "Enumeration Type Documentation"
+.PP 
+.SS "enum \fBAction\fP"
+.PP
+\fBEnumerator: \fP
+.in +1c
+.TP
+\fB\fIA_ITEM \fP\fP
+.TP
+\fB\fIA_FOLDER \fP\fP
+.TP
+\fB\fIA_SOURCE \fP\fP
+.TP
+\fB\fIA_GROUP \fP\fP
+
+.PP
+Definition at line 89 of file Roody.cxx.
+.SH "Function Documentation"
+.PP 
+.SS "void breakhere (void)"
+.PP
+Definition at line 53 of file Roody.cxx.
+.PP
+Referenced by MemDebug::~MemDebug().
+.SS "ClassImp (\fBRoody\fP)"
+.SS "static void CopyAttrs (TObject *dest, TObject *src)\fC [static]\fP"
+.PP
+Definition at line 1133 of file Roody.cxx.
+.PP
+Referenced by Roody::AddPadToVec().
+.SS "static void DrawVec (TVirtualPad *canvas, const \fBPadObjectVec\fP *padvec)\fC [static]\fP"
+.PP
+Definition at line 1069 of file Roody.cxx.
+.PP
+Referenced by Roody::DrawItemOnPad(), Roody::RedrawCanvas(), Roody::SetupZones(), and Roody::ZoomOption().
+.SS "static TGListTreeItem* FindItem (ObjectPathsrc)\fC [static]\fP"
+.PP
+Definition at line 111 of file Roody.cxx.
+.PP
+Referenced by MTGListTree::HandleButton(), Roody::RestoreFile(), and Roody::RestoreObjects().
+.SS "static std::string PathToString (const ObjectPath &src)\fC [static]\fP"
+.PP
+Definition at line 261 of file Roody.cxx.
+.PP
+Referenced by Roody::SaveFile(), and Roody::SaveFilePadContents().
+.SS "static std::vector<std::string> split (charsep, const std::string &str)\fC [static]\fP"
+.PP
+Definition at line 272 of file Roody.cxx.
+.PP
+Referenced by Roody::ConnectServer(), Roody::OpenZoneDialog(), Roody::RestoreFile(), and StringToPath().
+.SS "static ObjectPath StringToPath (const std::string &source)\fC [static]\fP"
+.PP
+Definition at line 311 of file Roody.cxx.
+.PP
+Referenced by Roody::RestoreFile(), and Roody::RestoreObjects().
+.SS "static std::vector<int> toInt (const std::vector< std::string > &vec)\fC [static]\fP"
+.PP
+Definition at line 303 of file Roody.cxx.
+.PP
+Referenced by Roody::OpenZoneDialog(), and Roody::RestoreFile().
+.SH "Variable Documentation"
+.PP 
+.SS "TList* \fBgAllObjects\fP = NULL"
+.PP
+Definition at line 97 of file Roody.cxx.
+.PP
+Referenced by Roody::AddObjectToVec(), Roody::AddPadToVec(), and Roody::Roody().
+.SS "\fBDataSourcesMap\fP \fBgDataSources\fP"
+.PP
+Definition at line 104 of file Roody.cxx.
+.PP
+Referenced by Roody::AddDataSource(), Roody::CloseSource(), Roody::GetObject(), Roody::ProcessMessage(), Roody::ReopenSource(), Roody::ResetAll(), and Roody::ResetItem().
+.SS "std::map<std::string,std::vector<TGListTreeItem*> > \fBgGroupContents\fP"
+.PP
+Definition at line 109 of file Roody.cxx.
+.SS "std::map<TGListTreeItem*, \fBAction\fP> \fBgItemActions\fP"
+.PP
+Definition at line 99 of file Roody.cxx.
+.PP
+Referenced by Roody::AddDataSource(), Roody::AddHistogramToGroup(), Roody::GetFolderItems(), Roody::MakeNewGroup(), and Roody::ProcessMessage().
+.SS "std::map<TGListTreeItem*,ObjectPath> \fBgItemSources\fP"
+.PP
+Definition at line 106 of file Roody.cxx.
+.PP
+Referenced by Roody::AddDataSource(), Roody::AddHistogramToGroup(), Roody::DrawItemOnPad(), FindItem(), Roody::ResetItem(), and Roody::SaveFile().
+.SS "std::map<ObjectPath,TObject*> \fBgObjectCache\fP"
+.PP
+Definition at line 101 of file Roody.cxx.
+.PP
+Referenced by Roody::GetObject(), Roody::ProcessMessage(), Roody::ReopenSource(), and Roody::RereadObject().
+.SS "std::map<ObjectPath,std::string> \fBgObjectClasses\fP"
+.PP
+Definition at line 107 of file Roody.cxx.
+.PP
+Referenced by Roody::DrawItemOnPad().
+.SS "std::map<TVirtualPad*,\fBPadObjectVec\fP> \fBgPadContents\fP"
+.PP
+Definition at line 201 of file Roody.cxx.
+.PP
+Referenced by Roody::AddPadToVec(), Roody::DrawItemOnPad(), DrawVec(), Roody::RedrawCanvas(), Roody::SaveFile(), Roody::SetupZones(), and Roody::ZoomOption().
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Roody from the source code.

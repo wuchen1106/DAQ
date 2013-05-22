@@ -1,0 +1,90 @@
+\subsection{RUNINFO Struct Reference}
+\label{structRUNINFO}\index{RUNINFO@{RUNINFO}}
+\subsubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{structRUNINFO_a7c400fc343d96a490a32bc64fca7be05}{state}
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{structRUNINFO_a993c515f2187c544e338bf06c7064ec3}{online\_\-mode}
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{structRUNINFO_ae34f31b041d6b30e555170811ef376ee}{run\_\-number}
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{structRUNINFO_a28c09956d19bc4404e81094841389ae3}{transition\_\-in\_\-progress}
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{structRUNINFO_ad651ba8d57963be72f85c87aebdc4b22}{start\_\-abort}
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{structRUNINFO_a2a4b8247ea78b5463c30f427460cd16e}{requested\_\-transition}
+\item 
+char \hyperlink{structRUNINFO_a11fb9fb218581c46a448aa9fd3531b68}{start\_\-time} \mbox{[}32\mbox{]}
+\item 
+\hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} \hyperlink{structRUNINFO_a495a2887a420437a45c0a602758fcf34}{start\_\-time\_\-binary}
+\item 
+char \hyperlink{structRUNINFO_a3c0b44aedcf1670b74c1516f6702ee9f}{stop\_\-time} \mbox{[}32\mbox{]}
+\item 
+\hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} \hyperlink{structRUNINFO_a8561e123308cba90d8a024eb9f205052}{stop\_\-time\_\-binary}
+\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+Contains the main \hyperlink{structparameters}{parameters} regarding the run status. The containt reflects the current system ONLY if Midas clients are connected. Otherwise the status is erroneous. 
+
+Definition at line 1241 of file midas.h.
+
+\subsubsection{Field Documentation}
+\index{RUNINFO@{RUNINFO}!online\_\-mode@{online\_\-mode}}
+\index{online\_\-mode@{online\_\-mode}!RUNINFO@{RUNINFO}}
+\paragraph[{online\_\-mode}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} {\bf RUNINFO::online\_\-mode}}\hfill\label{structRUNINFO_a993c515f2187c544e338bf06c7064ec3}
+Mode of operation online/offline 
+
+Definition at line 1243 of file midas.h.
+
+Referenced by ana\_\-end\_\-of\_\-run().\index{RUNINFO@{RUNINFO}!requested\_\-transition@{requested\_\-transition}}
+\index{requested\_\-transition@{requested\_\-transition}!RUNINFO@{RUNINFO}}
+\paragraph[{requested\_\-transition}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} {\bf RUNINFO::requested\_\-transition}}\hfill\label{structRUNINFO_a2a4b8247ea78b5463c30f427460cd16e}
+Deferred transition request 
+
+Definition at line 1247 of file midas.h.\index{RUNINFO@{RUNINFO}!run\_\-number@{run\_\-number}}
+\index{run\_\-number@{run\_\-number}!RUNINFO@{RUNINFO}}
+\paragraph[{run\_\-number}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} {\bf RUNINFO::run\_\-number}}\hfill\label{structRUNINFO_ae34f31b041d6b30e555170811ef376ee}
+Current processing run number 
+
+Definition at line 1244 of file midas.h.
+
+Referenced by ana\_\-end\_\-of\_\-run().\index{RUNINFO@{RUNINFO}!start\_\-abort@{start\_\-abort}}
+\index{start\_\-abort@{start\_\-abort}!RUNINFO@{RUNINFO}}
+\paragraph[{start\_\-abort}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} {\bf RUNINFO::start\_\-abort}}\hfill\label{structRUNINFO_ad651ba8d57963be72f85c87aebdc4b22}
+Set if run start was aborted 
+
+Definition at line 1246 of file midas.h.\index{RUNINFO@{RUNINFO}!start\_\-time@{start\_\-time}}
+\index{start\_\-time@{start\_\-time}!RUNINFO@{RUNINFO}}
+\paragraph[{start\_\-time}]{\setlength{\rightskip}{0pt plus 5cm}char {\bf RUNINFO::start\_\-time}\mbox{[}32\mbox{]}}\hfill\label{structRUNINFO_a11fb9fb218581c46a448aa9fd3531b68}
+ASCII of the last start time 
+
+Definition at line 1248 of file midas.h.
+
+Referenced by ana\_\-end\_\-of\_\-run().\index{RUNINFO@{RUNINFO}!start\_\-time\_\-binary@{start\_\-time\_\-binary}}
+\index{start\_\-time\_\-binary@{start\_\-time\_\-binary}!RUNINFO@{RUNINFO}}
+\paragraph[{start\_\-time\_\-binary}]{\setlength{\rightskip}{0pt plus 5cm}{\bf DWORD} {\bf RUNINFO::start\_\-time\_\-binary}}\hfill\label{structRUNINFO_a495a2887a420437a45c0a602758fcf34}
+Bin of the last start time 
+
+Definition at line 1249 of file midas.h.\index{RUNINFO@{RUNINFO}!state@{state}}
+\index{state@{state}!RUNINFO@{RUNINFO}}
+\paragraph[{state}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} {\bf RUNINFO::state}}\hfill\label{structRUNINFO_a7c400fc343d96a490a32bc64fca7be05}
+Current run condition 
+
+Definition at line 1242 of file midas.h.\index{RUNINFO@{RUNINFO}!stop\_\-time@{stop\_\-time}}
+\index{stop\_\-time@{stop\_\-time}!RUNINFO@{RUNINFO}}
+\paragraph[{stop\_\-time}]{\setlength{\rightskip}{0pt plus 5cm}char {\bf RUNINFO::stop\_\-time}\mbox{[}32\mbox{]}}\hfill\label{structRUNINFO_a3c0b44aedcf1670b74c1516f6702ee9f}
+ASCII of the last stop time 
+
+Definition at line 1250 of file midas.h.\index{RUNINFO@{RUNINFO}!stop\_\-time\_\-binary@{stop\_\-time\_\-binary}}
+\index{stop\_\-time\_\-binary@{stop\_\-time\_\-binary}!RUNINFO@{RUNINFO}}
+\paragraph[{stop\_\-time\_\-binary}]{\setlength{\rightskip}{0pt plus 5cm}{\bf DWORD} {\bf RUNINFO::stop\_\-time\_\-binary}}\hfill\label{structRUNINFO_a8561e123308cba90d8a024eb9f205052}
+ASCII of the last stop time 
+
+Definition at line 1251 of file midas.h.\index{RUNINFO@{RUNINFO}!transition\_\-in\_\-progress@{transition\_\-in\_\-progress}}
+\index{transition\_\-in\_\-progress@{transition\_\-in\_\-progress}!RUNINFO@{RUNINFO}}
+\paragraph[{transition\_\-in\_\-progress}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} {\bf RUNINFO::transition\_\-in\_\-progress}}\hfill\label{structRUNINFO_a28c09956d19bc4404e81094841389ae3}
+Intermediate state during transition 
+
+Definition at line 1245 of file midas.h.

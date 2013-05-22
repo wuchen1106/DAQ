@@ -1,0 +1,300 @@
+.TH "System Services error code" 3 "31 May 2012" "Version 2.3.0-0" "Midas" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+System Services error code \- 
+.SS "Defines"
+
+.in +1c
+.ti -1c
+.RI "#define \fBSS_SUCCESS\fP   1"
+.br
+.ti -1c
+.RI "#define \fBSS_CREATED\fP   402"
+.br
+.ti -1c
+.RI "#define \fBSS_NO_MEMORY\fP   403"
+.br
+.ti -1c
+.RI "#define \fBSS_INVALID_NAME\fP   404"
+.br
+.ti -1c
+.RI "#define \fBSS_INVALID_HANDLE\fP   405"
+.br
+.ti -1c
+.RI "#define \fBSS_INVALID_ADDRESS\fP   406"
+.br
+.ti -1c
+.RI "#define \fBSS_FILE_ERROR\fP   407"
+.br
+.ti -1c
+.RI "#define \fBSS_NO_SEMAPHORE\fP   408"
+.br
+.ti -1c
+.RI "#define \fBSS_NO_PROCESS\fP   409"
+.br
+.ti -1c
+.RI "#define \fBSS_NO_THREAD\fP   410"
+.br
+.ti -1c
+.RI "#define \fBSS_SOCKET_ERROR\fP   411"
+.br
+.ti -1c
+.RI "#define \fBSS_TIMEOUT\fP   412"
+.br
+.ti -1c
+.RI "#define \fBSS_SERVER_RECV\fP   413"
+.br
+.ti -1c
+.RI "#define \fBSS_CLIENT_RECV\fP   414"
+.br
+.ti -1c
+.RI "#define \fBSS_ABORT\fP   415"
+.br
+.ti -1c
+.RI "#define \fBSS_EXIT\fP   416"
+.br
+.ti -1c
+.RI "#define \fBSS_NO_TAPE\fP   417"
+.br
+.ti -1c
+.RI "#define \fBSS_DEV_BUSY\fP   418"
+.br
+.ti -1c
+.RI "#define \fBSS_IO_ERROR\fP   419"
+.br
+.ti -1c
+.RI "#define \fBSS_TAPE_ERROR\fP   420"
+.br
+.ti -1c
+.RI "#define \fBSS_NO_DRIVER\fP   421"
+.br
+.ti -1c
+.RI "#define \fBSS_END_OF_TAPE\fP   422"
+.br
+.ti -1c
+.RI "#define \fBSS_END_OF_FILE\fP   423"
+.br
+.ti -1c
+.RI "#define \fBSS_FILE_EXISTS\fP   424"
+.br
+.ti -1c
+.RI "#define \fBSS_NO_SPACE\fP   425"
+.br
+.ti -1c
+.RI "#define \fBSS_INVALID_FORMAT\fP   426"
+.br
+.ti -1c
+.RI "#define \fBSS_NO_ROOT\fP   427"
+.br
+.ti -1c
+.RI "#define \fBSS_SIZE_MISMATCH\fP   428"
+.br
+.ti -1c
+.RI "#define \fBSS_NO_MUTEX\fP   429"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+dox dox 
+.SH "Define Documentation"
+.PP 
+.SS "#define SS_ABORT   415".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 613 of file midas.h.
+.PP
+Referenced by bm_receive_event(), bm_wait_for_free_space(), scan_fragment(), and scheduler().
+.SS "#define SS_CLIENT_RECV   414".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 612 of file midas.h.
+.SS "#define SS_CREATED   402".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 600 of file midas.h.
+.PP
+Referenced by bm_open_buffer(), cm_connect_experiment1(), cm_msg_buffer(), db_open_database(), device_driver(), and mfe_set_error().
+.SS "#define SS_DEV_BUSY   418".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 616 of file midas.h.
+.SS "#define SS_END_OF_FILE   423".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 621 of file midas.h.
+.SS "#define SS_END_OF_TAPE   422".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 620 of file midas.h.
+.PP
+Referenced by md_dev_os_read().
+.SS "#define SS_EXIT   416".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 614 of file midas.h.
+.SS "#define SS_FILE_ERROR   407".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 605 of file midas.h.
+.PP
+Referenced by db_open_database(), md_dev_os_read(), md_dev_os_write(), md_file_ropen(), md_file_wopen(), and midas_physrec_get().
+.SS "#define SS_FILE_EXISTS   424".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 622 of file midas.h.
+.SS "#define SS_INVALID_ADDRESS   406".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 604 of file midas.h.
+.SS "#define SS_INVALID_FORMAT   426".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 624 of file midas.h.
+.SS "#define SS_INVALID_HANDLE   405".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 603 of file midas.h.
+.SS "#define SS_INVALID_NAME   404".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 602 of file midas.h.
+.SS "#define SS_IO_ERROR   419".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 617 of file midas.h.
+.PP
+Referenced by md_dev_os_write().
+.SS "#define SS_NO_DRIVER   421".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 619 of file midas.h.
+.SS "#define SS_NO_MEMORY   403".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 601 of file midas.h.
+.PP
+Referenced by cm_msg_buffer(), cm_msg_flush_buffer(), db_open_database(), md_file_ropen(), register_equipment(), and send_event().
+.SS "#define SS_NO_MUTEX   429".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 627 of file midas.h.
+.SS "#define SS_NO_PROCESS   409".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 607 of file midas.h.
+.SS "#define SS_NO_ROOT   427".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 625 of file midas.h.
+.SS "#define SS_NO_SEMAPHORE   408".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 606 of file midas.h.
+.SS "#define SS_NO_SPACE   425".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 623 of file midas.h.
+.PP
+Referenced by md_dev_os_write().
+.SS "#define SS_NO_TAPE   417".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 615 of file midas.h.
+.SS "#define SS_NO_THREAD   410".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 608 of file midas.h.
+.PP
+Referenced by ss_thread_kill().
+.SS "#define SS_SERVER_RECV   413".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 611 of file midas.h.
+.SS "#define SS_SIZE_MISMATCH   428".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 626 of file midas.h.
+.SS "#define SS_SOCKET_ERROR   411".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 609 of file midas.h.
+.SS "#define SS_SUCCESS   1".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 599 of file midas.h.
+.PP
+Referenced by al_check(), bm_open_buffer(), bm_receive_event(), cm_connect_experiment1(), cm_msg_buffer(), cm_msg_flush_buffer(), db_lock_database(), db_open_database(), device_driver(), el_submit(), md_dev_os_read(), md_dev_os_write(), md_event_swap(), md_file_wclose(), md_file_wopen(), mfe_set_error(), midas_physrec_get(), ss_sleep(), ss_system(), and ss_thread_kill().
+.SS "#define SS_TAPE_ERROR   420".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 618 of file midas.h.
+.PP
+Referenced by md_dev_os_write().
+.SS "#define SS_TIMEOUT   412".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 610 of file midas.h.
+.PP
+Referenced by bm_wait_for_free_space(), and db_lock_database().
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Midas from the source code.

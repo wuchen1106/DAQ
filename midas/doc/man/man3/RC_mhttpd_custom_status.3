@@ -1,0 +1,201 @@
+.TH "RC_mhttpd_custom_status" 3 "31 May 2012" "Version 2.3.0-0" "Midas" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+RC_mhttpd_custom_status \- Custom Status page 
+
+.br
+ 
+.PP
+\fBA Custom Status page\fP is a custom page that \fBreplaces the default MIDAS status page.\fP 
+.br
+
+.br
+ A custom Status page is activated as described \fBpreviously\fP. Features such as the standard \fBMenu buttons\fP, \fBAlias Buttons and Hyperlinks\fP etc. can be provided in the same way as for any other custom page. When replacing the default Status page by a Custom Status page, any \fBscript-buttons\fP defined on the original MIDAS Status page can be easily turned into \fBCustomScript Buttons\fP on the Custom Status page by placing links in the  /customscript  tree to any existing script-buttons under the  /Script  tree.
+.PP
+.PP
+.nf
+[local:bnmr:S]/>ls /customscript
+Hold      -> /Script/BNMR Hold/
+Continue  -> /script/Continue 
+Scalers   -> /script/Scalers
+.fi
+.PP
+ See \fBexample\fP of the above defined buttons.
+.SH "Toggle between Default and Custom Status pages"
+.PP
+In the following example, the main Status page can be toggled between the Custom version and the default MIDAS status page.
+.PP
+The Custom status page contains a button \fBToggleStatusPage\fP that will toggle between the two cases. A custom-link has been provided on the Default status page in order to access the custom status page when using the Default status page.
+.PP
+The following shows the /Custom directory when the Custom status page is running. The /Custom directory contains the key \fBCustomStatus&\fP, a link to the custom Status page. The key \fBStatus\fP is set as a link to \fBCustomStatus&\fP. 
+.PP
+.nf
+[local:bnmr:S]/>ls /custom
+CustomStatus&                   /home/bnmr/online/custom/Custom_Status.html
+Status                          /custom/CustomStatus& -> /home/bnmr/online/custom/Custom_Status.html
+
+.fi
+.PP
+.PP
+A script-button is set up in the custom status page (see \fBCustomScript Buttons\fP) as follows
+.PP
+.PP
+.nf
+[local:bnmr:S]/>ls /customscript/ToggleStatusPage
+cmd                             /home/bnmr/online/perl/set_status.pl
+include path                    /home/bnmr/online/perl
+experiment name                 bnmr
+beamline                        bnmr
+.fi
+.PP
+.PP
+The script /home/bnmr/online/perl/set_status.pl will toggle between the status page being set to the default or to the custom, by removing or creating the key 'Status' in the /Custom subdirectory.
+.PP
+The following shows the /custom directory when the default Status page is selected: 
+.PP
+.nf
+[local:bnmr:S]/>ls /custom
+CustomStatus&                   /home/bnmr/online/custom/Custom_Status.html
+Status                          /custom/CustomStatus& -> /home/bnmr/online/custom/Custom_Status.html
+
+.fi
+.PP
+.PP
+ Custom and default status pages for the BNMR experiment at TRIUMF  
+.PP
+The script file \fI set_status.pl \fP is as follows:
+.PP
+.PP
+.nf
+#!/usr/bin/perl 
+# above is magic first line to invoke perl
+# or for debug
+###  !/usr/bin/perl -d
+#
+#   Normally invoked from set_status button on custom Web page Custom_Status.html
+# 
+# invoke this script with cmd  e.g.
+#              include                    experiment        beamline
+#                path                                     
+# set_status.pl /home/bnmr/online/perl       bnmr             bnmr
+# set_status.pl /home/bnqr/online/perl       bnqr             bnqr
+#
+# toggles Status page between std MIDAS page and Custom Status page
+# by either deleting odb key /Custom/Status
+# or creating odb key /Custom/Status by loading a file /home/bn<mq>r/online/custom/status.odb
+#
+use strict;
+##################### G L O B A L S ####################################
+our  @ARRAY;
+our $FALSE=0;
+our $FAILURE=0;
+our $TRUE=1;
+our $SUCCESS=1;
+our $ODB_SUCCESS=0;   # status = 0 is success for odb
+our $DEBUG=$FALSE;    # set to 1 for debug, 0 for no debug
+our $EXPERIMENT=' ';
+our $ANSWER=' ';      # reply from odb_cmd
+our $COMMAND=' ';     # copy of command sent be odb_cmd (for error handling)
+our $STATE_STOPPED=1; # Run state is stopped
+our $STATE_RUNNING=3; # Run state is running
+# for odb  msg cmd:
+our $MERROR=1; # error
+our $MINFO=2;  # info
+our $MTALK=32; # talk
+# constants for print_3
+our $DIE = $TRUE;  # die after print_3
+our $CONT = $FALSE; # do not die after print_3 (set_status)
+#e.g.    print_3($name,  'ERROR: no path supplied',$MERROR,$DIE);
+#    or   print_3($name,  'INFO: run number has not changed',$MINFO,$CONT);
+# print_3 is a subroutine that prints the message to three places:
+#     the output file, standard output, MIDAS message log
+# print_2 is a subroutine that prints the message to two places:
+#     the output file and standard output
+
+#######################################################################
+#  parameters needed by init_check.pl (required code common to perlscripts) :
+# init_check uses $inc_dir, $expt, $beamline from the input parameters
+our ($inc_dir,$expt, $beamline ) = @ARGV;
+our $len =  $#ARGV; # array length
+our $name = 'set_status'; # same as filename
+our $nparam=3;
+our $outfile = 'set_status.txt'; #path supplied by file open
+our $parameter_msg = 'include_path, experiment;  beamline\n';
+#######################################################################
+# local variables
+my ($path, $key, $status);
+my $debug=$FALSE;
+my $filename;
+#######################################################################
+#
+$|=1; # flush output buffers
+
+
+# Inc_dir needed because when script is invoked by browser it can't find the
+# code for require
+unless ($inc_dir) { die '$name: No include directory path has been supplied\n';}
+$inc_dir =~ s/\/$//;  # remove any trailing slash
+require '$inc_dir/odb_access.pl'; 
+
+# Init_check.pl checks:
+#   one copy of script running
+#   no. of input parameters
+#   opens output file $outfile on file handle FOUT
+#
+require '$inc_dir/init_check.pl';
+
+#
+# Output will be sent to file $outfile 
+# because this is for use with the browser and STDOUT and STDERR get set to null
+
+print FOUT  '$name starting with parameters:  \n';
+print FOUT  'Experiment = $expt; \n';
+#
+#
+#
+
+if( $beamline =~ /bn[qm]r/i )
+{
+# BNM/QR experiments use custom page
+}
+else
+{ # no action
+exit;
+}
+
+# Status is now a link; supply the expected name of the link or odb_cmd will flag and error 
+($status) = odb_cmd ( 'ls','/Custom','Status','','','CustomStatus&');
+
+if  ($status)
+{
+    ($status)=odb_cmd ( 'rm','/Custom','Status','', '' ) ;  
+}
+else
+{
+# load required link from a saved file
+    $filename = '/home/$beamline/online/custom/status.odb'; 
+    unless (-e $filename)
+    {
+        print_3 ($name,'No such file as $filename',$DIE);
+    }
+
+    ($status)=odb_cmd ( 'load','$filename','','', '' ) ;
+    if  ($status)
+    {
+        
+        print_2($name, 'loaded file to create /Custom/Status',$CONT);
+    }
+    else {
+        print_2 ($name,'$name: after odb_cmd, ANSWER=$ANSWER ',$CONT);}
+
+}    
+exit;
+.fi
+.PP
+ 
+.br
+.PP
+
+.br
+   

@@ -1,0 +1,11 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$a00037.html#aeea3028863a389d77b8a5e55e09c40e1" title="TRootanaDisplay::AddSingleCanvas" alt="" coords="336,5,592,35"/>
+<area shape="rect" id="node5" href="$a00037.html#ab3d4f01956c85900707079ad09b31868" title="Method to initialize the Main display window." alt="" coords="324,59,604,88"/>
+<area shape="rect" id="node9" href="$a00010.html#a7f9cffc4523e24eafe5afd8bc496c405" title="This method can be implemented by users to plotting of current canvas." alt="" coords="369,112,559,141"/>
+<area shape="rect" id="node11" href="$a00037.html#adb28b4bea380c50a1bba7a03266e606a" title="TRootanaDisplay::UpdatePlotsAction" alt="" coords="329,165,599,195"/>
+<area shape="rect" id="node7" href="$a00037.html#a53f19a95f7cf8923f6c708d3847f588b" title="TRootanaDisplay::Initialize" alt="" coords="692,59,889,88"/>
+<area shape="rect" id="node13" href="$a00037.html#a59288bcf3bd2f6bcb8c7d2ee2db85b43" title="TRootanaDisplay::BeginRun" alt="" coords="688,112,893,141"/>
+<area shape="rect" id="node15" href="$a00037.html#a23f4d591f375d3415e48f46f648e130d" title="TRootanaDisplay::EndRun" alt="" coords="695,165,887,195"/>
+<area shape="rect" id="node17" href="$a00037.html#a85792355354ecf3a141b293e902de217" title="Process each midas event." alt="" coords="653,219,928,248"/>
+<area shape="rect" id="node19" href="$a00037.html#ae790ba3e2b2132743846f0f191bf4d18" title="TRootanaDisplay::Reset" alt="" coords="699,272,883,301"/>
+</map>

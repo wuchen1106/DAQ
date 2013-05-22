@@ -1,0 +1,63 @@
+.TH "EVENT_HEADER" 3 "31 May 2012" "Version 2.3.0-0" "Midas" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+EVENT_HEADER \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "short int \fBevent_id\fP"
+.br
+.ti -1c
+.RI "short int \fBtrigger_mask\fP"
+.br
+.ti -1c
+.RI "\fBDWORD\fP \fBserial_number\fP"
+.br
+.ti -1c
+.RI "\fBDWORD\fP \fBtime_stamp\fP"
+.br
+.ti -1c
+.RI "\fBDWORD\fP \fBdata_size\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Event header 
+.PP
+Definition at line 782 of file midas.h.
+.SH "Field Documentation"
+.PP 
+.SS "\fBDWORD\fP \fBEVENT_HEADER::data_size\fP"size of event in bytes w/o header 
+.PP
+Definition at line 787 of file midas.h.
+.PP
+Referenced by bm_compose_event(), bm_convert_event_header(), bm_copy_from_cache(), bm_dispatch_from_cache(), bm_flush_cache(), bm_push_event(), bm_receive_event(), check_polled_events(), cm_msg1(), cm_msg_send_event(), eb_user(), interrupt_routine(), md_bank_event_display(), readout_thread(), receive_trigger_event(), scheduler(), send_event(), and update_odb().
+.SS "short int \fBEVENT_HEADER::event_id\fP"event ID starting from one 
+.PP
+Definition at line 783 of file midas.h.
+.PP
+Referenced by bm_compose_event(), bm_convert_event_header(), bm_dispatch_event(), bm_match_event(), check_polled_events(), interrupt_routine(), md_bank_event_display(), readout_thread(), scheduler(), send_event(), and update_odb().
+.SS "\fBDWORD\fP \fBEVENT_HEADER::serial_number\fP"serial number starting from one 
+.PP
+Definition at line 785 of file midas.h.
+.PP
+Referenced by bm_compose_event(), bm_convert_event_header(), check_polled_events(), interrupt_routine(), md_bank_event_display(), readout_thread(), receive_trigger_event(), scheduler(), and send_event().
+.SS "\fBDWORD\fP \fBEVENT_HEADER::time_stamp\fP"time of production of event 
+.PP
+Definition at line 786 of file midas.h.
+.PP
+Referenced by bm_compose_event(), bm_convert_event_header(), bm_push_event(), check_polled_events(), cm_msg_send_event(), interrupt_routine(), md_bank_event_display(), readout_thread(), scheduler(), and send_event().
+.SS "short int \fBEVENT_HEADER::trigger_mask\fP"hardware trigger mask 
+.PP
+Definition at line 784 of file midas.h.
+.PP
+Referenced by bm_compose_event(), bm_convert_event_header(), bm_match_event(), check_polled_events(), interrupt_routine(), md_bank_event_display(), readout_thread(), scheduler(), and send_event().
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Midas from the source code.

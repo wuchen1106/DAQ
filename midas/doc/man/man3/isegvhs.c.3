@@ -1,0 +1,50 @@
+.TH "isegvhs.c" 3 "31 May 2012" "Version 2.3.0-0" "Midas" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+isegvhs.c \- 
+.SH SYNOPSIS
+.br
+.PP
+.SH "Function Documentation"
+.PP 
+.SS "uint32_t isegvhs_RegisterRead (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base, int offset)"
+.PP
+Definition at line 64 of file isegvhs.c.
+.SS "float isegvhs_RegisterReadFloat (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base, int offset)"
+.PP
+Definition at line 70 of file isegvhs.c.
+.PP
+Referenced by isegvhs_Status().
+.SS "void isegvhs_RegisterWrite (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base, int offset, uint32_t value)"
+.PP
+Definition at line 79 of file isegvhs.c.
+.SS "void isegvhs_RegisterWriteFloat (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base, int offset, float value)"
+.PP
+Definition at line 85 of file isegvhs.c.
+.SS "void isegvhs_Status (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base)"
+.PP
+Definition at line 91 of file isegvhs.c.
+.SS "static uint32_t regRead (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base, int offset)\fC [static]\fP"
+.PP
+Definition at line 20 of file isegvhs.c.
+.PP
+Referenced by isegvhs_RegisterRead(), and isegvhs_Status().
+.SS "static float regReadFloat (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base, int offset)\fC [static]\fP"
+.PP
+Definition at line 27 of file isegvhs.c.
+.PP
+Referenced by isegvhs_RegisterReadFloat(), and isegvhs_Status().
+.SS "static void regWrite (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base, int offset, uint32_t value)\fC [static]\fP"
+.PP
+Definition at line 46 of file isegvhs.c.
+.PP
+Referenced by isegvhs_RegisterWrite().
+.SS "static void regWriteFloat (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base, int offset, float value)\fC [static]\fP"
+.PP
+Definition at line 53 of file isegvhs.c.
+.PP
+Referenced by isegvhs_RegisterWriteFloat().
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Midas from the source code.

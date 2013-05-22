@@ -1,0 +1,125 @@
+.TH "analyzer.c" 3 "31 May 2012" "Version 2.3.0-0" "Midas" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+analyzer.c \- 
+.SH SYNOPSIS
+.br
+.PP
+.SH "Function Documentation"
+.PP 
+.SS "\fBINT\fP ana_begin_of_run (\fBINT\fP run_number, char * error)"
+.PP
+Definition at line 199 of file analyzer.c.
+.SS "\fBINT\fP ana_end_of_run (\fBINT\fP run_number, char * error)"
+.PP
+Definition at line 206 of file analyzer.c.
+.SS "\fBINT\fP ana_pause_run (\fBINT\fP run_number, char * error)"
+.PP
+Definition at line 263 of file analyzer.c.
+.SS "\fBINT\fP ana_resume_run (\fBINT\fP run_number, char * error)"
+.PP
+Definition at line 270 of file analyzer.c.
+.SS "\fBINT\fP analyzer_exit ()"
+.PP
+Definition at line 192 of file analyzer.c.
+.SS "\fBINT\fP analyzer_init ()"
+.PP
+Definition at line 137 of file analyzer.c.
+.SS "\fBINT\fP analyzer_loop ()"
+.PP
+Definition at line 277 of file analyzer.c.
+.SS "ASUM_BANK_STR (asum_bank_str)"
+.SH "Variable Documentation"
+.PP 
+.SS "\fBANA_MODULE\fP \fBadc_calib_module\fP"
+.PP
+Definition at line 48 of file adccalib.c.
+.SS "\fBANA_MODULE\fP \fBadc_summing_module\fP"
+.PP
+Definition at line 53 of file adcsum.c.
+.SS "\fBBANK_LIST\fP \fBana_scaler_bank_list\fP[]"\fBInitial value:\fP
+.PP
+.nf
+ {
+   
+   {'SCLR', TID_DWORD, N_ADC, NULL},
+
+   
+   {'ACUM', TID_DOUBLE, N_ADC, NULL},
+   {''},
+}
+.fi
+.PP
+Definition at line 88 of file analyzer.c.
+.SS "\fBBANK_LIST\fP \fBana_trigger_bank_list\fP[]"\fBInitial value:\fP
+.PP
+.nf
+ {
+
+   
+   {'ADC0', TID_WORD, N_ADC, NULL},
+   {'TDC0', TID_WORD, N_TDC, NULL},
+
+   
+   {'CADC', TID_FLOAT, N_ADC, NULL},
+   {'ASUM', TID_STRUCT, sizeof(ASUM_BANK), asum_bank_str},
+
+   {''},
+}
+.fi
+.PP
+Definition at line 75 of file analyzer.c.
+.SS "\fBANALYZE_REQUEST\fP \fBanalyze_request\fP[]"
+.PP
+Definition at line 99 of file analyzer.c.
+.SS "\fBINT\fP \fBanalyzer_loop_period\fP = 0"
+.PP
+Definition at line 43 of file analyzer.c.
+.SS "char* \fBanalyzer_name\fP = 'Analyzer'"
+.PP
+Definition at line 40 of file analyzer.c.
+.PP
+Referenced by analyzer_init().
+.SS "\fBEXP_PARAM\fP \fBexp_param\fP"
+.PP
+Definition at line 51 of file analyzer.c.
+.SS "\fBGLOBAL_PARAM\fP \fBglobal_param\fP"
+.PP
+Definition at line 50 of file analyzer.c.
+.SS "\fBINT\fP \fBodb_size\fP = DEFAULT_ODB_SIZE"
+.PP
+Definition at line 46 of file analyzer.c.
+.SS "\fBRUNINFO\fP \fBruninfo\fP"
+.PP
+Definition at line 49 of file analyzer.c.
+.SS "\fBANA_MODULE\fP \fBscaler_accum_module\fP"
+.PP
+Definition at line 32 of file scaler.c.
+.SS "\fBANA_MODULE\fP* \fBscaler_module\fP[]"\fBInitial value:\fP
+.PP
+.nf
+ {
+   &scaler_accum_module,
+   NULL
+}
+.fi
+.PP
+Definition at line 60 of file analyzer.c.
+.SS "\fBANA_MODULE\fP* \fBtrigger_module\fP[]"\fBInitial value:\fP
+.PP
+.nf
+ {
+   &adc_calib_module,
+   &adc_summing_module,
+   NULL
+}
+.fi
+.PP
+Definition at line 65 of file analyzer.c.
+.SS "\fBTRIGGER_SETTINGS\fP \fBtrigger_settings\fP"
+.PP
+Definition at line 52 of file analyzer.c.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Midas from the source code.

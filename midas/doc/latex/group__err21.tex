@@ -1,0 +1,169 @@
+\subsection{Status and error codes}
+\label{group__err21}\index{Status and error codes@{Status and error codes}}
+\subsubsection*{Defines}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{group__err21_gaa90cac659d18e8ef6294c7ae337f6b58}{SUCCESS}~1
+\item 
+\#define \hyperlink{group__err21_ga0180947941230d805f5dbb6f1801c17c}{CM\_\-SUCCESS}~1
+\item 
+\#define \hyperlink{group__err21_ga2559211d26add70c0fdc21958ed0e9e1}{CM\_\-SET\_\-ERROR}~102
+\item 
+\#define \hyperlink{group__err21_gaae1164bcc7a30753d96723b897ce234e}{CM\_\-NO\_\-CLIENT}~103
+\item 
+\#define \hyperlink{group__err21_gad7158e389b0aa1f99cb40adb80b2bace}{CM\_\-DB\_\-ERROR}~104
+\item 
+\#define \hyperlink{group__err21_ga10f9c3f1a23d0f63f86edf36143c849d}{CM\_\-UNDEF\_\-EXP}~105
+\item 
+\#define \hyperlink{group__err21_gae706ef5a8d5795d01ba8fa67d6db6302}{CM\_\-VERSION\_\-MISMATCH}~106
+\item 
+\#define \hyperlink{group__err21_ga76db0fac26b6f3dcdc29ec8b640c5a5f}{CM\_\-SHUTDOWN}~107
+\item 
+\#define \hyperlink{group__err21_ga9a26da1c28eadf3f46a335b41520ecd8}{CM\_\-WRONG\_\-PASSWORD}~108
+\item 
+\#define \hyperlink{group__err21_gaf3ff2980ad033cdeb6ed0bb53dfec41c}{CM\_\-UNDEF\_\-ENVIRON}~109
+\item 
+\#define \hyperlink{group__err21_ga56216c4157257715878749974191b697}{CM\_\-DEFERRED\_\-TRANSITION}~110
+\item 
+\#define \hyperlink{group__err21_ga5eb422d9ad83d53c886a16a4691e7eb4}{CM\_\-TRANSITION\_\-IN\_\-PROGRESS}~111
+\item 
+\#define \hyperlink{group__err21_ga3f98d4cb53674e51840088d7c8435d85}{CM\_\-TIMEOUT}~112
+\item 
+\#define \hyperlink{group__err21_ga23fd8fcf5d790b87dd9d8a77e263a2d4}{CM\_\-INVALID\_\-TRANSITION}~113
+\item 
+\#define \hyperlink{group__err21_ga651caeed4e07732c8ce40c41c69ba9a2}{CM\_\-TOO\_\-MANY\_\-REQUESTS}~114
+\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+dox 
+
+\subsubsection{Define Documentation}
+\index{err21@{err21}!CM\_\-DB\_\-ERROR@{CM\_\-DB\_\-ERROR}}
+\index{CM\_\-DB\_\-ERROR@{CM\_\-DB\_\-ERROR}!err21@{err21}}
+\paragraph[{CM\_\-DB\_\-ERROR}]{\setlength{\rightskip}{0pt plus 5cm}\#define CM\_\-DB\_\-ERROR~104}\hfill\label{group__err21_gad7158e389b0aa1f99cb40adb80b2bace}
+db access error 
+
+Definition at line 525 of file midas.h.\index{err21@{err21}!CM\_\-DEFERRED\_\-TRANSITION@{CM\_\-DEFERRED\_\-TRANSITION}}
+\index{CM\_\-DEFERRED\_\-TRANSITION@{CM\_\-DEFERRED\_\-TRANSITION}!err21@{err21}}
+\paragraph[{CM\_\-DEFERRED\_\-TRANSITION}]{\setlength{\rightskip}{0pt plus 5cm}\#define CM\_\-DEFERRED\_\-TRANSITION~110}\hfill\label{group__err21_ga56216c4157257715878749974191b697}
+
+\begin{DoxyItemize}
+\item 
+\end{DoxyItemize}
+
+Definition at line 531 of file midas.h.
+
+Referenced by cm\_\-transition1().\index{err21@{err21}!CM\_\-INVALID\_\-TRANSITION@{CM\_\-INVALID\_\-TRANSITION}}
+\index{CM\_\-INVALID\_\-TRANSITION@{CM\_\-INVALID\_\-TRANSITION}!err21@{err21}}
+\paragraph[{CM\_\-INVALID\_\-TRANSITION}]{\setlength{\rightskip}{0pt plus 5cm}\#define CM\_\-INVALID\_\-TRANSITION~113}\hfill\label{group__err21_ga23fd8fcf5d790b87dd9d8a77e263a2d4}
+
+\begin{DoxyItemize}
+\item 
+\end{DoxyItemize}
+
+Definition at line 534 of file midas.h.
+
+Referenced by cm\_\-deregister\_\-transition(), cm\_\-register\_\-transition(), cm\_\-set\_\-transition\_\-sequence(), and cm\_\-transition1().\index{err21@{err21}!CM\_\-NO\_\-CLIENT@{CM\_\-NO\_\-CLIENT}}
+\index{CM\_\-NO\_\-CLIENT@{CM\_\-NO\_\-CLIENT}!err21@{err21}}
+\paragraph[{CM\_\-NO\_\-CLIENT}]{\setlength{\rightskip}{0pt plus 5cm}\#define CM\_\-NO\_\-CLIENT~103}\hfill\label{group__err21_gaae1164bcc7a30753d96723b897ce234e}
+nobody 
+
+Definition at line 524 of file midas.h.
+
+Referenced by al\_\-check(), cm\_\-check\_\-client(), cm\_\-connect\_\-client(), cm\_\-exist(), cm\_\-get\_\-watchdog\_\-info(), cm\_\-set\_\-client\_\-info(), cm\_\-shutdown(), and cm\_\-transition1().\index{err21@{err21}!CM\_\-SET\_\-ERROR@{CM\_\-SET\_\-ERROR}}
+\index{CM\_\-SET\_\-ERROR@{CM\_\-SET\_\-ERROR}!err21@{err21}}
+\paragraph[{CM\_\-SET\_\-ERROR}]{\setlength{\rightskip}{0pt plus 5cm}\#define CM\_\-SET\_\-ERROR~102}\hfill\label{group__err21_ga2559211d26add70c0fdc21958ed0e9e1}
+set 
+
+Definition at line 523 of file midas.h.
+
+Referenced by cm\_\-transition1().\index{err21@{err21}!CM\_\-SHUTDOWN@{CM\_\-SHUTDOWN}}
+\index{CM\_\-SHUTDOWN@{CM\_\-SHUTDOWN}!err21@{err21}}
+\paragraph[{CM\_\-SHUTDOWN}]{\setlength{\rightskip}{0pt plus 5cm}\#define CM\_\-SHUTDOWN~107}\hfill\label{group__err21_ga76db0fac26b6f3dcdc29ec8b640c5a5f}
+
+\begin{DoxyItemize}
+\item 
+\end{DoxyItemize}
+
+Definition at line 528 of file midas.h.\index{err21@{err21}!CM\_\-SUCCESS@{CM\_\-SUCCESS}}
+\index{CM\_\-SUCCESS@{CM\_\-SUCCESS}!err21@{err21}}
+\paragraph[{CM\_\-SUCCESS}]{\setlength{\rightskip}{0pt plus 5cm}\#define CM\_\-SUCCESS~1}\hfill\label{group__err21_ga0180947941230d805f5dbb6f1801c17c}
+Same 
+
+Definition at line 522 of file midas.h.
+
+Referenced by ana\_\-begin\_\-of\_\-run(), ana\_\-end\_\-of\_\-run(), ana\_\-pause\_\-run(), ana\_\-resume\_\-run(), analyzer\_\-exit(), analyzer\_\-loop(), bk\_\-swap(), cm\_\-asctime(), cm\_\-check\_\-client(), cm\_\-check\_\-deferred\_\-transition(), cm\_\-cleanup(), cm\_\-connect\_\-experiment(), cm\_\-connect\_\-experiment1(), cm\_\-delete\_\-client\_\-info(), cm\_\-deregister\_\-transition(), cm\_\-disconnect\_\-experiment(), cm\_\-execute(), cm\_\-exist(), cm\_\-get\_\-client\_\-info(), cm\_\-get\_\-environment(), cm\_\-get\_\-error(), cm\_\-get\_\-experiment\_\-database(), cm\_\-get\_\-experiment\_\-name(), cm\_\-get\_\-path(), cm\_\-get\_\-path1(), cm\_\-get\_\-watchdog\_\-info(), cm\_\-get\_\-watchdog\_\-params(), cm\_\-list\_\-experiments(), cm\_\-msg(), cm\_\-msg1(), cm\_\-msg\_\-buffer(), cm\_\-msg\_\-flush\_\-buffer(), cm\_\-msg\_\-format(), cm\_\-msg\_\-log(), cm\_\-msg\_\-log1(), cm\_\-msg\_\-send\_\-event(), cm\_\-register\_\-deferred\_\-transition(), cm\_\-register\_\-transition(), cm\_\-scan\_\-experiments(), cm\_\-select\_\-experiment(), cm\_\-set\_\-client\_\-info(), cm\_\-set\_\-experiment\_\-database(), cm\_\-set\_\-experiment\_\-name(), cm\_\-set\_\-path(), cm\_\-set\_\-transition\_\-sequence(), cm\_\-set\_\-watchdog\_\-params(), cm\_\-shutdown(), cm\_\-synchronize(), cm\_\-time(), cm\_\-transition(), cm\_\-transition1(), eb\_\-mfragment\_\-add(), eb\_\-yfragment\_\-add(), frontend\_\-loop(), main(), md\_\-event\_\-swap(), scan\_\-fragment(), scheduler(), send\_\-event(), tr\_\-pause(), tr\_\-resume(), tr\_\-start(), and tr\_\-stop().\index{err21@{err21}!CM\_\-TIMEOUT@{CM\_\-TIMEOUT}}
+\index{CM\_\-TIMEOUT@{CM\_\-TIMEOUT}!err21@{err21}}
+\paragraph[{CM\_\-TIMEOUT}]{\setlength{\rightskip}{0pt plus 5cm}\#define CM\_\-TIMEOUT~112}\hfill\label{group__err21_ga3f98d4cb53674e51840088d7c8435d85}
+
+\begin{DoxyItemize}
+\item 
+\end{DoxyItemize}
+
+Definition at line 533 of file midas.h.\index{err21@{err21}!CM\_\-TOO\_\-MANY\_\-REQUESTS@{CM\_\-TOO\_\-MANY\_\-REQUESTS}}
+\index{CM\_\-TOO\_\-MANY\_\-REQUESTS@{CM\_\-TOO\_\-MANY\_\-REQUESTS}!err21@{err21}}
+\paragraph[{CM\_\-TOO\_\-MANY\_\-REQUESTS}]{\setlength{\rightskip}{0pt plus 5cm}\#define CM\_\-TOO\_\-MANY\_\-REQUESTS~114}\hfill\label{group__err21_ga651caeed4e07732c8ce40c41c69ba9a2}
+
+\begin{DoxyItemize}
+\item 
+\end{DoxyItemize}
+
+Definition at line 535 of file midas.h.
+
+Referenced by cm\_\-register\_\-transition().\index{err21@{err21}!CM\_\-TRANSITION\_\-IN\_\-PROGRESS@{CM\_\-TRANSITION\_\-IN\_\-PROGRESS}}
+\index{CM\_\-TRANSITION\_\-IN\_\-PROGRESS@{CM\_\-TRANSITION\_\-IN\_\-PROGRESS}!err21@{err21}}
+\paragraph[{CM\_\-TRANSITION\_\-IN\_\-PROGRESS}]{\setlength{\rightskip}{0pt plus 5cm}\#define CM\_\-TRANSITION\_\-IN\_\-PROGRESS~111}\hfill\label{group__err21_ga5eb422d9ad83d53c886a16a4691e7eb4}
+
+\begin{DoxyItemize}
+\item 
+\end{DoxyItemize}
+
+Definition at line 532 of file midas.h.
+
+Referenced by cm\_\-transition1().\index{err21@{err21}!CM\_\-UNDEF\_\-ENVIRON@{CM\_\-UNDEF\_\-ENVIRON}}
+\index{CM\_\-UNDEF\_\-ENVIRON@{CM\_\-UNDEF\_\-ENVIRON}!err21@{err21}}
+\paragraph[{CM\_\-UNDEF\_\-ENVIRON}]{\setlength{\rightskip}{0pt plus 5cm}\#define CM\_\-UNDEF\_\-ENVIRON~109}\hfill\label{group__err21_gaf3ff2980ad033cdeb6ed0bb53dfec41c}
+
+\begin{DoxyItemize}
+\item 
+\end{DoxyItemize}
+
+Definition at line 530 of file midas.h.
+
+Referenced by cm\_\-scan\_\-experiments().\index{err21@{err21}!CM\_\-UNDEF\_\-EXP@{CM\_\-UNDEF\_\-EXP}}
+\index{CM\_\-UNDEF\_\-EXP@{CM\_\-UNDEF\_\-EXP}!err21@{err21}}
+\paragraph[{CM\_\-UNDEF\_\-EXP}]{\setlength{\rightskip}{0pt plus 5cm}\#define CM\_\-UNDEF\_\-EXP~105}\hfill\label{group__err21_ga10f9c3f1a23d0f63f86edf36143c849d}
+
+\begin{DoxyItemize}
+\item 
+\end{DoxyItemize}
+
+Definition at line 526 of file midas.h.
+
+Referenced by cm\_\-connect\_\-experiment1(), and cm\_\-get\_\-client\_\-info().\index{err21@{err21}!CM\_\-VERSION\_\-MISMATCH@{CM\_\-VERSION\_\-MISMATCH}}
+\index{CM\_\-VERSION\_\-MISMATCH@{CM\_\-VERSION\_\-MISMATCH}!err21@{err21}}
+\paragraph[{CM\_\-VERSION\_\-MISMATCH}]{\setlength{\rightskip}{0pt plus 5cm}\#define CM\_\-VERSION\_\-MISMATCH~106}\hfill\label{group__err21_gae706ef5a8d5795d01ba8fa67d6db6302}
+
+\begin{DoxyItemize}
+\item 
+\end{DoxyItemize}
+
+Definition at line 527 of file midas.h.\index{err21@{err21}!CM\_\-WRONG\_\-PASSWORD@{CM\_\-WRONG\_\-PASSWORD}}
+\index{CM\_\-WRONG\_\-PASSWORD@{CM\_\-WRONG\_\-PASSWORD}!err21@{err21}}
+\paragraph[{CM\_\-WRONG\_\-PASSWORD}]{\setlength{\rightskip}{0pt plus 5cm}\#define CM\_\-WRONG\_\-PASSWORD~108}\hfill\label{group__err21_ga9a26da1c28eadf3f46a335b41520ecd8}
+
+\begin{DoxyItemize}
+\item 
+\end{DoxyItemize}
+
+Definition at line 529 of file midas.h.
+
+Referenced by cm\_\-connect\_\-experiment1(), and cm\_\-set\_\-client\_\-info().\index{err21@{err21}!SUCCESS@{SUCCESS}}
+\index{SUCCESS@{SUCCESS}!err21@{err21}}
+\paragraph[{SUCCESS}]{\setlength{\rightskip}{0pt plus 5cm}\#define SUCCESS~1}\hfill\label{group__err21_gaa90cac659d18e8ef6294c7ae337f6b58}
+Success 
+
+Definition at line 521 of file midas.h.
+
+Referenced by adc\_\-calib(), adc\_\-calib\_\-bor(), adc\_\-calib\_\-eor(), adc\_\-calib\_\-init(), adc\_\-summing(), adc\_\-summing\_\-init(), al\_\-check(), analyzer\_\-init(), begin\_\-of\_\-run(), bm\_\-open\_\-buffer(), bm\_\-receive\_\-event(), check\_\-polled\_\-events(), cm\_\-check\_\-deferred\_\-transition(), cm\_\-msg\_\-buffer(), cm\_\-msg\_\-flush\_\-buffer(), cm\_\-transition1(), el\_\-submit(), end\_\-of\_\-run(), fccinit(), frontend\_\-exit(), frontend\_\-init(), frontend\_\-loop(), init\_\-vme\_\-modules(), initialize\_\-equipment(), interrupt\_\-configure(), main(), manual\_\-trigger(), odbReadUint32(), pause\_\-run(), receive\_\-trigger\_\-event(), register\_\-equipment(), resume\_\-run(), sc\_\-thread(), scaler\_\-accum(), scaler\_\-clear(), scaler\_\-eor(), scheduler(), set\_\-equipment\_\-status(), source\_\-booking(), and tr\_\-start().

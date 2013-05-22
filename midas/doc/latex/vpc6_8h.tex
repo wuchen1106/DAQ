@@ -1,0 +1,278 @@
+\subsection{vpc6.h File Reference}
+\label{vpc6_8h}\index{vpc6.h@{vpc6.h}}
+\subsubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+union \hyperlink{unionvpc6__Reg}{vpc6\_\-Reg}
+\item 
+struct \hyperlink{structvpc6__Reg_1_1Entry1}{vpc6\_\-Reg::Entry1}
+\item 
+struct \hyperlink{structvpc6__Reg_1_1Entry2}{vpc6\_\-Reg::Entry2}
+\end{DoxyCompactItemize}
+\subsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{vpc6_8h_aeebefabbb82c5db323d9d80f554586ce}{vpc6\_\-PATypeWrite} (\hyperlink{structMVME__INTERFACE}{MVME\_\-INTERFACE} $\ast$mvme, \hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} base, \hyperlink{vt2_8h_a2b0e863dadf920709ec53d9088ee7c91}{WORD} data)
+\item 
+int \hyperlink{vpc6_8h_ac870864055cc5eea66f7229a2bd44073}{vpc6\_\-PortTypeRead} (\hyperlink{structMVME__INTERFACE}{MVME\_\-INTERFACE} $\ast$mvme, \hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} base, \hyperlink{vt2_8h_a2b0e863dadf920709ec53d9088ee7c91}{WORD} port)
+\item 
+int \hyperlink{vpc6_8h_afb94d63b60eab3d570396b532e3fdeec}{vpc6\_\-PATypeRead} (\hyperlink{structMVME__INTERFACE}{MVME\_\-INTERFACE} $\ast$mvme, \hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} base)
+\item 
+int \hyperlink{vpc6_8h_a7def69c129b90426d2c5834b18d1b81f}{vpc6\_\-CfgRetrieve} (\hyperlink{structMVME__INTERFACE}{MVME\_\-INTERFACE} $\ast$mvme, \hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} base, \hyperlink{vt2_8h_a2b0e863dadf920709ec53d9088ee7c91}{WORD} port)
+\item 
+int \hyperlink{vpc6_8h_a0d9b6b536c70f925f3abe043310b3f64}{vpc6\_\-PortRegRBRead} (\hyperlink{structMVME__INTERFACE}{MVME\_\-INTERFACE} $\ast$mvme, \hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} base, \hyperlink{vt2_8h_a2b0e863dadf920709ec53d9088ee7c91}{WORD} port)
+\item 
+int \hyperlink{vpc6_8h_a03b97f9c9cb620dfa76f19cefacb4f4e}{vpc6\_\-PortRegRead} (\hyperlink{structMVME__INTERFACE}{MVME\_\-INTERFACE} $\ast$mvme, \hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} base, \hyperlink{vt2_8h_a2b0e863dadf920709ec53d9088ee7c91}{WORD} port)
+\item 
+void \hyperlink{vpc6_8h_a30c15080312a5dbb3bfb9bc4e1b21202}{vpc6\_\-PortDisplay} (\hyperlink{vt2_8h_a2b0e863dadf920709ec53d9088ee7c91}{WORD} type, \hyperlink{vt2_8h_a2b0e863dadf920709ec53d9088ee7c91}{WORD} port, \hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} $\ast$reg)
+\item 
+void \hyperlink{vpc6_8h_acba11652b38f9148081dc825bb79ccd5}{vpc6\_\-EntryPrint} (\hyperlink{vt2_8h_a2b0e863dadf920709ec53d9088ee7c91}{WORD} type, \hyperlink{vt2_8h_a2b0e863dadf920709ec53d9088ee7c91}{WORD} chip, const \hyperlink{unionvpc6__Reg}{vpc6\_\-Reg} $\ast$v)
+\end{DoxyCompactItemize}
+
+
+\subsubsection{Define Documentation}
+\index{vpc6.h@{vpc6.h}!ALL\_\-CHANNELS@{ALL\_\-CHANNELS}}
+\index{ALL\_\-CHANNELS@{ALL\_\-CHANNELS}!vpc6.h@{vpc6.h}}
+\paragraph[{ALL\_\-CHANNELS}]{\setlength{\rightskip}{0pt plus 5cm}\#define ALL\_\-CHANNELS~-\/1}\hfill\label{vpc6_8h_ac9dcdba2096f6b3adab742b8b1a256c2}
+
+
+Definition at line 34 of file vpc6.h.
+
+Referenced by vpc6\_\-ASDModeSet().\index{vpc6.h@{vpc6.h}!VPC6\_\-3ASD\_\-3BUCK@{VPC6\_\-3ASD\_\-3BUCK}}
+\index{VPC6\_\-3ASD\_\-3BUCK@{VPC6\_\-3ASD\_\-3BUCK}!vpc6.h@{vpc6.h}}
+\paragraph[{VPC6\_\-3ASD\_\-3BUCK}]{\setlength{\rightskip}{0pt plus 5cm}\#define VPC6\_\-3ASD\_\-3BUCK~0x444}\hfill\label{vpc6_8h_a2c0fb4a304a0dcf05ccc6385878818d3}
+
+
+Definition at line 32 of file vpc6.h.
+
+Referenced by vpc6\_\-Setup().\index{vpc6.h@{vpc6.h}!VPC6\_\-3BUCK\_\-3ASD@{VPC6\_\-3BUCK\_\-3ASD}}
+\index{VPC6\_\-3BUCK\_\-3ASD@{VPC6\_\-3BUCK\_\-3ASD}!vpc6.h@{vpc6.h}}
+\paragraph[{VPC6\_\-3BUCK\_\-3ASD}]{\setlength{\rightskip}{0pt plus 5cm}\#define VPC6\_\-3BUCK\_\-3ASD~0x111}\hfill\label{vpc6_8h_a2f60144ea0232c5b64d559396a035731}
+
+
+Definition at line 33 of file vpc6.h.
+
+Referenced by vpc6\_\-Setup().\index{vpc6.h@{vpc6.h}!VPC6\_\-ALL\_\-ASD@{VPC6\_\-ALL\_\-ASD}}
+\index{VPC6\_\-ALL\_\-ASD@{VPC6\_\-ALL\_\-ASD}!vpc6.h@{vpc6.h}}
+\paragraph[{VPC6\_\-ALL\_\-ASD}]{\setlength{\rightskip}{0pt plus 5cm}\#define VPC6\_\-ALL\_\-ASD~0x000}\hfill\label{vpc6_8h_ab1341dac1102bce31e001f9c7b499eec}
+
+
+Definition at line 31 of file vpc6.h.
+
+Referenced by vpc6\_\-Setup().\index{vpc6.h@{vpc6.h}!VPC6\_\-ALL\_\-BUCKEYE@{VPC6\_\-ALL\_\-BUCKEYE}}
+\index{VPC6\_\-ALL\_\-BUCKEYE@{VPC6\_\-ALL\_\-BUCKEYE}!vpc6.h@{vpc6.h}}
+\paragraph[{VPC6\_\-ALL\_\-BUCKEYE}]{\setlength{\rightskip}{0pt plus 5cm}\#define VPC6\_\-ALL\_\-BUCKEYE~0x555}\hfill\label{vpc6_8h_acd07598e6feba55ea35da9eaa04c6a60}
+
+
+Definition at line 30 of file vpc6.h.
+
+Referenced by vpc6\_\-Setup().\index{vpc6.h@{vpc6.h}!VPC6\_\-ASD01@{VPC6\_\-ASD01}}
+\index{VPC6\_\-ASD01@{VPC6\_\-ASD01}!vpc6.h@{vpc6.h}}
+\paragraph[{VPC6\_\-ASD01}]{\setlength{\rightskip}{0pt plus 5cm}\#define VPC6\_\-ASD01~0}\hfill\label{vpc6_8h_a4878c8af1b7fef1633a839d3fc961299}
+
+
+Definition at line 29 of file vpc6.h.
+
+Referenced by vpc6\_\-EntryPrint(), and vpc6\_\-PortDisplay().\index{vpc6.h@{vpc6.h}!VPC6\_\-BUCKEYE@{VPC6\_\-BUCKEYE}}
+\index{VPC6\_\-BUCKEYE@{VPC6\_\-BUCKEYE}!vpc6.h@{vpc6.h}}
+\paragraph[{VPC6\_\-BUCKEYE}]{\setlength{\rightskip}{0pt plus 5cm}\#define VPC6\_\-BUCKEYE~1}\hfill\label{vpc6_8h_a96b958c9cf18d9c8698ad0793aea4cc9}
+
+
+Definition at line 64 of file vpc6.h.
+
+Referenced by vpc6\_\-EntryPrint().\index{vpc6.h@{vpc6.h}!VPC6\_\-CFG\_\-RW@{VPC6\_\-CFG\_\-RW}}
+\index{VPC6\_\-CFG\_\-RW@{VPC6\_\-CFG\_\-RW}!vpc6.h@{vpc6.h}}
+\paragraph[{VPC6\_\-CFG\_\-RW}]{\setlength{\rightskip}{0pt plus 5cm}\#define VPC6\_\-CFG\_\-RW~({\bf WORD}) (0x0010)}\hfill\label{vpc6_8h_a26d11389a14e96cdc3083bb33ca0fb64}
+
+
+Definition at line 26 of file vpc6.h.
+
+Referenced by vpc6\_\-ASDHysteresisSet(), vpc6\_\-ASDModeSet(), vpc6\_\-ASDRegSet(), vpc6\_\-ASDThresholdSet(), and vpc6\_\-PortRegRead().\index{vpc6.h@{vpc6.h}!VPC6\_\-CMD\_\-WO@{VPC6\_\-CMD\_\-WO}}
+\index{VPC6\_\-CMD\_\-WO@{VPC6\_\-CMD\_\-WO}!vpc6.h@{vpc6.h}}
+\paragraph[{VPC6\_\-CMD\_\-WO}]{\setlength{\rightskip}{0pt plus 5cm}\#define VPC6\_\-CMD\_\-WO~({\bf WORD}) (0x000C)}\hfill\label{vpc6_8h_adf30008bccf13c4a8e1f91431f37ef23}
+
+
+Definition at line 25 of file vpc6.h.
+
+Referenced by vpc6\_\-CfgRetrieve(), and vpc6\_\-PortCfgLoad().\index{vpc6.h@{vpc6.h}!VPC6\_\-CR\_\-RW@{VPC6\_\-CR\_\-RW}}
+\index{VPC6\_\-CR\_\-RW@{VPC6\_\-CR\_\-RW}!vpc6.h@{vpc6.h}}
+\paragraph[{VPC6\_\-CR\_\-RW}]{\setlength{\rightskip}{0pt plus 5cm}\#define VPC6\_\-CR\_\-RW~({\bf WORD}) (0x0004)}\hfill\label{vpc6_8h_aaf2958f6165d73f48153e58d53019413}
+
+
+Definition at line 24 of file vpc6.h.
+
+Referenced by vpc6\_\-PATypeRead(), vpc6\_\-PATypeWrite(), vpc6\_\-PortRegRBRead(), vpc6\_\-PortRegRead(), and vpc6\_\-PortTypeRead().\index{vpc6.h@{vpc6.h}!VPC6\_\-EXTERNALCAP@{VPC6\_\-EXTERNALCAP}}
+\index{VPC6\_\-EXTERNALCAP@{VPC6\_\-EXTERNALCAP}!vpc6.h@{vpc6.h}}
+\paragraph[{VPC6\_\-EXTERNALCAP}]{\setlength{\rightskip}{0pt plus 5cm}\#define VPC6\_\-EXTERNALCAP~0x4}\hfill\label{vpc6_8h_a0902601cb6b9c5751e17e1f197d21e7e}
+
+
+Definition at line 69 of file vpc6.h.\index{vpc6.h@{vpc6.h}!VPC6\_\-KILL@{VPC6\_\-KILL}}
+\index{VPC6\_\-KILL@{VPC6\_\-KILL}!vpc6.h@{vpc6.h}}
+\paragraph[{VPC6\_\-KILL}]{\setlength{\rightskip}{0pt plus 5cm}\#define VPC6\_\-KILL~0x7}\hfill\label{vpc6_8h_a923645095d7b89d569b87b1eadc3caba}
+
+
+Definition at line 70 of file vpc6.h.\index{vpc6.h@{vpc6.h}!VPC6\_\-LARGECAP@{VPC6\_\-LARGECAP}}
+\index{VPC6\_\-LARGECAP@{VPC6\_\-LARGECAP}!vpc6.h@{vpc6.h}}
+\paragraph[{VPC6\_\-LARGECAP}]{\setlength{\rightskip}{0pt plus 5cm}\#define VPC6\_\-LARGECAP~0x3}\hfill\label{vpc6_8h_a401109ffeae5c5725bd86d438c89fe88}
+
+
+Definition at line 68 of file vpc6.h.\index{vpc6.h@{vpc6.h}!VPC6\_\-MEDIUMCAP@{VPC6\_\-MEDIUMCAP}}
+\index{VPC6\_\-MEDIUMCAP@{VPC6\_\-MEDIUMCAP}!vpc6.h@{vpc6.h}}
+\paragraph[{VPC6\_\-MEDIUMCAP}]{\setlength{\rightskip}{0pt plus 5cm}\#define VPC6\_\-MEDIUMCAP~0x2}\hfill\label{vpc6_8h_a557bd5f35ed64fdd9cb66dce81fbbeb6}
+
+
+Definition at line 67 of file vpc6.h.\index{vpc6.h@{vpc6.h}!VPC6\_\-NORMAL@{VPC6\_\-NORMAL}}
+\index{VPC6\_\-NORMAL@{VPC6\_\-NORMAL}!vpc6.h@{vpc6.h}}
+\paragraph[{VPC6\_\-NORMAL}]{\setlength{\rightskip}{0pt plus 5cm}\#define VPC6\_\-NORMAL~0x0}\hfill\label{vpc6_8h_a7711574cd4c5c084200c9cf7bf466eb4}
+
+
+Definition at line 65 of file vpc6.h.\index{vpc6.h@{vpc6.h}!VPC6\_\-PARAM\_\-ERROR@{VPC6\_\-PARAM\_\-ERROR}}
+\index{VPC6\_\-PARAM\_\-ERROR@{VPC6\_\-PARAM\_\-ERROR}!vpc6.h@{vpc6.h}}
+\paragraph[{VPC6\_\-PARAM\_\-ERROR}]{\setlength{\rightskip}{0pt plus 5cm}\#define VPC6\_\-PARAM\_\-ERROR~100}\hfill\label{vpc6_8h_af74eeb475525d1875a9675709fe0f5a7}
+
+
+Definition at line 22 of file vpc6.h.
+
+Referenced by vpc6\_\-PortCfgLoad().\index{vpc6.h@{vpc6.h}!VPC6\_\-RBCK\_\-RO@{VPC6\_\-RBCK\_\-RO}}
+\index{VPC6\_\-RBCK\_\-RO@{VPC6\_\-RBCK\_\-RO}!vpc6.h@{vpc6.h}}
+\paragraph[{VPC6\_\-RBCK\_\-RO}]{\setlength{\rightskip}{0pt plus 5cm}\#define VPC6\_\-RBCK\_\-RO~({\bf WORD}) (0x0110)}\hfill\label{vpc6_8h_ad05e74acd196318a563295b0784e3fa4}
+
+
+Definition at line 27 of file vpc6.h.
+
+Referenced by vpc6\_\-PortRegRBRead().\index{vpc6.h@{vpc6.h}!VPC6\_\-SMALLCAP@{VPC6\_\-SMALLCAP}}
+\index{VPC6\_\-SMALLCAP@{VPC6\_\-SMALLCAP}!vpc6.h@{vpc6.h}}
+\paragraph[{VPC6\_\-SMALLCAP}]{\setlength{\rightskip}{0pt plus 5cm}\#define VPC6\_\-SMALLCAP~0x1}\hfill\label{vpc6_8h_a3543dbd05552b87204f1e7b65aa8fdd9}
+
+
+Definition at line 66 of file vpc6.h.\index{vpc6.h@{vpc6.h}!VPC6\_\-SR\_\-RO@{VPC6\_\-SR\_\-RO}}
+\index{VPC6\_\-SR\_\-RO@{VPC6\_\-SR\_\-RO}!vpc6.h@{vpc6.h}}
+\paragraph[{VPC6\_\-SR\_\-RO}]{\setlength{\rightskip}{0pt plus 5cm}\#define VPC6\_\-SR\_\-RO~({\bf WORD}) (0x0000)}\hfill\label{vpc6_8h_a37c74185bb57b4d8b63f595031f085db}
+
+
+Definition at line 23 of file vpc6.h.
+
+Referenced by vpc6\_\-isPortBusy().\index{vpc6.h@{vpc6.h}!VPC6\_\-SUCCESS@{VPC6\_\-SUCCESS}}
+\index{VPC6\_\-SUCCESS@{VPC6\_\-SUCCESS}!vpc6.h@{vpc6.h}}
+\paragraph[{VPC6\_\-SUCCESS}]{\setlength{\rightskip}{0pt plus 5cm}\#define VPC6\_\-SUCCESS~1}\hfill\label{vpc6_8h_a495f6ffc0940948571822aaff544466d}
+
+
+Definition at line 21 of file vpc6.h.
+
+Referenced by vpc6\_\-CfgRetrieve(), vpc6\_\-PortCfgLoad(), vpc6\_\-PortRegRBRead(), and vpc6\_\-PortRegRead().
+
+\subsubsection{Enumeration Type Documentation}
+\index{vpc6.h@{vpc6.h}!vpc6\_\-ASDDataType@{vpc6\_\-ASDDataType}}
+\index{vpc6\_\-ASDDataType@{vpc6\_\-ASDDataType}!vpc6.h@{vpc6.h}}
+\paragraph[{vpc6\_\-ASDDataType}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf vpc6\_\-ASDDataType}}\hfill\label{vpc6_8h_aa38fa3ba896c103fa4999d08c159fb26}
+\begin{Desc}
+\item[Enumerator: ]\par
+\begin{description}
+\index{vpc6\_\-asd\_\-ch1\_\-8@{vpc6\_\-asd\_\-ch1\_\-8}!vpc6.h@{vpc6.h}}\index{vpc6.h@{vpc6.h}!vpc6\_\-asd\_\-ch1\_\-8@{vpc6\_\-asd\_\-ch1\_\-8}}\item[{\em 
+vpc6\_\-asd\_\-ch1\_\-8\label{vpc6_8h_aa38fa3ba896c103fa4999d08c159fb26af6c0f9a808832e304700e21daf672cb5}
+}]\index{vpc6\_\-asd\_\-ch9\_\-16@{vpc6\_\-asd\_\-ch9\_\-16}!vpc6.h@{vpc6.h}}\index{vpc6.h@{vpc6.h}!vpc6\_\-asd\_\-ch9\_\-16@{vpc6\_\-asd\_\-ch9\_\-16}}\item[{\em 
+vpc6\_\-asd\_\-ch9\_\-16\label{vpc6_8h_aa38fa3ba896c103fa4999d08c159fb26aa3267ec8599d5e186280974a2e812d8f}
+}]\end{description}
+\end{Desc}
+
+
+
+Definition at line 38 of file vpc6.h.
+
+\subsubsection{Function Documentation}
+\index{vpc6.h@{vpc6.h}!vpc6\_\-ASDDefaultLoad@{vpc6\_\-ASDDefaultLoad}}
+\index{vpc6\_\-ASDDefaultLoad@{vpc6\_\-ASDDefaultLoad}!vpc6.h@{vpc6.h}}
+\paragraph[{vpc6\_\-ASDDefaultLoad}]{\setlength{\rightskip}{0pt plus 5cm}void vpc6\_\-ASDDefaultLoad ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  {\bf DWORD} {\em base}, \/  {\bf WORD} {\em port})}\hfill\label{vpc6_8h_a94c50f949c0ea364b353ec0500168839}
+
+
+Definition at line 344 of file vpc6.c.\index{vpc6.h@{vpc6.h}!vpc6\_\-ASDHysteresisSet@{vpc6\_\-ASDHysteresisSet}}
+\index{vpc6\_\-ASDHysteresisSet@{vpc6\_\-ASDHysteresisSet}!vpc6.h@{vpc6.h}}
+\paragraph[{vpc6\_\-ASDHysteresisSet}]{\setlength{\rightskip}{0pt plus 5cm}int vpc6\_\-ASDHysteresisSet ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  {\bf DWORD} {\em base}, \/  {\bf WORD} {\em port}, \/  float {\em hysteresis})}\hfill\label{vpc6_8h_ab51848844d60ee696faced1132892995}
+
+
+Definition at line 488 of file vpc6.c.\index{vpc6.h@{vpc6.h}!vpc6\_\-ASDModeSet@{vpc6\_\-ASDModeSet}}
+\index{vpc6\_\-ASDModeSet@{vpc6\_\-ASDModeSet}!vpc6.h@{vpc6.h}}
+\paragraph[{vpc6\_\-ASDModeSet}]{\setlength{\rightskip}{0pt plus 5cm}int vpc6\_\-ASDModeSet ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  {\bf DWORD} {\em base}, \/  {\bf WORD} {\em port}, \/  int {\em channel}, \/  int {\em mode})}\hfill\label{vpc6_8h_a4d16aafec8a77a2b1e6427a4fa1b7290}
+
+
+Definition at line 397 of file vpc6.c.\index{vpc6.h@{vpc6.h}!vpc6\_\-ASDRegSet@{vpc6\_\-ASDRegSet}}
+\index{vpc6\_\-ASDRegSet@{vpc6\_\-ASDRegSet}!vpc6.h@{vpc6.h}}
+\paragraph[{vpc6\_\-ASDRegSet}]{\setlength{\rightskip}{0pt plus 5cm}void vpc6\_\-ASDRegSet ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  {\bf DWORD} {\em base}, \/  {\bf WORD} {\em port}, \/  {\bf WORD} {\em reg}, \/  {\bf vpc6\_\-Reg} $\ast$ {\em Reg})}\hfill\label{vpc6_8h_a3288a666b9c619cbb58157a5d9e070d1}
+
+
+Definition at line 382 of file vpc6.c.
+
+Referenced by vpc6\_\-ASDDefaultLoad(), vpc6\_\-ASDHysteresisSet(), vpc6\_\-ASDModeSet(), and vpc6\_\-ASDThresholdSet().\index{vpc6.h@{vpc6.h}!vpc6\_\-ASDThresholdSet@{vpc6\_\-ASDThresholdSet}}
+\index{vpc6\_\-ASDThresholdSet@{vpc6\_\-ASDThresholdSet}!vpc6.h@{vpc6.h}}
+\paragraph[{vpc6\_\-ASDThresholdSet}]{\setlength{\rightskip}{0pt plus 5cm}int vpc6\_\-ASDThresholdSet ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  {\bf DWORD} {\em base}, \/  {\bf WORD} {\em port}, \/  int {\em threshold})}\hfill\label{vpc6_8h_a9db368fa1397111277bd83a7de1ac548}
+
+
+Definition at line 452 of file vpc6.c.\index{vpc6.h@{vpc6.h}!vpc6\_\-BuckeyeModeSet@{vpc6\_\-BuckeyeModeSet}}
+\index{vpc6\_\-BuckeyeModeSet@{vpc6\_\-BuckeyeModeSet}!vpc6.h@{vpc6.h}}
+\paragraph[{vpc6\_\-BuckeyeModeSet}]{\setlength{\rightskip}{0pt plus 5cm}int vpc6\_\-BuckeyeModeSet ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  {\bf DWORD} {\em base}, \/  {\bf WORD} {\em port}, \/  int {\em channel}, \/  int {\em mode})}\hfill\label{vpc6_8h_ab1018e72d9d1f8c2401ba5859875a290}
+
+
+Definition at line 524 of file vpc6.c.\index{vpc6.h@{vpc6.h}!vpc6\_\-CfgLoad@{vpc6\_\-CfgLoad}}
+\index{vpc6\_\-CfgLoad@{vpc6\_\-CfgLoad}!vpc6.h@{vpc6.h}}
+\paragraph[{vpc6\_\-CfgLoad}]{\setlength{\rightskip}{0pt plus 5cm}int vpc6\_\-CfgLoad ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  {\bf DWORD} {\em base}, \/  {\bf WORD} {\em port})}\hfill\label{vpc6_8h_ac89a7eb9823f6374d641e04385bc037c}
+\index{vpc6.h@{vpc6.h}!vpc6\_\-CfgRetrieve@{vpc6\_\-CfgRetrieve}}
+\index{vpc6\_\-CfgRetrieve@{vpc6\_\-CfgRetrieve}!vpc6.h@{vpc6.h}}
+\paragraph[{vpc6\_\-CfgRetrieve}]{\setlength{\rightskip}{0pt plus 5cm}int vpc6\_\-CfgRetrieve ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  {\bf DWORD} {\em base}, \/  {\bf WORD} {\em port})}\hfill\label{vpc6_8h_a7def69c129b90426d2c5834b18d1b81f}
+Retrieve bit string full configuration from a given port. Loads bit string into Readback registers that can then be read. the port is either ASD01 or Buckeye for now. 
+
+Definition at line 121 of file vpc6.c.
+
+Referenced by vpc6\_\-ASDHysteresisSet(), vpc6\_\-ASDModeSet(), and vpc6\_\-ASDThresholdSet().\index{vpc6.h@{vpc6.h}!vpc6\_\-EntryPrint@{vpc6\_\-EntryPrint}}
+\index{vpc6\_\-EntryPrint@{vpc6\_\-EntryPrint}!vpc6.h@{vpc6.h}}
+\paragraph[{vpc6\_\-EntryPrint}]{\setlength{\rightskip}{0pt plus 5cm}void vpc6\_\-EntryPrint ({\bf WORD} {\em type}, \/  {\bf WORD} {\em chip}, \/  const {\bf vpc6\_\-Reg} $\ast$ {\em v})}\hfill\label{vpc6_8h_acba11652b38f9148081dc825bb79ccd5}
+decoded printout of readout entry for ASD type preamp Not to be trusted for data decoding but acceptable for display purpose as its implementation is strongly compiler dependent and not flawless. 
+\begin{DoxyParams}{Parameters}
+\item[{\em v}]\end{DoxyParams}
+
+
+Definition at line 238 of file vpc6.c.
+
+Referenced by vpc6\_\-PortDisplay().\index{vpc6.h@{vpc6.h}!vpc6\_\-isPortBusy@{vpc6\_\-isPortBusy}}
+\index{vpc6\_\-isPortBusy@{vpc6\_\-isPortBusy}!vpc6.h@{vpc6.h}}
+\paragraph[{vpc6\_\-isPortBusy}]{\setlength{\rightskip}{0pt plus 5cm}int vpc6\_\-isPortBusy ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  {\bf DWORD} {\em base}, \/  {\bf WORD} {\em port})}\hfill\label{vpc6_8h_a3b49ac5c590e4a1da458708bd791ec76}
+
+
+Definition at line 19 of file vpc6.c.
+
+Referenced by vpc6\_\-CfgRetrieve(), vpc6\_\-PortCfgLoad(), vpc6\_\-PortRegRBRead(), and vpc6\_\-Status().\index{vpc6.h@{vpc6.h}!vpc6\_\-PATypeRead@{vpc6\_\-PATypeRead}}
+\index{vpc6\_\-PATypeRead@{vpc6\_\-PATypeRead}!vpc6.h@{vpc6.h}}
+\paragraph[{vpc6\_\-PATypeRead}]{\setlength{\rightskip}{0pt plus 5cm}int vpc6\_\-PATypeRead ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  {\bf DWORD} {\em base})}\hfill\label{vpc6_8h_afb94d63b60eab3d570396b532e3fdeec}
+Read the 6 AP type of the board (either ASD01 or Buckeye for now. 
+
+Definition at line 51 of file vpc6.c.\index{vpc6.h@{vpc6.h}!vpc6\_\-PATypeWrite@{vpc6\_\-PATypeWrite}}
+\index{vpc6\_\-PATypeWrite@{vpc6\_\-PATypeWrite}!vpc6.h@{vpc6.h}}
+\paragraph[{vpc6\_\-PATypeWrite}]{\setlength{\rightskip}{0pt plus 5cm}void vpc6\_\-PATypeWrite ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  {\bf DWORD} {\em base}, \/  {\bf WORD} {\em data})}\hfill\label{vpc6_8h_aeebefabbb82c5db323d9d80f554586ce}
+Setup Preamp type of the board (2 bit per PA) 00 : ASD, 01 : Buckeye 
+
+Definition at line 35 of file vpc6.c.
+
+Referenced by vpc6\_\-Setup().\index{vpc6.h@{vpc6.h}!vpc6\_\-PortDisplay@{vpc6\_\-PortDisplay}}
+\index{vpc6\_\-PortDisplay@{vpc6\_\-PortDisplay}!vpc6.h@{vpc6.h}}
+\paragraph[{vpc6\_\-PortDisplay}]{\setlength{\rightskip}{0pt plus 5cm}void vpc6\_\-PortDisplay ({\bf WORD} {\em type}, \/  {\bf WORD} {\em port}, \/  {\bf DWORD} $\ast$ {\em reg})}\hfill\label{vpc6_8h_a30c15080312a5dbb3bfb9bc4e1b21202}
+decoded printout of readout entry 
+
+Definition at line 220 of file vpc6.c.
+
+Referenced by vpc6\_\-PortRegRBRead(), and vpc6\_\-PortRegRead().\index{vpc6.h@{vpc6.h}!vpc6\_\-PortRegRBRead@{vpc6\_\-PortRegRBRead}}
+\index{vpc6\_\-PortRegRBRead@{vpc6\_\-PortRegRBRead}!vpc6.h@{vpc6.h}}
+\paragraph[{vpc6\_\-PortRegRBRead}]{\setlength{\rightskip}{0pt plus 5cm}int vpc6\_\-PortRegRBRead ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  {\bf DWORD} {\em base}, \/  {\bf WORD} {\em port})}\hfill\label{vpc6_8h_a0d9b6b536c70f925f3abe043310b3f64}
+Read the Readback and Display in a readable form the Port setting No action to the PA board 
+
+Definition at line 155 of file vpc6.c.\index{vpc6.h@{vpc6.h}!vpc6\_\-PortRegRead@{vpc6\_\-PortRegRead}}
+\index{vpc6\_\-PortRegRead@{vpc6\_\-PortRegRead}!vpc6.h@{vpc6.h}}
+\paragraph[{vpc6\_\-PortRegRead}]{\setlength{\rightskip}{0pt plus 5cm}int vpc6\_\-PortRegRead ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  {\bf DWORD} {\em base}, \/  {\bf WORD} {\em port})}\hfill\label{vpc6_8h_a03b97f9c9cb620dfa76f19cefacb4f4e}
+Read the Register and Display in a readable form the Port setting No action to the PA board 
+
+Definition at line 192 of file vpc6.c.\index{vpc6.h@{vpc6.h}!vpc6\_\-PortTypeRead@{vpc6\_\-PortTypeRead}}
+\index{vpc6\_\-PortTypeRead@{vpc6\_\-PortTypeRead}!vpc6.h@{vpc6.h}}
+\paragraph[{vpc6\_\-PortTypeRead}]{\setlength{\rightskip}{0pt plus 5cm}int vpc6\_\-PortTypeRead ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  {\bf DWORD} {\em base}, \/  {\bf WORD} {\em port})}\hfill\label{vpc6_8h_ac870864055cc5eea66f7229a2bd44073}
+Read Port type of the board (either ASD01 or Buckeye for now) return the type of the requested port 
+
+Definition at line 67 of file vpc6.c.
+
+Referenced by vpc6\_\-Status().

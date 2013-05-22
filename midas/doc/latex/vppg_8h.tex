@@ -1,0 +1,535 @@
+\subsection{vppg.h File Reference}
+\label{vppg_8h}\index{vppg.h@{vppg.h}}
+\subsubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structparameters}{parameters}
+\end{DoxyCompactItemize}
+\subsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{vppg_8h_a379092e6b2de168766f8773009f75f2b}{VPPGInit} (\hyperlink{structMVME__INTERFACE}{MVME\_\-INTERFACE} $\ast$mvme, const \hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} base\_\-adr)
+\item 
+int \hyperlink{vppg_8h_acd643aa3649bb10efabfdc28963ac52b}{VPPGLoad} (\hyperlink{structMVME__INTERFACE}{MVME\_\-INTERFACE} $\ast$mvme, const \hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} base\_\-adr, char $\ast$file)
+\item 
+\hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} \hyperlink{vppg_8h_a10ec4e8a15c99cffbb75a1bba6d72c1d}{VPPGPolmskWrite} (\hyperlink{structMVME__INTERFACE}{MVME\_\-INTERFACE} $\ast$mvme, const \hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} base\_\-adr, const \hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} pol)
+\item 
+\hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} \hyperlink{vppg_8h_afc374ec00602443b45c71d28043d7631}{VPPGPolmskRead} (\hyperlink{structMVME__INTERFACE}{MVME\_\-INTERFACE} $\ast$mvme, const \hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} base\_\-adr)
+\item 
+\hyperlink{vt2_8h_a4ae1dab0fb4b072a66584546209e7d58}{BYTE} \hyperlink{vppg_8h_a23fc7a80ad391f80fc10a97417519980}{VPPGStatusRead} (\hyperlink{structMVME__INTERFACE}{MVME\_\-INTERFACE} $\ast$mvme, const \hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} base\_\-adr)
+\item 
+\hyperlink{structparameters}{PARAM} \hyperlink{vppg_8h_a65d359ba2af747d08164cc1180b3f1de}{lineRead} (FILE $\ast$input)
+\item 
+void \hyperlink{vppg_8h_a75ca53aa4c6983bef5186a0138854857}{byteOutputOrder} (\hyperlink{structparameters}{PARAM} data, char $\ast$array)
+\item 
+\hyperlink{vt2_8h_a4ae1dab0fb4b072a66584546209e7d58}{BYTE} \hyperlink{vppg_8h_a4f6ab8a9fcc14540cbd36f5d9313e8e8}{VPPGRegWrite} (\hyperlink{structMVME__INTERFACE}{MVME\_\-INTERFACE} $\ast$mvme, const \hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} base\_\-adr, \hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} reg\_\-offset, \hyperlink{vt2_8h_a4ae1dab0fb4b072a66584546209e7d58}{BYTE} value)
+\item 
+\hyperlink{vt2_8h_a4ae1dab0fb4b072a66584546209e7d58}{BYTE} \hyperlink{vppg_8h_ab31234aa03b2821e9b5fc3be5a62d2fb}{VPPGRegRead} (\hyperlink{structMVME__INTERFACE}{MVME\_\-INTERFACE} $\ast$mvme, const \hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} base\_\-adr, \hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} reg\_\-offset)
+\item 
+void \hyperlink{vppg_8h_aba92a718f41a4d59f7ee3493fc703c42}{VPPGPolzSet} (\hyperlink{structMVME__INTERFACE}{MVME\_\-INTERFACE} $\ast$mvme, const \hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} base\_\-adr, \hyperlink{vt2_8h_a4ae1dab0fb4b072a66584546209e7d58}{BYTE} value)
+\item 
+\hyperlink{vt2_8h_a4ae1dab0fb4b072a66584546209e7d58}{BYTE} \hyperlink{vppg_8h_ae7f3d0874c56189b93a9abde9c337714}{VPPGPolzFlip} (\hyperlink{structMVME__INTERFACE}{MVME\_\-INTERFACE} $\ast$mvme, const \hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} base\_\-adr)
+\item 
+\hyperlink{vt2_8h_a4ae1dab0fb4b072a66584546209e7d58}{BYTE} \hyperlink{vppg_8h_a5250200ded85e3f2e65c941384379ed5}{VPPGPolzRead} (\hyperlink{structMVME__INTERFACE}{MVME\_\-INTERFACE} $\ast$mvme, const \hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} base\_\-adr)
+\item 
+void \hyperlink{vppg_8h_acbbb2e3ab52f1662cfd8fba628ebf1ca}{VPPGBeamOn} (\hyperlink{structMVME__INTERFACE}{MVME\_\-INTERFACE} $\ast$mvme, const \hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} base\_\-adr)
+\item 
+void \hyperlink{vppg_8h_a2cdff7a4d21921939992eba5946ea4ad}{VPPGBeamOff} (\hyperlink{structMVME__INTERFACE}{MVME\_\-INTERFACE} $\ast$mvme, const \hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} base\_\-adr)
+\item 
+void \hyperlink{vppg_8h_a243cf578335a36f73dafcacfc457aaaa}{VPPGBeamCtlPPG} (\hyperlink{structMVME__INTERFACE}{MVME\_\-INTERFACE} $\ast$mvme, const \hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} base\_\-adr)
+\item 
+\hyperlink{vt2_8h_a4ae1dab0fb4b072a66584546209e7d58}{BYTE} \hyperlink{vppg_8h_a57fead0a3fec6c6b119298e43a26a3e5}{VPPGBeamCtlRegRead} (\hyperlink{structMVME__INTERFACE}{MVME\_\-INTERFACE} $\ast$mvme, const \hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} base\_\-adr)
+\item 
+void \hyperlink{vppg_8h_a070407a7d64392ec20ad840d44ffb01c}{VPPGPolzCtlVME} (\hyperlink{structMVME__INTERFACE}{MVME\_\-INTERFACE} $\ast$mvme, const \hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} base\_\-adr)
+\item 
+void \hyperlink{vppg_8h_a28d2b68c7c0e8d305cc8dd37edfd7dec}{VPPGPolzCtlPPG} (\hyperlink{structMVME__INTERFACE}{MVME\_\-INTERFACE} $\ast$mvme, const \hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} base\_\-adr)
+\item 
+\hyperlink{vt2_8h_a4ae1dab0fb4b072a66584546209e7d58}{BYTE} \hyperlink{vppg_8h_a137e2408b777c360d4adc12f37ed90e6}{VPPGDisableExtTrig} (\hyperlink{structMVME__INTERFACE}{MVME\_\-INTERFACE} $\ast$mvme, const \hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} base\_\-adr)
+\item 
+\hyperlink{vt2_8h_a4ae1dab0fb4b072a66584546209e7d58}{BYTE} \hyperlink{vppg_8h_ad4f1d654e1523b2adb0a8007a4eedbef}{VPPGEnableExtTrig} (\hyperlink{structMVME__INTERFACE}{MVME\_\-INTERFACE} $\ast$mvme, const \hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} base\_\-adr)
+\item 
+void \hyperlink{vppg_8h_acabc3ac9c2749e8ad0d503643f3e48e3}{VPPGStopSequencer} (\hyperlink{structMVME__INTERFACE}{MVME\_\-INTERFACE} $\ast$mvme, const \hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} base\_\-adr)
+\item 
+void \hyperlink{vppg_8h_aa631062dec5475b71398bf970501a81b}{VPPGStartSequencer} (\hyperlink{structMVME__INTERFACE}{MVME\_\-INTERFACE} $\ast$mvme, const \hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} base\_\-adr)
+\item 
+\hyperlink{vt2_8h_a4ae1dab0fb4b072a66584546209e7d58}{BYTE} \hyperlink{vppg_8h_a39c304959840cd2c1a0812a4c6ac0ee6}{VPPGExtTrigRegRead} (\hyperlink{structMVME__INTERFACE}{MVME\_\-INTERFACE} $\ast$mvme, const \hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} base\_\-adr)
+\end{DoxyCompactItemize}
+
+
+\subsubsection{Define Documentation}
+\index{vppg.h@{vppg.h}!VPPG\_\-BYTES\_\-PER\_\-WORD@{VPPG\_\-BYTES\_\-PER\_\-WORD}}
+\index{VPPG\_\-BYTES\_\-PER\_\-WORD@{VPPG\_\-BYTES\_\-PER\_\-WORD}!vppg.h@{vppg.h}}
+\paragraph[{VPPG\_\-BYTES\_\-PER\_\-WORD}]{\setlength{\rightskip}{0pt plus 5cm}\#define VPPG\_\-BYTES\_\-PER\_\-WORD~0x02}\hfill\label{vppg_8h_a275265bae4ee64a719118578d577a9b9}
+
+
+Definition at line 35 of file vppg.h.
+
+Referenced by VPPGLoad(), and VPPGStartpatternWrite().\index{vppg.h@{vppg.h}!VPPG\_\-CLEAR\_\-ADDR\_\-COUNTER@{VPPG\_\-CLEAR\_\-ADDR\_\-COUNTER}}
+\index{VPPG\_\-CLEAR\_\-ADDR\_\-COUNTER@{VPPG\_\-CLEAR\_\-ADDR\_\-COUNTER}!vppg.h@{vppg.h}}
+\paragraph[{VPPG\_\-CLEAR\_\-ADDR\_\-COUNTER}]{\setlength{\rightskip}{0pt plus 5cm}\#define VPPG\_\-CLEAR\_\-ADDR\_\-COUNTER~0x04}\hfill\label{vppg_8h_af610ae540df479b8d36c1d5c50c05767}
+
+
+Definition at line 37 of file vppg.h.
+
+Referenced by VPPGLoad(), and VPPGStartpatternWrite().\index{vppg.h@{vppg.h}!VPPG\_\-DEFAULT\_\-PPG\_\-POL\_\-MSK@{VPPG\_\-DEFAULT\_\-PPG\_\-POL\_\-MSK}}
+\index{VPPG\_\-DEFAULT\_\-PPG\_\-POL\_\-MSK@{VPPG\_\-DEFAULT\_\-PPG\_\-POL\_\-MSK}!vppg.h@{vppg.h}}
+\paragraph[{VPPG\_\-DEFAULT\_\-PPG\_\-POL\_\-MSK}]{\setlength{\rightskip}{0pt plus 5cm}\#define VPPG\_\-DEFAULT\_\-PPG\_\-POL\_\-MSK~0x000000}\hfill\label{vppg_8h_a5669dd950e356d43543bf05367609b3b}
+
+
+Definition at line 30 of file vppg.h.
+
+Referenced by VPPGInit(), and VPPGStartSequencer().\index{vppg.h@{vppg.h}!VPPG\_\-LOAD\_\-MEM@{VPPG\_\-LOAD\_\-MEM}}
+\index{VPPG\_\-LOAD\_\-MEM@{VPPG\_\-LOAD\_\-MEM}!vppg.h@{vppg.h}}
+\paragraph[{VPPG\_\-LOAD\_\-MEM}]{\setlength{\rightskip}{0pt plus 5cm}\#define VPPG\_\-LOAD\_\-MEM~0x06}\hfill\label{vppg_8h_a50b5cef4353c208647a6327494fb2534}
+
+
+Definition at line 38 of file vppg.h.
+
+Referenced by VPPGLoad(), and VPPGStartpatternWrite().\index{vppg.h@{vppg.h}!VPPG\_\-OUTP\_\-POL\_\-MASK\_\-HI@{VPPG\_\-OUTP\_\-POL\_\-MASK\_\-HI}}
+\index{VPPG\_\-OUTP\_\-POL\_\-MASK\_\-HI@{VPPG\_\-OUTP\_\-POL\_\-MASK\_\-HI}!vppg.h@{vppg.h}}
+\paragraph[{VPPG\_\-OUTP\_\-POL\_\-MASK\_\-HI}]{\setlength{\rightskip}{0pt plus 5cm}\#define VPPG\_\-OUTP\_\-POL\_\-MASK\_\-HI~0x08}\hfill\label{vppg_8h_ab5f6eead9e9af4a5fe69b37d93fb6577}
+
+
+Definition at line 40 of file vppg.h.
+
+Referenced by VPPGPolmskRead(), and VPPGPolmskWrite().\index{vppg.h@{vppg.h}!VPPG\_\-OUTP\_\-POL\_\-MASK\_\-LO@{VPPG\_\-OUTP\_\-POL\_\-MASK\_\-LO}}
+\index{VPPG\_\-OUTP\_\-POL\_\-MASK\_\-LO@{VPPG\_\-OUTP\_\-POL\_\-MASK\_\-LO}!vppg.h@{vppg.h}}
+\paragraph[{VPPG\_\-OUTP\_\-POL\_\-MASK\_\-LO}]{\setlength{\rightskip}{0pt plus 5cm}\#define VPPG\_\-OUTP\_\-POL\_\-MASK\_\-LO~0x0A}\hfill\label{vppg_8h_a1b364c91e5cd2cf14a38ca7da104fb03}
+
+
+Definition at line 42 of file vppg.h.
+
+Referenced by VPPGPolmskRead(), and VPPGPolmskWrite().\index{vppg.h@{vppg.h}!VPPG\_\-OUTP\_\-POL\_\-MASK\_\-MID@{VPPG\_\-OUTP\_\-POL\_\-MASK\_\-MID}}
+\index{VPPG\_\-OUTP\_\-POL\_\-MASK\_\-MID@{VPPG\_\-OUTP\_\-POL\_\-MASK\_\-MID}!vppg.h@{vppg.h}}
+\paragraph[{VPPG\_\-OUTP\_\-POL\_\-MASK\_\-MID}]{\setlength{\rightskip}{0pt plus 5cm}\#define VPPG\_\-OUTP\_\-POL\_\-MASK\_\-MID~0x09}\hfill\label{vppg_8h_a5926e2dc12114138b81477b9c564ec6d}
+
+
+Definition at line 41 of file vppg.h.
+
+Referenced by VPPGPolmskRead(), and VPPGPolmskWrite().\index{vppg.h@{vppg.h}!VPPG\_\-POLZ\_\-SOURCE\_\-CONTROL@{VPPG\_\-POLZ\_\-SOURCE\_\-CONTROL}}
+\index{VPPG\_\-POLZ\_\-SOURCE\_\-CONTROL@{VPPG\_\-POLZ\_\-SOURCE\_\-CONTROL}!vppg.h@{vppg.h}}
+\paragraph[{VPPG\_\-POLZ\_\-SOURCE\_\-CONTROL}]{\setlength{\rightskip}{0pt plus 5cm}\#define VPPG\_\-POLZ\_\-SOURCE\_\-CONTROL~0x0B}\hfill\label{vppg_8h_a1fb21594652b6cb72051487aadb56ada}
+
+
+Definition at line 43 of file vppg.h.
+
+Referenced by VPPGPolzCtlPPG(), and VPPGPolzCtlVME().\index{vppg.h@{vppg.h}!VPPG\_\-PPG\_\-RESET\_\-REG@{VPPG\_\-PPG\_\-RESET\_\-REG}}
+\index{VPPG\_\-PPG\_\-RESET\_\-REG@{VPPG\_\-PPG\_\-RESET\_\-REG}!vppg.h@{vppg.h}}
+\paragraph[{VPPG\_\-PPG\_\-RESET\_\-REG}]{\setlength{\rightskip}{0pt plus 5cm}\#define VPPG\_\-PPG\_\-RESET\_\-REG~0x00}\hfill\label{vppg_8h_a622dc34ef12b9046cae79b58fb985869}
+
+
+Definition at line 33 of file vppg.h.
+
+Referenced by VPPGLoad(), and VPPGStartpatternWrite().\index{vppg.h@{vppg.h}!VPPG\_\-PPG\_\-START\_\-TRIGGER@{VPPG\_\-PPG\_\-START\_\-TRIGGER}}
+\index{VPPG\_\-PPG\_\-START\_\-TRIGGER@{VPPG\_\-PPG\_\-START\_\-TRIGGER}!vppg.h@{vppg.h}}
+\paragraph[{VPPG\_\-PPG\_\-START\_\-TRIGGER}]{\setlength{\rightskip}{0pt plus 5cm}\#define VPPG\_\-PPG\_\-START\_\-TRIGGER~0x01}\hfill\label{vppg_8h_a6e6423bc78506a47e1942bc36db9be5e}
+
+
+Definition at line 34 of file vppg.h.
+
+Referenced by VPPGStartpatternWrite(), and VPPGStartSequencer().\index{vppg.h@{vppg.h}!VPPG\_\-PROGRAMMING\_\-FIN@{VPPG\_\-PROGRAMMING\_\-FIN}}
+\index{VPPG\_\-PROGRAMMING\_\-FIN@{VPPG\_\-PROGRAMMING\_\-FIN}!vppg.h@{vppg.h}}
+\paragraph[{VPPG\_\-PROGRAMMING\_\-FIN}]{\setlength{\rightskip}{0pt plus 5cm}\#define VPPG\_\-PROGRAMMING\_\-FIN~0x07}\hfill\label{vppg_8h_aaef2e21b06ae4b9689e4c80ee4588ff2}
+
+
+Definition at line 39 of file vppg.h.
+
+Referenced by VPPGLoad(), and VPPGStartpatternWrite().\index{vppg.h@{vppg.h}!VPPG\_\-TOGL\_\-MEM\_\-DEVICE@{VPPG\_\-TOGL\_\-MEM\_\-DEVICE}}
+\index{VPPG\_\-TOGL\_\-MEM\_\-DEVICE@{VPPG\_\-TOGL\_\-MEM\_\-DEVICE}!vppg.h@{vppg.h}}
+\paragraph[{VPPG\_\-TOGL\_\-MEM\_\-DEVICE}]{\setlength{\rightskip}{0pt plus 5cm}\#define VPPG\_\-TOGL\_\-MEM\_\-DEVICE~0x03}\hfill\label{vppg_8h_a3893d9588ab14bcdc2ec5f6510875671}
+
+
+Definition at line 36 of file vppg.h.
+
+Referenced by VPPGLoad(), and VPPGStartpatternWrite().\index{vppg.h@{vppg.h}!VPPG\_\-VME\_\-BEAM\_\-CTL@{VPPG\_\-VME\_\-BEAM\_\-CTL}}
+\index{VPPG\_\-VME\_\-BEAM\_\-CTL@{VPPG\_\-VME\_\-BEAM\_\-CTL}!vppg.h@{vppg.h}}
+\paragraph[{VPPG\_\-VME\_\-BEAM\_\-CTL}]{\setlength{\rightskip}{0pt plus 5cm}\#define VPPG\_\-VME\_\-BEAM\_\-CTL~0X19}\hfill\label{vppg_8h_a8b01a76c63d10faead8824b1b656c120}
+
+
+Definition at line 57 of file vppg.h.
+
+Referenced by VPPGBeamCtlPPG(), VPPGBeamCtlRegRead(), VPPGBeamOff(), and VPPGBeamOn().\index{vppg.h@{vppg.h}!VPPG\_\-VME\_\-CYC\_\-COUNT\_\-HI@{VPPG\_\-VME\_\-CYC\_\-COUNT\_\-HI}}
+\index{VPPG\_\-VME\_\-CYC\_\-COUNT\_\-HI@{VPPG\_\-VME\_\-CYC\_\-COUNT\_\-HI}!vppg.h@{vppg.h}}
+\paragraph[{VPPG\_\-VME\_\-CYC\_\-COUNT\_\-HI}]{\setlength{\rightskip}{0pt plus 5cm}\#define VPPG\_\-VME\_\-CYC\_\-COUNT\_\-HI~0X15}\hfill\label{vppg_8h_a001dc16c3c332d8be1a321fde4897dd1}
+
+
+Definition at line 53 of file vppg.h.\index{vppg.h@{vppg.h}!VPPG\_\-VME\_\-CYC\_\-COUNT\_\-LO@{VPPG\_\-VME\_\-CYC\_\-COUNT\_\-LO}}
+\index{VPPG\_\-VME\_\-CYC\_\-COUNT\_\-LO@{VPPG\_\-VME\_\-CYC\_\-COUNT\_\-LO}!vppg.h@{vppg.h}}
+\paragraph[{VPPG\_\-VME\_\-CYC\_\-COUNT\_\-LO}]{\setlength{\rightskip}{0pt plus 5cm}\#define VPPG\_\-VME\_\-CYC\_\-COUNT\_\-LO~0X18}\hfill\label{vppg_8h_a5bec178c49a61c6934333ae6933c9ba5}
+
+
+Definition at line 56 of file vppg.h.\index{vppg.h@{vppg.h}!VPPG\_\-VME\_\-CYC\_\-COUNT\_\-MH@{VPPG\_\-VME\_\-CYC\_\-COUNT\_\-MH}}
+\index{VPPG\_\-VME\_\-CYC\_\-COUNT\_\-MH@{VPPG\_\-VME\_\-CYC\_\-COUNT\_\-MH}!vppg.h@{vppg.h}}
+\paragraph[{VPPG\_\-VME\_\-CYC\_\-COUNT\_\-MH}]{\setlength{\rightskip}{0pt plus 5cm}\#define VPPG\_\-VME\_\-CYC\_\-COUNT\_\-MH~0X16}\hfill\label{vppg_8h_ac0e9d0d4625b97599cfff38e73a7c360}
+
+
+Definition at line 54 of file vppg.h.\index{vppg.h@{vppg.h}!VPPG\_\-VME\_\-CYC\_\-COUNT\_\-ML@{VPPG\_\-VME\_\-CYC\_\-COUNT\_\-ML}}
+\index{VPPG\_\-VME\_\-CYC\_\-COUNT\_\-ML@{VPPG\_\-VME\_\-CYC\_\-COUNT\_\-ML}!vppg.h@{vppg.h}}
+\paragraph[{VPPG\_\-VME\_\-CYC\_\-COUNT\_\-ML}]{\setlength{\rightskip}{0pt plus 5cm}\#define VPPG\_\-VME\_\-CYC\_\-COUNT\_\-ML~0X17}\hfill\label{vppg_8h_aeef1b7fd72c181ed73781ab73bd96a73}
+
+
+Definition at line 55 of file vppg.h.\index{vppg.h@{vppg.h}!VPPG\_\-VME\_\-MCS\_\-COUNT\_\-HI@{VPPG\_\-VME\_\-MCS\_\-COUNT\_\-HI}}
+\index{VPPG\_\-VME\_\-MCS\_\-COUNT\_\-HI@{VPPG\_\-VME\_\-MCS\_\-COUNT\_\-HI}!vppg.h@{vppg.h}}
+\paragraph[{VPPG\_\-VME\_\-MCS\_\-COUNT\_\-HI}]{\setlength{\rightskip}{0pt plus 5cm}\#define VPPG\_\-VME\_\-MCS\_\-COUNT\_\-HI~0X11}\hfill\label{vppg_8h_a7d187da6468c8f101c3a6671e3d4b02e}
+
+
+Definition at line 49 of file vppg.h.\index{vppg.h@{vppg.h}!VPPG\_\-VME\_\-MCS\_\-COUNT\_\-LO@{VPPG\_\-VME\_\-MCS\_\-COUNT\_\-LO}}
+\index{VPPG\_\-VME\_\-MCS\_\-COUNT\_\-LO@{VPPG\_\-VME\_\-MCS\_\-COUNT\_\-LO}!vppg.h@{vppg.h}}
+\paragraph[{VPPG\_\-VME\_\-MCS\_\-COUNT\_\-LO}]{\setlength{\rightskip}{0pt plus 5cm}\#define VPPG\_\-VME\_\-MCS\_\-COUNT\_\-LO~0X14}\hfill\label{vppg_8h_a7ba138adc320e96cdcaae204d92b3907}
+
+
+Definition at line 52 of file vppg.h.\index{vppg.h@{vppg.h}!VPPG\_\-VME\_\-MCS\_\-COUNT\_\-MH@{VPPG\_\-VME\_\-MCS\_\-COUNT\_\-MH}}
+\index{VPPG\_\-VME\_\-MCS\_\-COUNT\_\-MH@{VPPG\_\-VME\_\-MCS\_\-COUNT\_\-MH}!vppg.h@{vppg.h}}
+\paragraph[{VPPG\_\-VME\_\-MCS\_\-COUNT\_\-MH}]{\setlength{\rightskip}{0pt plus 5cm}\#define VPPG\_\-VME\_\-MCS\_\-COUNT\_\-MH~0X12}\hfill\label{vppg_8h_a48a6c02354368a0dcc577430db490965}
+
+
+Definition at line 50 of file vppg.h.\index{vppg.h@{vppg.h}!VPPG\_\-VME\_\-MCS\_\-COUNT\_\-ML@{VPPG\_\-VME\_\-MCS\_\-COUNT\_\-ML}}
+\index{VPPG\_\-VME\_\-MCS\_\-COUNT\_\-ML@{VPPG\_\-VME\_\-MCS\_\-COUNT\_\-ML}!vppg.h@{vppg.h}}
+\paragraph[{VPPG\_\-VME\_\-MCS\_\-COUNT\_\-ML}]{\setlength{\rightskip}{0pt plus 5cm}\#define VPPG\_\-VME\_\-MCS\_\-COUNT\_\-ML~0X13}\hfill\label{vppg_8h_ae3c258df5a6830626b7c49c445660875}
+
+
+Definition at line 51 of file vppg.h.\index{vppg.h@{vppg.h}!VPPG\_\-VME\_\-POLZ\_\-SET@{VPPG\_\-VME\_\-POLZ\_\-SET}}
+\index{VPPG\_\-VME\_\-POLZ\_\-SET@{VPPG\_\-VME\_\-POLZ\_\-SET}!vppg.h@{vppg.h}}
+\paragraph[{VPPG\_\-VME\_\-POLZ\_\-SET}]{\setlength{\rightskip}{0pt plus 5cm}\#define VPPG\_\-VME\_\-POLZ\_\-SET~0x0C}\hfill\label{vppg_8h_a2ac3aa524ccf21c653ac02b7584f71a1}
+
+
+Definition at line 44 of file vppg.h.
+
+Referenced by VPPGPolzRead(), and VPPGPolzSet().\index{vppg.h@{vppg.h}!VPPG\_\-VME\_\-READ\_\-STAT\_\-REG@{VPPG\_\-VME\_\-READ\_\-STAT\_\-REG}}
+\index{VPPG\_\-VME\_\-READ\_\-STAT\_\-REG@{VPPG\_\-VME\_\-READ\_\-STAT\_\-REG}!vppg.h@{vppg.h}}
+\paragraph[{VPPG\_\-VME\_\-READ\_\-STAT\_\-REG}]{\setlength{\rightskip}{0pt plus 5cm}\#define VPPG\_\-VME\_\-READ\_\-STAT\_\-REG~0x0D}\hfill\label{vppg_8h_a0a68fd12d41c9b1d90364d1c48bdd899}
+
+
+Definition at line 45 of file vppg.h.
+
+Referenced by VPPGStatusRead().\index{vppg.h@{vppg.h}!VPPG\_\-VME\_\-RESET@{VPPG\_\-VME\_\-RESET}}
+\index{VPPG\_\-VME\_\-RESET@{VPPG\_\-VME\_\-RESET}!vppg.h@{vppg.h}}
+\paragraph[{VPPG\_\-VME\_\-RESET}]{\setlength{\rightskip}{0pt plus 5cm}\#define VPPG\_\-VME\_\-RESET~0x0F}\hfill\label{vppg_8h_a8dd47e92745c0f4639fc7b03fe6216a2}
+
+
+Definition at line 47 of file vppg.h.
+
+Referenced by VPPGStopSequencer().\index{vppg.h@{vppg.h}!VPPG\_\-VME\_\-RESET\_\-COUNTERS@{VPPG\_\-VME\_\-RESET\_\-COUNTERS}}
+\index{VPPG\_\-VME\_\-RESET\_\-COUNTERS@{VPPG\_\-VME\_\-RESET\_\-COUNTERS}!vppg.h@{vppg.h}}
+\paragraph[{VPPG\_\-VME\_\-RESET\_\-COUNTERS}]{\setlength{\rightskip}{0pt plus 5cm}\#define VPPG\_\-VME\_\-RESET\_\-COUNTERS~0x10}\hfill\label{vppg_8h_aedc828ad0c5c6d3cd7ab480978622e98}
+
+
+Definition at line 48 of file vppg.h.\index{vppg.h@{vppg.h}!VPPG\_\-VME\_\-TRIG\_\-CTL@{VPPG\_\-VME\_\-TRIG\_\-CTL}}
+\index{VPPG\_\-VME\_\-TRIG\_\-CTL@{VPPG\_\-VME\_\-TRIG\_\-CTL}!vppg.h@{vppg.h}}
+\paragraph[{VPPG\_\-VME\_\-TRIG\_\-CTL}]{\setlength{\rightskip}{0pt plus 5cm}\#define VPPG\_\-VME\_\-TRIG\_\-CTL~0X1A}\hfill\label{vppg_8h_aa732cdc772c75f9ab0eccf3c9b7b2e96}
+
+
+Definition at line 58 of file vppg.h.
+
+Referenced by VPPGDisableExtTrig(), VPPGEnableExtTrig(), and VPPGExtTrigRegRead().\index{vppg.h@{vppg.h}!VPPG\_\-VME\_\-TRIGGER\_\-REG@{VPPG\_\-VME\_\-TRIGGER\_\-REG}}
+\index{VPPG\_\-VME\_\-TRIGGER\_\-REG@{VPPG\_\-VME\_\-TRIGGER\_\-REG}!vppg.h@{vppg.h}}
+\paragraph[{VPPG\_\-VME\_\-TRIGGER\_\-REG}]{\setlength{\rightskip}{0pt plus 5cm}\#define VPPG\_\-VME\_\-TRIGGER\_\-REG~0x0E}\hfill\label{vppg_8h_a016718d338e001b7d9822cf3f71a0347}
+
+
+Definition at line 46 of file vppg.h.
+
+\subsubsection{Typedef Documentation}
+\index{vppg.h@{vppg.h}!BYTE@{BYTE}}
+\index{BYTE@{BYTE}!vppg.h@{vppg.h}}
+\paragraph[{BYTE}]{\setlength{\rightskip}{0pt plus 5cm}typedef char {\bf BYTE}}\hfill\label{vppg_8h_ab6cc7b4aeb6ea31aba2b3fbfc83ff5e6}
+
+
+Definition at line 19 of file vppg.h.\index{vppg.h@{vppg.h}!DWORD@{DWORD}}
+\index{DWORD@{DWORD}!vppg.h@{vppg.h}}
+\paragraph[{DWORD}]{\setlength{\rightskip}{0pt plus 5cm}typedef unsigned long int {\bf DWORD}}\hfill\label{vppg_8h_a408a2366473807fbe658ba18e75dea66}
+
+
+Definition at line 23 of file vppg.h.\index{vppg.h@{vppg.h}!INT@{INT}}
+\index{INT@{INT}!vppg.h@{vppg.h}}
+\paragraph[{INT}]{\setlength{\rightskip}{0pt plus 5cm}typedef int {\bf INT}}\hfill\label{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}
+
+
+Definition at line 18 of file vppg.h.\index{vppg.h@{vppg.h}!PARAM@{PARAM}}
+\index{PARAM@{PARAM}!vppg.h@{vppg.h}}
+\paragraph[{PARAM}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf parameters} {\bf PARAM}}\hfill\label{vppg_8h_a2527b8e66b1d012d8253e12256150b18}
+
+
+Definition at line 71 of file vppg.h.\index{vppg.h@{vppg.h}!WORD@{WORD}}
+\index{WORD@{WORD}!vppg.h@{vppg.h}}
+\paragraph[{WORD}]{\setlength{\rightskip}{0pt plus 5cm}typedef unsigned short int {\bf WORD}}\hfill\label{vppg_8h_a2b0e863dadf920709ec53d9088ee7c91}
+
+
+Definition at line 17 of file vppg.h.
+
+\subsubsection{Function Documentation}
+\index{vppg.h@{vppg.h}!byteOutputOrder@{byteOutputOrder}}
+\index{byteOutputOrder@{byteOutputOrder}!vppg.h@{vppg.h}}
+\paragraph[{byteOutputOrder}]{\setlength{\rightskip}{0pt plus 5cm}void byteOutputOrder ({\bf PARAM} {\em data}, \/  char $\ast$ {\em array})}\hfill\label{vppg_8h_a75ca53aa4c6983bef5186a0138854857}
+byteOutputOrder byte swap for output  byte swap for PPG. 
+\begin{DoxyParams}{Parameters}
+\item[{\em data}]\item[{\em array}]\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 490 of file vppg.c.
+
+Referenced by VPPGLoad().\index{vppg.h@{vppg.h}!lineRead@{lineRead}}
+\index{lineRead@{lineRead}!vppg.h@{vppg.h}}
+\paragraph[{lineRead}]{\setlength{\rightskip}{0pt plus 5cm}{\bf PARAM} lineRead (FILE $\ast$ {\em infile})}\hfill\label{vppg_8h_a65d359ba2af747d08164cc1180b3f1de}
+lineRead Read line of input file  read line. 
+\begin{DoxyParams}{Parameters}
+\item[{\em $\ast$input}]FILE pointer \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+PARAM data structure 
+\end{DoxyReturn}
+
+
+Definition at line 530 of file vppg.c.
+
+Referenced by VPPGLoad().\index{vppg.h@{vppg.h}!VPPGBeamCtlPPG@{VPPGBeamCtlPPG}}
+\index{VPPGBeamCtlPPG@{VPPGBeamCtlPPG}!vppg.h@{vppg.h}}
+\paragraph[{VPPGBeamCtlPPG}]{\setlength{\rightskip}{0pt plus 5cm}void VPPGBeamCtlPPG ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  const {\bf DWORD} {\em base\_\-adr})}\hfill\label{vppg_8h_a243cf578335a36f73dafcacfc457aaaa}
+VPPGBeamCtlPPG PPG controls the Beam On/Off signal.  Give PPG script control of Beam On/Off signal (ch14) 
+\begin{DoxyParams}{Parameters}
+\item[{\em base$\backslash$\_\-adr}]PPG VME base address \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 267 of file vppg.c.
+
+Referenced by VPPGInit().\index{vppg.h@{vppg.h}!VPPGBeamCtlRegRead@{VPPGBeamCtlRegRead}}
+\index{VPPGBeamCtlRegRead@{VPPGBeamCtlRegRead}!vppg.h@{vppg.h}}
+\paragraph[{VPPGBeamCtlRegRead}]{\setlength{\rightskip}{0pt plus 5cm}{\bf BYTE} VPPGBeamCtlRegRead ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  const {\bf DWORD} {\em base\_\-adr})}\hfill\label{vppg_8h_a57fead0a3fec6c6b119298e43a26a3e5}
+VPPGBeamCtlRegRead Read the Beam Control Register  Read the Beam Control Register 
+\begin{DoxyParams}{Parameters}
+\item[{\em base$\backslash$\_\-adr}]PPG VME base address \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 307 of file vppg.c.\index{vppg.h@{vppg.h}!VPPGBeamOff@{VPPGBeamOff}}
+\index{VPPGBeamOff@{VPPGBeamOff}!vppg.h@{vppg.h}}
+\paragraph[{VPPGBeamOff}]{\setlength{\rightskip}{0pt plus 5cm}void VPPGBeamOff ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  const {\bf DWORD} {\em base\_\-adr})}\hfill\label{vppg_8h_a2cdff7a4d21921939992eba5946ea4ad}
+VPPGBeamOff Directly set Beam Off signal.  Set Beam Off (independent of PPG script) 
+\begin{DoxyParams}{Parameters}
+\item[{\em base$\backslash$\_\-adr}]PPG VME base address \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 253 of file vppg.c.\index{vppg.h@{vppg.h}!VPPGBeamOn@{VPPGBeamOn}}
+\index{VPPGBeamOn@{VPPGBeamOn}!vppg.h@{vppg.h}}
+\paragraph[{VPPGBeamOn}]{\setlength{\rightskip}{0pt plus 5cm}void VPPGBeamOn ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  const {\bf DWORD} {\em base\_\-adr})}\hfill\label{vppg_8h_acbbb2e3ab52f1662cfd8fba628ebf1ca}
+VPPGBeamOn Directly set Beam On signal.  Set Beam On (independent of ppg script) 
+\begin{DoxyParams}{Parameters}
+\item[{\em base$\backslash$\_\-adr}]PPG VME base address \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 237 of file vppg.c.\index{vppg.h@{vppg.h}!VPPGDisable@{VPPGDisable}}
+\index{VPPGDisable@{VPPGDisable}!vppg.h@{vppg.h}}
+\paragraph[{VPPGDisable}]{\setlength{\rightskip}{0pt plus 5cm}void VPPGDisable ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  const {\bf DWORD} {\em base\_\-adr})}\hfill\label{vppg_8h_a2c5f80c00f294e2a416891ea22e77824}
+\index{vppg.h@{vppg.h}!VPPGDisableExtTrig@{VPPGDisableExtTrig}}
+\index{VPPGDisableExtTrig@{VPPGDisableExtTrig}!vppg.h@{vppg.h}}
+\paragraph[{VPPGDisableExtTrig}]{\setlength{\rightskip}{0pt plus 5cm}{\bf BYTE} VPPGDisableExtTrig ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  const {\bf DWORD} {\em base\_\-adr})}\hfill\label{vppg_8h_a137e2408b777c360d4adc12f37ed90e6}
+VPPGDisableExtTrig(ppg\_\-base) Disable front panel trigger input so external inputs cannot start the sequence  Disable external trigger input so external inputs cannot start the sequence 
+\begin{DoxyParams}{Parameters}
+\item[{\em base$\backslash$\_\-adr}]PPG VME base address \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+data 
+\end{DoxyReturn}
+
+
+Definition at line 373 of file vppg.c.
+
+Referenced by VPPGInit().\index{vppg.h@{vppg.h}!VPPGEnable@{VPPGEnable}}
+\index{VPPGEnable@{VPPGEnable}!vppg.h@{vppg.h}}
+\paragraph[{VPPGEnable}]{\setlength{\rightskip}{0pt plus 5cm}void VPPGEnable ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  const {\bf DWORD} {\em base\_\-adr})}\hfill\label{vppg_8h_ace405440a180389fc3b79f27dc41ab76}
+\index{vppg.h@{vppg.h}!VPPGEnableExtTrig@{VPPGEnableExtTrig}}
+\index{VPPGEnableExtTrig@{VPPGEnableExtTrig}!vppg.h@{vppg.h}}
+\paragraph[{VPPGEnableExtTrig}]{\setlength{\rightskip}{0pt plus 5cm}{\bf BYTE} VPPGEnableExtTrig ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  const {\bf DWORD} {\em base\_\-adr})}\hfill\label{vppg_8h_ad4f1d654e1523b2adb0a8007a4eedbef}
+VPPGEnableExtTrig(ppg\_\-base) Enable front panel trigger input so external inputs can start the sequence  Enable external trigger input so external inputs can start the sequence 
+\begin{DoxyParams}{Parameters}
+\item[{\em base$\backslash$\_\-adr}]PPG VME base address \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+data 
+\end{DoxyReturn}
+
+
+Definition at line 357 of file vppg.c.\index{vppg.h@{vppg.h}!VPPGExtTrigRegRead@{VPPGExtTrigRegRead}}
+\index{VPPGExtTrigRegRead@{VPPGExtTrigRegRead}!vppg.h@{vppg.h}}
+\paragraph[{VPPGExtTrigRegRead}]{\setlength{\rightskip}{0pt plus 5cm}{\bf BYTE} VPPGExtTrigRegRead ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  const {\bf DWORD} {\em base\_\-adr})}\hfill\label{vppg_8h_a39c304959840cd2c1a0812a4c6ac0ee6}
+VPPGExtTrigRegRead Read external trig register (bit 0 int/ext trigger is enabled bit 1 trigger active/inactive)  Read PPG. 
+\begin{DoxyParams}{Parameters}
+\item[{\em base$\backslash$\_\-adr}]PPG VME base addroless \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+value (8bit) 
+\end{DoxyReturn}
+
+
+Definition at line 386 of file vppg.c.\index{vppg.h@{vppg.h}!VPPGInit@{VPPGInit}}
+\index{VPPGInit@{VPPGInit}!vppg.h@{vppg.h}}
+\paragraph[{VPPGInit}]{\setlength{\rightskip}{0pt plus 5cm}void VPPGInit ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  const {\bf DWORD} {\em base\_\-adr})}\hfill\label{vppg_8h_a379092e6b2de168766f8773009f75f2b}
+VPPGInit Initialize the PPG  Initialize PPG 
+\begin{DoxyParams}{Parameters}
+\item[{\em base$\backslash$\_\-adr}]PPG VME base address \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 173 of file vppg.c.\index{vppg.h@{vppg.h}!VPPGLoad@{VPPGLoad}}
+\index{VPPGLoad@{VPPGLoad}!vppg.h@{vppg.h}}
+\paragraph[{VPPGLoad}]{\setlength{\rightskip}{0pt plus 5cm}int VPPGLoad ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  const {\bf DWORD} {\em base\_\-adr}, \/  char $\ast$ {\em file})}\hfill\label{vppg_8h_acd643aa3649bb10efabfdc28963ac52b}
+ppgLoad Load PPG file into sequencer.  Load file PPG. 
+\begin{DoxyParams}{Parameters}
+\item[{\em base$\backslash$\_\-adr}]PPG VME base address \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1=SUCCESS, -\/1=file not found 
+\end{DoxyReturn}
+
+
+Definition at line 557 of file vppg.c.\index{vppg.h@{vppg.h}!VPPGPolmskRead@{VPPGPolmskRead}}
+\index{VPPGPolmskRead@{VPPGPolmskRead}!vppg.h@{vppg.h}}
+\paragraph[{VPPGPolmskRead}]{\setlength{\rightskip}{0pt plus 5cm}{\bf DWORD} VPPGPolmskRead ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  const {\bf DWORD} {\em base\_\-adr})}\hfill\label{vppg_8h_afc374ec00602443b45c71d28043d7631}
+VPPGPolmskRead Read the Polarity mask.  Read polarity mask. 
+\begin{DoxyParams}{Parameters}
+\item[{\em base$\backslash$\_\-adr}]PPG VME base address \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+polarity (24bit) 
+\end{DoxyReturn}
+
+
+Definition at line 431 of file vppg.c.
+
+Referenced by VPPGPolmskWrite(), and VPPGStartpatternWrite().\index{vppg.h@{vppg.h}!VPPGPolmskWrite@{VPPGPolmskWrite}}
+\index{VPPGPolmskWrite@{VPPGPolmskWrite}!vppg.h@{vppg.h}}
+\paragraph[{VPPGPolmskWrite}]{\setlength{\rightskip}{0pt plus 5cm}{\bf DWORD} VPPGPolmskWrite ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  const {\bf DWORD} {\em base\_\-adr}, \/  const {\bf DWORD} {\em pol})}\hfill\label{vppg_8h_a10ec4e8a15c99cffbb75a1bba6d72c1d}
+VPPG Write the Polarity mask.  Write and read back polarity mask. 
+\begin{DoxyParams}{Parameters}
+\item[{\em base$\backslash$\_\-adr}]PPG VME base address \item[{\em pol}]polarity (24bit) \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+polarity (24bit) 
+\end{DoxyReturn}
+
+
+Definition at line 405 of file vppg.c.
+
+Referenced by VPPGInit(), and VPPGStartSequencer().\index{vppg.h@{vppg.h}!VPPGPolzCtlPPG@{VPPGPolzCtlPPG}}
+\index{VPPGPolzCtlPPG@{VPPGPolzCtlPPG}!vppg.h@{vppg.h}}
+\paragraph[{VPPGPolzCtlPPG}]{\setlength{\rightskip}{0pt plus 5cm}void VPPGPolzCtlPPG ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  const {\bf DWORD} {\em base\_\-adr})}\hfill\label{vppg_8h_a28d2b68c7c0e8d305cc8dd37edfd7dec}
+VPPGPolzCtlPPG PPG controls the Pol On/Off signal for helicity  Give PPG script control of Pol On/Off signal (DRV POL) which now follows ch15 
+\begin{DoxyParams}{Parameters}
+\item[{\em base$\backslash$\_\-adr}]PPG VME base address \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 294 of file vppg.c.
+
+Referenced by VPPGInit().\index{vppg.h@{vppg.h}!VPPGPolzCtlVME@{VPPGPolzCtlVME}}
+\index{VPPGPolzCtlVME@{VPPGPolzCtlVME}!vppg.h@{vppg.h}}
+\paragraph[{VPPGPolzCtlVME}]{\setlength{\rightskip}{0pt plus 5cm}void VPPGPolzCtlVME ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  const {\bf DWORD} {\em base\_\-adr})}\hfill\label{vppg_8h_a070407a7d64392ec20ad840d44ffb01c}
+VPPGPolzCtlVME VME controls the Pol On/Off signal for helicity  Give VME control of Pol On/Off signal (DRV POL) (PPG script ignored) 
+\begin{DoxyParams}{Parameters}
+\item[{\em base$\backslash$\_\-adr}]PPG VME base address \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 281 of file vppg.c.\index{vppg.h@{vppg.h}!VPPGPolzFlip@{VPPGPolzFlip}}
+\index{VPPGPolzFlip@{VPPGPolzFlip}!vppg.h@{vppg.h}}
+\paragraph[{VPPGPolzFlip}]{\setlength{\rightskip}{0pt plus 5cm}{\bf BYTE} VPPGPolzFlip ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  const {\bf DWORD} {\em base\_\-adr})}\hfill\label{vppg_8h_ae7f3d0874c56189b93a9abde9c337714}
+VPPGPolzFlip Flip the polarization bit.  Read PPG. 
+\begin{DoxyParams}{Parameters}
+\item[{\em base$\backslash$\_\-adr}]PPG VME base address \end{DoxyParams}
+
+
+Definition at line 81 of file vppg.c.\index{vppg.h@{vppg.h}!VPPGPolzRead@{VPPGPolzRead}}
+\index{VPPGPolzRead@{VPPGPolzRead}!vppg.h@{vppg.h}}
+\paragraph[{VPPGPolzRead}]{\setlength{\rightskip}{0pt plus 5cm}{\bf BYTE} VPPGPolzRead ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  const {\bf DWORD} {\em base\_\-adr})}\hfill\label{vppg_8h_a5250200ded85e3f2e65c941384379ed5}
+ppgPolzRead Read Polarization bit.  Read PPG. 
+\begin{DoxyParams}{Parameters}
+\item[{\em base$\backslash$\_\-adr}]PPG VME base addroless \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+value (8bit) 
+\end{DoxyReturn}
+
+
+Definition at line 64 of file vppg.c.
+
+Referenced by VPPGPolzFlip().\index{vppg.h@{vppg.h}!VPPGPolzSet@{VPPGPolzSet}}
+\index{VPPGPolzSet@{VPPGPolzSet}!vppg.h@{vppg.h}}
+\paragraph[{VPPGPolzSet}]{\setlength{\rightskip}{0pt plus 5cm}void VPPGPolzSet ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  const {\bf DWORD} {\em base\_\-adr}, \/  {\bf BYTE} {\em value})}\hfill\label{vppg_8h_aba92a718f41a4d59f7ee3493fc703c42}
+ppgPolzSet Set Polarization bit to a given value.  Write PPG. 
+\begin{DoxyParams}{Parameters}
+\item[{\em base$\backslash$\_\-adr}]PPG VME base addroless \item[{\em value}](8bit) \end{DoxyParams}
+
+
+Definition at line 51 of file vppg.c.
+
+Referenced by VPPGPolzFlip().\index{vppg.h@{vppg.h}!VPPGRegRead@{VPPGRegRead}}
+\index{VPPGRegRead@{VPPGRegRead}!vppg.h@{vppg.h}}
+\paragraph[{VPPGRegRead}]{\setlength{\rightskip}{0pt plus 5cm}{\bf BYTE} VPPGRegRead ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  const {\bf DWORD} {\em base\_\-adr}, \/  {\bf DWORD} {\em reg\_\-offset})}\hfill\label{vppg_8h_ab31234aa03b2821e9b5fc3be5a62d2fb}
+VPPGRegRead Read PPG register.  Read PPG. 
+\begin{DoxyParams}{Parameters}
+\item[{\em base$\backslash$\_\-adr}]PPG VME base addroless \item[{\em reg$\backslash$\_\-offset}]PPG register \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+status register (8 bit) 
+\end{DoxyReturn}
+
+
+Definition at line 145 of file vppg.c.
+
+Referenced by VPPGBeamCtlRegRead(), VPPGExtTrigRegRead(), VPPGPolmskRead(), VPPGPolzRead(), and VPPGStatusRead().\index{vppg.h@{vppg.h}!VPPGRegWrite@{VPPGRegWrite}}
+\index{VPPGRegWrite@{VPPGRegWrite}!vppg.h@{vppg.h}}
+\paragraph[{VPPGRegWrite}]{\setlength{\rightskip}{0pt plus 5cm}{\bf BYTE} VPPGRegWrite ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  const {\bf DWORD} {\em base\_\-adr}, \/  {\bf DWORD} {\em reg\_\-offset}, \/  {\bf BYTE} {\em value})}\hfill\label{vppg_8h_a4f6ab8a9fcc14540cbd36f5d9313e8e8}
+VPPGRegWrite Write into PPG register.  Write PPG. 
+\begin{DoxyParams}{Parameters}
+\item[{\em base$\backslash$\_\-adr}]PPG VME base address \item[{\em reg$\backslash$\_\-offset}]PPG register \item[{\em value}](8bit) \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+status register 
+\end{DoxyReturn}
+
+
+Definition at line 111 of file vppg.c.
+
+Referenced by VPPGBeamCtlPPG(), VPPGBeamOff(), VPPGBeamOn(), VPPGDisableExtTrig(), VPPGEnableExtTrig(), VPPGLoad(), VPPGPolmskWrite(), VPPGPolzCtlPPG(), VPPGPolzCtlVME(), VPPGPolzSet(), VPPGStartpatternWrite(), VPPGStartSequencer(), and VPPGStopSequencer().\index{vppg.h@{vppg.h}!VPPGStartSequencer@{VPPGStartSequencer}}
+\index{VPPGStartSequencer@{VPPGStartSequencer}!vppg.h@{vppg.h}}
+\paragraph[{VPPGStartSequencer}]{\setlength{\rightskip}{0pt plus 5cm}void VPPGStartSequencer ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  const {\bf DWORD} {\em base\_\-adr})}\hfill\label{vppg_8h_aa631062dec5475b71398bf970501a81b}
+VPPGStartSequencer Start the PPG sequencer (internal trigger)  start the PPG sequencer. 
+\begin{DoxyParams}{Parameters}
+\item[{\em base$\backslash$\_\-adr}]PPG VME base address \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 328 of file vppg.c.\index{vppg.h@{vppg.h}!VPPGStatusRead@{VPPGStatusRead}}
+\index{VPPGStatusRead@{VPPGStatusRead}!vppg.h@{vppg.h}}
+\paragraph[{VPPGStatusRead}]{\setlength{\rightskip}{0pt plus 5cm}{\bf BYTE} VPPGStatusRead ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  const {\bf DWORD} {\em base\_\-adr})}\hfill\label{vppg_8h_a23fc7a80ad391f80fc10a97417519980}
+VPPGStatusRead Read Status register.  Read status. 
+\begin{DoxyParams}{Parameters}
+\item[{\em base$\backslash$\_\-adr}]PPG VME base address \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+status register 
+\end{DoxyReturn}
+
+
+Definition at line 194 of file vppg.c.\index{vppg.h@{vppg.h}!VPPGStopSequencer@{VPPGStopSequencer}}
+\index{VPPGStopSequencer@{VPPGStopSequencer}!vppg.h@{vppg.h}}
+\paragraph[{VPPGStopSequencer}]{\setlength{\rightskip}{0pt plus 5cm}void VPPGStopSequencer ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  const {\bf DWORD} {\em base\_\-adr})}\hfill\label{vppg_8h_acabc3ac9c2749e8ad0d503643f3e48e3}
+VPPGStopSequencer Stop the PPG sequencer.  Stop the PPG sequencer. 
+\begin{DoxyParams}{Parameters}
+\item[{\em base$\backslash$\_\-adr}]PPG VME base address \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 343 of file vppg.c.

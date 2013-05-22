@@ -1,0 +1,177 @@
+.TH "RC_mhttpd_utility" 3 "31 May 2012" "Version 2.3.0-0" "Midas" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+RC_mhttpd_utility \- The mhttpd daemon 
+.PP
+
+.br
+ 
+.SH "Start the mhttpd daemon"
+.PP
+The mhttpd utility requires the TCP/IP port number as an argument in order to listen to the web-based request.
+.PP
+.IP "\(bu" 2
+\fB Arguments \fP
+.PP
+.PP
+.IP "\(bu" 2
+[-h] : connect to midas server (mserver) on given host
+.IP "\(bu" 2
+[-e] : experiment to connect to
+.IP "\(bu" 2
+[-p port ] : port number e.g. 8081 (no default)
+.IP "\(bu" 2
+[-v] : display verbose HTTP communication
+.IP "\(bu" 2
+[-D] : starts program as a \fBdaemon\fP 
+.IP "\(bu" 2
+[-E] : only display ELog system
+.IP "\(bu" 2
+[-H] : only display history plots
+.IP "\(bu" 2
+[-a] : only allow access for specific host(s). Several [-a Hostname] statements might be given
+.IP "\(bu" 2
+[-help] : display usage information
+.PP
+.PP
+.IP "\(bu" 2
+\fB Usage \fP 
+.br
+ mhttpd [-h Hostname] [-e Experiment] [-p port] [-v] [-D] [-c] [-a Hostname] 
+.br
+e.g. 
+.br
+ \fBmhttpd -p 8081 -D \fP
+.PP
+.PP
+\fBNote:\fP
+.RS 4
+.IP "\(bu" 2
+Several copies of mhttpd can run on a single host, as long as they are \fBstarted on different ports\fP.
+.IP "\(bu" 2
+If \fBmore than one experiment\fP runs on the same host, a server for each experiment must be started on a \fBdifferent\fP port, e.g.
+.IP "  \(bu" 4
+mhttpd -e midas -p 8081 -D
+.IP "  \(bu" 4
+mhttpd -e midgas -p 8082 -D
+.PP
+
+.PP
+.RE
+.PP
+
+.br
+.PP
+
+.br
+.PP
+ 
+.SS "Connect to the mhttpd webserver"
+To connect to a mhttpd webserver running on port \fI<nnnn>\fP on host \fI<hostname>\fP and experiment \fI<exptname>\fP, \fBenter the URL in your web browser location box\fP in the form
+.PP
+.PP
+.nf
+ http://<hostname>:<nnnn>/?exp=<exptname>
+.fi
+.PP
+ e.g. 
+.PP
+.nf
+ http://midtis09:8081/?exp=midas
+
+.fi
+.PP
+ 
+.br
+.PP
+.PP
+Once the \fBconnection\fP to a given experiment is established, the \fBMain Status Page\fP of the MIDAS webserver is displayed in the web browser window. 
+.br
+ An error page will appear instead if the \fBmhttpd daemon\fP has NOT been started on the specified port (or has not been started at all). 
+.br
+.PP
+  mhttpd main status page (no clients are running) 
+.br
+
+.br
+
+.br
+    
+.br
+.PP
+Once clients are started (e.g. frontend, logger etc.) the main status page will look more like \fBthis\fP.
+.PP
+the image above shows a pre- \fBDec 2009\fP version of mhttpd (see \fBRedesign of mhttpd Main Status Page\fP).
+.PP
+
+.br
+ 
+.PP
+ 
+.br
+.PP
+   
+.SH "Proxy Access to mhttpd"
+.PP
+A major change was made to mhttpd in \fBFeb 2008\fP , changing all internal URLs to relative paths. This allows \fBproxy access\fP to mhttpd via an \fCApache\fP server for example, which might be needed to securely access an experiment from outside the lab through a firewall. Apache can also be configured to allow a secure SSL connection to the proxy.
+.PP
+In order to add SSL encryption to mhttpd, the following settings can be placed into an \fBApache configuration\fP : 
+.br
+ Assuming
+.IP "\(bu" 2
+the experiment runs on machine \fIonline1.your.domain\fP, and
+.IP "\(bu" 2
+apache is running on a publically available machine \fIwww.your.domain\fP 
+.br
+
+.PP
+.PP
+.PP
+.nf
+Redirect permanent /online1 http://www.your.domain/online1
+ProxyPass /online1/  http://online1.your.domain/
+
+<Location '/online1'>
+  AuthType Basic
+  AuthName ...
+  AuthUserFile ...
+  Require user ...
+</Location>
+.fi
+.PP
+.PP
+If the URL 
+.PP
+.nf
+http://www.your.domain/online1
+
+.fi
+.PP
+ is accessed, it will be redirected (after optional authentication) to 
+.PP
+.nf
+http://online1.your.domain/
+
+.fi
+.PP
+ 
+.br
+ If you click on the mhttpd \fBHistory page\fP for example, mhttpd would normally redirect this to 
+.PP
+.nf
+http://online1.your.domain/HS/
+
+.fi
+.PP
+ but this is not correct since you want to go through the proxy \fIwww.your.domain\fP. The new relative redirection inside mhttpd now redirects the history page correctly to 
+.PP
+.nf
+http://www.your.domain/online1/HS/
+
+.fi
+.PP
+.PP
+ 
+.br
+  

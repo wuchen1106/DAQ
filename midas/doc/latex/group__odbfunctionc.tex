@@ -1,0 +1,1129 @@
+\subsection{Midas ODB Functions (db\_\-xxx)}
+\label{group__odbfunctionc}\index{Midas ODB Functions (db\_\-xxx)@{Midas ODB Functions (db\_\-xxx)}}
+\subsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{group__odbfunctionc_gaece9851974b00231428f82b341e2c523}{db\_\-open\_\-database} (const char $\ast$xdatabase\_\-name, \hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} database\_\-size, HNDLE $\ast$\hyperlink{mevb_8c_ab1f60c53f74e806a3b9f687af38d7421}{hDB}, const char $\ast$client\_\-name)
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{group__odbfunctionc_gadbb92e13899bbffc584b676bb924586e}{db\_\-close\_\-database} (HNDLE \hyperlink{mevb_8c_ab1f60c53f74e806a3b9f687af38d7421}{hDB})
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{group__odbfunctionc_ga299048aeed427690630027aa5aebc451}{db\_\-lock\_\-database} (HNDLE \hyperlink{mevb_8c_ab1f60c53f74e806a3b9f687af38d7421}{hDB})
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{group__odbfunctionc_ga52885112dd8f2acc551ac0610d7f552d}{db\_\-unlock\_\-database} (HNDLE \hyperlink{mevb_8c_ab1f60c53f74e806a3b9f687af38d7421}{hDB})
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{group__odbfunctionc_ga959637b6837f613af5a8a3df52af6f3b}{db\_\-protect\_\-database} (HNDLE \hyperlink{mevb_8c_ab1f60c53f74e806a3b9f687af38d7421}{hDB})
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{group__odbfunctionc_ga4dcab15e47980882e35bddf3ceb9aee5}{db\_\-create\_\-key} (HNDLE \hyperlink{mevb_8c_ab1f60c53f74e806a3b9f687af38d7421}{hDB}, HNDLE \hyperlink{mevb_8c_a8cd567d23219ba7fc83280cf20caf1c2}{hKey}, const char $\ast$key\_\-name, \hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} type)
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{group__odbfunctionc_ga3da25029b1835ef605483b91684704f6}{db\_\-create\_\-link} (HNDLE \hyperlink{mevb_8c_ab1f60c53f74e806a3b9f687af38d7421}{hDB}, HNDLE \hyperlink{mevb_8c_a8cd567d23219ba7fc83280cf20caf1c2}{hKey}, const char $\ast$link\_\-name, const char $\ast$destination)
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{group__odbfunctionc_ga3015b0f8e9636ebfeeea74e1dbdfaf62}{db\_\-delete\_\-key1} (HNDLE \hyperlink{mevb_8c_ab1f60c53f74e806a3b9f687af38d7421}{hDB}, HNDLE \hyperlink{mevb_8c_a8cd567d23219ba7fc83280cf20caf1c2}{hKey}, \hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} level, \hyperlink{vt2_8h_a239c7f0d40651c3e419c5b9651507d14}{BOOL} follow\_\-links)
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{group__odbfunctionc_ga50caf089afbb03943e6e215661b5b73e}{db\_\-delete\_\-key} (HNDLE \hyperlink{mevb_8c_ab1f60c53f74e806a3b9f687af38d7421}{hDB}, HNDLE \hyperlink{mevb_8c_a8cd567d23219ba7fc83280cf20caf1c2}{hKey}, \hyperlink{vt2_8h_a239c7f0d40651c3e419c5b9651507d14}{BOOL} follow\_\-links)
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{group__odbfunctionc_ga321df44195a9cbc83dbf10e32e32fd5b}{db\_\-find\_\-key} (HNDLE \hyperlink{mevb_8c_ab1f60c53f74e806a3b9f687af38d7421}{hDB}, HNDLE \hyperlink{mevb_8c_a8cd567d23219ba7fc83280cf20caf1c2}{hKey}, const char $\ast$key\_\-name, HNDLE $\ast$subhKey)
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{group__odbfunctionc_gaf0b052657ba1d4f4a8b6d47dbc70008c}{db\_\-set\_\-value} (HNDLE \hyperlink{mevb_8c_ab1f60c53f74e806a3b9f687af38d7421}{hDB}, HNDLE hKeyRoot, const char $\ast$key\_\-name, const void $\ast$data, \hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} data\_\-size, \hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} num\_\-values, \hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} type)
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{group__odbfunctionc_ga88a578560f272f0cc9a199eacb3e1048}{db\_\-set\_\-value\_\-index} (HNDLE \hyperlink{mevb_8c_ab1f60c53f74e806a3b9f687af38d7421}{hDB}, HNDLE hKeyRoot, const char $\ast$key\_\-name, const void $\ast$data, \hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} data\_\-size, \hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} idx, \hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} type, \hyperlink{vt2_8h_a239c7f0d40651c3e419c5b9651507d14}{BOOL} trunc)
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{group__odbfunctionc_gaf3958854e073e1ddbb43324e07a6287f}{db\_\-get\_\-value} (HNDLE \hyperlink{mevb_8c_ab1f60c53f74e806a3b9f687af38d7421}{hDB}, HNDLE hKeyRoot, const char $\ast$key\_\-name, void $\ast$data, \hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} $\ast$buf\_\-size, \hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} type, \hyperlink{vt2_8h_a239c7f0d40651c3e419c5b9651507d14}{BOOL} create)
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{group__odbfunctionc_gac7c23e0ebd6b203c81ca491db5b4753e}{db\_\-enum\_\-key} (HNDLE \hyperlink{mevb_8c_ab1f60c53f74e806a3b9f687af38d7421}{hDB}, HNDLE \hyperlink{mevb_8c_a8cd567d23219ba7fc83280cf20caf1c2}{hKey}, \hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} idx, HNDLE $\ast$subkey\_\-handle)
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{group__odbfunctionc_ga424ad3b166e3fba9bae29f7dfc74a369}{db\_\-get\_\-key} (HNDLE \hyperlink{mevb_8c_ab1f60c53f74e806a3b9f687af38d7421}{hDB}, HNDLE \hyperlink{mevb_8c_a8cd567d23219ba7fc83280cf20caf1c2}{hKey}, \hyperlink{structKEY}{KEY} $\ast$key)
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{group__odbfunctionc_ga331624e7c034494217249e36b97c8f69}{db\_\-get\_\-link} (HNDLE \hyperlink{mevb_8c_ab1f60c53f74e806a3b9f687af38d7421}{hDB}, HNDLE \hyperlink{mevb_8c_a8cd567d23219ba7fc83280cf20caf1c2}{hKey}, \hyperlink{structKEY}{KEY} $\ast$key)
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{group__odbfunctionc_ga78b9946f84f5f8059dd71cc6dbccd1a7}{db\_\-get\_\-key\_\-time} (HNDLE \hyperlink{mevb_8c_ab1f60c53f74e806a3b9f687af38d7421}{hDB}, HNDLE \hyperlink{mevb_8c_a8cd567d23219ba7fc83280cf20caf1c2}{hKey}, \hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} $\ast$delta)
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{group__odbfunctionc_ga34deb0b63c67d73975017e47270a5ca9}{db\_\-get\_\-key\_\-info} (HNDLE \hyperlink{mevb_8c_ab1f60c53f74e806a3b9f687af38d7421}{hDB}, HNDLE \hyperlink{mevb_8c_a8cd567d23219ba7fc83280cf20caf1c2}{hKey}, char $\ast$name, \hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} name\_\-size, \hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} $\ast$type, \hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} $\ast$num\_\-values, \hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} $\ast$item\_\-size)
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{group__odbfunctionc_ga8d8bb0ee338e5fbc46fed2c29e697540}{db\_\-get\_\-data} (HNDLE \hyperlink{mevb_8c_ab1f60c53f74e806a3b9f687af38d7421}{hDB}, HNDLE \hyperlink{mevb_8c_a8cd567d23219ba7fc83280cf20caf1c2}{hKey}, void $\ast$data, \hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} $\ast$buf\_\-size, \hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} type)
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{group__odbfunctionc_gaf07dd1abe9b9f63238c9b1d9a3bd5cc0}{db\_\-get\_\-link\_\-data} (HNDLE \hyperlink{mevb_8c_ab1f60c53f74e806a3b9f687af38d7421}{hDB}, HNDLE \hyperlink{mevb_8c_a8cd567d23219ba7fc83280cf20caf1c2}{hKey}, void $\ast$data, \hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} $\ast$buf\_\-size, \hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} type)
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{group__odbfunctionc_gab98f9bb7f141c72261bf56407370fab3}{db\_\-get\_\-data\_\-index} (HNDLE \hyperlink{mevb_8c_ab1f60c53f74e806a3b9f687af38d7421}{hDB}, HNDLE \hyperlink{mevb_8c_a8cd567d23219ba7fc83280cf20caf1c2}{hKey}, void $\ast$data, \hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} $\ast$buf\_\-size, \hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} idx, \hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} type)
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{group__odbfunctionc_gaa3f93c5321c56ad5a5200d17958e9bb3}{db\_\-set\_\-data} (HNDLE \hyperlink{mevb_8c_ab1f60c53f74e806a3b9f687af38d7421}{hDB}, HNDLE \hyperlink{mevb_8c_a8cd567d23219ba7fc83280cf20caf1c2}{hKey}, const void $\ast$data, \hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} buf\_\-size, \hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} num\_\-values, \hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} type)
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{group__odbfunctionc_gac4242bdfa7376f491b501e009aa1f840}{db\_\-set\_\-link\_\-data} (HNDLE \hyperlink{mevb_8c_ab1f60c53f74e806a3b9f687af38d7421}{hDB}, HNDLE \hyperlink{mevb_8c_a8cd567d23219ba7fc83280cf20caf1c2}{hKey}, const void $\ast$data, \hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} buf\_\-size, \hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} num\_\-values, \hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} type)
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{group__odbfunctionc_ga298462cf44f9ed6ea7c64ffdf23617d9}{db\_\-set\_\-data\_\-index} (HNDLE \hyperlink{mevb_8c_ab1f60c53f74e806a3b9f687af38d7421}{hDB}, HNDLE \hyperlink{mevb_8c_a8cd567d23219ba7fc83280cf20caf1c2}{hKey}, const void $\ast$data, \hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} data\_\-size, \hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} idx, \hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} type)
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{group__odbfunctionc_gac66c3264c78ef6cc1e429235efe92ed6}{db\_\-set\_\-link\_\-data\_\-index} (HNDLE \hyperlink{mevb_8c_ab1f60c53f74e806a3b9f687af38d7421}{hDB}, HNDLE \hyperlink{mevb_8c_a8cd567d23219ba7fc83280cf20caf1c2}{hKey}, const void $\ast$data, \hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} data\_\-size, \hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} idx, \hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} type)
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{group__odbfunctionc_ga437034642fc8851bfa67937635cb7d12}{db\_\-load} (HNDLE \hyperlink{mevb_8c_ab1f60c53f74e806a3b9f687af38d7421}{hDB}, HNDLE hKeyRoot, const char $\ast$filename, \hyperlink{vt2_8h_a239c7f0d40651c3e419c5b9651507d14}{BOOL} bRemote)
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{group__odbfunctionc_ga165f2428c082852ff2ac1e8c4c78d607}{db\_\-copy} (HNDLE \hyperlink{mevb_8c_ab1f60c53f74e806a3b9f687af38d7421}{hDB}, HNDLE \hyperlink{mevb_8c_a8cd567d23219ba7fc83280cf20caf1c2}{hKey}, char $\ast$buffer, \hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} $\ast$buffer\_\-size, char $\ast$path)
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{group__odbfunctionc_gac1bf8d648ef2ddb1ac6243e5e11dedf2}{db\_\-paste} (HNDLE \hyperlink{mevb_8c_ab1f60c53f74e806a3b9f687af38d7421}{hDB}, HNDLE hKeyRoot, const char $\ast$buffer)
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{group__odbfunctionc_ga7b0051acf49620e36823f55b907dda7a}{db\_\-paste\_\-xml} (HNDLE \hyperlink{mevb_8c_ab1f60c53f74e806a3b9f687af38d7421}{hDB}, HNDLE hKeyRoot, const char $\ast$buffer)
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{group__odbfunctionc_ga9fcec4712c44e1ef199297aad9ea99c5}{db\_\-copy\_\-xml} (HNDLE \hyperlink{mevb_8c_ab1f60c53f74e806a3b9f687af38d7421}{hDB}, HNDLE \hyperlink{mevb_8c_a8cd567d23219ba7fc83280cf20caf1c2}{hKey}, char $\ast$buffer, \hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} $\ast$buffer\_\-size)
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{group__odbfunctionc_ga6f9a61b316a1c2a5c9c143fc84edf63b}{db\_\-save} (HNDLE \hyperlink{mevb_8c_ab1f60c53f74e806a3b9f687af38d7421}{hDB}, HNDLE \hyperlink{mevb_8c_a8cd567d23219ba7fc83280cf20caf1c2}{hKey}, const char $\ast$filename, \hyperlink{vt2_8h_a239c7f0d40651c3e419c5b9651507d14}{BOOL} bRemote)
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{group__odbfunctionc_gac967051f0433c70482abca0450c038e6}{db\_\-save\_\-xml} (HNDLE \hyperlink{mevb_8c_ab1f60c53f74e806a3b9f687af38d7421}{hDB}, HNDLE \hyperlink{mevb_8c_a8cd567d23219ba7fc83280cf20caf1c2}{hKey}, const char $\ast$filename)
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{group__odbfunctionc_ga07197b44867ca47300b1f69f2c2c3e86}{db\_\-save\_\-struct} (HNDLE \hyperlink{mevb_8c_ab1f60c53f74e806a3b9f687af38d7421}{hDB}, HNDLE \hyperlink{mevb_8c_a8cd567d23219ba7fc83280cf20caf1c2}{hKey}, const char $\ast$file\_\-name, const char $\ast$struct\_\-name, \hyperlink{vt2_8h_a239c7f0d40651c3e419c5b9651507d14}{BOOL} append)
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{group__odbfunctionc_ga594e4b0d774999bdcc1161e8b6b84052}{db\_\-sprintf} (char $\ast$string, const void $\ast$data, \hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} data\_\-size, \hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} idx, \hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} type)
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{group__odbfunctionc_ga2d16cbf1e235c26b1b1fa8e75a811d50}{db\_\-sprintff} (char $\ast$string, const char $\ast$format, const void $\ast$data, \hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} data\_\-size, \hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} idx, \hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} type)
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{group__odbfunctionc_ga70b171dc66b0673fc9ed773fca31b7dc}{db\_\-get\_\-record\_\-size} (HNDLE \hyperlink{mevb_8c_ab1f60c53f74e806a3b9f687af38d7421}{hDB}, HNDLE \hyperlink{mevb_8c_a8cd567d23219ba7fc83280cf20caf1c2}{hKey}, \hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} align, \hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} $\ast$buf\_\-size)
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{group__odbfunctionc_ga7a9c0dd3e4bec48a07be99d2fc0e08cf}{db\_\-get\_\-record} (HNDLE \hyperlink{mevb_8c_ab1f60c53f74e806a3b9f687af38d7421}{hDB}, HNDLE \hyperlink{mevb_8c_a8cd567d23219ba7fc83280cf20caf1c2}{hKey}, void $\ast$data, \hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} $\ast$buf\_\-size, \hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} align)
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{group__odbfunctionc_ga1e4bca66d45d069477c614bc2481d89f}{db\_\-set\_\-record} (HNDLE \hyperlink{mevb_8c_ab1f60c53f74e806a3b9f687af38d7421}{hDB}, HNDLE \hyperlink{mevb_8c_a8cd567d23219ba7fc83280cf20caf1c2}{hKey}, void $\ast$data, \hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} buf\_\-size, \hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} align)
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{group__odbfunctionc_ga59b971e77416b2b463e2e63f1b05342b}{db\_\-create\_\-record} (HNDLE \hyperlink{mevb_8c_ab1f60c53f74e806a3b9f687af38d7421}{hDB}, HNDLE \hyperlink{mevb_8c_a8cd567d23219ba7fc83280cf20caf1c2}{hKey}, const char $\ast$orig\_\-key\_\-name, const char $\ast$init\_\-str)
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{group__odbfunctionc_gad504df013bd9f61366ed48d6666985a1}{db\_\-check\_\-record} (HNDLE \hyperlink{mevb_8c_ab1f60c53f74e806a3b9f687af38d7421}{hDB}, HNDLE \hyperlink{mevb_8c_a8cd567d23219ba7fc83280cf20caf1c2}{hKey}, const char $\ast$keyname, const char $\ast$rec\_\-str, \hyperlink{vt2_8h_a239c7f0d40651c3e419c5b9651507d14}{BOOL} correct)
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{group__odbfunctionc_ga852bc9fa8ee4d0884b328aeb0b0cfd63}{db\_\-open\_\-record} (HNDLE \hyperlink{mevb_8c_ab1f60c53f74e806a3b9f687af38d7421}{hDB}, HNDLE \hyperlink{mevb_8c_a8cd567d23219ba7fc83280cf20caf1c2}{hKey}, void $\ast$ptr, \hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} rec\_\-size, \hyperlink{vt2_8h_a2b0e863dadf920709ec53d9088ee7c91}{WORD} access\_\-mode, void($\ast$dispatcher)(\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT}, \hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT}, void $\ast$), void $\ast$info)
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{group__odbfunctionc_gaa621351e007f68f6298b8edf5bd652c4}{db\_\-close\_\-record} (HNDLE \hyperlink{mevb_8c_ab1f60c53f74e806a3b9f687af38d7421}{hDB}, HNDLE \hyperlink{mevb_8c_a8cd567d23219ba7fc83280cf20caf1c2}{hKey})
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{group__odbfunctionc_ga8611a895b6ddf4cc6b25fed3c7473e3a}{db\_\-close\_\-all\_\-records} ()
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{group__odbfunctionc_gae5f470f0c97794d8da1017f609276bc4}{db\_\-update\_\-record} (\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{mevb_8c_ab1f60c53f74e806a3b9f687af38d7421}{hDB}, \hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{mevb_8c_a8cd567d23219ba7fc83280cf20caf1c2}{hKey}, int s)
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{group__odbfunctionc_gae5ccb46009b64dbeff8dbc05be27664b}{db\_\-send\_\-changed\_\-records} ()
+\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+dox 
+
+\subsubsection{Function Documentation}
+\index{odbfunctionc@{odbfunctionc}!db\_\-check\_\-record@{db\_\-check\_\-record}}
+\index{db\_\-check\_\-record@{db\_\-check\_\-record}!odbfunctionc@{odbfunctionc}}
+\paragraph[{db\_\-check\_\-record}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} db\_\-check\_\-record (HNDLE {\em hDB}, \/  HNDLE {\em hKey}, \/  const char $\ast$ {\em keyname}, \/  const char $\ast$ {\em rec\_\-str}, \/  {\bf BOOL} {\em correct})}\hfill\label{group__odbfunctionc_gad504df013bd9f61366ed48d6666985a1}
+This function ensures that a certain ODB subtree matches a given C structure, by comparing the init\_\-str with the current ODB structure. If the record does not exist at all, it is created with the default values in init\_\-str. If it does exist but does not match the variables in init\_\-str, the function returns an error if correct=FALSE or calls \hyperlink{group__odbfunctionc_ga59b971e77416b2b463e2e63f1b05342b}{db\_\-create\_\-record()} if correct=TRUE. 
+\begin{DoxyParams}{Parameters}
+\item[{\em hDB}]ODB handle obtained via \hyperlink{group__cmfunctionc_ga16b33b70783a3f5ba98b4094149d12b7}{cm\_\-get\_\-experiment\_\-database()}. \item[{\em hKey}]Handle for key where search starts, zero for root. \item[{\em keyname}]Name of key to search, can contain directories. \item[{\em rec\_\-str}]ASCII representation of ODB record in the format \item[{\em correct}]If TRUE, correct ODB record if necessary \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+DB\_\-SUCCESS, DB\_\-INVALID\_\-HANDLE, DB\_\-NO\_\-KEY, DB\_\-STRUCT\_\-MISMATCH 
+\end{DoxyReturn}
+
+
+Definition at line 8190 of file odb.c.
+
+Referenced by al\_\-check(), al\_\-trigger\_\-alarm(), cm\_\-connect\_\-experiment1(), and register\_\-equipment().\index{odbfunctionc@{odbfunctionc}!db\_\-close\_\-all\_\-records@{db\_\-close\_\-all\_\-records}}
+\index{db\_\-close\_\-all\_\-records@{db\_\-close\_\-all\_\-records}!odbfunctionc@{odbfunctionc}}
+\paragraph[{db\_\-close\_\-all\_\-records}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} db\_\-close\_\-all\_\-records ()}\hfill\label{group__odbfunctionc_ga8611a895b6ddf4cc6b25fed3c7473e3a}
+Release local memory for open records. This routines is called by db\_\-close\_\-all\_\-databases() and \hyperlink{group__cmfunctionc_ga7d5a287821786e8dde3d2340826215b2}{cm\_\-disconnect\_\-experiment()} \begin{DoxyReturn}{Returns}
+DB\_\-SUCCESS, DB\_\-INVALID\_\-HANDLE 
+\end{DoxyReturn}
+
+
+Definition at line 8661 of file odb.c.
+
+Referenced by cm\_\-disconnect\_\-experiment().\index{odbfunctionc@{odbfunctionc}!db\_\-close\_\-database@{db\_\-close\_\-database}}
+\index{db\_\-close\_\-database@{db\_\-close\_\-database}!odbfunctionc@{odbfunctionc}}
+\paragraph[{db\_\-close\_\-database}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} db\_\-close\_\-database (HNDLE {\em hDB})}\hfill\label{group__odbfunctionc_gadbb92e13899bbffc584b676bb924586e}
+Close a database 
+\begin{DoxyParams}{Parameters}
+\item[{\em hDB}]ODB handle obtained via \hyperlink{group__cmfunctionc_ga16b33b70783a3f5ba98b4094149d12b7}{cm\_\-get\_\-experiment\_\-database()}. \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+DB\_\-SUCCESS, DB\_\-INVALID\_\-HANDLE, RPC\_\-NET\_\-ERROR 
+\end{DoxyReturn}
+
+
+Definition at line 1105 of file odb.c.\index{odbfunctionc@{odbfunctionc}!db\_\-close\_\-record@{db\_\-close\_\-record}}
+\index{db\_\-close\_\-record@{db\_\-close\_\-record}!odbfunctionc@{odbfunctionc}}
+\paragraph[{db\_\-close\_\-record}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} db\_\-close\_\-record (HNDLE {\em hDB}, \/  HNDLE {\em hKey})}\hfill\label{group__odbfunctionc_gaa621351e007f68f6298b8edf5bd652c4}
+Close a record previously opend with db\_\-open\_\-record. 
+\begin{DoxyParams}{Parameters}
+\item[{\em hDB}]ODB handle obtained via \hyperlink{group__cmfunctionc_ga16b33b70783a3f5ba98b4094149d12b7}{cm\_\-get\_\-experiment\_\-database()}. \item[{\em hKey}]Handle for key where search starts, zero for root. \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+DB\_\-SUCCESS, DB\_\-INVALID\_\-HANDLE 
+\end{DoxyReturn}
+
+
+Definition at line 8624 of file odb.c.\index{odbfunctionc@{odbfunctionc}!db\_\-copy@{db\_\-copy}}
+\index{db\_\-copy@{db\_\-copy}!odbfunctionc@{odbfunctionc}}
+\paragraph[{db\_\-copy}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} db\_\-copy (HNDLE {\em hDB}, \/  HNDLE {\em hKey}, \/  char $\ast$ {\em buffer}, \/  {\bf INT} $\ast$ {\em buffer\_\-size}, \/  char $\ast$ {\em path})}\hfill\label{group__odbfunctionc_ga165f2428c082852ff2ac1e8c4c78d607}
+Copy an ODB subtree in ASCII format to a buffer
+
+This function converts the binary ODB contents to an ASCII. The function \hyperlink{group__odbfunctionc_gac1bf8d648ef2ddb1ac6243e5e11dedf2}{db\_\-paste()} can be used to convert the ASCII representation back to binary ODB contents. The functions \hyperlink{group__odbfunctionc_ga437034642fc8851bfa67937635cb7d12}{db\_\-load()} and \hyperlink{group__odbfunctionc_ga6f9a61b316a1c2a5c9c143fc84edf63b}{db\_\-save()} internally use \hyperlink{group__odbfunctionc_ga165f2428c082852ff2ac1e8c4c78d607}{db\_\-copy()} and \hyperlink{group__odbfunctionc_gac1bf8d648ef2ddb1ac6243e5e11dedf2}{db\_\-paste()}. This function converts the binary ODB contents to an ASCII representation of the form:
+\begin{DoxyItemize}
+\item For single value: 
+\begin{DoxyCode}
+[ODB path]
+ key name = type : value
+\end{DoxyCode}
+
+\item For strings: 
+\begin{DoxyCode}
+key name = STRING : [size] string contents
+\end{DoxyCode}
+
+\item For arrayes (type can be BYTE, SBYTE, CHAR, WORD, SHORT, DWORD, INT, BOOL, FLOAT, DOUBLE, STRING or LINK): 
+\begin{DoxyCode}
+key name = type[size] :
+ [0] value0
+ [1] value1
+ [2] value2
+ ...
+\end{DoxyCode}
+ 
+\begin{DoxyParams}{Parameters}
+\item[{\em hDB}]ODB handle obtained via \hyperlink{group__cmfunctionc_ga16b33b70783a3f5ba98b4094149d12b7}{cm\_\-get\_\-experiment\_\-database()}. \item[{\em hKey}]Handle for key where search starts, zero for root. \item[{\em buffer}]ASCII buffer which receives ODB contents. \item[{\em buffer\_\-size}]Size of buffer, returns remaining space in buffer. \item[{\em path}]Internal use only, must be empty (\char`\"{}\char`\"{}). \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+DB\_\-SUCCESS, DB\_\-TRUNCATED, DB\_\-NO\_\-MEMORY 
+\end{DoxyReturn}
+
+\end{DoxyItemize}
+
+Definition at line 5662 of file odb.c.
+
+Referenced by db\_\-create\_\-record(), and db\_\-save().\index{odbfunctionc@{odbfunctionc}!db\_\-copy\_\-xml@{db\_\-copy\_\-xml}}
+\index{db\_\-copy\_\-xml@{db\_\-copy\_\-xml}!odbfunctionc@{odbfunctionc}}
+\paragraph[{db\_\-copy\_\-xml}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} db\_\-copy\_\-xml (HNDLE {\em hDB}, \/  HNDLE {\em hKey}, \/  char $\ast$ {\em buffer}, \/  {\bf INT} $\ast$ {\em buffer\_\-size})}\hfill\label{group__odbfunctionc_ga9fcec4712c44e1ef199297aad9ea99c5}
+Copy an ODB subtree in XML format to a buffer
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em hDB}]ODB handle obtained via \hyperlink{group__cmfunctionc_ga16b33b70783a3f5ba98b4094149d12b7}{cm\_\-get\_\-experiment\_\-database()}. \item[{\em hKey}]Handle for key where search starts, zero for root. \item[{\em buffer}]ASCII buffer which receives ODB contents. \item[{\em buffer\_\-size}]Size of buffer, returns remaining space in buffer. \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+DB\_\-SUCCESS, DB\_\-TRUNCATED, DB\_\-NO\_\-MEMORY 
+\end{DoxyReturn}
+
+
+Definition at line 6373 of file odb.c.\index{odbfunctionc@{odbfunctionc}!db\_\-create\_\-key@{db\_\-create\_\-key}}
+\index{db\_\-create\_\-key@{db\_\-create\_\-key}!odbfunctionc@{odbfunctionc}}
+\paragraph[{db\_\-create\_\-key}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} db\_\-create\_\-key (HNDLE {\em hDB}, \/  HNDLE {\em hKey}, \/  const char $\ast$ {\em key\_\-name}, \/  {\bf DWORD} {\em type})}\hfill\label{group__odbfunctionc_ga4dcab15e47980882e35bddf3ceb9aee5}
+Create a new key in a database 
+\begin{DoxyParams}{Parameters}
+\item[{\em hDB}]ODB handle obtained via \hyperlink{group__cmfunctionc_ga16b33b70783a3f5ba98b4094149d12b7}{cm\_\-get\_\-experiment\_\-database()}. \item[{\em hKey}]Key handle to start with, 0 for root \item[{\em key\_\-name}]Name of key in the form \char`\"{}/key/key/key\char`\"{} \item[{\em type}]Type of key, one of TID\_\-xxx (see \hyperlink{F_Midas_Code_and_Libraries_Midas_Data_Types}{Midas\_\-Data\_\-Types}) \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+DB\_\-SUCCESS, DB\_\-INVALID\_\-HANDLE, DB\_\-INVALID\_\-PARAM, DB\_\-FULL, DB\_\-KEY\_\-EXIST, DB\_\-NO\_\-ACCESS 
+\end{DoxyReturn}
+
+
+Definition at line 1590 of file odb.c.
+
+Referenced by db\_\-create\_\-record(), db\_\-get\_\-value(), db\_\-paste(), db\_\-paste\_\-node(), db\_\-set\_\-value(), db\_\-set\_\-value\_\-index(), hv\_\-init(), and register\_\-equipment().\index{odbfunctionc@{odbfunctionc}!db\_\-create\_\-link@{db\_\-create\_\-link}}
+\index{db\_\-create\_\-link@{db\_\-create\_\-link}!odbfunctionc@{odbfunctionc}}
+\paragraph[{db\_\-create\_\-link}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} db\_\-create\_\-link (HNDLE {\em hDB}, \/  HNDLE {\em hKey}, \/  const char $\ast$ {\em link\_\-name}, \/  const char $\ast$ {\em destination})}\hfill\label{group__odbfunctionc_ga3da25029b1835ef605483b91684704f6}
+Create a link to a key or set the destination of and existing link. 
+\begin{DoxyParams}{Parameters}
+\item[{\em hDB}]ODB handle obtained via \hyperlink{group__cmfunctionc_ga16b33b70783a3f5ba98b4094149d12b7}{cm\_\-get\_\-experiment\_\-database()}. \item[{\em hKey}]Key handle to start with, 0 for root \item[{\em link\_\-name}]Name of key in the form \char`\"{}/key/key/key\char`\"{} \item[{\em destination}]Destination of link in the form \char`\"{}/key/key/key\char`\"{} \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+DB\_\-SUCCESS, DB\_\-INVALID\_\-HANDLE, DB\_\-FULL, DB\_\-KEY\_\-EXIST, DB\_\-NO\_\-ACCESS 
+\end{DoxyReturn}
+
+
+Definition at line 1830 of file odb.c.\index{odbfunctionc@{odbfunctionc}!db\_\-create\_\-record@{db\_\-create\_\-record}}
+\index{db\_\-create\_\-record@{db\_\-create\_\-record}!odbfunctionc@{odbfunctionc}}
+\paragraph[{db\_\-create\_\-record}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} db\_\-create\_\-record (HNDLE {\em hDB}, \/  HNDLE {\em hKey}, \/  const char $\ast$ {\em orig\_\-key\_\-name}, \/  const char $\ast$ {\em init\_\-str})}\hfill\label{group__odbfunctionc_ga59b971e77416b2b463e2e63f1b05342b}
+dox Create a record. If a part of the record exists alreay, merge it with the init\_\-str (use values from the init\_\-str only when they are not in the existing record).
+
+This functions creates a ODB sub-\/tree according to an ASCII representation of that tree. See \hyperlink{group__odbfunctionc_ga165f2428c082852ff2ac1e8c4c78d607}{db\_\-copy()} for a description. It can be used to create a sub-\/tree which exactly matches a C structure. The sub-\/tree can then later mapped to the C structure (\char`\"{}hot-\/link\char`\"{}) via the function \hyperlink{group__odbfunctionc_ga852bc9fa8ee4d0884b328aeb0b0cfd63}{db\_\-open\_\-record()}.
+
+If a sub-\/tree exists already which exactly matches the ASCII representation, it is not modified. If part of the tree exists, it is merged with the ASCII representation where the ODB values have priority, only values not present in the ODB are created with the default values of the ASCII representation. It is therefore recommended that before creating an ODB hot-\/link the function \hyperlink{group__odbfunctionc_ga59b971e77416b2b463e2e63f1b05342b}{db\_\-create\_\-record()} is called to insure that the ODB tree and the C structure contain exactly the same values in the same order.
+
+Following example creates a record under /Equipment/Trigger/Settings, opens a hot-\/link between that record and a local C structure trigger\_\-settings and registers a callback function trigger\_\-update() which gets called each time the record is changed. 
+\begin{DoxyCode}
+struct {
+  INT level1;
+  INT level2;
+} trigger_settings;
+char *trigger_settings_str =
+"[Settings]\n\
+level1 = INT : 0\n\
+level2 = INT : 0";
+void trigger_update(INT hDB, INT hkey, void *info)
+{
+  printf("New levels: %d %d\n",
+    trigger_settings.level1,
+    trigger_settings.level2);
+}
+main()
+{
+  HNDLE hDB, hkey;
+  char[128] info;
+  ...
+  cm_get_experiment_database(&hDB, NULL);
+  db_create_record(hDB, 0, "/Equipment/Trigger", trigger_settings_str);
+  db_find_key(hDB, 0,"/Equipment/Trigger/Settings", &hkey);
+  db_open_record(hDB, hkey, &trigger_settings,
+    sizeof(trigger_settings), MODE_READ, trigger_update, info);
+  ...
+}
+\end{DoxyCode}
+ 
+\begin{DoxyParams}{Parameters}
+\item[{\em hDB}]ODB handle obtained via \hyperlink{group__cmfunctionc_ga16b33b70783a3f5ba98b4094149d12b7}{cm\_\-get\_\-experiment\_\-database()}. \item[{\em hKey}]Handle for key where search starts, zero for root. \item[{\em orig\_\-key\_\-name}]Name of key to search, can contain directories. \item[{\em init\_\-str}]Initialization string in the format of the db\_\-copy/db\_\-save functions. \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+DB\_\-SUCCESS, DB\_\-INVALID\_\-HANDLE, DB\_\-FULL, DB\_\-NO\_\-ACCESS, DB\_\-OPEN\_\-RECORD 
+\end{DoxyReturn}
+
+
+Definition at line 8021 of file odb.c.
+
+Referenced by al\_\-check(), al\_\-trigger\_\-alarm(), analyzer\_\-init(), cm\_\-set\_\-client\_\-info(), db\_\-check\_\-record(), frontend\_\-init(), main(), register\_\-equipment(), and tr\_\-start().\index{odbfunctionc@{odbfunctionc}!db\_\-delete\_\-key@{db\_\-delete\_\-key}}
+\index{db\_\-delete\_\-key@{db\_\-delete\_\-key}!odbfunctionc@{odbfunctionc}}
+\paragraph[{db\_\-delete\_\-key}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} db\_\-delete\_\-key (HNDLE {\em hDB}, \/  HNDLE {\em hKey}, \/  {\bf BOOL} {\em follow\_\-links})}\hfill\label{group__odbfunctionc_ga50caf089afbb03943e6e215661b5b73e}
+Delete a subtree in a database starting from a key (including this key). 
+\begin{DoxyCode}
+...
+    status = db_find_link(hDB, 0, str, &hkey);
+    if (status != DB_SUCCESS)
+    {
+      cm_msg(MINFO,"my_delete"," "Cannot find key %s", str);
+      return;
+    }
+
+    status = db_delete_key(hDB, hkey, FALSE);
+    if (status != DB_SUCCESS)
+    {
+      cm_msg(MERROR,"my_delete"," "Cannot delete key %s", str);
+      return;
+    }
+  ...
+\end{DoxyCode}
+ 
+\begin{DoxyParams}{Parameters}
+\item[{\em hDB}]ODB handle obtained via \hyperlink{group__cmfunctionc_ga16b33b70783a3f5ba98b4094149d12b7}{cm\_\-get\_\-experiment\_\-database()}. \item[{\em hKey}]for key where search starts, zero for root. \item[{\em follow\_\-links}]Follow links when TRUE. \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+DB\_\-SUCCESS, DB\_\-INVALID\_\-HANDLE, DB\_\-NO\_\-ACCESS, DB\_\-OPEN\_\-RECORD 
+\end{DoxyReturn}
+
+
+Definition at line 2032 of file odb.c.
+
+Referenced by cm\_\-deregister\_\-transition(), cm\_\-set\_\-client\_\-info(), and db\_\-create\_\-record().\index{odbfunctionc@{odbfunctionc}!db\_\-delete\_\-key1@{db\_\-delete\_\-key1}}
+\index{db\_\-delete\_\-key1@{db\_\-delete\_\-key1}!odbfunctionc@{odbfunctionc}}
+\paragraph[{db\_\-delete\_\-key1}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} db\_\-delete\_\-key1 (HNDLE {\em hDB}, \/  HNDLE {\em hKey}, \/  {\bf INT} {\em level}, \/  {\bf BOOL} {\em follow\_\-links})}\hfill\label{group__odbfunctionc_ga3015b0f8e9636ebfeeea74e1dbdfaf62}
+Delete a subtree, using level information (only called internally by \hyperlink{group__odbfunctionc_ga50caf089afbb03943e6e215661b5b73e}{db\_\-delete\_\-key()}) \begin{DoxyInternal}{For internal use only.}
+
+\begin{DoxyParams}{Parameters}
+\item[{\em hDB}]ODB handle obtained via \hyperlink{group__cmfunctionc_ga16b33b70783a3f5ba98b4094149d12b7}{cm\_\-get\_\-experiment\_\-database()}. \item[{\em hKey}]Key handle to start with, 0 for root \item[{\em level}]Recursion level, must be zero when \item[{\em follow\_\-links}]Follow links when TRUE called from a user routine \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+DB\_\-SUCCESS, DB\_\-INVALID\_\-HANDLE, DB\_\-OPEN\_\-RECORD 
+\end{DoxyReturn}
+\end{DoxyInternal}
+
+
+Definition at line 1858 of file odb.c.
+
+Referenced by cm\_\-delete\_\-client\_\-info(), and db\_\-delete\_\-key().\index{odbfunctionc@{odbfunctionc}!db\_\-enum\_\-key@{db\_\-enum\_\-key}}
+\index{db\_\-enum\_\-key@{db\_\-enum\_\-key}!odbfunctionc@{odbfunctionc}}
+\paragraph[{db\_\-enum\_\-key}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} db\_\-enum\_\-key (HNDLE {\em hDB}, \/  HNDLE {\em hKey}, \/  {\bf INT} {\em idx}, \/  HNDLE $\ast$ {\em subkey\_\-handle})}\hfill\label{group__odbfunctionc_gac7c23e0ebd6b203c81ca491db5b4753e}
+Enumerate subkeys from a key, follow links.
+
+hkey must correspond to a valid ODB directory. The index is usually incremented in a loop until the last key is reached. Information about the sub-\/keys can be obtained with \hyperlink{group__odbfunctionc_ga424ad3b166e3fba9bae29f7dfc74a369}{db\_\-get\_\-key()}. If a returned key is of type TID\_\-KEY, it contains itself sub-\/keys. To scan a whole ODB sub-\/tree, the function db\_\-scan\_\-tree() can be used. 
+\begin{DoxyCode}
+INT   i;
+HNDLE hkey, hsubkey;
+KEY   key;
+  db_find_key(hdb, 0, "/Runinfo", &hkey);
+  for (i=0 ; ; i++)
+  {
+   db_enum_key(hdb, hkey, i, &hsubkey);
+   if (!hSubkey)
+    break; // end of list reached
+   // print key name
+   db_get_key(hdb, hkey, &key);
+   printf("%s\n", key.name);
+  }
+\end{DoxyCode}
+ 
+\begin{DoxyParams}{Parameters}
+\item[{\em hDB}]ODB handle obtained via \hyperlink{group__cmfunctionc_ga16b33b70783a3f5ba98b4094149d12b7}{cm\_\-get\_\-experiment\_\-database()}. \item[{\em hKey}]Handle for key where search starts, zero for root. \item[{\em idx}]Subkey index, sould be initially 0, then incremented in each call until subhKey becomes zero and the function returns DB\_\-NO\_\-MORE\_\-SUBKEYS \item[{\em subkey\_\-handle}]Handle of subkey which can be used in \hyperlink{group__odbfunctionc_ga424ad3b166e3fba9bae29f7dfc74a369}{db\_\-get\_\-key()} and \hyperlink{group__odbfunctionc_ga8d8bb0ee338e5fbc46fed2c29e697540}{db\_\-get\_\-data()} \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+DB\_\-SUCCESS, DB\_\-INVALID\_\-HANDLE, DB\_\-NO\_\-MORE\_\-SUBKEYS 
+\end{DoxyReturn}
+
+
+Definition at line 3342 of file odb.c.
+
+Referenced by al\_\-check(), cm\_\-connect\_\-client(), cm\_\-exist(), cm\_\-set\_\-client\_\-info(), cm\_\-shutdown(), cm\_\-transition1(), load\_\-fragment(), logger\_\-root(), and update\_\-odb().\index{odbfunctionc@{odbfunctionc}!db\_\-find\_\-key@{db\_\-find\_\-key}}
+\index{db\_\-find\_\-key@{db\_\-find\_\-key}!odbfunctionc@{odbfunctionc}}
+\paragraph[{db\_\-find\_\-key}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} db\_\-find\_\-key (HNDLE {\em hDB}, \/  HNDLE {\em hKey}, \/  const char $\ast$ {\em key\_\-name}, \/  HNDLE $\ast$ {\em subhKey})}\hfill\label{group__odbfunctionc_ga321df44195a9cbc83dbf10e32e32fd5b}
+Returns key handle for a key with a specific name.
+
+Keys can be accessed by their name including the directory or by a handle. A key handle is an internal offset to the shared memory where the ODB lives and allows a much faster access to a key than via its name.
+
+The function \hyperlink{group__odbfunctionc_ga321df44195a9cbc83dbf10e32e32fd5b}{db\_\-find\_\-key()} must be used to convert a key name to a handle. Most other database functions use this key handle in various operations. 
+\begin{DoxyCode}
+HNDLE hkey, hsubkey;
+// use full name, start from root
+db_find_key(hDB, 0, "/Runinfo/Run number", &hkey);
+// start from subdirectory
+db_find_key(hDB, 0, "/Runinfo", &hkey);
+db_find_key(hdb, hkey, "Run number", &hsubkey);
+\end{DoxyCode}
+ 
+\begin{DoxyParams}{Parameters}
+\item[{\em hDB}]ODB handle obtained via \hyperlink{group__cmfunctionc_ga16b33b70783a3f5ba98b4094149d12b7}{cm\_\-get\_\-experiment\_\-database()}. \item[{\em hKey}]Handle for key where search starts, zero for root. \item[{\em key\_\-name}]Name of key to search, can contain directories. \item[{\em subhKey}]Returned handle of key, zero if key cannot be found. \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+DB\_\-SUCCESS, DB\_\-INVALID\_\-HANDLE, DB\_\-NO\_\-ACCESS, DB\_\-NO\_\-KEY 
+\end{DoxyReturn}
+
+
+Definition at line 2065 of file odb.c.
+
+Referenced by al\_\-check(), al\_\-get\_\-alarms(), al\_\-reset\_\-alarm(), al\_\-trigger\_\-alarm(), analyzer\_\-init(), cm\_\-connect\_\-client(), cm\_\-deregister\_\-transition(), cm\_\-exist(), cm\_\-get\_\-client\_\-info(), cm\_\-msg\_\-log(), cm\_\-msg\_\-log1(), cm\_\-msg\_\-retrieve(), cm\_\-register\_\-deferred\_\-transition(), cm\_\-register\_\-transition(), cm\_\-set\_\-client\_\-info(), cm\_\-shutdown(), cm\_\-transition1(), db\_\-check\_\-record(), db\_\-create\_\-link(), db\_\-create\_\-record(), db\_\-enum\_\-key(), db\_\-get\_\-data(), db\_\-get\_\-key(), db\_\-get\_\-value(), db\_\-paste(), db\_\-paste\_\-xml(), db\_\-set\_\-data(), db\_\-set\_\-data\_\-index(), db\_\-set\_\-value(), db\_\-set\_\-value\_\-index(), frontend\_\-init(), hv\_\-init(), load\_\-fragment(), logger\_\-root(), main(), register\_\-equipment(), set\_\-equipment\_\-status(), tr\_\-start(), update\_\-odb(), and validate\_\-odb\_\-array().\index{odbfunctionc@{odbfunctionc}!db\_\-get\_\-data@{db\_\-get\_\-data}}
+\index{db\_\-get\_\-data@{db\_\-get\_\-data}!odbfunctionc@{odbfunctionc}}
+\paragraph[{db\_\-get\_\-data}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} db\_\-get\_\-data (HNDLE {\em hDB}, \/  HNDLE {\em hKey}, \/  void $\ast$ {\em data}, \/  {\bf INT} $\ast$ {\em buf\_\-size}, \/  {\bf DWORD} {\em type})}\hfill\label{group__odbfunctionc_ga8d8bb0ee338e5fbc46fed2c29e697540}
+dox Get key data from a handle
+
+The function returns single values or whole arrays which are contained in an ODB key. Since the data buffer is of type void, no type checking can be performed by the compiler. Therefore the type has to be explicitly supplied, which is checked against the type stored in the ODB. 
+\begin{DoxyCode}
+  HNLDE hkey;
+  INT   run_number, size;
+  // get key handle for run number
+  db_find_key(hDB, 0, "/Runinfo/Run number", &hkey);
+  // return run number
+  size = sizeof(run_number);
+  db_get_data(hDB, hkey, &run_number, &size,TID_INT);
+\end{DoxyCode}
+ 
+\begin{DoxyParams}{Parameters}
+\item[{\em hDB}]ODB handle obtained via \hyperlink{group__cmfunctionc_ga16b33b70783a3f5ba98b4094149d12b7}{cm\_\-get\_\-experiment\_\-database()}. \item[{\em hKey}]Handle for key where search starts, zero for root. \item[{\em data}]Pointer to the return data. \item[{\em buf\_\-size}]Size of data buffer. \item[{\em type}]Type of key, one of TID\_\-xxx (see \hyperlink{F_Midas_Code_and_Libraries_Midas_Data_Types}{Midas\_\-Data\_\-Types}). \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+DB\_\-SUCCESS, DB\_\-INVALID\_\-HANDLE, DB\_\-TRUNCATED, DB\_\-TYPE\_\-MISMATCH 
+\end{DoxyReturn}
+
+
+Definition at line 4196 of file odb.c.
+
+Referenced by cm\_\-connect\_\-client(), cm\_\-get\_\-client\_\-info(), cm\_\-set\_\-client\_\-info(), db\_\-get\_\-record(), and tr\_\-start().\index{odbfunctionc@{odbfunctionc}!db\_\-get\_\-data\_\-index@{db\_\-get\_\-data\_\-index}}
+\index{db\_\-get\_\-data\_\-index@{db\_\-get\_\-data\_\-index}!odbfunctionc@{odbfunctionc}}
+\paragraph[{db\_\-get\_\-data\_\-index}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} db\_\-get\_\-data\_\-index (HNDLE {\em hDB}, \/  HNDLE {\em hKey}, \/  void $\ast$ {\em data}, \/  {\bf INT} $\ast$ {\em buf\_\-size}, \/  {\bf INT} {\em idx}, \/  {\bf DWORD} {\em type})}\hfill\label{group__odbfunctionc_gab98f9bb7f141c72261bf56407370fab3}
+dox returns a single value of keys containing arrays of values.
+
+The function returns a single value of keys containing arrays of values. 
+\begin{DoxyParams}{Parameters}
+\item[{\em hDB}]ODB handle obtained via \hyperlink{group__cmfunctionc_ga16b33b70783a3f5ba98b4094149d12b7}{cm\_\-get\_\-experiment\_\-database()}. \item[{\em hKey}]Handle for key where search starts, zero for root. \item[{\em data}]Size of data buffer. \item[{\em buf\_\-size}]Return size of the record. \item[{\em idx}]Index of array \mbox{[}0..n-\/1\mbox{]}. \item[{\em type}]Type of key, one of TID\_\-xxx (see \hyperlink{F_Midas_Code_and_Libraries_Midas_Data_Types}{Midas\_\-Data\_\-Types}). \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+DB\_\-SUCCESS, DB\_\-INVALID\_\-HANDLE, DB\_\-TRUNCATED, DB\_\-OUT\_\-OF\_\-RANGE 
+\end{DoxyReturn}
+
+
+Definition at line 4547 of file odb.c.
+
+Referenced by cm\_\-transition1(), db\_\-get\_\-data(), and odbReadUint32().\index{odbfunctionc@{odbfunctionc}!db\_\-get\_\-key@{db\_\-get\_\-key}}
+\index{db\_\-get\_\-key@{db\_\-get\_\-key}!odbfunctionc@{odbfunctionc}}
+\paragraph[{db\_\-get\_\-key}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} db\_\-get\_\-key (HNDLE {\em hDB}, \/  HNDLE {\em hKey}, \/  {\bf KEY} $\ast$ {\em key})}\hfill\label{group__odbfunctionc_ga424ad3b166e3fba9bae29f7dfc74a369}
+dox Get key structure from a handle.
+
+\hyperlink{structKEY}{KEY} structure has following format: 
+\begin{DoxyCode}
+typedef struct {
+  DWORD         type;                 // TID_xxx type
+  INT           num_values;           // number of values
+  char          name[NAME_LENGTH];    // name of variable
+  INT           data;                 // Address of variable (offset)
+  INT           total_size;           // Total size of data block
+  INT           item_size;            // Size of single data item
+  WORD          access_mode;          // Access mode
+  WORD          notify_count;         // Notify counter
+  INT           next_key;             // Address of next key
+  INT           parent_keylist;       // keylist to which this key belongs
+  INT           last_written;         // Time of last write action
+} KEY;
+\end{DoxyCode}
+ Most of these values are used for internal purposes, the values which are of public interest are type, num\_\-values, and name. For keys which contain a single value, num\_\-values equals to one and total\_\-size equals to item\_\-size. For keys which contain an array of strings (TID\_\-STRING), item\_\-size equals to the length of one string. 
+\begin{DoxyCode}
+KEY   key;
+HNDLE hkey;
+db_find_key(hDB, 0, "/Runinfo/Run number", &hkey);
+db_get_key(hDB, hkey, &key);
+printf("The run number is of type %s\n", rpc_tid_name(key.type));
+\end{DoxyCode}
+ 
+\begin{DoxyParams}{Parameters}
+\item[{\em hDB}]ODB handle obtained via \hyperlink{group__cmfunctionc_ga16b33b70783a3f5ba98b4094149d12b7}{cm\_\-get\_\-experiment\_\-database()}. \item[{\em hKey}]Handle for key where search starts, zero for root. \item[{\em key}]Pointer to \hyperlink{structKEY}{KEY} stucture. \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+DB\_\-SUCCESS, DB\_\-INVALID\_\-HANDLE 
+\end{DoxyReturn}
+
+
+Definition at line 3681 of file odb.c.
+
+Referenced by al\_\-check(), al\_\-reset\_\-alarm(), cm\_\-check\_\-client(), cm\_\-register\_\-transition(), cm\_\-shutdown(), cm\_\-transition1(), db\_\-check\_\-record(), db\_\-get\_\-data(), db\_\-get\_\-record(), db\_\-get\_\-record\_\-size(), db\_\-open\_\-record(), db\_\-paste(), db\_\-save\_\-struct(), db\_\-set\_\-record(), load\_\-fragment(), tr\_\-start(), and update\_\-odb().\index{odbfunctionc@{odbfunctionc}!db\_\-get\_\-key\_\-info@{db\_\-get\_\-key\_\-info}}
+\index{db\_\-get\_\-key\_\-info@{db\_\-get\_\-key\_\-info}!odbfunctionc@{odbfunctionc}}
+\paragraph[{db\_\-get\_\-key\_\-info}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} db\_\-get\_\-key\_\-info (HNDLE {\em hDB}, \/  HNDLE {\em hKey}, \/  char $\ast$ {\em name}, \/  {\bf INT} {\em name\_\-size}, \/  {\bf INT} $\ast$ {\em type}, \/  {\bf INT} $\ast$ {\em num\_\-values}, \/  {\bf INT} $\ast$ {\em item\_\-size})}\hfill\label{group__odbfunctionc_ga34deb0b63c67d73975017e47270a5ca9}
+Get key info (separate values instead of structure) 
+\begin{DoxyParams}{Parameters}
+\item[{\em hDB}]ODB handle obtained via \hyperlink{group__cmfunctionc_ga16b33b70783a3f5ba98b4094149d12b7}{cm\_\-get\_\-experiment\_\-database()}. \item[{\em hKey}]Handle of key to operate on \item[{\em name}]Key name \item[{\em name\_\-size}]Size of the give name (done with sizeof()) \item[{\em type}]Key type (see \hyperlink{F_Midas_Code_and_Libraries_Midas_Data_Types}{Midas\_\-Data\_\-Types}). \item[{\em num\_\-values}]Number of values in key. \item[{\em item\_\-size}]Size of individual key value (used for strings) \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+DB\_\-SUCCESS, DB\_\-INVALID\_\-HANDLE 
+\end{DoxyReturn}
+
+
+Definition at line 3884 of file odb.c.\index{odbfunctionc@{odbfunctionc}!db\_\-get\_\-key\_\-time@{db\_\-get\_\-key\_\-time}}
+\index{db\_\-get\_\-key\_\-time@{db\_\-get\_\-key\_\-time}!odbfunctionc@{odbfunctionc}}
+\paragraph[{db\_\-get\_\-key\_\-time}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} db\_\-get\_\-key\_\-time (HNDLE {\em hDB}, \/  HNDLE {\em hKey}, \/  {\bf DWORD} $\ast$ {\em delta})}\hfill\label{group__odbfunctionc_ga78b9946f84f5f8059dd71cc6dbccd1a7}
+Get time when key was last modified 
+\begin{DoxyParams}{Parameters}
+\item[{\em hDB}]ODB handle obtained via \hyperlink{group__cmfunctionc_ga16b33b70783a3f5ba98b4094149d12b7}{cm\_\-get\_\-experiment\_\-database()}. \item[{\em hKey}]Handle of key to operate on \item[{\em delta}]Seconds since last update \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+DB\_\-SUCCESS, DB\_\-INVALID\_\-HANDLE 
+\end{DoxyReturn}
+
+
+Definition at line 3826 of file odb.c.\index{odbfunctionc@{odbfunctionc}!db\_\-get\_\-link@{db\_\-get\_\-link}}
+\index{db\_\-get\_\-link@{db\_\-get\_\-link}!odbfunctionc@{odbfunctionc}}
+\paragraph[{db\_\-get\_\-link}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} db\_\-get\_\-link (HNDLE {\em hDB}, \/  HNDLE {\em hKey}, \/  {\bf KEY} $\ast$ {\em key})}\hfill\label{group__odbfunctionc_ga331624e7c034494217249e36b97c8f69}
+Same as db\_\-get\_\-key, but it does not follow a link to an array index 
+\begin{DoxyParams}{Parameters}
+\item[{\em hDB}]ODB handle obtained via \hyperlink{group__cmfunctionc_ga16b33b70783a3f5ba98b4094149d12b7}{cm\_\-get\_\-experiment\_\-database()}. \item[{\em hKey}]Handle for key where search starts, zero for root. \item[{\em key}]Pointer to \hyperlink{structKEY}{KEY} stucture. \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+DB\_\-SUCCESS, DB\_\-INVALID\_\-HANDLE 
+\end{DoxyReturn}
+
+
+Definition at line 3762 of file odb.c.
+
+Referenced by db\_\-copy(), and db\_\-save\_\-xml\_\-key().\index{odbfunctionc@{odbfunctionc}!db\_\-get\_\-link\_\-data@{db\_\-get\_\-link\_\-data}}
+\index{db\_\-get\_\-link\_\-data@{db\_\-get\_\-link\_\-data}!odbfunctionc@{odbfunctionc}}
+\paragraph[{db\_\-get\_\-link\_\-data}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} db\_\-get\_\-link\_\-data (HNDLE {\em hDB}, \/  HNDLE {\em hKey}, \/  void $\ast$ {\em data}, \/  {\bf INT} $\ast$ {\em buf\_\-size}, \/  {\bf DWORD} {\em type})}\hfill\label{group__odbfunctionc_gaf07dd1abe9b9f63238c9b1d9a3bd5cc0}
+Same as db\_\-get\_\-data, but do not follow a link to an array index
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em hDB}]ODB handle obtained via \hyperlink{group__cmfunctionc_ga16b33b70783a3f5ba98b4094149d12b7}{cm\_\-get\_\-experiment\_\-database()}. \item[{\em hKey}]Handle for key where search starts, zero for root. \item[{\em data}]Pointer to the return data. \item[{\em buf\_\-size}]Size of data buffer. \item[{\em type}]Type of key, one of TID\_\-xxx (see \hyperlink{F_Midas_Code_and_Libraries_Midas_Data_Types}{Midas\_\-Data\_\-Types}). \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+DB\_\-SUCCESS, DB\_\-INVALID\_\-HANDLE, DB\_\-TRUNCATED, DB\_\-TYPE\_\-MISMATCH 
+\end{DoxyReturn}
+
+
+Definition at line 4322 of file odb.c.
+
+Referenced by db\_\-copy(), and db\_\-save\_\-xml\_\-key().\index{odbfunctionc@{odbfunctionc}!db\_\-get\_\-lock\_\-cnt@{db\_\-get\_\-lock\_\-cnt}}
+\index{db\_\-get\_\-lock\_\-cnt@{db\_\-get\_\-lock\_\-cnt}!odbfunctionc@{odbfunctionc}}
+\paragraph[{db\_\-get\_\-lock\_\-cnt}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} db\_\-get\_\-lock\_\-cnt (HNDLE {\em hDB})}\hfill\label{group__odbfunctionc_gae1aa78c5834dd17ee282e9289c5c482a}
+
+
+Definition at line 1503 of file odb.c.\index{odbfunctionc@{odbfunctionc}!db\_\-get\_\-record@{db\_\-get\_\-record}}
+\index{db\_\-get\_\-record@{db\_\-get\_\-record}!odbfunctionc@{odbfunctionc}}
+\paragraph[{db\_\-get\_\-record}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} db\_\-get\_\-record (HNDLE {\em hDB}, \/  HNDLE {\em hKey}, \/  void $\ast$ {\em data}, \/  {\bf INT} $\ast$ {\em buf\_\-size}, \/  {\bf INT} {\em align})}\hfill\label{group__odbfunctionc_ga7a9c0dd3e4bec48a07be99d2fc0e08cf}
+Copy a set of keys to local memory.
+
+An ODB sub-\/tree can be mapped to a C structure automatically via a hot-\/link using the function \hyperlink{group__odbfunctionc_ga852bc9fa8ee4d0884b328aeb0b0cfd63}{db\_\-open\_\-record()} or manually with this function. Problems might occur if the ODB sub-\/tree contains values which don't match the C structure. Although the structure size is checked against the sub-\/tree size, no checking can be done if the type and order of the values in the structure are the same than those in the ODB sub-\/tree. Therefore it is recommended to use the function \hyperlink{group__odbfunctionc_ga59b971e77416b2b463e2e63f1b05342b}{db\_\-create\_\-record()} before \hyperlink{group__odbfunctionc_ga7a9c0dd3e4bec48a07be99d2fc0e08cf}{db\_\-get\_\-record()} is used which ensures that both are equivalent. 
+\begin{DoxyCode}
+struct {
+  INT level1;
+  INT level2;
+} trigger_settings;
+char *trigger_settings_str =
+"[Settings]\n\
+level1 = INT : 0\n\
+level2 = INT : 0";
+
+main()
+{
+  HNDLE hDB, hkey;
+  INT   size;
+  ...
+  cm_get_experiment_database(&hDB, NULL);
+  db_create_record(hDB, 0, "/Equipment/Trigger", trigger_settings_str);
+  db_find_key(hDB, 0, "/Equipment/Trigger/Settings", &hkey);
+  size = sizeof(trigger_settings);
+  db_get_record(hDB, hkey, &trigger_settings, &size, 0);
+  ...
+}
+\end{DoxyCode}
+ 
+\begin{DoxyParams}{Parameters}
+\item[{\em hDB}]ODB handle obtained via \hyperlink{group__cmfunctionc_ga16b33b70783a3f5ba98b4094149d12b7}{cm\_\-get\_\-experiment\_\-database()}. \item[{\em hKey}]Handle for key where search starts, zero for root. \item[{\em data}]Pointer to the retrieved data. \item[{\em buf\_\-size}]Size of data structure, must be obtained via sizeof(RECORD-\/NAME). \item[{\em align}]Byte alignment calculated by the stub and passed to the rpc side to align data according to local machine. Must be zero when called from user level. \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+DB\_\-SUCCESS, DB\_\-INVALID\_\-HANDLE, DB\_\-STRUCT\_\-SIZE\_\-MISMATCH 
+\end{DoxyReturn}
+
+
+Definition at line 7516 of file odb.c.
+
+Referenced by al\_\-check(), al\_\-reset\_\-alarm(), al\_\-trigger\_\-alarm(), begin\_\-of\_\-run(), cm\_\-transition1(), db\_\-open\_\-record(), db\_\-update\_\-record(), register\_\-equipment(), and tr\_\-start().\index{odbfunctionc@{odbfunctionc}!db\_\-get\_\-record\_\-size@{db\_\-get\_\-record\_\-size}}
+\index{db\_\-get\_\-record\_\-size@{db\_\-get\_\-record\_\-size}!odbfunctionc@{odbfunctionc}}
+\paragraph[{db\_\-get\_\-record\_\-size}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} db\_\-get\_\-record\_\-size (HNDLE {\em hDB}, \/  HNDLE {\em hKey}, \/  {\bf INT} {\em align}, \/  {\bf INT} $\ast$ {\em buf\_\-size})}\hfill\label{group__odbfunctionc_ga70b171dc66b0673fc9ed773fca31b7dc}
+dox Calculates the size of a record. 
+\begin{DoxyParams}{Parameters}
+\item[{\em hDB}]ODB handle obtained via \hyperlink{group__cmfunctionc_ga16b33b70783a3f5ba98b4094149d12b7}{cm\_\-get\_\-experiment\_\-database()}. \item[{\em hKey}]Handle for key where search starts, zero for root. \item[{\em align}]Byte alignment calculated by the stub and passed to the rpc side to align data according to local machine. Must be zero when called from user level \item[{\em buf\_\-size}]Size of record structure \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+DB\_\-SUCCESS, DB\_\-INVALID\_\-HANDLE, DB\_\-TYPE\_\-MISMATCH, DB\_\-STRUCT\_\-SIZE\_\-MISMATCH, DB\_\-NO\_\-KEY 
+\end{DoxyReturn}
+
+
+Definition at line 7430 of file odb.c.
+
+Referenced by db\_\-get\_\-record(), db\_\-open\_\-record(), and db\_\-set\_\-record().\index{odbfunctionc@{odbfunctionc}!db\_\-get\_\-value@{db\_\-get\_\-value}}
+\index{db\_\-get\_\-value@{db\_\-get\_\-value}!odbfunctionc@{odbfunctionc}}
+\paragraph[{db\_\-get\_\-value}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} db\_\-get\_\-value (HNDLE {\em hDB}, \/  HNDLE {\em hKeyRoot}, \/  const char $\ast$ {\em key\_\-name}, \/  void $\ast$ {\em data}, \/  {\bf INT} $\ast$ {\em buf\_\-size}, \/  {\bf DWORD} {\em type}, \/  {\bf BOOL} {\em create})}\hfill\label{group__odbfunctionc_gaf3958854e073e1ddbb43324e07a6287f}
+Get value of a single key.
+
+The function returns single values or whole arrays which are contained in an ODB key. Since the data buffer is of type void, no type checking can be performed by the compiler. Therefore the type has to be explicitly supplied, which is checked against the type stored in the ODB. key\_\-name can contain the full path of a key (like: \char`\"{}/Equipment/Trigger/Settings/Level1\char`\"{}) while hkey is zero which refers to the root, or hkey can refer to a sub-\/directory (like: /Equipment/Trigger) and key\_\-name is interpreted relative to that directory like \char`\"{}Settings/Level1\char`\"{}. 
+\begin{DoxyCode}
+INT level1, size;
+  size = sizeof(level1);
+  db_get_value(hDB, 0, "/Equipment/Trigger/Settings/Level1",
+                                   &level1, &size, TID_INT, 0);
+\end{DoxyCode}
+ 
+\begin{DoxyParams}{Parameters}
+\item[{\em hDB}]ODB handle obtained via \hyperlink{group__cmfunctionc_ga16b33b70783a3f5ba98b4094149d12b7}{cm\_\-get\_\-experiment\_\-database()}. \item[{\em hKeyRoot}]Handle for key where search starts, zero for root. \item[{\em key\_\-name}]Name of key to search, can contain directories. \item[{\em data}]Address of data. \item[{\em buf\_\-size}]Maximum buffer size on input, number of written bytes on return. \item[{\em type}]Type of key, one of TID\_\-xxx (see \hyperlink{F_Midas_Code_and_Libraries_Midas_Data_Types}{Midas\_\-Data\_\-Types}) \item[{\em create}]If TRUE, create key if not existing \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+DB\_\-SUCCESS, DB\_\-INVALID\_\-HANDLE, DB\_\-NO\_\-ACCESS, DB\_\-TYPE\_\-MISMATCH, DB\_\-TRUNCATED, DB\_\-NO\_\-KEY 
+\end{DoxyReturn}
+
+
+Definition at line 3190 of file odb.c.
+
+Referenced by al\_\-check(), al\_\-get\_\-alarms(), al\_\-trigger\_\-alarm(), ana\_\-end\_\-of\_\-run(), bm\_\-open\_\-buffer(), cm\_\-check\_\-client(), cm\_\-connect\_\-experiment1(), cm\_\-exist(), cm\_\-msg\_\-log(), cm\_\-msg\_\-log1(), cm\_\-msg\_\-retrieve(), cm\_\-register\_\-deferred\_\-transition(), cm\_\-set\_\-client\_\-info(), cm\_\-shutdown(), cm\_\-transition1(), el\_\-submit(), hv\_\-init(), load\_\-fragment(), logger\_\-root(), main(), register\_\-equipment(), scheduler(), and tr\_\-start().\index{odbfunctionc@{odbfunctionc}!db\_\-load@{db\_\-load}}
+\index{db\_\-load@{db\_\-load}!odbfunctionc@{odbfunctionc}}
+\paragraph[{db\_\-load}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} db\_\-load (HNDLE {\em hDB}, \/  HNDLE {\em hKeyRoot}, \/  const char $\ast$ {\em filename}, \/  {\bf BOOL} {\em bRemote})}\hfill\label{group__odbfunctionc_ga437034642fc8851bfa67937635cb7d12}
+dox Load a branch of a database from an .ODB file.
+
+This function is used by the ODBEdit command load. For a description of the ASCII format, see \hyperlink{group__odbfunctionc_ga165f2428c082852ff2ac1e8c4c78d607}{db\_\-copy()}. Data can be loaded relative to the root of the ODB (hkey equal zero) or relative to a certain key. 
+\begin{DoxyParams}{Parameters}
+\item[{\em hDB}]ODB handle obtained via \hyperlink{group__cmfunctionc_ga16b33b70783a3f5ba98b4094149d12b7}{cm\_\-get\_\-experiment\_\-database()}. \item[{\em hKeyRoot}]Handle for key where search starts, zero for root. \item[{\em filename}]Filename of .ODB file. \item[{\em bRemote}]If TRUE, the file is loaded by the server process on the back-\/end, if FALSE, it is loaded from the current process \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+DB\_\-SUCCESS, DB\_\-INVALID\_\-HANDLE, DB\_\-FILE\_\-ERROR 
+\end{DoxyReturn}
+
+
+Definition at line 5577 of file odb.c.\index{odbfunctionc@{odbfunctionc}!db\_\-lock\_\-database@{db\_\-lock\_\-database}}
+\index{db\_\-lock\_\-database@{db\_\-lock\_\-database}!odbfunctionc@{odbfunctionc}}
+\paragraph[{db\_\-lock\_\-database}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} db\_\-lock\_\-database (HNDLE {\em hDB})}\hfill\label{group__odbfunctionc_ga299048aeed427690630027aa5aebc451}
+dox Lock a database for exclusive access via system semaphore calls. 
+\begin{DoxyParams}{Parameters}
+\item[{\em hDB}]Handle to the database to lock \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+DB\_\-SUCCESS, DB\_\-INVALID\_\-HANDLE, DB\_\-TIMEOUT 
+\end{DoxyReturn}
+
+
+Definition at line 1394 of file odb.c.
+
+Referenced by cm\_\-check\_\-client(), cm\_\-cleanup(), cm\_\-delete\_\-client\_\-info(), cm\_\-exist(), cm\_\-get\_\-watchdog\_\-info(), cm\_\-set\_\-client\_\-info(), cm\_\-set\_\-watchdog\_\-params(), db\_\-close\_\-database(), db\_\-create\_\-key(), db\_\-create\_\-record(), db\_\-delete\_\-key1(), db\_\-enum\_\-key(), db\_\-find\_\-key(), db\_\-get\_\-data(), db\_\-get\_\-data\_\-index(), db\_\-get\_\-key(), db\_\-get\_\-key\_\-info(), db\_\-get\_\-key\_\-time(), db\_\-get\_\-link(), db\_\-get\_\-link\_\-data(), db\_\-get\_\-record(), db\_\-get\_\-record\_\-size(), db\_\-get\_\-value(), db\_\-open\_\-database(), db\_\-set\_\-data(), db\_\-set\_\-data\_\-index(), db\_\-set\_\-link\_\-data(), db\_\-set\_\-link\_\-data\_\-index(), db\_\-set\_\-record(), and db\_\-set\_\-value().\index{odbfunctionc@{odbfunctionc}!db\_\-open\_\-database@{db\_\-open\_\-database}}
+\index{db\_\-open\_\-database@{db\_\-open\_\-database}!odbfunctionc@{odbfunctionc}}
+\paragraph[{db\_\-open\_\-database}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} db\_\-open\_\-database (const char $\ast$ {\em xdatabase\_\-name}, \/  {\bf INT} {\em database\_\-size}, \/  HNDLE $\ast$ {\em hDB}, \/  const char $\ast$ {\em client\_\-name})}\hfill\label{group__odbfunctionc_gaece9851974b00231428f82b341e2c523}
+dox Open an online database 
+\begin{DoxyParams}{Parameters}
+\item[{\em database\_\-name}]Database name. \item[{\em database\_\-size}]Initial size of database if not existing \item[{\em client\_\-name}]Name of this application \item[{\em hDB}]ODB handle obtained via \hyperlink{group__cmfunctionc_ga16b33b70783a3f5ba98b4094149d12b7}{cm\_\-get\_\-experiment\_\-database()}. \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+DB\_\-SUCCESS, DB\_\-CREATED, DB\_\-INVALID\_\-NAME, DB\_\-NO\_\-MEMORY, DB\_\-MEMSIZE\_\-MISMATCH, DB\_\-NO\_\-SEMAPHORE, DB\_\-INVALID\_\-PARAM, RPC\_\-NET\_\-ERROR 
+\end{DoxyReturn}
+
+
+Definition at line 788 of file odb.c.
+
+Referenced by cm\_\-connect\_\-experiment1().\index{odbfunctionc@{odbfunctionc}!db\_\-open\_\-record@{db\_\-open\_\-record}}
+\index{db\_\-open\_\-record@{db\_\-open\_\-record}!odbfunctionc@{odbfunctionc}}
+\paragraph[{db\_\-open\_\-record}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} db\_\-open\_\-record (HNDLE {\em hDB}, \/  HNDLE {\em hKey}, \/  void $\ast$ {\em ptr}, \/  {\bf INT} {\em rec\_\-size}, \/  {\bf WORD} {\em access\_\-mode}, \/  void($\ast$)({\bf INT}, {\bf INT}, void $\ast$) {\em dispatcher}, \/  void $\ast$ {\em info})}\hfill\label{group__odbfunctionc_ga852bc9fa8ee4d0884b328aeb0b0cfd63}
+Open a record. Create a local copy and maintain an automatic update.
+
+This function opens a hot-\/link between an ODB sub-\/tree and a local structure. The sub-\/tree is copied to the structure automatically every time it is modified by someone else. Additionally, a callback function can be declared which is called after the structure has been updated. The callback function receives the database handle and the key handle as \hyperlink{structparameters}{parameters}.
+
+Problems might occur if the ODB sub-\/tree contains values which don't match the C structure. Although the structure size is checked against the sub-\/tree size, no checking can be done if the type and order of the values in the structure are the same than those in the ODB sub-\/tree. Therefore it is recommended to use the function \hyperlink{group__odbfunctionc_ga59b971e77416b2b463e2e63f1b05342b}{db\_\-create\_\-record()} before \hyperlink{group__odbfunctionc_ga852bc9fa8ee4d0884b328aeb0b0cfd63}{db\_\-open\_\-record()} is used which ensures that both are equivalent.
+
+The access mode might either be MODE\_\-READ or MODE\_\-WRITE. In read mode, the ODB sub-\/tree is automatically copied to the local structure when modified by other clients. In write mode, the local structure is copied to the ODB sub-\/tree if it has been modified locally. This update has to be manually scheduled by calling \hyperlink{group__odbfunctionc_gae5ccb46009b64dbeff8dbc05be27664b}{db\_\-send\_\-changed\_\-records()} periodically in the main loop. The system keeps a copy of the local structure to determine if its contents has been changed.
+
+If MODE\_\-ALLOC is or'ed with the access mode, the memory for the structure is allocated internally. The structure pointer must contain a pointer to a pointer to the structure. The internal memory is released when \hyperlink{group__odbfunctionc_gaa621351e007f68f6298b8edf5bd652c4}{db\_\-close\_\-record()} is called.
+\begin{DoxyItemize}
+\item To open a record in write mode. 
+\begin{DoxyCode}
+struct {
+  INT level1;
+  INT level2;
+} trigger_settings;
+char *trigger_settings_str =
+"[Settings]\n\
+level1 = INT : 0\n\
+level2 = INT : 0";
+main()
+{
+  HNDLE hDB, hkey, i=0;
+  ...
+  cm_get_experiment_database(&hDB, NULL);
+  db_create_record(hDB, 0, "/Equipment/Trigger", trigger_settings_str);
+  db_find_key(hDB, 0,"/Equipment/Trigger/Settings", &hkey);
+  db_open_record(hDB, hkey, &trigger_settings, sizeof(trigger_settings)
+                  , MODE_WRITE, NULL);
+  do
+  {
+    trigger_settings.level1 = i++;
+    db_send_changed_records()
+    status = cm_yield(1000);
+  } while (status != RPC_SHUTDOWN && status != SS_ABORT);
+  ...
+}
+\end{DoxyCode}
+ 
+\begin{DoxyParams}{Parameters}
+\item[{\em hDB}]ODB handle obtained via \hyperlink{group__cmfunctionc_ga16b33b70783a3f5ba98b4094149d12b7}{cm\_\-get\_\-experiment\_\-database()}. \item[{\em hKey}]Handle for key where search starts, zero for root. \item[{\em ptr}]If access\_\-mode includes MODE\_\-ALLOC: Address of pointer which points to the record data after the call if access\_\-mode includes not MODE\_\-ALLOC: Address of record if ptr==NULL, only the dispatcher is called. \item[{\em rec\_\-size}]Record size in bytes \item[{\em access\_\-mode}]Mode for opening record, either MODE\_\-READ or MODE\_\-WRITE. May be or'ed with MODE\_\-ALLOC to let db\_\-open\_\-record allocate the memory for the record. \item[{\em ($\ast$dispatcher)}]Function which gets called when record is updated.The argument list composed of: HNDLE hDB, HNDLE hKey, void $\ast$info \item[{\em info}]Additional info passed to the dispatcher. \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+DB\_\-SUCCESS, DB\_\-INVALID\_\-HANDLE, DB\_\-NO\_\-MEMORY, DB\_\-NO\_\-ACCESS, DB\_\-STRUCT\_\-SIZE\_\-MISMATCH 
+\end{DoxyReturn}
+
+\end{DoxyItemize}
+
+Definition at line 8495 of file odb.c.
+
+Referenced by analyzer\_\-init(), cm\_\-register\_\-deferred\_\-transition(), frontend\_\-init(), hv\_\-init(), register\_\-equipment(), and validate\_\-odb\_\-array().\index{odbfunctionc@{odbfunctionc}!db\_\-paste@{db\_\-paste}}
+\index{db\_\-paste@{db\_\-paste}!odbfunctionc@{odbfunctionc}}
+\paragraph[{db\_\-paste}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} db\_\-paste (HNDLE {\em hDB}, \/  HNDLE {\em hKeyRoot}, \/  const char $\ast$ {\em buffer})}\hfill\label{group__odbfunctionc_gac1bf8d648ef2ddb1ac6243e5e11dedf2}
+Copy an ODB subtree in ASCII format from a buffer 
+\begin{DoxyParams}{Parameters}
+\item[{\em hDB}]ODB handle obtained via \hyperlink{group__cmfunctionc_ga16b33b70783a3f5ba98b4094149d12b7}{cm\_\-get\_\-experiment\_\-database()}. \item[{\em hKeyRoot}]Handle for key where search starts, zero for root. \item[{\em buffer}]NULL-\/terminated buffer \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+DB\_\-SUCCESS, DB\_\-TRUNCATED, DB\_\-NO\_\-MEMORY 
+\end{DoxyReturn}
+
+
+Definition at line 5927 of file odb.c.
+
+Referenced by db\_\-create\_\-record(), and db\_\-load().\index{odbfunctionc@{odbfunctionc}!db\_\-paste\_\-node@{db\_\-paste\_\-node}}
+\index{db\_\-paste\_\-node@{db\_\-paste\_\-node}!odbfunctionc@{odbfunctionc}}
+\paragraph[{db\_\-paste\_\-node}]{\setlength{\rightskip}{0pt plus 5cm}int db\_\-paste\_\-node (HNDLE {\em hDB}, \/  HNDLE {\em hKeyRoot}, \/  PMXML\_\-NODE {\em node})}\hfill\label{group__odbfunctionc_ga4c389e553182916bd3c311d1f07d6923}
+
+
+Definition at line 6204 of file odb.c.
+
+Referenced by db\_\-paste\_\-xml().\index{odbfunctionc@{odbfunctionc}!db\_\-paste\_\-xml@{db\_\-paste\_\-xml}}
+\index{db\_\-paste\_\-xml@{db\_\-paste\_\-xml}!odbfunctionc@{odbfunctionc}}
+\paragraph[{db\_\-paste\_\-xml}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} db\_\-paste\_\-xml (HNDLE {\em hDB}, \/  HNDLE {\em hKeyRoot}, \/  const char $\ast$ {\em buffer})}\hfill\label{group__odbfunctionc_ga7b0051acf49620e36823f55b907dda7a}
+Paste an ODB subtree in XML format from a buffer 
+\begin{DoxyParams}{Parameters}
+\item[{\em hDB}]ODB handle obtained via \hyperlink{group__cmfunctionc_ga16b33b70783a3f5ba98b4094149d12b7}{cm\_\-get\_\-experiment\_\-database()}. \item[{\em hKeyRoot}]Handle for key where search starts, zero for root. \item[{\em buffer}]NULL-\/terminated buffer \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+DB\_\-SUCCESS, DB\_\-INVALID\_\-PARAM, DB\_\-NO\_\-MEMORY, DB\_\-TYPE\_\-MISMATCH 
+\end{DoxyReturn}
+
+
+Definition at line 6334 of file odb.c.
+
+Referenced by db\_\-load().\index{odbfunctionc@{odbfunctionc}!db\_\-protect\_\-database@{db\_\-protect\_\-database}}
+\index{db\_\-protect\_\-database@{db\_\-protect\_\-database}!odbfunctionc@{odbfunctionc}}
+\paragraph[{db\_\-protect\_\-database}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} db\_\-protect\_\-database (HNDLE {\em hDB})}\hfill\label{group__odbfunctionc_ga959637b6837f613af5a8a3df52af6f3b}
+Protect a database for read/write access outside of the {\bfseries db\_\-xxx} functions 
+\begin{DoxyParams}{Parameters}
+\item[{\em hDB}]ODB handle obtained via \hyperlink{group__cmfunctionc_ga16b33b70783a3f5ba98b4094149d12b7}{cm\_\-get\_\-experiment\_\-database()}. \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+DB\_\-SUCCESS, DB\_\-INVALID\_\-HANDLE 
+\end{DoxyReturn}
+
+
+Definition at line 1529 of file odb.c.\index{odbfunctionc@{odbfunctionc}!db\_\-save@{db\_\-save}}
+\index{db\_\-save@{db\_\-save}!odbfunctionc@{odbfunctionc}}
+\paragraph[{db\_\-save}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} db\_\-save (HNDLE {\em hDB}, \/  HNDLE {\em hKey}, \/  const char $\ast$ {\em filename}, \/  {\bf BOOL} {\em bRemote})}\hfill\label{group__odbfunctionc_ga6f9a61b316a1c2a5c9c143fc84edf63b}
+dox Save a branch of a database to an .ODB file
+
+This function is used by the ODBEdit command save. For a description of the ASCII format, see \hyperlink{group__odbfunctionc_ga165f2428c082852ff2ac1e8c4c78d607}{db\_\-copy()}. Data of the whole ODB can be saved (hkey equal zero) or only a sub-\/tree. 
+\begin{DoxyParams}{Parameters}
+\item[{\em hDB}]ODB handle obtained via \hyperlink{group__cmfunctionc_ga16b33b70783a3f5ba98b4094149d12b7}{cm\_\-get\_\-experiment\_\-database()}. \item[{\em hKey}]Handle for key where search starts, zero for root. \item[{\em filename}]Filename of .ODB file. \item[{\em bRemote}]Flag for saving database on remote server. \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+DB\_\-SUCCESS, DB\_\-FILE\_\-ERROR 
+\end{DoxyReturn}
+
+
+Definition at line 6547 of file odb.c.\index{odbfunctionc@{odbfunctionc}!db\_\-save\_\-struct@{db\_\-save\_\-struct}}
+\index{db\_\-save\_\-struct@{db\_\-save\_\-struct}!odbfunctionc@{odbfunctionc}}
+\paragraph[{db\_\-save\_\-struct}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} db\_\-save\_\-struct (HNDLE {\em hDB}, \/  HNDLE {\em hKey}, \/  const char $\ast$ {\em file\_\-name}, \/  const char $\ast$ {\em struct\_\-name}, \/  {\bf BOOL} {\em append})}\hfill\label{group__odbfunctionc_ga07197b44867ca47300b1f69f2c2c3e86}
+Save a branch of a database to a C structure .H file 
+\begin{DoxyParams}{Parameters}
+\item[{\em hDB}]ODB handle obtained via \hyperlink{group__cmfunctionc_ga16b33b70783a3f5ba98b4094149d12b7}{cm\_\-get\_\-experiment\_\-database()}. \item[{\em hKey}]Handle for key where search starts, zero for root. \item[{\em file\_\-name}]Filename of .ODB file. \item[{\em struct\_\-name}]Name of structure. If struct\_\-name == NULL, the name of the key is used. \item[{\em append}]If TRUE, append to end of existing file \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+DB\_\-SUCCESS, DB\_\-INVALID\_\-HANDLE, DB\_\-FILE\_\-ERROR 
+\end{DoxyReturn}
+
+
+Definition at line 6801 of file odb.c.\index{odbfunctionc@{odbfunctionc}!db\_\-save\_\-xml@{db\_\-save\_\-xml}}
+\index{db\_\-save\_\-xml@{db\_\-save\_\-xml}!odbfunctionc@{odbfunctionc}}
+\paragraph[{db\_\-save\_\-xml}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} db\_\-save\_\-xml (HNDLE {\em hDB}, \/  HNDLE {\em hKey}, \/  const char $\ast$ {\em filename})}\hfill\label{group__odbfunctionc_gac967051f0433c70482abca0450c038e6}
+Save a branch of a database to an .xml file
+
+This function is used by the ODBEdit command save to write the contents of the ODB into a XML file. Data of the whole ODB can be saved (hkey equal zero) or only a sub-\/tree. 
+\begin{DoxyParams}{Parameters}
+\item[{\em hDB}]ODB handle obtained via \hyperlink{group__cmfunctionc_ga16b33b70783a3f5ba98b4094149d12b7}{cm\_\-get\_\-experiment\_\-database()}. \item[{\em hKey}]Handle for key where search starts, zero for root. \item[{\em filename}]Filename of .XML file. \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+DB\_\-SUCCESS, DB\_\-FILE\_\-ERROR 
+\end{DoxyReturn}
+
+
+Definition at line 6749 of file odb.c.\index{odbfunctionc@{odbfunctionc}!db\_\-save\_\-xml\_\-key@{db\_\-save\_\-xml\_\-key}}
+\index{db\_\-save\_\-xml\_\-key@{db\_\-save\_\-xml\_\-key}!odbfunctionc@{odbfunctionc}}
+\paragraph[{db\_\-save\_\-xml\_\-key}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} db\_\-save\_\-xml\_\-key (HNDLE {\em hDB}, \/  HNDLE {\em hKey}, \/  {\bf INT} {\em level}, \/  MXML\_\-WRITER $\ast$ {\em writer})}\hfill\label{group__odbfunctionc_ga8e06bc33dcda0d67e110070449e86745}
+
+
+Definition at line 6646 of file odb.c.
+
+Referenced by db\_\-copy\_\-xml(), and db\_\-save\_\-xml().\index{odbfunctionc@{odbfunctionc}!db\_\-send\_\-changed\_\-records@{db\_\-send\_\-changed\_\-records}}
+\index{db\_\-send\_\-changed\_\-records@{db\_\-send\_\-changed\_\-records}!odbfunctionc@{odbfunctionc}}
+\paragraph[{db\_\-send\_\-changed\_\-records}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} db\_\-send\_\-changed\_\-records ()}\hfill\label{group__odbfunctionc_gae5ccb46009b64dbeff8dbc05be27664b}
+Send all records to the ODB which were changed locally since the last call to this function.
+
+This function is valid if used in conjunction with \hyperlink{group__odbfunctionc_ga852bc9fa8ee4d0884b328aeb0b0cfd63}{db\_\-open\_\-record()} under the condition the record is open as MODE\_\-WRITE access code.
+
+
+\begin{DoxyItemize}
+\item Full example dbchange.c which can be compiled as follow 
+\begin{DoxyCode}
+gcc -DOS_LINUX -I/midas/include -o dbchange dbchange.c
+/midas/linux/lib/libmidas.a -lutil}
+
+\begin{verbatim}
+//------- dbchange.c
+#include "midas.h"
+#include "msystem.h"
+\end{DoxyCode}
+
+\end{DoxyItemize}
+
+
+\begin{DoxyCode}
+//-------- BOF dbchange.c
+typedef struct {
+    INT    my_number;
+    float   my_rate;
+} MY_STATISTICS;
+
+MY_STATISTICS myrec;
+
+#define MY_STATISTICS(_name) char *_name[] = {\
+"My Number = INT : 0",\
+"My Rate = FLOAT : 0",\
+"",\
+NULL }
+
+HNDLE hDB, hKey;
+
+// Main
+int main(unsigned int argc,char **argv)
+{
+  char      host_name[HOST_NAME_LENGTH];
+  char      expt_name[HOST_NAME_LENGTH];
+  INT       lastnumber, status, msg;
+  BOOL      debug=FALSE;
+  char      i, ch;
+  DWORD     update_time, mainlast_time;
+  MY_STATISTICS (my_stat);
+
+  // set default
+  host_name[0] = 0;
+  expt_name[0] = 0;
+
+  // get default
+  cm_get_environment(host_name, sizeof(host_name), expt_name, sizeof(expt_name));
+      
+
+  // get parameters
+  for (i=1 ; i<argc ; i++)
+  {
+    if (argv[i][0] == '-' && argv[i][1] == 'd')
+      debug = TRUE;
+    else if (argv[i][0] == '-')
+    {
+      if (i+1 >= argc || argv[i+1][0] == '-')
+        goto usage;
+      if (strncmp(argv[i],"-e",2) == 0)
+        strcpy(expt_name, argv[++i]);
+      else if (strncmp(argv[i],"-h",2)==0)
+        strcpy(host_name, argv[++i]);
+    }
+    else
+    {
+   usage:
+      printf("usage: dbchange [-h <Hostname>] [-e <Experiment>]\n");
+      return 0;
+    }
+  }
+
+  // connect to experiment
+  status = cm_connect_experiment(host_name, expt_name, "dbchange", 0);
+  if (status != CM_SUCCESS)
+    return 1;
+
+  // Connect to DB
+  cm_get_experiment_database(&hDB, &hKey);
+
+  // Create a default structure in ODB
+  db_create_record(hDB, 0, "My statistics", strcomb(my_stat));
+
+  // Retrieve key for that strucutre in ODB
+  if (db_find_key(hDB, 0, "My statistics", &hKey) != DB_SUCCESS)
+  {
+    cm_msg(MERROR, "mychange", "cannot find My statistics");
+    goto error;
+  }
+
+  // Hot link this structure in Write mode
+  status = db_open_record(hDB, hKey, &myrec
+                          , sizeof(MY_STATISTICS), MODE_WRITE, NULL, NULL);
+  if (status != DB_SUCCESS)
+  {
+    cm_msg(MERROR, "mychange", "cannot open My statistics record");
+    goto error;
+  }
+
+  // initialize ss_getchar()
+  ss_getchar(0);
+
+  // Main loop
+  do
+  {
+    // Update local structure
+    if ((ss_millitime() - update_time) > 100)
+    {
+      myrec.my_number += 1;
+      if (myrec.my_number - lastnumber) {
+        myrec.my_rate = 1000.f * (float) (myrec.my_number - lastnumber)
+          / (float) (ss_millitime() - update_time);
+      }
+      update_time = ss_millitime();
+      lastnumber = myrec.my_number;
+    }
+
+    // Publish local structure to ODB (db_send_changed_record)
+    if ((ss_millitime() - mainlast_time) > 5000)
+    {
+      db_send_changed_records();                   // <------- Call
+      mainlast_time = ss_millitime();
+    }
+
+    // Check for keyboard interaction
+    ch = 0;
+    while (ss_kbhit())
+    {
+      ch = ss_getchar(0);
+      if (ch == -1)
+        ch = getchar();
+      if ((char) ch == '!')
+        break;
+    }
+    msg = cm_yield(20);
+  } while (msg != RPC_SHUTDOWN && msg != SS_ABORT && ch != '!');
+
+ error:
+  cm_disconnect_experiment();
+  return 1;
+}
+//-------- EOF dbchange.c
+\end{DoxyCode}
+ \begin{DoxyReturn}{Returns}
+DB\_\-SUCCESS 
+\end{DoxyReturn}
+
+
+Definition at line 8902 of file odb.c.
+
+Referenced by scan\_\-fragment(), scheduler(), tr\_\-start(), and tr\_\-stop().\index{odbfunctionc@{odbfunctionc}!db\_\-set\_\-data@{db\_\-set\_\-data}}
+\index{db\_\-set\_\-data@{db\_\-set\_\-data}!odbfunctionc@{odbfunctionc}}
+\paragraph[{db\_\-set\_\-data}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} db\_\-set\_\-data (HNDLE {\em hDB}, \/  HNDLE {\em hKey}, \/  const void $\ast$ {\em data}, \/  {\bf INT} {\em buf\_\-size}, \/  {\bf INT} {\em num\_\-values}, \/  {\bf DWORD} {\em type})}\hfill\label{group__odbfunctionc_gaa3f93c5321c56ad5a5200d17958e9bb3}
+Set key data from a handle. Adjust number of values if previous data has different size. 
+\begin{DoxyCode}
+HNLDE hkey;
+ INT   run_number;
+ // get key handle for run number
+ db_find_key(hDB, 0, "/Runinfo/Run number", &hkey);
+ // set run number
+ db_set_data(hDB, hkey, &run_number, sizeof(run_number),TID_INT);
+\end{DoxyCode}
+ 
+\begin{DoxyParams}{Parameters}
+\item[{\em hDB}]ODB handle obtained via \hyperlink{group__cmfunctionc_ga16b33b70783a3f5ba98b4094149d12b7}{cm\_\-get\_\-experiment\_\-database()}. \item[{\em hKey}]Handle for key where search starts, zero for root. \item[{\em data}]Buffer from which data gets copied to. \item[{\em buf\_\-size}]Size of data buffer. \item[{\em num\_\-values}]Number of data values (for arrays). \item[{\em type}]Type of key, one of TID\_\-xxx (see \hyperlink{F_Midas_Code_and_Libraries_Midas_Data_Types}{Midas\_\-Data\_\-Types}). \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+DB\_\-SUCCESS, DB\_\-INVALID\_\-HANDLE, DB\_\-TRUNCATED 
+\end{DoxyReturn}
+
+
+Definition at line 4670 of file odb.c.
+
+Referenced by db\_\-paste\_\-node(), db\_\-set\_\-record(), hv\_\-init(), hv\_\-read(), and update\_\-odb().\index{odbfunctionc@{odbfunctionc}!db\_\-set\_\-data\_\-index@{db\_\-set\_\-data\_\-index}}
+\index{db\_\-set\_\-data\_\-index@{db\_\-set\_\-data\_\-index}!odbfunctionc@{odbfunctionc}}
+\paragraph[{db\_\-set\_\-data\_\-index}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} db\_\-set\_\-data\_\-index (HNDLE {\em hDB}, \/  HNDLE {\em hKey}, \/  const void $\ast$ {\em data}, \/  {\bf INT} {\em data\_\-size}, \/  {\bf INT} {\em idx}, \/  {\bf DWORD} {\em type})}\hfill\label{group__odbfunctionc_ga298462cf44f9ed6ea7c64ffdf23617d9}
+dox Set key data for a key which contains an array of values.
+
+This function sets individual values of a key containing an array. If the index is larger than the array size, the array is extended and the intermediate values are set to zero. 
+\begin{DoxyParams}{Parameters}
+\item[{\em hDB}]ODB handle obtained via \hyperlink{group__cmfunctionc_ga16b33b70783a3f5ba98b4094149d12b7}{cm\_\-get\_\-experiment\_\-database()}. \item[{\em hKey}]Handle for key where search starts, zero for root. \item[{\em data}]Pointer to single value of data. \item[{\em data\_\-size}]\item[{\em idx}]Size of single data element. \item[{\em type}]Type of key, one of TID\_\-xxx (see \hyperlink{F_Midas_Code_and_Libraries_Midas_Data_Types}{Midas\_\-Data\_\-Types}). \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+DB\_\-SUCCESS, DB\_\-INVALID\_\-HANDLE, DB\_\-NO\_\-ACCESS, DB\_\-TYPE\_\-MISMATCH 
+\end{DoxyReturn}
+
+
+Definition at line 5033 of file odb.c.
+
+Referenced by cm\_\-register\_\-transition(), db\_\-paste\_\-node(), db\_\-set\_\-data(), and db\_\-set\_\-value\_\-index().\index{odbfunctionc@{odbfunctionc}!db\_\-set\_\-link\_\-data@{db\_\-set\_\-link\_\-data}}
+\index{db\_\-set\_\-link\_\-data@{db\_\-set\_\-link\_\-data}!odbfunctionc@{odbfunctionc}}
+\paragraph[{db\_\-set\_\-link\_\-data}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} db\_\-set\_\-link\_\-data (HNDLE {\em hDB}, \/  HNDLE {\em hKey}, \/  const void $\ast$ {\em data}, \/  {\bf INT} {\em buf\_\-size}, \/  {\bf INT} {\em num\_\-values}, \/  {\bf DWORD} {\em type})}\hfill\label{group__odbfunctionc_gac4242bdfa7376f491b501e009aa1f840}
+Same as db\_\-set\_\-data, but it does not follow a link to an array index 
+\begin{DoxyParams}{Parameters}
+\item[{\em hDB}]ODB handle obtained via \hyperlink{group__cmfunctionc_ga16b33b70783a3f5ba98b4094149d12b7}{cm\_\-get\_\-experiment\_\-database()}. \item[{\em hKey}]Handle for key where search starts, zero for root. \item[{\em data}]Buffer from which data gets copied to. \item[{\em buf\_\-size}]Size of data buffer. \item[{\em num\_\-values}]Number of data values (for arrays). \item[{\em type}]Type of key, one of TID\_\-xxx (see \hyperlink{F_Midas_Code_and_Libraries_Midas_Data_Types}{Midas\_\-Data\_\-Types}). \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+DB\_\-SUCCESS, DB\_\-INVALID\_\-HANDLE, DB\_\-TRUNCATED 
+\end{DoxyReturn}
+
+
+Definition at line 4796 of file odb.c.
+
+Referenced by db\_\-paste().\index{odbfunctionc@{odbfunctionc}!db\_\-set\_\-link\_\-data\_\-index@{db\_\-set\_\-link\_\-data\_\-index}}
+\index{db\_\-set\_\-link\_\-data\_\-index@{db\_\-set\_\-link\_\-data\_\-index}!odbfunctionc@{odbfunctionc}}
+\paragraph[{db\_\-set\_\-link\_\-data\_\-index}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} db\_\-set\_\-link\_\-data\_\-index (HNDLE {\em hDB}, \/  HNDLE {\em hKey}, \/  const void $\ast$ {\em data}, \/  {\bf INT} {\em data\_\-size}, \/  {\bf INT} {\em idx}, \/  {\bf DWORD} {\em type})}\hfill\label{group__odbfunctionc_gac66c3264c78ef6cc1e429235efe92ed6}
+Same as db\_\-set\_\-data\_\-index, but does not follow links.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em hDB}]ODB handle obtained via \hyperlink{group__cmfunctionc_ga16b33b70783a3f5ba98b4094149d12b7}{cm\_\-get\_\-experiment\_\-database()}. \item[{\em hKey}]Handle for key where search starts, zero for root. \item[{\em data}]Pointer to single value of data. \item[{\em data\_\-size}]\item[{\em idx}]Size of single data element. \item[{\em type}]Type of key, one of TID\_\-xxx (see \hyperlink{F_Midas_Code_and_Libraries_Midas_Data_Types}{Midas\_\-Data\_\-Types}). \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+DB\_\-SUCCESS, DB\_\-INVALID\_\-HANDLE, DB\_\-NO\_\-ACCESS, DB\_\-TYPE\_\-MISMATCH 
+\end{DoxyReturn}
+
+
+Definition at line 5172 of file odb.c.\index{odbfunctionc@{odbfunctionc}!db\_\-set\_\-record@{db\_\-set\_\-record}}
+\index{db\_\-set\_\-record@{db\_\-set\_\-record}!odbfunctionc@{odbfunctionc}}
+\paragraph[{db\_\-set\_\-record}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} db\_\-set\_\-record (HNDLE {\em hDB}, \/  HNDLE {\em hKey}, \/  void $\ast$ {\em data}, \/  {\bf INT} {\em buf\_\-size}, \/  {\bf INT} {\em align})}\hfill\label{group__odbfunctionc_ga1e4bca66d45d069477c614bc2481d89f}
+Copy a set of keys from local memory to the database.
+
+An ODB sub-\/tree can be mapped to a C structure automatically via a hot-\/link using the function \hyperlink{group__odbfunctionc_ga852bc9fa8ee4d0884b328aeb0b0cfd63}{db\_\-open\_\-record()} or manually with this function. Problems might occur if the ODB sub-\/tree contains values which don't match the C structure. Although the structure size is checked against the sub-\/tree size, no checking can be done if the type and order of the values in the structure are the same than those in the ODB sub-\/tree. Therefore it is recommended to use the function \hyperlink{group__odbfunctionc_ga59b971e77416b2b463e2e63f1b05342b}{db\_\-create\_\-record()} before using this function. 
+\begin{DoxyCode}
+...
+  memset(&lazyst,0,size);
+  if (db_find_key(hDB, pLch->hKey, "Statistics",&hKeyst) == DB_SUCCESS)
+    status = db_set_record(hDB, hKeyst, &lazyst, size, 0);
+  else
+    cm_msg(MERROR,"task","record %s/statistics not found", pLch->name)
+...
+\end{DoxyCode}
+ 
+\begin{DoxyParams}{Parameters}
+\item[{\em hDB}]ODB handle obtained via \hyperlink{group__cmfunctionc_ga16b33b70783a3f5ba98b4094149d12b7}{cm\_\-get\_\-experiment\_\-database()}. \item[{\em hKey}]Handle for key where search starts, zero for root. \item[{\em data}]Pointer where data is stored. \item[{\em buf\_\-size}]Size of data structure, must be obtained via sizeof(RECORD-\/NAME). \item[{\em align}]Byte alignment calculated by the stub and passed to the rpc side to align data according to local machine. Must be zero when called from user level. \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+DB\_\-SUCCESS, DB\_\-INVALID\_\-HANDLE, DB\_\-TYPE\_\-MISMATCH, DB\_\-STRUCT\_\-SIZE\_\-MISMATCH 
+\end{DoxyReturn}
+
+
+Definition at line 7619 of file odb.c.
+
+Referenced by al\_\-check(), al\_\-reset\_\-alarm(), al\_\-trigger\_\-alarm(), db\_\-open\_\-record(), db\_\-send\_\-changed\_\-records(), hv\_\-init(), register\_\-equipment(), and update\_\-odb().\index{odbfunctionc@{odbfunctionc}!db\_\-set\_\-value@{db\_\-set\_\-value}}
+\index{db\_\-set\_\-value@{db\_\-set\_\-value}!odbfunctionc@{odbfunctionc}}
+\paragraph[{db\_\-set\_\-value}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} db\_\-set\_\-value (HNDLE {\em hDB}, \/  HNDLE {\em hKeyRoot}, \/  const char $\ast$ {\em key\_\-name}, \/  const void $\ast$ {\em data}, \/  {\bf INT} {\em data\_\-size}, \/  {\bf INT} {\em num\_\-values}, \/  {\bf DWORD} {\em type})}\hfill\label{group__odbfunctionc_gaf0b052657ba1d4f4a8b6d47dbc70008c}
+dox Set value of a single key.
+
+The function sets a single value or a whole array to a ODB key. Since the data buffer is of type void, no type checking can be performed by the compiler. Therefore the type has to be explicitly supplied, which is checked against the type stored in the ODB. key\_\-name can contain the full path of a key (like: \char`\"{}/Equipment/Trigger/Settings/Level1\char`\"{}) while hkey is zero which refers to the root, or hkey can refer to a sub-\/directory (like /Equipment/Trigger) and key\_\-name is interpreted relative to that directory like \char`\"{}Settings/Level1\char`\"{}. 
+\begin{DoxyCode}
+INT level1;
+  db_set_value(hDB, 0, "/Equipment/Trigger/Settings/Level1",
+                          &level1, sizeof(level1), 1, TID_INT);
+\end{DoxyCode}
+ 
+\begin{DoxyParams}{Parameters}
+\item[{\em hDB}]ODB handle obtained via \hyperlink{group__cmfunctionc_ga16b33b70783a3f5ba98b4094149d12b7}{cm\_\-get\_\-experiment\_\-database()}. \item[{\em hKeyRoot}]Handle for key where search starts, zero for root. \item[{\em key\_\-name}]Name of key to search, can contain directories. \item[{\em data}]Address of data. \item[{\em data\_\-size}]Size of data (in bytes). \item[{\em num\_\-values}]Number of data elements. \item[{\em type}]Type of key, one of TID\_\-xxx (see \hyperlink{F_Midas_Code_and_Libraries_Midas_Data_Types}{Midas\_\-Data\_\-Types}) \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+DB\_\-SUCCESS, DB\_\-INVALID\_\-HANDLE, DB\_\-NO\_\-ACCESS, DB\_\-TYPE\_\-MISMATCH 
+\end{DoxyReturn}
+
+
+Definition at line 3021 of file odb.c.
+
+Referenced by al\_\-trigger\_\-alarm(), cm\_\-connect\_\-experiment1(), cm\_\-delete\_\-client\_\-info(), cm\_\-register\_\-deferred\_\-transition(), cm\_\-register\_\-transition(), cm\_\-set\_\-client\_\-info(), cm\_\-set\_\-transition\_\-sequence(), cm\_\-set\_\-watchdog\_\-params(), cm\_\-transition1(), db\_\-create\_\-link(), db\_\-get\_\-value(), frontend\_\-loop(), register\_\-equipment(), set\_\-equipment\_\-status(), tr\_\-start(), and update\_\-odb().\index{odbfunctionc@{odbfunctionc}!db\_\-set\_\-value\_\-index@{db\_\-set\_\-value\_\-index}}
+\index{db\_\-set\_\-value\_\-index@{db\_\-set\_\-value\_\-index}!odbfunctionc@{odbfunctionc}}
+\paragraph[{db\_\-set\_\-value\_\-index}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} db\_\-set\_\-value\_\-index (HNDLE {\em hDB}, \/  HNDLE {\em hKeyRoot}, \/  const char $\ast$ {\em key\_\-name}, \/  const void $\ast$ {\em data}, \/  {\bf INT} {\em data\_\-size}, \/  {\bf INT} {\em idx}, \/  {\bf DWORD} {\em type}, \/  {\bf BOOL} {\em trunc})}\hfill\label{group__odbfunctionc_ga88a578560f272f0cc9a199eacb3e1048}
+Set single value of an array.
+
+The function sets a single value of an ODB key which is an array. key\_\-name can contain the full path of a key (like: \char`\"{}/Equipment/Trigger/Settings/Level1\char`\"{}) while hkey is zero which refers to the root, or hkey can refer to a sub-\/directory (like /Equipment/Trigger) and key\_\-name is interpreted relative to that directory like \char`\"{}Settings/Level1\char`\"{}. 
+\begin{DoxyCode}
+INT level1;
+  db_set_value_index(hDB, 0, "/Equipment/Trigger/Settings/Level1",
+                          &level1, sizeof(level1), 15, TID_INT, FALSE);
+\end{DoxyCode}
+ 
+\begin{DoxyParams}{Parameters}
+\item[{\em hDB}]ODB handle obtained via \hyperlink{group__cmfunctionc_ga16b33b70783a3f5ba98b4094149d12b7}{cm\_\-get\_\-experiment\_\-database()}. \item[{\em hKeyRoot}]Handle for key where search starts, zero for root. \item[{\em key\_\-name}]Name of key to search, can contain directories. \item[{\em data}]Address of data. \item[{\em data\_\-size}]Size of data (in bytes). \item[{\em index}]Array index of value. \item[{\em type}]Type of key, one of TID\_\-xxx (see \hyperlink{F_Midas_Code_and_Libraries_Midas_Data_Types}{Midas\_\-Data\_\-Types}) \item[{\em truncate}]Truncate array to current index if TRUE \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+$<$same as db\_\-set\_\-data\_\-index$>$ 
+\end{DoxyReturn}
+
+
+Definition at line 3145 of file odb.c.\index{odbfunctionc@{odbfunctionc}!db\_\-sprintf@{db\_\-sprintf}}
+\index{db\_\-sprintf@{db\_\-sprintf}!odbfunctionc@{odbfunctionc}}
+\paragraph[{db\_\-sprintf}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} db\_\-sprintf (char $\ast$ {\em string}, \/  const void $\ast$ {\em data}, \/  {\bf INT} {\em data\_\-size}, \/  {\bf INT} {\em idx}, \/  {\bf DWORD} {\em type})}\hfill\label{group__odbfunctionc_ga594e4b0d774999bdcc1161e8b6b84052}
+dox Convert a database value to a string according to its type.
+
+This function is a convenient way to convert a binary ODB value into a string depending on its type if is not known at compile time. If it is known, the normal sprintf() function can be used. 
+\begin{DoxyCode}
+...
+  for (j=0 ; j<key.num_values ; j++)
+  {
+    db_sprintf(pbuf, pdata, key.item_size, j, key.type);
+    strcat(pbuf, "\n");
+  }
+  ...
+\end{DoxyCode}
+ 
+\begin{DoxyParams}{Parameters}
+\item[{\em string}]output ASCII string of data. \item[{\em data}]Value data. \item[{\em data\_\-size}]Size of single data element. \item[{\em idx}]Index for array data. \item[{\em type}]Type of key, one of TID\_\-xxx (see \hyperlink{F_Midas_Code_and_Libraries_Midas_Data_Types}{Midas\_\-Data\_\-Types}). \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+DB\_\-SUCCESS 
+\end{DoxyReturn}
+
+
+Definition at line 6975 of file odb.c.
+
+Referenced by db\_\-copy(), db\_\-save\_\-xml\_\-key(), and hs\_\-dump().\index{odbfunctionc@{odbfunctionc}!db\_\-sprintff@{db\_\-sprintff}}
+\index{db\_\-sprintff@{db\_\-sprintff}!odbfunctionc@{odbfunctionc}}
+\paragraph[{db\_\-sprintff}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} db\_\-sprintff (char $\ast$ {\em string}, \/  const char $\ast$ {\em format}, \/  const void $\ast$ {\em data}, \/  {\bf INT} {\em data\_\-size}, \/  {\bf INT} {\em idx}, \/  {\bf DWORD} {\em type})}\hfill\label{group__odbfunctionc_ga2d16cbf1e235c26b1b1fa8e75a811d50}
+Same as db\_\-sprintf, but with additional format parameter
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em string}]output ASCII string of data. \item[{\em format}]Format specifier passed to sprintf() \item[{\em data}]Value data. \item[{\em data\_\-size}]Size of single data element. \item[{\em idx}]Index for array data. \item[{\em type}]Type of key, one of TID\_\-xxx (see \hyperlink{F_Midas_Code_and_Libraries_Midas_Data_Types}{Midas\_\-Data\_\-Types}). \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+DB\_\-SUCCESS 
+\end{DoxyReturn}
+
+
+Definition at line 7045 of file odb.c.\index{odbfunctionc@{odbfunctionc}!db\_\-unlock\_\-database@{db\_\-unlock\_\-database}}
+\index{db\_\-unlock\_\-database@{db\_\-unlock\_\-database}!odbfunctionc@{odbfunctionc}}
+\paragraph[{db\_\-unlock\_\-database}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} db\_\-unlock\_\-database (HNDLE {\em hDB})}\hfill\label{group__odbfunctionc_ga52885112dd8f2acc551ac0610d7f552d}
+Unlock a database via system semaphore calls. 
+\begin{DoxyParams}{Parameters}
+\item[{\em hDB}]Handle to the database to unlock \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+DB\_\-SUCCESS, DB\_\-INVALID\_\-HANDLE 
+\end{DoxyReturn}
+
+
+Definition at line 1461 of file odb.c.
+
+Referenced by cm\_\-check\_\-client(), cm\_\-cleanup(), cm\_\-delete\_\-client\_\-info(), cm\_\-exist(), cm\_\-get\_\-watchdog\_\-info(), cm\_\-set\_\-client\_\-info(), cm\_\-set\_\-watchdog\_\-params(), db\_\-close\_\-database(), db\_\-create\_\-key(), db\_\-create\_\-record(), db\_\-delete\_\-key1(), db\_\-enum\_\-key(), db\_\-find\_\-key(), db\_\-get\_\-data(), db\_\-get\_\-data\_\-index(), db\_\-get\_\-key(), db\_\-get\_\-key\_\-info(), db\_\-get\_\-key\_\-time(), db\_\-get\_\-link(), db\_\-get\_\-link\_\-data(), db\_\-get\_\-record(), db\_\-get\_\-record\_\-size(), db\_\-get\_\-value(), db\_\-open\_\-database(), db\_\-set\_\-data(), db\_\-set\_\-data\_\-index(), db\_\-set\_\-link\_\-data(), db\_\-set\_\-link\_\-data\_\-index(), db\_\-set\_\-record(), and db\_\-set\_\-value().\index{odbfunctionc@{odbfunctionc}!db\_\-update\_\-record@{db\_\-update\_\-record}}
+\index{db\_\-update\_\-record@{db\_\-update\_\-record}!odbfunctionc@{odbfunctionc}}
+\paragraph[{db\_\-update\_\-record}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} db\_\-update\_\-record ({\bf INT} {\em hDB}, \/  {\bf INT} {\em hKey}, \/  int {\em s})}\hfill\label{group__odbfunctionc_gae5f470f0c97794d8da1017f609276bc4}
+If called locally, update a record (hDB/hKey) and copy its new contents to the local copy of it.
+
+If called from a server, send a network notification to the client. 
+\begin{DoxyParams}{Parameters}
+\item[{\em hDB}]ODB handle obtained via \hyperlink{group__cmfunctionc_ga16b33b70783a3f5ba98b4094149d12b7}{cm\_\-get\_\-experiment\_\-database()}. \item[{\em hKey}]Handle for key where search starts, zero for root. \item[{\em s}]optional server socket \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+DB\_\-SUCCESS, DB\_\-INVALID\_\-HANDLE 
+\end{DoxyReturn}
+
+
+Definition at line 8696 of file odb.c.\index{odbfunctionc@{odbfunctionc}!equal\_\-ustring@{equal\_\-ustring}}
+\index{equal\_\-ustring@{equal\_\-ustring}!odbfunctionc@{odbfunctionc}}
+\paragraph[{equal\_\-ustring}]{\setlength{\rightskip}{0pt plus 5cm}{\bf BOOL} equal\_\-ustring (const char $\ast$ {\em str1}, \/  const char $\ast$ {\em str2})}\hfill\label{group__odbfunctionc_ga060d9c5ccec906f52a34dc39de6e2069}
+
+
+Definition at line 1560 of file odb.c.
+
+Referenced by al\_\-check(), bm\_\-open\_\-buffer(), cm\_\-connect\_\-client(), cm\_\-connect\_\-experiment1(), cm\_\-exist(), cm\_\-get\_\-watchdog\_\-info(), cm\_\-list\_\-experiments(), cm\_\-set\_\-client\_\-info(), cm\_\-shutdown(), db\_\-check\_\-record(), db\_\-create\_\-key(), db\_\-find\_\-key(), db\_\-open\_\-database(), db\_\-paste(), db\_\-paste\_\-node(), hv\_\-init(), initialize\_\-equipment(), logger\_\-root(), register\_\-equipment(), and set\_\-equipment\_\-status().\index{odbfunctionc@{odbfunctionc}!extract\_\-key@{extract\_\-key}}
+\index{extract\_\-key@{extract\_\-key}!odbfunctionc@{odbfunctionc}}
+\paragraph[{extract\_\-key}]{\setlength{\rightskip}{0pt plus 5cm}const char$\ast$ extract\_\-key (const char $\ast$ {\em key\_\-list}, \/  char $\ast$ {\em key\_\-name}, \/  int {\em key\_\-name\_\-length})}\hfill\label{group__odbfunctionc_ga1b194f05d4aee641e206b4636c9a3318}
+
+
+Definition at line 1546 of file odb.c.
+
+Referenced by db\_\-create\_\-key(), and db\_\-find\_\-key().\index{odbfunctionc@{odbfunctionc}!xml\_\-encode@{xml\_\-encode}}
+\index{xml\_\-encode@{xml\_\-encode}!odbfunctionc@{odbfunctionc}}
+\paragraph[{xml\_\-encode}]{\setlength{\rightskip}{0pt plus 5cm}void xml\_\-encode (char $\ast$ {\em src}, \/  int {\em size})}\hfill\label{group__odbfunctionc_ga5dbe3c70388c7d2a347375ce7809e0d8}
+
+
+Definition at line 6603 of file odb.c.

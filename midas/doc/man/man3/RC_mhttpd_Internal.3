@@ -1,0 +1,89 @@
+.TH "RC_mhttpd_Internal" 3 "31 May 2012" "Version 2.3.0-0" "Midas" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+RC_mhttpd_Internal \- Internal custom page 
+
+.br
+.PP
+.PP
+An \fBinternal\fP custom page (written in HTML and/or JavaScript) may be imported under a given /Custom/ ODB key. The name of this key will appear in the Main Status page as an \fBalias-links\fP (or alias-button - \fBDec 2009\fP). By clicking on this link/button, the contents of this key is interpreted as html content.
+.PP
+The insertion of a new Custom page requires the following steps:
+.IP "\(bu" 2
+Create an initial html file using your favorite HTML editor (see \fBHow to create a custom page\fP)
+.IP "\(bu" 2
+\fBImport\fP this file
+.PP
+.PP
+\fBNote:\fP
+.RS 4
+.IP "\(bu" 2
+Once the file is imported into ODB, you can \fBONLY\fP edit it through the web (as long as mhttpd is active) by clicking on the \fBODB(button)\fP ... Custom(Key) ... Edit (Hyperlink at the bottom of the key).
+.PP
+.RE
+.PP
+.IP "\(bu" 2
+The Custom page can also be exported back to a ASCII file using the odbedit command \fBexport\fP, e.g. 
+.PP
+.nf
+  [local:midas:Stopped]/>cd Custom/
+  [local:midas:Stopped]/Custom>export test&
+  File name: mcustom.html
+  [local:midas:Stopped]/Custom>
+
+.fi
+.PP
+
+.PP
+.PP
+Figure 1 shows an \fBinternal\fP custom page which has been imported into the ODB at key /Custom/Overview& as shown in Figure 2.
+.PP
+
+.br
+
+.br
+
+.br
+   Figure 1 : Internal custom web page with history graph. 
+.br
+
+.br
+
+.br
+   
+.br
+
+.br
+
+.br
+.PP
+
+.br
+
+.br
+
+.br
+   Figure 2 : Internal custom web page loaded into the ODB. 
+.br
+
+.br
+
+.br
+   
+.br
+
+.br
+
+.br
+.PP
+
+.br
+.PP
+
+.br
+ 
+.br
+.PP
+.PP
+ 

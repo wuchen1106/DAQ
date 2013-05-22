@@ -1,0 +1,174 @@
+\subsection{Alarm related}
+\label{group__malarmh}\index{Alarm related@{Alarm related}}
+\subsubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structPROGRAM__INFO}{PROGRAM\_\-INFO}
+\item 
+struct \hyperlink{structALARM__CLASS}{ALARM\_\-CLASS}
+\item 
+struct \hyperlink{structALARM}{ALARM}
+\end{DoxyCompactItemize}
+\subsubsection*{Defines}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{group__malarmh_ga0aecd2654d62ebd6b3d8d57ef8ccf2d9}{AT\_\-INTERNAL}~1
+\item 
+\#define \hyperlink{group__malarmh_ga258ba8c74f1f017cc80ef51fa82e3e13}{AT\_\-PROGRAM}~2
+\item 
+\#define \hyperlink{group__malarmh_gabd367ea3feeb6b3fe27aaf45e9a067f6}{AT\_\-EVALUATED}~3
+\item 
+\#define \hyperlink{group__malarmh_ga40d5f5ba688496ddaa6f12e9a9b9f956}{AT\_\-PERIODIC}~4
+\item 
+\#define \hyperlink{group__malarmh_ga5f102004d1642b0878502f7a6a05fdfa}{AT\_\-LAST}~4
+\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+dox dox Alarm structure. 
+
+\subsubsection{Define Documentation}
+\index{malarmh@{malarmh}!ALARM\_\-CLASS\_\-STR@{ALARM\_\-CLASS\_\-STR}}
+\index{ALARM\_\-CLASS\_\-STR@{ALARM\_\-CLASS\_\-STR}!malarmh@{malarmh}}
+\paragraph[{ALARM\_\-CLASS\_\-STR}]{\setlength{\rightskip}{0pt plus 5cm}\#define ALARM\_\-CLASS\_\-STR(\_\-name)}\hfill\label{group__malarmh_ga6e3217ec92c923301ce6ab366561c06c}
+{\bfseries Value:}
+\begin{DoxyCode}
+const char *_name[] = {\
+"[.]",\
+"Write system message = BOOL : y",\
+"Write Elog message = BOOL : n",\
+"System message interval = INT : 60",\
+"System message last = DWORD : 0",\
+"Execute command = STRING : [256] ",\
+"Execute interval = INT : 0",\
+"Execute last = DWORD : 0",\
+"Stop run = BOOL : n",\
+"Display BGColor = STRING : [32] red",\
+"Display FGColor = STRING : [32] black",\
+"",\
+NULL }
+\end{DoxyCode}
+
+
+Definition at line 1327 of file midas.h.
+
+Referenced by al\_\-check().\index{malarmh@{malarmh}!ALARM\_\-ODB\_\-STR@{ALARM\_\-ODB\_\-STR}}
+\index{ALARM\_\-ODB\_\-STR@{ALARM\_\-ODB\_\-STR}!malarmh@{malarmh}}
+\paragraph[{ALARM\_\-ODB\_\-STR}]{\setlength{\rightskip}{0pt plus 5cm}\#define ALARM\_\-ODB\_\-STR(\_\-name)}\hfill\label{group__malarmh_ga74ef6be93ea17e528cfffabf646075f1}
+{\bfseries Value:}
+\begin{DoxyCode}
+const char *_name[] = {\
+"[.]",\
+"Active = BOOL : n",\
+"Triggered = INT : 0",\
+"Type = INT : 3",\
+"Check interval = INT : 60",\
+"Checked last = DWORD : 0",\
+"Time triggered first = STRING : [32] ",\
+"Time triggered last = STRING : [32] ",\
+"Condition = STRING : [256] /Runinfo/Run number > 100",\
+"Alarm Class = STRING : [32] Alarm",\
+"Alarm Message = STRING : [80] Run number became too large",\
+"",\
+NULL }
+\end{DoxyCode}
+
+
+Definition at line 1357 of file midas.h.
+
+Referenced by al\_\-check(), and al\_\-trigger\_\-alarm().\index{malarmh@{malarmh}!ALARM\_\-PERIODIC\_\-STR@{ALARM\_\-PERIODIC\_\-STR}}
+\index{ALARM\_\-PERIODIC\_\-STR@{ALARM\_\-PERIODIC\_\-STR}!malarmh@{malarmh}}
+\paragraph[{ALARM\_\-PERIODIC\_\-STR}]{\setlength{\rightskip}{0pt plus 5cm}\#define ALARM\_\-PERIODIC\_\-STR(\_\-name)}\hfill\label{group__malarmh_ga32ee832ef89f8b42e0cb0f6c0b8a51b7}
+{\bfseries Value:}
+\begin{DoxyCode}
+const char *_name[] = {\
+"[.]",\
+"Active = BOOL : n",\
+"Triggered = INT : 0",\
+"Type = INT : 4",\
+"Check interval = INT : 28800",\
+"Checked last = DWORD : 0",\
+"Time triggered first = STRING : [32] ",\
+"Time triggered last = STRING : [32] ",\
+"Condition = STRING : [256] ",\
+"Alarm Class = STRING : [32] Warning",\
+"Alarm Message = STRING : [80] Please do your shift checks",\
+"",\
+NULL }
+\end{DoxyCode}
+
+
+Definition at line 1372 of file midas.h.
+
+Referenced by al\_\-check().\index{malarmh@{malarmh}!AT\_\-EVALUATED@{AT\_\-EVALUATED}}
+\index{AT\_\-EVALUATED@{AT\_\-EVALUATED}!malarmh@{malarmh}}
+\paragraph[{AT\_\-EVALUATED}]{\setlength{\rightskip}{0pt plus 5cm}\#define AT\_\-EVALUATED~3}\hfill\label{group__malarmh_gabd367ea3feeb6b3fe27aaf45e9a067f6}
+
+\begin{DoxyItemize}
+\item 
+\end{DoxyItemize}
+
+Definition at line 1294 of file midas.h.
+
+Referenced by al\_\-check(), al\_\-get\_\-alarms(), and al\_\-trigger\_\-alarm().\index{malarmh@{malarmh}!AT\_\-INTERNAL@{AT\_\-INTERNAL}}
+\index{AT\_\-INTERNAL@{AT\_\-INTERNAL}!malarmh@{malarmh}}
+\paragraph[{AT\_\-INTERNAL}]{\setlength{\rightskip}{0pt plus 5cm}\#define AT\_\-INTERNAL~1}\hfill\label{group__malarmh_ga0aecd2654d62ebd6b3d8d57ef8ccf2d9}
+
+\begin{DoxyItemize}
+\item 
+\end{DoxyItemize}
+
+Definition at line 1292 of file midas.h.\index{malarmh@{malarmh}!AT\_\-LAST@{AT\_\-LAST}}
+\index{AT\_\-LAST@{AT\_\-LAST}!malarmh@{malarmh}}
+\paragraph[{AT\_\-LAST}]{\setlength{\rightskip}{0pt plus 5cm}\#define AT\_\-LAST~4}\hfill\label{group__malarmh_ga5f102004d1642b0878502f7a6a05fdfa}
+
+\begin{DoxyItemize}
+\item 
+\end{DoxyItemize}
+
+Definition at line 1296 of file midas.h.
+
+Referenced by al\_\-check(), and al\_\-trigger\_\-alarm().\index{malarmh@{malarmh}!AT\_\-PERIODIC@{AT\_\-PERIODIC}}
+\index{AT\_\-PERIODIC@{AT\_\-PERIODIC}!malarmh@{malarmh}}
+\paragraph[{AT\_\-PERIODIC}]{\setlength{\rightskip}{0pt plus 5cm}\#define AT\_\-PERIODIC~4}\hfill\label{group__malarmh_ga40d5f5ba688496ddaa6f12e9a9b9f956}
+
+\begin{DoxyItemize}
+\item 
+\end{DoxyItemize}
+
+Definition at line 1295 of file midas.h.
+
+Referenced by al\_\-check(), and al\_\-trigger\_\-alarm().\index{malarmh@{malarmh}!AT\_\-PROGRAM@{AT\_\-PROGRAM}}
+\index{AT\_\-PROGRAM@{AT\_\-PROGRAM}!malarmh@{malarmh}}
+\paragraph[{AT\_\-PROGRAM}]{\setlength{\rightskip}{0pt plus 5cm}\#define AT\_\-PROGRAM~2}\hfill\label{group__malarmh_ga258ba8c74f1f017cc80ef51fa82e3e13}
+
+\begin{DoxyItemize}
+\item 
+\end{DoxyItemize}
+
+Definition at line 1293 of file midas.h.
+
+Referenced by al\_\-check().\index{malarmh@{malarmh}!PROGRAM\_\-INFO\_\-STR@{PROGRAM\_\-INFO\_\-STR}}
+\index{PROGRAM\_\-INFO\_\-STR@{PROGRAM\_\-INFO\_\-STR}!malarmh@{malarmh}}
+\paragraph[{PROGRAM\_\-INFO\_\-STR}]{\setlength{\rightskip}{0pt plus 5cm}\#define PROGRAM\_\-INFO\_\-STR(\_\-name)}\hfill\label{group__malarmh_ga44c5abef81b653fef9341f31af929684}
+{\bfseries Value:}
+\begin{DoxyCode}
+const char *_name[] = {\
+"[.]",\
+"Required = BOOL : n",\
+"Watchdog timeout = INT : 10000",\
+"Check interval = DWORD : 180000",\
+"Start command = STRING : [256] ",\
+"Auto start = BOOL : n",\
+"Auto stop = BOOL : n",\
+"Auto restart = BOOL : n",\
+"Alarm class = STRING : [32] ",\
+"First failed = DWORD : 0",\
+"",\
+NULL }
+\end{DoxyCode}
+
+
+Definition at line 1298 of file midas.h.
+
+Referenced by cm\_\-set\_\-client\_\-info().

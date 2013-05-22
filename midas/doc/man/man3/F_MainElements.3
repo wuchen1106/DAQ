@@ -1,0 +1,211 @@
+.TH "F_MainElements" 3 "31 May 2012" "Version 2.3.0-0" "Midas" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+F_MainElements \- Overview of the Main Elements of the MIDAS DAQ System 
+.PP
+
+.br
+.PP
+The main elements of the \fBMIDAS\fP package are listed below with a short description of their function. Please refer to the \fBdiagram of the MIDAS system\fP to see how these elements interract to form the MIDAS system.
+.PP
+.IP "\(bu" 2
+\fBThe Buffer Manager\fP
+.IP "\(bu" 2
+\fBMessage System\fP
+.IP "\(bu" 2
+\fBOnline Database (ODB)\fP
+.IP "\(bu" 2
+\fBFrontend\fP Acquisition code.
+.IP "\(bu" 2
+\fBMIDAS Server\fP Remote access server (RPC server).
+.IP "\(bu" 2
+\fBData Logger\fP Data storage.
+.IP "\(bu" 2
+\fBAnalyzer\fP Data analyzer.
+.IP "\(bu" 2
+\fBRun Control\fP Data flow control.
+.IP "\(bu" 2
+\fBSlow Control\fP system Device monitoring and control.
+.IP "\(bu" 2
+\fBHistory system\fP Event history storage and retrival.
+.IP "\(bu" 2
+\fBAlarm System\fP Overall system and user alarm.
+.IP "\(bu" 2
+\fBElectronic Logbook\fP Online User Logbook.
+.PP
+.PP
+  
+.SH "The Buffer Manager"
+.PP
+The 'buffer manager' consists of a set of library functions for event collection and distribution. A buffer is a shared memory region in RAM, which can be accessed by several processes, called \fB'clients'\fP. Processes \fBsending\fP events to a buffer are called \fB'producers'\fP. Processes \fBreading\fP events from the buffer are called \fB'consumers'\fP.
+.PP
+A buffer is organized as a FIFO (First-In-First-Out) memory. Consumers can specify which type of events they want to receive from a buffer. For this purpose each event contains a MIDAS header with an event ID and other pertinent information.
+.PP
+Buffers can be accessed \fBlocally\fP through the shared memory or \fBremotely\fP via the MIDAS server acting as an interface to that same shared memory.
+.PP
+ A common problem in DAQ systems is the possible crash of a client, such as a user analyzer. This can cause the whole system to hang up, and may require a restart of the DAQ causing a loss of both time and, eventually, precious data. In order to address this problem, a special \fB watchdog scheme \fP has been implemented. Each client attached to the buffer manager signals its presence periodically by storing a time-stamp in the shared memory. Every other client connected to the same buffer manager can then check if the other parties are still alive. If not, proper action is taken consisting in removing the dead client hooks from the system, leaving the system in a working condition.
+.PP
+ 
+.SH "Message System"
+.PP
+Any client can produce status or error messages with a single call using the MIDAS library. These messages are then forwarded to any other clients who may be available to receive these messages, as well as to a central log file system. The message system is based on the buffer manager scheme, but with a dedicated header to identify the type of message. A dedicated buffer (i.e. shared memory) is used to receive and distribute messages. Predefined message types contained in the MIDAS library cover most of the message requirements. See \fBLogging in MIDAS\fP and \fBCustomizing the MIDAS data logging\fP for more details.
+.PP
+ 
+.SH "Online Database (ODB)"
+.PP
+In a distributed DAQ environment, configuration data is usually stored in several files on different computers. MIDAS, however, uses a different approach: all relevant data for a given experiment are stored in a central database called the 'Online DataBase' (ODB). This database contains run \fBparameters\fP; logging channel information; condition \fBparameters\fP for front-ends and analyzers; slow control values; status and performance data; and any information defined by the user.
+.PP
+The main advantage of this concept is that all programs participating in an experiment have full access to these data without having to contact different computers. A possible disadvantage could be the extra load put on the particular host serving the ODB. As the access to such a database can be remote, the connection is performed through an RPC layer. MIDAS includes its own RPC which has been optimized for speed. Byte ordering (i.e. big/little endian) is taken care of, such that cross-platform database access is possible, with the advantage that the RPC doesn't define a byte ordering. Instead it uses the transmitter type, and converts to the required byte ordering only if needed by the receiver. Measurement shows that up to 50,000 accesses per second with a local connection, and around 500 accesses per second remotely over the MIDAS server, can be obtained (numbers from 1990).
+.PP
+The ODB is hierarchically structured, similar to a file system, with directories and sub-directories (see \fBODB Structure\fP) . The data are stored in key/data pairs, similar to the Windows NT registry. Keys can be dynamically created and deleted. The data associated with a key can be of different types such as: byte, words, double words, float, strings, etc. or arrays of any of those. A key can also be a directory or a symbolic link (c.f. Unix).
+.PP
+ The MIDAS library provides a complete set of functions to manage and operate on these keys. 
+.br
+ Any ODB client can register a 'hot-link' between a local C-structure and any element of the ODB. The hot-link mechanism ensures that whenever a client (program) changes a value in this ODB sub-tree, the local C-structure automatically receives an update of the changed data. Additionally, a client can register a callback function which will be executed as soon as the hot-link's update has been received. For more information see \fBEvent Notification (Hot-Link)\fP .
+.PP
+ 
+.SH "MIDAS Server"
+.PP
+For remote access to a MIDAS experiment, a remote procedure call (RPC) server is available (\fBmserver\fP). It uses an optimized MIDAS RPC scheme for improved access speed. The server can be started manually or via inetd (UNIX) or as a service under Windows NT. For each incoming connection it creates a new sub-process which serves this connection over a TCP link. The MIDAS server not only serves client connections to a given experiment, but takes the experiment's name as a parameter meaning that only one MIDAS server is necessary to manage several experiments on the same node.
+.PP
+ 
+.SH "Frontend"
+.PP
+The \fIfrontend\fP program refers to a task running on a particular computer which has access to hardware equipment. Several \fIfrontends\fP can be attached simultaneously to a given experiment. Each \fIfrontend\fP can be composed of multiple \fBEquipments\fP. \fIThe\fP term 'Equipment' refers to a single or a collection of sub-task(s) meant to collect and regroup logical or physical data under a single and uniquely identified event.
+.PP
+The frontend program is composed of a general framework which is experiment-independent, and a set of template routines for the user to fill in. This program will:
+.IP "\(bu" 2
+Register the given \fIEquipment(s)\fP list to a specific MIDAS experiment.
+.IP "\(bu" 2
+Provide the means of collecting data from hardware sources defined by each Equipment Read function.
+.IP "\(bu" 2
+Gather these data in a known format (e.g. Fixed, MIDAS) for each equipment.
+.IP "\(bu" 2
+Send these data to the buffer manager either locally or remotely.
+.IP "\(bu" 2
+Periodically collect statistics of the acquisition task, and send them to the Online Database.
+.PP
+.PP
+The frontend framework sends events to the buffer manager and optionally a copy to the ODB. A 'Data cache' in the frontend and on the server side reduces the amount of network operations, pushing the transfer speed closer to the physical limit of the network configuration.
+.PP
+The data collection in the frontend framework can be triggered by several mechanisms. Currently the frontend supports four different kind of event trigger:
+.PP
+.IP "\(bu" 2
+\fI Periodic events\fP: scheduled event based on a fixed time interval. They can be used to read information such as scaler values, temperatures etc.
+.IP "\(bu" 2
+\fI Polled events\fP: hardware trigger information read continuously which in turns if the signal is asserted will trigger the equipment readout.
+.IP "  \(bu" 4
+\fI LAM events\fP: generated only when pre-defined LAM is asserted (CAMAC).
+.PP
+
+.IP "\(bu" 2
+\fI Interrupt events\fP: generated by particular hardware device supporting interrupt mode.
+.IP "\(bu" 2
+\fI Slow Control events\fP: special class of events that are used in the slow control system.
+.PP
+.PP
+Each of these types of trigger can be enabled/activated for a particular experimental State, Transition State, or a combination of any of them. Examples such as 'read scaler event
+only when running' or 'read periodic event if the run state is not paused and on all
+transitions' are possible.
+.PP
+Dedicated header and library files for hardware access to CAMAC, VME, Fastbus, GPIB and RS232 are part of the MIDAS distribution set. 
+.br
+ For full details see \fBSECTION 6: Frontend Operation\fP .
+.PP
+ 
+.SH "Data Logger"
+.PP
+The data logger is a client running on the backend computer receiving events from the buffer manager and saving them onto disk, tape or via FTP to a remote computer. It supports several parallel logging channels with individual event selection criteria. Data can currently be written in five different formats: \fI MIDAS binary, ASCII, ROOT and DUMP \fP (see \fBMIDAS format\fP).
+.PP
+Basic functionality of the logger includes:
+.IP "\(bu" 2
+Run Control based on:
+.IP "  \(bu" 4
+event limit not reached yet.
+.IP "  \(bu" 4
+recorded byte limit not reached yet.
+.IP "  \(bu" 4
+logging device not full.
+.PP
+
+.IP "\(bu" 2
+Logging selection of particular events based on Event Identifier.
+.IP "\(bu" 2
+Auto restart feature allowing logging of several runs of a given size or duration without user intervention.
+.IP "\(bu" 2
+Recording of ODB values to a so-called \fBMIDAS History System\fP
+.IP "\(bu" 2
+Recording of the ODB to all or individual logging channels at the begin-of-run and end-of-run States, as well as to a separate disk file in XML or ASCII format. 
+.br
+ For more information see \fBLogging in MIDAS\fP .
+.PP
+.PP
+ 
+.SH "Analyzer"
+.PP
+The Analyzer is a \fIbackend\fP task (as opposed to the frontend). As in the front-end section, the analyzer provided by MIDAS is a framework on which the user can develop his/her own applications. This framework can be built for private analysis (no external analyzer hooks) or specific analysis packages such as HBOOK, ROOT from the CERN (none of those libraries are included in the MIDAS distribution). See \fBSECTION 7: Data Analysis\fP for more information.
+.PP
+The analyzer takes care of receiving events (a few lines of code are necessary to receive events from the buffer manager); initializing the HBOOK or ROOT system; and automatically booking N-tuples/TTree for all events. Interface to user routines for event analysis is provided.
+.PP
+The analyzer is structured into 'stages', where each stage analyses a subset of the event data. Low level stages can perform ADC and TDC calibration, while high level stages can calculate 'physics' results. The same analyzer executable can be used to run online (where events are received from the buffer manager) and off-line (where events are read from file). When running online, generated N-tuples/TTree are stored in a ring-buffer in shared memory. They can be analysed with PAW without stopping the run.
+.PP
+When running off-line, the analyzer can read MIDAS binary files, analyse the events, add calculated data for each event and produce a HBOOK RZ output file which can be read in by PAW later. The analyzer framework also supports analyzer \fBparameters\fP. It automatically maps C-structures used in the analyzer to ODB records via \fBEvent Notification (Hot-Link)\fP. To control the analyzer, only the values in the ODB have to be changed, which are automatically propagated to the analyzer \fBparameters\fP. If analysis software has been already developed, MIDAS provides the functionality necessary to interface the analyzer code to the MIDAS data channel. Support for languages such as C, C++ is available.
+.PP
+ 
+.SH "Run Control"
+.PP
+As mentioned earlier, the Online Database (ODB) contains all the pertinent information regarding an experiment. For that reason a run control program requires only to access the ODB. A basic program supplied in the package called ODBEdit provides a simple and safe mean for interacting with ODB. Through ODBEdit essentially all the MIDAS capability are available to the user's fingertips.
+.PP
+Three 'Run States' define the state of the MIDAS data acquisition system: \fIStopped\fP, \fIPaused\fP, and \fIRunning\fP. In order to change from one state to another, MIDAS provides four basic 'Transition' functions: \fITr_Start\fP, \fITr_pause\fP, \fITr_resume\fP, and \fITr_Stop\fP. During these transition periods, any MIDAS client registered to receive notification of such a transition will be able to perform dedicated tasks in either synchronized or asynchronized mode, within the overall run control of the experiment.
+.PP
+In order to provide more flexibility to the transition sequence of all the MIDAS clients connected to a given experiment, each transition function has a \fItransition\fP \fIsequence\fP \fInumber\fP attached to it. This transition sequence is used to establish within a given transition the order of the invocation of the MIDAS clients (from the lowest sequence number to the highest). See \fBRun Transition Priority\fP for details.
+.PP
+ Transitions  
+.PP
+ 
+.SH "Slow Control"
+.PP
+The Slow Control system is a special front-end equipment or program dedicated to the control of hardware modules based on user \fBparameters\fP. It takes advantage of the Online Database and its \fBhot-link\fP capability. Demand and Measured values from Slow Control system equipment like high voltage power supplies or beam line magnets are stored directly in the ODB.
+.PP
+To control a device it is then enough to modify the demand values in the database. The modified value is automatically propagated to the slow control system, which in turn uses the specific device driver to apply the change to the particular hardware. Measured values from the hardware are periodically sent back to the ODB to reflect the current status of the sub-system.
+.PP
+The Slow Control system is organized in a Object Oriented way with 3 levels of calls such \fIClass\fP, \fIDevice\fP and \fIBus\fP drivers. Each Class driver refers to a particular set of functionality of that class i.e. High-Voltage, Temperature, General I/O, Magnet etc. The implementation of the device-specific calls is done in a second stage 'Device Driver' while the actual hardware implementation is done in a third layer 'Bus Driver'. The current MIDAS distribution already has some device driver for general I/O and commercial High Voltage power supply systems (see \fBsupported hardware\fP ). The necessary code composing the hardware device driver is kept simple by only requiring a 'set channel value' and 'read channel value' for example. For the High Voltage class driver, a GUI (graphical user interface) under Windows or Qt is already available. It can set, load and print high voltages for any devices of that class.
+.PP
+ 
+.SH "History system"
+.PP
+The MIDAS history system is a recording function embedded in the \fBMIDAS logger\fP. Parallel to its main data logging function of defined channels, the MIDAS logger can store slow control data and/or periodic events on disk file. Each history entry consists of the time-stamp at which the event has occurred, and the value[s] of the parameter to be recorded.
+.PP
+The activation of a recording is not controlled by the history function, but by the actual equipment (see \fBMIDAS History System\fP). This permits a higher flexibility of the history system such as dynamic modification of the event structure without restarting the MIDAS logger. At any given time, data-over-time relations can be displayed through the web with the MIDAS \fBmhttpd\fP utility or queried from the disk file through the MIDAS \fBmhist\fP utility,
+.PP
+The history data extraction from the disk file is done using low level file functions giving similar results as a standard database mechanism but with faster access time. Due to its simple use and good display quality, this section has been reworked to be able to handle larger number of \fBparameters\fP (see \fBMIDAS History System\fP ).
+.PP
+ 
+.SH "Alarm System"
+.PP
+The MIDAS alarm mechanism is a built-in feature of the MIDAS server. It acts upon the description of the required alarm defined in the Online Database (ODB). Currently the internal alarms supports the following mechanism:
+.IP "\(bu" 2
+ODB value over fixed threshold at regular time interval, a pre-defined ODB value will be compared to a fixed value.
+.IP "\(bu" 2
+MIDAS client control During Run State transitions, pre-defined MIDAS client names will be checked if currently present.
+.IP "\(bu" 2
+General C-code alarm setting Alarm C function permitting to issue user defined alarm.
+.PP
+.PP
+The action triggered by the alarm is left to the user through the means of a detached script. But basic alarm report is available such as:
+.IP "\(bu" 2
+Logging the alarm message to the experiment log file.
+.IP "\(bu" 2
+Sending an 'Electronic Log message' (see \fBElectronic logbook (Elog)\fP).
+.IP "\(bu" 2
+Interrupt data acquisition. For more information see \fBMIDAS Alarm System\fP and \fBODB /Alarms Tree\fP .
+.PP
+.PP
+ 
+.SH "Electronic Logbook"
+.PP
+The Electronic logbook is a feature which provides the experimenter an alternative way of logging his/her own information related to the current experiment. This electronic logbook may supplement or complement the standard paper logbook and in the mean time allow 'web publishing' of this information. Indeed the electronic logbook information is accessible from any web browser as long as the MIDAS web server ( \fBmhttpd\fP) is running in the background of the system. For more information see \fBElectronic Logbook\fP and \fBmhttpd Elog page\fP.
+.PP
+.PP
+ 

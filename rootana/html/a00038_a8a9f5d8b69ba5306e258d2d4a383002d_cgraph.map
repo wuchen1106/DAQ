@@ -1,0 +1,33 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$a00019.html#ad44b6f5729763e2c82528f74b092c7c9" title="TDirectory::cd" alt="" coords="395,56,512,85"/>
+<area shape="rect" id="node5" href="$a00038.html#a83f3b98d9ee54d5f5100bf4636233c87" title="TRootanaEventLoop::CheckOption" alt="" coords="325,109,581,139"/>
+<area shape="rect" id="node7" href="$a00038.html#acc1296767b1faaefde3e5d98fbb35d96" title="TRootanaEventLoop::Finalize" alt="" coords="344,163,563,192"/>
+<area shape="rect" id="node9" href="$a00038.html#a3d6502097ba23177d477dd0b4528aca9" title="TRootanaEventLoop::Initialize" alt="" coords="341,216,565,245"/>
+<area shape="rect" id="node11" href="$a00038.html#a4fb28064359beb3b0781833976377233" title="Help Message." alt="" coords="339,269,568,299"/>
+<area shape="rect" id="node15" href="$a00038.html#afce91826b6a3fc111ff919ac7f5a1ed0" title="TRootanaEventLoop::ProcessMidasFile" alt="" coords="312,323,595,352"/>
+<area shape="rect" id="node66" href="$a00060.html#af280d129baa10e736ba821d2f6bf4682" title="StartNetDirectoryServer" alt="" coords="359,376,548,405"/>
+<area shape="rect" id="node13" href="$a00038.html#ad0b0df6c32a6187f0800517d16593793" title="TRootanaEventLoop::Usage" alt="" coords="688,5,899,35"/>
+<area shape="rect" id="node17" href="$a00038.html#a7adb0f62ab8aff8b9a9f31ce5fea6f0d" title="TRootanaEventLoop::BeginRun" alt="" coords="677,112,909,141"/>
+<area shape="rect" id="node19" href="$a00015.html#ad9be9716a529451b8aa0cc23b635dd40" title="TDataContainer::CleanupEvent" alt="" coords="676,165,911,195"/>
+<area shape="rect" id="node21" href="$a00031.html#a693315cd892c50575f44c46080a339b8" title="Close input file." alt="" coords="1067,219,1203,248"/>
+<area shape="rect" id="node23" href="$a00038.html#aa9b12eede82ae2990ea4dfa2f38e5301" title="Cloe output ROOT file." alt="" coords="664,269,923,299"/>
+<area shape="rect" id="node25" href="$a00038.html#ab75d515101b4f51fbc0e1a9388b3a09b" title="TRootanaEventLoop::EndRun" alt="" coords="684,323,903,352"/>
+<area shape="rect" id="node27" href="$a00030.html#af7b600b29911a56e604a2bd0159a8664" title="return pointer to the data buffer" alt="" coords="1045,749,1224,779"/>
+<area shape="rect" id="node33" href="$a00030.html#acbaff1df97247584f3772ac8b5df720e" title="return the serial number" alt="" coords="676,429,911,459"/>
+<area shape="rect" id="node35" href="$a00031.html#a0f39c35bb559a648f46a5b0d05c16768" title="Open input file." alt="" coords="725,376,861,405"/>
+<area shape="rect" id="node40" href="$a00038.html#a50feed82f7bdd7ebb3c8d4f3628517ee" title="Open output ROOT file." alt="" coords="664,483,923,512"/>
+<area shape="rect" id="node44" href="$a00038.html#a41650949d3a59bca09b468af845271d9" title="TRootanaEventLoop::ProcessMidasEvent" alt="" coords="643,589,944,619"/>
+<area shape="rect" id="node46" href="$a00031.html#acd25594fcc51873a05fd16ec24979940" title="Read one event from the file." alt="" coords="727,536,860,565"/>
+<area shape="rect" id="node64" href="$a00015.html#a8794353097037750b70434c447c52a05" title="TDataContainer::SetMidasEventPointer" alt="" coords="648,59,939,88"/>
+<area shape="rect" id="node29" href="$a00030.html#a49f5869d31fb4f9ec1f6c9db12050fee" title="allocate data buffer using the existing event header" alt="" coords="1325,669,1533,699"/>
+<area shape="rect" id="node31" href="$a00030.html#a7431aed59b35c7850894ea8fafd01964" title="validate the event length" alt="" coords="1581,524,1773,553"/>
+<area shape="rect" id="node38" href="$a00136.html#acc3a0586541b034e8d61632b1c093dde" title="hasSuffix" alt="" coords="1093,272,1176,301"/>
+<area shape="rect" id="node42" href="$a00060.html#a7a5b2fe6305f7eee49ef669d43aed3bc" title="NetDirectoryExport" alt="" coords="1056,325,1213,355"/>
+<area shape="rect" id="node48" href="$a00030.html#a2eaf81576e2c7b54ab3af3ec1da749bd" title="clear event for reuse" alt="" coords="1057,643,1212,672"/>
+<area shape="rect" id="node51" href="$a00030.html#a339db17cb1f0d30c298d008fa380f164" title="return the event size" alt="" coords="1032,696,1237,725"/>
+<area shape="rect" id="node53" href="$a00030.html#a185596086a78015119f24c5e5132f2d0" title="return pointer to the event header" alt="" coords="1017,429,1252,459"/>
+<area shape="rect" id="node56" href="$a00136.html#abd66d29dd5da5c7324f68debe264f1c0" title="readpipe" alt="" coords="1095,483,1175,512"/>
+<area shape="rect" id="node58" href="$a00030.html#a0eb2dd100dd1f4e269407b406bb072d7" title="convert event data between little&#45;endian (Linux&#45;x86) and big endian (MacOS&#45;PPC)" alt="" coords="1037,536,1232,565"/>
+<area shape="rect" id="node62" href="$a00030.html#aff76bdda6b1c357c47047bbc1a01c11d" title="convert event header between little&#45;endian (Linux&#45;x86) and big endian (MacOS&#45;PPC)..." alt="" coords="992,589,1277,619"/>
+<area shape="rect" id="node60" href="$a00030.html#a892acc37f677273cb286c1cc18174bf1" title="returns &quot;true&quot; if event uses 32&#45;bit banks" alt="" coords="1340,536,1519,565"/>
+</map>

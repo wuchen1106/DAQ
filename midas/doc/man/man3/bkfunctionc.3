@@ -1,0 +1,303 @@
+.TH "Midas Bank Functions (bk_xxx)" 3 "31 May 2012" "Version 2.3.0-0" "Midas" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Midas Bank Functions (bk_xxx) \- 
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBbk_init\fP (void *event)"
+.br
+.ti -1c
+.RI "void \fBbk_init32\fP (void *event)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBbk_size\fP (void *event)"
+.br
+.ti -1c
+.RI "void \fBbk_create\fP (void *event, const char *name, \fBWORD\fP type, void *pdata)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBbk_close\fP (void *event, void *pdata)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBbk_list\fP (void *event, char *bklist)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBbk_locate\fP (void *event, const char *name, void *pdata)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBbk_find\fP (\fBBANK_HEADER\fP *pbkh, const char *name, \fBDWORD\fP *bklen, \fBDWORD\fP *bktype, void **pdata)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBbk_iterate\fP (void *event, \fBBANK\fP **pbk, void *pdata)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBbk_swap\fP (void *event, \fBBOOL\fP force)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+dox dox dox 
+.SH "Function Documentation"
+.PP 
+.SS "\fBINT\fP bk_close (void * event, void * pdata)"dox Close the Midas bank priviously created by \fBbk_create()\fP. The data pointer pdata must be obtained by \fBbk_create()\fP and used as an address to fill a bank. It is incremented with every value written to the bank and finally points to a location just after the last byte of the bank. It is then passed to \fBbk_close()\fP to finish the bank creation 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIevent\fP pointer to current composed event 
+.br
+\fIpdata\fP pointer to the data 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+number of bytes contained in bank 
+.RE
+.PP
+
+.PP
+Definition at line 13486 of file midas.c.
+.PP
+Referenced by adc_calib(), adc_summing(), cd_hv_read(), eb_user(), read_scaler_event(), read_tdc(), read_trigger_event(), read_v792(), and scaler_accum().
+.SS "void bk_create (void * event, const char * name, \fBWORD\fP type, void * pdata)"Create a Midas bank. The data pointer pdata must be used as an address to fill a bank. It is incremented with every value written to the bank and finally points to a location just after the last byte of the bank. It is then passed to the function \fBbk_close()\fP to finish the bank creation. 
+.PP
+.nf
+INT *pdata;
+bk_init(pevent);
+bk_create(pevent, 'ADC0', TID_INT, &pdata);
+*pdata++ = 123
+*pdata++ = 456
+bk_close(pevent, pdata);
+
+.fi
+.PP
+ 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIevent\fP pointer to the data area 
+.br
+\fIname\fP of the bank, must be exactly 4 charaters 
+.br
+\fItype\fP type of bank, one of the \fBMidas_Data_Types\fP values defined in \fBmidas.h\fP 
+.br
+\fIpdata\fP pointer to the data area of the newly created bank 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 13310 of file midas.c.
+.PP
+Referenced by adc_calib(), adc_summing(), cd_hv_read(), eb_user(), read_scaler_event(), read_tdc(), read_trigger_event(), read_v792(), and scaler_accum().
+.SS "\fBINT\fP bk_find (\fBBANK_HEADER\fP * pbkh, const char * name, \fBDWORD\fP * bklen, \fBDWORD\fP * bktype, void ** pdata)"Finds a MIDAS bank of given name inside an event. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIpbkh\fP pointer to current composed event 
+.br
+\fIname\fP bank name to look for 
+.br
+\fIbklen\fP number of elemtents in bank 
+.br
+\fIbktype\fP bank type, one of TID_xxx 
+.br
+\fIpdata\fP pointer to data area of bank, NULL if bank not found 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+1 if bank found, 0 otherwise 
+.RE
+.PP
+
+.PP
+Definition at line 13630 of file midas.c.
+.SS "void bk_init (void * event)"Initializes an event for Midas banks structure. Before banks can be created in an event, \fBbk_init()\fP has to be called first. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIevent\fP pointer to the area of event 
+.RE
+.PP
+
+.PP
+Definition at line 13228 of file midas.c.
+.PP
+Referenced by cd_hv_read(), eb_user(), read_scaler_event(), and read_trigger_event().
+.SS "void bk_init32 (void * event)"dox Initializes an event for Midas banks structure for large bank size (> 32KBytes) Before banks can be created in an event, \fBbk_init32()\fP has to be called first. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIevent\fP pointer to the area of event 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 13269 of file midas.c.
+.PP
+Referenced by read_event(), and read_trigger_event().
+.SS "\fBINT\fP bk_iterate (void * event, \fBBANK\fP ** pbk, void * pdata)"Iterates through banks inside an event. The function can be used to enumerate all banks of an event. The returned pointer to the bank header has following structure: 
+.PP
+.nf
+typedef struct {
+char   name[4];
+WORD   type;
+WORD   data_size;
+} BANK;
+
+.fi
+.PP
+ where type is a TID_xxx value and data_size the size of the bank in bytes. 
+.PP
+.nf
+BANK *pbk;
+INT  size;
+void *pdata;
+char name[5];
+pbk = NULL;
+do
+{
+ size = bk_iterate(event, &pbk, &pdata);
+ if (pbk == NULL)
+  break;
+ *((DWORD *)name) = *((DWORD *)(pbk)->name);
+ name[4] = 0;
+ printf('bank %s found\n', name);
+} while(TRUE);
+
+.fi
+.PP
+ 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIevent\fP Pointer to data area of event. 
+.br
+\fIpbk\fP pointer to the bank header, must be NULL for the first call to this function. 
+.br
+\fIpdata\fP Pointer to the bank header, must be NULL for the first call to this function 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+Size of bank in bytes 
+.RE
+.PP
+
+.PP
+Definition at line 13711 of file midas.c.
+.PP
+Referenced by bk_list(), md_bank_event_display(), and update_odb().
+.SS "\fBINT\fP bk_list (void * event, char * bklist)"Extract the MIDAS bank name listing of an event. The bklist should be dimensioned with STRING_BANKLIST_MAX which corresponds to a max of BANKLIST_MAX banks (\fBmidas.h\fP: 32 banks max). 
+.PP
+.nf
+INT adc_calib(EVENT_HEADER *pheader, void *pevent)
+{
+  INT    n_adc, nbanks;
+  WORD   *pdata;
+  char   banklist[STRING_BANKLIST_MAX];
+
+  // Display # of banks and list of banks in the event
+  nbanks = bk_list(pevent, banklist);
+  printf('#banks:%d List:%s\n', nbanks, banklist);
+
+  // look for ADC0 bank, return if not present
+  n_adc = bk_locate(pevent, 'ADC0', &pdata);
+  ...
+}
+
+.fi
+.PP
+ 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIevent\fP pointer to current composed event 
+.br
+\fIbklist\fP returned ASCII string, has to be booked with STRING_BANKLIST_MAX. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+number of bank found in this event. 
+.RE
+.PP
+
+.PP
+Definition at line 13536 of file midas.c.
+.PP
+Referenced by md_bank_event_display().
+.SS "\fBINT\fP bk_locate (void * event, const char * name, void * pdata)"Locates a MIDAS bank of given name inside an event. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIevent\fP pointer to current composed event 
+.br
+\fIname\fP bank name to look for 
+.br
+\fIpdata\fP pointer to data area of bank, NULL if bank not found 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+number of values inside the bank 
+.RE
+.PP
+
+.PP
+Definition at line 13580 of file midas.c.
+.PP
+Referenced by adc_calib(), adc_summing(), md_bank_event_display(), and scaler_accum().
+.SS "\fBINT\fP bk_size (void * event)"Returns the size of an event containing banks. The total size of an event is the value returned by \fBbk_size()\fP plus the size of the event header (sizeof(EVENT_HEADER)). 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIevent\fP pointer to the area of event 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+number of bytes contained in data area of event 
+.RE
+.PP
+
+.PP
+Definition at line 13283 of file midas.c.
+.PP
+Referenced by cd_hv_read(), read_event(), read_scaler_event(), and read_trigger_event().
+.SS "\fBINT\fP bk_swap (void * event, \fBBOOL\fP force)"dox Swaps bytes from little endian to big endian or vice versa for a whole event.
+.PP
+An event contains a flag which is set by \fBbk_init()\fP to identify the endian format of an event. If force is FALSE, this flag is evaluated and the event is only swapped if it is in the 'wrong' format for this system. An event can be swapped to the 'wrong' format on purpose for example by a front-end which wants to produce events in a 'right' format for a back-end analyzer which has different byte ordering. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIevent\fP pointer to data area of event 
+.br
+\fIforce\fP If TRUE, the event is always swapped, if FALSE, the event is only swapped if it is in the wrong format. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+1==event has been swap, 0==event has not been swapped. 
+.RE
+.PP
+
+.PP
+Definition at line 13786 of file midas.c.
+.PP
+Referenced by eb_mfragment_add(), md_event_swap(), and source_scan().
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Midas from the source code.

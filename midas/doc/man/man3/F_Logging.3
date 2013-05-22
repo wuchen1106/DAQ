@@ -1,0 +1,169 @@
+.TH "F_Logging" 3 "31 May 2012" "Version 2.3.0-0" "Midas" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+F_Logging \- Logging in MIDAS 
+ 
+.PP
+
+.br
+ 
+.SH "Introduction"
+.PP
+A MIDAS utility \fBmlogger - MIDAS Logger\fP is supplied in the MIDAS package. This utility can perform several functions (selected by the user via the \fB/Logger ODB tree\fP ) including:
+.PP
+.PD 0
+.IP "\(bu" 2
+logging \fBSystem messages\fP to a \fBMessage file\fP or as \fBmessage events\fP 
+.IP "\(bu" 2
+logging \fBExperimental data \fP to storage device(s) such as disk or tape 
+.PD 0
+
+.IP "  \(bu" 4
+\fBMultiple Logging Channels\fP can be defined 
+.IP "  \(bu" 4
+several different \fBstorage devices, formats and compression levels\fP can be selected 
+.IP "  \(bu" 4
+data can be logged to different \fBsubdirectories\fP on disk 
+.IP "  \(bu" 4
+data can be logged to a remote computer, using the \fBFTP mode\fP 
+.IP "  \(bu" 4
+events can be selected for logging by \fBEvent ID\fP or \fBTrigger mask\fP 
+.IP "  \(bu" 4
+\fBEvent Filtering\fP can be implemented 
+.IP "  \(bu" 4
+runs can be automatically stopped and \fBrestarted\fP after a certain \fBnumber of events\fP, or a \fBcertain time\fP 
+.IP "  \(bu" 4
+the complete ODB contents can be saved 
+.PD 0
+
+.IP "    \(bu" 6
+\fBinto a file\fP at the beginning and/or end of run 
+.IP "    \(bu" 6
+and/or into the \fBdata stream\fP 
+.PP
+
+.PP
+
+.IP "\(bu" 2
+logging information to a \fBmySQL\fP database 
+.IP "\(bu" 2
+writing information to an \fBelectronic logbook\fP 
+.IP "\(bu" 2
+collecting and logging \fBhistory events\fP 
+.PP
+ When the MIDAS logger (\fBmlogger\fP) is started for the first time, it creates the \fB/Logger ODB tree\fP (including a single logger channel - channel 0), and fills it with default settings.  The /Logger tree contains all the relevant information for mlogger to run properly. The user has no code to write in order for the system to operate correctly. However, the user will want to \fBcustomize the logger\fP for his/her own experiment, by setting the keys in the /Logger tree to suitable values.
+.PP
+
+.br
+ In addition to the /Logger tree, mlogger also creates the /History and /Elog ODB trees, used in the optional \fBHistory\fP and \fBElectronic Logbook\fP features. If MIDAS is compiled with mySQL support, a mySQL subtree will also be created in the \fB/Logger\fP tree (see \fBLogging information to a mySQL database\fP). All these features are described in the following pages.
+.PP
+ The data channels as well as the history logging are rescanned automatically at each \fBstart\fP transition.  In other words, \fBadditional logging channels\fP can be defined while running, but the effect will take place only at the following start transition. 
+.br
+  The \fBmlogger utility\fP runs on the backend computer, receiving events from the \fBbuffer manager\fP. It supports three type of storage devices so far, i.e.
+.IP "\(bu" 2
+\fIDisk\fP,
+.IP "\(bu" 2
+\fITape\fP 
+.IP "\(bu" 2
+\fIFTP\fP channel to a remote computer.
+.PP
+.PP
+Data can currently be written in five different \fBformats\fP :
+.IP "\(bu" 2
+MIDAS binary,
+.IP "\(bu" 2
+ASCII,
+.IP "\(bu" 2
+ROOT
+.IP "\(bu" 2
+DUMP
+.PP
+.PP
+The user may of course write their own custom data logger to save the data in any format they choose. 
+.br
+ 
+.br
+.PP
+
+.br
+  
+.SH "mlogger     - MIDAS Logger"
+.PP
+The MIDAS Logger, mlogger, is the main application that collects data from one or more frontends under certain conditions and stores them onto a physical device such as \fIdisk\fP or \fItape\fP. It also acts as a \fB history event \fP collector and can also store data in a \fBmySQL\fP database. 
+.br
+ The features and customization of the logger utility are fully described in the section \fBLogging in MIDAS\fP .
+.PP
+.IP "\(bu" 2
+\fB Arguments \fP
+.IP "  \(bu" 4
+[-h ] : help
+.IP "  \(bu" 4
+[-e exptname ] : experiment name (see \fBodbedit - ODB Editor and run control utility\fP)
+.IP "  \(bu" 4
+[-D ] : start program as a daemon (UNIX only).
+.IP "  \(bu" 4
+[-s] : Save mode (debugging: protect ODB).
+.IP "  \(bu" 4
+[-v] : Verbose (not to be used in conjunction with -D).
+.PP
+
+.PP
+.PP
+.IP "\(bu" 2
+\fB Usage \fP 
+.PP
+.nf
+ >mlogger -D 
+
+.fi
+.PP
+
+.PP
+.PP
+\fB Notes \fP 
+.PD 0
+
+.IP "\(bu" 2
+The mlogger application requires an existing \fB/Equipment tree\fP in the ODB 
+.IP "\(bu" 2
+Once the mlogger is running, you should be able to monitor its state with \fBmstat\fP or with \fBmhttpd\fP . 
+.PP
+
+.br
+.PP
+
+.br
+.PP
+
+.br
+.PP
+.IP "\(bu" 2
+\fBCustomizing the MIDAS data logging\fP
+.IP "\(bu" 2
+\fBMessaging\fP
+.IP "\(bu" 2
+\fBLogging information to a mySQL database\fP
+.IP "\(bu" 2
+\fBHistory Logging\fP
+.IP "  \(bu" 4
+\fBMIDAS SQL History system\fP New (since \fBJan 2009\fP )
+.PP
+
+.IP "\(bu" 2
+\fBElectronic logbook (Elog)\fP
+.IP "\(bu" 2
+\fBLogging Utilities\fP 
+.br
+
+.br
+
+.PP
+.PP
+.PP
+
+.br
+
+.br
+.PP
+ 

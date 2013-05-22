@@ -1,0 +1,8 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$a00015.html#ac2d58ceff032ecbd7dab209301034eb1" title="Add a templated function that returns event data in the format that we want." alt="" coords="437,32,677,61"/>
+<area shape="rect" id="node11" href="$a00018.html#accf1f33f1ff010b905222f214e54009d" title="Get the TDC measurement." alt="" coords="419,85,696,115"/>
+<area shape="rect" id="node13" href="$a00041.html#a2d23482e90e5902e6880513b2fa891d4" title="Get the Vector of TDC Measurements." alt="" coords="436,139,679,168"/>
+<area shape="rect" id="node5" href="$a00030.html#ab43ecd65b499093aa9a388c6bd1ae902" title="TMidasEvent::FindBank" alt="" coords="775,5,953,35"/>
+<area shape="rect" id="node9" href="$a00015.html#a4d07e5a76a135df4f3368c82cc549c09" title="Get the MIDAS data for this event, in TMidasEvent format." alt="" coords="745,59,983,88"/>
+<area shape="rect" id="node7" href="$a00030.html#a31219788e979aa3485cbf2e98dccd848" title="iterate through 32&#45;bit data banks" alt="" coords="1033,5,1249,35"/>
+</map>

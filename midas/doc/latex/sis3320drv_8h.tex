@@ -1,0 +1,44 @@
+\subsection{sis3320drv.h File Reference}
+\label{sis3320drv_8h}\index{sis3320drv.h@{sis3320drv.h}}
+\subsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{sis3320drv_8h_ae1163990f782e9844b925f28255c588e}{sis3320\_\-Setup} (\hyperlink{structMVME__INTERFACE}{MVME\_\-INTERFACE} $\ast$mvme, uint32\_\-t a32base, int mode)
+\end{DoxyCompactItemize}
+
+
+\subsubsection{Function Documentation}
+\index{sis3320drv.h@{sis3320drv.h}!sis3320\_\-RegisterRead@{sis3320\_\-RegisterRead}}
+\index{sis3320\_\-RegisterRead@{sis3320\_\-RegisterRead}!sis3320drv.h@{sis3320drv.h}}
+\paragraph[{sis3320\_\-RegisterRead}]{\setlength{\rightskip}{0pt plus 5cm}uint32\_\-t sis3320\_\-RegisterRead ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  uint32\_\-t {\em a32base}, \/  int {\em offset})}\hfill\label{sis3320drv_8h_addb17b85efa458df51fb8aed4ef3d432}
+
+
+Definition at line 43 of file sis3320.c.\index{sis3320drv.h@{sis3320drv.h}!sis3320\_\-RegisterWrite@{sis3320\_\-RegisterWrite}}
+\index{sis3320\_\-RegisterWrite@{sis3320\_\-RegisterWrite}!sis3320drv.h@{sis3320drv.h}}
+\paragraph[{sis3320\_\-RegisterWrite}]{\setlength{\rightskip}{0pt plus 5cm}void sis3320\_\-RegisterWrite ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  uint32\_\-t {\em a32base}, \/  int {\em offset}, \/  uint32\_\-t {\em value})}\hfill\label{sis3320drv_8h_a175d9223ac5afb63352b31a4a6a2ab20}
+
+
+Definition at line 49 of file sis3320.c.\index{sis3320drv.h@{sis3320drv.h}!sis3320\_\-Reset@{sis3320\_\-Reset}}
+\index{sis3320\_\-Reset@{sis3320\_\-Reset}!sis3320drv.h@{sis3320drv.h}}
+\paragraph[{sis3320\_\-Reset}]{\setlength{\rightskip}{0pt plus 5cm}void sis3320\_\-Reset ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  uint32\_\-t {\em a32base})}\hfill\label{sis3320drv_8h_a16d75653195aa5388e06e325b3b34621}
+
+
+Definition at line 55 of file sis3320.c.\index{sis3320drv.h@{sis3320drv.h}!sis3320\_\-Setup@{sis3320\_\-Setup}}
+\index{sis3320\_\-Setup@{sis3320\_\-Setup}!sis3320drv.h@{sis3320drv.h}}
+\paragraph[{sis3320\_\-Setup}]{\setlength{\rightskip}{0pt plus 5cm}int sis3320\_\-Setup ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  uint32\_\-t {\em base}, \/  int {\em mode})}\hfill\label{sis3320drv_8h_ae1163990f782e9844b925f28255c588e}
+Sets all the necessary paramters for a given configuration. The configuration is provided by the mode argument. Add your own configuration in the case statement. Let me know your setting if you want to include it in the distribution. 
+\begin{DoxyParams}{Parameters}
+\item[{\em $\ast$mvme}]VME structure \item[{\em base}]Module base address \item[{\em mode}]Configuration mode number \item[{\em $\ast$nentry}]number of entries requested and returned. \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+MVME\_\-SUCCESS 
+\end{DoxyReturn}
+
+
+Definition at line 83 of file sis3320.c.\index{sis3320drv.h@{sis3320drv.h}!sis3320\_\-Status@{sis3320\_\-Status}}
+\index{sis3320\_\-Status@{sis3320\_\-Status}!sis3320drv.h@{sis3320drv.h}}
+\paragraph[{sis3320\_\-Status}]{\setlength{\rightskip}{0pt plus 5cm}void sis3320\_\-Status ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  uint32\_\-t {\em a32base})}\hfill\label{sis3320drv_8h_a524558d0685ff13c8ffffe3fa9024276}
+
+
+Definition at line 61 of file sis3320.c.
+
+Referenced by sis3320\_\-Setup().

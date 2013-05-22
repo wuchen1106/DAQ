@@ -1,0 +1,80 @@
+.TH "ANA_MODULE" 3 "31 May 2012" "Version 2.3.0-0" "Midas" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+ANA_MODULE \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "char \fBname\fP [NAME_LENGTH]"
+.br
+.ti -1c
+.RI "char \fBauthor\fP [NAME_LENGTH]"
+.br
+.ti -1c
+.RI "\fBINT\fP(* \fBanalyzer\fP )(\fBEVENT_HEADER\fP *, void *)"
+.br
+.ti -1c
+.RI "\fBINT\fP(* \fBbor\fP )(\fBINT\fP \fBrun_number\fP)"
+.br
+.ti -1c
+.RI "\fBINT\fP(* \fBeor\fP )(\fBINT\fP \fBrun_number\fP)"
+.br
+.ti -1c
+.RI "\fBINT\fP(* \fBinit\fP )()"
+.br
+.ti -1c
+.RI "\fBINT\fP(* \fBexit\fP )()"
+.br
+.ti -1c
+.RI "void * \fBparameters\fP"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBparam_size\fP"
+.br
+.ti -1c
+.RI "char ** \fBinit_str\fP"
+.br
+.ti -1c
+.RI "\fBBOOL\fP \fBenabled\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 1087 of file midas.h.
+.SH "Field Documentation"
+.PP 
+.SS "\fBINT\fP(* \fBANA_MODULE::analyzer\fP)(\fBEVENT_HEADER\fP *, void *)"Pointer to user analyzer routine 
+.SS "char \fBANA_MODULE::author\fP[NAME_LENGTH]"Author 
+.PP
+Definition at line 1089 of file midas.h.
+.SS "\fBINT\fP(* \fBANA_MODULE::bor\fP)(\fBINT\fP \fBrun_number\fP)"Pointer to begin-of-run routine 
+.SS "\fBBOOL\fP \fBANA_MODULE::enabled\fP"Enabled flag 
+.PP
+Definition at line 1099 of file midas.h.
+.SS "\fBINT\fP(* \fBANA_MODULE::eor\fP)(\fBINT\fP \fBrun_number\fP)"Pointer to end-of-run routine 
+.SS "\fBINT\fP(* \fBANA_MODULE::exit\fP)()"Pointer to exit routine 
+.SS "void* \fBANA_MODULE::histo_folder\fP"
+.PP
+Definition at line 1100 of file midas.h.
+.SS "\fBINT\fP(* \fBANA_MODULE::init\fP)()"Pointer to init routine 
+.SS "char** \fBANA_MODULE::init_str\fP"Parameter init string 
+.PP
+Definition at line 1098 of file midas.h.
+.SS "char \fBANA_MODULE::name\fP[NAME_LENGTH]"Module name 
+.PP
+Definition at line 1088 of file midas.h.
+.SS "\fBINT\fP \fBANA_MODULE::param_size\fP"Size of parameter structure 
+.PP
+Definition at line 1097 of file midas.h.
+.SS "void* \fBANA_MODULE::parameters\fP"Pointer to parameter structure 
+.PP
+Definition at line 1096 of file midas.h.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Midas from the source code.

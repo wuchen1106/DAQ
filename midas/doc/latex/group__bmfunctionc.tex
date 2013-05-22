@@ -1,0 +1,472 @@
+\subsection{Midas Buffer Manager Functions (bm\_\-xxx)}
+\label{group__bmfunctionc}\index{Midas Buffer Manager Functions (bm\_\-xxx)@{Midas Buffer Manager Functions (bm\_\-xxx)}}
+\subsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{group__bmfunctionc_ga181dcf462745127aa3d011a2e3fee805}{bm\_\-match\_\-event} (short int event\_\-id, short int trigger\_\-mask, \hyperlink{structEVENT__HEADER}{EVENT\_\-HEADER} $\ast$pevent)
+\item 
+void \hyperlink{group__bmfunctionc_gaf13b277e24b666918ee8aec0160f5288}{bm\_\-remove\_\-client\_\-locked} (\hyperlink{structBUFFER__HEADER}{BUFFER\_\-HEADER} $\ast$pheader, int j)
+\item 
+static void \hyperlink{group__bmfunctionc_ga6a2a39a8d4d4a0302ec443762e7a34b4}{bm\_\-cleanup\_\-buffer\_\-locked} (int i, const char $\ast$who, \hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} \hyperlink{mevb_8c_a6431147bd66aebfe3ca728d244da1253}{actual\_\-time})
+\item 
+static void \hyperlink{group__bmfunctionc_ga2109ffa213706ade60f0b054d6c39164}{cm\_\-update\_\-last\_\-activity} (\hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} \hyperlink{mevb_8c_a6431147bd66aebfe3ca728d244da1253}{actual\_\-time})
+\item 
+static void \hyperlink{group__bmfunctionc_ga7ea560e34b23fa5fbf9596c2cc9d156d}{bm\_\-cleanup} (const char $\ast$who, \hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} \hyperlink{mevb_8c_a6431147bd66aebfe3ca728d244da1253}{actual\_\-time}, \hyperlink{vt2_8h_a239c7f0d40651c3e419c5b9651507d14}{BOOL} wrong\_\-interval)
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{group__bmfunctionc_gae9636ff3e34ee94e31cb292bd07a679d}{bm\_\-open\_\-buffer} (char $\ast$\hyperlink{mevb_8c_a93bc09c1f5f9f26a081d11962971f301}{buffer\_\-name}, \hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} buffer\_\-size, \hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} $\ast$buffer\_\-handle)
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{group__bmfunctionc_ga7b2cbde6caa572dfc978c780d63ab6be}{bm\_\-close\_\-buffer} (\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} buffer\_\-handle)
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{group__bmfunctionc_ga3a2dae045156606fc157e01a82983a25}{bm\_\-close\_\-all\_\-buffers} (void)
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{group__bmfunctionc_ga2689ca85c6d0023f1a02e6827a5eff6e}{bm\_\-set\_\-cache\_\-size} (\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} buffer\_\-handle, \hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} read\_\-size, \hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} write\_\-size)
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{group__bmfunctionc_gac5e3e469fb6721a502ebd80a35a328f5}{bm\_\-compose\_\-event} (\hyperlink{structEVENT__HEADER}{EVENT\_\-HEADER} $\ast$event\_\-header, short int event\_\-id, short int trigger\_\-mask, \hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} size, \hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} serial)
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{group__bmfunctionc_gabf663d96482aeede1846487a7ada8184}{bm\_\-request\_\-event} (HNDLE buffer\_\-handle, short int event\_\-id, short int trigger\_\-mask, \hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} sampling\_\-type, HNDLE $\ast$request\_\-id, void($\ast$func)(HNDLE, HNDLE, \hyperlink{structEVENT__HEADER}{EVENT\_\-HEADER} $\ast$, void $\ast$))
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{group__bmfunctionc_ga7810d29ac3894a4e299737bc7c7a2cf1}{bm\_\-remove\_\-event\_\-request} (\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} buffer\_\-handle, \hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} request\_\-id)
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{group__bmfunctionc_ga33221a55f8c90e411dea5eb34a2ee773}{bm\_\-delete\_\-request} (\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} request\_\-id)
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{group__bmfunctionc_ga499b14a246f8ab8d5a3b6ec77bfa9407}{bm\_\-send\_\-event} (\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} buffer\_\-handle, void $\ast$source, \hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} buf\_\-size, \hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} async\_\-flag)
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{group__bmfunctionc_ga9b74b8aa633c942682e642acba93c51d}{bm\_\-flush\_\-cache} (\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} buffer\_\-handle, \hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} async\_\-flag)
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{group__bmfunctionc_ga2fd8bb52ad5282be3ce076e84bc007fa}{bm\_\-receive\_\-event} (\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} buffer\_\-handle, void $\ast$destination, \hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} $\ast$buf\_\-size, \hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} async\_\-flag)
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{group__bmfunctionc_ga4a12567d843b2e1d20da58d8abfabb04}{bm\_\-skip\_\-event} (\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} buffer\_\-handle)
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{group__bmfunctionc_gabcc6bb732b720fcc3ffe859f732a07e0}{bm\_\-push\_\-event} (char $\ast$\hyperlink{mevb_8c_a93bc09c1f5f9f26a081d11962971f301}{buffer\_\-name})
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{group__bmfunctionc_ga6f72d4840fd9ca14a9864252fe5d8b3a}{bm\_\-check\_\-buffers} ()
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{group__bmfunctionc_ga516c50d818df89f466ac1fc135120fa6}{bm\_\-empty\_\-buffers} ()
+\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+dox dox dox 
+
+\subsubsection{Function Documentation}
+\index{bmfunctionc@{bmfunctionc}!bm\_\-check\_\-buffers@{bm\_\-check\_\-buffers}}
+\index{bm\_\-check\_\-buffers@{bm\_\-check\_\-buffers}!bmfunctionc@{bmfunctionc}}
+\paragraph[{bm\_\-check\_\-buffers}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} bm\_\-check\_\-buffers ()}\hfill\label{group__bmfunctionc_ga6f72d4840fd9ca14a9864252fe5d8b3a}
+Check if any requested event is waiting in a buffer \begin{DoxyReturn}{Returns}
+TRUE More events are waiting\par
+ FALSE No more events are waiting 
+\end{DoxyReturn}
+
+
+Definition at line 7660 of file midas.c.
+
+Referenced by cm\_\-yield().\index{bmfunctionc@{bmfunctionc}!bm\_\-cleanup@{bm\_\-cleanup}}
+\index{bm\_\-cleanup@{bm\_\-cleanup}!bmfunctionc@{bmfunctionc}}
+\paragraph[{bm\_\-cleanup}]{\setlength{\rightskip}{0pt plus 5cm}static void bm\_\-cleanup (const char $\ast$ {\em who}, \/  {\bf DWORD} {\em actual\_\-time}, \/  {\bf BOOL} {\em wrong\_\-interval})\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}\hfill\label{group__bmfunctionc_ga7ea560e34b23fa5fbf9596c2cc9d156d}
+Check all clients on all buffers, remove invalid clients 
+
+Definition at line 4521 of file midas.c.
+
+Referenced by bm\_\-open\_\-buffer(), and bm\_\-wait\_\-for\_\-free\_\-space().\index{bmfunctionc@{bmfunctionc}!bm\_\-cleanup\_\-buffer\_\-locked@{bm\_\-cleanup\_\-buffer\_\-locked}}
+\index{bm\_\-cleanup\_\-buffer\_\-locked@{bm\_\-cleanup\_\-buffer\_\-locked}!bmfunctionc@{bmfunctionc}}
+\paragraph[{bm\_\-cleanup\_\-buffer\_\-locked}]{\setlength{\rightskip}{0pt plus 5cm}static void bm\_\-cleanup\_\-buffer\_\-locked (int {\em i}, \/  const char $\ast$ {\em who}, \/  {\bf DWORD} {\em actual\_\-time})\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}\hfill\label{group__bmfunctionc_ga6a2a39a8d4d4a0302ec443762e7a34b4}
+Check all clients on buffer, remove invalid clients 
+
+Definition at line 4445 of file midas.c.
+
+Referenced by bm\_\-cleanup(), and bm\_\-open\_\-buffer().\index{bmfunctionc@{bmfunctionc}!bm\_\-close\_\-all\_\-buffers@{bm\_\-close\_\-all\_\-buffers}}
+\index{bm\_\-close\_\-all\_\-buffers@{bm\_\-close\_\-all\_\-buffers}!bmfunctionc@{bmfunctionc}}
+\paragraph[{bm\_\-close\_\-all\_\-buffers}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} bm\_\-close\_\-all\_\-buffers (void)}\hfill\label{group__bmfunctionc_ga3a2dae045156606fc157e01a82983a25}
+Close all open buffers \begin{DoxyReturn}{Returns}
+BM\_\-SUCCESS 
+\end{DoxyReturn}
+
+
+Definition at line 4946 of file midas.c.
+
+Referenced by cm\_\-disconnect\_\-experiment(), and cm\_\-set\_\-client\_\-info().\index{bmfunctionc@{bmfunctionc}!bm\_\-close\_\-buffer@{bm\_\-close\_\-buffer}}
+\index{bm\_\-close\_\-buffer@{bm\_\-close\_\-buffer}!bmfunctionc@{bmfunctionc}}
+\paragraph[{bm\_\-close\_\-buffer}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} bm\_\-close\_\-buffer ({\bf INT} {\em buffer\_\-handle})}\hfill\label{group__bmfunctionc_ga7b2cbde6caa572dfc978c780d63ab6be}
+Closes an event buffer previously opened with \hyperlink{group__bmfunctionc_gae9636ff3e34ee94e31cb292bd07a679d}{bm\_\-open\_\-buffer()}. 
+\begin{DoxyParams}{Parameters}
+\item[{\em buffer\_\-handle}]buffer handle \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+BM\_\-SUCCESS, BM\_\-INVALID\_\-HANDLE 
+\end{DoxyReturn}
+
+
+Definition at line 4826 of file midas.c.
+
+Referenced by bm\_\-close\_\-all\_\-buffers(), and source\_\-unbooking().\index{bmfunctionc@{bmfunctionc}!bm\_\-compose\_\-event@{bm\_\-compose\_\-event}}
+\index{bm\_\-compose\_\-event@{bm\_\-compose\_\-event}!bmfunctionc@{bmfunctionc}}
+\paragraph[{bm\_\-compose\_\-event}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} bm\_\-compose\_\-event ({\bf EVENT\_\-HEADER} $\ast$ {\em event\_\-header}, \/  short int {\em event\_\-id}, \/  short int {\em trigger\_\-mask}, \/  {\bf DWORD} {\em size}, \/  {\bf DWORD} {\em serial})}\hfill\label{group__bmfunctionc_gac5e3e469fb6721a502ebd80a35a328f5}
+Compose a Midas event header. An event header can usually be set-\/up manually or through this routine. If the data size of the event is not known when the header is composed, it can be set later with event\_\-header-\/$>$data-\/size = $<$...$>$ Following structure is created at the beginning of an event 
+\begin{DoxyCode}
+typedef struct {
+ short int     event_id;
+ short int     trigger_mask;
+ DWORD         serial_number;
+ DWORD         time_stamp;
+ DWORD         data_size;
+} EVENT_HEADER;
+
+char event[1000];
+ bm_compose_event((EVENT_HEADER *)event, 1, 0, 100, 1);
+ *(event+sizeof(EVENT_HEADER)) = <...>
+\end{DoxyCode}
+ 
+\begin{DoxyParams}{Parameters}
+\item[{\em event\_\-header}]pointer to the event header \item[{\em event\_\-id}]event ID of the event \item[{\em trigger\_\-mask}]trigger mask of the event \item[{\em size}]size if the data part of the event in bytes \item[{\em serial}]serial number \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+BM\_\-SUCCESS 
+\end{DoxyReturn}
+
+
+Definition at line 5901 of file midas.c.
+
+Referenced by cm\_\-msg1(), cm\_\-msg\_\-send\_\-event(), and source\_\-scan().\index{bmfunctionc@{bmfunctionc}!bm\_\-convert\_\-event\_\-header@{bm\_\-convert\_\-event\_\-header}}
+\index{bm\_\-convert\_\-event\_\-header@{bm\_\-convert\_\-event\_\-header}!bmfunctionc@{bmfunctionc}}
+\paragraph[{bm\_\-convert\_\-event\_\-header}]{\setlength{\rightskip}{0pt plus 5cm}static void bm\_\-convert\_\-event\_\-header ({\bf EVENT\_\-HEADER} $\ast$ {\em pevent}, \/  int {\em convert\_\-flags})\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}\hfill\label{group__bmfunctionc_ga59590af56aeabd24fce9112ca32ffecf}
+
+
+Definition at line 6416 of file midas.c.
+
+Referenced by bm\_\-copy\_\-from\_\-cache(), and bm\_\-receive\_\-event().\index{bmfunctionc@{bmfunctionc}!bm\_\-copy\_\-from\_\-cache@{bm\_\-copy\_\-from\_\-cache}}
+\index{bm\_\-copy\_\-from\_\-cache@{bm\_\-copy\_\-from\_\-cache}!bmfunctionc@{bmfunctionc}}
+\paragraph[{bm\_\-copy\_\-from\_\-cache}]{\setlength{\rightskip}{0pt plus 5cm}static int bm\_\-copy\_\-from\_\-cache ({\bf BUFFER} $\ast$ {\em pbuf}, \/  void $\ast$ {\em destination}, \/  int {\em max\_\-size}, \/  int $\ast$ {\em buf\_\-size}, \/  int {\em convert\_\-flags})\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}\hfill\label{group__bmfunctionc_ga3c7b7fc1483b9cdcb5ee4a6baef102e2}
+
+
+Definition at line 6428 of file midas.c.
+
+Referenced by bm\_\-receive\_\-event().\index{bmfunctionc@{bmfunctionc}!bm\_\-delete\_\-request@{bm\_\-delete\_\-request}}
+\index{bm\_\-delete\_\-request@{bm\_\-delete\_\-request}!bmfunctionc@{bmfunctionc}}
+\paragraph[{bm\_\-delete\_\-request}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} bm\_\-delete\_\-request ({\bf INT} {\em request\_\-id})}\hfill\label{group__bmfunctionc_ga33221a55f8c90e411dea5eb34a2ee773}
+Deletes an event request previously done with \hyperlink{group__bmfunctionc_gabf663d96482aeede1846487a7ada8184}{bm\_\-request\_\-event()}. When an event request gets deleted, events of that requested type are not received any more. When a buffer is closed via \hyperlink{group__bmfunctionc_ga7b2cbde6caa572dfc978c780d63ab6be}{bm\_\-close\_\-buffer()}, all event requests from that buffer are deleted automatically 
+\begin{DoxyParams}{Parameters}
+\item[{\em request\_\-id}]request identifier given by \hyperlink{group__bmfunctionc_gabf663d96482aeede1846487a7ada8184}{bm\_\-request\_\-event()} \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+BM\_\-SUCCESS, BM\_\-INVALID\_\-HANDLE 
+\end{DoxyReturn}
+
+
+Definition at line 6200 of file midas.c.
+
+Referenced by bm\_\-close\_\-buffer(), and source\_\-unbooking().\index{bmfunctionc@{bmfunctionc}!bm\_\-dispatch\_\-event@{bm\_\-dispatch\_\-event}}
+\index{bm\_\-dispatch\_\-event@{bm\_\-dispatch\_\-event}!bmfunctionc@{bmfunctionc}}
+\paragraph[{bm\_\-dispatch\_\-event}]{\setlength{\rightskip}{0pt plus 5cm}static void bm\_\-dispatch\_\-event (int {\em buffer\_\-handle}, \/  {\bf EVENT\_\-HEADER} $\ast$ {\em pevent})\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}\hfill\label{group__bmfunctionc_gacc844625f422be4b21810748a2618783}
+
+
+Definition at line 6380 of file midas.c.
+
+Referenced by bm\_\-dispatch\_\-from\_\-cache(), and bm\_\-push\_\-event().\index{bmfunctionc@{bmfunctionc}!bm\_\-dispatch\_\-from\_\-cache@{bm\_\-dispatch\_\-from\_\-cache}}
+\index{bm\_\-dispatch\_\-from\_\-cache@{bm\_\-dispatch\_\-from\_\-cache}!bmfunctionc@{bmfunctionc}}
+\paragraph[{bm\_\-dispatch\_\-from\_\-cache}]{\setlength{\rightskip}{0pt plus 5cm}static void bm\_\-dispatch\_\-from\_\-cache ({\bf BUFFER} $\ast$ {\em pbuf}, \/  int {\em buffer\_\-handle})\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}\hfill\label{group__bmfunctionc_gae17352acfb63e945e2e932ca92156da2}
+
+
+Definition at line 6396 of file midas.c.
+
+Referenced by bm\_\-push\_\-event().\index{bmfunctionc@{bmfunctionc}!bm\_\-empty\_\-buffers@{bm\_\-empty\_\-buffers}}
+\index{bm\_\-empty\_\-buffers@{bm\_\-empty\_\-buffers}!bmfunctionc@{bmfunctionc}}
+\paragraph[{bm\_\-empty\_\-buffers}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} bm\_\-empty\_\-buffers ()}\hfill\label{group__bmfunctionc_ga516c50d818df89f466ac1fc135120fa6}
+dox Clears event buffer and cache. If an event buffer is large and a consumer is slow in analyzing events, events are usually received some time after they are produced. This effect is even more experienced if a read cache is used (via \hyperlink{group__bmfunctionc_ga2689ca85c6d0023f1a02e6827a5eff6e}{bm\_\-set\_\-cache\_\-size()}). When changes to the hardware are made in the experience, the consumer will then still analyze old events before any new event which reflects the hardware change. Users can be fooled by looking at histograms which reflect the hardware change many seconds after they have been made.
+
+To overcome this potential problem, the analyzer can call \hyperlink{group__bmfunctionc_ga516c50d818df89f466ac1fc135120fa6}{bm\_\-empty\_\-buffers()} just after the hardware change has been made which skips all old events contained in event buffers and read caches. Technically this is done by forwarding the read pointer of the client. No events are really deleted, they are still visible to other clients like the logger.
+
+Note that the front-\/end also contains write buffers which can delay the delivery of events. The standard front-\/end framework \hyperlink{mfe_8c}{mfe.c} reduces this effect by flushing all buffers once every second. \begin{DoxyReturn}{Returns}
+BM\_\-SUCCESS 
+\end{DoxyReturn}
+
+
+Definition at line 7987 of file midas.c.
+
+Referenced by handFlush(), source\_\-booking(), and source\_\-unbooking().\index{bmfunctionc@{bmfunctionc}!bm\_\-flush\_\-cache@{bm\_\-flush\_\-cache}}
+\index{bm\_\-flush\_\-cache@{bm\_\-flush\_\-cache}!bmfunctionc@{bmfunctionc}}
+\paragraph[{bm\_\-flush\_\-cache}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} bm\_\-flush\_\-cache ({\bf INT} {\em buffer\_\-handle}, \/  {\bf INT} {\em async\_\-flag})}\hfill\label{group__bmfunctionc_ga9b74b8aa633c942682e642acba93c51d}
+Empty write cache. This function should be used if events in the write cache should be visible to the consumers immediately. It should be called at the end of each run, otherwise events could be kept in the write buffer and will flow to the data of the next run. 
+\begin{DoxyParams}{Parameters}
+\item[{\em buffer\_\-handle}]Buffer handle obtained via \hyperlink{group__bmfunctionc_gae9636ff3e34ee94e31cb292bd07a679d}{bm\_\-open\_\-buffer()} \item[{\em async\_\-flag}]Synchronous/asynchronous flag. If FALSE, the function blocks if the buffer has not enough free space to receive the full cache. If TRUE, the function returns immediately with a value of BM\_\-ASYNC\_\-RETURN without writing the cache. \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+BM\_\-SUCCESS, BM\_\-INVALID\_\-HANDLE\par
+ BM\_\-ASYNC\_\-RETURN Routine called with async\_\-flag == TRUE and buffer has not enough space to receive cache\par
+ BM\_\-NO\_\-MEMORY Event is too large for network buffer or event buffer. One has to increase MAX\_\-EVENT\_\-SIZE in \hyperlink{midas_8h}{midas.h} and recompile. 
+\end{DoxyReturn}
+
+
+Definition at line 6897 of file midas.c.
+
+Referenced by bm\_\-send\_\-event(), close\_\-buffers(), scan\_\-fragment(), scheduler(), send\_\-event(), and tr\_\-stop().\index{bmfunctionc@{bmfunctionc}!bm\_\-match\_\-event@{bm\_\-match\_\-event}}
+\index{bm\_\-match\_\-event@{bm\_\-match\_\-event}!bmfunctionc@{bmfunctionc}}
+\paragraph[{bm\_\-match\_\-event}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} bm\_\-match\_\-event (short int {\em event\_\-id}, \/  short int {\em trigger\_\-mask}, \/  {\bf EVENT\_\-HEADER} $\ast$ {\em pevent})}\hfill\label{group__bmfunctionc_ga181dcf462745127aa3d011a2e3fee805}
+Check if an event matches a given event request by the event id and trigger mask 
+\begin{DoxyParams}{Parameters}
+\item[{\em event\_\-id}]Event ID of request \item[{\em trigger\_\-mask}]Trigger mask of request \item[{\em pevent}]Pointer to event to check \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+TRUE if event matches request 
+\end{DoxyReturn}
+
+
+Definition at line 4396 of file midas.c.
+
+Referenced by bm\_\-dispatch\_\-event(), bm\_\-push\_\-event(), bm\_\-receive\_\-event(), bm\_\-send\_\-event(), and bm\_\-wait\_\-for\_\-free\_\-space().\index{bmfunctionc@{bmfunctionc}!bm\_\-open\_\-buffer@{bm\_\-open\_\-buffer}}
+\index{bm\_\-open\_\-buffer@{bm\_\-open\_\-buffer}!bmfunctionc@{bmfunctionc}}
+\paragraph[{bm\_\-open\_\-buffer}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} bm\_\-open\_\-buffer (char $\ast$ {\em buffer\_\-name}, \/  {\bf INT} {\em buffer\_\-size}, \/  {\bf INT} $\ast$ {\em buffer\_\-handle})}\hfill\label{group__bmfunctionc_gae9636ff3e34ee94e31cb292bd07a679d}
+Open an event buffer. Two default buffers are created by the system. The \char`\"{}SYSTEM\char`\"{} buffer is used to exchange events and the \char`\"{}SYSMSG\char`\"{} buffer is used to exchange system messages. The name and size of the event buffers is defined in \hyperlink{midas_8h}{midas.h} as EVENT\_\-BUFFER\_\-NAME and 2$\ast$MAX\_\-EVENT\_\-SIZE. Following example opens the \char`\"{}SYSTEM\char`\"{} buffer, requests events with ID 1 and enters a main loop. Events are then received in process\_\-event() 
+\begin{DoxyCode}
+#include <stdio.h>
+#include "midas.h"
+void process_event(HNDLE hbuf, HNDLE request_id,
+           EVENT_HEADER *pheader, void *pevent)
+{
+  printf("Received event #%d\r",
+  pheader->serial_number);
+}
+main()
+{
+  INT status, request_id;
+  HNDLE hbuf;
+  status = cm_connect_experiment("pc810", "Sample", "Simple Analyzer", NULL);
+  if (status != CM_SUCCESS)
+  return 1;
+  bm_open_buffer(EVENT_BUFFER_NAME, 2*MAX_EVENT_SIZE, &hbuf);
+  bm_request_event(hbuf, 1, TRIGGER_ALL, GET_ALL, request_id, process_event);
+
+  do
+  {
+   status = cm_yield(1000);
+  } while (status != RPC_SHUTDOWN && status != SS_ABORT);
+  cm_disconnect_experiment();
+  return 0;
+}
+\end{DoxyCode}
+ 
+\begin{DoxyParams}{Parameters}
+\item[{\em buffer\_\-name}]Name of buffer \item[{\em buffer\_\-size}]Default size of buffer in bytes. Can by overwritten with ODB value \item[{\em buffer\_\-handle}]Buffer handle returned by function \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+BM\_\-SUCCESS, BM\_\-CREATED \par
+ BM\_\-NO\_\-SHM Shared memory cannot be created \par
+ BM\_\-NO\_\-SEMAPHORE Semaphore cannot be created \par
+ BM\_\-NO\_\-MEMORY Not enough memory to create buffer descriptor \par
+ BM\_\-MEMSIZE\_\-MISMATCH Buffer size conflicts with an existing buffer of different size \par
+ BM\_\-INVALID\_\-PARAM Invalid parameter 
+\end{DoxyReturn}
+
+
+Definition at line 4595 of file midas.c.
+
+Referenced by cm\_\-msg1(), cm\_\-msg\_\-register(), cm\_\-msg\_\-send\_\-event(), register\_\-equipment(), and source\_\-booking().\index{bmfunctionc@{bmfunctionc}!bm\_\-push\_\-event@{bm\_\-push\_\-event}}
+\index{bm\_\-push\_\-event@{bm\_\-push\_\-event}!bmfunctionc@{bmfunctionc}}
+\paragraph[{bm\_\-push\_\-event}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} bm\_\-push\_\-event (char $\ast$ {\em buffer\_\-name})}\hfill\label{group__bmfunctionc_gabcc6bb732b720fcc3ffe859f732a07e0}
+Check a buffer if an event is available and call the dispatch function if found. 
+\begin{DoxyParams}{Parameters}
+\item[{\em buffer\_\-name}]Name of buffer \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+BM\_\-SUCCESS, BM\_\-INVALID\_\-HANDLE, BM\_\-TRUNCATED, BM\_\-ASYNC\_\-RETURN, RPC\_\-NET\_\-ERROR 
+\end{DoxyReturn}
+
+
+Definition at line 7426 of file midas.c.
+
+Referenced by bm\_\-check\_\-buffers().\index{bmfunctionc@{bmfunctionc}!bm\_\-read\_\-cache\_\-has\_\-events@{bm\_\-read\_\-cache\_\-has\_\-events}}
+\index{bm\_\-read\_\-cache\_\-has\_\-events@{bm\_\-read\_\-cache\_\-has\_\-events}!bmfunctionc@{bmfunctionc}}
+\paragraph[{bm\_\-read\_\-cache\_\-has\_\-events}]{\setlength{\rightskip}{0pt plus 5cm}static int bm\_\-read\_\-cache\_\-has\_\-events (const {\bf BUFFER} $\ast$ {\em pbuf})\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}\hfill\label{group__bmfunctionc_gae01d28bceec73613c01f4fad2b461c83}
+
+
+Definition at line 6462 of file midas.c.
+
+Referenced by bm\_\-push\_\-event(), and bm\_\-receive\_\-event().\index{bmfunctionc@{bmfunctionc}!bm\_\-receive\_\-event@{bm\_\-receive\_\-event}}
+\index{bm\_\-receive\_\-event@{bm\_\-receive\_\-event}!bmfunctionc@{bmfunctionc}}
+\paragraph[{bm\_\-receive\_\-event}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} bm\_\-receive\_\-event ({\bf INT} {\em buffer\_\-handle}, \/  void $\ast$ {\em destination}, \/  {\bf INT} $\ast$ {\em buf\_\-size}, \/  {\bf INT} {\em async\_\-flag})}\hfill\label{group__bmfunctionc_ga2fd8bb52ad5282be3ce076e84bc007fa}
+Receives events directly. This function is an alternative way to receive events without a main loop.
+
+It can be used in analysis systems which actively receive events, rather than using callbacks. A analysis package could for example contain its own command line interface. A command like \char`\"{}receive 1000 events\char`\"{} could make it necessary to call \hyperlink{group__bmfunctionc_ga2fd8bb52ad5282be3ce076e84bc007fa}{bm\_\-receive\_\-event()} 1000 times in a row to receive these events and then return back to the command line prompt. The according \hyperlink{group__bmfunctionc_gabf663d96482aeede1846487a7ada8184}{bm\_\-request\_\-event()} call contains NULL as the callback routine to indicate that \hyperlink{group__bmfunctionc_ga2fd8bb52ad5282be3ce076e84bc007fa}{bm\_\-receive\_\-event()} is called to receive events. 
+\begin{DoxyCode}
+#include <stdio.h>
+#include "midas.h"
+void process_event(EVENT_HEADER *pheader)
+{
+ printf("Received event #%d\r",
+ pheader->serial_number);
+}
+main()
+{
+  INT status, request_id;
+  HNDLE hbuf;
+  char event_buffer[1000];
+  status = cm_connect_experiment("", "Sample",
+  "Simple Analyzer", NULL);
+  if (status != CM_SUCCESS)
+   return 1;
+  bm_open_buffer(EVENT_BUFFER_NAME, 2*MAX_EVENT_SIZE, &hbuf);
+  bm_request_event(hbuf, 1, TRIGGER_ALL, GET_ALL, request_id, NULL);
+
+  do
+  {
+   size = sizeof(event_buffer);
+   status = bm_receive_event(hbuf, event_buffer, &size, ASYNC);
+  if (status == CM_SUCCESS)
+   process_event((EVENT_HEADER *) event_buffer);
+   <...do something else...>
+   status = cm_yield(0);
+  } while (status != RPC_SHUTDOWN &&
+  status != SS_ABORT);
+  cm_disconnect_experiment();
+  return 0;
+}
+\end{DoxyCode}
+ 
+\begin{DoxyParams}{Parameters}
+\item[{\em buffer\_\-handle}]buffer handle \item[{\em destination}]destination address where event is written to \item[{\em buf\_\-size}]size of destination buffer on input, size of event plus header on return. \item[{\em async\_\-flag}]Synchronous/asynchronous flag. If FALSE, the function blocks if no event is available. If TRUE, the function returns immediately with a value of BM\_\-ASYNC\_\-RETURN without receiving any event. \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+BM\_\-SUCCESS, BM\_\-INVALID\_\-HANDLE \par
+ BM\_\-TRUNCATED The event is larger than the destination buffer and was therefore truncated \par
+ BM\_\-ASYNC\_\-RETURN No event available 
+\end{DoxyReturn}
+
+
+Definition at line 7094 of file midas.c.
+
+Referenced by handFlush(), and source\_\-scan().\index{bmfunctionc@{bmfunctionc}!bm\_\-remove\_\-client\_\-locked@{bm\_\-remove\_\-client\_\-locked}}
+\index{bm\_\-remove\_\-client\_\-locked@{bm\_\-remove\_\-client\_\-locked}!bmfunctionc@{bmfunctionc}}
+\paragraph[{bm\_\-remove\_\-client\_\-locked}]{\setlength{\rightskip}{0pt plus 5cm}void bm\_\-remove\_\-client\_\-locked ({\bf BUFFER\_\-HEADER} $\ast$ {\em pheader}, \/  int {\em j})}\hfill\label{group__bmfunctionc_gaf13b277e24b666918ee8aec0160f5288}
+Called to forcibly disconnect given client from a data buffer 
+
+Definition at line 4413 of file midas.c.
+
+Referenced by bm\_\-cleanup\_\-buffer\_\-locked(), and cm\_\-cleanup().\index{bmfunctionc@{bmfunctionc}!bm\_\-remove\_\-event\_\-request@{bm\_\-remove\_\-event\_\-request}}
+\index{bm\_\-remove\_\-event\_\-request@{bm\_\-remove\_\-event\_\-request}!bmfunctionc@{bmfunctionc}}
+\paragraph[{bm\_\-remove\_\-event\_\-request}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} bm\_\-remove\_\-event\_\-request ({\bf INT} {\em buffer\_\-handle}, \/  {\bf INT} {\em request\_\-id})}\hfill\label{group__bmfunctionc_ga7810d29ac3894a4e299737bc7c7a2cf1}
+Delete a previously placed request for a specific event type in the client structure of the buffer refereced by buffer\_\-handle. 
+\begin{DoxyParams}{Parameters}
+\item[{\em buffer\_\-handle}]Handle to the buffer where the re-\/ quest should be placed in \item[{\em request\_\-id}]Request id returned by bm\_\-request\_\-event \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+BM\_\-SUCCESS, BM\_\-INVALID\_\-HANDLE, BM\_\-NOT\_\-FOUND, RPC\_\-NET\_\-ERROR 
+\end{DoxyReturn}
+
+
+Definition at line 6131 of file midas.c.
+
+Referenced by bm\_\-delete\_\-request().\index{bmfunctionc@{bmfunctionc}!bm\_\-request\_\-event@{bm\_\-request\_\-event}}
+\index{bm\_\-request\_\-event@{bm\_\-request\_\-event}!bmfunctionc@{bmfunctionc}}
+\paragraph[{bm\_\-request\_\-event}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} bm\_\-request\_\-event (HNDLE {\em buffer\_\-handle}, \/  short int {\em event\_\-id}, \/  short int {\em trigger\_\-mask}, \/  {\bf INT} {\em sampling\_\-type}, \/  HNDLE $\ast$ {\em request\_\-id}, \/  void($\ast$)(HNDLE, HNDLE, {\bf EVENT\_\-HEADER} $\ast$, void $\ast$) {\em func})}\hfill\label{group__bmfunctionc_gabf663d96482aeede1846487a7ada8184}
+dox Place an event request based on certain characteristics. Multiple event requests can be placed for each buffer, which are later identified by their request ID. They can contain different callback routines. Example see \hyperlink{group__bmfunctionc_gae9636ff3e34ee94e31cb292bd07a679d}{bm\_\-open\_\-buffer()} and \hyperlink{group__bmfunctionc_ga2fd8bb52ad5282be3ce076e84bc007fa}{bm\_\-receive\_\-event()} 
+\begin{DoxyParams}{Parameters}
+\item[{\em buffer\_\-handle}]buffer handle obtained via \hyperlink{group__bmfunctionc_gae9636ff3e34ee94e31cb292bd07a679d}{bm\_\-open\_\-buffer()} \item[{\em event\_\-id}]event ID for requested events. Use EVENTID\_\-ALL to receive events with any ID. \item[{\em trigger\_\-mask}]trigger mask for requested events. The requested events must have at least one bit in its trigger mask common with the requested trigger mask. Use TRIGGER\_\-ALL to receive events with any trigger mask. \item[{\em sampling\_\-type}]specifies how many events to receive. A value of GET\_\-ALL receives all events which match the specified event ID and trigger mask. If the events are consumed slower than produced, the producer is automatically slowed down. A value of GET\_\-NONBLOCKING receives as much events as possible without slowing down the producer. GET\_\-ALL is typically used by the logger, while GET\_\-NONBLOCKING is typically used by analyzers. \item[{\em request\_\-id}]request ID returned by the function. This ID is passed to the callback routine and must be used in the \hyperlink{group__bmfunctionc_ga33221a55f8c90e411dea5eb34a2ee773}{bm\_\-delete\_\-request()} routine. \item[{\em func}]allback routine which gets called when an event of the specified type is received. \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+BM\_\-SUCCESS, BM\_\-INVALID\_\-HANDLE \par
+ BM\_\-NO\_\-MEMORY too many requests. The value MAX\_\-EVENT\_\-REQUESTS in \hyperlink{midas_8h}{midas.h} should be increased. 
+\end{DoxyReturn}
+
+
+Definition at line 6067 of file midas.c.
+
+Referenced by cm\_\-msg\_\-register(), and source\_\-booking().\index{bmfunctionc@{bmfunctionc}!bm\_\-send\_\-event@{bm\_\-send\_\-event}}
+\index{bm\_\-send\_\-event@{bm\_\-send\_\-event}!bmfunctionc@{bmfunctionc}}
+\paragraph[{bm\_\-send\_\-event}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} bm\_\-send\_\-event ({\bf INT} {\em buffer\_\-handle}, \/  void $\ast$ {\em source}, \/  {\bf INT} {\em buf\_\-size}, \/  {\bf INT} {\em async\_\-flag})}\hfill\label{group__bmfunctionc_ga499b14a246f8ab8d5a3b6ec77bfa9407}
+Sends an event to a buffer. This function check if the buffer has enough space for the event, then copies the event to the buffer in shared memory. If clients have requests for the event, they are notified via an UDP packet. 
+\begin{DoxyCode}
+char event[1000];
+// create event with ID 1, trigger mask 0, size 100 bytes and serial number 1
+bm_compose_event((EVENT_HEADER *) event, 1, 0, 100, 1);
+
+// set first byte of event
+*(event+sizeof(EVENT_HEADER)) = <...>
+#include <stdio.h>
+#include "midas.h"
+main()
+{
+ INT status, i;
+ HNDLE hbuf;
+ char event[1000];
+ status = cm_connect_experiment("", "Sample", "Producer", NULL);
+ if (status != CM_SUCCESS)
+ return 1;
+ bm_open_buffer(EVENT_BUFFER_NAME, 2*MAX_EVENT_SIZE, &hbuf);
+
+ // create event with ID 1, trigger mask 0, size 100 bytes and serial number 1
+ bm_compose_event((EVENT_HEADER *) event, 1, 0, 100, 1);
+
+ // set event data
+ for (i=0 ; i<100 ; i++)
+ *(event+sizeof(EVENT_HEADER)+i) = i;
+ // send event
+ bm_send_event(hbuf, event, 100+sizeof(EVENT_HEADER), SYNC);
+ cm_disconnect_experiment();
+ return 0;
+}
+\end{DoxyCode}
+ 
+\begin{DoxyParams}{Parameters}
+\item[{\em buffer\_\-handle}]Buffer handle obtained via \hyperlink{group__bmfunctionc_gae9636ff3e34ee94e31cb292bd07a679d}{bm\_\-open\_\-buffer()} \item[{\em source}]Address of event buffer \item[{\em buf\_\-size}]Size of event including event header in bytes \item[{\em async\_\-flag}]Synchronous/asynchronous flag. If FALSE, the function blocks if the buffer has not enough free space to receive the event. If TRUE, the function returns immediately with a value of BM\_\-ASYNC\_\-RETURN without writing the event to the buffer \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+BM\_\-SUCCESS, BM\_\-INVALID\_\-HANDLE, BM\_\-INVALID\_\-PARAM\par
+ BM\_\-ASYNC\_\-RETURN Routine called with async\_\-flag == TRUE and buffer has not enough space to receive event\par
+ BM\_\-NO\_\-MEMORY Event is too large for network buffer or event buffer. One has to increase MAX\_\-EVENT\_\-SIZE in \hyperlink{midas_8h}{midas.h} and recompile. 
+\end{DoxyReturn}
+
+
+Definition at line 6707 of file midas.c.
+
+Referenced by cm\_\-msg1(), cm\_\-msg\_\-send\_\-event(), and rpc\_\-send\_\-event().\index{bmfunctionc@{bmfunctionc}!bm\_\-set\_\-cache\_\-size@{bm\_\-set\_\-cache\_\-size}}
+\index{bm\_\-set\_\-cache\_\-size@{bm\_\-set\_\-cache\_\-size}!bmfunctionc@{bmfunctionc}}
+\paragraph[{bm\_\-set\_\-cache\_\-size}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} bm\_\-set\_\-cache\_\-size ({\bf INT} {\em buffer\_\-handle}, \/  {\bf INT} {\em read\_\-size}, \/  {\bf INT} {\em write\_\-size})}\hfill\label{group__bmfunctionc_ga2689ca85c6d0023f1a02e6827a5eff6e}
+Modifies buffer cache size. Without a buffer cache, events are copied to/from the shared memory event by event.
+
+To protect processed from accessing the shared memory simultaneously, semaphores are used. Since semaphore operations are CPU consuming (typically 50-\/100us) this can slow down the data transfer especially for small events. By using a cache the number of semaphore operations is reduced dramatically. Instead writing directly to the shared memory, the events are copied to a local cache buffer. When this buffer is full, it is copied to the shared memory in one operation. The same technique can be used when receiving events.
+
+The drawback of this method is that the events have to be copied twice, once to the cache and once from the cache to the shared memory. Therefore it can happen that the usage of a cache even slows down data throughput on a given environment (computer type, OS type, event size). The cache size has therefore be optimized manually to maximize data throughput. 
+\begin{DoxyParams}{Parameters}
+\item[{\em buffer\_\-handle}]buffer handle obtained via \hyperlink{group__bmfunctionc_gae9636ff3e34ee94e31cb292bd07a679d}{bm\_\-open\_\-buffer()} \item[{\em read\_\-size}]cache size for reading events in bytes, zero for no cache \item[{\em write\_\-size}]cache size for writing events in bytes, zero for no cache \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+BM\_\-SUCCESS, BM\_\-INVALID\_\-HANDLE, BM\_\-NO\_\-MEMORY, BM\_\-INVALID\_\-PARAM 
+\end{DoxyReturn}
+
+
+Definition at line 5806 of file midas.c.
+
+Referenced by register\_\-equipment().\index{bmfunctionc@{bmfunctionc}!bm\_\-skip\_\-event@{bm\_\-skip\_\-event}}
+\index{bm\_\-skip\_\-event@{bm\_\-skip\_\-event}!bmfunctionc@{bmfunctionc}}
+\paragraph[{bm\_\-skip\_\-event}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} bm\_\-skip\_\-event ({\bf INT} {\em buffer\_\-handle})}\hfill\label{group__bmfunctionc_ga4a12567d843b2e1d20da58d8abfabb04}
+Skip all events in current buffer.
+
+Useful for single event displays to see the newest events 
+\begin{DoxyParams}{Parameters}
+\item[{\em buffer\_\-handle}]Handle of the buffer. Must be obtained via bm\_\-open\_\-buffer. \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+BM\_\-SUCCESS, BM\_\-INVALID\_\-HANDLE, RPC\_\-NET\_\-ERROR 
+\end{DoxyReturn}
+
+
+Definition at line 7378 of file midas.c.\index{bmfunctionc@{bmfunctionc}!bm\_\-update\_\-read\_\-pointer@{bm\_\-update\_\-read\_\-pointer}}
+\index{bm\_\-update\_\-read\_\-pointer@{bm\_\-update\_\-read\_\-pointer}!bmfunctionc@{bmfunctionc}}
+\paragraph[{bm\_\-update\_\-read\_\-pointer}]{\setlength{\rightskip}{0pt plus 5cm}static {\bf BOOL} bm\_\-update\_\-read\_\-pointer (const char $\ast$ {\em caller\_\-name}, \/  {\bf BUFFER\_\-HEADER} $\ast$ {\em pheader})\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}\hfill\label{group__bmfunctionc_ga33415128fc3cfa10528fe85badc265ef}
+
+
+Definition at line 6296 of file midas.c.
+
+Referenced by bm\_\-flush\_\-cache(), bm\_\-push\_\-event(), bm\_\-receive\_\-event(), bm\_\-send\_\-event(), and bm\_\-wait\_\-for\_\-free\_\-space().\index{bmfunctionc@{bmfunctionc}!bm\_\-validate\_\-client\_\-pointers@{bm\_\-validate\_\-client\_\-pointers}}
+\index{bm\_\-validate\_\-client\_\-pointers@{bm\_\-validate\_\-client\_\-pointers}!bmfunctionc@{bmfunctionc}}
+\paragraph[{bm\_\-validate\_\-client\_\-pointers}]{\setlength{\rightskip}{0pt plus 5cm}static void bm\_\-validate\_\-client\_\-pointers ({\bf BUFFER\_\-HEADER} $\ast$ {\em pheader}, \/  {\bf BUFFER\_\-CLIENT} $\ast$ {\em pclient})\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}\hfill\label{group__bmfunctionc_ga4cc39a5180ad4e716108d024f225c914}
+
+
+Definition at line 6232 of file midas.c.
+
+Referenced by bm\_\-update\_\-read\_\-pointer().\index{bmfunctionc@{bmfunctionc}!bm\_\-wait\_\-for\_\-free\_\-space@{bm\_\-wait\_\-for\_\-free\_\-space}}
+\index{bm\_\-wait\_\-for\_\-free\_\-space@{bm\_\-wait\_\-for\_\-free\_\-space}!bmfunctionc@{bmfunctionc}}
+\paragraph[{bm\_\-wait\_\-for\_\-free\_\-space}]{\setlength{\rightskip}{0pt plus 5cm}static int bm\_\-wait\_\-for\_\-free\_\-space (int {\em buffer\_\-handle}, \/  {\bf BUFFER} $\ast$ {\em pbuf}, \/  int {\em async\_\-flag}, \/  int {\em requested\_\-space})\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}\hfill\label{group__bmfunctionc_ga8d40df6e065fc5111d5cce71d3d2bf5f}
+
+
+Definition at line 6473 of file midas.c.
+
+Referenced by bm\_\-flush\_\-cache(), and bm\_\-send\_\-event().\index{bmfunctionc@{bmfunctionc}!bm\_\-wakeup\_\-producers@{bm\_\-wakeup\_\-producers}}
+\index{bm\_\-wakeup\_\-producers@{bm\_\-wakeup\_\-producers}!bmfunctionc@{bmfunctionc}}
+\paragraph[{bm\_\-wakeup\_\-producers}]{\setlength{\rightskip}{0pt plus 5cm}static void bm\_\-wakeup\_\-producers (const {\bf BUFFER\_\-HEADER} $\ast$ {\em pheader}, \/  const {\bf BUFFER\_\-CLIENT} $\ast$ {\em pc})\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}\hfill\label{group__bmfunctionc_ga25b52998c14867875432bc2103231c78}
+
+
+Definition at line 6352 of file midas.c.
+
+Referenced by bm\_\-push\_\-event(), and bm\_\-receive\_\-event().\index{bmfunctionc@{bmfunctionc}!cm\_\-update\_\-last\_\-activity@{cm\_\-update\_\-last\_\-activity}}
+\index{cm\_\-update\_\-last\_\-activity@{cm\_\-update\_\-last\_\-activity}!bmfunctionc@{bmfunctionc}}
+\paragraph[{cm\_\-update\_\-last\_\-activity}]{\setlength{\rightskip}{0pt plus 5cm}static void cm\_\-update\_\-last\_\-activity ({\bf DWORD} {\em actual\_\-time})\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}\hfill\label{group__bmfunctionc_ga2109ffa213706ade60f0b054d6c39164}
+Update last activity time 
+
+Definition at line 4497 of file midas.c.

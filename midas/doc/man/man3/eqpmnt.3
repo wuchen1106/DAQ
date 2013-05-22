@@ -1,0 +1,180 @@
+.TH "eqpmnt" 3 "31 May 2012" "Version 2.3.0-0" "Midas" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+eqpmnt \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "char \fBname\fP [NAME_LENGTH]"
+.br
+.ti -1c
+.RI "\fBEQUIPMENT_INFO\fP \fBinfo\fP"
+.br
+.ti -1c
+.RI "\fBINT\fP(* \fBreadout\fP )(char *, \fBINT\fP)"
+.br
+.ti -1c
+.RI "\fBINT\fP(* \fBcd\fP )(\fBINT\fP cmd, \fBPEQUIPMENT\fP)"
+.br
+.ti -1c
+.RI "\fBDEVICE_DRIVER\fP * \fBdriver\fP"
+.br
+.ti -1c
+.RI "void * \fBevent_descrip\fP"
+.br
+.ti -1c
+.RI "void * \fBcd_info\fP"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBstatus\fP"
+.br
+.ti -1c
+.RI "\fBDWORD\fP \fBlast_called\fP"
+.br
+.ti -1c
+.RI "\fBDWORD\fP \fBlast_idle\fP"
+.br
+.ti -1c
+.RI "\fBDWORD\fP \fBpoll_count\fP"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBformat\fP"
+.br
+.ti -1c
+.RI "HNDLE \fBbuffer_handle\fP"
+.br
+.ti -1c
+.RI "HNDLE \fBhkey_variables\fP"
+.br
+.ti -1c
+.RI "\fBDWORD\fP \fBserial_number\fP"
+.br
+.ti -1c
+.RI "\fBDWORD\fP \fBsubevent_number\fP"
+.br
+.ti -1c
+.RI "\fBDWORD\fP \fBodb_out\fP"
+.br
+.ti -1c
+.RI "\fBDWORD\fP \fBodb_in\fP"
+.br
+.ti -1c
+.RI "\fBDWORD\fP \fBbytes_sent\fP"
+.br
+.ti -1c
+.RI "\fBDWORD\fP \fBevents_sent\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 1011 of file midas.h.
+.SH "Field Documentation"
+.PP 
+.SS "HNDLE \fBeqpmnt::buffer_handle\fP"MIDAS buffer handle 
+.PP
+Definition at line 1024 of file midas.h.
+.PP
+Referenced by check_polled_events(), receive_trigger_event(), register_equipment(), and scheduler().
+.SS "\fBDWORD\fP \fBeqpmnt::bytes_sent\fP"number of bytes sent 
+.PP
+Definition at line 1030 of file midas.h.
+.PP
+Referenced by check_polled_events(), receive_trigger_event(), scan_fragment(), scheduler(), send_event(), source_scan(), and tr_stop().
+.SS "\fBINT\fP(* \fBeqpmnt::cd\fP)(\fBINT\fP cmd, \fBPEQUIPMENT\fP)"Class driver routine 
+.PP
+Referenced by initialize_equipment(), main(), and scheduler().
+.SS "void* \fBeqpmnt::cd_info\fP"private data for class driver 
+.PP
+Definition at line 1018 of file midas.h.
+.PP
+Referenced by cd_hv_read(), hv_demand(), hv_exit(), hv_idle(), hv_init(), hv_read(), hv_set_current_limit(), hv_set_rampdown(), hv_set_rampup(), hv_set_trip_time(), hv_set_voltage_limit(), and hv_update_label().
+.SS "\fBDEVICE_DRIVER\fP* \fBeqpmnt::driver\fP"Device driver list 
+.PP
+Definition at line 1016 of file midas.h.
+.PP
+Referenced by hv_exit(), hv_init(), hv_start(), hv_stop(), initialize_equipment(), and main().
+.SS "void* \fBeqpmnt::event_descrip\fP"Init string for fixed events or bank list 
+.PP
+Definition at line 1017 of file midas.h.
+.SS "\fBDWORD\fP \fBeqpmnt::events_sent\fP"number of events sent 
+.PP
+Definition at line 1031 of file midas.h.
+.PP
+Referenced by check_polled_events(), close_buffers(), display(), receive_trigger_event(), scan_fragment(), scheduler(), send_event(), source_scan(), and tr_stop().
+.SS "\fBINT\fP \fBeqpmnt::format\fP"FORMAT_xxx 
+.PP
+Definition at line 1023 of file midas.h.
+.PP
+Referenced by check_polled_events(), receive_trigger_event(), register_equipment(), and scheduler().
+.SS "HNDLE \fBeqpmnt::hkey_variables\fP"Key to variables subtree in ODB 
+.PP
+Definition at line 1025 of file midas.h.
+.PP
+Referenced by check_polled_events(), receive_trigger_event(), register_equipment(), and scheduler().
+.SS "\fBEQUIPMENT_INFO\fP \fBeqpmnt::info\fP"From above 
+.PP
+Definition at line 1013 of file midas.h.
+.PP
+Referenced by check_polled_events(), hv_start(), initialize_equipment(), interrupt_routine(), load_fragment(), readout_thread(), receive_trigger_event(), register_equipment(), scan_fragment(), scheduler(), send_all_periodic_events(), send_event(), and tr_start().
+.SS "\fBDWORD\fP \fBeqpmnt::last_called\fP"Last time event was read 
+.PP
+Definition at line 1020 of file midas.h.
+.PP
+Referenced by scheduler(), and send_event().
+.SS "\fBDWORD\fP \fBeqpmnt::last_idle\fP"Last time idle func was called 
+.PP
+Definition at line 1021 of file midas.h.
+.PP
+Referenced by scheduler().
+.SS "char \fBeqpmnt::name\fP[NAME_LENGTH]"Equipment name 
+.PP
+Definition at line 1012 of file midas.h.
+.PP
+Referenced by check_polled_events(), display(), hv_init(), initialize_equipment(), main(), register_equipment(), scheduler(), send_all_periodic_events(), send_event(), set_equipment_status(), tr_start(), and tr_stop().
+.SS "\fBDWORD\fP \fBeqpmnt::odb_in\fP"# updated ODB -> FE 
+.PP
+Definition at line 1029 of file midas.h.
+.PP
+Referenced by hv_demand(), hv_set_current_limit(), hv_set_rampdown(), hv_set_rampup(), hv_set_trip_time(), hv_set_voltage_limit(), and tr_start().
+.SS "\fBDWORD\fP \fBeqpmnt::odb_out\fP"# updates FE -> ODB 
+.PP
+Definition at line 1028 of file midas.h.
+.PP
+Referenced by hv_init(), hv_read(), scheduler(), send_event(), and tr_start().
+.SS "\fBDWORD\fP \fBeqpmnt::poll_count\fP"Needed to poll 'period' 
+.PP
+Definition at line 1022 of file midas.h.
+.PP
+Referenced by check_polled_events(), initialize_equipment(), readout_thread(), and scheduler().
+.SS "\fBINT\fP(* \fBeqpmnt::readout\fP)(char *, \fBINT\fP)"Pointer to user readout routine 
+.PP
+Referenced by check_polled_events(), interrupt_routine(), readout_thread(), scheduler(), and send_event().
+.SS "\fBDWORD\fP \fBeqpmnt::serial_number\fP"event serial number 
+.PP
+Definition at line 1026 of file midas.h.
+.PP
+Referenced by check_polled_events(), interrupt_routine(), readout_thread(), scheduler(), send_event(), and tr_start().
+.SS "\fBEQUIPMENT_STATS\fP \fBeqpmnt::stats\fP"
+.PP
+Definition at line 1032 of file midas.h.
+.PP
+Referenced by check_polled_events(), close_buffers(), initialize_equipment(), register_equipment(), scan_fragment(), scheduler(), tr_start(), and tr_stop().
+.SS "\fBINT\fP \fBeqpmnt::status\fP"One of FE_xxx 
+.PP
+Definition at line 1019 of file midas.h.
+.PP
+Referenced by check_polled_events(), display(), initialize_equipment(), main(), register_equipment(), scheduler(), and send_all_periodic_events().
+.SS "\fBDWORD\fP \fBeqpmnt::subevent_number\fP"subevent number 
+.PP
+Definition at line 1027 of file midas.h.
+.PP
+Referenced by check_polled_events(), receive_trigger_event(), scheduler(), and tr_start().
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Midas from the source code.

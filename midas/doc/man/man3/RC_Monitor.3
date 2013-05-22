@@ -1,0 +1,352 @@
+.TH "RC_Monitor" 3 "31 May 2012" "Version 2.3.0-0" "Midas" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+RC_Monitor \- Monitoring the Experiment 
+
+.br
+  
+.br
+.PP
+The most powerful tool for \fBmonitoring\fP a MIDAS experiment is of course \fBmhttpd\fP, used for both Run Control and Monitoring. However, it does not (yet) cover every feature needed, and the MIDAS system also provides several other utilities for monitoring aspects of the data acquistion system. These include \fBmstat\fP to display the run statistics, and \fBmdump\fP, to dump the raw data, which is particularly useful for debugging. These utilities do provide information without having to use a browser.
+.PP
+.IP "\(bu" 2
+\fBMonitoring and Run Control using the MIDAS Web Server\fP
+.IP "\(bu" 2
+\fBmstat - monitor application display\fP
+.IP "\(bu" 2
+\fBmdump - displays event bank contents (online or offline)\fP
+.IP "\(bu" 2
+\fBrmidas - ROOT Midas application for histograms/run control\fP
+.IP "\(bu" 2
+\fBhvedit - High Voltage editor and GUI\fP 
+.br
+
+.PP
+.PP
+
+.br
+.PP
+
+.br
+  
+.SH "mstat - monitor application display"
+.PP
+\fBmstat\fP is a simple ASCII status display. It presents in a compact form the most valuable information of the current condition of the MIDAS Acquisition system. The display is composed at the most of 5 sections depending on the current status of the experiment. The section displayed in order from top to bottom refer to:
+.IP "\(bu" 2
+Run information.
+.IP "\(bu" 2
+Equipment listing and statistics if any \fBfrontend\fP is active.
+.IP "\(bu" 2
+Logger information and statistics if \fBmlogger\fP is active.
+.IP "\(bu" 2
+Lazylogger status if \fBlazylogger\fP is active.
+.IP "\(bu" 2
+Client listing. lock
+.IP "\(bu" 2
+\fB Arguments \fP
+.IP "  \(bu" 4
+[-h ] : help
+.IP "  \(bu" 4
+[-h hostname ] : host name (see \fBodbedit - ODB Editor and run control utility\fP)
+.IP "  \(bu" 4
+[-e exptname ] : experiment name (see \fBodbedit - ODB Editor and run control utility\fP)
+.IP "  \(bu" 4
+[-l ] : loop. Forces mstat to remain in a display loop. Enter '!' to terminate the command.
+.IP "  \(bu" 4
+[-w time ] : refresh rate in second. Specifies the delay in second before refreshing the screen with up to date information. Default: 5 seconds. Has to be used in conjunction with -l switch. Enter 'R' to refresh screen on next update.
+.PP
+
+.PP
+.PP
+.IP "\(bu" 2
+\fB Usage \fP 
+.PP
+.nf
+ >mstat -l
+*-v1.8.0- MIDAS status page -------------------------Mon Apr  3 11:52:52 2000-* 
+Experiment:chaos       Run#:8699    State:Running          Run time :00:11:34   
+Start time:Mon Apr  3 11:41:18 2000                                             
+                                                                                
+FE Equip.   Node              Event Taken    Event Rate[/s] Data Rate[Kb/s]     
+B12Y        pcch02            67             0.0            0.0                 
+CUM_Scaler  vwchaos           23             0.2            0.2                 
+CHV         pcch02            68             0.0            0.0                 
+KOS_Scalers vwchaos           330            0.4            0.6                 
+KOS_Trigger vwchaos           434226         652.4          408.3               
+KOS_File    vwchaos           0              0.0            0.0                 
+Target      pcch02            66             0.0            0.0 
+                                                                                
+Logger Data dir: /scr0/spring2000            Message File: midas.log            
+Chan.   Active Type      Filename            Events Taken   KBytes Taken        
+  0     Yes    Disk      run08699.ybs        434206          4.24e+06           
+                                                                                
+Lazy Label     Progress  File name           #files         Total               
+cni-53         100[%]    run08696.ybs        15             44.3[%]             
+                                                                                
+Clients:  MStatus/koslx0         Logger/koslx0          Lazy_Tape/koslx0        
+          CHV/pcch02             MChart1/umelba         ODBEdit/koslx0          
+          CHAOS/vwchaos          ecl/koslx0             Speaker/koslx0          
+          MChart/umelba          targetFE/pcch02        HV_MONITOR/umelba       
+          SUSI/koslx0            History/kosal2         MStatus1/dasdevpc  
+     
+*------------------------------------------------------------------------------*
+
+.fi
+.PP
+
+.PP
+.PP
+.PP
+.PP
+ 
+.SH "mdump       - displays event bank contents (online or offline)"
+.PP
+This application allows the experimenter to 'peep' into the data flow in order to display a snap-shot of the event. Its use is particularly powerful during experimental setup. 
+.br
+In addition mdump has the capability to operate on data save-set files stored on disk or tape. The main \fBmdump\fP restriction is the fact that it works only for events formatted in \fBbanks\fP (i.e. MIDAS banks).
+.PP
+mdump can be built with \fBzlib.a\fP in order to gain direct access to the data within a file with extension \fBmid.gz\fP or \fBybs.gz\fP. See \fBNEED_ZLIB\fP Building Option.
+.PP
+.IP "\(bu" 2
+\fB Arguments \fP for Online use
+.IP "  \(bu" 4
+[-h ] : help for online use.
+.IP "  \(bu" 4
+[-h hostname ] : Host name.
+.IP "  \(bu" 4
+[-e exptname ] : Experiment name.
+.IP "  \(bu" 4
+[-b bank name] : Display event containg only specified bank name.
+.IP "  \(bu" 4
+[-c compose] : Retrieve and compose file with either Add run# or Not (def:N).
+.IP "  \(bu" 4
+[-f format] : Data representation (x/d/ascii) def:hex.
+.IP "  \(bu" 4
+[-g type ] : Sampling mode either Some or All (def:S). >>> in case of -c it is recommented to used -g all.
+.IP "  \(bu" 4
+[-i id ] : Event Id.
+.IP "  \(bu" 4
+[-j ] : Display bank header only.
+.IP "  \(bu" 4
+[-k id ] : Event mask.
+.IP "  \(bu" 4
+[-l number ] : Number of consecutive event to display (def:1).
+.IP "  \(bu" 4
+[-m mode] : Display mode either Bank or Raw (def:B)
+.PP
+
+.PP
+.PP
+.IP "\(bu" 2
+[-s ] : Data transfer rate diagnositic.
+.IP "\(bu" 2
+[-w time] : Insert wait in [sec] between each display.
+.IP "\(bu" 2
+[-x filename ] : Input channel. data file name of data device. (def:online)
+.IP "\(bu" 2
+[-y ] : Display consistency check only.
+.IP "\(bu" 2
+[-z buffer name] : Midas buffer name to attach to (def:SYSTEM)
+.PP
+.PP
+.IP "\(bu" 2
+Additional \fB Arguments \fP for Offline
+.IP "  \(bu" 4
+[-x -h ] : help for offline use.
+.IP "  \(bu" 4
+[-t type ] : Bank format (MIDAS).
+.IP "  \(bu" 4
+[-w what] : Header, Record, Length, Event, Jbank_list (def:E)
+.PP
+
+.PP
+.PP
+.IP "\(bu" 2
+\fB Usage \fP mdump can operate on either data stream (online) or on save-set data files. Specific help is available for each mode. 
+.PP
+.nf
+ > mdump -h
+ > mdump -x -h
+
+.fi
+.PP
+
+.PP
+.PP
+
+.br
+.PP
+
+.br
+ 
+.SS "Example 1 mdump in offline mode"
+The example below shows mdump operating on a file of saved data in \fBMIDAS format\fP : 
+.PP
+.nf
+Tue> mdump -x run37496.mid | more
+------------------------ Event# 0 --------------------------------
+------------------------ Event# 1 --------------------------------
+Evid:0001- Mask:0100- Serial:1- Time:0x393c299a- Dsize:72/0x48
+
+#banks:2 - Bank list:-SCLRRATE-
+
+Bank:SCLR Length: 24(I*1)/6(I*4)/6(Type) Type:Integer*4
+   1-> 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 
+
+Bank:RATE Length: 24(I*1)/6(I*4)/6(Type) Type:Real*4 (FMT machine dependent)
+   1-> 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 
+------------------------ Event# 2 --------------------------------
+Evid:0001- Mask:0004- Serial:1- Time:0x393c299a- Dsize:56/0x38
+#banks:2 - Bank list:-MMESMMOD-
+
+Bank:MMES Length: 24(I*1)/6(I*4)/6(Type) Type:Real*4 (FMT machine dependent)
+   1-> 0x3de35788 0x3d0b0e29 0x00000000 0x00000000 0x3f800000 0x00000000 
+
+Bank:MMOD Length: 4(I*1)/1(I*4)/1(Type) Type:Integer*4
+
+
+   1-> 0x00000001 
+------------------------ Event# 3 --------------------------------
+Evid:0001- Mask:0008- Serial:1- Time:0x393c299a- Dsize:48/0x30
+#banks:1 - Bank list:-BMES-
+
+Bank:BMES Length: 28(I*1)/7(I*4)/7(Type) Type:Real*4 (FMT machine dependent)
+   1-> 0x443d7333 0x444cf333 0x44454000 0x4448e000 0x43bca667 0x43ce0000 0x43f98000 
+------------------------ Event# 4 --------------------------------
+Evid:0001- Mask:0010- Serial:1- Time:0x393c299a- Dsize:168/0xa8
+#banks:1 - Bank list:-CMES-
+
+Bank:CMES Length: 148(I*1)/37(I*4)/37(Type) Type:Real*4 (FMT machine dependent)
+   1-> 0x3f2f9fe2 0x3ff77fd6 0x3f173fe6 0x3daeffe2 0x410f83e8 0x40ac07e3 0x3f6ebfd8 0x3c47ffde 
+   9-> 0x3e60ffda 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x3f800000 
+  17-> 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 
+
+  25-> 0x3f800000 0x3f800000 0x3f800000 0x00000000 0x3f800000 0x00000000 0x3f800000 0x3f800000 
+  33-> 0x3f800000 0x3f800000 0x3f800000 0x3f800000 0x00000000 
+------------------------ Event# 5 --------------------------------
+Evid:0001- Mask:0020- Serial:1- Time:0x393c299a- Dsize:32/0x20
+#banks:1 - Bank list:-METR-
+
+Bank:METR Length: 12(I*1)/3(I*4)/3(Type) Type:Real*4 (FMT machine dependent)
+   1-> 0x00000000 0x39005d87 0x00000000 
+...
+
+.fi
+.PP
+.PP
+
+.br
+.PP
+
+.br
+ 
+.SS "Example 2 : mdump in online mode"
+The examples below shows mdump operating in online mode (data is in \fBMIDAS format\fP).
+.IP "\(bu" 2
+\fB Example 1 : dump the bankheaders\fP 
+.PP
+.nf
+> mdump -j
+[pol@isdaq01 pol]$ mdump -j
+-4506 -- Enter <!> to Exit ------- Midas Dump ---
+------------------------ Event# 1 ------------------------
+Evid:0002- Mask:0001- Serial:2- Time:0x4c9a4c2b- Dsize:832/0x340
+#banks:2 Bank list:-HI00HI01-
+
+.fi
+.PP
+
+.PP
+.PP
+.IP "\(bu" 2
+\fB Example 2 : dump the bank CYCI in decimal format \fP 
+.PP
+.nf
+[pol@isdaq01 pol]$ mdump -b CYCI -l 2 -f d
+-4506 -- Enter <!> to Exit ------- Midas Dump ---
+------------------------ Event# 1 ------------------------
+Bank -CYCI- not found (2) in #banks:2 Bank list:-HI00HI01-
+------------------------ Event# 2 ------------------------
+#banks:2 Bank list:-CYCIHSCL-
+Bank:CYCI Length: 36(I*1)/9(I*4)/9(Type) Type:Unsigned Integer*4
+   1->       16       16        1        0        4        0        0        0
+   9->        0
+
+.fi
+.PP
+
+.PP
+.PP
+
+.br
+.PP
+
+.br
+.SH "rmidas       - ROOT Midas application for histograms/run control"
+.PP
+ Root/Midas remote GUI application for root histograms and possible run control under the ROOT. environment.
+.PP
+ Users of this utility may also be interested in a \fBCustom Page showing ROOT analyzer output\fP written for \fBmhttpd\fP, (Dec 2009) 
+.PP
+.IP "\(bu" 2
+\fB Arguments \fP
+.IP "  \(bu" 4
+[-h ] : help
+.IP "  \(bu" 4
+[-h hostname ] : host name
+.IP "  \(bu" 4
+[-e exptname ] : experiment name
+.PP
+
+.IP "\(bu" 2
+\fB Usage \fP to be written.
+.IP "\(bu" 2
+\fB Example \fP 
+.PP
+.nf
+ >rmidas midasserver.domain
+
+.fi
+.PP
+
+.PP
+.PP
+ rmidas display sample. Using the example/experiment/ demo setup.  
+.PP
+.PP
+.SH "hvedit       - High Voltage editor and GUI"
+.PP
+ High Voltage editor, graphical interface to the Slow Control System. Originally for Windows machines, but recently ported on Linux under Qt by Andreas Suter.
+.PP
+.IP "\(bu" 2
+\fB Arguments \fP
+.IP "  \(bu" 4
+[-h ] : help
+.IP "  \(bu" 4
+[-h hostname ] : host name
+.IP "  \(bu" 4
+[-e exptname ] : experiment name
+.IP "  \(bu" 4
+[-D ] : start program as a daemon
+.PP
+
+.IP "\(bu" 2
+\fB Usage \fP: To control the high voltage system, the program HVEdit can be used under Windows 95/NT. It can be used to set channels, save and load values from disk and print them. The program can be started several times even on different computers. Since they are all linked to the same ODB arrays, the demand and measured values are consistent among them at any time. HVEdit is started from the command line:
+.IP "\(bu" 2
+\fB Example \fP 
+.PP
+.nf
+ >hvedit
+
+.fi
+.PP
+
+.PP
+.PP
+
+.br
+  
+.br
+.PP
+ 

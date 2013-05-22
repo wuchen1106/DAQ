@@ -1,0 +1,87 @@
+.TH "vt48.c" 3 "31 May 2012" "Version 2.3.0-0" "Midas" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+vt48.c \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "int \fBvt48_EventRead\fP (\fBMVME_INTERFACE\fP *\fBmyvme\fP, \fBDWORD\fP base, \fBDWORD\fP *pdest, int *nentry)"
+.br
+.ti -1c
+.RI "int \fBvt48_Setup\fP (\fBMVME_INTERFACE\fP *mvme, \fBDWORD\fP base, int mode)"
+.br
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "int vt48_EventRead (\fBMVME_INTERFACE\fP * myvme, \fBDWORD\fP base, \fBDWORD\fP * pdest, int * nentry)"Read one Event 
+.PP
+\fBParameters:\fP
+.RS 4
+\fImyvme\fP vme structure 
+.br
+\fIbase\fP TF48 base address 
+.br
+\fIpdest\fP Destination pointer 
+.br
+\fIentry\fP return number of entry 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 28 of file vt48.c.
+.SS "void vt48_RegPrint (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base)"
+.PP
+Definition at line 150 of file vt48.c.
+.SS "\fBDWORD\fP vt48_RegRead (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base, \fBWORD\fP reg)"
+.PP
+Definition at line 135 of file vt48.c.
+.PP
+Referenced by vt48_RegPrint(), and vt48_Status().
+.SS "void vt48_RegWrite (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base, \fBDWORD\fP reg, \fBDWORD\fP data)"
+.PP
+Definition at line 95 of file vt48.c.
+.PP
+Referenced by vt48_RegPrint(), vt48_Setup(), and vt48_Status().
+.SS "int vt48_Setup (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base, int mode)"Sets all the necessary paramters for a given configuration. The configuration is provided by the mode argument. Add your own configuration in the case statement. Let me know your setting if you want to include it in the distribution. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fI*mvme\fP VME structure 
+.br
+\fIbase\fP Module base address 
+.br
+\fImode\fP Configuration mode number 
+.br
+\fI*nentry\fP number of entries requested and returned. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+MVME_SUCCESS 
+.RE
+.PP
+
+.PP
+Definition at line 180 of file vt48.c.
+.SS "void vt48_Status (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base)"
+.PP
+Definition at line 273 of file vt48.c.
+.SS "void vt48_WindowOffsetSet (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base, float offset)"
+.PP
+Definition at line 121 of file vt48.c.
+.SS "void vt48_WindowSet (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base, float window)"
+.PP
+Definition at line 108 of file vt48.c.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Midas from the source code.

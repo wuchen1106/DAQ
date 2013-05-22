@@ -1,0 +1,421 @@
+.TH "Q_Linux" 3 "31 May 2012" "Version 2.3.0-0" "Midas" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Q_Linux \- Quickstart Linux 
+
+.br
+ 
+.PP
+
+.br
+.SH "System Requirements"
+.PP
+not yet specified
+.SH "Installation"
+.PP
+Throughout the following description the MIDAS package is assumed to be installed under the directory \fB$HOME/packages/midas\fP 
+.br
+ while the experiment specific directory is \fB$HOME/online\fP . The user name is \fIjohnfoo\fP. 
+.br
+.SS "Environment Variables"
+The following \fBEnvironment variables\fP needs to be setup, e.g.: csh: 
+.PP
+.nf
+  #!/bin/echo You must source
+  setenv CVS_RSH ssh
+  setenv MIDASSYS $HOME/packages/midas  
+  setenv ROOTSYS  $HOME/packages/root   ** do not setup ROOTSYS if NOT using ROOT
+  setenv MIDAS_EXPTAB $HOME/online/exptab ** if not setup,  defaults to  /etc/exptab
+  setenv PATH .:$MIDASSYS/linux/bin:$HOME/packages/roody/bin:$ROOTSYS/bin:$PATH
+  #end
+
+.fi
+.PP
+ 
+.br
+ bash: 
+.PP
+.nf
+  #!/bin/echo You must source
+  export CVS_RSH=ssh
+  export MIDASSYS=$HOME/packages/midas  
+  export ROOTSYS=$HOME/packages/root   ** do not setup ROOTSYS if NOT using ROOT
+  export MIDAS_EXPTAB=$HOME/online/exptab ** if not setup,  defaults to  /etc/exptab
+  export PATH=.:$MIDASSYS/linux/bin:$HOME/packages/roody/bin:$ROOTSYS/bin:$PATH
+  #end
+
+.fi
+.PP
+.IP "\(bu" 2
+mkdir $HOME/packages
+.IP "\(bu" 2
+Logout and login again, or source .cshrc (source .bashrc) for the change to take effect. 
+.br
+
+.PP
+.PP
+ 
+.SS "ROOT Package Installation"
+For full MIDAS operation \fBROOT\fP is needed for the data logging and analysis packages.
+.PP
+.IP "\(bu" 2
+Identify the Linux version: RH9 (Red Hat Linux 9), FC3 (Fedora Core 3), RHEL4/SL4 (Red Hat Enterprise LInux 4/Scientific Linux 4): more /etc/redhat-release
+.IP "\(bu" 2
+cd $HOME/packages
+.IP "\(bu" 2
+ln -s /triumfcs/trshare/olchansk/root/root_vNNN_VVV root, where NNN is the latest available version of ROOT ('ls -l /triumfcs/trshare/olchansk/root') and VVV is the Linux version code (RH9, FC3, SL4, etc). For example: /triumfcs/trshare/olchansk/root/root_v5.10.00_SL40
+.IP "\(bu" 2
+Check that ROOT works: 'echo $ROOTSYS', '$ROOTSYS/bin/root' 
+.br
+ 
+.br
+ \fBNote:\fP ROOT is not essential to run MIDAS. Some experiments use a custom logger or analyser. If ROOT is NOT installed, the environment variable ROOTSYS must be removed: 
+.PP
+.nf
+      unsetenv ROOTSYS
+
+.fi
+.PP
+
+.PP
+.PP
+
+.br
+.SS "MIDAS Package Installation"
+The source code can be extracted from the \fCSVN repository\fP. Anonymous access is available under the username \fBsvn\fP and password \fBsvn\fP which may be required several time. The SVN web interface provides a quick \fBtarball\fP. This suggested extraction method is shown below. 
+.br
+ The MIDAS package requires the \fBmxml\fP auxiliary package which can be found at the same SVN site as MIDAS. mxml and MIDAS are extracted at the same directory level as follows: 
+.PP
+.nf
+  cd $HOME/packages
+  svn co svn+ssh://svn@savannah.psi.ch/afs/psi.ch/project/meg/svn/midas/trunk midas
+  svn co svn+ssh://svn@savannah.psi.ch/afs/psi.ch/project/meg/svn/mxml/trunk mxml
+  cd midas
+  make
+  ls $MIDASSYS/linux/bin   ... should contains odbedit and all the MIDAS applications.
+
+.fi
+.PP
+ 
+.br
+.PP
+ 
+.SS "ROME Package Installation"
+The PSI ROME analysis package can be found at \fCROME analyzer\fP The same extraction procedure as for the MIDAS package can be followed. For its operation please refer to the \fCROME web site\fP. 
+.PP
+.nf
+  cd $HOME/packages
+  svn co svn+ssh://svn@savannah.psi.ch/afs/psi.ch/project/meg/svn/rome/trunk rome
+  cd rome
+  make
+
+.fi
+.PP
+.PP
+ 
+.SS "ROODY Package Installation"
+\fCROODY\fP is a Histogram display tool. This package is supported by the Triumf DAQ group. Its installation is similar to the MIDAS package. 
+.PP
+.nf
+  cd $HOME/packages
+  svn checkout svn://ladd00.triumf.ca/roody/trunk roody
+  cd roody
+  make
+  $HOME/packages/roody/bin/roody   ... to run the program
+
+.fi
+.PP
+.PP
+.PP
+ 
+.SH "Basic test"
+.PP
+.SS "Hardware Requirements"
+These instructions assume that accessibility to hardware such as VME or CAMAC is available. An ADC is also required, with signals sent to its gate.
+.SS "Software Requirements"
+Packages ROOT, MIDAS and ROODY have been installed.
+.SS "How to Setup the MIDAS Experiment"
+NOTE: these instructions provide \fBlocal\fP access to the experiment. For \fBremote\fP access, refer to \fBInstallation Considerations\fP .
+.PP
+.IP "\(bu" 2
+Create a new user for this daq system (johnfoo)
+.IP "\(bu" 2
+login as the new user
+.IP "\(bu" 2
+mkdir online
+.IP "\(bu" 2
+cd online
+.IP "\(bu" 2
+mkdir elog history data
+.IP "\(bu" 2
+create the \fBexptab\fP file '$HOME/online/exptab' following the example below
+.IP "  \(bu" 4
+The first parameter is the MIDAS experiment name e.g. 'simptest1'
+.IP "  \(bu" 4
+The second parameter is the location of MIDAS shared memory buffers e.g.'/home/johnfoo/online' (by convention, $HOME/online),
+.IP "  \(bu" 4
+the third parameter is the username e.g. 'johnfoo' 
+.PP
+.nf
+  simptest1 /home/johnfoo/online johnfoo
+
+.fi
+.PP
+ 
+.PP
+
+.IP "\(bu" 2
+copy $MIDASSYS/examples/experiment/* to the online directory.
+.IP "\(bu" 2
+make (creates frontend executable frontend.exe) 
+.PP
+.nf
+  cd online
+  cp $MIDASSYS/examples/experiment/* .
+  make
+
+.fi
+.PP
+
+.IP "\(bu" 2
+The analyzer will build properly if ROOT has been previously installed.
+.IP "\(bu" 2
+At this point the frontend and the analyzer should be ready if no error where generated during the build. By running the script \fB start_daq.sh \fP several midas applications will be started in sequence.
+.IP "  1." 6
+Cleanup previous midas application (if any).
+.IP "  2." 6
+Start the midas web server [mhttpd]
+.IP "  3." 6
+Start the frontend application in its own xterm (for debugging purpose).
+.IP "  4." 6
+Start the analyzer application in its own xterm (for debugging purpose).
+.IP "  5." 6
+Start the Midas Data logger [mlogger]
+.PP
+
+.PP
+.PP
+.PP
+.nf
+   $ sh ./start_daq
+.fi
+.PP
+.PP
+.IP "\(bu" 2
+Once all these applications are running, you can invoke the Midas web page by using your browser to http://localhost:8081 . A Midas run status page should be appearing with multiple buttons for run control as well as equipment listing and application listing. Please refers to \fBmhttpd: the MIDAS Web-based Run Control utility\fP for further information.
+.IP "\(bu" 2
+You can also run the MIDAS Online Editor [odbedit] in a new terminal to provide you command line access to the database.
+.IP "  \(bu" 4
+The content of the database is accessible with Unix-like commands. There are directories related to specifics of the Midas environment. One in particular is the 'Logger'. Please refer to \fBCustomizing the MIDAS data logging\fP for discussion on the different logger configuration options.
+.PP
+
+.IP "\(bu" 2
+Run can be started and stopped under odbedit or through the web page.
+.IP "\(bu" 2
+While a run is in progress, the midas application \fBmdump\fP will provide you an event dump of the collected data from the running frontend.
+.IP "\(bu" 2
+For further data processing/analysis, either the \fB midas analyzer \fP or the \fCrootana \fP can used for data display as well. 
+.PP
+.nf
+    $odbedit
+        [local:exp:S]> ls
+        ...
+        [local:exp:S]> help
+        ...
+        [local:exp:S]> start
+        [local:exp:S]> exit
+        ...
+        $ mdump
+
+.fi
+.PP
+ 
+.br
+
+.PP
+.PP
+.PP
+ 
+.SH "Installation Considerations"
+.PP
+.SS "Remote Access to the experiment"
+While the above description in \fBHow to Setup the MIDAS Experiment\fP installs MIDAS under user privilege for standard operation, MIDAS can also be installed in a more general way under root privilege. This method allows remote access to the package through the xinetd daemon mechanism. In order to implement this, some extra steps are necessary as described here.
+.PP
+.IP "\(bu" 2
+\fB It is to be noted that remote access can be also obtained under user privilege by starting the Midas server [mserver] by hand.\fP 
+.PP
+.nf
+  $ mserver -D
+
+.fi
+.PP
+
+.PP
+.PP
+Several system files needs to be modified (as root) for the full MIDAS implementation.
+.IP "\(bu" 2
+\fB/etc/services :\fP For remote access, inclusion of the 'midas' service is needed. Add following line: 
+.PP
+.nf
+  # midas service
+  midas           1175/tcp                        # Midas server
+
+.fi
+.PP
+
+.IP "\(bu" 2
+\fB/etc/xinetd.d/midas :\fP Daemon definition. Create new file named \fBmidas\fP 
+.PP
+.nf
+  service midas
+  {
+           flags                   = REUSE NOLIBWRAP
+           socket_type             = stream
+           wait                    = no
+           user                    = root
+           server                  = /usr/local/bin/mserver
+           log_on_success          += USERID HOST PID
+           log_on_failure          += USERID HOST
+           disable                 = no
+  }
+
+.fi
+.PP
+
+.IP "\(bu" 2
+\fB/etc/ld.so.conf :\fP Dynamic Linked library list. Add directory pointing to location of the midas.so file (add /usr/local/lib). 
+.PP
+.nf
+  /usr/local/lib
+
+.fi
+.PP
+ The system is now build by default in static, which makes it unecessary to setup the .so path through either the environment \fBLD_LIBRARY_PATH\fP or the ld.so.conf.
+.IP "\(bu" 2
+\fB/etc/exptab :\fP MIDAS Experiment definition file (see below). 
+.br
+
+.br
+
+.PP
+.PP
+  
+.SS "Definition of Experiments (exptab)"
+The MIDAS system supports \fB multiple experiments running at the same time on a single computer\fP. Even though it may not be efficient, this capability makes sense when the experiments are simple detector lab setups which share hardware resources for data collection. In order to support this feature, MIDAS requires a uniquely identified set of \fBparameters\fP for each experiment that is used to define the location of the Online Database. 
+.br
+
+.br
+ Every experiment under MIDAS has its own ODB. In order to differentiate them, an experiment \fB name and directory \fP are assigned to each experiment. This allows several experiments to run concurrently on the same host using a common MIDAS installation. 
+.br
+
+.br
+ Whenever a application specific to a particular experiment is started, the experiment name can be specified as a command line argument, or as an environment variable. 
+.br
+
+.br
+ A list of all possible running experiments on a given machine is kept in the file \fBexptab\fP. This file \fBexptab\fP is expected by default to be located under \fB/etc/exptab\fP. This default location can be overwritten by the \fBEnvironment Variable\fP \fBMIDAS_EXPTAB\fP. 
+.br
+
+.br
+ \fBThe\fP exptab file defines each experiment on the machine, with one line per experiment. Each line contains three \fBparameters\fP, i.e: \fBexperiment name\fP, \fBexperiment directory name\fP and \fBuser name\fP. For example: 
+.PP
+.nf
+  #
+  # Midas experiment list
+  test   /home/johnfoo/online     johnfoo
+  decay  /home/jackfoo/decay_daq  jackfoo
+
+.fi
+.PP
+ 
+.br
+ Experiments not defined in \fBexptab\fP are not accessible remotely, but can still be accessed locally using the \fBenvironment variable\fP \fBMIDAS_DIR\fP if defined. This environment variable superceeds the \fBexptab\fP definition. 
+.br
+  Where more than one experiment is defined, the default name of the experiment to connect to can be provided using the \fBMIDAS_EXPT_NAME\fP environment variable.
+.PP
+.PP
+ 
+.SH "Demo examples"
+.PP
+The midas file structure contains examples of code which should be used as a template. In the \fB midas/examples/experiment\fP directory you will find a full set for frontend and analysis code. The building of this example is performed with the \fBMakefile\fP of this directory. 
+.PP
+.nf
+  #-------------------------------------------------------------------
+  # The following lines define directories. Adjust if necessary
+  #                 
+  DRV_DIR   = $(MIDASSYS)/drivers/bus
+  INC_DIR   = $(MIDASSYS)/include
+  LIB_DIR   = $(MIDASSYS)/linux/lib
+
+.fi
+.PP
+.PP
+For testing the system, you can start the frontend as follow: 
+.PP
+.nf
+  > frontend
+  Event buffer size      :     100000
+  Buffer allocation      : 2 x 100000
+  System max event size  :     524288
+  User max event size    :     10000
+  User max frag. size    :     5242880
+  # of events per buffer :     10
+  
+  Connect to experiment ...Available experiments on local computer:
+  0 : test         
+  1 : decay
+  Select number:0                    <---- predefined experiment from exptab file
+
+  Sample Frontend connected to <local>. Press '!' to exit                 17:27:47
+  ================================================================================
+  Run status:   Stopped    Run number 0
+  ================================================================================
+  Equipment     Status     Events     Events/sec Rate[kB/s] ODB->FE    FE->ODB
+  --------------------------------------------------------------------------------
+  Trigger       OK         0          0.0        0.0        0          0
+  Scaler        OK         0          0.0        0.0        0          0
+
+.fi
+.PP
+ In a different terminal window 
+.PP
+.nf
+  >odbedit
+  Available experiments on local computer:
+  0 : test
+  1 : decay
+  Select number: 0
+  [local:test:S]/>start now
+  Starting run #1
+  17:28:58 [ODBEdit] Run #1 started
+  [local:test:R]/>
+
+.fi
+.PP
+ The run has been started as seen in the frontend terminal window. See the \fBfrontend.c\fP for data generation code. 
+.PP
+.nf
+  Sample Frontend connected to <local>. Press '!' to exit                 17:29:07
+  ================================================================================
+  Run status:   Running    Run number 1
+  ================================================================================
+  Equipment     Status     Events     Events/sec Rate[kB/s] ODB->FE    FE->ODB
+  --------------------------------------------------------------------------------
+  Trigger       OK         865        99.3       5.4        0          9
+  Scaler        OK         1          0.0        0.0        0          1
+
+.fi
+.PP
+.PP
+
+.br
+.PP
+
+.br
+ 
+.PP
+
+.br
+.PP
+ 

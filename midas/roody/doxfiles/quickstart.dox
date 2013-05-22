@@ -1,0 +1,65 @@
+/*! \page quickstart Quickstart
+\htmlonly <img ALIGN="left" alt="previous.gif" src="previous.gif"> \endhtmlonly 
+@ref intro - @ref top - @ref features
+\htmlonly <img alt="next.gif" src="next.gif"> \endhtmlonly
+
+Please refer to the <a href="http://daq-plone.triumf.ca/SR/ROODY/readme">README</a> file.
+
+<!--
+
+The Roody package is for now available only through CVS.
+
+-# Extraction
+  - <b>CVS</b>
+    The source code can be extracted from the
+    <a href=http://midas.triumf.ca/cgi-bin/cvsweb/roody>
+    CVS repository</a>. The following two anonymous commands can used for 
+    respectively <b>checking out</b> (first time) and <b>updating</b> the full midas tree.
+    The password required for access is "anoncvs".
+    \code
+    cvs -e ssh -d :ext:anoncvs@midas.triumf.ca:/usr/local/cvsroot checkout roody
+
+    cvs -e ssh -d :ext:anoncvs@midas.triumf.ca:/usr/local/cvsroot update
+
+    \endcode
+-# Installation
+  - A dedicated directory \b roody should be present. Run the Makefile to build the roody
+    application
+    \code
+    > make
+    \endcode
+  - In the case of a Windows installation, use the Makefile.win for building the application
+    The .NET environment must be setup prior the build.
+    \code
+    > nmake -f makefile.win
+    \endcode
+\anchor argument
+-# Usage
+  - Roody supports arguments for starting the application with known condition.
+   \code
+   > roody -h
+
+       USAGE:
+       roody [-h] [-h host[:port]] [-r file.xml] [file.root ...] [file.hbook ...]
+ 
+      Options :
+       -h             - display usage
+       -h host[:port] - connect to midas analyzer on given host and port
+       -r file.xml    - restore savefile
+       file.root      - load .root files
+       file.hbook     - load .hbook files
+   \endcode
+   - [-h host:port] Specify the host and socket port for online histogram collection (requires 
+     Midas or ROME analyzer to be running).
+   - [-r file.xml] Restore a previously saved configuration file. The saving operation is done
+     within the Roody application.
+   - [file.root] Load at run time the content of the given root file.
+   - [file.hbook] Load at run time the content of the given hbook file. For this option the
+     \b hbook library has to be present.
+
+-->
+     
+\htmlonly <img ALIGN="left" alt="previous.gif" src="previous.gif"> \endhtmlonly 
+@ref intro - @ref top - @ref features
+\htmlonly <img alt="next.gif" src="next.gif"> \endhtmlonly
+*/

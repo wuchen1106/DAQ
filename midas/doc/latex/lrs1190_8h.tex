@@ -1,0 +1,72 @@
+\subsection{lrs1190.h File Reference}
+\label{lrs1190_8h}\index{lrs1190.h@{lrs1190.h}}
+
+
+\subsubsection{Define Documentation}
+\index{lrs1190.h@{lrs1190.h}!LRS1190\_\-COUNT\_\-RO@{LRS1190\_\-COUNT\_\-RO}}
+\index{LRS1190\_\-COUNT\_\-RO@{LRS1190\_\-COUNT\_\-RO}!lrs1190.h@{lrs1190.h}}
+\paragraph[{LRS1190\_\-COUNT\_\-RO}]{\setlength{\rightskip}{0pt plus 5cm}\#define LRS1190\_\-COUNT\_\-RO~({\bf DWORD}) (0x8000)}\hfill\label{lrs1190_8h_a2fb98183b20e0fa787bd8bd5bb2ee5ce}
+
+
+Definition at line 23 of file lrs1190.h.
+
+Referenced by lrs1190\_\-CountRead(), lrs1190\_\-H2Read(), lrs1190\_\-I4Read(), and lrs1190\_\-L2Read().\index{lrs1190.h@{lrs1190.h}!LRS1190\_\-DATA\_\-RO@{LRS1190\_\-DATA\_\-RO}}
+\index{LRS1190\_\-DATA\_\-RO@{LRS1190\_\-DATA\_\-RO}!lrs1190.h@{lrs1190.h}}
+\paragraph[{LRS1190\_\-DATA\_\-RO}]{\setlength{\rightskip}{0pt plus 5cm}\#define LRS1190\_\-DATA\_\-RO~({\bf DWORD}) (0x0000)}\hfill\label{lrs1190_8h_a03f0724b949ea57c7ec34ab160eb7f51}
+
+
+Definition at line 22 of file lrs1190.h.
+
+Referenced by lrs1190\_\-H2Read(), lrs1190\_\-I4Read(), and lrs1190\_\-L2Read().\index{lrs1190.h@{lrs1190.h}!LRS1190\_\-ENABLE\_\-RW@{LRS1190\_\-ENABLE\_\-RW}}
+\index{LRS1190\_\-ENABLE\_\-RW@{LRS1190\_\-ENABLE\_\-RW}!lrs1190.h@{lrs1190.h}}
+\paragraph[{LRS1190\_\-ENABLE\_\-RW}]{\setlength{\rightskip}{0pt plus 5cm}\#define LRS1190\_\-ENABLE\_\-RW~({\bf DWORD}) (0x8002)}\hfill\label{lrs1190_8h_ac1a8b13f03c953532adc47be3fb288e4}
+
+
+Definition at line 20 of file lrs1190.h.
+
+Referenced by lrs1190\_\-Disable(), lrs1190\_\-Enable(), and lrs1190\_\-I4Read().\index{lrs1190.h@{lrs1190.h}!LRS1190\_\-RESET\_\-WO@{LRS1190\_\-RESET\_\-WO}}
+\index{LRS1190\_\-RESET\_\-WO@{LRS1190\_\-RESET\_\-WO}!lrs1190.h@{lrs1190.h}}
+\paragraph[{LRS1190\_\-RESET\_\-WO}]{\setlength{\rightskip}{0pt plus 5cm}\#define LRS1190\_\-RESET\_\-WO~({\bf DWORD}) (0x0000)}\hfill\label{lrs1190_8h_a25fd7e16f289f571d45bd9c8f6fe9b0f}
+
+
+Definition at line 21 of file lrs1190.h.
+
+Referenced by lrs1190\_\-I4Read(), and lrs1190\_\-Reset().
+
+\subsubsection{Function Documentation}
+\index{lrs1190.h@{lrs1190.h}!lrs1190\_\-CountRead@{lrs1190\_\-CountRead}}
+\index{lrs1190\_\-CountRead@{lrs1190\_\-CountRead}!lrs1190.h@{lrs1190.h}}
+\paragraph[{lrs1190\_\-CountRead}]{\setlength{\rightskip}{0pt plus 5cm}int lrs1190\_\-CountRead ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  {\bf DWORD} {\em base})}\hfill\label{lrs1190_8h_a351573dde2decf49df9528a3290fdaac}
+
+
+Definition at line 67 of file lrs1190.c.\index{lrs1190.h@{lrs1190.h}!lrs1190\_\-Disable@{lrs1190\_\-Disable}}
+\index{lrs1190\_\-Disable@{lrs1190\_\-Disable}!lrs1190.h@{lrs1190.h}}
+\paragraph[{lrs1190\_\-Disable}]{\setlength{\rightskip}{0pt plus 5cm}void lrs1190\_\-Disable ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  {\bf DWORD} {\em base})}\hfill\label{lrs1190_8h_ae645a9766fb8dc4a5ecc0022d7d1bb13}
+
+
+Definition at line 51 of file lrs1190.c.\index{lrs1190.h@{lrs1190.h}!lrs1190\_\-Enable@{lrs1190\_\-Enable}}
+\index{lrs1190\_\-Enable@{lrs1190\_\-Enable}!lrs1190.h@{lrs1190.h}}
+\paragraph[{lrs1190\_\-Enable}]{\setlength{\rightskip}{0pt plus 5cm}void lrs1190\_\-Enable ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  {\bf DWORD} {\em base})}\hfill\label{lrs1190_8h_afbd4b1118296807316f03e0c661dc16d}
+
+
+Definition at line 35 of file lrs1190.c.\index{lrs1190.h@{lrs1190.h}!lrs1190\_\-H2Read@{lrs1190\_\-H2Read}}
+\index{lrs1190\_\-H2Read@{lrs1190\_\-H2Read}!lrs1190.h@{lrs1190.h}}
+\paragraph[{lrs1190\_\-H2Read}]{\setlength{\rightskip}{0pt plus 5cm}int lrs1190\_\-H2Read ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  {\bf DWORD} {\em base}, \/  {\bf WORD} $\ast$ {\em data}, \/  int)}\hfill\label{lrs1190_8h_a8749b89f97aaff1bc777671db6e1e5f8}
+
+
+Definition at line 137 of file lrs1190.c.\index{lrs1190.h@{lrs1190.h}!lrs1190\_\-I4Read@{lrs1190\_\-I4Read}}
+\index{lrs1190\_\-I4Read@{lrs1190\_\-I4Read}!lrs1190.h@{lrs1190.h}}
+\paragraph[{lrs1190\_\-I4Read}]{\setlength{\rightskip}{0pt plus 5cm}int lrs1190\_\-I4Read ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  {\bf DWORD} {\em base}, \/  {\bf DWORD} $\ast$ {\em data}, \/  int)}\hfill\label{lrs1190_8h_a7d4b393ab63b9bf656be093d71499c7c}
+
+
+Definition at line 83 of file lrs1190.c.\index{lrs1190.h@{lrs1190.h}!lrs1190\_\-L2Read@{lrs1190\_\-L2Read}}
+\index{lrs1190\_\-L2Read@{lrs1190\_\-L2Read}!lrs1190.h@{lrs1190.h}}
+\paragraph[{lrs1190\_\-L2Read}]{\setlength{\rightskip}{0pt plus 5cm}int lrs1190\_\-L2Read ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  {\bf DWORD} {\em base}, \/  {\bf WORD} $\ast$ {\em data}, \/  int)}\hfill\label{lrs1190_8h_abfd68668ee12ab2b900d7fe200b42f56}
+
+
+Definition at line 113 of file lrs1190.c.\index{lrs1190.h@{lrs1190.h}!lrs1190\_\-Reset@{lrs1190\_\-Reset}}
+\index{lrs1190\_\-Reset@{lrs1190\_\-Reset}!lrs1190.h@{lrs1190.h}}
+\paragraph[{lrs1190\_\-Reset}]{\setlength{\rightskip}{0pt plus 5cm}void lrs1190\_\-Reset ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  {\bf DWORD} {\em base})}\hfill\label{lrs1190_8h_aefc59eb1c2a33917cdc02e2538e72d72}
+
+
+Definition at line 19 of file lrs1190.c.

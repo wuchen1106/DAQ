@@ -1,0 +1,95 @@
+\subsection{BUFFER\_\-HEADER Struct Reference}
+\label{structBUFFER__HEADER}\index{BUFFER\_\-HEADER@{BUFFER\_\-HEADER}}
+\subsubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+char \hyperlink{structBUFFER__HEADER_a40ea1b56ee55965c4d61e6da5ae57022}{name} \mbox{[}NAME\_\-LENGTH\mbox{]}
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{structBUFFER__HEADER_a3c6af0363e3034c956a264fe6a25ddfb}{num\_\-clients}
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{structBUFFER__HEADER_a5af9f52955602868b5b9161580fa810d}{max\_\-client\_\-index}
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{structBUFFER__HEADER_adedca43a59b3dd2c5cf10cff01dc46a3}{size}
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{structBUFFER__HEADER_add4be4a3e858fc79d67f2625c1771874}{read\_\-pointer}
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{structBUFFER__HEADER_a3431c98c823dc22dc046a947bd9675eb}{write\_\-pointer}
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{structBUFFER__HEADER_a1cb3b9436d59dba0946de51581e68fbd}{num\_\-in\_\-events}
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{structBUFFER__HEADER_a945ea5f8272cf66bfe20e68a0b86b599}{num\_\-out\_\-events}
+\item 
+\hyperlink{structBUFFER__CLIENT}{BUFFER\_\-CLIENT} \hyperlink{structBUFFER__HEADER_a7bf4fa88ab9e4791b3357210c0422946}{client} \mbox{[}MAX\_\-CLIENTS\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+
+
+Definition at line 876 of file midas.h.
+
+\subsubsection{Field Documentation}
+\index{BUFFER\_\-HEADER@{BUFFER\_\-HEADER}!client@{client}}
+\index{client@{client}!BUFFER_HEADER@{BUFFER\_\-HEADER}}
+\paragraph[{client}]{\setlength{\rightskip}{0pt plus 5cm}{\bf BUFFER\_\-CLIENT} {\bf BUFFER\_\-HEADER::client}\mbox{[}MAX\_\-CLIENTS\mbox{]}}\hfill\label{structBUFFER__HEADER_a7bf4fa88ab9e4791b3357210c0422946}
+entries for clients 
+
+Definition at line 886 of file midas.h.
+
+Referenced by bm\_\-cleanup(), bm\_\-cleanup\_\-buffer\_\-locked(), bm\_\-close\_\-buffer(), bm\_\-flush\_\-cache(), bm\_\-open\_\-buffer(), bm\_\-push\_\-event(), bm\_\-receive\_\-event(), bm\_\-remove\_\-client\_\-locked(), bm\_\-send\_\-event(), bm\_\-skip\_\-event(), bm\_\-update\_\-read\_\-pointer(), bm\_\-validate\_\-client\_\-index(), bm\_\-wait\_\-for\_\-free\_\-space(), bm\_\-wakeup\_\-producers(), cm\_\-cleanup(), cm\_\-set\_\-watchdog\_\-params(), and cm\_\-update\_\-last\_\-activity().\index{BUFFER\_\-HEADER@{BUFFER\_\-HEADER}!max\_\-client\_\-index@{max\_\-client\_\-index}}
+\index{max\_\-client\_\-index@{max\_\-client\_\-index}!BUFFER_HEADER@{BUFFER\_\-HEADER}}
+\paragraph[{max\_\-client\_\-index}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} {\bf BUFFER\_\-HEADER::max\_\-client\_\-index}}\hfill\label{structBUFFER__HEADER_a5af9f52955602868b5b9161580fa810d}
+index of last client 
+
+Definition at line 879 of file midas.h.
+
+Referenced by bm\_\-cleanup\_\-buffer\_\-locked(), bm\_\-close\_\-buffer(), bm\_\-flush\_\-cache(), bm\_\-open\_\-buffer(), bm\_\-remove\_\-client\_\-locked(), bm\_\-send\_\-event(), bm\_\-update\_\-read\_\-pointer(), bm\_\-validate\_\-client\_\-index(), bm\_\-wakeup\_\-producers(), and cm\_\-cleanup().\index{BUFFER\_\-HEADER@{BUFFER\_\-HEADER}!name@{name}}
+\index{name@{name}!BUFFER_HEADER@{BUFFER\_\-HEADER}}
+\paragraph[{name}]{\setlength{\rightskip}{0pt plus 5cm}char {\bf BUFFER\_\-HEADER::name}\mbox{[}NAME\_\-LENGTH\mbox{]}}\hfill\label{structBUFFER__HEADER_a40ea1b56ee55965c4d61e6da5ae57022}
+name of buffer 
+
+Definition at line 877 of file midas.h.
+
+Referenced by bm\_\-check\_\-buffers(), bm\_\-cleanup\_\-buffer\_\-locked(), bm\_\-close\_\-buffer(), bm\_\-flush\_\-cache(), bm\_\-open\_\-buffer(), bm\_\-push\_\-event(), bm\_\-send\_\-event(), bm\_\-validate\_\-client\_\-index(), bm\_\-validate\_\-client\_\-pointers(), bm\_\-wait\_\-for\_\-free\_\-space(), and cm\_\-cleanup().\index{BUFFER\_\-HEADER@{BUFFER\_\-HEADER}!num\_\-clients@{num\_\-clients}}
+\index{num\_\-clients@{num\_\-clients}!BUFFER_HEADER@{BUFFER\_\-HEADER}}
+\paragraph[{num\_\-clients}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} {\bf BUFFER\_\-HEADER::num\_\-clients}}\hfill\label{structBUFFER__HEADER_a3c6af0363e3034c956a264fe6a25ddfb}
+no of active clients 
+
+Definition at line 878 of file midas.h.
+
+Referenced by bm\_\-close\_\-buffer(), bm\_\-open\_\-buffer(), and bm\_\-remove\_\-client\_\-locked().\index{BUFFER\_\-HEADER@{BUFFER\_\-HEADER}!num\_\-in\_\-events@{num\_\-in\_\-events}}
+\index{num\_\-in\_\-events@{num\_\-in\_\-events}!BUFFER_HEADER@{BUFFER\_\-HEADER}}
+\paragraph[{num\_\-in\_\-events}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} {\bf BUFFER\_\-HEADER::num\_\-in\_\-events}}\hfill\label{structBUFFER__HEADER_a1cb3b9436d59dba0946de51581e68fbd}
+no of received events 
+
+Definition at line 883 of file midas.h.
+
+Referenced by bm\_\-flush\_\-cache(), and bm\_\-send\_\-event().\index{BUFFER\_\-HEADER@{BUFFER\_\-HEADER}!num\_\-out\_\-events@{num\_\-out\_\-events}}
+\index{num\_\-out\_\-events@{num\_\-out\_\-events}!BUFFER_HEADER@{BUFFER\_\-HEADER}}
+\paragraph[{num\_\-out\_\-events}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} {\bf BUFFER\_\-HEADER::num\_\-out\_\-events}}\hfill\label{structBUFFER__HEADER_a945ea5f8272cf66bfe20e68a0b86b599}
+no of distributed events 
+
+Definition at line 884 of file midas.h.
+
+Referenced by bm\_\-push\_\-event(), and bm\_\-receive\_\-event().\index{BUFFER\_\-HEADER@{BUFFER\_\-HEADER}!read\_\-pointer@{read\_\-pointer}}
+\index{read\_\-pointer@{read\_\-pointer}!BUFFER_HEADER@{BUFFER\_\-HEADER}}
+\paragraph[{read\_\-pointer}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} {\bf BUFFER\_\-HEADER::read\_\-pointer}}\hfill\label{structBUFFER__HEADER_add4be4a3e858fc79d67f2625c1771874}
+read pointer 
+
+Definition at line 881 of file midas.h.
+
+Referenced by bm\_\-flush\_\-cache(), bm\_\-receive\_\-event(), bm\_\-send\_\-event(), bm\_\-update\_\-read\_\-pointer(), bm\_\-validate\_\-client\_\-pointers(), bm\_\-wait\_\-for\_\-free\_\-space(), and bm\_\-wakeup\_\-producers().\index{BUFFER\_\-HEADER@{BUFFER\_\-HEADER}!size@{size}}
+\index{size@{size}!BUFFER_HEADER@{BUFFER\_\-HEADER}}
+\paragraph[{size}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} {\bf BUFFER\_\-HEADER::size}}\hfill\label{structBUFFER__HEADER_adedca43a59b3dd2c5cf10cff01dc46a3}
+size of data area in bytes 
+
+Definition at line 880 of file midas.h.
+
+Referenced by bm\_\-flush\_\-cache(), bm\_\-open\_\-buffer(), bm\_\-push\_\-event(), bm\_\-receive\_\-event(), bm\_\-send\_\-event(), bm\_\-update\_\-read\_\-pointer(), bm\_\-validate\_\-client\_\-pointers(), bm\_\-wait\_\-for\_\-free\_\-space(), and bm\_\-wakeup\_\-producers().\index{BUFFER\_\-HEADER@{BUFFER\_\-HEADER}!write\_\-pointer@{write\_\-pointer}}
+\index{write\_\-pointer@{write\_\-pointer}!BUFFER_HEADER@{BUFFER\_\-HEADER}}
+\paragraph[{write\_\-pointer}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} {\bf BUFFER\_\-HEADER::write\_\-pointer}}\hfill\label{structBUFFER__HEADER_a3431c98c823dc22dc046a947bd9675eb}
+write pointer 
+
+Definition at line 882 of file midas.h.
+
+Referenced by bm\_\-flush\_\-cache(), bm\_\-open\_\-buffer(), bm\_\-push\_\-event(), bm\_\-receive\_\-event(), bm\_\-send\_\-event(), bm\_\-skip\_\-event(), bm\_\-update\_\-read\_\-pointer(), bm\_\-validate\_\-client\_\-pointers(), bm\_\-wait\_\-for\_\-free\_\-space(), and bm\_\-wakeup\_\-producers().

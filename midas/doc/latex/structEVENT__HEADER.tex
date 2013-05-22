@@ -1,0 +1,59 @@
+\subsection{EVENT\_\-HEADER Struct Reference}
+\label{structEVENT__HEADER}\index{EVENT\_\-HEADER@{EVENT\_\-HEADER}}
+\subsubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+short int \hyperlink{structEVENT__HEADER_a107bbb0fbe21582dc0f0e78f60b997b3}{event\_\-id}
+\item 
+short int \hyperlink{structEVENT__HEADER_a9b4b94f41521f5c188655b7bb0f1ec1b}{trigger\_\-mask}
+\item 
+\hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} \hyperlink{structEVENT__HEADER_a5ed07c075ebce619a8fa47e96f188440}{serial\_\-number}
+\item 
+\hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} \hyperlink{structEVENT__HEADER_a989421ee804ab76a0e11ac1c9c3b0e7a}{time\_\-stamp}
+\item 
+\hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} \hyperlink{structEVENT__HEADER_a194220c29419e01ef4cab6d3dd8daedb}{data\_\-size}
+\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+Event header 
+
+Definition at line 782 of file midas.h.
+
+\subsubsection{Field Documentation}
+\index{EVENT\_\-HEADER@{EVENT\_\-HEADER}!data\_\-size@{data\_\-size}}
+\index{data\_\-size@{data\_\-size}!EVENT_HEADER@{EVENT\_\-HEADER}}
+\paragraph[{data\_\-size}]{\setlength{\rightskip}{0pt plus 5cm}{\bf DWORD} {\bf EVENT\_\-HEADER::data\_\-size}}\hfill\label{structEVENT__HEADER_a194220c29419e01ef4cab6d3dd8daedb}
+size of event in bytes w/o header 
+
+Definition at line 787 of file midas.h.
+
+Referenced by bm\_\-compose\_\-event(), bm\_\-convert\_\-event\_\-header(), bm\_\-copy\_\-from\_\-cache(), bm\_\-dispatch\_\-from\_\-cache(), bm\_\-flush\_\-cache(), bm\_\-push\_\-event(), bm\_\-receive\_\-event(), check\_\-polled\_\-events(), cm\_\-msg1(), cm\_\-msg\_\-send\_\-event(), eb\_\-user(), interrupt\_\-routine(), md\_\-bank\_\-event\_\-display(), readout\_\-thread(), receive\_\-trigger\_\-event(), scheduler(), send\_\-event(), and update\_\-odb().\index{EVENT\_\-HEADER@{EVENT\_\-HEADER}!event\_\-id@{event\_\-id}}
+\index{event\_\-id@{event\_\-id}!EVENT_HEADER@{EVENT\_\-HEADER}}
+\paragraph[{event\_\-id}]{\setlength{\rightskip}{0pt plus 5cm}short int {\bf EVENT\_\-HEADER::event\_\-id}}\hfill\label{structEVENT__HEADER_a107bbb0fbe21582dc0f0e78f60b997b3}
+event ID starting from one 
+
+Definition at line 783 of file midas.h.
+
+Referenced by bm\_\-compose\_\-event(), bm\_\-convert\_\-event\_\-header(), bm\_\-dispatch\_\-event(), bm\_\-match\_\-event(), check\_\-polled\_\-events(), interrupt\_\-routine(), md\_\-bank\_\-event\_\-display(), readout\_\-thread(), scheduler(), send\_\-event(), and update\_\-odb().\index{EVENT\_\-HEADER@{EVENT\_\-HEADER}!serial\_\-number@{serial\_\-number}}
+\index{serial\_\-number@{serial\_\-number}!EVENT_HEADER@{EVENT\_\-HEADER}}
+\paragraph[{serial\_\-number}]{\setlength{\rightskip}{0pt plus 5cm}{\bf DWORD} {\bf EVENT\_\-HEADER::serial\_\-number}}\hfill\label{structEVENT__HEADER_a5ed07c075ebce619a8fa47e96f188440}
+serial number starting from one 
+
+Definition at line 785 of file midas.h.
+
+Referenced by bm\_\-compose\_\-event(), bm\_\-convert\_\-event\_\-header(), check\_\-polled\_\-events(), interrupt\_\-routine(), md\_\-bank\_\-event\_\-display(), readout\_\-thread(), receive\_\-trigger\_\-event(), scheduler(), and send\_\-event().\index{EVENT\_\-HEADER@{EVENT\_\-HEADER}!time\_\-stamp@{time\_\-stamp}}
+\index{time\_\-stamp@{time\_\-stamp}!EVENT_HEADER@{EVENT\_\-HEADER}}
+\paragraph[{time\_\-stamp}]{\setlength{\rightskip}{0pt plus 5cm}{\bf DWORD} {\bf EVENT\_\-HEADER::time\_\-stamp}}\hfill\label{structEVENT__HEADER_a989421ee804ab76a0e11ac1c9c3b0e7a}
+time of production of event 
+
+Definition at line 786 of file midas.h.
+
+Referenced by bm\_\-compose\_\-event(), bm\_\-convert\_\-event\_\-header(), bm\_\-push\_\-event(), check\_\-polled\_\-events(), cm\_\-msg\_\-send\_\-event(), interrupt\_\-routine(), md\_\-bank\_\-event\_\-display(), readout\_\-thread(), scheduler(), and send\_\-event().\index{EVENT\_\-HEADER@{EVENT\_\-HEADER}!trigger\_\-mask@{trigger\_\-mask}}
+\index{trigger\_\-mask@{trigger\_\-mask}!EVENT_HEADER@{EVENT\_\-HEADER}}
+\paragraph[{trigger\_\-mask}]{\setlength{\rightskip}{0pt plus 5cm}short int {\bf EVENT\_\-HEADER::trigger\_\-mask}}\hfill\label{structEVENT__HEADER_a9b4b94f41521f5c188655b7bb0f1ec1b}
+hardware trigger mask 
+
+Definition at line 784 of file midas.h.
+
+Referenced by bm\_\-compose\_\-event(), bm\_\-convert\_\-event\_\-header(), bm\_\-match\_\-event(), check\_\-polled\_\-events(), interrupt\_\-routine(), md\_\-bank\_\-event\_\-display(), readout\_\-thread(), scheduler(), and send\_\-event().

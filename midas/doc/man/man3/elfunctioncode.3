@@ -1,0 +1,71 @@
+.TH "Midas Elog Functions (el_xxx)" 3 "31 May 2012" "Version 2.3.0-0" "Midas" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Midas Elog Functions (el_xxx) \- 
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBINT\fP \fBel_submit\fP (int run, const char *author, const char *type, const char *syst, const char *subject, const char *text, const char *reply_to, const char *encoding, const char *afilename1, char *buffer1, \fBINT\fP buffer_size1, const char *afilename2, char *buffer2, \fBINT\fP buffer_size2, const char *afilename3, char *buffer3, \fBINT\fP buffer_size3, char *tag, \fBINT\fP tag_size)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+dox 
+.SH "Function Documentation"
+.PP 
+.SS "\fBINT\fP el_submit (int run, const char * author, const char * type, const char * syst, const char * subject, const char * text, const char * reply_to, const char * encoding, const char * afilename1, char * buffer1, \fBINT\fP buffer_size1, const char * afilename2, char * buffer2, \fBINT\fP buffer_size2, const char * afilename3, char * buffer3, \fBINT\fP buffer_size3, char * tag, \fBINT\fP tag_size)"dox Submit an ELog entry. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIrun\fP Run Number. 
+.br
+\fIauthor\fP Message author. 
+.br
+\fItype\fP Message type. 
+.br
+\fIsyst\fP Message system. 
+.br
+\fIsubject\fP Subject. 
+.br
+\fItext\fP Message text. 
+.br
+\fIreply_to\fP In reply to this message. 
+.br
+\fIencoding\fP Text encoding, either HTML or plain. 
+.br
+\fIafilename1\fP File name of attachment. 
+.br
+\fIbuffer1\fP File contents. 
+.br
+\fIbuffer_size1\fP Size of buffer in bytes. 
+.br
+\fIafilename2\fP File name of attachment. 
+.br
+\fIbuffer2\fP File contents. 
+.br
+\fIbuffer_size2\fP Size of buffer in bytes. 
+.br
+\fIafilename3\fP File name of attachment. 
+.br
+\fIbuffer3\fP File contents. 
+.br
+\fIbuffer_size3\fP Size of buffer in bytes. 
+.br
+\fItag\fP If given, edit existing message. 
+.br
+\fItag_size\fP Maximum size of tag. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+EL_SUCCESS 
+.RE
+.PP
+
+.PP
+Definition at line 81 of file elog.c.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Midas from the source code.

@@ -1,0 +1,131 @@
+.TH "ANALYZE_REQUEST" 3 "31 May 2012" "Version 2.3.0-0" "Midas" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+ANALYZE_REQUEST \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "char \fBevent_name\fP [NAME_LENGTH]"
+.br
+.ti -1c
+.RI "\fBAR_INFO\fP \fBar_info\fP"
+.br
+.ti -1c
+.RI "\fBINT\fP(* \fBanalyzer\fP )(\fBEVENT_HEADER\fP *, void *)"
+.br
+.ti -1c
+.RI "\fBANA_MODULE\fP ** \fBana_module\fP"
+.br
+.ti -1c
+.RI "\fBBANK_LIST\fP * \fBbank_list\fP"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBrwnt_buffer_size\fP"
+.br
+.ti -1c
+.RI "\fBBOOL\fP \fBuse_tests\fP"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBstatus\fP"
+.br
+.ti -1c
+.RI "HNDLE \fBbuffer_handle\fP"
+.br
+.ti -1c
+.RI "HNDLE \fBrequest_id\fP"
+.br
+.ti -1c
+.RI "HNDLE \fBhkey_variables\fP"
+.br
+.ti -1c
+.RI "HNDLE \fBhkey_common\fP"
+.br
+.ti -1c
+.RI "void * \fBaddr\fP"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "} \fBnumber\fP"
+.br
+.ti -1c
+.RI "\fBDWORD\fP \fBevents_received\fP"
+.br
+.ti -1c
+.RI "\fBDWORD\fP \fBevents_written\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 1119 of file midas.h.
+.SH "Field Documentation"
+.PP 
+.SS "void* \fBANALYZE_REQUEST::addr\fP"Buffer for CWNT filling 
+.PP
+Definition at line 1133 of file midas.h.
+.SS "\fBANA_MODULE\fP** \fBANALYZE_REQUEST::ana_module\fP"List of analyzer modules 
+.PP
+Definition at line 1123 of file midas.h.
+.SS "\fBINT\fP(* \fBANALYZE_REQUEST::analyzer\fP)(\fBEVENT_HEADER\fP *, void *)"Pointer to user analyzer routine 
+.SS "\fBAR_INFO\fP \fBANALYZE_REQUEST::ar_info\fP"From above 
+.PP
+Definition at line 1121 of file midas.h.
+.SS "\fBAR_STATS\fP \fBANALYZE_REQUEST::ar_stats\fP"
+.PP
+Definition at line 1141 of file midas.h.
+.SS "\fBBANK_LIST\fP* \fBANALYZE_REQUEST::bank_list\fP"List of banks for event 
+.PP
+Definition at line 1124 of file midas.h.
+.SS "HNDLE \fBANALYZE_REQUEST::buffer_handle\fP"MIDAS buffer handle 
+.PP
+Definition at line 1129 of file midas.h.
+.SS "char \fBANALYZE_REQUEST::event_name\fP[NAME_LENGTH]"Event name 
+.PP
+Definition at line 1120 of file midas.h.
+.SS "\fBDWORD\fP \fBANALYZE_REQUEST::events_received\fP"number of events sent 
+.PP
+Definition at line 1139 of file midas.h.
+.SS "\fBDWORD\fP \fBANALYZE_REQUEST::events_written\fP"number of events written 
+.PP
+Definition at line 1140 of file midas.h.
+.SS "HNDLE \fBANALYZE_REQUEST::hkey_common\fP"Key to common subtree 
+.PP
+Definition at line 1132 of file midas.h.
+.SS "HNDLE \fBANALYZE_REQUEST::hkey_variables\fP"Key to variables subtree in ODB 
+.PP
+Definition at line 1131 of file midas.h.
+.SS "char** \fBANALYZE_REQUEST::init_string\fP"
+.PP
+Definition at line 1127 of file midas.h.
+.SS "struct { ... }   \fBANALYZE_REQUEST::number\fP"Buffer for event number for CWNT 
+.SS "HNDLE \fBANALYZE_REQUEST::request_id\fP"Event request handle 
+.PP
+Definition at line 1130 of file midas.h.
+.SS "\fBDWORD\fP \fBANALYZE_REQUEST::run\fP"
+.PP
+Definition at line 1135 of file midas.h.
+.SS "\fBINT\fP \fBANALYZE_REQUEST::rwnt_buffer_size\fP"Size in events of RW N-tuple buf 
+.PP
+Definition at line 1125 of file midas.h.
+.SS "\fBDWORD\fP \fBANALYZE_REQUEST::serial\fP"
+.PP
+Definition at line 1136 of file midas.h.
+.SS "\fBINT\fP \fBANALYZE_REQUEST::status\fP"One of FE_xxx 
+.PP
+Definition at line 1128 of file midas.h.
+.SS "\fBDWORD\fP \fBANALYZE_REQUEST::time\fP"
+.PP
+Definition at line 1137 of file midas.h.
+.SS "\fBBOOL\fP \fBANALYZE_REQUEST::use_tests\fP"Use tests for this event 
+.PP
+Definition at line 1126 of file midas.h.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Midas from the source code.

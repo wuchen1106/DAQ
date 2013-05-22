@@ -1,0 +1,11 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$a00030.html#ab43ecd65b499093aa9a388c6bd1ae902" title="TMidasEvent::FindBank" alt="" coords="284,112,463,141"/>
+<area shape="rect" id="node20" href="$a00030.html#a3a99e7a49d343d38c7c3395383fcd90e" title="create the list of data banks, return number of banks" alt="" coords="273,165,473,195"/>
+<area shape="rect" id="node5" href="$a00015.html#ac2d58ceff032ecbd7dab209301034eb1" title="Add a templated function that returns event data in the format that we want." alt="" coords="524,59,764,88"/>
+<area shape="rect" id="node13" href="$a00030.html#a9ca976221e70917aebfd50e23b274c8d" title="TMidasEvent::LocateBank" alt="" coords="544,112,744,141"/>
+<area shape="rect" id="node18" href="$a00030.html#a442773e8be576cc7866e1a23f6c6d615" title="show all event information" alt="" coords="569,165,719,195"/>
+<area shape="rect" id="node7" href="$a00010.html#a488e1fa5ce7c9dbf04ad102236dcf380" title="Process each midas event." alt="" coords="893,112,1139,141"/>
+<area shape="rect" id="node9" href="$a00039.html#af28d2599411ff7369e5c524cda7fe025" title="Update the histograms for this canvas." alt="" coords="833,5,1199,35"/>
+<area shape="rect" id="node11" href="$a00013.html#ad83f3a6bc10f9f59f081e529b54fe131" title="Update the histograms for this canvas." alt="" coords="813,59,1219,88"/>
+<area shape="rect" id="node16" href="$a00010.html#a378d2b4e5d93437808b5dc5496dd3ab8" title="This method can be implemented by users to update user histograms." alt="" coords="897,165,1135,195"/>
+</map>

@@ -1,0 +1,38 @@
+.TH "RC_run_control" 3 "31 May 2012" "Version 2.3.0-0" "Midas" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+RC_run_control \- Run Control Programs 
+
+.br
+  
+.br
+.PP
+Users must have some way of controlling the experiment (i.e. starting and stopping a run, changing the run \fBparameters\fP etc.) and of determining the progress of the run (e.g. whether the run started successfully, whether data is being taken and saved, and whether any error conditions have occurred). 
+.br
+ Two options for \fB Run Control \fP are provided in the MIDAS package. They are \fBodbedit\fP, a program with a simple command line interface, and \fBmhttpd\fP, the web-based run control program. 
+.br
+ \fBmhttpd\fP is the usual choice for experimenters, since it provides a graphical interface, and is used both for run control and monitoring. It has many features not available in odbedit, such as history display, electronic logbook, custom pages and alias-links. However, it has limited functionality as an ODB editor. 
+.br
+ \fBodbedit\fP is very useful for debugging, is often quicker and simpler to use, and is a fully functional odb editor (hence its name). It has limited monitoring capability. 
+.br
+ Other utilities for monitoring are also provided, such as \fBmstat\fP, a simple monitoring task, and \fBmdump\fP which can dump the raw data. 
+.br
+.PP
+Various keys in the ODB can be customized for Run Control. This involves creating and/or editing keys using odbedit or mhttpd. Where the customization is only relevent to mhttpd, it will be described in the appropriate mhttpd section.
+.PP
+The odbedit and mhttpd utilities will be described next.
+.PP
+.IP "\(bu" 2
+\fBodbedit: The ODB Editor and Run Control utility\fP
+.IP "\(bu" 2
+\fBmhttpd: the MIDAS Web-based Run Control utility\fP 
+.br
+ 
+.br
+
+.PP
+.PP
+
+.br
+   

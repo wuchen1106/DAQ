@@ -1,0 +1,447 @@
+\subsection{v1190B.h File Reference}
+\label{v1190B_8h}\index{v1190B.h@{v1190B.h}}
+\subsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{v1190B_8h_a2e170ba3dc7d7492affdfad8fbc6338b}{v1190\_\-EventRead} (\hyperlink{structMVME__INTERFACE}{MVME\_\-INTERFACE} $\ast$mvme, \hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} base, \hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} $\ast$pdest, int $\ast$nentry)
+\item 
+int \hyperlink{v1190B_8h_a3fb3376a4705f511733ade46e23388e3}{v1190\_\-DataRead} (\hyperlink{structMVME__INTERFACE}{MVME\_\-INTERFACE} $\ast$mvme, \hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} base, \hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} $\ast$pdest, int nentry)
+\item 
+void \hyperlink{v1190B_8h_af9175bc6e8cd2dc1c63dbd69d974f8a1}{v1190\_\-WidthSet} (\hyperlink{structMVME__INTERFACE}{MVME\_\-INTERFACE} $\ast$mvme, \hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} base, \hyperlink{vt2_8h_a2b0e863dadf920709ec53d9088ee7c91}{WORD} \hyperlink{myexpt_8html_a5558ace5433f9aabbf0a0ec059900d94}{width})
+\item 
+void \hyperlink{v1190B_8h_a47b04f666b0640f4ec4b5b03a78bcff5}{v1190\_\-OffsetSet} (\hyperlink{structMVME__INTERFACE}{MVME\_\-INTERFACE} $\ast$mvme, \hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} base, \hyperlink{vt2_8h_a2b0e863dadf920709ec53d9088ee7c91}{WORD} offset)
+\item 
+int \hyperlink{v1190B_8h_a08c507c60af774a2828a1e0ff6eac4c2}{v1190\_\-Setup} (\hyperlink{structMVME__INTERFACE}{MVME\_\-INTERFACE} $\ast$mvme, \hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} base, int mode)
+\item 
+int \hyperlink{v1190B_8h_a620a197083a0d776491f7bd620e2effd}{v1190\_\-Status} (\hyperlink{structMVME__INTERFACE}{MVME\_\-INTERFACE} $\ast$mvme, \hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} base)
+\end{DoxyCompactItemize}
+
+
+\subsubsection{Define Documentation}
+\index{v1190B.h@{v1190B.h}!LE\_\-RESOLUTION\_\-100@{LE\_\-RESOLUTION\_\-100}}
+\index{LE\_\-RESOLUTION\_\-100@{LE\_\-RESOLUTION\_\-100}!v1190B.h@{v1190B.h}}
+\paragraph[{LE\_\-RESOLUTION\_\-100}]{\setlength{\rightskip}{0pt plus 5cm}\#define LE\_\-RESOLUTION\_\-100~({\bf WORD}) (0x10)}\hfill\label{v1190B_8h_a6b124d6638860913a000ec71a10412f0}
+
+
+Definition at line 54 of file v1190B.h.
+
+Referenced by begin\_\-of\_\-run(), and v1190\_\-LEResolutionSet().\index{v1190B.h@{v1190B.h}!LE\_\-RESOLUTION\_\-200@{LE\_\-RESOLUTION\_\-200}}
+\index{LE\_\-RESOLUTION\_\-200@{LE\_\-RESOLUTION\_\-200}!v1190B.h@{v1190B.h}}
+\paragraph[{LE\_\-RESOLUTION\_\-200}]{\setlength{\rightskip}{0pt plus 5cm}\#define LE\_\-RESOLUTION\_\-200~({\bf WORD}) (0x01)}\hfill\label{v1190B_8h_ac6023e0596d452026a97581eae04bf1b}
+
+
+Definition at line 55 of file v1190B.h.
+
+Referenced by begin\_\-of\_\-run(), and v1190\_\-LEResolutionSet().\index{v1190B.h@{v1190B.h}!LE\_\-RESOLUTION\_\-800@{LE\_\-RESOLUTION\_\-800}}
+\index{LE\_\-RESOLUTION\_\-800@{LE\_\-RESOLUTION\_\-800}!v1190B.h@{v1190B.h}}
+\paragraph[{LE\_\-RESOLUTION\_\-800}]{\setlength{\rightskip}{0pt plus 5cm}\#define LE\_\-RESOLUTION\_\-800~({\bf WORD}) (0x00)}\hfill\label{v1190B_8h_af203e58693ac94231188c6ac4d28723c}
+
+
+Definition at line 56 of file v1190B.h.
+
+Referenced by begin\_\-of\_\-run(), and v1190\_\-LEResolutionSet().\index{v1190B.h@{v1190B.h}!V1190\_\-ACQ\_\-MODE\_\-RO@{V1190\_\-ACQ\_\-MODE\_\-RO}}
+\index{V1190\_\-ACQ\_\-MODE\_\-RO@{V1190\_\-ACQ\_\-MODE\_\-RO}!v1190B.h@{v1190B.h}}
+\paragraph[{V1190\_\-ACQ\_\-MODE\_\-RO}]{\setlength{\rightskip}{0pt plus 5cm}\#define V1190\_\-ACQ\_\-MODE\_\-RO~({\bf WORD}) (0x0200)}\hfill\label{v1190B_8h_abad67749f23decb85d8b881d33b296f9}
+
+
+Definition at line 52 of file v1190B.h.
+
+Referenced by v1190\_\-AcqModeRead().\index{v1190B.h@{v1190B.h}!V1190\_\-ALMOST\_\-FULL@{V1190\_\-ALMOST\_\-FULL}}
+\index{V1190\_\-ALMOST\_\-FULL@{V1190\_\-ALMOST\_\-FULL}!v1190B.h@{v1190B.h}}
+\paragraph[{V1190\_\-ALMOST\_\-FULL}]{\setlength{\rightskip}{0pt plus 5cm}\#define V1190\_\-ALMOST\_\-FULL~({\bf DWORD}) (0x0002)}\hfill\label{v1190B_8h_add543845434c3d57d6251d41a48f6dba}
+
+
+Definition at line 26 of file v1190B.h.\index{v1190B.h@{v1190B.h}!V1190\_\-CONTINUOUS\_\-WO@{V1190\_\-CONTINUOUS\_\-WO}}
+\index{V1190\_\-CONTINUOUS\_\-WO@{V1190\_\-CONTINUOUS\_\-WO}!v1190B.h@{v1190B.h}}
+\paragraph[{V1190\_\-CONTINUOUS\_\-WO}]{\setlength{\rightskip}{0pt plus 5cm}\#define V1190\_\-CONTINUOUS\_\-WO~({\bf WORD}) (0x0100)}\hfill\label{v1190B_8h_a45d7da47e8804b066357cd04b9e684e2}
+
+
+Definition at line 51 of file v1190B.h.
+
+Referenced by v1190\_\-ContinuousSet().\index{v1190B.h@{v1190B.h}!V1190\_\-CR\_\-RW@{V1190\_\-CR\_\-RW}}
+\index{V1190\_\-CR\_\-RW@{V1190\_\-CR\_\-RW}!v1190B.h@{v1190B.h}}
+\paragraph[{V1190\_\-CR\_\-RW}]{\setlength{\rightskip}{0pt plus 5cm}\#define V1190\_\-CR\_\-RW~({\bf DWORD}) (0x1000)}\hfill\label{v1190B_8h_a24220cae747ac16f14392afc101af858}
+
+
+Definition at line 23 of file v1190B.h.\index{v1190B.h@{v1190B.h}!V1190\_\-DATA\_\-READY@{V1190\_\-DATA\_\-READY}}
+\index{V1190\_\-DATA\_\-READY@{V1190\_\-DATA\_\-READY}!v1190B.h@{v1190B.h}}
+\paragraph[{V1190\_\-DATA\_\-READY}]{\setlength{\rightskip}{0pt plus 5cm}\#define V1190\_\-DATA\_\-READY~({\bf DWORD}) (0x0001)}\hfill\label{v1190B_8h_a7f70cfd95a9c821b618c798be1e16a80}
+
+
+Definition at line 25 of file v1190B.h.
+
+Referenced by v1190\_\-DataReady().\index{v1190B.h@{v1190B.h}!V1190\_\-EDGE\_\-DETECTION\_\-WO@{V1190\_\-EDGE\_\-DETECTION\_\-WO}}
+\index{V1190\_\-EDGE\_\-DETECTION\_\-WO@{V1190\_\-EDGE\_\-DETECTION\_\-WO}!v1190B.h@{v1190B.h}}
+\paragraph[{V1190\_\-EDGE\_\-DETECTION\_\-WO}]{\setlength{\rightskip}{0pt plus 5cm}\#define V1190\_\-EDGE\_\-DETECTION\_\-WO~({\bf WORD}) (0x2200)}\hfill\label{v1190B_8h_a01c0586f227c97407091ab5f55d87252}
+
+
+Definition at line 46 of file v1190B.h.
+
+Referenced by v1190\_\-SetEdgeDetection().\index{v1190B.h@{v1190B.h}!V1190\_\-EVT\_\-CNT\_\-RO@{V1190\_\-EVT\_\-CNT\_\-RO}}
+\index{V1190\_\-EVT\_\-CNT\_\-RO@{V1190\_\-EVT\_\-CNT\_\-RO}!v1190B.h@{v1190B.h}}
+\paragraph[{V1190\_\-EVT\_\-CNT\_\-RO}]{\setlength{\rightskip}{0pt plus 5cm}\#define V1190\_\-EVT\_\-CNT\_\-RO~({\bf DWORD}) (0x101C)}\hfill\label{v1190B_8h_ad8f5664e82e318d2586d22a5f3c3d07e}
+
+
+Definition at line 35 of file v1190B.h.
+
+Referenced by v1190\_\-EvtCounter().\index{v1190B.h@{v1190B.h}!V1190\_\-EVT\_\-STORED\_\-RO@{V1190\_\-EVT\_\-STORED\_\-RO}}
+\index{V1190\_\-EVT\_\-STORED\_\-RO@{V1190\_\-EVT\_\-STORED\_\-RO}!v1190B.h@{v1190B.h}}
+\paragraph[{V1190\_\-EVT\_\-STORED\_\-RO}]{\setlength{\rightskip}{0pt plus 5cm}\#define V1190\_\-EVT\_\-STORED\_\-RO~({\bf DWORD}) (0x1020)}\hfill\label{v1190B_8h_ad5d499f434d8126411bb7f34958da307}
+
+
+Definition at line 36 of file v1190B.h.
+
+Referenced by v1190\_\-EvtStored().\index{v1190B.h@{v1190B.h}!V1190\_\-FIRM\_\-REV\_\-RO@{V1190\_\-FIRM\_\-REV\_\-RO}}
+\index{V1190\_\-FIRM\_\-REV\_\-RO@{V1190\_\-FIRM\_\-REV\_\-RO}!v1190B.h@{v1190B.h}}
+\paragraph[{V1190\_\-FIRM\_\-REV\_\-RO}]{\setlength{\rightskip}{0pt plus 5cm}\#define V1190\_\-FIRM\_\-REV\_\-RO~({\bf DWORD}) (0x1026)}\hfill\label{v1190B_8h_aa40d97048826c28a4f94b4bd676bbbea}
+
+
+Definition at line 37 of file v1190B.h.
+
+Referenced by begin\_\-of\_\-run().\index{v1190B.h@{v1190B.h}!V1190\_\-FULL@{V1190\_\-FULL}}
+\index{V1190\_\-FULL@{V1190\_\-FULL}!v1190B.h@{v1190B.h}}
+\paragraph[{V1190\_\-FULL}]{\setlength{\rightskip}{0pt plus 5cm}\#define V1190\_\-FULL~({\bf DWORD}) (0x0004)}\hfill\label{v1190B_8h_af2620afa3a14851575a6598176a7defe}
+
+
+Definition at line 27 of file v1190B.h.\index{v1190B.h@{v1190B.h}!V1190\_\-GEO\_\-REG\_\-RW@{V1190\_\-GEO\_\-REG\_\-RW}}
+\index{V1190\_\-GEO\_\-REG\_\-RW@{V1190\_\-GEO\_\-REG\_\-RW}!v1190B.h@{v1190B.h}}
+\paragraph[{V1190\_\-GEO\_\-REG\_\-RW}]{\setlength{\rightskip}{0pt plus 5cm}\#define V1190\_\-GEO\_\-REG\_\-RW~({\bf DWORD}) (0x001E)}\hfill\label{v1190B_8h_a508f023442807f8565a81cafcfa85ba5}
+
+
+Definition at line 30 of file v1190B.h.
+
+Referenced by v1190\_\-GeoWrite().\index{v1190B.h@{v1190B.h}!V1190\_\-HEADER\_\-ENABLE@{V1190\_\-HEADER\_\-ENABLE}}
+\index{V1190\_\-HEADER\_\-ENABLE@{V1190\_\-HEADER\_\-ENABLE}!v1190B.h@{v1190B.h}}
+\paragraph[{V1190\_\-HEADER\_\-ENABLE}]{\setlength{\rightskip}{0pt plus 5cm}\#define V1190\_\-HEADER\_\-ENABLE~({\bf DWORD}) (0x0010)}\hfill\label{v1190B_8h_affcd2dac5d0ae42527e1623416d3b491}
+
+
+Definition at line 29 of file v1190B.h.\index{v1190B.h@{v1190B.h}!V1190\_\-LE\_\-RESOLUTION\_\-WO@{V1190\_\-LE\_\-RESOLUTION\_\-WO}}
+\index{V1190\_\-LE\_\-RESOLUTION\_\-WO@{V1190\_\-LE\_\-RESOLUTION\_\-WO}!v1190B.h@{v1190B.h}}
+\paragraph[{V1190\_\-LE\_\-RESOLUTION\_\-WO}]{\setlength{\rightskip}{0pt plus 5cm}\#define V1190\_\-LE\_\-RESOLUTION\_\-WO~({\bf WORD}) (0x2400)}\hfill\label{v1190B_8h_aaa38e24baa18a0027ff64ad12339f8dd}
+
+
+Definition at line 47 of file v1190B.h.
+
+Referenced by v1190\_\-LEResolutionSet().\index{v1190B.h@{v1190B.h}!V1190\_\-LEW\_\-RESOLUTION\_\-WO@{V1190\_\-LEW\_\-RESOLUTION\_\-WO}}
+\index{V1190\_\-LEW\_\-RESOLUTION\_\-WO@{V1190\_\-LEW\_\-RESOLUTION\_\-WO}!v1190B.h@{v1190B.h}}
+\paragraph[{V1190\_\-LEW\_\-RESOLUTION\_\-WO}]{\setlength{\rightskip}{0pt plus 5cm}\#define V1190\_\-LEW\_\-RESOLUTION\_\-WO~({\bf WORD}) (0x2500)}\hfill\label{v1190B_8h_a4aa2dd8ff08d01fbe2a9b996b770225f}
+
+
+Definition at line 48 of file v1190B.h.\index{v1190B.h@{v1190B.h}!V1190\_\-MAX\_\-CHANNELS@{V1190\_\-MAX\_\-CHANNELS}}
+\index{V1190\_\-MAX\_\-CHANNELS@{V1190\_\-MAX\_\-CHANNELS}!v1190B.h@{v1190B.h}}
+\paragraph[{V1190\_\-MAX\_\-CHANNELS}]{\setlength{\rightskip}{0pt plus 5cm}\#define V1190\_\-MAX\_\-CHANNELS~({\bf DWORD}) 64}\hfill\label{v1190B_8h_ac216727275eb6c06c5ca02af8485fc32}
+
+
+Definition at line 21 of file v1190B.h.\index{v1190B.h@{v1190B.h}!V1190\_\-MICRO\_\-HAND\_\-RO@{V1190\_\-MICRO\_\-HAND\_\-RO}}
+\index{V1190\_\-MICRO\_\-HAND\_\-RO@{V1190\_\-MICRO\_\-HAND\_\-RO}!v1190B.h@{v1190B.h}}
+\paragraph[{V1190\_\-MICRO\_\-HAND\_\-RO}]{\setlength{\rightskip}{0pt plus 5cm}\#define V1190\_\-MICRO\_\-HAND\_\-RO~({\bf DWORD}) (0x1030)}\hfill\label{v1190B_8h_a5cf81e65ef78f622fe36fc1f82965f26}
+
+
+Definition at line 38 of file v1190B.h.
+
+Referenced by v1190\_\-MicroRead(), and v1190\_\-MicroWrite().\index{v1190B.h@{v1190B.h}!V1190\_\-MICRO\_\-RD\_\-OK@{V1190\_\-MICRO\_\-RD\_\-OK}}
+\index{V1190\_\-MICRO\_\-RD\_\-OK@{V1190\_\-MICRO\_\-RD\_\-OK}!v1190B.h@{v1190B.h}}
+\paragraph[{V1190\_\-MICRO\_\-RD\_\-OK}]{\setlength{\rightskip}{0pt plus 5cm}\#define V1190\_\-MICRO\_\-RD\_\-OK~({\bf WORD}) (0x0002)}\hfill\label{v1190B_8h_a2e64cb8b0ec7bc7c5efbba726da5c81e}
+
+
+Definition at line 44 of file v1190B.h.
+
+Referenced by v1190\_\-MicroRead().\index{v1190B.h@{v1190B.h}!V1190\_\-MICRO\_\-RW@{V1190\_\-MICRO\_\-RW}}
+\index{V1190\_\-MICRO\_\-RW@{V1190\_\-MICRO\_\-RW}!v1190B.h@{v1190B.h}}
+\paragraph[{V1190\_\-MICRO\_\-RW}]{\setlength{\rightskip}{0pt plus 5cm}\#define V1190\_\-MICRO\_\-RW~({\bf DWORD}) (0x102E)}\hfill\label{v1190B_8h_a3e028e9b35a6fad87c84101cf13f165d}
+
+
+Definition at line 39 of file v1190B.h.
+
+Referenced by v1190\_\-MicroRead(), and v1190\_\-MicroWrite().\index{v1190B.h@{v1190B.h}!V1190\_\-MICRO\_\-TDCID@{V1190\_\-MICRO\_\-TDCID}}
+\index{V1190\_\-MICRO\_\-TDCID@{V1190\_\-MICRO\_\-TDCID}!v1190B.h@{v1190B.h}}
+\paragraph[{V1190\_\-MICRO\_\-TDCID}]{\setlength{\rightskip}{0pt plus 5cm}\#define V1190\_\-MICRO\_\-TDCID~({\bf WORD}) (0x6000)}\hfill\label{v1190B_8h_ab670b9b6465bcd3b8b911d5da3f6a3aa}
+
+
+Definition at line 45 of file v1190B.h.
+
+Referenced by v1190\_\-TdcIdList().\index{v1190B.h@{v1190B.h}!V1190\_\-MICRO\_\-WR\_\-OK@{V1190\_\-MICRO\_\-WR\_\-OK}}
+\index{V1190\_\-MICRO\_\-WR\_\-OK@{V1190\_\-MICRO\_\-WR\_\-OK}!v1190B.h@{v1190B.h}}
+\paragraph[{V1190\_\-MICRO\_\-WR\_\-OK}]{\setlength{\rightskip}{0pt plus 5cm}\#define V1190\_\-MICRO\_\-WR\_\-OK~({\bf WORD}) (0x0001)}\hfill\label{v1190B_8h_a3ad754c8be0067216ba5c8ec491f5893}
+
+
+Definition at line 43 of file v1190B.h.
+
+Referenced by v1190\_\-MicroWrite().\index{v1190B.h@{v1190B.h}!V1190\_\-MODULE\_\-RESET\_\-WO@{V1190\_\-MODULE\_\-RESET\_\-WO}}
+\index{V1190\_\-MODULE\_\-RESET\_\-WO@{V1190\_\-MODULE\_\-RESET\_\-WO}!v1190B.h@{v1190B.h}}
+\paragraph[{V1190\_\-MODULE\_\-RESET\_\-WO}]{\setlength{\rightskip}{0pt plus 5cm}\#define V1190\_\-MODULE\_\-RESET\_\-WO~({\bf DWORD}) (0x1014)}\hfill\label{v1190B_8h_a89efca50835b6b7a4672b4c68481775b}
+
+
+Definition at line 31 of file v1190B.h.
+
+Referenced by v1190\_\-SoftReset().\index{v1190B.h@{v1190B.h}!V1190\_\-REG\_\-BASE@{V1190\_\-REG\_\-BASE}}
+\index{V1190\_\-REG\_\-BASE@{V1190\_\-REG\_\-BASE}!v1190B.h@{v1190B.h}}
+\paragraph[{V1190\_\-REG\_\-BASE}]{\setlength{\rightskip}{0pt plus 5cm}\#define V1190\_\-REG\_\-BASE~({\bf DWORD}) (0x1000)}\hfill\label{v1190B_8h_a1034c1410c68bb35027308f7dc23cec1}
+
+
+Definition at line 22 of file v1190B.h.\index{v1190B.h@{v1190B.h}!V1190\_\-RESOLUTION\_\-RO@{V1190\_\-RESOLUTION\_\-RO}}
+\index{V1190\_\-RESOLUTION\_\-RO@{V1190\_\-RESOLUTION\_\-RO}!v1190B.h@{v1190B.h}}
+\paragraph[{V1190\_\-RESOLUTION\_\-RO}]{\setlength{\rightskip}{0pt plus 5cm}\#define V1190\_\-RESOLUTION\_\-RO~({\bf WORD}) (0x2600)}\hfill\label{v1190B_8h_a88a71fb4892c05b52e8a98a9aa07b587}
+
+
+Definition at line 49 of file v1190B.h.
+
+Referenced by v1190\_\-ResolutionRead().\index{v1190B.h@{v1190B.h}!V1190\_\-SOFT\_\-CLEAR\_\-WO@{V1190\_\-SOFT\_\-CLEAR\_\-WO}}
+\index{V1190\_\-SOFT\_\-CLEAR\_\-WO@{V1190\_\-SOFT\_\-CLEAR\_\-WO}!v1190B.h@{v1190B.h}}
+\paragraph[{V1190\_\-SOFT\_\-CLEAR\_\-WO}]{\setlength{\rightskip}{0pt plus 5cm}\#define V1190\_\-SOFT\_\-CLEAR\_\-WO~({\bf DWORD}) (0x1016)}\hfill\label{v1190B_8h_a798199adf63811cfbb0535e39aa75e03}
+
+
+Definition at line 32 of file v1190B.h.
+
+Referenced by v1190\_\-SoftClear().\index{v1190B.h@{v1190B.h}!V1190\_\-SOFT\_\-EVT\_\-RESET\_\-WO@{V1190\_\-SOFT\_\-EVT\_\-RESET\_\-WO}}
+\index{V1190\_\-SOFT\_\-EVT\_\-RESET\_\-WO@{V1190\_\-SOFT\_\-EVT\_\-RESET\_\-WO}!v1190B.h@{v1190B.h}}
+\paragraph[{V1190\_\-SOFT\_\-EVT\_\-RESET\_\-WO}]{\setlength{\rightskip}{0pt plus 5cm}\#define V1190\_\-SOFT\_\-EVT\_\-RESET\_\-WO~({\bf DWORD}) (0x1018)}\hfill\label{v1190B_8h_abf602c132c3f94c1f2f7ee4d8d320683}
+
+
+Definition at line 33 of file v1190B.h.\index{v1190B.h@{v1190B.h}!V1190\_\-SOFT\_\-TRIGGER\_\-WO@{V1190\_\-SOFT\_\-TRIGGER\_\-WO}}
+\index{V1190\_\-SOFT\_\-TRIGGER\_\-WO@{V1190\_\-SOFT\_\-TRIGGER\_\-WO}!v1190B.h@{v1190B.h}}
+\paragraph[{V1190\_\-SOFT\_\-TRIGGER\_\-WO}]{\setlength{\rightskip}{0pt plus 5cm}\#define V1190\_\-SOFT\_\-TRIGGER\_\-WO~({\bf DWORD}) (0x101A)}\hfill\label{v1190B_8h_ae1f804fdd2aa22abe6829587ffc35287}
+
+
+Definition at line 34 of file v1190B.h.
+
+Referenced by v1190\_\-SoftTrigger().\index{v1190B.h@{v1190B.h}!V1190\_\-SR\_\-RO@{V1190\_\-SR\_\-RO}}
+\index{V1190\_\-SR\_\-RO@{V1190\_\-SR\_\-RO}!v1190B.h@{v1190B.h}}
+\paragraph[{V1190\_\-SR\_\-RO}]{\setlength{\rightskip}{0pt plus 5cm}\#define V1190\_\-SR\_\-RO~({\bf DWORD}) (0x1002)}\hfill\label{v1190B_8h_af144cd3aec4ec2ee43519dc3b8d85009}
+
+
+Definition at line 24 of file v1190B.h.
+
+Referenced by v1190\_\-DataReady().\index{v1190B.h@{v1190B.h}!V1190\_\-TRIGGER\_\-MATCH@{V1190\_\-TRIGGER\_\-MATCH}}
+\index{V1190\_\-TRIGGER\_\-MATCH@{V1190\_\-TRIGGER\_\-MATCH}!v1190B.h@{v1190B.h}}
+\paragraph[{V1190\_\-TRIGGER\_\-MATCH}]{\setlength{\rightskip}{0pt plus 5cm}\#define V1190\_\-TRIGGER\_\-MATCH~({\bf DWORD}) (0x0008)}\hfill\label{v1190B_8h_a33c98d9cda792a258ab3a95d1eb6891e}
+
+
+Definition at line 28 of file v1190B.h.\index{v1190B.h@{v1190B.h}!V1190\_\-TRIGGER\_\-MATCH\_\-WO@{V1190\_\-TRIGGER\_\-MATCH\_\-WO}}
+\index{V1190\_\-TRIGGER\_\-MATCH\_\-WO@{V1190\_\-TRIGGER\_\-MATCH\_\-WO}!v1190B.h@{v1190B.h}}
+\paragraph[{V1190\_\-TRIGGER\_\-MATCH\_\-WO}]{\setlength{\rightskip}{0pt plus 5cm}\#define V1190\_\-TRIGGER\_\-MATCH\_\-WO~({\bf WORD}) (0x0000)}\hfill\label{v1190B_8h_aa39034e01bbc835a8a2bd9688909d309}
+
+
+Definition at line 50 of file v1190B.h.
+
+Referenced by v1190\_\-TriggerMatchingSet().\index{v1190B.h@{v1190B.h}!V1190\_\-WINDOW\_\-OFFSET\_\-WO@{V1190\_\-WINDOW\_\-OFFSET\_\-WO}}
+\index{V1190\_\-WINDOW\_\-OFFSET\_\-WO@{V1190\_\-WINDOW\_\-OFFSET\_\-WO}!v1190B.h@{v1190B.h}}
+\paragraph[{V1190\_\-WINDOW\_\-OFFSET\_\-WO}]{\setlength{\rightskip}{0pt plus 5cm}\#define V1190\_\-WINDOW\_\-OFFSET\_\-WO~({\bf WORD}) (0x1100)}\hfill\label{v1190B_8h_a01fb6ad8db5823c7f993e695b543b622}
+
+
+Definition at line 42 of file v1190B.h.
+
+Referenced by v1190\_\-OffsetSet().\index{v1190B.h@{v1190B.h}!V1190\_\-WINDOW\_\-WIDTH\_\-WO@{V1190\_\-WINDOW\_\-WIDTH\_\-WO}}
+\index{V1190\_\-WINDOW\_\-WIDTH\_\-WO@{V1190\_\-WINDOW\_\-WIDTH\_\-WO}!v1190B.h@{v1190B.h}}
+\paragraph[{V1190\_\-WINDOW\_\-WIDTH\_\-WO}]{\setlength{\rightskip}{0pt plus 5cm}\#define V1190\_\-WINDOW\_\-WIDTH\_\-WO~({\bf WORD}) (0x1000)}\hfill\label{v1190B_8h_a211bb6d05da79ad07d645166df1f57de}
+
+
+Definition at line 41 of file v1190B.h.
+
+Referenced by v1190\_\-WidthSet().
+
+\subsubsection{Function Documentation}
+\index{v1190B.h@{v1190B.h}!udelay@{udelay}}
+\index{udelay@{udelay}!v1190B.h@{v1190B.h}}
+\paragraph[{udelay}]{\setlength{\rightskip}{0pt plus 5cm}int udelay (int {\em usec})}\hfill\label{v1190B_8h_aeaa5c434da81fbdf4a665b67f66592bc}
+
+
+Definition at line 623 of file v1190B.c.
+
+Referenced by v1190\_\-MicroRead(), and v1190\_\-MicroWrite().\index{v1190B.h@{v1190B.h}!v1190\_\-AcqModeRead@{v1190\_\-AcqModeRead}}
+\index{v1190\_\-AcqModeRead@{v1190\_\-AcqModeRead}!v1190B.h@{v1190B.h}}
+\paragraph[{v1190\_\-AcqModeRead}]{\setlength{\rightskip}{0pt plus 5cm}void v1190\_\-AcqModeRead ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  {\bf DWORD} {\em base})}\hfill\label{v1190B_8h_adcf811a607936b82759f90d9b9f27bff}
+
+
+Definition at line 273 of file v1190B.c.\index{v1190B.h@{v1190B.h}!v1190\_\-ContinuousSet@{v1190\_\-ContinuousSet}}
+\index{v1190\_\-ContinuousSet@{v1190\_\-ContinuousSet}!v1190B.h@{v1190B.h}}
+\paragraph[{v1190\_\-ContinuousSet}]{\setlength{\rightskip}{0pt plus 5cm}void v1190\_\-ContinuousSet ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  {\bf DWORD} {\em base})}\hfill\label{v1190B_8h_ac49fded0e6607ba8c67460b8e825e33b}
+
+
+Definition at line 301 of file v1190B.c.\index{v1190B.h@{v1190B.h}!v1190\_\-DataRead@{v1190\_\-DataRead}}
+\index{v1190\_\-DataRead@{v1190\_\-DataRead}!v1190B.h@{v1190B.h}}
+\paragraph[{v1190\_\-DataRead}]{\setlength{\rightskip}{0pt plus 5cm}int v1190\_\-DataRead ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  {\bf DWORD} {\em base}, \/  {\bf DWORD} $\ast$ {\em pdest}, \/  int {\em nentry})}\hfill\label{v1190B_8h_a3fb3376a4705f511733ade46e23388e3}
+Read data buffer for nentry data. 
+\begin{DoxyParams}{Parameters}
+\item[{\em $\ast$mvme}]VME structure \item[{\em base}]Module base address \item[{\em $\ast$pdest}]destination pointer address \item[{\em $\ast$nentry}]number of entries requested and returned. \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 99 of file v1190B.c.
+
+Referenced by read\_\-tdc().\index{v1190B.h@{v1190B.h}!v1190\_\-DataReady@{v1190\_\-DataReady}}
+\index{v1190\_\-DataReady@{v1190\_\-DataReady}!v1190B.h@{v1190B.h}}
+\paragraph[{v1190\_\-DataReady}]{\setlength{\rightskip}{0pt plus 5cm}int v1190\_\-DataReady ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  {\bf DWORD} {\em base})}\hfill\label{v1190B_8h_aff0189a9073aa7400603ee51fc2cc6b7}
+
+
+Definition at line 171 of file v1190B.c.
+
+Referenced by v1190\_\-EventRead().\index{v1190B.h@{v1190B.h}!v1190\_\-DataReset@{v1190\_\-DataReset}}
+\index{v1190\_\-DataReset@{v1190\_\-DataReset}!v1190B.h@{v1190B.h}}
+\paragraph[{v1190\_\-DataReset}]{\setlength{\rightskip}{0pt plus 5cm}void v1190\_\-DataReset ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  {\bf DWORD} {\em base})}\hfill\label{v1190B_8h_a0ee1716198b93671979a6fdead895f6e}
+\index{v1190B.h@{v1190B.h}!v1190\_\-EventRead@{v1190\_\-EventRead}}
+\index{v1190\_\-EventRead@{v1190\_\-EventRead}!v1190B.h@{v1190B.h}}
+\paragraph[{v1190\_\-EventRead}]{\setlength{\rightskip}{0pt plus 5cm}int v1190\_\-EventRead ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  {\bf DWORD} {\em base}, \/  {\bf DWORD} $\ast$ {\em pdest}, \/  int $\ast$ {\em nentry})}\hfill\label{v1190B_8h_a2e170ba3dc7d7492affdfad8fbc6338b}
+Read Data buffer for single event (check delimiters) 0x4... and 0xC... 
+\begin{DoxyParams}{Parameters}
+\item[{\em $\ast$mvme}]VME structure \item[{\em base}]Module base address \item[{\em $\ast$pdest}]destination pointer address \item[{\em $\ast$nentry}]number of entries requested and returned. \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 45 of file v1190B.c.
+
+Referenced by read\_\-trigger\_\-event().\index{v1190B.h@{v1190B.h}!v1190\_\-EvtCounter@{v1190\_\-EvtCounter}}
+\index{v1190\_\-EvtCounter@{v1190\_\-EvtCounter}!v1190B.h@{v1190B.h}}
+\paragraph[{v1190\_\-EvtCounter}]{\setlength{\rightskip}{0pt plus 5cm}int v1190\_\-EvtCounter ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  {\bf DWORD} {\em base})}\hfill\label{v1190B_8h_aacf390708ffd7c15a64367d3bfedfe5c}
+
+
+Definition at line 195 of file v1190B.c.\index{v1190B.h@{v1190B.h}!v1190\_\-EvtStored@{v1190\_\-EvtStored}}
+\index{v1190\_\-EvtStored@{v1190\_\-EvtStored}!v1190B.h@{v1190B.h}}
+\paragraph[{v1190\_\-EvtStored}]{\setlength{\rightskip}{0pt plus 5cm}int v1190\_\-EvtStored ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  {\bf DWORD} {\em base})}\hfill\label{v1190B_8h_a2636506cdfe67ff87a209e926069222c}
+
+
+Definition at line 183 of file v1190B.c.\index{v1190B.h@{v1190B.h}!v1190\_\-GeoWrite@{v1190\_\-GeoWrite}}
+\index{v1190\_\-GeoWrite@{v1190\_\-GeoWrite}!v1190B.h@{v1190B.h}}
+\paragraph[{v1190\_\-GeoWrite}]{\setlength{\rightskip}{0pt plus 5cm}int v1190\_\-GeoWrite ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  {\bf DWORD} {\em base}, \/  int {\em geo})}\hfill\label{v1190B_8h_a0ef526a3b6aa5b2bfa7b71712fcbd538}
+
+
+Definition at line 124 of file v1190B.c.\index{v1190B.h@{v1190B.h}!v1190\_\-LEResolutionSet@{v1190\_\-LEResolutionSet}}
+\index{v1190\_\-LEResolutionSet@{v1190\_\-LEResolutionSet}!v1190B.h@{v1190B.h}}
+\paragraph[{v1190\_\-LEResolutionSet}]{\setlength{\rightskip}{0pt plus 5cm}void v1190\_\-LEResolutionSet ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  {\bf DWORD} {\em base}, \/  {\bf WORD} {\em le})}\hfill\label{v1190B_8h_a1d56cae6f08c550adf87b649c548e5aa}
+
+
+Definition at line 245 of file v1190B.c.
+
+Referenced by begin\_\-of\_\-run().\index{v1190B.h@{v1190B.h}!v1190\_\-LEWResolutionSet@{v1190\_\-LEWResolutionSet}}
+\index{v1190\_\-LEWResolutionSet@{v1190\_\-LEWResolutionSet}!v1190B.h@{v1190B.h}}
+\paragraph[{v1190\_\-LEWResolutionSet}]{\setlength{\rightskip}{0pt plus 5cm}void v1190\_\-LEWResolutionSet ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  {\bf DWORD} {\em base}, \/  {\bf WORD} {\em le}, \/  {\bf WORD} {\em width})}\hfill\label{v1190B_8h_ac02d820365ff4ea1705e56198d6a04fb}
+
+
+Definition at line 267 of file v1190B.c.\index{v1190B.h@{v1190B.h}!v1190\_\-MicroCheck@{v1190\_\-MicroCheck}}
+\index{v1190\_\-MicroCheck@{v1190\_\-MicroCheck}!v1190B.h@{v1190B.h}}
+\paragraph[{v1190\_\-MicroCheck}]{\setlength{\rightskip}{0pt plus 5cm}int v1190\_\-MicroCheck ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  const {\bf DWORD} {\em base}, \/  int {\em what})}\hfill\label{v1190B_8h_ac127b5bd324832b1732ea8ddfc173adb}
+\index{v1190B.h@{v1190B.h}!v1190\_\-MicroFlush@{v1190\_\-MicroFlush}}
+\index{v1190\_\-MicroFlush@{v1190\_\-MicroFlush}!v1190B.h@{v1190B.h}}
+\paragraph[{v1190\_\-MicroFlush}]{\setlength{\rightskip}{0pt plus 5cm}int v1190\_\-MicroFlush ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  const {\bf DWORD} {\em base})}\hfill\label{v1190B_8h_aa6115ff03a198f775fd364cf4cb191fe}
+
+
+Definition at line 430 of file v1190B.c.\index{v1190B.h@{v1190B.h}!v1190\_\-MicroRead@{v1190\_\-MicroRead}}
+\index{v1190\_\-MicroRead@{v1190\_\-MicroRead}!v1190B.h@{v1190B.h}}
+\paragraph[{v1190\_\-MicroRead}]{\setlength{\rightskip}{0pt plus 5cm}int v1190\_\-MicroRead ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  const {\bf DWORD} {\em base})}\hfill\label{v1190B_8h_a25b20b373e9dad2da095572a6b66d7db}
+
+
+Definition at line 408 of file v1190B.c.
+
+Referenced by v1190\_\-AcqModeRead(), v1190\_\-MicroFlush(), v1190\_\-ResolutionRead(), v1190\_\-Status(), and v1190\_\-TdcIdList().\index{v1190B.h@{v1190B.h}!v1190\_\-MicroWrite@{v1190\_\-MicroWrite}}
+\index{v1190\_\-MicroWrite@{v1190\_\-MicroWrite}!v1190B.h@{v1190B.h}}
+\paragraph[{v1190\_\-MicroWrite}]{\setlength{\rightskip}{0pt plus 5cm}int v1190\_\-MicroWrite ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  {\bf DWORD} {\em base}, \/  {\bf WORD} {\em data})}\hfill\label{v1190B_8h_a667677df1f9f764336db2953dc1e27b9}
+
+
+Definition at line 384 of file v1190B.c.
+
+Referenced by v1190\_\-AcqModeRead(), v1190\_\-ContinuousSet(), v1190\_\-LEResolutionSet(), v1190\_\-OffsetSet(), v1190\_\-ResolutionRead(), v1190\_\-SetEdgeDetection(), v1190\_\-Setup(), v1190\_\-Status(), v1190\_\-TdcIdList(), v1190\_\-TriggerMatchingSet(), and v1190\_\-WidthSet().\index{v1190B.h@{v1190B.h}!v1190\_\-OffsetSet@{v1190\_\-OffsetSet}}
+\index{v1190\_\-OffsetSet@{v1190\_\-OffsetSet}!v1190B.h@{v1190B.h}}
+\paragraph[{v1190\_\-OffsetSet}]{\setlength{\rightskip}{0pt plus 5cm}void v1190\_\-OffsetSet ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  {\bf DWORD} {\em base}, \/  {\bf WORD} {\em offset})}\hfill\label{v1190B_8h_a47b04f666b0640f4ec4b5b03a78bcff5}
+Set the offset of the matching window with respect to the trigger. The offset parameter should be in 25ns units. The range is from -\/2048(0x800) to +40(0x28). Example 0xFE8 == 600ns. 
+\begin{DoxyParams}{Parameters}
+\item[{\em $\ast$mvme}]VME structure \item[{\em base}]Module base address \item[{\em offset}]offset in ns units \end{DoxyParams}
+
+
+Definition at line 347 of file v1190B.c.
+
+Referenced by begin\_\-of\_\-run().\index{v1190B.h@{v1190B.h}!v1190\_\-Read16@{v1190\_\-Read16}}
+\index{v1190\_\-Read16@{v1190\_\-Read16}!v1190B.h@{v1190B.h}}
+\paragraph[{v1190\_\-Read16}]{\setlength{\rightskip}{0pt plus 5cm}{\bf WORD} v1190\_\-Read16 ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  {\bf DWORD} {\em base}, \/  int {\em offset})}\hfill\label{v1190B_8h_a9e84eeda088ad0164da8f86fa37801fb}
+
+
+Definition at line 15 of file v1190B.c.\index{v1190B.h@{v1190B.h}!v1190\_\-Read32@{v1190\_\-Read32}}
+\index{v1190\_\-Read32@{v1190\_\-Read32}!v1190B.h@{v1190B.h}}
+\paragraph[{v1190\_\-Read32}]{\setlength{\rightskip}{0pt plus 5cm}{\bf DWORD} v1190\_\-Read32 ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  {\bf DWORD} {\em base}, \/  int {\em offset})}\hfill\label{v1190B_8h_a726bf5ad9a4996c0b8980db2ae2452c2}
+
+
+Definition at line 22 of file v1190B.c.\index{v1190B.h@{v1190B.h}!v1190\_\-ResolutionRead@{v1190\_\-ResolutionRead}}
+\index{v1190\_\-ResolutionRead@{v1190\_\-ResolutionRead}!v1190B.h@{v1190B.h}}
+\paragraph[{v1190\_\-ResolutionRead}]{\setlength{\rightskip}{0pt plus 5cm}int v1190\_\-ResolutionRead ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  {\bf DWORD} {\em base})}\hfill\label{v1190B_8h_ac0e1f3f3142c14efc3aaefe2136b87a0}
+
+
+Definition at line 226 of file v1190B.c.\index{v1190B.h@{v1190B.h}!v1190\_\-SetEdgeDetection@{v1190\_\-SetEdgeDetection}}
+\index{v1190\_\-SetEdgeDetection@{v1190\_\-SetEdgeDetection}!v1190B.h@{v1190B.h}}
+\paragraph[{v1190\_\-SetEdgeDetection}]{\setlength{\rightskip}{0pt plus 5cm}void v1190\_\-SetEdgeDetection ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  {\bf DWORD} {\em base}, \/  int {\em eLeading}, \/  int {\em eTrailing})}\hfill\label{v1190B_8h_a8f23d6c3a88ff52c4b6a87c9fcea2ad5}
+
+
+Definition at line 363 of file v1190B.c.\index{v1190B.h@{v1190B.h}!v1190\_\-Setup@{v1190\_\-Setup}}
+\index{v1190\_\-Setup@{v1190\_\-Setup}!v1190B.h@{v1190B.h}}
+\paragraph[{v1190\_\-Setup}]{\setlength{\rightskip}{0pt plus 5cm}int v1190\_\-Setup ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  {\bf DWORD} {\em base}, \/  int {\em mode})}\hfill\label{v1190B_8h_a08c507c60af774a2828a1e0ff6eac4c2}
+Sets all the necessary paramters for a given configuration. The configuration is provided by the mode argument. Add your own configuration in the case statement. Let me know your setting if you want to include it in the distribution. 
+\begin{DoxyParams}{Parameters}
+\item[{\em $\ast$mvme}]VME structure \item[{\em base}]Module base address \item[{\em mode}]Configuration mode number \item[{\em $\ast$nentry}]number of entries requested and returned. \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+MVME\_\-SUCCESS 
+\end{DoxyReturn}
+
+
+Definition at line 461 of file v1190B.c.
+
+Referenced by begin\_\-of\_\-run().\index{v1190B.h@{v1190B.h}!v1190\_\-SoftClear@{v1190\_\-SoftClear}}
+\index{v1190\_\-SoftClear@{v1190\_\-SoftClear}!v1190B.h@{v1190B.h}}
+\paragraph[{v1190\_\-SoftClear}]{\setlength{\rightskip}{0pt plus 5cm}void v1190\_\-SoftClear ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  {\bf DWORD} {\em base})}\hfill\label{v1190B_8h_a3aab280a7becfaf91a6e5fd274c87a6f}
+
+
+Definition at line 149 of file v1190B.c.
+
+Referenced by init\_\-vme\_\-modules(), and read\_\-tdc().\index{v1190B.h@{v1190B.h}!v1190\_\-SoftReset@{v1190\_\-SoftReset}}
+\index{v1190\_\-SoftReset@{v1190\_\-SoftReset}!v1190B.h@{v1190B.h}}
+\paragraph[{v1190\_\-SoftReset}]{\setlength{\rightskip}{0pt plus 5cm}void v1190\_\-SoftReset ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  {\bf DWORD} {\em base})}\hfill\label{v1190B_8h_a54b6135b6e898ce8f53efc28f9d21925}
+
+
+Definition at line 138 of file v1190B.c.\index{v1190B.h@{v1190B.h}!v1190\_\-SoftTrigger@{v1190\_\-SoftTrigger}}
+\index{v1190\_\-SoftTrigger@{v1190\_\-SoftTrigger}!v1190B.h@{v1190B.h}}
+\paragraph[{v1190\_\-SoftTrigger}]{\setlength{\rightskip}{0pt plus 5cm}void v1190\_\-SoftTrigger ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  {\bf DWORD} {\em base})}\hfill\label{v1190B_8h_a00cdc1d39a5ff4e2dde5df17429a9fdf}
+
+
+Definition at line 160 of file v1190B.c.\index{v1190B.h@{v1190B.h}!v1190\_\-Status@{v1190\_\-Status}}
+\index{v1190\_\-Status@{v1190\_\-Status}!v1190B.h@{v1190B.h}}
+\paragraph[{v1190\_\-Status}]{\setlength{\rightskip}{0pt plus 5cm}int v1190\_\-Status ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  {\bf DWORD} {\em base})}\hfill\label{v1190B_8h_a620a197083a0d776491f7bd620e2effd}
+Read and display the curent status of the TDC. 
+\begin{DoxyParams}{Parameters}
+\item[{\em $\ast$mvme}]VME structure \item[{\em base}]Module base address \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+MVME\_\-SUCCESS, MicroCode error 
+\end{DoxyReturn}
+
+
+Definition at line 510 of file v1190B.c.
+
+Referenced by begin\_\-of\_\-run(), init\_\-vme\_\-modules(), and v1190\_\-Setup().\index{v1190B.h@{v1190B.h}!v1190\_\-TdcIdList@{v1190\_\-TdcIdList}}
+\index{v1190\_\-TdcIdList@{v1190\_\-TdcIdList}!v1190B.h@{v1190B.h}}
+\paragraph[{v1190\_\-TdcIdList}]{\setlength{\rightskip}{0pt plus 5cm}void v1190\_\-TdcIdList ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  {\bf DWORD} {\em base})}\hfill\label{v1190B_8h_a5c6daf7dc9fa2cbce32423a6224ba4b9}
+
+
+Definition at line 207 of file v1190B.c.\index{v1190B.h@{v1190B.h}!v1190\_\-TriggerMatchingSet@{v1190\_\-TriggerMatchingSet}}
+\index{v1190\_\-TriggerMatchingSet@{v1190\_\-TriggerMatchingSet}!v1190B.h@{v1190B.h}}
+\paragraph[{v1190\_\-TriggerMatchingSet}]{\setlength{\rightskip}{0pt plus 5cm}void v1190\_\-TriggerMatchingSet ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  {\bf DWORD} {\em base})}\hfill\label{v1190B_8h_a71a62eeb00aaef0cdc4868d87e21e0ac}
+
+
+Definition at line 287 of file v1190B.c.\index{v1190B.h@{v1190B.h}!v1190\_\-WidthSet@{v1190\_\-WidthSet}}
+\index{v1190\_\-WidthSet@{v1190\_\-WidthSet}!v1190B.h@{v1190B.h}}
+\paragraph[{v1190\_\-WidthSet}]{\setlength{\rightskip}{0pt plus 5cm}void v1190\_\-WidthSet ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  {\bf DWORD} {\em base}, \/  {\bf WORD} {\em width})}\hfill\label{v1190B_8h_af9175bc6e8cd2dc1c63dbd69d974f8a1}
+Set the width of the matching Window. The width parameter should be in the range of 1 to 4095 (0xFFF). Example 0x14 == 500ns. 
+\begin{DoxyParams}{Parameters}
+\item[{\em $\ast$mvme}]VME structure \item[{\em base}]Module base address \item[{\em width}]window width in ns units \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 323 of file v1190B.c.
+
+Referenced by begin\_\-of\_\-run().\index{v1190B.h@{v1190B.h}!v1190\_\-Write16@{v1190\_\-Write16}}
+\index{v1190\_\-Write16@{v1190\_\-Write16}!v1190B.h@{v1190B.h}}
+\paragraph[{v1190\_\-Write16}]{\setlength{\rightskip}{0pt plus 5cm}void v1190\_\-Write16 ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  {\bf DWORD} {\em base}, \/  int {\em offset}, \/  {\bf WORD} {\em value})}\hfill\label{v1190B_8h_a19faae61239fb361fbc9b875368e6091}
+
+
+Definition at line 29 of file v1190B.c.

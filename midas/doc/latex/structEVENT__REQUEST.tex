@@ -1,0 +1,59 @@
+\subsection{EVENT\_\-REQUEST Struct Reference}
+\label{structEVENT__REQUEST}\index{EVENT\_\-REQUEST@{EVENT\_\-REQUEST}}
+\subsubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{structEVENT__REQUEST_ab5275898e99714ff529f7fe125a91d0e}{id}
+\item 
+\hyperlink{vt2_8h_a239c7f0d40651c3e419c5b9651507d14}{BOOL} \hyperlink{structEVENT__REQUEST_aeac92027d8c58b1af391b5d76655f9bf}{valid}
+\item 
+short int \hyperlink{structEVENT__REQUEST_a861d57422d21affdcfe60a67a3f8cb7f}{event\_\-id}
+\item 
+short int \hyperlink{structEVENT__REQUEST_a8947eb12d18f6202ecc9d603f3bde410}{trigger\_\-mask}
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{structEVENT__REQUEST_a98d63806bfe8b8d66fad6d3d6d9b08e4}{sampling\_\-type}
+\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+Buffer structure 
+
+Definition at line 845 of file midas.h.
+
+\subsubsection{Field Documentation}
+\index{EVENT\_\-REQUEST@{EVENT\_\-REQUEST}!event\_\-id@{event\_\-id}}
+\index{event\_\-id@{event\_\-id}!EVENT_REQUEST@{EVENT\_\-REQUEST}}
+\paragraph[{event\_\-id}]{\setlength{\rightskip}{0pt plus 5cm}short int {\bf EVENT\_\-REQUEST::event\_\-id}}\hfill\label{structEVENT__REQUEST_a861d57422d21affdcfe60a67a3f8cb7f}
+event ID 
+
+Definition at line 848 of file midas.h.
+
+Referenced by bm\_\-push\_\-event(), bm\_\-receive\_\-event(), bm\_\-send\_\-event(), and bm\_\-wait\_\-for\_\-free\_\-space().\index{EVENT\_\-REQUEST@{EVENT\_\-REQUEST}!id@{id}}
+\index{id@{id}!EVENT_REQUEST@{EVENT\_\-REQUEST}}
+\paragraph[{id}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} {\bf EVENT\_\-REQUEST::id}}\hfill\label{structEVENT__REQUEST_ab5275898e99714ff529f7fe125a91d0e}
+request id 
+
+Definition at line 846 of file midas.h.
+
+Referenced by bm\_\-remove\_\-event\_\-request(), bm\_\-send\_\-event(), and bm\_\-wait\_\-for\_\-free\_\-space().\index{EVENT\_\-REQUEST@{EVENT\_\-REQUEST}!sampling\_\-type@{sampling\_\-type}}
+\index{sampling\_\-type@{sampling\_\-type}!EVENT_REQUEST@{EVENT\_\-REQUEST}}
+\paragraph[{sampling\_\-type}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} {\bf EVENT\_\-REQUEST::sampling\_\-type}}\hfill\label{structEVENT__REQUEST_a98d63806bfe8b8d66fad6d3d6d9b08e4}
+GET\_\-ALL, GET\_\-NONBLOCKING, GET\_\-RECENT 
+
+Definition at line 850 of file midas.h.
+
+Referenced by bm\_\-push\_\-event(), bm\_\-remove\_\-event\_\-request(), bm\_\-send\_\-event(), and bm\_\-wait\_\-for\_\-free\_\-space().\index{EVENT\_\-REQUEST@{EVENT\_\-REQUEST}!trigger\_\-mask@{trigger\_\-mask}}
+\index{trigger\_\-mask@{trigger\_\-mask}!EVENT_REQUEST@{EVENT\_\-REQUEST}}
+\paragraph[{trigger\_\-mask}]{\setlength{\rightskip}{0pt plus 5cm}short int {\bf EVENT\_\-REQUEST::trigger\_\-mask}}\hfill\label{structEVENT__REQUEST_a8947eb12d18f6202ecc9d603f3bde410}
+trigger mask 
+
+Definition at line 849 of file midas.h.
+
+Referenced by bm\_\-push\_\-event(), bm\_\-receive\_\-event(), bm\_\-send\_\-event(), and bm\_\-wait\_\-for\_\-free\_\-space().\index{EVENT\_\-REQUEST@{EVENT\_\-REQUEST}!valid@{valid}}
+\index{valid@{valid}!EVENT_REQUEST@{EVENT\_\-REQUEST}}
+\paragraph[{valid}]{\setlength{\rightskip}{0pt plus 5cm}{\bf BOOL} {\bf EVENT\_\-REQUEST::valid}}\hfill\label{structEVENT__REQUEST_aeac92027d8c58b1af391b5d76655f9bf}
+indicating a valid entry 
+
+Definition at line 847 of file midas.h.
+
+Referenced by bm\_\-push\_\-event(), bm\_\-receive\_\-event(), bm\_\-remove\_\-event\_\-request(), bm\_\-send\_\-event(), and bm\_\-wait\_\-for\_\-free\_\-space().

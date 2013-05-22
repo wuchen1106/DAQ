@@ -1,0 +1,985 @@
+.TH "RPC Define" 3 "31 May 2012" "Version 2.3.0-0" "Midas" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+RPC Define \- 
+.SS "Defines"
+
+.in +1c
+.ti -1c
+.RI "#define \fBRPC_CM_SET_CLIENT_INFO\fP   11000"
+.br
+.ti -1c
+.RI "#define \fBRPC_CM_SET_WATCHDOG_PARAMS\fP   11001"
+.br
+.ti -1c
+.RI "#define \fBRPC_CM_CLEANUP\fP   11002"
+.br
+.ti -1c
+.RI "#define \fBRPC_CM_GET_WATCHDOG_INFO\fP   11003"
+.br
+.ti -1c
+.RI "#define \fBRPC_CM_MSG_LOG\fP   11004"
+.br
+.ti -1c
+.RI "#define \fBRPC_CM_EXECUTE\fP   11005"
+.br
+.ti -1c
+.RI "#define \fBRPC_CM_SYNCHRONIZE\fP   11006"
+.br
+.ti -1c
+.RI "#define \fBRPC_CM_ASCTIME\fP   11007"
+.br
+.ti -1c
+.RI "#define \fBRPC_CM_TIME\fP   11008"
+.br
+.ti -1c
+.RI "#define \fBRPC_CM_MSG\fP   11009"
+.br
+.ti -1c
+.RI "#define \fBRPC_CM_EXIST\fP   11011"
+.br
+.ti -1c
+.RI "#define \fBRPC_CM_MSG_RETRIEVE\fP   11012"
+.br
+.ti -1c
+.RI "#define \fBRPC_CM_MSG_LOG1\fP   11013"
+.br
+.ti -1c
+.RI "#define \fBRPC_CM_CHECK_CLIENT\fP   11014"
+.br
+.ti -1c
+.RI "#define \fBRPC_BM_OPEN_BUFFER\fP   11100"
+.br
+.ti -1c
+.RI "#define \fBRPC_BM_CLOSE_BUFFER\fP   11101"
+.br
+.ti -1c
+.RI "#define \fBRPC_BM_CLOSE_ALL_BUFFERS\fP   11102"
+.br
+.ti -1c
+.RI "#define \fBRPC_BM_GET_BUFFER_INFO\fP   11103"
+.br
+.ti -1c
+.RI "#define \fBRPC_BM_GET_BUFFER_LEVEL\fP   11104"
+.br
+.ti -1c
+.RI "#define \fBRPC_BM_INIT_BUFFER_COUNTERS\fP   11105"
+.br
+.ti -1c
+.RI "#define \fBRPC_BM_SET_CACHE_SIZE\fP   11106"
+.br
+.ti -1c
+.RI "#define \fBRPC_BM_ADD_EVENT_REQUEST\fP   11107"
+.br
+.ti -1c
+.RI "#define \fBRPC_BM_REMOVE_EVENT_REQUEST\fP   11108"
+.br
+.ti -1c
+.RI "#define \fBRPC_BM_SEND_EVENT\fP   11109"
+.br
+.ti -1c
+.RI "#define \fBRPC_BM_FLUSH_CACHE\fP   11110"
+.br
+.ti -1c
+.RI "#define \fBRPC_BM_RECEIVE_EVENT\fP   11111"
+.br
+.ti -1c
+.RI "#define \fBRPC_BM_MARK_READ_WAITING\fP   11112"
+.br
+.ti -1c
+.RI "#define \fBRPC_BM_EMPTY_BUFFERS\fP   11113"
+.br
+.ti -1c
+.RI "#define \fBRPC_BM_SKIP_EVENT\fP   11114"
+.br
+.ti -1c
+.RI "#define \fBRPC_DB_OPEN_DATABASE\fP   11200"
+.br
+.ti -1c
+.RI "#define \fBRPC_DB_CLOSE_DATABASE\fP   11201"
+.br
+.ti -1c
+.RI "#define \fBRPC_DB_CLOSE_ALL_DATABASES\fP   11202"
+.br
+.ti -1c
+.RI "#define \fBRPC_DB_CREATE_KEY\fP   11203"
+.br
+.ti -1c
+.RI "#define \fBRPC_DB_CREATE_LINK\fP   11204"
+.br
+.ti -1c
+.RI "#define \fBRPC_DB_SET_VALUE\fP   11205"
+.br
+.ti -1c
+.RI "#define \fBRPC_DB_GET_VALUE\fP   11206"
+.br
+.ti -1c
+.RI "#define \fBRPC_DB_FIND_KEY\fP   11207"
+.br
+.ti -1c
+.RI "#define \fBRPC_DB_FIND_LINK\fP   11208"
+.br
+.ti -1c
+.RI "#define \fBRPC_DB_GET_PATH\fP   11209"
+.br
+.ti -1c
+.RI "#define \fBRPC_DB_DELETE_KEY\fP   11210"
+.br
+.ti -1c
+.RI "#define \fBRPC_DB_ENUM_KEY\fP   11211"
+.br
+.ti -1c
+.RI "#define \fBRPC_DB_GET_KEY\fP   11212"
+.br
+.ti -1c
+.RI "#define \fBRPC_DB_GET_DATA\fP   11213"
+.br
+.ti -1c
+.RI "#define \fBRPC_DB_SET_DATA\fP   11214"
+.br
+.ti -1c
+.RI "#define \fBRPC_DB_SET_DATA_INDEX\fP   11215"
+.br
+.ti -1c
+.RI "#define \fBRPC_DB_SET_MODE\fP   11216"
+.br
+.ti -1c
+.RI "#define \fBRPC_DB_GET_RECORD_SIZE\fP   11219"
+.br
+.ti -1c
+.RI "#define \fBRPC_DB_GET_RECORD\fP   11220"
+.br
+.ti -1c
+.RI "#define \fBRPC_DB_SET_RECORD\fP   11221"
+.br
+.ti -1c
+.RI "#define \fBRPC_DB_ADD_OPEN_RECORD\fP   11222"
+.br
+.ti -1c
+.RI "#define \fBRPC_DB_REMOVE_OPEN_RECORD\fP   11223"
+.br
+.ti -1c
+.RI "#define \fBRPC_DB_SAVE\fP   11224"
+.br
+.ti -1c
+.RI "#define \fBRPC_DB_LOAD\fP   11225"
+.br
+.ti -1c
+.RI "#define \fBRPC_DB_SET_CLIENT_NAME\fP   11226"
+.br
+.ti -1c
+.RI "#define \fBRPC_DB_RENAME_KEY\fP   11227"
+.br
+.ti -1c
+.RI "#define \fBRPC_DB_ENUM_LINK\fP   11228"
+.br
+.ti -1c
+.RI "#define \fBRPC_DB_REORDER_KEY\fP   11229"
+.br
+.ti -1c
+.RI "#define \fBRPC_DB_CREATE_RECORD\fP   11230"
+.br
+.ti -1c
+.RI "#define \fBRPC_DB_GET_DATA_INDEX\fP   11231"
+.br
+.ti -1c
+.RI "#define \fBRPC_DB_GET_KEY_TIME\fP   11232"
+.br
+.ti -1c
+.RI "#define \fBRPC_DB_GET_OPEN_RECORDS\fP   11233"
+.br
+.ti -1c
+.RI "#define \fBRPC_DB_FLUSH_DATABASE\fP   11235"
+.br
+.ti -1c
+.RI "#define \fBRPC_DB_SET_DATA_INDEX2\fP   11236"
+.br
+.ti -1c
+.RI "#define \fBRPC_DB_GET_KEY_INFO\fP   11237"
+.br
+.ti -1c
+.RI "#define \fBRPC_DB_GET_DATA1\fP   11238"
+.br
+.ti -1c
+.RI "#define \fBRPC_DB_SET_NUM_VALUES\fP   11239"
+.br
+.ti -1c
+.RI "#define \fBRPC_DB_CHECK_RECORD\fP   11240"
+.br
+.ti -1c
+.RI "#define \fBRPC_DB_GET_NEXT_LINK\fP   11241"
+.br
+.ti -1c
+.RI "#define \fBRPC_DB_GET_LINK\fP   11242"
+.br
+.ti -1c
+.RI "#define \fBRPC_DB_GET_LINK_DATA\fP   11243"
+.br
+.ti -1c
+.RI "#define \fBRPC_DB_SET_LINK_DATA\fP   11244"
+.br
+.ti -1c
+.RI "#define \fBRPC_DB_SET_LINK_DATA_INDEX\fP   11245"
+.br
+.ti -1c
+.RI "#define \fBRPC_HS_SET_PATH\fP   11300"
+.br
+.ti -1c
+.RI "#define \fBRPC_HS_DEFINE_EVENT\fP   11301"
+.br
+.ti -1c
+.RI "#define \fBRPC_HS_WRITE_EVENT\fP   11302"
+.br
+.ti -1c
+.RI "#define \fBRPC_HS_COUNT_EVENTS\fP   11303"
+.br
+.ti -1c
+.RI "#define \fBRPC_HS_ENUM_EVENTS\fP   11304"
+.br
+.ti -1c
+.RI "#define \fBRPC_HS_COUNT_VARS\fP   11305"
+.br
+.ti -1c
+.RI "#define \fBRPC_HS_ENUM_VARS\fP   11306"
+.br
+.ti -1c
+.RI "#define \fBRPC_HS_READ\fP   11307"
+.br
+.ti -1c
+.RI "#define \fBRPC_HS_GET_VAR\fP   11308"
+.br
+.ti -1c
+.RI "#define \fBRPC_HS_GET_EVENT_ID\fP   11309"
+.br
+.ti -1c
+.RI "#define \fBRPC_EL_SUBMIT\fP   11400"
+.br
+.ti -1c
+.RI "#define \fBRPC_AL_CHECK\fP   11500"
+.br
+.ti -1c
+.RI "#define \fBRPC_AL_TRIGGER_ALARM\fP   11501"
+.br
+.ti -1c
+.RI "#define \fBRPC_RC_TRANSITION\fP   12000"
+.br
+.ti -1c
+.RI "#define \fBRPC_ANA_CLEAR_HISTOS\fP   13000"
+.br
+.ti -1c
+.RI "#define \fBRPC_LOG_REWIND\fP   14000"
+.br
+.ti -1c
+.RI "#define \fBRPC_TEST\fP   15000"
+.br
+.ti -1c
+.RI "#define \fBRPC_CNAF16\fP   16000"
+.br
+.ti -1c
+.RI "#define \fBRPC_CNAF24\fP   16001"
+.br
+.ti -1c
+.RI "#define \fBRPC_MANUAL_TRIG\fP   17000"
+.br
+.ti -1c
+.RI "#define \fBRPC_ID_WATCHDOG\fP   99997"
+.br
+.ti -1c
+.RI "#define \fBRPC_ID_SHUTDOWN\fP   99998"
+.br
+.ti -1c
+.RI "#define \fBRPC_ID_EXIT\fP   99999"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+dox 
+.SH "Define Documentation"
+.PP 
+.SS "#define RPC_AL_CHECK   11500".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 126 of file mrpc.h.
+.PP
+Referenced by al_check().
+.SS "#define RPC_AL_TRIGGER_ALARM   11501".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 127 of file mrpc.h.
+.PP
+Referenced by al_trigger_alarm().
+.SS "#define RPC_ANA_CLEAR_HISTOS   13000".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 131 of file mrpc.h.
+.SS "#define RPC_BM_ADD_EVENT_REQUEST   11107".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 60 of file mrpc.h.
+.SS "#define RPC_BM_CLOSE_ALL_BUFFERS   11102".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 55 of file mrpc.h.
+.PP
+Referenced by bm_close_all_buffers().
+.SS "#define RPC_BM_CLOSE_BUFFER   11101".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 54 of file mrpc.h.
+.PP
+Referenced by bm_close_buffer().
+.SS "#define RPC_BM_EMPTY_BUFFERS   11113".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 66 of file mrpc.h.
+.PP
+Referenced by bm_empty_buffers().
+.SS "#define RPC_BM_FLUSH_CACHE   11110".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 63 of file mrpc.h.
+.PP
+Referenced by bm_flush_cache().
+.SS "#define RPC_BM_GET_BUFFER_INFO   11103".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 56 of file mrpc.h.
+.SS "#define RPC_BM_GET_BUFFER_LEVEL   11104".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 57 of file mrpc.h.
+.SS "#define RPC_BM_INIT_BUFFER_COUNTERS   11105".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 58 of file mrpc.h.
+.SS "#define RPC_BM_MARK_READ_WAITING   11112".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 65 of file mrpc.h.
+.SS "#define RPC_BM_OPEN_BUFFER   11100".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 53 of file mrpc.h.
+.PP
+Referenced by bm_open_buffer().
+.SS "#define RPC_BM_RECEIVE_EVENT   11111".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 64 of file mrpc.h.
+.PP
+Referenced by bm_receive_event().
+.SS "#define RPC_BM_REMOVE_EVENT_REQUEST   11108".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 61 of file mrpc.h.
+.PP
+Referenced by bm_remove_event_request().
+.SS "#define RPC_BM_SEND_EVENT   11109".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 62 of file mrpc.h.
+.PP
+Referenced by bm_send_event(), and rpc_send_event().
+.SS "#define RPC_BM_SET_CACHE_SIZE   11106".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 59 of file mrpc.h.
+.PP
+Referenced by bm_set_cache_size().
+.SS "#define RPC_BM_SKIP_EVENT   11114".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 67 of file mrpc.h.
+.PP
+Referenced by bm_skip_event().
+.SS "#define RPC_CM_ASCTIME   11007".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 45 of file mrpc.h.
+.PP
+Referenced by cm_asctime().
+.SS "#define RPC_CM_CHECK_CLIENT   11014".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 51 of file mrpc.h.
+.PP
+Referenced by cm_check_client().
+.SS "#define RPC_CM_CLEANUP   11002".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 40 of file mrpc.h.
+.PP
+Referenced by cm_cleanup().
+.SS "#define RPC_CM_EXECUTE   11005".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 43 of file mrpc.h.
+.PP
+Referenced by cm_execute().
+.SS "#define RPC_CM_EXIST   11011".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 48 of file mrpc.h.
+.PP
+Referenced by cm_exist().
+.SS "#define RPC_CM_GET_WATCHDOG_INFO   11003".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 41 of file mrpc.h.
+.PP
+Referenced by cm_get_watchdog_info().
+.SS "#define RPC_CM_MSG   11009".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 47 of file mrpc.h.
+.SS "#define RPC_CM_MSG_LOG   11004".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 42 of file mrpc.h.
+.PP
+Referenced by cm_msg_log().
+.SS "#define RPC_CM_MSG_LOG1   11013".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 50 of file mrpc.h.
+.PP
+Referenced by cm_msg_log1().
+.SS "#define RPC_CM_MSG_RETRIEVE   11012".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 49 of file mrpc.h.
+.PP
+Referenced by cm_msg_retrieve().
+.SS "#define RPC_CM_SET_CLIENT_INFO   11000"routine IDs for RPC calls - 
+.PP
+Definition at line 38 of file mrpc.h.
+.PP
+Referenced by cm_set_client_info().
+.SS "#define RPC_CM_SET_WATCHDOG_PARAMS   11001".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 39 of file mrpc.h.
+.PP
+Referenced by cm_set_watchdog_params().
+.SS "#define RPC_CM_SYNCHRONIZE   11006".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 44 of file mrpc.h.
+.PP
+Referenced by cm_synchronize().
+.SS "#define RPC_CM_TIME   11008".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 46 of file mrpc.h.
+.PP
+Referenced by cm_time().
+.SS "#define RPC_CNAF16   16000".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 137 of file mrpc.h.
+.PP
+Referenced by cnaf_callback(), and register_cnaf_callback().
+.SS "#define RPC_CNAF24   16001".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 138 of file mrpc.h.
+.PP
+Referenced by cnaf_callback(), and register_cnaf_callback().
+.SS "#define RPC_DB_ADD_OPEN_RECORD   11222".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 89 of file mrpc.h.
+.SS "#define RPC_DB_CHECK_RECORD   11240".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 106 of file mrpc.h.
+.PP
+Referenced by db_check_record().
+.SS "#define RPC_DB_CLOSE_ALL_DATABASES   11202".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 71 of file mrpc.h.
+.SS "#define RPC_DB_CLOSE_DATABASE   11201".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 70 of file mrpc.h.
+.PP
+Referenced by db_close_database().
+.SS "#define RPC_DB_CREATE_KEY   11203".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 72 of file mrpc.h.
+.PP
+Referenced by db_create_key().
+.SS "#define RPC_DB_CREATE_LINK   11204".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 73 of file mrpc.h.
+.PP
+Referenced by db_create_link().
+.SS "#define RPC_DB_CREATE_RECORD   11230".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 97 of file mrpc.h.
+.PP
+Referenced by db_create_record().
+.SS "#define RPC_DB_DELETE_KEY   11210".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 79 of file mrpc.h.
+.PP
+Referenced by db_delete_key().
+.SS "#define RPC_DB_ENUM_KEY   11211".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 80 of file mrpc.h.
+.PP
+Referenced by db_enum_key().
+.SS "#define RPC_DB_ENUM_LINK   11228".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 95 of file mrpc.h.
+.SS "#define RPC_DB_FIND_KEY   11207".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 76 of file mrpc.h.
+.PP
+Referenced by db_find_key().
+.SS "#define RPC_DB_FIND_LINK   11208".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 77 of file mrpc.h.
+.SS "#define RPC_DB_FLUSH_DATABASE   11235".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 101 of file mrpc.h.
+.SS "#define RPC_DB_GET_DATA   11213".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 82 of file mrpc.h.
+.PP
+Referenced by db_get_data().
+.SS "#define RPC_DB_GET_DATA1   11238".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 104 of file mrpc.h.
+.SS "#define RPC_DB_GET_DATA_INDEX   11231".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 98 of file mrpc.h.
+.PP
+Referenced by db_get_data_index().
+.SS "#define RPC_DB_GET_KEY   11212".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 81 of file mrpc.h.
+.PP
+Referenced by db_get_key().
+.SS "#define RPC_DB_GET_KEY_INFO   11237".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 103 of file mrpc.h.
+.PP
+Referenced by db_get_key_info().
+.SS "#define RPC_DB_GET_KEY_TIME   11232".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 99 of file mrpc.h.
+.PP
+Referenced by db_get_key_time().
+.SS "#define RPC_DB_GET_LINK   11242".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 108 of file mrpc.h.
+.PP
+Referenced by db_get_link().
+.SS "#define RPC_DB_GET_LINK_DATA   11243".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 109 of file mrpc.h.
+.PP
+Referenced by db_get_link_data().
+.SS "#define RPC_DB_GET_NEXT_LINK   11241".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 107 of file mrpc.h.
+.SS "#define RPC_DB_GET_OPEN_RECORDS   11233".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 100 of file mrpc.h.
+.SS "#define RPC_DB_GET_PATH   11209".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 78 of file mrpc.h.
+.SS "#define RPC_DB_GET_RECORD   11220".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 87 of file mrpc.h.
+.PP
+Referenced by db_get_record().
+.SS "#define RPC_DB_GET_RECORD_SIZE   11219".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 86 of file mrpc.h.
+.PP
+Referenced by db_get_record_size().
+.SS "#define RPC_DB_GET_VALUE   11206".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 75 of file mrpc.h.
+.PP
+Referenced by db_get_value().
+.SS "#define RPC_DB_LOAD   11225".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 92 of file mrpc.h.
+.PP
+Referenced by db_load().
+.SS "#define RPC_DB_OPEN_DATABASE   11200".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 69 of file mrpc.h.
+.PP
+Referenced by db_open_database().
+.SS "#define RPC_DB_REMOVE_OPEN_RECORD   11223".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 90 of file mrpc.h.
+.SS "#define RPC_DB_RENAME_KEY   11227".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 94 of file mrpc.h.
+.SS "#define RPC_DB_REORDER_KEY   11229".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 96 of file mrpc.h.
+.SS "#define RPC_DB_SAVE   11224".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 91 of file mrpc.h.
+.PP
+Referenced by db_save().
+.SS "#define RPC_DB_SET_CLIENT_NAME   11226".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 93 of file mrpc.h.
+.SS "#define RPC_DB_SET_DATA   11214".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 83 of file mrpc.h.
+.PP
+Referenced by db_set_data().
+.SS "#define RPC_DB_SET_DATA_INDEX   11215".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 84 of file mrpc.h.
+.PP
+Referenced by db_set_data_index().
+.SS "#define RPC_DB_SET_DATA_INDEX2   11236".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 102 of file mrpc.h.
+.SS "#define RPC_DB_SET_LINK_DATA   11244".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 110 of file mrpc.h.
+.PP
+Referenced by db_set_link_data().
+.SS "#define RPC_DB_SET_LINK_DATA_INDEX   11245".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 111 of file mrpc.h.
+.PP
+Referenced by db_set_link_data_index().
+.SS "#define RPC_DB_SET_MODE   11216".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 85 of file mrpc.h.
+.SS "#define RPC_DB_SET_NUM_VALUES   11239".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 105 of file mrpc.h.
+.SS "#define RPC_DB_SET_RECORD   11221".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 88 of file mrpc.h.
+.PP
+Referenced by db_set_record().
+.SS "#define RPC_DB_SET_VALUE   11205".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 74 of file mrpc.h.
+.PP
+Referenced by db_set_value().
+.SS "#define RPC_EL_SUBMIT   11400".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 124 of file mrpc.h.
+.PP
+Referenced by el_submit().
+.SS "#define RPC_HS_COUNT_EVENTS   11303".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 116 of file mrpc.h.
+.SS "#define RPC_HS_COUNT_VARS   11305".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 118 of file mrpc.h.
+.SS "#define RPC_HS_DEFINE_EVENT   11301".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 114 of file mrpc.h.
+.SS "#define RPC_HS_ENUM_EVENTS   11304".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 117 of file mrpc.h.
+.SS "#define RPC_HS_ENUM_VARS   11306".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 119 of file mrpc.h.
+.SS "#define RPC_HS_GET_EVENT_ID   11309".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 122 of file mrpc.h.
+.SS "#define RPC_HS_GET_VAR   11308".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 121 of file mrpc.h.
+.SS "#define RPC_HS_READ   11307".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 120 of file mrpc.h.
+.SS "#define RPC_HS_SET_PATH   11300".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 113 of file mrpc.h.
+.PP
+Referenced by hs_set_path().
+.SS "#define RPC_HS_WRITE_EVENT   11302".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 115 of file mrpc.h.
+.SS "#define RPC_ID_EXIT   99999".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 144 of file mrpc.h.
+.SS "#define RPC_ID_SHUTDOWN   99998".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 143 of file mrpc.h.
+.SS "#define RPC_ID_WATCHDOG   99997".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 142 of file mrpc.h.
+.SS "#define RPC_LOG_REWIND   14000".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 133 of file mrpc.h.
+.SS "#define RPC_MANUAL_TRIG   17000".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 140 of file mrpc.h.
+.PP
+Referenced by initialize_equipment().
+.SS "#define RPC_RC_TRANSITION   12000".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 129 of file mrpc.h.
+.PP
+Referenced by cm_register_transition(), and cm_transition1().
+.SS "#define RPC_TEST   15000".IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 135 of file mrpc.h.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Midas from the source code.

@@ -1,0 +1,397 @@
+.TH "RC_mhttpd_status_page_features" 3 "31 May 2012" "Version 2.3.0-0" "Midas" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+RC_mhttpd_status_page_features \- Features of the Main Status Page 
+ The Status Page is sub-divided in several parts:
+.IP "\(bu" 2
+\fBExperiment/Date/Refresh information\fP
+.IP "\(bu" 2
+\fBMenu buttons\fP
+.IP "  \(bu" 4
+\fBRun Control buttons\fP
+.IP "  \(bu" 4
+\fBPage Switch buttons\fP
+.PP
+
+.IP "\(bu" 2
+\fBOptional Script buttons\fP
+.IP "\(bu" 2
+\fBManual-Trigger Buttons\fP
+.IP "\(bu" 2
+\fBAlias-Buttons\fP
+.IP "\(bu" 2
+\fBRun status information\fP
+.IP "\(bu" 2
+\fBEquipment information and Event rates\fP
+.IP "\(bu" 2
+\fBData Logging Information\fP
+.IP "\(bu" 2
+\fBLast system message\fP
+.IP "\(bu" 2
+\fBActive Client list\fP
+.PP
+.PP
+These will be discussed in detail in the following sections. 
+.br
+   mhttpd main status page showing Menu Buttons 
+.br
+
+.br
+
+.br
+   
+.br
+.SH "Experiment/Date/Refresh information"
+.PP
+The top line on the main status page \fBabove\fP shows
+.IP "\(bu" 2
+the Experiment name ('Online')
+.IP "\(bu" 2
+the current date
+.IP "\(bu" 2
+the refresh period (Refr:600) - see note below
+.PP
+.PP
+It is important to note that the \fBrefresh\fP of the Status Page is not 'event driven' but is controlled by a timer whose rate is adjustable through the \fBConfig button\fP. This means the information at any given time may reflect the experiment state of up to n seconds in the past, where n is the timer setting of the refresh parameter.
+.PP
+.PP
+.PP
+ 
+.SH "Menu buttons"
+.PP
+The top row of buttons on the \fBmain status page\fP are the
+.IP "\(bu" 2
+\fBRun Control buttons\fP
+.IP "\(bu" 2
+\fBPage Switch buttons\fP
+.PP
+.PP
+ 
+.SS "Run Control buttons"
+Depending on the \fBrun state\fP, a single or the two first buttons on the \fBmain status page\fP will show the possible action that can be taken, i.e.
+.PP
+.PP
+Run Control Buttons present
+.br
+(see Note \fBbelow\fP)
+.br
+  Run State
+.br
+  Action
+.br
+   Start
+.br
+   STOPPED
+.br
+  Start the run
+.br
+   Stop
+.br
+   RUNNING
+.br
+  Stop the run
+.br
+   Pause
+.br
+   Pause the run
+.br
+   Resume
+.br
+   PAUSED
+.br
+  Resume the run
+.br
+   Run Control buttons visible depending on Run State 
+.PP
+  Since \fBNov 2009\fP , the Run Buttons may be hidden (see \fBHide Run Buttons\fP ),
+.PP
+ 
+.SS "Page Switch buttons"
+The \fBPage Switch buttons\fP on the mhttpd main status page (see \fBexample above\fP) change the page to one of the sub-pages. The sub-pages all provide a button labelled \fBStatus\fP, which returns to the main Status page when clicked. The purpose of each Page Switch button is explained in the following table:
+.PP
+The Page switch buttons can now be \fBcustomized\fP ( since \fBDec 2009\fP ) , so not all the possible Page Switch buttons may be visible on the status page for a particular experiment.
+.PP
+Page Switch Button Explanation 
+.PP
+ \fBODB\fP
+.br
+   This button switches to the (see \fBODB page\fP), which provides access to the Online Data Base. 
+.PP
+\fBMSCB\fP
+.br
+   This button switches to the \fBMSCB page\fP , which gives access to devices in a MIDAS Slow Control Bus system. (Implemented \fBDec 2009\fP)
+.PP
+.PP
+ \fBCNAF\fP
+.br
+   In versions since \fBDec 2009\fP the default is that this button has been replaced by the MSCB button. If the CNAF button is needed, it must be added to the list of \fBmenu buttons\fP. 
+.br
+This button switches to the \fBCAMAC Access page\fP . If one of the equipments is a CAMAC frontend, it is possible to issue CAMAC commands through this button.   \fBMessages\fP
+.br
+   Clicking this button opens the \fBmessage page\fP and shows the N last entries of the \fBMIDAS system message log\fP. The last entry is always present in the status page (see \fBLast system message\fP ).  \fBELog\fP
+.br
+   This button gives access to the Electronic Log book (Elog). The Elog allows the permanent recording (i.e. in a file) of comments, messages, screen captures etc. composed by the users (see \fBElog page\fP).  \fBAlarms\fP
+.br
+   Clicking this button displays the \fBAlarm page\fP , which shows the current Alarm setting for the entire experiment. The activation of an alarm is done through the ODB under the \fB/Alarms\fP tree (See \fBMIDAS Alarm System\fP)   \fBPrograms\fP
+.br
+   This button gives access to the \fBPrograms page\fP, which displays the status of the current programs (i.e. MIDAS applications/clients) which are or have been running for this experiment. 
+.PP
+\fBHistory\fP
+.br
+   Display History graphs of pre-defined variables. The history setting has to be done through ODB under the \fB/History\fP (see \fBHistory Logging\fP , \fBHistory page\fP). 
+.PP
+  \fBConfig\fP
+.br
+   Allows the \fB page refresh rate \fP to be changed. See \fBConfig page\fP .
+.PP
+.PP
+Help
+.br
+   Help button will link to the main MIDAS web documentation (i.e. this document). 
+.PP
+Page Switch Buttons on the Main Status Page
+.PP
+
+.br
+.PP
+
+.br
+.SH "Optional Buttons on the main Status page"
+.PP
+ mhttpd main Status page (part) showing optional buttons 
+.br
+   
+.br
+.PP
+ Since \fBDec 2009\fP  there may be up to three rows of buttons below the Menu buttons
+.IP "\(bu" 2
+Script (User) buttons
+.IP "\(bu" 2
+Manually triggered event buttons
+.IP "\(bu" 2
+Custom Page and Alias buttons
+.PP
+.PP
+ Prior to \fBDec 2009\fP  the Custom Page and Alias hyperlinks appeared as \fBlinks\fP rather than buttons, as shown \fBhere\fP.
+.PP
+
+.br
+.PP
+
+.br
+  
+.SS "Optional Script buttons"
+Script (or User) buttons that appear on the \fBmain status page\fP are used to execute user-defined scripts. These buttons are defined through the optional ODB /script tree.
+.PP
+See
+.IP "\(bu" 2
+\fBDefining script buttons\fP
+.PP
+.PP
+for details.
+.PP
+
+.br
+.PP
+
+.br
+  
+.SS "Manual-Trigger Buttons"
+See \fBManual Trigger\fP .
+.PP
+
+.br
+.PP
+
+.br
+ 
+.SS "Alias-Buttons"
+User-defined \fBAlias-buttons\fP that appear on the \fBmain status page\fP give access to \fBAlias pages\fP.
+.PP
+.IP "\(bu" 2
+\fBHow to create Alias-Buttons\fP
+.PP
+.PP
+
+.br
+.PP
+
+.br
+.SH "Run status information"
+.PP
+ mhttpd status page showing Run Status information  
+.br
+.PP
+The run status information on the \fBmain status page\fP shows
+.IP "\(bu" 2
+current run number
+.IP "\(bu" 2
+\fBrun state\fP
+.IP "\(bu" 2
+Alarm status
+.IP "\(bu" 2
+\fBRestart\fP (automatically restart run)
+.IP "\(bu" 2
+mlogger status
+.IP "\(bu" 2
+run duration
+.PP
+.PP
+The appearance and contents of this information changes depending on the conditions. The images below demonstrate how the appearance may change when the run is in transition.
+.PP
+ mhttpd status page showing Run Status information when the run is stopping  
+.br
+.PP
+ mhttpd status page showing Run Status information when the run is starting  
+.br
+.PP
+
+.br
+.PP
+
+.br
+ 
+.SH "Comment and Run Description"
+.PP
+Optionally, the user can define a 'comment' and/or a 'Run Description' that will appear on the mhttpd main status page. This is done by creating keys \fB'Comment'\fP and/or \fB'Run Description'\fP in the \fBRun Parameters subdirectory\fP under /Experiment. The contents of each key will then be displayed on an extra line on the mhttpd main status page. See \fBThe ODB /Experiment tree\fP for more information.
+.PP
+.PP
+.nf
+[local:t2kgas:S]/>ls -lt '/Experiment/Run Parameters/'
+Key name                        Type    #Val  Size  Last Opn Mode Value
+---------------------------------------------------------------------------
+Comment                         STRING  1     32    19h  0   RWD   no beam, test only
+Run Description                 STRING  1     32    19h  0   RWD  28.2keV resonant energy 7Li
+.fi
+.PP
+.PP
+
+.br
+  mhttpd main status page showing 'Comment' and 'Run Description' fields   
+.br
+.PP
+
+.br
+.PP
+ 
+.SH "Equipment information and Event rates"
+.PP
+The mhttpd status page contains a table of \fBEquipment\fP information and event rates. Equipments are usually defined in \fBfrontends\fP. Other MIDAS clients which may define Equipments include slow controls and eventbuilder clients.
+.PP
+ mhttpd status page showing Equipment information and Event rate statistics  
+.SS "Monitor the Equipment variables"
+The 'Equipment' column of this table lists the names of any defined \fBEquipments\fP. These appear in the order in which they are listed in the ODB \fB/Equipment\fP tree.
+.PP
+The names of the equipment in this column are hyperlinks to their respective /Equipment/<equipment-name>/Variables sub-tree. Clicking on any of the equipment links will show an \fBEquipment page\fP , allowing a shortcut for the user to access the current values of the equipment. 
+.br
+.PP
+
+.br
+.SS "Status display of each Equipment"
+The 'Status' column of the \fBmhttpd status page\fP shows the status of each equipment. It usually shows the name of the client defining that equipment, and the host computer on which that client is running, The background colour of each equipment 'Status' box will also change depending on the status of the associated frontend. The usual colours are shown in the following table:
+.PP
+ Frontend is RUNNING and equipment is ENABLED  Frontend is MISSING   Frontend is RUNNING but equipment is DISABLED Default colour coding of Equipment status 
+.br
+ 
+.PP
+When a run is in transition, or when a client takes a long time to respond, the status information may change to give a status report on the client. Optionally, users may program a client to send their own status reports that appear in this area of the mhttpd status page by incorporating calls to the routine \fIset_equipment_status\fP (see \fBReporting Equipment status\fP). This routine allows the message and the status box background colour to be specified. For example, the last client in the image above (HV_SY2527) gives a Status of 'OK' rather than the default client and hostname.
+.PP
+In versions prior to \fBDec 2009\fP , the 'Status' column was labelled \fB'FE Node'\fP and the client status information was not shown (see \fBRedesign of mhttpd Main Status Page\fP ).
+.PP
+
+.br
+.PP
+
+.br
+  
+.SS "Event Rates"
+The event statistics for the current run are also shown on the \fBmain status page\fP , in the columns labelled \fB'Events'\fP, \fB'Events[/s]'\fP and \fB'Data[MB/s]'\fP.
+.PP
+
+.br
+.PP
+
+.br
+ 
+.SS "Number of events analyzed"
+In versions prior to \fBDec 2009\fP , there is an extra column labelled 'analyzer' which shows the number of events analyzed (valid only if the name of the analyzer is 'Analyzer').
+.PP
+
+.br
+.PP
+
+.br
+.SH "Data Logging Information"
+.PP
+The image below shows the information on the status page if both \fBmlogger\fP and \fBlazylogger\fP are running.
+.PP
+ logger information on mhttpd main status page 
+.br
+
+.br
+
+.br
+   
+.br
+.PP
+Compare this example with the \fBminimal\fP status page where neither of these clients are running.
+.PP
+
+.br
+ In the image above,
+.IP "\(bu" 2
+one mlogger channel (Channel 0) is active. 
+.br
+Multiple logger channels can be active, in which case a line for each channel would be shown. The hyperlink \fB'0'\fP opens a \fBmhttpd Logger page\fP showing the settings information.
+.IP "\(bu" 2
+one lazylogger channel (\fBDcache\fP ) is also active. Multiple lazy applications can be active, in which case multiple lines of Lazy information would be present. Clicking on the hyperlink \fB'Dcache'\fP opens a \fBmhttpd Logger page\fP showing the \fBlazylogger settings information\fP .
+.PP
+.PP
+
+.br
+.PP
+
+.br
+  
+.SH "Last system message"
+.PP
+ Example of last system message on mhttpd main status page 
+.br
+
+.br
+
+.br
+   
+.br
+.PP
+The last system message to be received at the time of the last display refresh is displayed on the \fBmain status page\fP (see \fBMessaging\fP). More messages can be viewed by pressing the \fBMessage button\fP. This opens the \fBMessage page\fP.
+.PP
+
+.br
+.PP
+
+.br
+.PP
+ 
+.SH "Active Client list"
+.PP
+ Example of Active client list on mhttpd main status page 
+.br
+
+.br
+
+.br
+   
+.br
+.PP
+At the bottom of the \fBmain status page\fP is a list of the MIDAS clients for this experiment that are currently active. The hostname is also shown. This information is derived from the \fBODB /System\fP tree .
+.PP
+
+.br
+
+.br
+.PP
+ 
+.br
+  

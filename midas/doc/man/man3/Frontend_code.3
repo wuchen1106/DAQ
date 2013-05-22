@@ -1,0 +1,65 @@
+.TH "Frontend_code" 3 "31 May 2012" "Version 2.3.0-0" "Midas" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Frontend_code \- Frontend code 
+
+.br
+.PP
+.PP
+
+.br
+  
+.SH "Introduction"
+.PP
+The features of a typical frontend program are best explained by reference to examples of the user code provided in the Midas Package. The examples in this document are taken from the following C code examples. There are also examples available in C++ (see table below).
+.PP
+Hardware :  Filename :  Directory :   Language :  VME \fBfevmemodules.c\fP examples/experiment C  CAMAC \fBfrontend.c\fP ../examples/experiment  C  VME \fBfevme.cxx\fP ../examples/Triumf/c++   C++ Examples of user frontend routines for different hardware and language 
+.br
+ Other examples of frontend code can be found in the Midas distribution under the \fB\fP../examples directory.
+.PP
+.SS "CAMAC DAQ Event LAM Macros"
+Midas provides \fB Macros for CAMAC LAM manipulation \fP which may be used in the frontend or analyzer code. These Macros are used to interact with the LAM register. Usually the CAMAC Crate Controller has the feature that it is able to register one bit per slot and present this register to the user. It may even have the option to mask off this register to allow to set a 'general' LAM register containing either '1' (At least one LAM from the masked LAM is set) or '0' ( no LAM set from the maksed LAM register). The \fBpoll_event()\fP CAMAC routine uses this feature to return a variable which contains a bit-wise value of the current LAM register in the Crate Controller.
+.IP "\(bu" 2
+\fBLAM_SOURCE\fP
+.IP "\(bu" 2
+\fBLAM_STATION\fP
+.IP "\(bu" 2
+\fBLAM_SOURCE_CRATE\fP
+.IP "\(bu" 2
+\fBLAM_SOURCE_STATION\fP
+.PP
+.PP
+.PP
+.PP
+.IP "\(bu" 2
+\fBFrontend Code Sections\fP
+.IP "\(bu" 2
+\fBSequence of operations\fP
+.IP "\(bu" 2
+\fBFrontend Routines associated with Equipments\fP
+.IP "\(bu" 2
+\fBFrontend Event Notification\fP
+.IP "\(bu" 2
+\fBDeferred Transition\fP
+.IP "\(bu" 2
+\fBBank construction in an Event readout routine\fP
+.IP "\(bu" 2
+\fBSuper-Event\fP
+.IP "\(bu" 2
+\fBEvent Builder Functions\fP
+.IP "\(bu" 2
+\fBSlow Control System\fP
+.IP "  \(bu" 4
+\fBIncrease the Event Buffer Size(s)\fP
+.IP "  \(bu" 4
+\fBFrontend Appendices\fP
+.PP
+
+.PP
+.PP
+
+.br
+  
+.br
+  

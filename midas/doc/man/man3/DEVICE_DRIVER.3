@@ -1,0 +1,103 @@
+.TH "DEVICE_DRIVER" 3 "31 May 2012" "Version 2.3.0-0" "Midas" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+DEVICE_DRIVER \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "char \fBname\fP [NAME_LENGTH]"
+.br
+.ti -1c
+.RI "\fBINT\fP(* \fBdd\fP )(\fBINT\fP cmd,...)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBchannels\fP"
+.br
+.ti -1c
+.RI "\fBINT\fP(* \fBbd\fP )(\fBINT\fP cmd,...)"
+.br
+.ti -1c
+.RI "\fBDWORD\fP \fBflags\fP"
+.br
+.ti -1c
+.RI "void * \fBdd_info\fP"
+.br
+.ti -1c
+.RI "\fBDD_MT_BUFFER\fP * \fBmt_buffer\fP"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBstop_thread\fP"
+.br
+.ti -1c
+.RI "MUTEX_T * \fBmutex\fP"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBsemaphore\fP"
+.br
+.ti -1c
+.RI "\fBEQUIPMENT_INFO\fP * \fBpequipment\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 987 of file midas.h.
+.SH "Field Documentation"
+.PP 
+.SS "\fBINT\fP(* \fBDEVICE_DRIVER::bd\fP)(\fBINT\fP cmd,...)"Bus driver entry point 
+.PP
+Referenced by device_driver().
+.SS "\fBINT\fP \fBDEVICE_DRIVER::channels\fP"Number of channels 
+.PP
+Definition at line 990 of file midas.h.
+.PP
+Referenced by device_driver(), hv_init(), and sc_thread().
+.SS "\fBINT\fP(* \fBDEVICE_DRIVER::dd\fP)(\fBINT\fP cmd,...)"Device driver entry point 
+.PP
+Referenced by device_driver(), hv_exit(), hv_init(), hv_start(), hv_stop(), and sc_thread().
+.SS "void* \fBDEVICE_DRIVER::dd_info\fP"Private info for device driver 
+.PP
+Definition at line 993 of file midas.h.
+.PP
+Referenced by device_driver(), hv_init(), and sc_thread().
+.SS "\fBDWORD\fP \fBDEVICE_DRIVER::flags\fP"Combination of DF_xx 
+.PP
+Definition at line 992 of file midas.h.
+.PP
+Referenced by device_driver(), hv_demand(), hv_idle(), hv_init(), hv_read(), hv_start(), and hv_stop().
+.SS "\fBDD_MT_BUFFER\fP* \fBDEVICE_DRIVER::mt_buffer\fP"pointer to multithread buffer 
+.PP
+Definition at line 994 of file midas.h.
+.PP
+Referenced by device_driver(), and sc_thread().
+.SS "MUTEX_T* \fBDEVICE_DRIVER::mutex\fP"mutex for buffer 
+.PP
+Definition at line 996 of file midas.h.
+.SS "char \fBDEVICE_DRIVER::name\fP[NAME_LENGTH]"Driver name 
+.PP
+Definition at line 988 of file midas.h.
+.PP
+Referenced by device_driver(), hv_init(), initialize_equipment(), and main().
+.SS "\fBEQUIPMENT_INFO\fP* \fBDEVICE_DRIVER::pequipment\fP"pointer to equipment 
+.PP
+Definition at line 998 of file midas.h.
+.PP
+Referenced by hv_start(), and sc_thread().
+.SS "\fBINT\fP \fBDEVICE_DRIVER::semaphore\fP"semaphore for device access 
+.PP
+Definition at line 997 of file midas.h.
+.PP
+Referenced by device_driver(), and sc_thread().
+.SS "\fBINT\fP \fBDEVICE_DRIVER::stop_thread\fP"flag used to stop the thread 
+.PP
+Definition at line 995 of file midas.h.
+.PP
+Referenced by device_driver(), and sc_thread().
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Midas from the source code.

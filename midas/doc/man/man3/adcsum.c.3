@@ -1,0 +1,60 @@
+.TH "adcsum.c" 3 "31 May 2012" "Version 2.3.0-0" "Midas" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+adcsum.c \- 
+.SH SYNOPSIS
+.br
+.PP
+.SH "Define Documentation"
+.PP 
+.SS "#define DEFINE_TESTS"
+.PP
+Definition at line 22 of file adcsum.c.
+.SS "#define PI   3.14159265359"
+.PP
+Definition at line 33 of file adcsum.c.
+.SH "Function Documentation"
+.PP 
+.SS "\fBINT\fP adc_summing (\fBEVENT_HEADER\fP * pheader, void * pevent)"
+.PP
+Definition at line 87 of file adcsum.c.
+.SS "\fBINT\fP adc_summing_bor (\fBINT\fP run_number)"
+.SS "\fBINT\fP adc_summing_init (void)"
+.PP
+Definition at line 72 of file adcsum.c.
+.SS "ADC_SUMMING_PARAM_STR (adc_summing_param_str)"
+.SS "DEF_TEST (high_sum)"
+.SS "DEF_TEST (low_sum)"
+.SH "Variable Documentation"
+.PP 
+.SS "\fBANA_MODULE\fP \fBadc_summing_module\fP"\fBInitial value:\fP
+.PP
+.nf
+ {
+   'ADC summing',               
+   'Stefan Ritt',               
+   adc_summing,                 
+   NULL,                        
+   NULL,                        
+   adc_summing_init,            
+   NULL,                        
+   &adc_summing_param,          
+   sizeof(adc_summing_param),   
+   adc_summing_param_str,       
+}
+.fi
+.PP
+Definition at line 53 of file adcsum.c.
+.SS "\fBADC_SUMMING_PARAM\fP \fBadc_summing_param\fP"
+.PP
+Definition at line 38 of file adcsum.c.
+.SS "TH1D * \fBhAdcAvg\fP\fC [static]\fP"
+.PP
+Definition at line 68 of file adcsum.c.
+.SS "TH1D* \fBhAdcSum\fP\fC [static]\fP"
+.PP
+Definition at line 68 of file adcsum.c.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Midas from the source code.

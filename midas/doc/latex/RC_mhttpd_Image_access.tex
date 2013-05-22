@@ -1,0 +1,261 @@
+\subparagraph{Demo of custom image page}\label{RC_mhttpd_custom_demo}
+\par
+
+
+
+
+\par
+
+
+This demo will show you how to make a custom page containing an image, and superimpose edit boxes, clickable areas, labels, fills etc.
+
+The HTML document \hyperlink{myexpt_8html}{myexpt.html} can be found in the examples/custom directory. This code forms part of a custom demo. For the full operation of this demo, you'll need to have the frontend {\bfseries \char`\"{}sample frontend\char`\"{}} (midas/example/experiment/frontend.c), mlogger, mhttpd running.
+
+The code \hyperlink{myexpt_8html}{myexpt.html} is shown below for convenience: 
+\begin{DoxyCode}
+<html>
+  <head>
+   <title>MyExperiment Demo Status</title>
+   <meta http-equiv="Refresh" content="30">
+  </head>
+ <body>
+  <form name="form1" method="Get" action="/CS/MyExpt&">
+     <table border=3 cellpadding=2>
+          <tr><th bgcolor="#A0A0FF">Demo Experiment<th bgcolor="#A0A0FF">Custom M
+      onitor/Control</tr> 
+          <tr><td> <b><font color="#ff 0">Actions: </font></b><input
+                      value="Status" name="cmd" type="submit"> <input type="submi
+      t"
+                      name="cmd" value="Start"><input type="submit" name="cmd" va
+      lue="Stop">
+           </td><td>
+           <center> <a href="http://midas.triumf.ca/doc/html/index.html"> Help </
+      a></center>
+           </td></tr>
+           <td>Current run #: <b><odb src="/Runinfo/run number"></b></td>
+           <td>#events: <b><odb src="/Equipment/Trigger/Statistics/Events sent"><
+      /b></td>
+           </tr><tr>
+           <td>Event Rate [/sec]: <b><odb src="/Equipment/Trigger/Statistics/Even
+      ts per sec."></b></td>
+           <td>Data Rate [kB/s]: <b><odb src="/Equipment/Trigger/Statistics/kByte
+      s per sec."></b></td>
+            </tr><tr>
+            <td>Cell Pressure: <b><odb src="/Equipment/NewEpics/Variables/CellPre
+      ssure"></b></td>
+           <td>FaradayCup   : <b><odb src="/Equipment/NewEpics/Variables/ChargeFa
+      radayCup"></b></td>
+           </tr><tr>
+           <td>Q1 Setpoint: <b><odb src="/Equipment/NewEpics/Variables/EpicsVars[
+      17]" edit=1></b></td>
+          <td>Q2 Setpoint: <b><odb src="/Equipment/NewEpics/Variables/EpicsVars[1
+      9]" edit=1></b></td>
+          </tr><tr>
+          <th> <img src="http://localhost:8080/HS/Default/Trigger%20rate.gif?
+                          exp=default&amp;scale=12h&amp;width=250">
+          </th>
+          <th> <img src="http://localhost:8080/HS/Default/Scaler%20rate.gif?
+                          exp=default&amp;scale=10m&amp;width=250"></th>
+          </tr>
+          <tr><td colspan=2>
+          <map name="myexpt.map">
+          <area shape=rect coords="140,70, 420,170" 
+                  href="http://midas.triumf.ca/doc/html/index.html" title="Midas 
+      Doc">
+          <area shape=rect coords="200,200,400,400"
+                  href="http://localhost:8080" title="Switch pump">
+       <area shape=rect coords="230,515,325,600"
+              href="http://localhost:8080" title="Logger in color level (using Fi
+      ll)">
+        <img src="myexpt.gif" border=1 usemap="#myexpt.map">
+          </map>
+          </td></tr>
+     </table></form>
+   </body>
+  </html>  
+\end{DoxyCode}
+
+
+To \hyperlink{RC_mhttpd_Activate}{activate} this HTML document, it has to be defined in the ODB as follow: 
+\begin{DoxyCode}
+[local:Default:Stopped]/>cd /Custom
+[local:Default:Stopped]/Custom>create string Myexpt&
+String length [32]: 256
+[local:Default:Stopped]/Custom>set Myexpt& /midas/examples/custom/myexpt.html
+\end{DoxyCode}
+ After refresh, the alias-\/link {\bfseries Myexpt} should be visible on the Main Status Page. If you have not already inserted the image file name {\bfseries myexpt.gif} into the Custom page, do so now by following the instructions to \hyperlink{RC_mhttpd_Image_access_RC_mhttpd_custom_image}{insert the image}.
+
+Once the image is inserted, after refresh the image should be visible by clicking on the alias-\/link {\bfseries Myexpt}, and the mapping active.
+
+\label{RC_mhttpd_custom_demo_mapping_demo}
+\hypertarget{RC_mhttpd_custom_demo_mapping_demo}{}
+ The mapping based on myexpt.map is active, hovering the mouse over the boxes will display the associated titles (Midas Doc, Switch pump, etc), By clicking on either box the browser will go to the defined html page specified by the map.
+
+\par
+\par
+\par
+ \begin{center}  Figure 1 : Demo Custom web page with external reference to html document. \par
+\par
+\par
+  \end{center}  \par
+\par
+\par
+
+
+In addition to these initial features, multiple ODB values can be superimposed at define location on the image. Each entry will have a ODB tree associated to it defining the ODB variable, X/Y position, color, etc...
+
+Make the {\bfseries Rate} label as explained \hyperlink{RC_mhttpd_Image_access_RC_mhttpd_custom_labels}{above}. After refreshing the web page, you will see the error message below:
+
+
+\begin{DoxyCode}
+>>>>>>>> Refresh web page <<<<<<<<
+
+12:32:38 [mhttpd] [mhttpd.c:5508:show_custom_gif] Empty Src key for label "Rate"
+\end{DoxyCode}
+
+
+The keys created in the Labels/Rate subtree are explained \hyperlink{RC_mhttpd_Image_access_RC_mhttpd_labels_tree}{here}. Customize this label by assigning the {\bfseries Src} key to a valid ODB Key variable, and the X,Y fields to position top-\/left corner of the label, e.g. 
+\begin{DoxyCode}
+[local:Default:Stopped]Rate>set src "/Equipment/Trigger/statistics/kbytes per sec
+      ."
+[local:Default:Stopped]Rate>set x 330
+[local:Default:Stopped]Rate>set y 250 
+[local:Default:Stopped]Rate>set format "Rate:%1.1f kB/s"
+\end{DoxyCode}
+
+
+Once the initial label is created, the simplest way to extent to multiple labels is to copy the existing label sub-\/tree and modify the label \hyperlink{structparameters}{parameters}. 
+\begin{DoxyCode}
+[local:Default:Stopped]Labels>cd .. 
+[local:Default:Stopped]Labels>copy Rate Event
+[local:Default:Stopped]Labels>cd Events/
+[local:Default:Stopped]Event>set src "/Equipment/Trigger/statistics/events per se
+      c."
+[local:Default:Stopped]Event>set Format "Rate:%1.1f evt/s"
+[local:Default:Stopped]Event>set y 170
+[local:Default:Stopped]Event>set x 250
+\end{DoxyCode}
+ You will now have two {\bfseries Labels}, named \char`\"{}Rate\char`\"{} and \char`\"{}Event\char`\"{}, both subtrees under ../Labels.
+
+In the same manner, you can create \hyperlink{RC_mhttpd_Image_access_RC_mhttpd_custom_bars}{bars} used for level representation. The keys in the Bars subdirectory are explained \hyperlink{RC_mhttpd_Image_access_RC_mhttpd_bars_tree}{above}.
+
+This code will setup two ODB values defined by the fields src. 
+\begin{DoxyCode}
+[local:Default:Stopped]myexpt.gif>pwd
+/Custom/Images/myexpt.gif
+[local:Default:Stopped]myexpt.gif>mkdir Bars
+[local:Default:Stopped]myexpt.gif>cd bars/
+[local:Default:Stopped]Labels>mkdir Rate
+
+>>>>>>>> Refresh web page <<<<<<<<
+
+14:05:58 [mhttpd] [mhttpd.c:5508:show_custom_gif] Empty Src key for bars "Rate"
+[local:Default:Stopped]Labels>cd Rate/
+[local:Default:Stopped]Rate>set src "/Equipment/Trigger/statistics/kbytes per sec
+      ."
+[local:Default:Stopped]Rate>set x 4640
+[local:Default:Stopped]Rate>set y 210 
+[local:Default:Stopped]Rate>set max 1e6 
+[local:Default:Stopped]Labels>cd .. 
+[local:Default:Stopped]Labels>copy Rate Events
+[local:Default:Stopped]Labels>cd Events/
+[local:Default:Stopped]Event>set src "/logger/channles/0/statistics/events writte
+      n"
+[local:Default:Stopped]Event>set direction 1
+[local:Default:Stopped]Event>set y 240
+[local:Default:Stopped]Event>set x 450
+[local:Default:Stopped]Rate>set max 1e6 
+\end{DoxyCode}
+
+
+You will now have two {\bfseries Bars}, also named \char`\"{}Rate\char`\"{} and \char`\"{}Event\char`\"{}, both subtrees under ../Bars.
+
+The last feature to be added is a \hyperlink{RC_mhttpd_Image_access_RC_mhttpd_custom_fills}{Fill} (where an area can be filled with different colors depending on the given ODB value). These have to be entered by hand. See instructions in \hyperlink{RC_mhttpd_Image_access_RC_mhttpd_custom_fills}{fills}, which shows you how to create a {\bfseries Filled} area named \char`\"{}Level\char`\"{} (a subtree under ../Fills).
+
+Once all these features have been added, the custom page will look as Figure 2: \label{RC_mhttpd_custom_demo_example_image_all}
+\hypertarget{RC_mhttpd_custom_demo_example_image_all}{}
+
+
+\par
+\par
+\par
+ \begin{center}  Figure 2 : Demo Custom web page with labels,bars,fills and history plots \par
+\par
+\par
+  \end{center}  \par
+\par
+\par
+
+
+
+
+\label{index_end}
+\hypertarget{index_end}{}
+ \subparagraph{Internal custom page}\label{RC_mhttpd_Internal}
+\par
+
+
+
+
+An {\bfseries internal} custom page (written in HTML and/or JavaScript) may be imported under a given /Custom/ ODB key. The name of this key will appear in the Main Status page as an \hyperlink{RC_mhttpd_Alias_page}{alias-\/links} (or alias-\/button -\/ \hyperlink{NDF_ndf_dec_2009}{Dec 2009}). By clicking on this link/button, the contents of this key is interpreted as html content.
+
+The insertion of a new Custom page requires the following steps:
+\begin{DoxyItemize}
+\item Create an initial html file using your favorite HTML editor (see \hyperlink{RC_mhttpd_custom_features_RC_mhttpd_custom_create}{How to create a custom page})
+\item \hyperlink{RC_mhttpd_Activate_RC_odb_custom_internal_example}{Import} this file
+\end{DoxyItemize}
+
+\begin{DoxyNote}{Note}
+
+\begin{DoxyItemize}
+\item Once the file is imported into ODB, you can {\bfseries ONLY} edit it through the web (as long as mhttpd is active) by clicking on the {\bfseries ODB(button)} ... Custom(Key) ... Edit (Hyperlink at the bottom of the key).
+\end{DoxyItemize}
+\end{DoxyNote}
+
+\begin{DoxyItemize}
+\item The Custom page can also be exported back to a ASCII file using the odbedit command \hyperlink{RC_odbedit_examples_RC_odbedit_export}{export}, e.g. 
+\begin{DoxyCode}
+  [local:midas:Stopped]/>cd Custom/
+  [local:midas:Stopped]/Custom>export test&
+  File name: mcustom.html
+  [local:midas:Stopped]/Custom>
+\end{DoxyCode}
+
+\end{DoxyItemize}
+
+Figure 1 shows an {\bfseries internal} custom page which has been imported into the ODB at key /Custom/Overview\& as shown in Figure 2.
+
+\par
+\par
+\par
+ \begin{center}  Figure 1 : Internal custom web page with history graph. \par
+\par
+\par
+  \end{center}  \par
+\par
+\par
+
+
+\par
+\par
+\par
+ \begin{center}  Figure 2 : Internal custom web page loaded into the ODB. \par
+\par
+\par
+  \end{center}  \par
+\par
+\par
+
+
+\par
+
+
+\par
+ \par
+
+
+
+
+\label{index_end}
+\hypertarget{index_end}{}
+ 

@@ -1,0 +1,69 @@
+.TH "F_Utilities_List" 3 "31 May 2012" "Version 2.3.0-0" "Midas" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+F_Utilities_List \- List of MIDAS Utilities 
+  The MIDAS package provides the following utilities (tasks). For more information on each utility, follow the link.
+.PP
+.IP "\(bu" 2
+\fBData Analyzers\fP (MIDAS Analyzer, ROOT, ROODY, ROOTANA)
+.IP "\(bu" 2
+\fBdio\fP direct I/O driver utility
+.IP "\(bu" 2
+\fBfrontend\fP frontend utility
+.IP "\(bu" 2
+\fBhvedit\fP High Voltage Editor and GUI
+.IP "\(bu" 2
+\fBlazylogger\fP data archiver
+.IP "\(bu" 2
+\fBmchart\fP assembles data for stripchart
+.IP "\(bu" 2
+\fBmcnaf\fP Camac hardware access
+.IP "\(bu" 2
+\fBmdump\fP display contents of event banks
+.IP "\(bu" 2
+\fBmevb\fP event builder application
+.IP "\(bu" 2
+\fBmh2spl\fP import history files into SQL database
+.IP "\(bu" 2
+\fBmhdump\fP display history events
+.IP "\(bu" 2
+\fBmhist\fP history data retriever
+.IP "\(bu" 2
+\fBmhttpd\fP web-based run control and monitoring
+.IP "\(bu" 2
+\fBmlogger\fP data logger
+.IP "\(bu" 2
+\fBmserver\fP remote server
+.IP "\(bu" 2
+\fBm[lx]speaker\fP audible messaging
+.IP "\(bu" 2
+\fBmstat\fP monitor and display
+.IP "\(bu" 2
+\fBmtape\fP tape manipulation
+.IP "\(bu" 2
+\fBodbedit\fP ODB editor and run controller.
+.IP "\(bu" 2
+\fBrmidas\fP ROOT application for histogram/run control
+.IP "\(bu" 2
+\fBstripchart\fP graphical stripchart data display
+.PP
+.PP
+  
+.SH "Common Parameters to MIDAS Utilities"
+.PP
+Each of the above utilities define a number of input \fBparameters\fP (click on the utilities listed above for details); however they all have the following common \fBparameters\fP:
+.PP
+.IP "\(bu" 2
+[\fB-h\fP <hostname> ] Specifies the \fBMIDAS host\fP to connect to when connecting to an experiment running on a \fBremote\fP \fBhost\fP. \fB'hostname'\fP must be a valid IP host name. This option supersedes the default hostname given by the environment variable \fBMIDAS_SERVER_HOST\fP , if defined. Note that the \fBmserver\fP utility must be running on the remote host in this case. If the experiment is running on the local host, this argument need not be supplied.
+.PP
+.PP
+.IP "\(bu" 2
+[\fB-e\fP <exptname> ] Specifies the \fBMIDAS experiment\fP to connect to (where \fBmultiple experiments\fP are defined on the MIDAS host. This option supersedes the default experiment name given by the environment variable \fBMIDAS_EXPT_NAME\fP , if defined. If multiple experiments are defined, unless \fBMIDAS_EXPT_NAME\fP is defined or this argument is supplied, the application will request the experiment name.
+.PP
+.PP
+If the environment variable \fBMIDAS_DIR\fP (i.e. single default experiment) is defined, both the above arguments and environment variables will be superceded.
+.PP
+
+.br
+   

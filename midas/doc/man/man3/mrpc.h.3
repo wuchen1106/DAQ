@@ -1,0 +1,305 @@
+.TH "mrpc.h" 3 "31 May 2012" "Version 2.3.0-0" "Midas" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+mrpc.h \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Defines"
+
+.in +1c
+.ti -1c
+.RI "#define \fBRPC_CM_SET_CLIENT_INFO\fP   11000"
+.br
+.ti -1c
+.RI "#define \fBRPC_CM_SET_WATCHDOG_PARAMS\fP   11001"
+.br
+.ti -1c
+.RI "#define \fBRPC_CM_CLEANUP\fP   11002"
+.br
+.ti -1c
+.RI "#define \fBRPC_CM_GET_WATCHDOG_INFO\fP   11003"
+.br
+.ti -1c
+.RI "#define \fBRPC_CM_MSG_LOG\fP   11004"
+.br
+.ti -1c
+.RI "#define \fBRPC_CM_EXECUTE\fP   11005"
+.br
+.ti -1c
+.RI "#define \fBRPC_CM_SYNCHRONIZE\fP   11006"
+.br
+.ti -1c
+.RI "#define \fBRPC_CM_ASCTIME\fP   11007"
+.br
+.ti -1c
+.RI "#define \fBRPC_CM_TIME\fP   11008"
+.br
+.ti -1c
+.RI "#define \fBRPC_CM_MSG\fP   11009"
+.br
+.ti -1c
+.RI "#define \fBRPC_CM_EXIST\fP   11011"
+.br
+.ti -1c
+.RI "#define \fBRPC_CM_MSG_RETRIEVE\fP   11012"
+.br
+.ti -1c
+.RI "#define \fBRPC_CM_MSG_LOG1\fP   11013"
+.br
+.ti -1c
+.RI "#define \fBRPC_CM_CHECK_CLIENT\fP   11014"
+.br
+.ti -1c
+.RI "#define \fBRPC_BM_OPEN_BUFFER\fP   11100"
+.br
+.ti -1c
+.RI "#define \fBRPC_BM_CLOSE_BUFFER\fP   11101"
+.br
+.ti -1c
+.RI "#define \fBRPC_BM_CLOSE_ALL_BUFFERS\fP   11102"
+.br
+.ti -1c
+.RI "#define \fBRPC_BM_GET_BUFFER_INFO\fP   11103"
+.br
+.ti -1c
+.RI "#define \fBRPC_BM_GET_BUFFER_LEVEL\fP   11104"
+.br
+.ti -1c
+.RI "#define \fBRPC_BM_INIT_BUFFER_COUNTERS\fP   11105"
+.br
+.ti -1c
+.RI "#define \fBRPC_BM_SET_CACHE_SIZE\fP   11106"
+.br
+.ti -1c
+.RI "#define \fBRPC_BM_ADD_EVENT_REQUEST\fP   11107"
+.br
+.ti -1c
+.RI "#define \fBRPC_BM_REMOVE_EVENT_REQUEST\fP   11108"
+.br
+.ti -1c
+.RI "#define \fBRPC_BM_SEND_EVENT\fP   11109"
+.br
+.ti -1c
+.RI "#define \fBRPC_BM_FLUSH_CACHE\fP   11110"
+.br
+.ti -1c
+.RI "#define \fBRPC_BM_RECEIVE_EVENT\fP   11111"
+.br
+.ti -1c
+.RI "#define \fBRPC_BM_MARK_READ_WAITING\fP   11112"
+.br
+.ti -1c
+.RI "#define \fBRPC_BM_EMPTY_BUFFERS\fP   11113"
+.br
+.ti -1c
+.RI "#define \fBRPC_BM_SKIP_EVENT\fP   11114"
+.br
+.ti -1c
+.RI "#define \fBRPC_DB_OPEN_DATABASE\fP   11200"
+.br
+.ti -1c
+.RI "#define \fBRPC_DB_CLOSE_DATABASE\fP   11201"
+.br
+.ti -1c
+.RI "#define \fBRPC_DB_CLOSE_ALL_DATABASES\fP   11202"
+.br
+.ti -1c
+.RI "#define \fBRPC_DB_CREATE_KEY\fP   11203"
+.br
+.ti -1c
+.RI "#define \fBRPC_DB_CREATE_LINK\fP   11204"
+.br
+.ti -1c
+.RI "#define \fBRPC_DB_SET_VALUE\fP   11205"
+.br
+.ti -1c
+.RI "#define \fBRPC_DB_GET_VALUE\fP   11206"
+.br
+.ti -1c
+.RI "#define \fBRPC_DB_FIND_KEY\fP   11207"
+.br
+.ti -1c
+.RI "#define \fBRPC_DB_FIND_LINK\fP   11208"
+.br
+.ti -1c
+.RI "#define \fBRPC_DB_GET_PATH\fP   11209"
+.br
+.ti -1c
+.RI "#define \fBRPC_DB_DELETE_KEY\fP   11210"
+.br
+.ti -1c
+.RI "#define \fBRPC_DB_ENUM_KEY\fP   11211"
+.br
+.ti -1c
+.RI "#define \fBRPC_DB_GET_KEY\fP   11212"
+.br
+.ti -1c
+.RI "#define \fBRPC_DB_GET_DATA\fP   11213"
+.br
+.ti -1c
+.RI "#define \fBRPC_DB_SET_DATA\fP   11214"
+.br
+.ti -1c
+.RI "#define \fBRPC_DB_SET_DATA_INDEX\fP   11215"
+.br
+.ti -1c
+.RI "#define \fBRPC_DB_SET_MODE\fP   11216"
+.br
+.ti -1c
+.RI "#define \fBRPC_DB_GET_RECORD_SIZE\fP   11219"
+.br
+.ti -1c
+.RI "#define \fBRPC_DB_GET_RECORD\fP   11220"
+.br
+.ti -1c
+.RI "#define \fBRPC_DB_SET_RECORD\fP   11221"
+.br
+.ti -1c
+.RI "#define \fBRPC_DB_ADD_OPEN_RECORD\fP   11222"
+.br
+.ti -1c
+.RI "#define \fBRPC_DB_REMOVE_OPEN_RECORD\fP   11223"
+.br
+.ti -1c
+.RI "#define \fBRPC_DB_SAVE\fP   11224"
+.br
+.ti -1c
+.RI "#define \fBRPC_DB_LOAD\fP   11225"
+.br
+.ti -1c
+.RI "#define \fBRPC_DB_SET_CLIENT_NAME\fP   11226"
+.br
+.ti -1c
+.RI "#define \fBRPC_DB_RENAME_KEY\fP   11227"
+.br
+.ti -1c
+.RI "#define \fBRPC_DB_ENUM_LINK\fP   11228"
+.br
+.ti -1c
+.RI "#define \fBRPC_DB_REORDER_KEY\fP   11229"
+.br
+.ti -1c
+.RI "#define \fBRPC_DB_CREATE_RECORD\fP   11230"
+.br
+.ti -1c
+.RI "#define \fBRPC_DB_GET_DATA_INDEX\fP   11231"
+.br
+.ti -1c
+.RI "#define \fBRPC_DB_GET_KEY_TIME\fP   11232"
+.br
+.ti -1c
+.RI "#define \fBRPC_DB_GET_OPEN_RECORDS\fP   11233"
+.br
+.ti -1c
+.RI "#define \fBRPC_DB_FLUSH_DATABASE\fP   11235"
+.br
+.ti -1c
+.RI "#define \fBRPC_DB_SET_DATA_INDEX2\fP   11236"
+.br
+.ti -1c
+.RI "#define \fBRPC_DB_GET_KEY_INFO\fP   11237"
+.br
+.ti -1c
+.RI "#define \fBRPC_DB_GET_DATA1\fP   11238"
+.br
+.ti -1c
+.RI "#define \fBRPC_DB_SET_NUM_VALUES\fP   11239"
+.br
+.ti -1c
+.RI "#define \fBRPC_DB_CHECK_RECORD\fP   11240"
+.br
+.ti -1c
+.RI "#define \fBRPC_DB_GET_NEXT_LINK\fP   11241"
+.br
+.ti -1c
+.RI "#define \fBRPC_DB_GET_LINK\fP   11242"
+.br
+.ti -1c
+.RI "#define \fBRPC_DB_GET_LINK_DATA\fP   11243"
+.br
+.ti -1c
+.RI "#define \fBRPC_DB_SET_LINK_DATA\fP   11244"
+.br
+.ti -1c
+.RI "#define \fBRPC_DB_SET_LINK_DATA_INDEX\fP   11245"
+.br
+.ti -1c
+.RI "#define \fBRPC_HS_SET_PATH\fP   11300"
+.br
+.ti -1c
+.RI "#define \fBRPC_HS_DEFINE_EVENT\fP   11301"
+.br
+.ti -1c
+.RI "#define \fBRPC_HS_WRITE_EVENT\fP   11302"
+.br
+.ti -1c
+.RI "#define \fBRPC_HS_COUNT_EVENTS\fP   11303"
+.br
+.ti -1c
+.RI "#define \fBRPC_HS_ENUM_EVENTS\fP   11304"
+.br
+.ti -1c
+.RI "#define \fBRPC_HS_COUNT_VARS\fP   11305"
+.br
+.ti -1c
+.RI "#define \fBRPC_HS_ENUM_VARS\fP   11306"
+.br
+.ti -1c
+.RI "#define \fBRPC_HS_READ\fP   11307"
+.br
+.ti -1c
+.RI "#define \fBRPC_HS_GET_VAR\fP   11308"
+.br
+.ti -1c
+.RI "#define \fBRPC_HS_GET_EVENT_ID\fP   11309"
+.br
+.ti -1c
+.RI "#define \fBRPC_EL_SUBMIT\fP   11400"
+.br
+.ti -1c
+.RI "#define \fBRPC_AL_CHECK\fP   11500"
+.br
+.ti -1c
+.RI "#define \fBRPC_AL_TRIGGER_ALARM\fP   11501"
+.br
+.ti -1c
+.RI "#define \fBRPC_RC_TRANSITION\fP   12000"
+.br
+.ti -1c
+.RI "#define \fBRPC_ANA_CLEAR_HISTOS\fP   13000"
+.br
+.ti -1c
+.RI "#define \fBRPC_LOG_REWIND\fP   14000"
+.br
+.ti -1c
+.RI "#define \fBRPC_TEST\fP   15000"
+.br
+.ti -1c
+.RI "#define \fBRPC_CNAF16\fP   16000"
+.br
+.ti -1c
+.RI "#define \fBRPC_CNAF24\fP   16001"
+.br
+.ti -1c
+.RI "#define \fBRPC_MANUAL_TRIG\fP   17000"
+.br
+.ti -1c
+.RI "#define \fBRPC_ID_WATCHDOG\fP   99997"
+.br
+.ti -1c
+.RI "#define \fBRPC_ID_SHUTDOWN\fP   99998"
+.br
+.ti -1c
+.RI "#define \fBRPC_ID_EXIT\fP   99999"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+dox The mrpc include file 
+.PP
+Definition in file \fBmrpc.h\fP.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Midas from the source code.

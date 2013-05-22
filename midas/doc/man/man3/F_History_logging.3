@@ -1,0 +1,1011 @@
+.TH "F_History_logging" 3 "31 May 2012" "Version 2.3.0-0" "Midas" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+F_History_logging \- History Logging 
+
+.br
+   
+.PP
+
+.br
+ 
+.SH "MIDAS History System"
+.PP
+\fBTodo\fP
+.RS 4
+The history section needs to be reviewed
+.RE
+.PP
+The history system is an add-on capability built into the \fBMIDAS data logger\fP to record useful information in parallel to the data logging. This information is recorded with a time stamp and saved into a history file (in a \fBspecial format\fP of the form of a database) for later retrieval. One set of files is created per day containing all the requested history events. The history data may be displayed in graphical form using the \fBmhttpd\fP MIDAS webserver utility, giving the user an easy way of seeing how experimental variables have changed with time. 
+.br
+ The history logging will be in action \fBonly\fP if the logger is running, but it is not necessary to have any logging channel enabled.
+.PP
+ See also \fBMIDAS SQL History system\fP , where the History is saved into an SQL database instead of a History file. ( \fBJan 2009\fP ). 
+.SH "Location of History Files"
+.PP
+.PP
+ By default, \fBhistory\fP files are written into the directory path given by the ODB key \fBData Dir\fP in the \fB/Logger ODB tree\fP.
+.PP
+This location can be changed by use of the ODB Key History dir in the \fB/Logger\fP directory. This key is optional and doesn't appear by default in the \fB/Logger ODB tree\fP. If this key IS present the location of the history files is reassigned to the defined path.
+.SS "Creation of ODB Key  '/Logger/History dir'"
+Using the \fBmhttpd ODB editor\fP or the \fBodbedit command create\fP as shown below, the user may add this key: 
+.PP
+.nf
+[local:Default:S]/Logger>create string 'History dir'
+String length [32]:128
+[local:Default:S]/Logger>set 'History dir' /mypath/history/2009
+[local:Default:S]/Logger>move Channels bottom
+[local:Default:S]/Logger>ls
+  Data dir                        /scr0/spring2009
+  Message file                    midas.log 
+  Auto restart                     n
+  Write data                      y
+  ODB Dump                        n
+  ODB Dump File                   run%05d.odb
+  Tape message                    y 
+  Elog dir                        /mypath/elog/2009
+  History dir                     /mypath/history/2009
+  Channels
+
+.fi
+.PP
+.PP
+
+.br
+ 
+.PP
+ 
+.br
+.SH "Types of History Events"
+.PP
+There are two basic types of history events, which are defined in different ways:
+.PP
+.PD 0
+.IP "\(bu" 2
+\fB'Frontend'\fP History event 
+.br
+ Composed in the frontend. See \fBFrontend History Event\fP for details.
+.PP
+
+.IP "\(bu" 2
+\fB'Virtual'\fP History event 
+.br
+Composed within the Online Database (ODB) under the specific tree /History/Links (see \fBODB History tree\fP)
+.PP
+
+.PP
+.PP
+Both these history event definitions \fBtake effect when the data logger gets a 'start run' transition\fP. Any modifications made during the run are not applied until the start of the next run.
+.PP
+
+.br
+ 
+.PP
+ 
+.br
+  
+.SH "Frontend History Event"
+.PP
+Each \fBEquipment\fP has the capability to generate \fB 'history data' \fP. 
+.br
+   To enable the history logging system for an Equipment, the \fBLog History\fP field in the corresponding \fBEquipment List\fP is set non-zero.
+.PP
+.PP
+This value also controls how \fBfrequently\fP the history events are generated. A reasonable value to set for the History value is '60', so that the history events are generated once per minute. This value will appear in the ODB \fB/Equipment tree\fP as the key /Equipment/<equipment-name>/Common/Log history (where <equipment-name> is the name of the Equipment - see also \fBThe ODB /Equipment/<equipment-name>/Common subtree\fP ).
+.PP
+
+.br
+ Enabling the history system for an Equipment causes the event contents to be copied to the /Equipment/<equipment-name>/Variables tree of the ODB for the use of the \fBHistory system\fP . The contents of the event will then be completely copied into the history files, using the definition of the event as \fB tag names \fP for every element of the event. 
+.br
+.PP
+The main data path for the frontend History Event is as follows:
+.IP "1." 4
+The user code in the frontend equipment \fBEvent Readout routines\fP reads the data, placing it into a \fBMIDAS data bank\fP
+.IP "2." 4
+In \fBmfe.c\fP, if /Equipment/<equipment-name>/Common/Log history > 0 (i.e. the history system is enabled for this equipment), this data bank is written into ODB (by \fBupdate_odb()\fP).
+.PP
+.PP
+  The frequency of ODB writes is limited by ODB_UPDATE_TIME (1/sec in \fBmfe.c\fP rev 4298).
+.IP "1." 4
+The odb write triggers an odb \fBhot-link\fP into \fBmlogger\fP
+.IP "2." 4
+The hot-link calls mlogger.c::log_history(), which calls hs_write() to write the data into the history file. The frequency of the history writes is specified by the number of seconds between writes stored in the ODB key /Equipment/<\fIEquipment-Name\fP>/Common/Log history.
+.IP "3." 4
+history.c::hs_write() or history_odbc::hs_write_odbc() writes the data into a history file or into an SQL database.
+.PP
+.PP
+The internal structure of MIDAS history files is documented in \fBHistory format\fP . 
+.br
+.PP
+ 
+.SS "Enable the History system for a frontend event"
+After \fBenabling\fP the history system for an Equipment, \fB restart the frontend \fP. The ODB key /equipment/Equipment-Name/Common/Log history will have been updated with the new value. It may be changed manually if necessary, using \fBmhttpd\fP or the \fBodbedit set command\fP. Then \fB restart \fBmlogger\fP \fP . The data from the equipment should now appear in the \fBmhttpd history page\fP and in the history file (\fBmhdump\fP can be used to read the history file).
+.PP
+ 
+.SS "New History Tags"
+Note on NEW format of  /History/Tags Version 4435 of \fBmlogger\fP and \fBmhttpd\fP and later:  
+.br
+.PP
+The mlogger/mhttpd implementation of /History/Tags has proved troublesome and we are moving away from it. The \fBSQL database history implementation\fP ( \fBJan 2009\fP ) already does not use it . 
+.br
+During the present transition period:
+.PP
+.PD 0
+.IP "\(bu" 2
+Implementations starting with Version 4435 of \fBmlogger\fP and \fBmhttpd\fP (i.e. \fB'new'\fP versions) will now work without /History/Tags.  The history tags are read directly from the history files themselves. Two downsides to this are 
+.PD 0
+
+.IP "  1." 6
+it is slower and tags become non-persistent 
+.IP "  2." 6
+if some frontends have not been running for a while, their variables may vanish from the history panel editor. 
+.PP
+To run in this mode, set /History/DisableTags to 'y'. Existing /History/Tags will be automatically deleted. 
+.IP "\(bu" 2
+for the above 2 reasons, using /History/Tags is still recommended, but the format of the tags is now changed to simplify management and reduce odb size. mlogger will automatically convert the tags to this new format (this is why you should make a backup of your ODB). 
+.IP "\(bu" 2
+using 'old' (i.e. pre Version 4435) mlogger with 'new' mhttpd is OK: new mhttpd understands both formats of /History/Tags. 
+.IP "\(bu" 2
+using 'old' mhttpd with 'new' mlogger is OK \fBprovided the ODB key /History/CreateOldTags is set to 'y' before starting\fP mlogger. 
+.PP
+.PP
+.SS "Definition of old-style history tags"
+Prior to versions 4435 of \fBmlogger\fP and \fBmhttpd\fP, \fBold-style\fP history tags were generated. The \fBhistory variable name\fP for each element of the Frontend History Event was composed as follows, where 
+.PD 0
+
+.IP "\(bu" 2
+\fB'equipment-name'\fP is the name of the equipment, and 
+.IP "\(bu" 2
+\fB'bankname'\fP is the name of a bank generated by the \fB'equipment-name'\fP equipment :
+.PP
+.PD 0
+.IP "  \(bu" 4
+In the case of a \fBMIDAS format\fP event:
+.PP
+.PD 0
+.IP "    \(bu" 6
+\fBIf the ODB key\fP /Equipment/equipment-name/Settings/Names <bankname>[ ] \fBIS present\fP, 
+.PD 0
+
+.IP "      \(bu" 8
+the \fBhistory\fP \fBname\fP is composed of the corresponding name found in the  Names <bankname>[ ] array. 
+.IP "      \(bu" 8
+The \fBsize\fP of this array must match the size of the /equipment/equipment-name/Variables/<bankname>[ ] array, or an error will be generated. 
+.PP
+
+.IP "    \(bu" 6
+\fBOtherwise\fP the \fBhistory\fP \fBname\fP is composed of the bank name followed by the corresponding index of the element. 
+.PP
+See \fBexample\fP .
+.PP
+
+.IP "  \(bu" 4
+In the case of a \fBFixed format\fP event :
+.PP
+.PD 0
+.IP "    \(bu" 6
+\fBNo\fP array : the names of the individual element under /Equipment/equipment-name/Variables/ are used for the history name composition. 
+.IP "    \(bu" 6
+\fBWith\fP array: if the key /Equipment/equipment-name/Settings/Names[ ] exists, each element of the array is referenced using the corresponding name of the ../Settings/Names[ ] array. 
+.PP
+
+.PP
+
+.PP
+.SS "Example Frontend History Event (old-style History tags)"
+The \fBexample\fP shows the ODB keys for a Frontend Equipment named 'Target' that sends out data in two \fBMidas banks\fP named 'TGT_' and 'SCAL'. For simplicity, only the 'TGT_' bank is discussed here. The relevent keys are reproduced below.
+.PP
+
+.br
+The key '/Equipment/Target/Settings/Names TGT_' is defined as a 7-element array containing the variable names. The key /Equipment/Target/Variables/TGT_ is also present, and contains 7 elements, matching the number of elements in the 'Names TGT_' array. 
+.br
+ Had the latter key \fBnot\fP been present, the history variable names would be \fBTGT_0 ... TGT_6.\fP 
+.br
+ 
+.PP
+.nf
+[host:chaos:Running]cd /Equipment/Target
+
+[host:chaos:Running]Target>ls -l -r
+Key name                        Type    #Val  Size  Last Opn Mode Value
+---------------------------------------------------------------------------
+Target                          DIR
+    settings                    DIR
+        Names TGT_              STRING  7     32    10h  0   RWD  
+                                        [0]             Time
+                                        [1]             Cryostat vacuum
+                                        [2]             Heat Pipe pressure
+                                        [3]             Target pressure
+                                        [4]             Target temperature
+                                        [5]             Shield temperature
+                                        [6]             Diode temperature
+    Common                      DIR
+          ...
+    Variables                   DIR
+
+        TGT_                    FLOAT   7     4     10s  0   RWD  
+                                        [0]             114059
+                                        [1]             4.661
+                                        [2]             23.16
+                                        [3]             -0.498
+                                        [4]             22.888
+                                        [5]             82.099
+                                        [6]             40
+    Statistics                  DIR
+          ...
+
+.fi
+.PP
+.PP
+
+.br
+ 
+.PP
+ 
+.br
+  
+.SH "ODB /History tree"
+.PP
+ The first time \fBmlogger\fP is run, it creates the /History  tree. This tree is created using the variables found in the /Equipment tree. For the 'Target' equipment defined above, the /History tree produced is as follows:
+.PP
+.PP
+.nf
+16:51:24 [Logger,INFO] Program Logger on host dasdevpc2 started
+[local:midas:S]/History>ls -lt
+[local:midas:S]/History>ls -lr
+Key name                        Type    #Val  Size  Last Opn Mode Value
+---------------------------------------------------------------------------
+History                         DIR
+    Links                       DIR
+    PerVariableHistory          INT     1     4     46s  0   RWD  0
+    DisableTags                 BOOL    1     4     46s  0   RWD  n
+    Tags                        DIR
+        2                       STRING  8     96    46s  0   RWD
+                                        [0]             Target
+                                        [1]             9[1] Time
+                                        [2]             9[1] Cryostat vacuum
+                                        [3]             9[1] Heat Pipe pressure
+                                        [4]             9[1] Target pressure
+                                        [5]             9[1] Target temperature
+                                        [6]             9[1] Shield temperature
+                                        [7]             9[1] Diode temperature
+.fi
+.PP
+.PP
+If a \fBFrontend Trigger Equipment\fP is defined, i.e. an Equipment whose name is 'Trigger', extra keys will be created as follows, where the 2 trigger fields are symbolic links to the given path. The sub-tree System defines a 'virtual' equipment and is assigned a particular 'History Event ID' by the system.
+.PP
+.PP
+.nf
+[local:midas:S]/History>ls -lrt
+Key name                        Type    #Val  Size  Last Opn Mode Value
+---------------------------------------------------------------------------
+History                         DIR
+    Links                       DIR
+        System                  DIR
+            Trigger per sec. -> /Equipment/Trigger/Statistics/Events per sec.
+                                DOUBLE  1     8     >99d 1   RWD  0
+            Trigger kB per sec. -> /Equipment/Trigger/Statistics/kBytes per sec.
+                                DOUBLE  1     8     >99d 1   RWD  0
+    PerVariableHistory          INT     1     4     2h   0   RWD  0
+    DisableTags                 BOOL    1     4     2h   0   RWD  n
+    Tags                        DIR
+        2                       STRING  5     96    24s  0   RWD
+                                        [0]             trigger
+                                        [1]             7[1] dummy
+                                        [2]             7[1] test
+                                        [3]             6[6] SCLR
+                                        [4]             9[6] RATE
+        10                      STRING  3     96    3m   0   RWD
+                                        [0]             System
+                                        [1]             10[1] Trigger per sec.
+                                        [2]             10[1] Trigger kB per sec                                   .
+.fi
+.PP
+.PP
+A second sub-tree is added to the /History by the \fBMIDAS web server\fP when the \fBHistory\fP button on the main status page is pressed.
+.PP
+.PP
+.nf
+[local:midas:S]/History>ls -l -r Display
+Key name                        Type    #Val  Size  Last Opn Mode Value
+---------------------------------------------------------------------------
+Display                         DIR
+  Default                       DIR
+    Trigger rate                DIR
+        Variables               STRING  2     32    36h  0   RWD
+                                        [0]             System:Trigger per sec.
+                                        [1]             System:Trigger kB per sec.
+        Factor                  FLOAT   2     4     36h  0   RWD
+                                        [0]             1
+                                        [1]             1
+        Timescale               INT     1     4     36h  0   RWD  3600
+        Zero ylow               BOOL    1     4     36h  0   RWD  y
+.fi
+.PP
+.PP
+This defines a default history display under the MIDAS web server as long as the reference to 'System' is correct. See \fBHistory page\fP and the \fBtable below\fP for more information about these these fields.
+.SH "Explanation of the keys in the ODB /History tree"
+.PP
+Keys in the ODB /History tree  
+.PP
+ODB Key  Type 
+.PP
+Explanation  
+.PP
+History  
+.br
+ 
+.br
+ 
+.br
+ 
+.br
+ DIR  directory containing...  
+.PP
+
+.br
+  Links  
+.br
+ 
+.br
+ 
+.br
+ DIR  directory containing...  
+.PP
+
+.br
+  System  
+.br
+ 
+.br
+ 
+.br
+ DIR  info  
+.PP
+
+.br
+ 
+.br
+ Trigger per sec.  
+.br
+ 
+.br
+ DOUBLE  link to /Equipment/Trigger/Statistics/Events per sec.  
+.PP
+
+.br
+ 
+.br
+ Trigger kB per sec.  
+.br
+ 
+.br
+ DOUBLE  link to /Equipment/Trigger/Statistics/kBytes per sec.  
+.PP
+
+.br
+  PerVariableHistory  
+.br
+ 
+.br
+ 
+.br
+ INT  Enables/Disables the per-variable History. This key appears starting with version 4203 of mlogger. See \fBNote2\fP  
+.PP
+
+.br
+  DisableTags  
+.br
+ 
+.br
+ 
+.br
+ BOOL  Set this key to 'y' if reading the history tags directly from the history files. Set to 'n' to read the history tags from the ODB. This key appears starting with version 4435 of mlogger. See \fBNote1\fP  
+.PP
+
+.br
+  CreateOldTags  
+.br
+ 
+.br
+ 
+.br
+ BOOL  Set this key to 'y' to force creation of /History/Tags using the old format. This key appears starting with version 4435 of mlogger. See \fBNote1\fP.
+.PP
+.PP
+
+.br
+  Tags  
+.br
+ 
+.br
+ 
+.br
+ DIR  subtree containing the old-style History tags. See \fBNote1\fP  
+.PP
+
+.br
+ 
+.br
+  2  
+.br
+ 
+.br
+ STRING  Array containing ... 
+.PP
+\fBTodo\fP
+.RS 4
+Explanation needed  
+.RE
+.PP
+
+.br
+ 
+.br
+ 10  
+.br
+ 
+.br
+ STRING  Array of length 3 containing ... 
+.PP
+\fBTodo\fP
+.RS 4
+Explanation needed
+.RE
+.PP
+.PP
+
+.br
+  Display  
+.br
+ 
+.br
+ 
+.br
+ DIR  
+.br
+  
+.PP
+
+.br
+ 
+.br
+ Default  
+.br
+ 
+.br
+ DIR  
+.br
+  
+.PP
+
+.br
+ 
+.br
+ 
+.br
+ Trigger Rate  
+.br
+ DIR  
+.br
+  
+.PP
+
+.br
+ 
+.br
+ 
+.br
+ 
+.br
+ Variables  STRING  Array containing ... 
+.PP
+\fBTodo\fP
+.RS 4
+Explanation needed  
+.RE
+.PP
+
+.br
+ 
+.br
+ 
+.br
+ 
+.br
+ Factor  FLOAT  Array containing ... 
+.PP
+\fBTodo\fP
+.RS 4
+Explanation needed  
+.RE
+.PP
+
+.br
+ 
+.br
+ 
+.br
+ 
+.br
+ Timescale  INT  Appears as an input box on the \fBHistory page\fP . Timescale is in date format.  
+.PP
+
+.br
+ 
+.br
+ 
+.br
+ 
+.br
+ Zero ylow  BOOL  Appears as a button on the \fBHistory page\fP . 
+.PP
+\fBTodo\fP
+.RS 4
+Explanation needed   
+.RE
+.PP
+Above: meaning of keys in the /History ODB tree 
+.SH "Customizing the History logging"
+.PP
+The History logging is customized by changing the values in the ODB /history tree. This tree is created automatically when the logger is started.
+.PP
+.PP
+  
+.SH "MIDAS SQL History system"
+.PP
+ (SQL History System added \fBJan 2009\fP ).  
+.br
+This section describes the internal workings of the MIDAS SQL history system.
+.PP
+The SQL history system implements the MIDAS history using a \fBSQL database\fP for data storage instead of flat binary files.
+.PP
+The SQL history code lives in a separate files \fBhistory.h\fP and \fBhistory_sql.cxx\fP. The present implentation uses the \fBODBC\fP API for accessing SQL databases.  As of revision 4433, only MySQL database is supported, with support for PgSQL written and partially tested but not enabled. Drivers for SQL DB APIs other than ODBC should be easy to add in \fBhistory_sql\fP and most SQL operations are done using an interface class.
+.PP
+Preliminary testing with MySQL and PgSQL indicates that disk space requirements are the same for both storage mechanisms using flat binary files or either of the 2 SQL databases. All 3 tested storage mechanisms store the data uncompressed. (Observed gzip-1 compression ratios from CERN-ALPHA history files are 50% or better).
+.PP
+ Preliminary testing also indicates that MySQL database is 'not too slow' for use by T2K/ND280 slow control system. Using MySQL, performance seems to improve somewhat compared to traditional history because each SQL table is stored into a separate file, compared to everything-in-one-file in traditional MIDAS history.
+.SS "How to enable writing history to SQL"
+In order to setup a MySQL database, the following is needed:
+.IP "\(bu" 2
+the server hostname and port number
+.IP "\(bu" 2
+database name
+.IP "\(bu" 2
+user name and password.
+.PP
+.PP
+It is recommended to create 3 different users:
+.IP "\(bu" 2
+a 'root' user with full priveleges,
+.IP "\(bu" 2
+a 'reader' user with read-only priveleges
+.IP "\(bu" 2
+and a 'writer' user with 'insert, create table, and add column' priveleges (no permission to drop table, remove columns, etc)
+.PP
+.PP
+.PD 0
+.IP "1." 4
+Setup a MySQL database (RHEL/SL 5) 
+.PP
+.nf
+ssh root@localhost
+service mysqld start
+/usr/bin/mysql_secure_installation (enter current password for root: press <enter>, then accept default answer 'Y' to all questions)
+mysqladmin -p create history
+using mysql-administrator, create 2 users:
+history_writer, with database 'history' schema privileges: select, insert, create, alter
+history_reader, with database 'history' schema privileges: select
+
+.fi
+.PP
+ 
+.IP "2." 4
+setup $HOME/.odbc.ini file: 
+.PP
+.nf
+cat $HOME/.odbc.ini
+[history_writer]
+Description  = history_writer
+Driver       = /usr/lib64/libmyodbc3.so
+SERVER       = ladd05.triumf.ca
+PORT         =
+Database     = history
+OPTION       = 3
+SOCKET       =
+User         = history_writer
+Password     = ******
+[history_reader]
+Description  = history_reader
+Driver       = /usr/lib64/libmyodbc3.so
+SERVER       = ladd05.triumf.ca
+PORT         =
+Database     = history
+OPTION       = 3
+SOCKET       =
+User         = history_reader
+Password     = 
+
+.fi
+.PP
+  
+.IP "3." 4
+set key /History/PerVariableHistory to 1 
+.br
+(\fBBEWARE!\fP This will change the format of normal MIDAS history files. You do not have to enable per-variable history to use the SQL interface, but the layout of SQL tables may be suboptimal in the same way the layout of data in the MIDAS history file is suboptimal). 
+.IP "4." 4
+set ODB keys 
+.PD 0
+
+.IP "  \(bu" 4
+/Logger/ODBC_DSN to 'history_writer' 
+.IP "  \(bu" 4
+/Logger/ODBC_Debug to 0 (or 1 to see all SQL commands) 
+.PP
+
+.IP "5." 4
+run mlogger -v, and observe how it issues SQL commands to create the tables and columns corresponding to MIDAS history events and tags. 
+.IP "6." 4
+mlogger is programmed to raise alarms if connection to SQL database is interrupted or if some events cannot be written into the database (i.e. data type mismatch, SQL syntax errors, etc). The traditional MIDAS history never raised alarms because it 'never failed' - other than from 'disk full' errors, which are immediately obvious. 
+.PP
+.SS "How to enable writing history to SQL"
+.PD 0
+.IP "1." 4
+set key /History/ODBC_DSN to 'history_reader' 
+.IP "2." 4
+restart mhttpd (may not be required?) 
+.IP "3." 4
+from this moment mhttpd will only use history information from the SQL database to make history plots and to extract history variable names for the history plot editor. The /History/Tags and /History/Events keys are not used. The on-disk .hst & co history are not used. 
+.PP
+\fBTodo\fP
+.RS 4
+What is the co history?
+.RE
+.PP
+
+.IP "4." 4
+variable names presented to the user may change from MIDAS names to SQL names (use the history panel 'Label' text fields to create permanent plot labels). 
+.PP
+.SS "Layout of SQL tables:"
+.PD 0
+.IP "\(bu" 2
+one table is created for each history event. Table name is the same as the history event name (as reported by \fBmhdump\fP). 
+.IP "\(bu" 2
+one column is created for each history tag (history variable). Column name is the same as the tag name (as reported by \fBmhdump\fP). For array tags, one column is created for each array element: array a[3] will produce columns a_0, a_1 and a_2. 
+.IP "\(bu" 2
+2 special columns are always created: \fB_i_time\fP and \fB_t_time\fP are the timestamps in the UNIX-time integer format and in the SQL 'time' format. (A priori, it is not clear which timestamp format is more useful for end users. mhttpd uses the _i_time integer time format). Note that this timestamp is the time when mlogger receives the hot-link signal (see \fBabove\fP) and it can be a few seconds behind the time when the user placed the data into the MIDAS bank. For high precision (and sub-second time resolution) time stamps, users should generate their own timestamps and include them as part of the data itself. 
+.IP "\(bu" 2
+a special table called \fB_history_index\fP is created to remember the mapping between SQL names and MIDAS names for event names, variable name and tag names. 
+.PP
+.SS "Schema Evolution:"
+.PD 0
+.IP "\(bu" 2
+when new data fields are added, new SQL columns are created automatically 
+.IP "\(bu" 2
+existing SQL columns are never deleted 
+.IP "\(bu" 2
+arrays are expanded automatically, and arrays never shrink. 
+.IP "\(bu" 2
+if the type of a data field changes, a conflict may occur with existing SQL columns, for example if previous type was 'FLOAT' and new type is 'DOUBLE', the existing SQL columns would have the SQL data type 'float', too narrow to store new values. mlogger will complain about this. Such conflicts may be resolved by changing the type of the SQL column using SQL tools. In general, SQL names are created from MIDAS names by replacing all non-alphanumerical characters to an underscore '_'. If this procedure creates duplicate column names, the column names and made unique by appending them with a random number, i.e. MIDAS names 'A+B' and 'A-B' will be translated to 'A_B' and 'A_B_12345' (random integer). True MIDAS names are saved into the _history_index. 
+.PP
+.PP
+
+.br
+.PP
+
+.br
+ 
+.SH "mh2sql - import history files into SQL database."
+.PP
+
+.br
+.PP
+mh2sql imports history files into an SQL database in the same way as if they were written into the database by mlogger.
+.PP
+.IP "\(bu" 2
+\fBArguments:\fP [-h ] : help - prints this help message
+.PP
+.PP
+.IP "\(bu" 2
+\fB Usage \fP mh2sql odbc_dsn file1.hst file2.hst ...
+.PP
+.PP
+
+.br
+.PP
+
+.br
+ 
+.SH "mhist  - history data retriever"
+.PP
+History data retriever.
+.PP
+.IP "\(bu" 2
+\fB Arguments \fP
+.IP "  \(bu" 4
+[-h ] : help
+.IP "  \(bu" 4
+[-e Event ID] : specify event ID
+.IP "  \(bu" 4
+[-v Variable Name] : specify variable name for given Event ID
+.IP "  \(bu" 4
+[-i Index] : index of variables which are arrays
+.IP "  \(bu" 4
+[-i Index1:Index2] index range of variables which are arrays (max 50)
+.IP "  \(bu" 4
+[-t Interval] : minimum interval in sec. between two displayed records
+.IP "  \(bu" 4
+[-h Hours] : display between some hours ago and now
+.IP "  \(bu" 4
+[-d Days] : display between some days ago and now
+.IP "  \(bu" 4
+[-f File] : specify history file explicitly
+.IP "  \(bu" 4
+[-s Start date] : specify start date DDMMYY[.HHMM[SS]]
+.IP "  \(bu" 4
+[-p End date] : specify end date DDMMYY[.HHMM[SS]]
+.IP "  \(bu" 4
+[-l] : list available events and variables
+.IP "  \(bu" 4
+[-b] : display time stamp in decimal format
+.IP "  \(bu" 4
+[-z] : History directory (def: cwd).
+.PP
+
+.PP
+.PP
+.IP "\(bu" 2
+\fB Usage \fP
+.IP "\(bu" 2
+\fB Example \fP 
+.PP
+.nf
+  --- All variables of event ID 9 during last hour with at least 5 minutes interval.
+  > mhist
+  Available events:
+  ID 9: Target
+  ID 5: CHV
+  ID 6: B12Y
+  ID 20: System
+
+  Select event ID: 9
+
+  Available variables:
+  0: Time
+  1: Cryostat vacuum
+  2: Heat Pipe pressure
+  3: Target pressure
+  4: Target temperature
+  5: Shield temperature
+  6: Diode temperature
+
+  Select variable (0..6,-1 for all): -1
+
+  How many hours: 1
+
+  Interval [sec]: 300
+
+  Date    Time    Cryostat vacuum Heat Pipe pressure  Target pressure Target temperature      Shield temperature      Diode temperature
+  Jun 19 10:26:23 2000    104444  4.614   23.16   -0.498  22.931  82.163  40
+  Jun 19 10:31:24 2000    104956  4.602   23.16   -0.498  22.892  82.108  40
+  Jun 19 10:36:24 2000    105509  4.597   23.099  -0.498  22.892  82.126  40
+  Jun 19 10:41:33 2000    110021  4.592   23.16   -0.498  22.856  82.08   40
+  Jun 19 10:46:40 2000    110534  4.597   23.147  -0.498  22.892  82.117  40
+  Jun 19 10:51:44 2000    111046  4.622   23.172  -0.498  22.907  82.117  40
+  Jun 19 10:56:47 2000    111558  4.617   23.086  -0.498  22.892  82.117  40
+  Jun 19 11:01:56 2000    112009  4.624   23.208  -0.498  22.892  82.117  40
+  Jun 19 11:07:00 2000    112521  4.629   23.172  -0.498  22.896  82.099  40
+  Jun 19 11:12:05 2000    113034  4.639   23.074  -0.498  22.896  82.117  40
+  Jun 19 11:17:09 2000    113546  4.644   23.172  -0.498  22.892  82.126  40
+  Jun 19 11:22:15 2000    114059  4.661   23.16   -0.498  22.888  82.099  40
+
+.fi
+.PP
+
+.PP
+.PP
+.IP "\(bu" 2
+Single variable 'I-WC1+_Anode' of event 5 every hour over the full April 24/2000.
+.PP
+.PP
+.PP
+.nf
+   mhist -e 5 -v 'I-WC1+_Anode' -t 3600 -s 240400 -p 250400
+  Apr 24 00:00:09 2000    160
+  Apr 24 01:00:12 2000    160
+  Apr 24 02:00:13 2000    160
+  Apr 24 03:00:14 2000    160
+  Apr 24 04:00:21 2000    180
+  Apr 24 05:00:26 2000    0
+  Apr 24 06:00:31 2000    160
+  Apr 24 07:00:37 2000    160
+  Apr 24 08:00:40 2000    160
+  Apr 24 09:00:49 2000    160
+  Apr 24 10:00:52 2000    160
+  Apr 24 11:01:01 2000    160
+  Apr 24 12:01:03 2000    160
+  Apr 24 13:01:03 2000    0
+  Apr 24 14:01:04 2000    0
+  Apr 24 15:01:05 2000    -20
+  Apr 24 16:01:11 2000    0
+  Apr 24 17:01:14 2000    0
+  Apr 24 18:01:19 2000    -20
+  Apr 24 19:01:19 2000    0
+  Apr 24 20:01:21 2000    0
+  Apr 24 21:01:23 2000    0
+  Apr 24 22:01:32 2000    0
+  Apr 24 23:01:39 2000    0
+.fi
+.PP
+.IP "\(bu" 2
+\fB Remarks \fP: History data can be retrieved and displayed through the MIDAS web page (see \fBmhttpd\fP).
+.PP
+.PP
+.IP "\(bu" 2
+\fB Example \fP   MIDAS Web History display.  
+.PP
+.PP
+.PP
+.PP
+  
+.SH "mhdump - dump history files"
+.PP
+\fBmhdump\fP is intended to be easier to use, compared to \fBmhist\fP. By default it reads and decodes all the data in the given .hst files, with options to limit the decoding to specified events and tags, and an option to omit the event and tag names from the output.
+.PP
+mhdump is completely standalone and does not require MIDAS header files and libraries. 
+.PP
+.nf
+$ mhdump
+Usage: mhdump [-h] [-L] [-n] [-t] [-E event_id] [-T tag_name] file1.hst file2.hst ...
+
+Switches:
+  -h --- print this help message
+  -L --- list tag definitions only
+  -t --- omit tag definitions
+  -n --- omit variable names
+
+Examples:
+  To list all existing tags: mhdump -L file1.hst file2.hst ...
+  To show data for all events, all tags: mhdump file1.hst file2.hst ...
+  To show all data for event 0: mhdump -E 0 file1.hst file2.hst ...
+  To show data for event 0, tag 'State': mhdump -n -E 0 -T State file1.hst file2.hst ...
+  To show data for event 3, tag 'MCRT', array index 5: mhdump -n -E 3 -T MCRT[5] file1.hst file2.hst ...
+
+.fi
+.PP
+.PP
+The mhdump source code and a description of the .hst file format are here: 
+.PP
+.nf
+http://daq-plone.triumf.ca/SR/MIDAS/utils/mhdump/
+
+.fi
+.PP
+.PP
+
+.br
+.PP
+
+.br
+.PP
+ 
+.SH "History format"
+.PP
+MIDAS history data are written to MIDAS .hst files. For a complete working example of reading these files, look at mhdump.cxx.
+.PP
+This is the internal format of MIDAS .hst files (reverse engineered by K.Olchanski).
+.PP
+History file consists of definition records and data records. Definition records for each history event always preceed data records for this event. Other than that, definition and data records are present in the file in no particular order. If data definition changes at some point, the new definition record is written to the file and new data records follow using the new format.
+.PP
+The data is written in native-endian format and big-endian history files (i.e. written on PowerPC-based computer) would not read on little-endian computers (i.e. Intel/AMD CPUs).
+.PP
+When decoding history data records, be aware that the data is written on the format returned by \fBdb_get_data()\fP, and follow certain alignement rules. Misaligned data may contain empty padding bytes. 
+.PP
+.nf
+definition record:
+   struct HIST_RECORD:
+      uint32_t record_type = 0x46445348 (RT_DEF)
+      uint32_t event_id    = history event id
+      uint32_t time        = unix time
+      uint32_t def_offset  = 0
+      uint32_t data_size   = size in bytes of following data = ntags*sizeof(TAG)
+   event name:
+      char name[NAME_LENGTH] = name of this event (fixed size, 32 bytes)
+   struct TAG [0]
+      char name[NAME_LENGTH] = tag name (fixed size, 32 bytes)
+      uint32_t type          = type of the data (TID_DOUBLE, etc)
+      uint32_t n_data        = 1 for single variables, number of array elements for arrays
+   struct TAG [1]
+      ...
+   struct TAG [ntags-1]
+      ...
+
+.fi
+.PP
+.PP
+.PP
+.nf
+data record:
+   struct HIST_RECORD: (same as above)
+      uint32_t record_type = 0x41445348 (RT_DATA)
+      uint32_t event_id    = history event id
+      uint32_t time        = unix time
+      uint32_t def_offset  = ???
+      uint32_t data_size   = size in bytes of following data
+   event data
+      char[data_size]      = history data for this event (see mhdump.cxx and examples below on decoding this data
+.fi
+.PP
+ To decode the 'event data' blob in a data record, one should parse the data definition for this event and remember the contents of all tag definitions. One way to parse the data is by computing the 'offset' for each tag by adding up the tag size for each tag. For each tag, the corresponding data size is the product of n_data and the size of the MIDAS type, given in this table (extracted from \fBmidas.c\fP):
+.PP
+.PP
+.nf
+/* data type sizes */
+int tid_size[] = {
+   0,                           /* tid == 0 not defined                               */
+   1,                           /* TID_BYTE      unsigned byte         0       255    */
+   1,                           /* TID_SBYTE     signed byte         -128      127    */
+   1,                           /* TID_CHAR      single character      0       255    */
+   2,                           /* TID_WORD      two bytes             0      65535   */
+
+   2,                           /* TID_SHORT     signed word        -32768    32767   */
+   4,                           /* TID_DWORD     four bytes            0      2^32-1  */
+   4,                           /* TID_INT       signed dword        -2^31    2^31-1  */
+   4,                           /* TID_BOOL      four bytes bool       0        1     */
+   4,                           /* TID_FLOAT     4 Byte float format                  */
+   8,                           /* TID_DOUBLE    8 Byte float format                  */
+   1,                           /* TID_BITFIELD  8 Bits Bitfield    00000000 11111111 */
+   0,                           /* TID_STRING    zero terminated string               */
+   0,                           /* TID_ARRAY     variable length array of unkown type */
+   0,                           /* TID_STRUCT    C structure                          */
+   0,                           /* TID_KEY       key in online database               */
+   0                            /* TID_LINK      link in online database              */
+
+};
+.fi
+.PP
+.PP
+Example code for computing tag offsets: 
+.PP
+.nf
+int offset = 0;
+for (int itag=0; itag&lt;ntags; itag++) {
+   int size = tags[itag].n_data * tid_size[tags[itag].type];
+   type_for_tag[itag] = tags[itag].type;
+   offset_for_tag[itag] = offset;
+   offset += size;
+}
+
+.fi
+.PP
+.PP
+Example code for decoding the event data blob: 
+.PP
+.nf
+char *buf = new char[data_size];
+fread(buf, 1, data_size, f); // read data blob from file
+
+int itag = ...; // the tag we want to look at
+int j    = ...; // array index inside the tag
+
+int offset = offset_for_tag[itag];
+void* ptr = (void*)(buf+offset);
+
+switch (type_for_tag[itag]) {
+   default:
+      printf('unknownType%d ',type_for_tag[itag]);
+      break;
+   case 6: /* DWORD */
+      printf('%u ',((uint32_t*)ptr)[j]);
+      break;
+}
+
+.fi
+.PP
+.PP
+
+.br
+ 
+.PP
+ 

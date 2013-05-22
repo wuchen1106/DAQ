@@ -1,0 +1,1053 @@
+\subsubsection{Features of the Main Status Page}\label{RC_mhttpd_status_page_features}
+ The Status Page is sub-\/divided in several parts:
+\begin{DoxyItemize}
+\item \hyperlink{RC_mhttpd_status_page_features_RC_mhttpd_status_title}{Experiment/Date/Refresh information}
+\item \hyperlink{RC_mhttpd_status_page_features_RC_mhttpd_status_menu_buttons}{Menu buttons}
+\begin{DoxyItemize}
+\item \hyperlink{RC_mhttpd_status_page_features_RC_mhttpd_status_RC_buttons}{Run Control buttons}
+\item \hyperlink{RC_mhttpd_status_page_features_RC_mhttpd_status_Page_buttons}{Page Switch buttons}
+\end{DoxyItemize}
+\item \hyperlink{RC_mhttpd_status_page_features_RC_mhttpd_status_script_buttons}{Optional Script buttons}
+\item \hyperlink{RC_mhttpd_status_page_features_RC_mhttpd_status_Manual_Trigger_buttons}{Manual-\/Trigger Buttons}
+\item \hyperlink{RC_mhttpd_status_page_features_RC_mhttpd_status_Alias_buttons}{Alias-\/Buttons}
+\item \hyperlink{RC_mhttpd_status_page_features_RC_mhttpd_status_Run_info}{Run status information}
+\item \hyperlink{RC_mhttpd_status_page_features_RC_mhttpd_status_Equipment_info}{Equipment information and Event rates}
+\item \hyperlink{RC_mhttpd_status_page_features_RC_mhttpd_status_Logger}{Data Logging Information}
+\item \hyperlink{RC_mhttpd_status_page_features_RC_mhttpd_status_latest_msg}{Last system message}
+\item \hyperlink{RC_mhttpd_status_page_features_RC_mhttpd_status_clients}{Active Client list}
+\end{DoxyItemize}
+
+These will be discussed in detail in the following sections. \par
+ \label{RC_mhttpd_status_page_features_RC_mhttpd_main_status_new}
+\hypertarget{RC_mhttpd_status_page_features_RC_mhttpd_main_status_new}{}
+ \begin{center} mhttpd main status page showing Menu Buttons \par
+\par
+\par
+  \end{center}  \par
+\hypertarget{RC_mhttpd_status_page_features_RC_mhttpd_status_title}{}\subsubsection{Experiment/Date/Refresh information}\label{RC_mhttpd_status_page_features_RC_mhttpd_status_title}
+The top line on the main status page \hyperlink{RC_mhttpd_status_page_features_RC_mhttpd_main_status_new}{above} shows
+\begin{DoxyItemize}
+\item the Experiment name (\char`\"{}Online\char`\"{})
+\item the current date
+\item the refresh period (Refr:600) -\/ see note below
+\end{DoxyItemize}
+
+It is important to note that the {\bfseries refresh} of the Status Page is not \char`\"{}event driven\char`\"{} but is controlled by a timer whose rate is adjustable through the \hyperlink{RC_mhttpd_status_page_features_RC_mhttpd_Config_button}{Config button}. This means the information at any given time may reflect the experiment state of up to n seconds in the past, where n is the timer setting of the refresh parameter.
+
+
+
+
+
+\label{RC_mhttpd_status_page_features_idx_mhttpd_buttons_menu}
+\hypertarget{RC_mhttpd_status_page_features_idx_mhttpd_buttons_menu}{}
+ \hypertarget{RC_mhttpd_status_page_features_RC_mhttpd_status_menu_buttons}{}\subsubsection{Menu buttons}\label{RC_mhttpd_status_page_features_RC_mhttpd_status_menu_buttons}
+The top row of buttons on the \hyperlink{RC_mhttpd_status_page_features_RC_mhttpd_main_status_new}{main status page} are the
+\begin{DoxyItemize}
+\item \hyperlink{RC_mhttpd_status_page_features_RC_mhttpd_status_RC_buttons}{Run Control buttons}
+\item \hyperlink{RC_mhttpd_status_page_features_RC_mhttpd_status_Page_buttons}{Page Switch buttons}
+\end{DoxyItemize}
+
+\label{RC_mhttpd_status_page_features_idx_mhttpd_buttons_run-control}
+\hypertarget{RC_mhttpd_status_page_features_idx_mhttpd_buttons_run-control}{}
+ \hypertarget{RC_mhttpd_status_page_features_RC_mhttpd_status_RC_buttons}{}\paragraph{Run Control buttons}\label{RC_mhttpd_status_page_features_RC_mhttpd_status_RC_buttons}
+Depending on the \hyperlink{RC_Run_States_and_Transitions}{run state}, a single or the two first buttons on the \hyperlink{RC_mhttpd_status_page_features_RC_mhttpd_main_status_new}{main status page} will show the possible action that can be taken, i.e.
+
+\label{RC_mhttpd_status_page_features_RC_table_run_state}
+\hypertarget{RC_mhttpd_status_page_features_RC_table_run_state}{}
+
+
+\begin{table}[h]\begin{TabularC}{3}
+\hline
+Run Control Buttons present\par
+(see Note \hyperlink{RC_mhttpd_status_page_features_RC_mhttpd_note1}{below})\par
+  &Run State\par
+  &Action\par
+   \\\cline{1-3}
+\begin{TabularC}{1}
+\hline
+Start\par
+   \\\cline{1-1}
+\end{TabularC}
+&STOPPED\par
+  &Start the run\par
+   \\\cline{1-3}
+\begin{TabularC}{1}
+\hline
+Stop\par
+   \\\cline{1-1}
+\end{TabularC}
+&\multirow{2}{\linewidth}{RUNNING\par
+  }&Stop the run\par
+   \\\cline{2-3}
+\begin{TabularC}{1}
+\hline
+Pause\par
+   \\\cline{1-1}
+\end{TabularC}
+&Pause the run\par
+   \\\cline{1-2}
+\begin{TabularC}{1}
+\hline
+Resume\par
+   \\\cline{1-1}
+\end{TabularC}
+&\multirow{1}{\linewidth}{PAUSED\par
+  }&Resume the run\par
+   \\\cline{1-3}
+\end{TabularC}
+\centering
+\caption{Run Control buttons visible depending on Run State }
+\end{table}
+
+
+\label{RC_mhttpd_status_page_features_RC_mhttpd_note1}
+\hypertarget{RC_mhttpd_status_page_features_RC_mhttpd_note1}{}
+  Since \hyperlink{NDF_ndf_nov_2009}{Nov 2009} , the Run Buttons may be hidden (see \hyperlink{RC_customize_ODB_RC_Experiment_tree_keys}{Hide Run Buttons} ),
+
+\label{RC_mhttpd_status_page_features_idx_mhttpd_buttons_page-switch}
+\hypertarget{RC_mhttpd_status_page_features_idx_mhttpd_buttons_page-switch}{}
+ \hypertarget{RC_mhttpd_status_page_features_RC_mhttpd_status_Page_buttons}{}\paragraph{Page Switch buttons}\label{RC_mhttpd_status_page_features_RC_mhttpd_status_Page_buttons}
+The {\bfseries Page Switch buttons} on the mhttpd main status page (see \hyperlink{RC_mhttpd_status_page_features_RC_mhttpd_main_status_new}{example above}) change the page to one of the sub-\/pages. The sub-\/pages all provide a button labelled {\bfseries Status}, which returns to the main Status page when clicked. The purpose of each Page Switch button is explained in the following table:
+
+The Page switch buttons can now be \hyperlink{RC_customize_ODB_RC_ODB_Experiment_Tree}{customized} ( since \hyperlink{NDF_ndf_dec_2009}{Dec 2009} ) , so not all the possible Page Switch buttons may be visible on the status page for a particular experiment.
+
+\begin{table}[h]\begin{TabularC}{2}
+\hline
+Page Switch Button &Explanation 
+
+\\\cline{1-2}
+\begin{TabularC}{1}
+\hline
+ \hyperlink{RC_mhttpd_ODB_page}{ODB}\par
+   \\\cline{1-1}
+\end{TabularC}
+&This button switches to the (see \hyperlink{RC_mhttpd_ODB_page}{ODB page}), which provides access to the Online Data Base. 
+
+\\\cline{1-2}
+\begin{TabularC}{1}
+\hline
+\hyperlink{RC_mhttpd_MSCB_page}{MSCB}\par
+   \\\cline{1-1}
+\end{TabularC}
+&This button switches to the \hyperlink{RC_mhttpd_MSCB_page}{MSCB page} , which gives access to devices in a MIDAS Slow Control Bus system. (Implemented \hyperlink{NDF_ndf_dec_2009}{Dec 2009})
+
+
+
+\\\cline{1-2}
+\begin{TabularC}{1}
+\hline
+ \hyperlink{RC_mhttpd_CNAF_page}{CNAF}\par
+   \\\cline{1-1}
+\end{TabularC}
+&In versions since \hyperlink{NDF_ndf_dec_2009}{Dec 2009} the default is that this button has been replaced by the MSCB button. If the CNAF button is needed, it must be added to the list of \hyperlink{RC_customize_ODB_RC_ODB_Experiment_Tree}{menu buttons}. \par
+This button switches to the \hyperlink{RC_mhttpd_CNAF_page}{CAMAC Access page} . If one of the equipments is a CAMAC frontend, it is possible to issue CAMAC commands through this button.  \\\cline{1-2}
+\begin{TabularC}{1}
+\hline
+ \hyperlink{RC_mhttpd_Message_page}{Messages}\par
+   \\\cline{1-1}
+\end{TabularC}
+&Clicking this button opens the \hyperlink{RC_mhttpd_Message_page}{message page} and shows the N last entries of the \hyperlink{F_Messaging}{MIDAS system message log}. The last entry is always present in the status page (see \hyperlink{RC_mhttpd_status_page_features_RC_mhttpd_status_latest_msg}{Last system message} ).  \\\cline{1-2}
+\begin{TabularC}{1}
+\hline
+\hyperlink{RC_mhttpd_Elog_page}{ELog}\par
+   \\\cline{1-1}
+\end{TabularC}
+&This button gives access to the Electronic Log book (Elog). The Elog allows the permanent recording (i.e. in a file) of comments, messages, screen captures etc. composed by the users (see \hyperlink{RC_mhttpd_Elog_page}{Elog page}).  \\\cline{1-2}
+\begin{TabularC}{1}
+\hline
+\hyperlink{RC_mhttpd_Alarm_page}{Alarms}\par
+   \\\cline{1-1}
+\end{TabularC}
+&Clicking this button displays the \hyperlink{RC_mhttpd_Alarm_page}{Alarm page} , which shows the current Alarm setting for the entire experiment. The activation of an alarm is done through the ODB under the {\bfseries /Alarms} tree (See \hyperlink{RC_customize_ODB_RC_Alarm_System}{MIDAS Alarm System})  \\\cline{1-2}
+\begin{TabularC}{1}
+\hline
+ \hyperlink{RC_mhttpd_Program_page}{Programs}\par
+   \\\cline{1-1}
+\end{TabularC}
+&This button gives access to the \hyperlink{RC_mhttpd_Program_page}{Programs page}, which displays the status of the current programs (i.e. MIDAS applications/clients) which are or have been running for this experiment. 
+
+\\\cline{1-2}
+\begin{TabularC}{1}
+\hline
+\hyperlink{RC_mhttpd_History_page}{History}\par
+   \\\cline{1-1}
+\end{TabularC}
+&Display History graphs of pre-\/defined variables. The history setting has to be done through ODB under the {\bfseries /History} (see \hyperlink{F_History_logging}{History Logging} , \hyperlink{RC_mhttpd_History_page}{History page}). 
+
+\\\cline{1-2}
+\begin{TabularC}{1}
+\hline
+\label{RC_mhttpd_status_page_features_RC_mhttpd_Config_button}
+\hypertarget{RC_mhttpd_status_page_features_RC_mhttpd_Config_button}{}
+ \label{RC_mhttpd_status_page_features_RC_mhttpd_refresh}
+\hypertarget{RC_mhttpd_status_page_features_RC_mhttpd_refresh}{}
+ \hyperlink{RC_mhttpd_Config_page}{Config}\par
+   \\\cline{1-1}
+\end{TabularC}
+&Allows the {\bfseries  page refresh rate } to be changed. See \hyperlink{RC_mhttpd_Config_page}{Config page} .
+
+
+
+\\\cline{1-2}
+\begin{TabularC}{1}
+\hline
+Help\par
+   \\\cline{1-1}
+\end{TabularC}
+&Help button will link to the main MIDAS web documentation (i.e. this document). 
+
+\\\cline{1-2}
+\end{TabularC}
+\centering
+\caption{Page Switch Buttons on the Main Status Page}
+\end{table}
+
+
+\par
+
+
+\par
+\hypertarget{RC_mhttpd_status_page_features_RC_mhpptd_optional_buttons}{}\subsubsection{Optional Buttons on the main Status page}\label{RC_mhttpd_status_page_features_RC_mhpptd_optional_buttons}
+\begin{center} mhttpd main Status page (part) showing optional buttons \par
+  \end{center}  \par
+
+
+ Since \hyperlink{NDF_ndf_dec_2009}{Dec 2009}  there may be up to three rows of buttons below the Menu buttons
+\begin{DoxyItemize}
+\item Script (User) buttons
+\item Manually triggered event buttons
+\item Custom Page and Alias buttons
+\end{DoxyItemize}
+
+ Prior to \hyperlink{NDF_ndf_dec_2009}{Dec 2009}  the Custom Page and Alias hyperlinks appeared as {\bfseries links} rather than buttons, as shown \hyperlink{RC_mhttpd_status_page_redesign_RC_mhttpd_old_alias_buttons}{here}.
+
+\par
+
+
+\par
+ \label{RC_mhttpd_status_page_features_idx_mhttpd_buttons_script}
+\hypertarget{RC_mhttpd_status_page_features_idx_mhttpd_buttons_script}{}
+ \hypertarget{RC_mhttpd_status_page_features_RC_mhttpd_status_script_buttons}{}\paragraph{Optional Script buttons}\label{RC_mhttpd_status_page_features_RC_mhttpd_status_script_buttons}
+Script (or User) buttons that appear on the \hyperlink{RC_mhttpd_status_page_features_RC_mhpptd_optional_buttons}{main status page} are used to execute user-\/defined scripts. These buttons are defined through the optional ODB /script tree.
+
+See
+\begin{DoxyItemize}
+\item \hyperlink{RC_mhttpd_defining_script_buttons}{Defining script buttons}
+\end{DoxyItemize}
+
+for details.
+
+\par
+
+
+\par
+ \label{RC_mhttpd_status_page_features_idx_manual-trigger_button}
+\hypertarget{RC_mhttpd_status_page_features_idx_manual-trigger_button}{}
+ \hypertarget{RC_mhttpd_status_page_features_RC_mhttpd_status_Manual_Trigger_buttons}{}\paragraph{Manual-\/Trigger Buttons}\label{RC_mhttpd_status_page_features_RC_mhttpd_status_Manual_Trigger_buttons}
+See \hyperlink{FE_eq_event_routines_FE_manual_trigger}{Manual Trigger} .
+
+\par
+
+
+\par
+ \hypertarget{RC_mhttpd_status_page_features_RC_mhttpd_status_Alias_buttons}{}\paragraph{Alias-\/Buttons}\label{RC_mhttpd_status_page_features_RC_mhttpd_status_Alias_buttons}
+User-\/defined {\bfseries Alias-\/buttons} that appear on the \hyperlink{RC_mhttpd_status_page_features_RC_mhpptd_optional_buttons}{main status page} give access to \hyperlink{RC_mhttpd_Alias_page}{Alias pages}.
+
+
+\begin{DoxyItemize}
+\item \hyperlink{RC_mhttpd_Alias_page_RC_mhttpd_alias_define}{How to create Alias-\/Buttons}
+\end{DoxyItemize}
+
+\par
+
+
+\par
+\hypertarget{RC_mhttpd_status_page_features_RC_mhttpd_status_Run_info}{}\subsubsection{Run status information}\label{RC_mhttpd_status_page_features_RC_mhttpd_status_Run_info}
+\begin{center} mhttpd status page showing Run Status information  \end{center} \par
+
+
+The run status information on the \hyperlink{RC_mhttpd_Main_Status_page_RC_mhttpd_main_status}{main status page} shows
+\begin{DoxyItemize}
+\item current run number
+\item \hyperlink{RC_mhttpd_status_page_features_RC_table_run_state}{run state}
+\item Alarm status
+\item \hyperlink{F_Logging_Data_F_Logger_Auto_Restart}{Restart} (automatically restart run)
+\item mlogger status
+\item run duration
+\end{DoxyItemize}
+
+The appearance and contents of this information changes depending on the conditions. The images below demonstrate how the appearance may change when the run is in transition.
+
+\begin{center} mhttpd status page showing Run Status information when the run is stopping  \end{center} \par
+
+
+\begin{center} mhttpd status page showing Run Status information when the run is starting  \end{center} \par
+
+
+\par
+
+
+\par
+ \hypertarget{RC_mhttpd_status_page_features_RC_Edit_RP}{}\subsubsection{Comment and Run Description}\label{RC_mhttpd_status_page_features_RC_Edit_RP}
+Optionally, the user can define a \char`\"{}comment\char`\"{} and/or a \char`\"{}Run Description\char`\"{} that will appear on the mhttpd main status page. This is done by creating keys {\bfseries \char`\"{}Comment\char`\"{}} and/or {\bfseries \char`\"{}Run Description\char`\"{}} in the \hyperlink{RC_customize_ODB_RC_Run_Parameters}{Run Parameters subdirectory} under /Experiment. The contents of each key will then be displayed on an extra line on the mhttpd main status page. See \hyperlink{RC_customize_ODB_RC_ODB_Experiment_Tree}{The ODB /Experiment tree} for more information.
+
+
+\begin{DoxyCode}
+[local:t2kgas:S]/>ls -lt "/Experiment/Run Parameters/"
+Key name                        Type    #Val  Size  Last Opn Mode Value
+---------------------------------------------------------------------------
+Comment                         STRING  1     32    19h  0   RWD   no beam, test 
+      only
+Run Description                 STRING  1     32    19h  0   RWD  28.2keV resonan
+      t energy 7Li
+\end{DoxyCode}
+
+
+\par
+ \begin{center} mhttpd main status page showing \char`\"{}Comment\char`\"{} and \char`\"{}Run Description\char`\"{} fields  \end{center}  \par
+
+
+\par
+
+
+\label{RC_mhttpd_status_page_features_idx_mhttpd_page_status_equipment}
+\hypertarget{RC_mhttpd_status_page_features_idx_mhttpd_page_status_equipment}{}
+ \hypertarget{RC_mhttpd_status_page_features_RC_mhttpd_status_Equipment_info}{}\subsubsection{Equipment information and Event rates}\label{RC_mhttpd_status_page_features_RC_mhttpd_status_Equipment_info}
+The mhttpd status page contains a table of \hyperlink{FrontendOperation_FE_sw_equipment}{Equipment} information and event rates. Equipments are usually defined in \hyperlink{FrontendOperation_FE_features}{frontends}. Other MIDAS clients which may define Equipments include slow controls and eventbuilder clients.
+
+\begin{center} mhttpd status page showing Equipment information and Event rate statistics  \end{center} \hypertarget{RC_mhttpd_status_page_features_RC_mhttpd_eq_variables}{}\paragraph{Monitor the Equipment variables}\label{RC_mhttpd_status_page_features_RC_mhttpd_eq_variables}
+The \char`\"{}Equipment\char`\"{} column of this table lists the names of any defined \hyperlink{FrontendOperation_FE_sw_equipment}{Equipments}. These appear in the order in which they are listed in the ODB \hyperlink{FE_ODB_equipment_tree}{/Equipment} tree.
+
+The names of the equipment in this column are hyperlinks to their respective /Equipment/$<$equipment-\/name$>$/Variables sub-\/tree. Clicking on any of the equipment links will show an \hyperlink{RC_mhttpd_Equipment_page}{Equipment page} , allowing a shortcut for the user to access the current values of the equipment. \par
+
+
+\par
+\hypertarget{RC_mhttpd_status_page_features_RC_mhttpd_eq_status}{}\paragraph{Status display of each Equipment}\label{RC_mhttpd_status_page_features_RC_mhttpd_eq_status}
+The \char`\"{}Status\char`\"{} column of the \hyperlink{RC_mhttpd_status_page_features_RC_mhttpd_status_Equipment_info}{mhttpd status page} shows the status of each equipment. It usually shows the name of the client defining that equipment, and the host computer on which that client is running, The background colour of each equipment \char`\"{}Status\char`\"{} box will also change depending on the status of the associated frontend. The usual colours are shown in the following table:
+
+\begin{center} \begin{table}[h]\begin{TabularC}{1}
+\hline
+Frontend is RUNNING and equipment is ENABLED  \\\cline{1-1}
+Frontend is MISSING   \\\cline{1-1}
+Frontend is RUNNING but equipment is DISABLED \\\cline{1-1}
+\end{TabularC}
+\centering
+\caption{Default colour coding of Equipment status }
+\end{table}
+\par
+ \end{center} 
+
+When a run is in transition, or when a client takes a long time to respond, the status information may change to give a status report on the client. Optionally, users may program a client to send their own status reports that appear in this area of the mhttpd status page by incorporating calls to the routine {\itshape set\_\-equipment\_\-status\/} (see \hyperlink{FE_sequence_FE_frontend_status}{Reporting Equipment status}). This routine allows the message and the status box background colour to be specified. For example, the last client in the image above (HV\_\-SY2527) gives a Status of \char`\"{}OK\char`\"{} rather than the default client and hostname.
+
+In versions prior to \hyperlink{NDF_ndf_dec_2009}{Dec 2009} , the \char`\"{}Status\char`\"{} column was labelled {\bfseries \char`\"{}FE Node\char`\"{}} and the client status information was not shown (see \hyperlink{RC_mhttpd_status_page_redesign}{Redesign of mhttpd Main Status Page} ).
+
+\par
+
+
+\par
+ \label{RC_mhttpd_status_page_features_idx_mhttpd_page_status_event-rate}
+\hypertarget{RC_mhttpd_status_page_features_idx_mhttpd_page_status_event-rate}{}
+ \hypertarget{RC_mhttpd_status_page_features_RC_mhttpd_status_Event_Rates}{}\paragraph{Event Rates}\label{RC_mhttpd_status_page_features_RC_mhttpd_status_Event_Rates}
+The event statistics for the current run are also shown on the \hyperlink{RC_mhttpd_status_page_features_RC_mhttpd_status_Equipment_info}{main status page} , in the columns labelled {\bfseries \char`\"{}Events\char`\"{}}, {\bfseries \char`\"{}Events\mbox{[}/s\mbox{]}\char`\"{}} and {\bfseries \char`\"{}Data\mbox{[}MB/s\mbox{]}\char`\"{}}.
+
+\par
+
+
+\par
+ \hypertarget{RC_mhttpd_status_page_features_RC_mhttpd_status_analyzer}{}\paragraph{Number of events analyzed}\label{RC_mhttpd_status_page_features_RC_mhttpd_status_analyzer}
+In versions prior to \hyperlink{NDF_ndf_dec_2009}{Dec 2009} , there is an extra column labelled \char`\"{}analyzer\char`\"{} which shows the number of events analyzed (valid only if the name of the analyzer is \char`\"{}Analyzer\char`\"{}).
+
+\par
+
+
+\par
+\hypertarget{RC_mhttpd_status_page_features_RC_mhttpd_status_Logger}{}\subsubsection{Data Logging Information}\label{RC_mhttpd_status_page_features_RC_mhttpd_status_Logger}
+The image below shows the information on the status page if both \hyperlink{F_Logging_F_mlogger_utility}{mlogger} and \hyperlink{F_LogUtil_F_lazylogger_utility}{lazylogger} are running.
+
+\begin{center} logger information on mhttpd main status page \par
+\par
+\par
+  \end{center}  \par
+
+
+Compare this example with the \hyperlink{RC_mhttpd_utility_RC_mhttpd_minimal_status_page}{minimal} status page where neither of these clients are running.
+
+\par
+ In the image above,
+\begin{DoxyItemize}
+\item one mlogger channel (Channel 0) is active. \par
+Multiple logger channels can be active, in which case a line for each channel would be shown. The hyperlink {\bfseries \char`\"{}0\char`\"{}} opens a \hyperlink{RC_mhttpd_Logger_page}{mhttpd Logger page} showing the settings information.
+\item one lazylogger channel ({\bfseries Dcache} ) is also active. Multiple lazy applications can be active, in which case multiple lines of Lazy information would be present. Clicking on the hyperlink {\bfseries \char`\"{}Dcache\char`\"{}} opens a \hyperlink{RC_mhttpd_Logger_page}{mhttpd Logger page} showing the \hyperlink{RC_mhttpd_Logger_page_RC_mhttpd_Logger_lazylogger}{lazylogger settings information} .
+\end{DoxyItemize}
+
+\par
+
+
+\par
+ \label{RC_mhttpd_status_page_features_idx_message_last}
+\hypertarget{RC_mhttpd_status_page_features_idx_message_last}{}
+ \hypertarget{RC_mhttpd_status_page_features_RC_mhttpd_status_latest_msg}{}\subsubsection{Last system message}\label{RC_mhttpd_status_page_features_RC_mhttpd_status_latest_msg}
+\begin{center} Example of last system message on mhttpd main status page \par
+\par
+\par
+  \end{center}  \par
+
+
+The last system message to be received at the time of the last display refresh is displayed on the \hyperlink{RC_mhttpd_Main_Status_page_RC_mhttpd_main_status}{main status page} (see \hyperlink{F_Messaging}{Messaging}). More messages can be viewed by pressing the \hyperlink{RC_mhttpd_status_page_features_RC_mhttpd_status_Page_buttons}{Message button}. This opens the \hyperlink{RC_mhttpd_Message_page}{Message page}.
+
+\par
+
+
+\par
+
+
+\label{RC_mhttpd_status_page_features_idx_clients_active_mhttpd}
+\hypertarget{RC_mhttpd_status_page_features_idx_clients_active_mhttpd}{}
+ \hypertarget{RC_mhttpd_status_page_features_RC_mhttpd_status_clients}{}\subsubsection{Active Client list}\label{RC_mhttpd_status_page_features_RC_mhttpd_status_clients}
+\begin{center} Example of Active client list on mhttpd main status page \par
+\par
+\par
+  \end{center}  \par
+
+
+At the bottom of the \hyperlink{RC_mhttpd_Main_Status_page_RC_mhttpd_main_status}{main status page} is a list of the MIDAS clients for this experiment that are currently active. The hostname is also shown. This information is derived from the \hyperlink{RC_Run_States_and_Transitions_RC_odb_system_tree}{ODB /System} tree .
+
+\par
+\par
+
+
+ \par
+ \label{index_end}
+\hypertarget{index_end}{}
+ \paragraph{Defining Script Buttons on the main Status Page}\label{RC_mhttpd_defining_script_buttons}
+\par
+
+
+
+
+\label{RC_mhttpd_defining_script_buttons_idx_ODB_tree_Script}
+\hypertarget{RC_mhttpd_defining_script_buttons_idx_ODB_tree_Script}{}
+ \hypertarget{RC_mhttpd_defining_script_buttons_RC_odb_script_tree}{}\paragraph{The ODB /Script tree}\label{RC_mhttpd_defining_script_buttons_RC_odb_script_tree}
+\begin{DoxyNote}{Note}
+The /Script tree is applicable to \hyperlink{RC_mhttpd}{mhttpd}, and ignored by \hyperlink{RC_odbedit}{odbedit}.
+\end{DoxyNote}
+The optional ODB tree /Script provides the user with a way to execute a script when a button on the mhttpd \hyperlink{RC_mhttpd_Main_Status_page_RC_mhttpd_main_status}{main status page} is clicked, including the {\bfseries capability of passing \hyperlink{structparameters}{parameters} from the ODB to the script}.
+
+\par
+ If the user defines a new tree in ODB named /Script , then any key created in this tree will appear as a script-\/button of that name on the default mhttpd main status page. Each sub-\/tree ( /Script/$<$button name$>$/) should contain at least one string key which is the script command to be executed. Further keys will be passed as {\bfseries  arguments } to the script. MIDAS symbolic links are permitted.\hypertarget{RC_mhttpd_defining_script_buttons_RC_odb_script_example1}{}\paragraph{Example 1: creation of a Script-\/button; parameters passed to the associated script}\label{RC_mhttpd_defining_script_buttons_RC_odb_script_example1}
+The {\bfseries  example } below shows the ODB /script/dac subdirectory. The script-\/button {\bfseries \char`\"{}dac\char`\"{}} associated with this subdirectory is shown on the example mhttpd status page below.
+
+The first key in the dac subdirectory is the string key cmd which contains the name and path of the script to be executed (in this case, a perl script). This script is located on the local host computer on which the experiment is running. The subsequent keys are \hyperlink{structparameters}{parameters} input to the script. 
+\begin{DoxyCode}
+[local:pol:R]/>ls "/script/dac"
+cmd                             /home/pol/online/perl/change_mode.pl
+include path                    /home/pol/online/perl
+experiment name -> /experiment/name
+                                pol
+select mode                     1h
+
+mode file tag                   none
+[local:pol:R]/>  
+\end{DoxyCode}
+
+
+This will cause a script-\/button labelled {\bfseries \char`\"{}DAC\char`\"{}} to appear on the mhttpd main status page : \par
+ \begin{center} Script button \char`\"{}DAC\char`\"{} on the mhttpd main status page  \end{center} \par
+
+
+When the {\bfseries \char`\"{}DAC\char`\"{}} script-\/button is pressed, the script {\bfseries \char`\"{}change\_\-mode.pl\char`\"{}} will be executed with the following key contents as \hyperlink{structparameters}{parameters}, equivalent to the command: 
+\begin{DoxyCode}
+  "/home/pol/online/perl/change_mode.pl  /home/pol/online/perl pol 1h mode"
+\end{DoxyCode}
+ \par
+
+
+The following is part of the code of the script {\bfseries \char`\"{}change\_\-mode.pl\char`\"{}} : 
+\begin{DoxyCode}
+# input parameters :
+
+our ($inc_dir, $expt, $select_mode, $mode_name ) = @ARGV;
+our $len = $#ARGV; # array length
+our $name = "change_mode" ; # same as filename
+our $outfile = "change_mode.txt"; # path will be added by file open function
+our $parameter_msg = "include path , experiment , select_new_mode  mode_name";
+our $nparam = 4;  # no. of input parameters
+our $beamline = $expt; # beamline is not supplied. Same as $expt for bnm/qr, pol
+############################################################################
+# local variables:
+my ($transition, $run_state, $path, $key, $status);
+
+# Inc_dir needed because when script is invoked by browser it can't find the
+# code for require
+
+unless ($inc_dir) { die "$name: No include directory path has been supplied\n";}
+$inc_dir =~ s/\/$//;  # remove any trailing slash
+require "$inc_dir/odb_access.pl";
+require "$inc_dir/do_link.pl";
+
+# init_check.pl checks:
+#   one copy of this script running
+#   no. of input parameters is correct
+#   opens output file:
+#
+require "$inc_dir/init_check.pl"; 
+
+# Output will be sent to file $outfile (file handle FOUT)
+# because this is for use with the browser and STDOUT and STDERR get set to null
+
+
+print FOUT  "$name starting with parameters:  \n";
+print FOUT  "Experiment = $expt, select new mode = $select_mode;  load file mode_
+      name=$mode_name \n";
+
+unless ($select_mode)
+{
+    print FOUT "FAILURE: selected mode  not supplied\n";
+        odb_cmd ( "msg","$MERROR","","$name", "FAILURE:  selected mode not suppli
+      ed " ) ;
+        unless ($status) { print FOUT "$name: Failure return after msg \n"; }
+        die  "FAILURE:  selected mode  not supplied \n";
+
+}
+unless ($select_mode =~/^[12]/)
+{
+    print_3 ($name,"FAILURE: invalid selected mode ($select_mode)",$MERROR,1);
+}
+
+etc.
+\end{DoxyCode}
+\hypertarget{RC_mhttpd_defining_script_buttons_RC_odb_script_example2}{}\paragraph{Example 2: MPET experiment run controller}\label{RC_mhttpd_defining_script_buttons_RC_odb_script_example2}
+This example is from the MPET experiment at TRIUMF, which uses a sophisticated run controller. This includes perlscripts actived by script buttons. The experiment can be set to perform a number of consecutive runs without user intervention, changing some condition(s) between each run. The results are written to a log file.
+
+It involves the use of large number of script-\/buttons on the Main Status page to activate the perlscripts (see Figure 1). Clicking on one of these buttons causes a user-\/defined shell-\/script to be run with a particular parameter.
+
+\par
+\par
+\par
+ \begin{center} Figure 1 Main Status page of MPET experiment   \end{center}  \par
+\par
+\par
+
+
+This experiment is using an older version of mhttpd (see \hyperlink{RC_mhttpd_status_page_redesign}{Redesign of mhttpd Main Status Page} ).
+
+The script-\/buttons are defined in the ODB /Script tree (see Figure 2). All activate the shell-\/script perlrc.sh with the appropriate parameter. The first two script-\/buttons labelled \char`\"{}Start PerlRC\char`\"{} and \char`\"{}Stop PerlRC\char`\"{} start and stop the run control respectively. These access \hyperlink{structparameters}{parameters} read from the ODB to determine the scan type, the number of runs to be performed, etc. The other buttons \char`\"{}Tune...\char`\"{} are used to set up run \hyperlink{structparameters}{parameters} into particular known states or \char`\"{}Tunes\char`\"{}.
+
+\par
+ \par
+\par
+\par
+ \begin{center} Figure 2 /Script ODB tree for the MPET experiment   \end{center}  \par
+\par
+\par
+
+
+This script calls the perlscript perlrc.pl, passing through the parameter. (Alternatively, this could have been done by \hyperlink{RC_mhttpd_defining_script_buttons_RC_odb_script_tree}{passing the parameter} directly to the perlscript, eliminating the intermediate shell-\/script).
+
+The following image shows the ODB \hyperlink{structparameters}{parameters} associated with the run control script buttons.
+
+\par
+\par
+\par
+ \begin{center} Run Control ODB \hyperlink{structparameters}{parameters} for the MPET experiment   \end{center}  \par
+\par
+\par
+ 
+\begin{DoxyItemize}
+\item Clicking on ODB...PerlRC...RunControl...Scan2D shows the RunControl Parameters 
+\item Clicking on ODB...PerlRC...RunControl...TuneSwitch shows the Tuning Parameters 
+\end{DoxyItemize}
+
+\par
+ 
+
+ \par
+\hypertarget{RC_mhttpd_defining_script_buttons_RC_odb_script_ex2_perlscript}{}\subparagraph{MPET perlscripts to perform run control}\label{RC_mhttpd_defining_script_buttons_RC_odb_script_ex2_perlscript}
+
+\begin{DoxyItemize}
+\item \hyperlink{RC_mhttpd_perlrc}{Examples of MPET Perlscripts for run control}
+\end{DoxyItemize}
+
+The scripts interact with the ODB through a library \hyperlink{RC_mhttpd_perlrc_RC_mhttpd_perlmidas_script}{perlmidas.pl} . This may be of general interest.
+
+
+
+\par
+ \label{index_end}
+\hypertarget{index_end}{}
+ \subparagraph{Examples of MPET Perlscripts for run control}\label{RC_mhttpd_perlrc}
+\par
+
+
+ \label{RC_mhttpd_perlrc_idx_script_perlmidas}
+\hypertarget{RC_mhttpd_perlrc_idx_script_perlmidas}{}
+
+
+Part of the run control perlscripts for MPET experiment at TRIUMF (written by Vladimir Rykov) are reproduced below. The script \hyperlink{RC_mhttpd_perlrc_RC_mhttpd_perlrc_script}{perlrc.pl} calls a script called \hyperlink{RC_mhttpd_perlrc_RC_mhttpd_perlmidas_script}{perlmidas.pl} to access the ODB.
+
+\hyperlink{RC_mhttpd_perlrc_RC_mhttpd_perlmidas_script}{perlmidas.pl} may be of interest to users who wish to interact with the ODB through scripts.\hypertarget{RC_mhttpd_perlrc_RC_mhttpd_perlmidas_script}{}\subparagraph{perlmidas.pl}\label{RC_mhttpd_perlrc_RC_mhttpd_perlmidas_script}
+
+\begin{DoxyCode}
+# common subroutines
+use strict;
+use warnings;
+##############################################################
+sub MIDAS_env
+# set up proper MIDAS environment...
+##############################################################
+{
+    our ($MIDAS_HOSTNAME,$MIDAS_EXPERIMENT,$ODB_SUCCESS,$DEBUG);
+    our ($CMDFLAG_HOST, $CMDFLAG_EXPT);
+
+    $ODB_SUCCESS=0;
+
+    $MIDAS_HOSTNAME = $ENV{"MIDAS_SERVER_HOST"};
+    if (defined($MIDAS_HOSTNAME) &&   $MIDAS_HOSTNAME ne "")
+    {
+        $CMDFLAG_HOST = "-h $MIDAS_HOSTNAME";
+    }
+    else
+    {
+        $MIDAS_HOSTNAME = "";
+        $CMDFLAG_HOST = "";
+    }
+
+    $MIDAS_EXPERIMENT = $ENV{"MIDAS_EXPT_NAME"};
+    if (defined($MIDAS_EXPERIMENT) &&   $MIDAS_EXPERIMENT ne "")
+    {
+        $CMDFLAG_EXPT = "-e ${MIDAS_EXPERIMENT}";
+    }
+    else
+    {
+        $MIDAS_EXPERIMENT = "";
+        $CMDFLAG_EXPT = "";
+    }
+
+}
+
+
+##############################################################
+sub MIDAS_sendmsg
+##############################################################
+{
+# send a message to odb message logger
+    my ($name, $message) =  @_;
+
+    our ($MIDAS_HOSTNAME,$MIDAS_EXPERIMENT,$ODB_SUCCESS,$DEBUG);
+    our ($CMDFLAG_HOST, $CMDFLAG_EXPT);
+    our ($COMMAND, $ANSWER);
+
+    my $status;
+    my $host="";
+    my $dquote='"';
+    my $squote="'";
+    my $command="${dquote}msg ${name} ${squote}${message}${squote}${dquote}";
+    print "name=$name, message=$message\n";
+    print "command is: $command \n";
+
+    $COMMAND ="`odb ${CMDFLAG_EXPT} ${CMDFLAG_HOST} -c ${command}`";
+    $ANSWER=`odb ${CMDFLAG_EXPT} ${CMDFLAG_HOST} -c ${command}`;
+    $status=$?;
+    chomp $ANSWER;  # strip trailing linefeed
+    if($DEBUG)
+    {
+        print "command: $COMMAND\n";
+        print " answer: $ANSWER\n";
+    }
+
+    if($status != $ODB_SUCCESS) 
+    { # this status value is NOT the midas status code
+        print "send_message:  Failure status returned from odb msg (status=$statu
+      s)\n";
+    }
+    return;
+}
+
+sub strip
+{
+# removes / from end of string, // becomes /
+    my $string=shift;
+    $string=~ (s!//!/!g);
+    $string=~s!/$!!;
+    print "strip: now \"$string\"\n";
+    return ($string);
+}
+
+sub MIDAS_varset
+##############################################################
+{
+# set a value of an odb key
+    my ($key, $value) =  @_;
+
+    our ($MIDAS_HOSTNAME,$MIDAS_EXPERIMENT,$ODB_SUCCESS,$DEBUG);
+    our ($CMDFLAG_HOST, $CMDFLAG_EXPT);
+    our ($COMMAND, $ANSWER);
+
+    my $status;
+    my $host="";
+    my $dquote='"';
+    my $squote="'";
+    my $command="${dquote}set ${squote}${key}${squote} ${squote}${value}${squote}
+      ${dquote}";
+    print "key=$key, new value=${value}\n";
+    print "command is: $command \n";
+
+    $COMMAND ="`odb ${CMDFLAG_EXPT} ${CMDFLAG_HOST} -c command`";
+    $ANSWER=`odb ${CMDFLAG_EXPT} ${CMDFLAG_HOST} -c $command `;
+    $status=$?;
+    chomp $ANSWER;  # strip trailing linefeed
+    if($DEBUG)
+    {
+        print "command: $COMMAND\n";
+        print " answer: $ANSWER\n";
+    }
+
+    if($status != $ODB_SUCCESS) 
+    { # this status value is NOT the midas status code
+        print "send_message:  Failure status returned from odb msg (status=$statu
+      s)\n";
+    }
+    return;
+}
+
+sub MIDAS_varget
+##############################################################
+{
+# set a value of an odb key
+    my ($key) =  @_;
+
+    our ($MIDAS_HOSTNAME,$MIDAS_EXPERIMENT,$ODB_SUCCESS,$DEBUG);
+    our ($CMDFLAG_HOST, $CMDFLAG_EXPT);
+    our ($COMMAND, $ANSWER);
+
+    my $status;
+    my $host="";
+    my $dquote='"';
+    my $squote="'";
+    my $command="${dquote}ls -v ${squote}${key}${squote}${dquote}";
+    print "key=$key\n";
+    print "command is: $command \n";
+    
+    $COMMAND ="`odb ${CMDFLAG_EXPT} ${CMDFLAG_HOST} -c command`";
+    $ANSWER=`odb ${CMDFLAG_EXPT} ${CMDFLAG_HOST} -c $command `;  
+    $status=$?;
+    chomp $ANSWER;  # strip trailing linefeed
+    if($DEBUG)
+    {
+        print "command: $COMMAND\n";
+        print " answer: $ANSWER\n";
+    }
+
+    if($status != 0) 
+    { # this status value is NOT the midas status code
+        print "send_varset  Failure status returned from odb msg (status=$status)
+      \n";
+    }
+    return $ANSWER;
+}
+
+sub MIDAS_dirlist
+##############################################################
+{
+# return a directory list of directory given by odb key
+    my ($key) =  @_;
+
+    our ($MIDAS_HOSTNAME,$MIDAS_EXPERIMENT,$ODB_SUCCESS,$DEBUG);
+    our ($CMDFLAG_HOST, $CMDFLAG_EXPT);
+    our ($COMMAND, $ANSWER);
+
+    my $status;
+    my $host="";
+    my $dquote='"';
+    my $squote="'";
+    my $command="${dquote}ls ${squote}${key}${squote}${dquote}";
+    print "key=$key\n";
+    print "command is: $command \n";
+    
+    $COMMAND ="`odb ${CMDFLAG_EXPT} ${CMDFLAG_HOST} -c command`";
+    $ANSWER=`odb ${CMDFLAG_EXPT} ${CMDFLAG_HOST} -c $command `;  
+    $status=$?;
+    chomp $ANSWER;  # strip trailing linefeed
+    if($DEBUG)
+    {
+        print "command: $COMMAND\n";
+        print " answer: $ANSWER\n";
+    }
+
+    if($status != 0) 
+    { # this status value is NOT the midas status code
+        print "send_varset  Failure status returned from odb msg (status=$status)
+      \n";
+    }
+    return $ANSWER;
+}
+
+sub MIDAS_startrun
+##############################################################
+{
+# start MIDAS run
+    my ($key) =  @_;
+
+    our ($MIDAS_HOSTNAME,$MIDAS_EXPERIMENT,$ODB_SUCCESS,$DEBUG);
+    our ($CMDFLAG_HOST, $CMDFLAG_EXPT);
+    our ($COMMAND, $ANSWER);
+
+    our ($SCANLOG_FH);
+
+    my $status;
+    my $host="";
+    my $dquote='"';
+    my $squote="'";
+    my $command="${dquote}start now${dquote}";
+    print "command is: $command \n";
+
+    #sleep(10);
+
+    $COMMAND ="`odb ${CMDFLAG_EXPT} ${CMDFLAG_HOST} -c ${command}`";
+    $ANSWER=`odb ${CMDFLAG_EXPT} ${CMDFLAG_HOST} -c ${command}`;
+    $status=$?;
+    chomp $ANSWER;  # strip trailing linefeed
+    if($DEBUG)
+    {
+        print "command: $COMMAND\n";
+        print " answer: $ANSWER\n";
+
+        #print $SCANLOG_FH "status: $status\n";
+        #print $SCANLOG_FH "command: $COMMAND\n";
+        #print $SCANLOG_FH " answer: $ANSWER\n";
+
+    }
+
+    if($status != 0)
+    { # this status value is NOT the midas status code
+        print "startrun:  Failure status returned from odb msg (status=$status)\n
+      ";
+        print $SCANLOG_FH " answer: $ANSWER\n";
+
+    }
+    return $ANSWER;
+}   
+1;
+\end{DoxyCode}
+
+
+\par
+
+
+\par
+\hypertarget{RC_mhttpd_perlrc_RC_mhttpd_perlrc_script}{}\subparagraph{perlrc.pl}\label{RC_mhttpd_perlrc_RC_mhttpd_perlrc_script}
+
+\begin{DoxyCode}
+ #!/usr/bin/perl
+
+################################################################
+#
+#  PerlRC
+#
+#  MIDAS piggyback perl script that is exectuted upon completion
+#  of a run. It checks its parameters, modifies the MIDAS variables
+#  as required, and starts a new run. This way it can run through
+#  different DAQ settings. Implemented scans:
+#  1) Scan1D - scans a set of variables from beginning values
+#     to ending values. All valiables are changed simultaneously.
+#  2) Scan2D - scans 2 sets of variables.
+#  3) SettingsSwitch - switches between different settings sets
+#     typically to be used to switch between ion species.
+#
+#  V. Ryjkov
+#  June 2008
+#
+################################################################
+
+require "/home/mpet/vr/perl/PerlRC/perlmidas.pl";
+
+our $DEBUG = true;
+our $PERLSCAN_PREF = "/PerlRC";
+our $PERLSCAN_CONTROLVARS = $PERLSCAN_PREF . "/ControlVariables";
+our $PERLSCAN_START = $PERLSCAN_PREF . "/RunControl/RCActive";
+our $PERLSCAN_NRUNS = $PERLSCAN_PREF . "/RunControl/RCTotalRuns";
+our $PERLSCAN_CURRUN = $PERLSCAN_PREF . "/RunControl/RCCurrentRun";
+our $SCANLOG_PATH = "/data/mpet/PerlRC.log";
+our $SCANLOG_FH;
+our $MIDAS_RUNNO = "/Runinfo/Run number";
+my  $PERLSCAN_SCANTYPE = $PERLSCAN_PREF . "/RunControl/RCType";
+
+MIDAS_env();
+# MIDAS_sendmsg("test","run stop");
+my $ScanStart  =MIDAS_varget($PERLSCAN_START);
+my $ScanType   =MIDAS_varget($PERLSCAN_SCANTYPE);
+my $NRuns      =MIDAS_varget($PERLSCAN_NRUNS);
+my $CurrentRun =MIDAS_varget($PERLSCAN_CURRUN);
+my $retval;
+my $MIDASrunno;
+
+open(SCANLOG,">>${SCANLOG_PATH}");
+$SCANLOG_FH=\*SCANLOG;
+
+if(scalar(@ARGV)==1 && $ARGV[0] =~ /start/) {
+    MIDAS_varset($PERLSCAN_START,'y');
+    $ScanStart = "y";
+}
+if(scalar(@ARGV)==1 && $ARGV[0] =~ /stop/) {
+    MIDAS_varset($PERLSCAN_START,'n');
+    $ScanStart = "n";
+}
+if( $ScanStart eq "y") {
+    if( $CurrentRun == 0) {
+        print $SCANLOG_FH "=== NEW PerlRC scan. Scan type is \"${ScanType}\" ===\
+      n";
+        print $SCANLOG_FH "===    Number of runs in this scan is ${NRuns}    ===\
+      n";
+    }
+    if( $CurrentRun == $NRuns) {
+        print $SCANLOG_FH "=== Finished PerlRC scan ===\n";
+        print $SCANLOG_FH "============================\n";
+    }
+    if( ++$CurrentRun <= $NRuns ) {
+        $MIDASrunno=MIDAS_varget($MIDAS_RUNNO);
+        $MIDASrunno++;
+        print $SCANLOG_FH "<Run #${MIDASrunno}> ";
+        MIDAS_varset($PERLSCAN_CURRUN,$CurrentRun);
+        for ($ScanType) {
+            if    (/Scan1D/)   {$retval=Scan1D(); }     # do something
+            elsif (/Scan2D/)   {$retval=Scan2D(); }     # do something else
+            elsif (/TuneSwitch/) {$retval=TuneSwitch(); } # do something else
+        }
+        if($retval != 0) {
+            MIDAS_varset($PERLSCAN_CURRUN,0);
+            MIDAS_varset($PERLSCAN_START,"n");
+            print $SCANLOG_FH "!!!#### Aborting scan! ####!!!\n";
+        }
+        else {
+            sleep(1);
+            #print $SCANLOG_FH "pausing 10 sec...\n";
+            MIDAS_startrun();
+            #print $SCANLOG_FH "start the run\n";
+        }
+    }
+    else {
+        MIDAS_varset($PERLSCAN_CURRUN,0);
+        MIDAS_varset($PERLSCAN_START,"n");
+    }
+}
+else {
+    if(scalar(@ARGV)==2 && $ARGV[0] =~ /tune/) {
+        SwitchToTune($ARGV[1]);
+    }
+}
+close(SCANLOG);
+
+sub Scan1D
+{
+
+    ............
+
+
+}    
+
+
+sub SetControlVar
+{
+    our $SCANLOG_FH;
+    our $PERLSCAN_CONTROLVARS;
+    my ($varname,$varvalue)=@_;
+    my $retval;
+    my $varpath;
+
+    #print $SCANLOG_FH "variablename: $varname \n";
+
+    $varpath=MIDAS_varget($PERLSCAN_CONTROLVARS . "/" . $varname);
+    if($varpath =~ /^key (.*) not found/) {
+        print $SCANLOG_FH "! Control variable ${varname}(${1}) is not listed in $
+      {PERLSCAN_CONTROLVARS}\n";
+        return -4;
+    }
+
+    .............
+    
+    
+    val=MIDAS_varset($varpath,$varvalue);
+        if($retval =~ /^key not found/) {return -5;}
+    }
+    return 0;
+}
+
+sub SwitchToTune
+{
+    our $SCANLOG_FH;
+    our $PERLSCAN_CONTROLVARS;
+    our $PERLSCAN_PREF;
+    my $PERLSCAN_TUNEDIR = $PERLSCAN_PREF . "/Tunes";
+    my ($tunename)=@_;
+    my $retval;
+    my $varpath;
+    my $varval;
+    my $cvarname;
+
+    $retval = MIDAS_dirlist($PERLSCAN_TUNEDIR . "/" . $tunename);
+    if($retval =~ /^key not found/){
+        print $SCANLOG_FH "! Could not locate tune ${tunename} in the tune direct
+      ory ${PERLSCAN_TUNEDIR}\n";
+        return -7;
+    }
+    my @TuneVars=split(/\n/,$retval);
+    foreach (@TuneVars) {
+        if (/^(.+\S)\s{2,}.*/) {
+            $cvarname = $1;
+            $varval = MIDAS_varget($PERLSCAN_TUNEDIR . "/" . $tunename . "/" .$cv
+      arname);
+            $retval = SetControlVar($cvarname, $varval);
+            if($retval < 0) {return $retval;}
+        }
+        else {
+            print $SCANLOG_FH "! Cannot decipher tune variable list, offending li
+      ne: $_\n";
+            return -8;
+        }
+        sleep(1);
+    }
+    return 0;
+}
+
+sub Scan2D
+{
+   .................
+}
+
+
+sub TuneSwitch
+{   
+    our  ($PERLSCAN_PREF, $PERLSCAN_START);
+    our $SCANLOG_FH;
+    my $PERLSCAN_TUNESWITCHDIR = "/RunControl/TuneSwitch";
+    my $PERLSCAN_TUNESLIST = $PERLSCAN_PREF . $PERLSCAN_TUNESWITCHDIR .  "/TunesL
+      ist";
+    my $PERLSCAN_TUNEIDX = $PERLSCAN_PREF . $PERLSCAN_TUNESWITCHDIR .  "/CurrentT
+      uneIndex";
+    my $PERLSCAN_TUNENAME = $PERLSCAN_PREF . $PERLSCAN_TUNESWITCHDIR .  "/Current
+      TuneName";
+
+    my $TunesList = MIDAS_varget($PERLSCAN_TUNESLIST);
+    my $TuneIdx = MIDAS_varget($PERLSCAN_TUNEIDX);
+    my $TuneName = MIDAS_varget($PERLSCAN_TUNENAME);
+    
+    my @tunes = split(/\s*;\s*/,$TunesList);
+    print "tunes length= ",scalar(@tunes),"\n";
+    if( ++$TuneIdx > scalar(@tunes) ) {
+            $TuneIdx=1;
+    }
+    MIDAS_varset($PERLSCAN_TUNEIDX,$TuneIdx);
+
+    $retval=SwitchToTune($tunes[$TuneIdx-1]);
+    if($retval < 0) {return $retval;}
+    MIDAS_varset($PERLSCAN_TUNENAME,$tunes[$TuneIdx-1]);
+    print $SCANLOG_FH "Tune is \"",$tunes[$TuneIdx-1],"\"\n";
+    return 0;
+}
+\end{DoxyCode}
+
+
+ \par
+ \label{index_end}
+\hypertarget{index_end}{}
+ 

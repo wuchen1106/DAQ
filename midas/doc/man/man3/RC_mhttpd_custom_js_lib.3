@@ -1,0 +1,79 @@
+.TH "RC_mhttpd_custom_js_lib" 3 "31 May 2012" "Version 2.3.0-0" "Midas" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+RC_mhttpd_custom_js_lib \- JavaScript built-in library mhttpd.js 
+.PP
+ 
+.PP
+Many of the supported features of MIDAS Custom web pages are available under HTML, but others rely on the inclusion of the mhttpd JavaScript (JS) library . This JS library relies on certain new commands which are built into mhttpd, and is therefore hardcoded into mhttpd.c .
+.PP
+The JS library can be viewed by entering in your browser location box: 
+.PP
+.nf
+http://<mhttpd host>/mhttpd.js
+
+.fi
+.PP
+.PP
+i.e. if running mhttpd on \fBhost\fP 'midaspc' on \fBport\fP 8081, you would enter : 
+.PP
+.nf
+http://midaspc:8081/mhttpd.js
+
+.fi
+.PP
+ to view the JS library. Alternatively, a recent version is shown here:
+.IP "\(bu" 2
+\fBJavascript Built-In library\fP Javascript Built-in Library code : mhttpd.js
+.PP
+.PP
+
+.br
+.PP
+ 
+.SH "List of functions in JS library"
+.PP
+Use of the following functions in custom webpages require the JS library to be included:
+.IP "\(bu" 2
+\fBODBGet\fP
+.IP "\(bu" 2
+\fBODBSet\fP
+.IP "\(bu" 2
+\fBODBEdit\fP
+.IP "\(bu" 2
+\fBODBKey\fP
+.IP "\(bu" 2
+\fBODBGetMsg\fP
+.IP "\(bu" 2
+\fBgetMouseXY\fP
+.IP "\(bu" 2
+\fBODBRpc_rev0\fP
+.PP
+.PP
+.PP
+ 
+.SH "Include the JS library mhttpd.js in a custom page"
+.PP
+In order to use any of the \fB JavaScript built-in functions\fP, you must include the \fBlibrary\fP in your custom page by putting the following statement inside the <head>...</head> tags of an HTML file:
+.PP
+.PP
+.nf
+<!DOCTYPE HTML PUBLIC '-//W3C//DTD HTML 4.0 TRANSITIONAL//EN'>
+<html><head>
+<title> ODBEdit test</title>
+<script type='text/javascript' src='../mhttpd.js'></script>
+...
+</head>
+...
+</html>
+.fi
+.PP
+.PP
+
+.br
+ 
+.PP
+ 
+.PP
+ 

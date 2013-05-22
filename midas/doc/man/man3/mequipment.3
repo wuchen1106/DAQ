@@ -1,0 +1,91 @@
+.TH "Equipment related" 3 "31 May 2012" "Version 2.3.0-0" "Midas" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Equipment related \- 
+.SS "Data Structures"
+
+.in +1c
+.ti -1c
+.RI "struct \fBBUS_DRIVER\fP"
+.br
+.ti -1c
+.RI "struct \fBDD_MT_CHANNEL\fP"
+.br
+.ti -1c
+.RI "struct \fBDD_MT_BUFFER\fP"
+.br
+.ti -1c
+.RI "struct \fBEQUIPMENT_INFO\fP"
+.br
+.ti -1c
+.RI "struct \fBDEVICE_DRIVER\fP"
+.br
+.ti -1c
+.RI "struct \fBEQUIPMENT_STATS\fP"
+.br
+.ti -1c
+.RI "struct \fBeqpmnt\fP"
+.br
+.in -1c
+.SS "Defines"
+
+.in +1c
+.ti -1c
+.RI "#define \fBDF_INPUT\fP   (1<<0)"
+.br
+.ti -1c
+.RI "#define \fBDF_OUTPUT\fP   (1<<1)"
+.br
+.ti -1c
+.RI "#define \fBDF_PRIO_DEVICE\fP   (1<<2)"
+.br
+.ti -1c
+.RI "#define \fBDF_READ_ONLY\fP   (1<<3)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+dox dox 
+.SH "Define Documentation"
+.PP 
+.SS "#define DF_HW_RAMP   (1<<5)"
+.PP
+Definition at line 946 of file midas.h.
+.PP
+Referenced by hv_demand().
+.SS "#define DF_INPUT   (1<<0)"channel is input 
+.PP
+Definition at line 941 of file midas.h.
+.SS "#define DF_MULTITHREAD   (1<<4)"
+.PP
+Definition at line 945 of file midas.h.
+.PP
+Referenced by device_driver(), hv_idle(), hv_read(), hv_start(), hv_stop(), and main().
+.SS "#define DF_OUTPUT   (1<<1)"channel is output 
+.PP
+Definition at line 942 of file midas.h.
+.SS "#define DF_PRIO_DEVICE   (1<<2)"get demand values from device instead of ODB 
+.PP
+Definition at line 943 of file midas.h.
+.PP
+Referenced by hv_init().
+.SS "#define DF_READ_ONLY   (1<<3)"never write demand values to device 
+.PP
+Definition at line 944 of file midas.h.
+.SH "Typedef Documentation"
+.PP 
+.SS "typedef struct \fBeqpmnt\fP  \fBEQUIPMENT\fP"
+.SS "typedef struct \fBeqpmnt\fP* \fBPEQUIPMENT\fP"
+.PP
+Definition at line 1009 of file midas.h.
+.SH "Function Documentation"
+.PP 
+.SS "\fBINT\fP device_driver (\fBDEVICE_DRIVER\fP * device_driver, \fBINT\fP cmd,  ...)"
+.PP
+Definition at line 404 of file mfe.c.
+.PP
+Referenced by hv_demand(), hv_exit(), hv_init(), hv_ramp(), hv_read(), hv_set_current_limit(), hv_set_rampdown(), hv_set_rampup(), hv_set_trip_time(), hv_set_voltage_limit(), hv_start(), hv_stop(), hv_update_label(), and validate_odb_array().
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Midas from the source code.

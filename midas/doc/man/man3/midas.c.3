@@ -1,0 +1,311 @@
+.TH "midas.c" 3 "31 May 2012" "Version 2.3.0-0" "Midas" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+midas.c \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Data Structures"
+
+.in +1c
+.ti -1c
+.RI "struct \fBTR_CLIENT\fP"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBINT\fP \fBcm_get_error\fP (\fBINT\fP code, char *string)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBcm_set_msg_print\fP (\fBINT\fP system_mask, \fBINT\fP user_mask, int(*func)(const char *))"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBcm_msg_log\fP (\fBINT\fP message_type, const char *message)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBcm_msg_log1\fP (\fBINT\fP message_type, const char *message, const char *facility)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBcm_msg_flush_buffer\fP ()"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBcm_msg\fP (\fBINT\fP message_type, const char *filename, \fBINT\fP line, const char *routine, const char *format,...)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBcm_msg1\fP (\fBINT\fP message_type, const char *filename, \fBINT\fP line, const char *facility, const char *routine, const char *format,...)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBcm_msg_register\fP (void(*func)(HNDLE, HNDLE, \fBEVENT_HEADER\fP *, void *))"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBcm_msg_retrieve\fP (\fBINT\fP n_message, char *message, \fBINT\fP buf_size)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBcm_synchronize\fP (\fBDWORD\fP *seconds)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBcm_asctime\fP (char *str, \fBINT\fP buf_size)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBcm_time\fP (\fBDWORD\fP *t)"
+.br
+.ti -1c
+.RI "char * \fBcm_get_version\fP ()"
+.br
+.ti -1c
+.RI "int \fBcm_get_revision\fP ()"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBcm_set_path\fP (const char *path)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBcm_get_path\fP (char *path)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBcm_set_experiment_name\fP (const char *name)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBcm_get_experiment_name\fP (char *name, int name_length)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBcm_scan_experiments\fP (void)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBcm_delete_client_info\fP (HNDLE \fBhDB\fP, \fBINT\fP pid)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBcm_check_client\fP (HNDLE \fBhDB\fP, HNDLE hKeyClient)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBcm_set_client_info\fP (HNDLE \fBhDB\fP, HNDLE *hKeyClient, char *\fBhost_name\fP, char *client_name, \fBINT\fP hw_type, char *password, \fBDWORD\fP watchdog_timeout)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBcm_get_client_info\fP (char *client_name)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBcm_get_environment\fP (char *\fBhost_name\fP, int host_name_size, char *\fBexp_name\fP, int exp_name_size)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBcm_connect_experiment\fP (const char *\fBhost_name\fP, const char *\fBexp_name\fP, const char *client_name, void(*func)(char *))"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBcm_connect_experiment1\fP (const char *\fBhost_name\fP, const char *\fBexp_name\fP, const char *client_name, void(*func)(char *), \fBINT\fP \fBodb_size\fP, \fBDWORD\fP watchdog_timeout)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBcm_list_experiments\fP (const char *\fBhost_name\fP, char \fBexp_name\fP[MAX_EXPERIMENT][NAME_LENGTH])"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBcm_select_experiment\fP (const char *\fBhost_name\fP, char *\fBexp_name\fP)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBcm_connect_client\fP (char *client_name, HNDLE *hConn)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBcm_disconnect_client\fP (HNDLE hConn, \fBBOOL\fP bShutdown)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBcm_disconnect_experiment\fP (void)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBcm_set_experiment_database\fP (HNDLE \fBhDB\fP, HNDLE hKeyClient)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBcm_get_experiment_database\fP (HNDLE *\fBhDB\fP, HNDLE *hKeyClient)"
+.br
+.ti -1c
+.RI "static int \fBbm_validate_client_index\fP (const \fBBUFFER\fP *buf, \fBBOOL\fP abort_if_invalid)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBcm_set_watchdog_params\fP (\fBBOOL\fP call_watchdog, \fBDWORD\fP timeout)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBcm_get_watchdog_params\fP (\fBBOOL\fP *call_watchdog, \fBDWORD\fP *timeout)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBcm_get_watchdog_info\fP (HNDLE \fBhDB\fP, char *client_name, \fBDWORD\fP *timeout, \fBDWORD\fP *last)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBcm_register_transition\fP (\fBINT\fP transition, \fBINT\fP(*func)(\fBINT\fP, char *), \fBINT\fP sequence_number)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBcm_set_transition_sequence\fP (\fBINT\fP transition, \fBINT\fP sequence_number)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBcm_register_deferred_transition\fP (\fBINT\fP transition, \fBBOOL\fP(*func)(\fBINT\fP, \fBBOOL\fP))"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBcm_check_deferred_transition\fP ()"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBcm_transition1\fP (\fBINT\fP transition, \fBINT\fP \fBrun_number\fP, char *errstr, \fBINT\fP errstr_size, \fBINT\fP async_flag, \fBINT\fP debug_flag)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBcm_yield\fP (\fBINT\fP millisec)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBcm_execute\fP (const char *command, char *result, \fBINT\fP bufsize)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBbm_match_event\fP (short int event_id, short int trigger_mask, \fBEVENT_HEADER\fP *pevent)"
+.br
+.ti -1c
+.RI "void \fBbm_remove_client_locked\fP (\fBBUFFER_HEADER\fP *pheader, int j)"
+.br
+.ti -1c
+.RI "static void \fBbm_cleanup_buffer_locked\fP (int i, const char *who, \fBDWORD\fP \fBactual_time\fP)"
+.br
+.ti -1c
+.RI "static void \fBcm_update_last_activity\fP (\fBDWORD\fP \fBactual_time\fP)"
+.br
+.ti -1c
+.RI "static void \fBbm_cleanup\fP (const char *who, \fBDWORD\fP \fBactual_time\fP, \fBBOOL\fP wrong_interval)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBbm_open_buffer\fP (char *\fBbuffer_name\fP, \fBINT\fP buffer_size, \fBINT\fP *buffer_handle)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBbm_close_buffer\fP (\fBINT\fP buffer_handle)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBbm_close_all_buffers\fP (void)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBcm_shutdown\fP (const char *name, \fBBOOL\fP bUnique)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBcm_exist\fP (const char *name, \fBBOOL\fP bUnique)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBcm_cleanup\fP (const char *client_name, \fBBOOL\fP ignore_timeout)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBbm_set_cache_size\fP (\fBINT\fP buffer_handle, \fBINT\fP read_size, \fBINT\fP write_size)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBbm_compose_event\fP (\fBEVENT_HEADER\fP *event_header, short int event_id, short int trigger_mask, \fBDWORD\fP size, \fBDWORD\fP serial)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBbm_request_event\fP (HNDLE buffer_handle, short int event_id, short int trigger_mask, \fBINT\fP sampling_type, HNDLE *request_id, void(*func)(HNDLE, HNDLE, \fBEVENT_HEADER\fP *, void *))"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBbm_remove_event_request\fP (\fBINT\fP buffer_handle, \fBINT\fP request_id)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBbm_delete_request\fP (\fBINT\fP request_id)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBbm_send_event\fP (\fBINT\fP buffer_handle, void *source, \fBINT\fP buf_size, \fBINT\fP async_flag)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBbm_flush_cache\fP (\fBINT\fP buffer_handle, \fBINT\fP async_flag)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBbm_receive_event\fP (\fBINT\fP buffer_handle, void *destination, \fBINT\fP *buf_size, \fBINT\fP async_flag)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBbm_skip_event\fP (\fBINT\fP buffer_handle)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBbm_push_event\fP (char *\fBbuffer_name\fP)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBbm_check_buffers\fP ()"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBbm_empty_buffers\fP ()"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBrpc_register_client\fP (const char *name, RPC_LIST *list)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBrpc_register_functions\fP (const RPC_LIST *new_list, \fBINT\fP(*func)(\fBINT\fP, void **))"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBrpc_set_option\fP (HNDLE hConn, \fBINT\fP item, \fBINT\fP value)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBrpc_send_event\fP (\fBINT\fP buffer_handle, void *source, \fBINT\fP buf_size, \fBINT\fP async_flag, \fBINT\fP mode)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBrpc_flush_event\fP ()"
+.br
+.ti -1c
+.RI "void \fBbk_init\fP (void *event)"
+.br
+.ti -1c
+.RI "void \fBbk_init32\fP (void *event)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBbk_size\fP (void *event)"
+.br
+.ti -1c
+.RI "void \fBbk_create\fP (void *event, const char *name, \fBWORD\fP type, void *pdata)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBbk_close\fP (void *event, void *pdata)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBbk_list\fP (void *event, char *bklist)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBbk_locate\fP (void *event, const char *name, void *pdata)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBbk_find\fP (\fBBANK_HEADER\fP *pbkh, const char *name, \fBDWORD\fP *bklen, \fBDWORD\fP *bktype, void **pdata)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBbk_iterate\fP (void *event, \fBBANK\fP **pbk, void *pdata)"
+.br
+.ti -1c
+.RI "\fBINT\fP \fBbk_swap\fP (void *event, \fBBOOL\fP force)"
+.br
+.ti -1c
+.RI "int \fBrb_set_nonblocking\fP ()"
+.br
+.ti -1c
+.RI "int \fBrb_create\fP (int size, int \fBmax_event_size\fP, int *handle)"
+.br
+.ti -1c
+.RI "int \fBrb_delete\fP (int handle)"
+.br
+.ti -1c
+.RI "int \fBrb_get_wp\fP (int handle, void **\fBp\fP, int millisec)"
+.br
+.ti -1c
+.RI "int \fBrb_increment_wp\fP (int handle, int size)"
+.br
+.ti -1c
+.RI "int \fBrb_get_rp\fP (int handle, void **\fBp\fP, int millisec)"
+.br
+.ti -1c
+.RI "int \fBrb_increment_rp\fP (int handle, int size)"
+.br
+.ti -1c
+.RI "int \fBrb_get_buffer_level\fP (int handle, int *n_bytes)"
+.br
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "static HNDLE \fB_hKeyClient\fP = 0"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+dox The main core C-code for Midas. 
+.PP
+Definition in file \fBmidas.c\fP.
+.SH "Variable Documentation"
+.PP 
+.SS "char* \fBsvn_revision\fP = '$Rev: 5256 $'"
+.PP
+Definition at line 22 of file midas.c.
+.PP
+Referenced by cm_get_revision().
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Midas from the source code.

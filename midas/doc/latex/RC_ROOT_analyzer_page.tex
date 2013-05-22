@@ -1,0 +1,168 @@
+\paragraph{HTML code for the MEG ROOT Analyzer page}\label{RC_MEG_ROOT_code}
+
+
+The following code is used for the \hyperlink{RC_ROOT_analyzer_page}{Custom Page showing ROOT analyzer output} : 
+\begin{DoxyCode}
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1"><!-- $Id:
+       analyzer.html 14662 2009-12-05 01:51:33Z ritt $ -->
+
+  
+    <title>Crates Status Page</title>
+    <style type="text/css">
+      <!--
+      a:link     {
+      text-decoration:none;
+      color:#0000A0;
+      }
+      a:visited  {
+      color:#0000A0;
+      text-decoration:none;
+      }
+      body       {
+      font-family:verdana,tahome,sans-serif;
+      font-size:16px;
+      line-height:16px;
+      margin: 2px;
+      }
+
+      #i { position:relative; }
+      #t { position:absolute; left:0px; top:140px; }
+      #b { width:130px; }
+      -->
+    </style>
+  <script type="text/javascript" src="MEG_analyzer_files/mhttpd.html"></script>
+  <script type="text/javascript">
+  
+  var image_name = [  
+    "eventdisplay2d.gif",
+    "trgrate.gif",
+    "trgsync.gif",
+    "trgdaqrate.gif",
+    "trgmonitor.gif",
+    "drscount.gif",
+    "-",
+    "xec2d.gif",
+    "xecwaveform.gif",
+    "-",
+    "dch2d.gif",
+    "dch_hitmap.gif",
+    "-",
+    "tic2d.gif",
+    "ticphit.gif",
+  ];
+
+  var image_title = [ 
+    "Event Display 2D",
+    "Trigger Scalers",
+    "Trigger Sync",
+    "Trigger Rates",
+    "Trigger Monitor",
+    "DRS Count",
+    "-",
+    "XEC 2D",
+    "XEC Waveforms",
+    "-",
+    "DCH 2D",
+    "DCH Hitmap",
+    "-",
+    "TIC 2D",
+    "TIC Hits",
+  ];
+
+  var refreshID = null;
+
+  function disp(i)
+  {
+    /* update image */
+    var image = document.getElementById('img');
+    var d = new Date();
+    var s = d.toString();
+    var t = document.getElementById('title_line');
+
+    image.src = 'monitor/'+image_name[i]+'?'+d.getTime();
+    if (navigator.appName == "Netscape")
+      t.innerHTML = '<B>'+image_title[i]+'</B>'+'&nbsp;&nbsp;'+s.slice(16, 25)+' 
+      CET';
+    else
+      t.innerHTML = '<B>'+image_title[i]+'</B>'+'&nbsp;&nbsp;'+s.slice(10, 19)+' 
+      CET'; // mainly IE
+
+    var n1 = ODBGet('/BGAnalyzer/Trigger/Statistics/Events received');
+    var n2 = ODBGet('/Equipment/Trigger/Statistics/Events sent');
+    document.getElementById('ratio').innerHTML = 'Analysis ratio: '+n1+'/'+n2;
+
+    if (refreshID != null)
+      clearInterval(refreshID);
+    refreshID = setTimeout("disp("+i+")", 10000);
+  }
+  
+  </script>
+  </head><body onload="disp(0);">
+    <form name="form1" method="GET" action="Crates">
+      <table border="3" cellpadding="2">
+        <tbody><tr>
+          <td id="title_line" colspan="2" align="center" bgcolor="#a0a0ff"><b>Eve
+      nt Display 2D</b>&nbsp;&nbsp;13:19:21  CET</td>
+        </tr>
+        <tr>
+          <td bgcolor="#c0c0c0">
+            <input name="cmd" value="ODB" type="submit">
+            <input name="cmd" value="Alarms" type="submit">
+            <input name="cmd" value="Status" type="submit">
+          </td>
+          <td id="ratio" nowrap="nowrap" width="200" align="center" bgcolor="#c0c
+      0c0">
+            Analysis ratio: 0/0
+          </td>
+        </tr>  
+        <tr>
+          <td colspan="2">
+            <div id="i">
+              <img id="img" src="MEG_analyzer_files/eventdisplay2d.html" alt="Ana
+      lyzer Screendump" border="0">
+              <table id="t">
+                <tbody><tr>
+                  <td nowrap="nowrap" valign="top" bgcolor="#c0c0c0">
+                    <hr>
+<script type="text/javascript">
+
+  for (var i=0 ; i<image_name.length ; i++)
+    if (image_name[i] == "-")
+       document.writeln("<hr>");
+    else
+       document.writeln("<button type=\"button\" id=\"b\" onclick=\"disp("+i+");\
+      ">"+image_title[i]+"</button><br>");
+
+</script><button type="button" id="b" onclick="disp(0);">Event Display 2D</button
+      ><br>
+<button type="button" id="b" onclick="disp(1);">Trigger Scalers</button><br>
+<button type="button" id="b" onclick="disp(2);">Trigger Sync</button><br>
+<button type="button" id="b" onclick="disp(3);">Trigger Rates</button><br>
+<button type="button" id="b" onclick="disp(4);">Trigger Monitor</button><br>
+<button type="button" id="b" onclick="disp(5);">DRS Count</button><br>
+<hr>
+<button type="button" id="b" onclick="disp(7);">XEC 2D</button><br>
+<button type="button" id="b" onclick="disp(8);">XEC Waveforms</button><br>
+<hr>
+<button type="button" id="b" onclick="disp(10);">DCH 2D</button><br>
+<button type="button" id="b" onclick="disp(11);">DCH Hitmap</button><br>
+<hr>
+<button type="button" id="b" onclick="disp(13);">TIC 2D</button><br>
+<button type="button" id="b" onclick="disp(14);">TIC Hits</button><br>
+
+                  </td>
+                </tr>
+              </tbody></table>
+            </div></td>
+          
+        </tr>
+      </tbody></table>
+    </form>
+  </body></html>
+\end{DoxyCode}
+
+
+\label{index_end}
+\hypertarget{index_end}{}
+  

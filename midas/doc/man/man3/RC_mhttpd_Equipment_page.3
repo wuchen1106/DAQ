@@ -1,0 +1,560 @@
+.TH "RC_mhttpd_Equipment_page" 3 "31 May 2012" "Version 2.3.0-0" "Midas" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+RC_mhttpd_Equipment_page \- Equipment page 
+ 
+.br
+.PP
+.PP
+
+.br
+
+.br
+  
+.SH "How to Display the Equipment Page"
+.PP
+The \fBEquipment\fP \fBPage\fP is displayed by clicking on one of the \fBEquipment Hyperlinks\fP on the \fBmain status page\fP. 
+.br
+ This provides a short-cut so the user may see the contents of the defined banks for that equipment \fBproviding that the data from the Equipment is being sent to the ODB\fP because either
+.PP
+.IP "\(bu" 2
+the \fBRO_ODB\fP flag or
+.IP "\(bu" 2
+the \fBHistory value\fP
+.PP
+.PP
+in the corresponding \fBEquipment List\fP is non-zero.
+.PP
+In this case, the /Equipment/<equipment-name>/Variables/ subdirectory ( where \fI '<equipment-name>' \fP is replaced with the name of the defined equipment) is filled by the associated frontend (see \fBSECTION 6: Frontend Operation\fP and \fBthe ODB /Equipment tree\fP). The data is written into array(s) with the same name(s) as the bankname(s).
+.PP
+.PP
+ The data of Equipments that do not have either of these flags set cannot be viewed in this way. Instead it can be viewed with \fBmdump\fP or an \fBanalyzer\fP.
+.PP
+ 
+.br
+ 
+.SH "Naming the Equipment data"
+.PP
+The Equipment data is \fBdisplayed on the Equipment page\fP using either the \fBdefault\fP \fBnames\fP or \fBnames assigned by the user\fP, if a \fB'Names'\fP array has been created. The following examples illustrate both cases.
+.SS "Examples of named Equipment data"
+.IP "\(bu" 2
+MIDAS format:
+.IP "  \(bu" 4
+\fBData from an Equipment with one bank using the default Names\fP
+.IP "  \(bu" 4
+\fBNamed data from an Equipment with one bank\fP
+.IP "  \(bu" 4
+\fBNamed data from an Equipment with two banks of the same length\fP
+.IP "  \(bu" 4
+\fBEvent containing two Named Banks of different sizes\fP
+.IP "  \(bu" 4
+\fBNames array Grouped for a large number of elements in a bank\fP
+.PP
+
+.IP "\(bu" 2
+FIXED format:
+.IP "  \(bu" 4
+\fBFixed-Format event with named Variables\fP
+.IP "  \(bu" 4
+\fBFixed-Format event with defined Names array\fP 
+.br
+
+.PP
+
+.PP
+.SS "Data from an Equipment with one bank using the default Names"
+ The main Status page from an experiment with two Equipments defined (\fB'TpcGasPlc'\fP and \fB'Detector'\fP) is shown below. Clicking the \fBEquipment Hyperlink\fP 'Detector' (circled in green) will show the data from /Equipment/Detector/Variables. This illustration shows how the mhttpd display combines the names of the variables in a \fBMIDAS format\fP event with the variables read out in the equipment's data bank. 
+.br
+ The 'Detector' equipment has one bank only (SCLR) which is an array of 10 data words. The 'Names' column shows the default name, which is derived from the \fBbankname\fP and the array element number , i.e. 'SCLR[0]...SCLR[9]'.
+.PP
+
+.br
+
+.br
+
+.br
+   Clicking on the 'Detector' Equipment Hyperlink shows SCLR bank contents with default Names 
+.br
+
+.br
+
+.br
+   
+.br
+
+.br
+
+.br
+.PP
+The corresponding ODB data is shown below using \fBodbedit\fP.
+.PP
+.PP
+.nf
+[local:t2kgas:S]Variables>ls /Equipment/Detector/Variables -lt
+Key name                        Type    #Val  Size  Last Opn Mode Value
+---------------------------------------------------------------------------
+SCLR                            DWORD   10    4     55m  0   RWD
+                                        [0]             3453
+                                        [1]             2701
+                                        [2]             896
+                                        [3]             4351
+                                        [4]             2051
+                                        [5]             1467
+                                        [6]             1952
+                                        [7]             4931
+                                        [8]             783
+                                        [9]             902
+.fi
+.PP
+.PP
+
+.br
+.PP
+
+.br
+.SS "Named data from an Equipment with one bank"
+It is often helpful to define an \fB individual name for each element of the databank\fP. This is done by creating an array called \fB'Names'\fP in the /Equipment/<equipment-name>/Settings/ subdirectory, with the same number of elements as the databank. This array is then filled by the user with a suitable name corresponding to each element in the databank. This procedure is shown \fBhere using the mhttpd ODB page commands\fP , or with \fBodbedit\fP below:
+.PP
+.PP
+.nf
+[local:t2kgas:S]>cd /Equipment/Detector
+[local:t2kgas:S]>mkdir Settings
+[local:t2kgas:S]Detector>cd Settings
+[local:t2kgas:S]Settings>create string Names[10]
+String length [32]:
+[local:t2kgas:S]Settings>set Names[0] LeftFront
+[local:t2kgas:S]Settings>set Names[1] LeftCentre
+[local:t2kgas:S]Settings>ls
+Names
+                                LeftFront
+                                LeftCentre
+
+
+
+
+
+
+
+
+[local:t2kgas:S]Settings>
+.fi
+.PP
+ 
+.br
+ Now when the hyperlink 'Detector' is clicked, the elements of the SCLR bank will be named using data from the \fBNames\fP array as follows: 
+.br
+.PP
+
+.br
+
+.br
+
+.br
+   Clicking on 'Detector' Equipment Hyperlink shows SCLR bank contents with defined Names 
+.br
+
+.br
+
+.br
+   
+.br
+
+.br
+
+.br
+.PP
+The complete \fBNames\fP array is shown below using \fBodbedit\fP :
+.PP
+.PP
+.nf
+[local:t2kgas:S]settings>ls -lt
+Key name                        Type    #Val  Size  Last Opn Mode Value
+---------------------------------------------------------------------------
+ Names                           STRING  10    32    22m  0   RWD
+                                        [0]             LeftFront
+                                        [1]             LeftCentre
+                                        [2]             LeftBack
+                                        [3]             RightFront
+                                        [4]             RightCentre
+                                        [5]             RightBack
+                                        [6]             MidFront
+                                        [7]             MidCentre
+                                        [8]             MidBack
+                                        [9]             Dump
+.fi
+.PP
+.PP
+
+.br
+.PP
+
+.br
+.SS "Named data from an Equipment with two banks of the same length"
+Sometimes the data consists of more than one bank that corresponds to the same list of names, i.e. both banks have the same length. In that case, the \fBNames\fP array will refer to both, e.g. 
+.br
+
+.br
+  Clicking on 'Detector' Equipment Hyperlink shows SCLR and TDCT bank contents with the same defined Names 
+.br
+
+.br
+
+.br
+   
+.br
+
+.br
+
+.br
+.PP
+The 'Detector' equipment now has two banks (SCLR and TDCT) which are both arrays of 10 data words:
+.PP
+.PP
+.nf
+[local:t2kgas:S]Variables>ls /Equipment/Detector/Variables -lt
+Key name                        Type    #Val  Size  Last Opn Mode Value
+---------------------------------------------------------------------------
+SCLR                            DWORD   10    4     55m  0   RWD
+                                        [0]             3453
+                                        [1]             2701
+                                        [2]             896
+                                        [3]             4351
+                                        [4]             2051
+                                        [5]             1467
+                                        [6]             1952
+                                        [7]             4931
+                                        [8]             783
+                                        [9]             902  
+TDCT                            FLOAT   10    4     3m   0   RWD
+                                        [0]             503
+                                        [1]             679
+                                        [2]             321
+                                        [3]             1072
+                                        [4]             760
+                                        [5]             2315
+                                        [6]             474
+                                        [7]             846
+                                        [8]             39
+                                        [9]             691
+.fi
+.PP
+.PP
+
+.br
+.PP
+
+.br
+.SS "Event containing two Named Banks of different sizes"
+If the equipment contains several banks that cannot share the same 'Names[]' array, individual 'Names' arrays can be set up for each bank. The banks then may be of different lengths. The following examples shows an equipment named 'Target' that has two named banks, SCLR and TGT_ .
+.PP
+
+.br
+
+.br
+
+.br
+   Clicking on 'Detector' Equipment Hyperlink shows SCLR and TGT_ bank contents each with defined Names 
+.br
+
+.br
+
+.br
+   
+.br
+
+.br
+
+.br
+.PP
+In this case, instead of one 'Names' array, an array has been defined for each bank of the form \fI'Names  <bankname>[<Len>]'\fP where
+.IP "\(bu" 2
+\fI<bankname>\fP is the \fBname\fP of the bank and
+.IP "\(bu" 2
+\fI<Len>\fP is the \fBlength\fP of the bank.
+.PP
+.PP
+Note that two extra hyperlinks appear on the \fB'Groups'\fP line. These Group Hyperlinks are labelled as the name of each bank, and provide a shortcut to the top of the bank, useful when the bank is very large.
+.PP
+Shown below are the contents of the arrays \fB 'Names TGT_' \fPand \fB'Names SCAL'\fP in /Equipment/target/settings: 
+.PP
+.nf
+ls /Equipment/target/settings
+Names TGT_
+                                Time
+                                Cryostat vacuum
+                                Heat Pipe pressure
+                                Target pressure
+                                Target temperature
+                                Shield temperature
+                                Diode temperature
+                                Diode current
+                                Laser intensity
+                                gas pressure
+                                gas temperature
+Names SCAL
+                                LSeg0
+                                LSeg1
+                                LSeg2
+                                LSeg3
+                                RSeg0
+                                RSeg1
+                                RSeg2
+                                RSeg3
+[local:t2kgas:S]/Equipment>
+
+.fi
+.PP
+ and the contents of /Equipment/target/variables showing the two corresponding banks \fBTGT_\fP and \fBSCAL\fP : 
+.PP
+.nf
+[local:t2kgas:S]/Equipment>ls /Equipment/target/variables
+SCAL
+                                3453
+                                2701
+                                896
+                                4351
+                                2051
+                                1467
+                                1952
+TGT_
+                                114059
+                                4.661
+                                23.16
+                                -0.498
+                                22.888
+                                82.099
+                                40
+                                14.2
+                                9.871
+                                -70.9
+
+.fi
+.PP
+.PP
+
+.br
+.PP
+
+.br
+.SS "Names array Grouped for a large number of elements in a bank"
+This example shows the main status page of an experiment which has a number of Equipments defined. The Equipment Hyperlink of the Equipment \fB'cycle_scalers'\fP ( \fBMIDAS format\fP) has been clicked. This hyperlink is circled in the following illustration. The resulting pages show the list of variables in the bank HSCL. This large bank has been divided into the groups:
+.PP
+.IP "\(bu" 2
+\fB All Back Front Scaler_B General\fP
+.PP
+.PP
+The names of the Groups appear in the Groups line of the Equipment pages. The example shows the complete bank ('All' which is the default) as well as the Groups of scalers which appears when each Group Hyperlink (circled) is pressed.
+.PP
+ 
+.br
+
+.br
+
+.br
+   Clicking on the Equipment Hyperlink 'cycle_scalers' on Status page showing 'All' scaler values, plus the defined Groups 
+.br
+
+.br
+
+.br
+   
+.br
+
+.br
+
+.br
+.PP
+
+.br
+.PP
+The illustration above shows how the mhttpd display combines the names of the variables in a \fBMIDAS format\fP event with the variables read out in the Equipment's databank. The \fB'cycle_scalers'\fP equipment has been set up in the ODB so that the scaler names are listed under the array \fB'Names'\fP in /Equipment/Cycle_Scalers/Settings. Since there are a great many scalers in this one bank, they have been divided into the groups 'Back' 'Front' 'ScalerB' and 'General' in the \fBNames\fP array using a \fI'<group>%'\fP construct as shown below:
+.PP
+.PP
+.nf
+[local:bnmr:S]>cd /Equipment/Cycle_Scalers/Settings
+[local:bnmr:S]Settings>ls
+Names
+                                Back%BSeg00
+                                Back%BSeg01
+                                Back%BSeg02
+                                Back%BSeg03
+                                Back%BSeg04
+                                Back%BSeg05
+                                Back%BSeg06
+                                Back%BSeg07
+                                Back%BSeg08
+                                Back%BSeg09
+                                Back%BSeg10
+                                Back%BSeg11
+                                Back%BSeg12
+                                Back%BSeg13
+                                Back%BSeg14
+                                Back%BSeg15
+                                Front%FSeg00
+                                Front%FSeg01
+                                Front%FSeg02
+                                Front%FSeg03
+                                Front%FSeg04
+                                Front%FSeg05
+                                Front%FSeg06
+                                Front%FSeg07
+                                Front%FSeg08
+                                Front%FSeg09
+                                Front%FSeg10
+                                Front%FSeg11
+                                Front%FSeg12
+                                Front%FSeg13
+                                Front%FSeg14
+                                Front%FSeg15
+                                Scaler_B%SIS Ref pulse
+                                Scaler_B%Fluor. mon 2
+                                Scaler_B%Polariz Left
+                                Scaler_B%Polariz Right
+                                Scaler_B%Neutral Beam B1
+                                Scaler_B%Neutral Beam B2
+                                Scaler_B%Neutral Beam B3
+                                Scaler_B%Neutral Beam B4
+                                Scaler_B%Neutral Beam F1
+                                Scaler_B%Neutral Beam F2
+                                Scaler_B%Neutral Beam F3
+                                Scaler_B%Neutral Beam F4
+                                General%Back Userbit=0
+                                General%Back Userbit=1
+                                General%Back Userbit=2
+                                General%Back Userbit=3
+                                General%Front Userbit=0
+                                General%Front Userbit=1
+                                General%Front Userbit=2
+                                General%Front Userbit=3
+                                General%Back Cycle Sum
+                                General%Front Cycle Sum
+                                General%B/F Cycle
+                                General%Asym Cycle
+                                General%Pol Cycle Sum
+                                General%Pol Cycle Asym
+                                General%NeutBm Cycle Sum
+                                General%NeutBm Cycle Asym
+[local:bnmr:S]Settings> 
+.fi
+.PP
+.PP
+
+.br
+.PP
+
+.br
+.SS "Fixed-Format event with named Variables"
+An example of a \fBFIXED format\fP event is shown below. The equipment \fB'Info ODB'\fP is defined as FIXED-format. The variables are of different types, so cannot be output as a MIDAS event. In this example, there is no information listed in the subdirectory Settings for this equipment. The name of each element is listed in the 'Variables' subtree. The Settings subtree is not defined.
+.PP
+
+.br
+
+.br
+
+.br
+   Clicking on the 'Info ODB' Equipment Hyperlink on Status page showing the FIXED format event 
+.br
+
+.br
+
+.br
+   
+.br
+
+.br
+
+.br
+.PP
+.PP
+.nf
+[local:bnmr:S]Settings>ls '/Equipment/Info ODB/'
+Common
+Statistics
+Variables
+.fi
+.PP
+.PP
+The names of the variables for this FIXED-format event are in the /Equipment/Info ODB/Variables subtree, i.e.
+.PP
+.PP
+.nf
+[local:bnmr:S]>ls -lt '/Equipment/Info ODB/Variables'
+Key name                        Type    #Val  Size  Last Opn Mode Value
+---------------------------------------------------------------------------
+helicity                        DWORD   1     4     8h   0   RWD  0
+current cycle                   DWORD   1     4     8h   0   RWD  710
+cancelled cycle                 DWORD   1     4     8h   0   RWD  9
+current scan                    DWORD   1     4     8h   0   RWD  13
+Ref HelUp thr                   DOUBLE  1     8     8h   0   RWD  6626873
+Ref HelDown thr                 DOUBLE  1     8     8h   0   RWD  6626873
+Current HelUp thr               DOUBLE  1     8     8h   0   RWD  6659381
+Current HelDown thr             DOUBLE  1     8     8h   0   RWD  75
+Prev HelUp thr                  DOUBLE  1     8     8h   0   RWD  6652944
+Prev HelDown thr                DOUBLE  1     8     8h   0   RWD  133
+RF state                        DWORD   1     4     8h   0   RWD  0
+Fluor monitor counts            DWORD   1     4     8h   0   RWD  0
+EpicsDev Set(V)                 FLOAT   1     4     8h   0   RWD  0
+EpicsDev Read(V)                FLOAT   1     4     8h   0   RWD  0
+Campdev set                     FLOAT   1     4     8h   0   RWD  0
+Campdev read                    FLOAT   1     4     8h   0   RWD  0
+Laser Power(V)                  FLOAT   1     4     8h   0   RWD  0
+last failed thr test            DWORD   1     4     8h   0   RWD  0
+cycle when last failed thr      DWORD   1     4     8h   0   RWD  710
+last good hel                   DWORD   1     4     8h   0   RWD  1
+ncycle sk tol                   DWORD   1     4     8h   0   RWD  2
+hel_read                        DWORD   1     4     8h   0   RWD  9
+[local:bnmr:S]>  
+.fi
+.PP
+.SS "Fixed-Format event with defined Names array"
+Alternatively, if the FIXED format event consists of an array , a 'Names' array can be defined in the same way as for the MIDAS event. In this case, each element of the array under 'Variables' will be referenced using the equivalent elements of the 'Settings/Names' array, as shown in the following example: 
+.br
+
+.br
+
+.br
+   FIXED format event with a 'Names' array defined 
+.br
+
+.br
+
+.br
+   
+.br
+
+.br
+
+.br
+.PP
+This event is defined as follows:
+.PP
+.PP
+.nf
+[local:t2kgas:S]/>cd /Equipment/parameters
+
+[local:t2kgas:S]/parameters>ls  -rlt
+    ...............
+    Variables                   DIR
+        IODB                    STRING  5     32    26m  0   RWD
+                                        [0]             123352
+                                        [1]             pulse
+                                        [2]             43.21
+                                        [3]             DRT_9
+                                        [4]             0.321
+    settings                    DIR
+        Names                   STRING  5     32    10m  0   RWD
+                                        [0]             Rejected
+                                        [1]             Type
+                                        [2]             LTX Voltage
+                                        [3]             Trig type
+                                        [4]             PXV Current
+.fi
+.PP
+ 
+.br
+.PP
+.PP
+
+.br
+  

@@ -1,0 +1,358 @@
+.TH "FE_Event_Builder" 3 "31 May 2012" "Version 2.3.0-0" "Midas" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+FE_Event_Builder \- Event Builder Functions 
+
+.br
+ 
+.PP
+
+.br
+  
+.PP
+.PP
+ 
+.SH "mevb - event builder utility"
+.PP
+\fBmevb\fP is an event builder application which takes the MIDAS data output from several frontends, and assembling them into a new overall MIDAS event. Two types of event builder can be envisaged:
+.IP "\(bu" 2
+Asynchronized data collection
+.IP "  \(bu" 4
+Synchronized data collection In the case where overall data collection is handled by multiple physically separated frontends, it could be necessary to assemble these data fragments into a dedicated event. The synchonization of the fragment collection is left to the user, which is done usually through a specific hardware mechanism. Once the fragments are composed in each frontend, they are sent to the 'Event Builder' (eb) where the serial number (pheader->serial_number) of each fragment is compared one event at a time for serial match. In case of a match, a new event will be composed with its own event ID and serial number, followed by all the expected event fragments. The composed event is then sent to the next stage which is usually the data logger (mlogger).
+.PP
+
+.PP
+.PP
+The \fBThe mhttpd daemon\fP will present the status of the event builder as an extra equipment with its corresponding statistical information.
+.PP
+.IP "\(bu" 2
+\fB Arguments \fP
+.IP "  \(bu" 4
+[-h ] : help
+.IP "  \(bu" 4
+[-h hostname ] : host name
+.IP "  \(bu" 4
+[-e exptname ] : experiment name
+.IP "  \(bu" 4
+[-i index ] : equipment index identification
+.IP "  \(bu" 4
+[-b buffer_name ] : Buffer name
+.IP "  \(bu" 4
+[-v ] : Show wheel
+.IP "  \(bu" 4
+[-d ] : debug messages
+.IP "  \(bu" 4
+[-D ] : start program as a daemon
+.PP
+
+.IP "\(bu" 2
+\fB Usage \fP 
+.PP
+.nf
+  Thu> mevb -e midas
+  Program mevb/EBuilder version 2 started
+
+.fi
+.PP
+
+.PP
+.PP
+
+.br
+.PP
+
+.br
+ 
+.SH "Introduction to Event building in MIDAS"
+.PP
+MIDAS supports event building through a dedicated \fBmevb - event builder utility\fP application. Similar to the \fBfrontend - MIDAS Frontend application\fP, the \fBmevb\fP application requires the definition of an equipment structure which describes its mode of operation. 
+.br
+The set of parameter for this equipment is limited to:
+.IP "\(bu" 2
+Equipment name (appears in the Equipment list).
+.IP "\(bu" 2
+Equipment type (should be 0).
+.IP "\(bu" 2
+Destination buffer name (SYSTEM if destination event goes to logger).
+.IP "\(bu" 2
+Event ID and Trigger mask for the build event (destination event ID).
+.IP "\(bu" 2
+Data format (should match the source data format).
+.PP
+.PP
+Based on the given buffer name provided at the startup time through the \fI -b buffer_name \fP argument, the \fBmevb task\fP, will scan all the equipments and handle the building of an event based on the identical buffer name found in the equipment list \fB if the frontend equipment type includes the \fBEQ_EB\fP flag \fP.
+.PP
+that the 'event fragments' used by the event builder are not to be confused with the \fBfragmented event\fP mechanism.
+.PP
+ 
+.SH "Principle of the Event Builder and related frontend fragment"
+.PP
+It is possible that in case of multiple frontends, the same 'fragment' code may run in the different hardware frontends. In order to prevent having to build nFragment different frontend tasks, the \fB '-i index' \fP argument given when starting the \fBfrontends\fP will replicate the same application image with the necessary dynamic modification required for the proper Event Building operation.
+.PP
+The index can be passed to the frontend application either by this argument, or by environment variable. \fBMIDAS_FRONTEND_INDEX\fP.
+.PP
+The '-i index' argument will provide the index to be appended to the minimal set of \fBparameters\fP to distinguish the different frontends. These \fBparameters\fP are:
+.IP "\(bu" 2
+\fBfrontend_name\fP : Name of the frontend application.
+.IP "\(bu" 2
+\fBequipment\fP \fBname\fP : Name of the equipment (from the Equipment structure).
+.IP "\(bu" 2
+\fBevent\fP \fBbuffer:\fP Name of the destination buffer (from the Equipment structure).
+.PP
+.PP
+To allow either synchronized fragment collection or asynchronized gathering of the fragments, the composition of the 'event buffer' and 'equipment name' require to have the index format part of the equipment definition in the case of the synchronized fragment event builder. 
+.PP
+Frontend code for asynchronized fragment collection in the event builder, Event buffer remains the same for all the fragments: 
+.PP
+.nf
+  /* The frontend name (client name) as seen by other MIDAS clients   */
+  char *frontend_name = 'ebfe';
+  ...
+   EQUIPMENT equipment[] = {
+
+      {'Trigger%02d',              /* equipment name */
+       1, TRIGGER_ALL,         /* event ID, trigger mask */
+       'BUFFER',                  /* event buffer */
+       EQ_POLLED | EQ_EB,       /* equipment type + EQ_EB flag <<<<<< */
+       LAM_SOURCE(0, 0xFFFFFF), /* event source crate 0, all stations */
+       'MIDAS',                 /* format */
+
+.fi
+.PP
+ 
+.PP
+Frontend code for synchronized fragment collection in the event buider: 
+.PP
+.nf
+  /* The frontend name (client name) as seen by other MIDAS clients   */
+  char *frontend_name = 'ebfe';
+  ...
+   EQUIPMENT equipment[] = {
+
+      {'Trigger%02d',              /* equipment name */
+       1, TRIGGER_ALL,         /* event ID, trigger mask */
+       'BUF%02d',                  /* event buffer */
+       EQ_POLLED | EQ_EB,       /* equipment type + EQ_EB flag <<<<<< */
+       LAM_SOURCE(0, 0xFFFFFF), /* event source crate 0, all stations */
+       'MIDAS',                 /* format */
+
+.fi
+.PP
+.PP
+Once the frontend is started with \fI -i 1 \fP, the MIDAS client name, equipment name and buffer name will be modified (case of the synchronized event builder).
+.PP
+.PP
+.nf
+> ebfe -i 1 -D
+...
+odbedit
+[local:midas:S]/Equipment>ls
+Trigger01
+[local:midas:S]Trigger01>ls -lr
+Key name                        Type    #Val  Size  Last Opn Mode Value
+---------------------------------------------------------------------------
+Trigger01                       DIR
+    Common                      DIR
+        Event ID                WORD    1     2     18h  0   RWD  1
+        Trigger mask            WORD    1     2     18h  0   RWD  65535
+        Buffer                  STRING  1     32    18h  0   RWD  BUF01
+        Type                    INT     1     4     18h  0   RWD  66
+        Source                  INT     1     4     18h  0   RWD  16777215
+        Format                  STRING  1     8     18h  0   RWD  MIDAS
+        Enabled                 BOOL    1     4     18h  0   RWD  y
+        Read on                 INT     1     4     18h  0   RWD  257
+        Period                  INT     1     4     18h  0   RWD  500
+        Event limit             DOUBLE  1     8     18h  0   RWD  0
+        Num subevents           DWORD   1     4     18h  0   RWD  0
+        Log history             INT     1     4     18h  0   RWD  0
+        Frontend host           STRING  1     32    18h  0   RWD  hostname
+        Frontend name           STRING  1     32    18h  0   RWD  ebfe01
+        Frontend file name      STRING  1     256   18h  0   RWD  .../eventbuilder/ebfe.c
+...
+.fi
+.PP
+.PP
+Independently of the event ID, each fragment frontend will send its data to the composed event buffer (BUFxx). The event builder task will make up a list of all the equipment belonging to the same event buffer name (BUFxx). If multiple equipments exists in the same frontend, the equipment type (EQ_EB) and the event buffer name will distinguish them.
+.PP
+ The Event Builder flowchart below shows a general picture of the event process cycle of the task. The Event Builder runs in polling mode over all the source buffers collected at the begin of run procedure. Once a fragment has been received from all enabled source ('../Settings/Fragment Required y'), an internal event serial number check is performed prior passing all the fragment to the user code. Content of each fragment can be done within the user code for further consistency check.
+.PP
+ Event Builder Flowchart.  
+.PP
+.PP
+.PP
+ 
+.SH "The ODB Event Builder Tree"
+.PP
+\fBTodo\fP
+.RS 4
+Event Builder tree - there are two versions that need combining !!
+.RE
+.PP
+The Event Builder tree is created by \fBmevb - event builder utility\fP and is placed in the Equipment list.
+.PP
+.PP
+.nf
+Key name                        Type    #Val  Size  Last Opn Mode Value
+---------------------------------------------------------------------------
+EBuilder                        DIR
+    Settings                    DIR
+        Event ID                WORD    1     2     65h  0   RWD  1
+        Trigger mask            WORD    1     2     65h  0   RWD  1
+        Buffer                  STRING  1     32    65h  0   RWD  SYSTEM
+        Format                  STRING  1     32    65h  0   RWD  MIDAS
+        Event mask              DWORD   1     4     65h  0   RWD  3
+        hostname                STRING  1     64    3h   0   RWD  myhost
+    Statistics                  DIR
+        Events sent             DOUBLE  1     8     3h   0   RWD  653423
+        Events per sec.         DOUBLE  1     8     3h   0   RWD  1779.17
+        kBytes per sec.         DOUBLE  1     8     3h   0   RWD  0
+    Channels                    DIR
+        Frag1                   DIR
+            Settings            DIR
+                Event ID        WORD    1     2     65h  0   RWD  1
+                Trigger mask    WORD    1     2     65h  0   RWD  65535
+                Buffer          STRING  1     32    65h  0   RWD  BUF1
+                Format          STRING  1     32    65h  0   RWD  MIDAS
+                Event mask      DWORD   1     4     65h  0   RWD  1
+            Statistics          DIR
+                Events sent     DOUBLE  1     8     3h   0   RWD  653423
+                Events per sec. DOUBLE  1     8     3h   0   RWD  1779.17
+                kBytes per sec. DOUBLE  1     8     3h   0   RWD  0
+        Frag2                   DIR
+            Settings            DIR
+                Event ID        WORD    1     2     65h  0   RWD  5
+                Trigger mask    WORD    1     2     65h  0   RWD  65535
+                Buffer          STRING  1     32    65h  0   RWD  BUF2
+                Format          STRING  1     32    65h  0   RWD  MIDAS
+                Event mask      DWORD   1     4     65h  0   RWD  2
+            Statistics          DIR
+                Events sent     DOUBLE  1     8     3h   0   RWD  653423
+                Events per sec. DOUBLE  1     8     3h   0   RWD  1779.17
+                kBytes per sec. DOUBLE  1     8     3h   0   RWD  0
+.fi
+.PP
+.SH "Event builder ODB Tree (version 2)"
+.PP
+\fBTodo\fP
+.RS 4
+Is the tree /EB or /EBuilder as above ??
+.RE
+.PP
+The Event builder tree will be created under the Equipment list and will appear as a standard equipment. The sub tree \fI/Common\fP will contains the specific setting of the equipment while the \fI/Variables\fP will remain empty. \fI/Settings\fP will have particular parameter for the Event Builder itself. The \fB User Field \fP is an ASCII string passed from the ODB to the \fBeb_begin_of_run()\fP which can be used for steering the event builder.
+.PP
+.PP
+.nf
+[local:midas:S]EB>ls -lr
+Key name                        Type    #Val  Size  Last Opn Mode Value
+---------------------------------------------------------------------------
+EB                              DIR
+    Common                      DIR
+        Event ID                WORD    1     2     5m   0   RWD  1
+        Trigger mask            WORD    1     2     5m   0   RWD  0
+        Buffer                  STRING  1     32    5m   0   RWD  SYSTEM
+        Type                    INT     1     4     5m   0   RWD  0
+        Source                  INT     1     4     5m   0   RWD  0
+        Format                  STRING  1     8     5m   0   RWD  MIDAS
+        Enabled                 BOOL    1     4     5m   0   RWD  y
+        Read on                 INT     1     4     5m   0   RWD  0
+        Period                  INT     1     4     5m   0   RWD  0
+        Event limit             DOUBLE  1     8     5m   0   RWD  0
+        Num subevents           DWORD   1     4     5m   0   RWD  0
+        Log history             INT     1     4     5m   0   RWD  0
+        Frontend host           STRING  1     32    5m   0   RWD  hostname
+        Frontend name           STRING  1     32    5m   0   RWD  Ebuilder
+        Frontend file name      STRING  1     256   5m   0   RWD  c:\...\ebuser.c
+    Variables                   DIR
+    Statistics                  DIR
+        Events sent             DOUBLE  1     8     3s   0   RWDE 944
+        Events per sec.         DOUBLE  1     8     3s   0   RWDE 0
+        kBytes per sec.         DOUBLE  1     8     3s   0   RWDE 0
+    Settings                    DIR
+        Number of Fragment      INT     1     4     9s   0   RWD  2
+        User build              BOOL    1     4     9s   0   RWD  n
+        User Field              STRING  1     64    9s   0   RWD  100
+        Fragment Required       BOOL    2     4     9s   0   RWD
+                                        [0]             y
+                                        [1]             y
+.fi
+.PP
+.SH "Event Builder Operation"
+.PP
+Using the 'eb>' as the current working directory (cwd) for the example, the test procedure is the following: cwd : midas/examples/eventbuilder -> referred to as eb>
+.PP
+.IP "\(bu" 2
+Build the mevb task: 
+.PP
+.nf
+eb> setenv MIDASSYS /home/midas/midas-1.9.5
+eb> make
+cc  -g -I/usr/local/include -I../../drivers -DOS_LINUX -Dextname -c ebuser.c
+cc  -g -I/usr/local/include -I../../drivers -DOS_LINUX -Dextname -o mevb mevb.c \
+          ebuser.o /usr/local/lib/libmidas.a  -lm -lz -lutil -lnsl
+cc  -g -I/usr/local/include -I../../drivers -DOS_LINUX -Dextname \
+          -c ../../drivers/bus/camacnul.c
+cc  -g -I/usr/local/include -I../../drivers -DOS_LINUX -Dextname -o ebfe \
+        ebfe.c camacnul.o /usr/local/lib/mfe.o /usr/local/lib/libmidas.a \
+        -lm -lz -lutil -lnsl
+eb>
+
+.fi
+.PP
+
+.IP "\(bu" 2
+Start the following 4 applications in 4 differents windows connecting to a defined experiment. -- If no experiment defined yet, set the environment variable MIDAS_DIR to your current directory before spawning the windows. 
+.PP
+.nf
+xterm1: eb> ebfe -i 1 
+xterm2: eb> ebfe -i 2 
+xterm3: eb> mevb -b BUF
+xterm4: eb> odbedit
+
+[local:Default:S]/>ls
+System                          
+Programs                        
+Experiment                      
+Logger                          
+Runinfo                         
+Alarms                          
+Equipment                       
+[local:Default:S]/>scl
+N[local:midas:S]EB>scl
+Name                Host
+ebfe01              hostname
+ebfe02              hostname
+ODBEdit             hostname
+Ebuilder            hostname
+[local:Default:S]/>
+[local:Default:S]/>start now
+Starting run #2
+
+.fi
+.PP
+
+.PP
+.PP
+.IP "\(bu" 2
+The xterm3 (mevb) should display something equivalent to the following, as the print statements are coming from the ebuser code.
+.PP
+.PP
+\fBTodo\fP
+.RS 4
+This eb example 1 is missing!!
+.RE
+.PP
+- The same procedure can be repeated with the fe1 and fe2 started on remote nodes.
+.PP
+\fBTodo\fP
+.RS 4
+This eb example 2 is missing!!
+.RE
+.PP
+
+.br
+ 
+.PP
+
+.br
+  

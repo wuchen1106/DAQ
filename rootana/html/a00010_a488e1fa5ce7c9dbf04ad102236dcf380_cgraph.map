@@ -1,0 +1,22 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$a00019.html#ad44b6f5729763e2c82528f74b092c7c9" title="TDirectory::cd" alt="" coords="403,5,520,35"/>
+<area shape="rect" id="node5" href="$a00019.html#af65d6b86aa0f57f7ab7cc8fc60c6558a" title="TDirectory::Get" alt="" coords="397,59,525,88"/>
+<area shape="rect" id="node7" href="$a00018.html#aa6de2d6e46114305c1c6f58c31004e68" title="Get the channel number." alt="" coords="344,112,579,141"/>
+<area shape="rect" id="node9" href="$a00038.html#ab3c9be09f6e0a6e64f68fc88400b697f" title="Current Run Number." alt="" coords="299,165,624,195"/>
+<area shape="rect" id="node11" href="$a00015.html#ac2d58ceff032ecbd7dab209301034eb1" title="Add a templated function that returns event data in the format that we want." alt="" coords="341,269,581,299"/>
+<area shape="rect" id="node17" href="$a00015.html#a4d07e5a76a135df4f3368c82cc549c09" title="Get the MIDAS data for this event, in TMidasEvent format." alt="" coords="683,244,920,273"/>
+<area shape="rect" id="node19" href="$a00018.html#accf1f33f1ff010b905222f214e54009d" title="Get the TDC measurement." alt="" coords="323,323,600,352"/>
+<area shape="rect" id="node21" href="$a00041.html#a2d23482e90e5902e6880513b2fa891d4" title="Get the Vector of TDC Measurements." alt="" coords="340,376,583,405"/>
+<area shape="rect" id="node24" href="$a00018.html#a4e86d88b1b248e8f9dfadebba2700b99" title="Get the TDC number." alt="" coords="329,483,593,512"/>
+<area shape="rect" id="node30" href="$a00030.html#a9ca976221e70917aebfd50e23b274c8d" title="TMidasEvent::LocateBank" alt="" coords="361,429,561,459"/>
+<area shape="rect" id="node33" href="$a00042.html#acedcda485d1ef95c64d700f49d42994e" title="Print the bank contents in a structured way." alt="" coords="392,616,531,645"/>
+<area shape="rect" id="node13" href="$a00030.html#ab43ecd65b499093aa9a388c6bd1ae902" title="TMidasEvent::FindBank" alt="" coords="712,336,891,365"/>
+<area shape="rect" id="node15" href="$a00030.html#a31219788e979aa3485cbf2e98dccd848" title="iterate through 32&#45;bit data banks" alt="" coords="980,336,1196,365"/>
+<area shape="rect" id="node26" href="$a00018.html#ac9b4414ff8b5464ed5a6c0d8dd309617" title="Check if measurement has a TDC header." alt="" coords="672,429,931,459"/>
+<area shape="rect" id="node28" href="$a00018.html#a9f76ffdd8233116e526f01d6f6f7dd7d" title="Check if measurement has a TDC trailer." alt="" coords="677,483,925,512"/>
+<area shape="rect" id="node35" href="$a00042.html#a16a214efb3a723744f2425b05a5fc46e" title="Get the crate number." alt="" coords="716,536,887,565"/>
+<area shape="rect" id="node37" href="$a00042.html#ac0714849431b7a3eef36db455383e955" title="Get the event counter." alt="" coords="687,589,916,619"/>
+<area shape="rect" id="node39" href="$a00042.html#aa5fd9f16e0903c7f79a2ec98ec21f0e5" title="Get GEO address." alt="" coords="695,643,908,672"/>
+<area shape="rect" id="node41" href="$a00021.html#a66b4bb4135957c849d2989db6d1f0479" title="TGenericData::GetName" alt="" coords="705,696,897,725"/>
+<area shape="rect" id="node43" href="$a00042.html#ad5884beacf6a0e8470108d680612b6b2" title="Get the number of converted channels." alt="" coords="679,749,924,779"/>
+</map>

@@ -1,0 +1,10 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$a00024.html#a10a03feae76f7aaeafeb4f37bc215ecd" title="TMainDisplayWindow::GetEmbeddedCanvas" alt="" coords="431,72,745,101"/>
+<area shape="rect" id="node5" href="$a00024.html#a066c58937caaa0750de7feccf849658d" title="Get a particular canvas based on index number." alt="" coords="808,32,1051,61"/>
+<area shape="rect" id="node9" href="$a00037.html#adb28b4bea380c50a1bba7a03266e606a" title="TRootanaDisplay::UpdatePlotsAction" alt="" coords="795,112,1064,141"/>
+<area shape="rect" id="node7" href="$a00010.html#a7f9cffc4523e24eafe5afd8bc496c405" title="This method can be implemented by users to plotting of current canvas." alt="" coords="1155,5,1344,35"/>
+<area shape="rect" id="node11" href="$a00037.html#a59288bcf3bd2f6bcb8c7d2ee2db85b43" title="TRootanaDisplay::BeginRun" alt="" coords="1147,59,1352,88"/>
+<area shape="rect" id="node13" href="$a00037.html#a23f4d591f375d3415e48f46f648e130d" title="TRootanaDisplay::EndRun" alt="" coords="1153,112,1345,141"/>
+<area shape="rect" id="node15" href="$a00037.html#a85792355354ecf3a141b293e902de217" title="Process each midas event." alt="" coords="1112,165,1387,195"/>
+<area shape="rect" id="node17" href="$a00037.html#ae790ba3e2b2132743846f0f191bf4d18" title="TRootanaDisplay::Reset" alt="" coords="1157,219,1341,248"/>
+</map>

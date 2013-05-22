@@ -1,0 +1,140 @@
+\subsection{Buffer Section}
+\label{group__mbufferh}\index{Buffer Section@{Buffer Section}}
+\subsubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structEVENT__HEADER}{EVENT\_\-HEADER}
+\item 
+struct \hyperlink{structEVENT__REQUEST}{EVENT\_\-REQUEST}
+\item 
+struct \hyperlink{structBUFFER__CLIENT}{BUFFER\_\-CLIENT}
+\item 
+struct \hyperlink{structBUFFER__HEADER}{BUFFER\_\-HEADER}
+\item 
+struct \hyperlink{structBUFFER}{BUFFER}
+\item 
+struct \hyperlink{structKEY}{KEY}
+\item 
+struct \hyperlink{structKEYLIST}{KEYLIST}
+\end{DoxyCompactItemize}
+\subsubsection*{Defines}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{group__mbufferh_ga6a0d6be5b8aad5a907d5b880bae93eb9}{TRIGGER\_\-MASK}(e)~((((\hyperlink{structEVENT__HEADER}{EVENT\_\-HEADER} $\ast$) e)-\/1)-\/$>$trigger\_\-mask)
+\item 
+\#define \hyperlink{group__mbufferh_gaf42c9a1ac33cf459bfd366673f6a4d70}{EVENT\_\-ID}(e)~((((\hyperlink{structEVENT__HEADER}{EVENT\_\-HEADER} $\ast$) e)-\/1)-\/$>$event\_\-id)
+\item 
+\#define \hyperlink{group__mbufferh_gadbb75a9d81e264e357bc5fc73dd4ebb8}{SERIAL\_\-NUMBER}(e)~((((\hyperlink{structEVENT__HEADER}{EVENT\_\-HEADER} $\ast$) e)-\/1)-\/$>$serial\_\-number)
+\item 
+\#define \hyperlink{group__mbufferh_gae8d2f03c283637c81cdcfd3fda065d53}{TIME\_\-STAMP}(e)~((((\hyperlink{structEVENT__HEADER}{EVENT\_\-HEADER} $\ast$) e)-\/1)-\/$>$time\_\-stamp)
+\item 
+\#define \hyperlink{group__mbufferh_ga5327bc310729f5ec36b917ed13e6ff66}{DATA\_\-SIZE}(e)~((((\hyperlink{structEVENT__HEADER}{EVENT\_\-HEADER} $\ast$) e)-\/1)-\/$>$data\_\-size)
+\item 
+\#define \hyperlink{group__mbufferh_gaea58a47233f988dd2f9a0320d99734dc}{EVENTID\_\-BOR}~((short int) 0x8000)
+\item 
+\#define \hyperlink{group__mbufferh_ga8f46d90b4c90a2387685d422625c654f}{EVENTID\_\-EOR}~((short int) 0x8001)
+\item 
+\#define \hyperlink{group__mbufferh_ga7fefe6ad78331e8cfb3d2b31dbfdd2d0}{EVENTID\_\-MESSAGE}~((short int) 0x8002)
+\item 
+\#define \hyperlink{group__mbufferh_gaae07538917933e32355933ac1e2e3d60}{EVENTID\_\-FRAG1}~((unsigned short) 0xC000)
+\item 
+\#define \hyperlink{group__mbufferh_ga028a14f85456b68bf2babd1bdcaa1abb}{MIDAS\_\-MAGIC}~0x494d
+\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+dox 
+
+\subsubsection{Define Documentation}
+\index{mbufferh@{mbufferh}!DATA\_\-SIZE@{DATA\_\-SIZE}}
+\index{DATA\_\-SIZE@{DATA\_\-SIZE}!mbufferh@{mbufferh}}
+\paragraph[{DATA\_\-SIZE}]{\setlength{\rightskip}{0pt plus 5cm}\#define DATA\_\-SIZE(e)~(((({\bf EVENT\_\-HEADER} $\ast$) e)-\/1)-\/$>$data\_\-size)}\hfill\label{group__mbufferh_ga5327bc310729f5ec36b917ed13e6ff66}
+DATA\_\-SIZE Extract or set/reset the data size field pointed by the argument. 
+\begin{DoxyParams}{Parameters}
+\item[{\em e}]pointer to the midas event (pevent) \end{DoxyParams}
+
+
+Definition at line 823 of file midas.h.\index{mbufferh@{mbufferh}!EVENT\_\-ID@{EVENT\_\-ID}}
+\index{EVENT\_\-ID@{EVENT\_\-ID}!mbufferh@{mbufferh}}
+\paragraph[{EVENT\_\-ID}]{\setlength{\rightskip}{0pt plus 5cm}\#define EVENT\_\-ID(e)~(((({\bf EVENT\_\-HEADER} $\ast$) e)-\/1)-\/$>$event\_\-id)}\hfill\label{group__mbufferh_gaf42c9a1ac33cf459bfd366673f6a4d70}
+EVENT\_\-ID Extract or set the event ID field pointed by the argument.. 
+\begin{DoxyParams}{Parameters}
+\item[{\em e}]pointer to the midas event (pevent) \end{DoxyParams}
+
+
+Definition at line 802 of file midas.h.
+
+Referenced by cd\_\-hv\_\-read().\index{mbufferh@{mbufferh}!EVENT\_\-SOURCE@{EVENT\_\-SOURCE}}
+\index{EVENT\_\-SOURCE@{EVENT\_\-SOURCE}!mbufferh@{mbufferh}}
+\paragraph[{EVENT\_\-SOURCE}]{\setlength{\rightskip}{0pt plus 5cm}\#define EVENT\_\-SOURCE(e, \/  o)~($\ast$ ({\bf INT}$\ast$) (e+o))}\hfill\label{group__mbufferh_gaeb8c16d5c488c75a83c59bee146461ad}
+
+
+Definition at line 825 of file midas.h.\index{mbufferh@{mbufferh}!EVENTID\_\-BOR@{EVENTID\_\-BOR}}
+\index{EVENTID\_\-BOR@{EVENTID\_\-BOR}!mbufferh@{mbufferh}}
+\paragraph[{EVENTID\_\-BOR}]{\setlength{\rightskip}{0pt plus 5cm}\#define EVENTID\_\-BOR~((short int) 0x8000)}\hfill\label{group__mbufferh_gaea58a47233f988dd2f9a0320d99734dc}
+system event IDs Begin-\/of-\/run 
+
+Definition at line 829 of file midas.h.
+
+Referenced by md\_\-bank\_\-event\_\-display(), and md\_\-event\_\-swap().\index{mbufferh@{mbufferh}!EVENTID\_\-EOR@{EVENTID\_\-EOR}}
+\index{EVENTID\_\-EOR@{EVENTID\_\-EOR}!mbufferh@{mbufferh}}
+\paragraph[{EVENTID\_\-EOR}]{\setlength{\rightskip}{0pt plus 5cm}\#define EVENTID\_\-EOR~((short int) 0x8001)}\hfill\label{group__mbufferh_ga8f46d90b4c90a2387685d422625c654f}
+End-\/of-\/run 
+
+Definition at line 830 of file midas.h.
+
+Referenced by md\_\-bank\_\-event\_\-display(), and md\_\-event\_\-swap().\index{mbufferh@{mbufferh}!EVENTID\_\-FRAG@{EVENTID\_\-FRAG}}
+\index{EVENTID\_\-FRAG@{EVENTID\_\-FRAG}!mbufferh@{mbufferh}}
+\paragraph[{EVENTID\_\-FRAG}]{\setlength{\rightskip}{0pt plus 5cm}\#define EVENTID\_\-FRAG~((unsigned short) 0xD000)}\hfill\label{group__mbufferh_ga4fb6de5cc7e1f2da82266094a02d0ff7}
+
+
+Definition at line 836 of file midas.h.
+
+Referenced by bm\_\-dispatch\_\-event(), bm\_\-match\_\-event(), check\_\-polled\_\-events(), scheduler(), and send\_\-event().\index{mbufferh@{mbufferh}!EVENTID\_\-FRAG1@{EVENTID\_\-FRAG1}}
+\index{EVENTID\_\-FRAG1@{EVENTID\_\-FRAG1}!mbufferh@{mbufferh}}
+\paragraph[{EVENTID\_\-FRAG1}]{\setlength{\rightskip}{0pt plus 5cm}\#define EVENTID\_\-FRAG1~((unsigned short) 0xC000)}\hfill\label{group__mbufferh_gaae07538917933e32355933ac1e2e3d60}
+fragmented events 
+
+Definition at line 835 of file midas.h.
+
+Referenced by bm\_\-dispatch\_\-event(), bm\_\-match\_\-event(), check\_\-polled\_\-events(), scheduler(), and send\_\-event().\index{mbufferh@{mbufferh}!EVENTID\_\-MESSAGE@{EVENTID\_\-MESSAGE}}
+\index{EVENTID\_\-MESSAGE@{EVENTID\_\-MESSAGE}!mbufferh@{mbufferh}}
+\paragraph[{EVENTID\_\-MESSAGE}]{\setlength{\rightskip}{0pt plus 5cm}\#define EVENTID\_\-MESSAGE~((short int) 0x8002)}\hfill\label{group__mbufferh_ga7fefe6ad78331e8cfb3d2b31dbfdd2d0}
+Message events 
+
+Definition at line 831 of file midas.h.
+
+Referenced by cm\_\-msg1(), cm\_\-msg\_\-send\_\-event(), md\_\-bank\_\-event\_\-display(), and md\_\-event\_\-swap().\index{mbufferh@{mbufferh}!MIDAS\_\-MAGIC@{MIDAS\_\-MAGIC}}
+\index{MIDAS\_\-MAGIC@{MIDAS\_\-MAGIC}!mbufferh@{mbufferh}}
+\paragraph[{MIDAS\_\-MAGIC}]{\setlength{\rightskip}{0pt plus 5cm}\#define MIDAS\_\-MAGIC~0x494d}\hfill\label{group__mbufferh_ga028a14f85456b68bf2babd1bdcaa1abb}
+magic number used in trigger\_\-mask for BOR event 'MI' 
+
+Definition at line 840 of file midas.h.\index{mbufferh@{mbufferh}!SERIAL\_\-NUMBER@{SERIAL\_\-NUMBER}}
+\index{SERIAL\_\-NUMBER@{SERIAL\_\-NUMBER}!mbufferh@{mbufferh}}
+\paragraph[{SERIAL\_\-NUMBER}]{\setlength{\rightskip}{0pt plus 5cm}\#define SERIAL\_\-NUMBER(e)~(((({\bf EVENT\_\-HEADER} $\ast$) e)-\/1)-\/$>$serial\_\-number)}\hfill\label{group__mbufferh_gadbb75a9d81e264e357bc5fc73dd4ebb8}
+SERIAL\_\-NUMBER Extract or set/reset the serial number field pointed by the argument. 
+\begin{DoxyParams}{Parameters}
+\item[{\em e}]pointer to the midas event (pevent) \end{DoxyParams}
+
+
+Definition at line 809 of file midas.h.
+
+Referenced by cd\_\-hv\_\-read(), and read\_\-trigger\_\-event().\index{mbufferh@{mbufferh}!TIME\_\-STAMP@{TIME\_\-STAMP}}
+\index{TIME\_\-STAMP@{TIME\_\-STAMP}!mbufferh@{mbufferh}}
+\paragraph[{TIME\_\-STAMP}]{\setlength{\rightskip}{0pt plus 5cm}\#define TIME\_\-STAMP(e)~(((({\bf EVENT\_\-HEADER} $\ast$) e)-\/1)-\/$>$time\_\-stamp)}\hfill\label{group__mbufferh_gae8d2f03c283637c81cdcfd3fda065d53}
+TIME\_\-STAMP Extract or set/reset the time stamp field pointed by the argument. 
+\begin{DoxyParams}{Parameters}
+\item[{\em e}]pointer to the midas event (pevent) \end{DoxyParams}
+
+
+Definition at line 816 of file midas.h.
+
+Referenced by cd\_\-hv\_\-read().\index{mbufferh@{mbufferh}!TRIGGER\_\-MASK@{TRIGGER\_\-MASK}}
+\index{TRIGGER\_\-MASK@{TRIGGER\_\-MASK}!mbufferh@{mbufferh}}
+\paragraph[{TRIGGER\_\-MASK}]{\setlength{\rightskip}{0pt plus 5cm}\#define TRIGGER\_\-MASK(e)~(((({\bf EVENT\_\-HEADER} $\ast$) e)-\/1)-\/$>$trigger\_\-mask)}\hfill\label{group__mbufferh_ga6a0d6be5b8aad5a907d5b880bae93eb9}
+TRIGGER\_\-MASK Extract or set the trigger mask field pointed by the argument. 
+\begin{DoxyParams}{Parameters}
+\item[{\em e}]pointer to the midas event (pevent) \end{DoxyParams}
+
+
+Definition at line 795 of file midas.h.

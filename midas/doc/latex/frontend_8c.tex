@@ -1,0 +1,194 @@
+\subsection{frontend.c File Reference}
+\label{frontend_8c}\index{frontend.c@{frontend.c}}
+
+
+\subsubsection{Define Documentation}
+\index{frontend.c@{frontend.c}!CRATE@{CRATE}}
+\index{CRATE@{CRATE}!frontend.c@{frontend.c}}
+\paragraph[{CRATE}]{\setlength{\rightskip}{0pt plus 5cm}\#define CRATE~0}\hfill\label{frontend_8c_ad927298c4aa5421ba6e9c19a15535a16}
+
+
+Definition at line 56 of file frontend.c.
+
+Referenced by frontend\_\-init(), read\_\-scaler\_\-event(), and read\_\-trigger\_\-event().\index{frontend.c@{frontend.c}!N\_\-ADC@{N\_\-ADC}}
+\index{N\_\-ADC@{N\_\-ADC}!frontend.c@{frontend.c}}
+\paragraph[{N\_\-ADC}]{\setlength{\rightskip}{0pt plus 5cm}\#define N\_\-ADC~4}\hfill\label{frontend_8c_aeac9187aeffc031aa4adaf856d17093b}
+
+
+Definition at line 51 of file frontend.c.\index{frontend.c@{frontend.c}!N\_\-SCLR@{N\_\-SCLR}}
+\index{N\_\-SCLR@{N\_\-SCLR}!frontend.c@{frontend.c}}
+\paragraph[{N\_\-SCLR}]{\setlength{\rightskip}{0pt plus 5cm}\#define N\_\-SCLR~4}\hfill\label{frontend_8c_ad2e95a3b1cf99277a9faad8a41d0ab8b}
+
+
+Definition at line 53 of file frontend.c.\index{frontend.c@{frontend.c}!N\_\-TDC@{N\_\-TDC}}
+\index{N\_\-TDC@{N\_\-TDC}!frontend.c@{frontend.c}}
+\paragraph[{N\_\-TDC}]{\setlength{\rightskip}{0pt plus 5cm}\#define N\_\-TDC~4}\hfill\label{frontend_8c_a7e9c82b300255f54b1528c66fdcdfafd}
+
+
+Definition at line 52 of file frontend.c.\index{frontend.c@{frontend.c}!SLOT\_\-ADC@{SLOT\_\-ADC}}
+\index{SLOT\_\-ADC@{SLOT\_\-ADC}!frontend.c@{frontend.c}}
+\paragraph[{SLOT\_\-ADC}]{\setlength{\rightskip}{0pt plus 5cm}\#define SLOT\_\-ADC~1}\hfill\label{frontend_8c_a7564c312ba6e0dd2d261a487a397dc02}
+
+
+Definition at line 58 of file frontend.c.
+
+Referenced by read\_\-trigger\_\-event().\index{frontend.c@{frontend.c}!SLOT\_\-IO@{SLOT\_\-IO}}
+\index{SLOT\_\-IO@{SLOT\_\-IO}!frontend.c@{frontend.c}}
+\paragraph[{SLOT\_\-IO}]{\setlength{\rightskip}{0pt plus 5cm}\#define SLOT\_\-IO~23}\hfill\label{frontend_8c_a8e6fbf3dae0479285c3f43bb5f604415}
+
+
+Definition at line 57 of file frontend.c.
+
+Referenced by frontend\_\-init(), and read\_\-trigger\_\-event().\index{frontend.c@{frontend.c}!SLOT\_\-SCLR@{SLOT\_\-SCLR}}
+\index{SLOT\_\-SCLR@{SLOT\_\-SCLR}!frontend.c@{frontend.c}}
+\paragraph[{SLOT\_\-SCLR}]{\setlength{\rightskip}{0pt plus 5cm}\#define SLOT\_\-SCLR~3}\hfill\label{frontend_8c_a0da17be6dfbb480af4def8b02ca3e44d}
+
+
+Definition at line 60 of file frontend.c.
+
+Referenced by read\_\-scaler\_\-event().\index{frontend.c@{frontend.c}!SLOT\_\-TDC@{SLOT\_\-TDC}}
+\index{SLOT\_\-TDC@{SLOT\_\-TDC}!frontend.c@{frontend.c}}
+\paragraph[{SLOT\_\-TDC}]{\setlength{\rightskip}{0pt plus 5cm}\#define SLOT\_\-TDC~2}\hfill\label{frontend_8c_a9929978eca96c0f4df0fd548ac65f70a}
+
+
+Definition at line 59 of file frontend.c.
+
+Referenced by read\_\-trigger\_\-event().
+
+\subsubsection{Function Documentation}
+\index{frontend.c@{frontend.c}!begin\_\-of\_\-run@{begin\_\-of\_\-run}}
+\index{begin\_\-of\_\-run@{begin\_\-of\_\-run}!frontend.c@{frontend.c}}
+\paragraph[{begin\_\-of\_\-run}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} begin\_\-of\_\-run ({\bf INT} {\em run\_\-number}, \/  char $\ast$ {\em error})}\hfill\label{frontend_8c_ad8bfe703c49342b9f0275aba77dc7758}
+
+
+Definition at line 184 of file frontend.c.
+
+Referenced by tr\_\-start().\index{frontend.c@{frontend.c}!end\_\-of\_\-run@{end\_\-of\_\-run}}
+\index{end\_\-of\_\-run@{end\_\-of\_\-run}!frontend.c@{frontend.c}}
+\paragraph[{end\_\-of\_\-run}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} end\_\-of\_\-run ({\bf INT} {\em run\_\-number}, \/  char $\ast$ {\em error})}\hfill\label{frontend_8c_ae6d798649008b7523c77222bae2d4187}
+
+
+Definition at line 193 of file frontend.c.
+
+Referenced by tr\_\-stop().\index{frontend.c@{frontend.c}!frontend\_\-exit@{frontend\_\-exit}}
+\index{frontend\_\-exit@{frontend\_\-exit}!frontend.c@{frontend.c}}
+\paragraph[{frontend\_\-exit}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} frontend\_\-exit (void)}\hfill\label{frontend_8c_a15271255cca6c92978b28afd5a548382}
+
+
+Definition at line 177 of file frontend.c.
+
+Referenced by main().\index{frontend.c@{frontend.c}!frontend\_\-init@{frontend\_\-init}}
+\index{frontend\_\-init@{frontend\_\-init}!frontend.c@{frontend.c}}
+\paragraph[{frontend\_\-init}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} frontend\_\-init (void)}\hfill\label{frontend_8c_a34c51ae8c88f4717087b0604975516f4}
+
+
+Definition at line 149 of file frontend.c.
+
+Referenced by main().\index{frontend.c@{frontend.c}!frontend\_\-loop@{frontend\_\-loop}}
+\index{frontend\_\-loop@{frontend\_\-loop}!frontend.c@{frontend.c}}
+\paragraph[{frontend\_\-loop}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} frontend\_\-loop (void)}\hfill\label{frontend_8c_ada66837c3c3d263974ad717921145e0a}
+
+
+Definition at line 214 of file frontend.c.
+
+Referenced by scheduler().\index{frontend.c@{frontend.c}!interrupt\_\-configure@{interrupt\_\-configure}}
+\index{interrupt\_\-configure@{interrupt\_\-configure}!frontend.c@{frontend.c}}
+\paragraph[{interrupt\_\-configure}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} interrupt\_\-configure ({\bf INT} {\em cmd}, \/  {\bf INT} {\em source}, \/  POINTER\_\-T {\em adr})}\hfill\label{frontend_8c_a681a5d1fe2e8a4735bcf03824ffb3e81}
+
+
+Definition at line 252 of file frontend.c.
+
+Referenced by initialize\_\-equipment(), main(), and readout\_\-enable().\index{frontend.c@{frontend.c}!pause\_\-run@{pause\_\-run}}
+\index{pause\_\-run@{pause\_\-run}!frontend.c@{frontend.c}}
+\paragraph[{pause\_\-run}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} pause\_\-run ({\bf INT} {\em run\_\-number}, \/  char $\ast$ {\em error})}\hfill\label{frontend_8c_a164db20cf6c8c81e8c8ca50a590de436}
+
+
+Definition at line 200 of file frontend.c.
+
+Referenced by tr\_\-pause().\index{frontend.c@{frontend.c}!poll\_\-event@{poll\_\-event}}
+\index{poll\_\-event@{poll\_\-event}!frontend.c@{frontend.c}}
+\paragraph[{poll\_\-event}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} poll\_\-event ({\bf INT} {\em source}, \/  {\bf INT} {\em count}, \/  {\bf BOOL} {\em test})}\hfill\label{frontend_8c_a98cc3257284af91fa0e8da10ddf227c8}
+
+
+Definition at line 231 of file frontend.c.
+
+Referenced by check\_\-polled\_\-events(), initialize\_\-equipment(), readout\_\-thread(), and scheduler().\index{frontend.c@{frontend.c}!read\_\-scaler\_\-event@{read\_\-scaler\_\-event}}
+\index{read\_\-scaler\_\-event@{read\_\-scaler\_\-event}!frontend.c@{frontend.c}}
+\paragraph[{read\_\-scaler\_\-event}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} read\_\-scaler\_\-event (char $\ast$ {\em pevent}, \/  {\bf INT} {\em off})}\hfill\label{frontend_8c_af3ad062393c1437922bae26841d8927c}
+
+
+Definition at line 339 of file frontend.c.\index{frontend.c@{frontend.c}!read\_\-trigger\_\-event@{read\_\-trigger\_\-event}}
+\index{read\_\-trigger\_\-event@{read\_\-trigger\_\-event}!frontend.c@{frontend.c}}
+\paragraph[{read\_\-trigger\_\-event}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} read\_\-trigger\_\-event (char $\ast$ {\em pevent}, \/  {\bf INT} {\em off})}\hfill\label{frontend_8c_a9c54bafa1af403e5e4737f9d8d5aba07}
+
+
+Definition at line 269 of file frontend.c.\index{frontend.c@{frontend.c}!register\_\-cnaf\_\-callback@{register\_\-cnaf\_\-callback}}
+\index{register\_\-cnaf\_\-callback@{register\_\-cnaf\_\-callback}!frontend.c@{frontend.c}}
+\paragraph[{register\_\-cnaf\_\-callback}]{\setlength{\rightskip}{0pt plus 5cm}void register\_\-cnaf\_\-callback (int {\em debug})}\hfill\label{frontend_8c_a4c2c646c3b139346601893d06cf6df9d}
+
+
+Definition at line 124 of file cnaf\_\-callback.c.\index{frontend.c@{frontend.c}!resume\_\-run@{resume\_\-run}}
+\index{resume\_\-run@{resume\_\-run}!frontend.c@{frontend.c}}
+\paragraph[{resume\_\-run}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} resume\_\-run ({\bf INT} {\em run\_\-number}, \/  char $\ast$ {\em error})}\hfill\label{frontend_8c_a6cada7e3f07b9fc2b9886263223661d4}
+
+
+Definition at line 207 of file frontend.c.
+
+Referenced by tr\_\-resume().
+
+\subsubsection{Variable Documentation}
+\index{frontend.c@{frontend.c}!display\_\-period@{display\_\-period}}
+\index{display\_\-period@{display\_\-period}!frontend.c@{frontend.c}}
+\paragraph[{display\_\-period}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} {\bf display\_\-period} = 3000}\hfill\label{frontend_8c_ab9cdcefda91459091b0ed33011d0d18c}
+
+
+Definition at line 39 of file frontend.c.
+
+Referenced by initialize\_\-equipment(), main(), rotate\_\-wheel(), scheduler(), tr\_\-pause(), tr\_\-resume(), tr\_\-start(), and tr\_\-stop().\index{frontend.c@{frontend.c}!equipment@{equipment}}
+\index{equipment@{equipment}!frontend.c@{frontend.c}}
+\paragraph[{equipment}]{\setlength{\rightskip}{0pt plus 5cm}{\bf EQUIPMENT} {\bf equipment}\mbox{[}$\,$\mbox{]}}\hfill\label{frontend_8c_aa86ef8764826784b74603ffb23852283}
+
+
+Definition at line 79 of file frontend.c.\index{frontend.c@{frontend.c}!event\_\-buffer\_\-size@{event\_\-buffer\_\-size}}
+\index{event\_\-buffer\_\-size@{event\_\-buffer\_\-size}!frontend.c@{frontend.c}}
+\paragraph[{event\_\-buffer\_\-size}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} {\bf event\_\-buffer\_\-size} = 100 $\ast$ 10000}\hfill\label{frontend_8c_a4411d7db6f901c968b946ed659d202f6}
+
+
+Definition at line 48 of file frontend.c.
+
+Referenced by initialize\_\-equipment(), and main().\index{frontend.c@{frontend.c}!frontend\_\-call\_\-loop@{frontend\_\-call\_\-loop}}
+\index{frontend\_\-call\_\-loop@{frontend\_\-call\_\-loop}!frontend.c@{frontend.c}}
+\paragraph[{frontend\_\-call\_\-loop}]{\setlength{\rightskip}{0pt plus 5cm}{\bf BOOL} {\bf frontend\_\-call\_\-loop} = FALSE}\hfill\label{frontend_8c_a0215c0a842a0e97fe65c7ef5fb7633a5}
+
+
+Definition at line 36 of file frontend.c.
+
+Referenced by scheduler().\index{frontend.c@{frontend.c}!frontend\_\-file\_\-name@{frontend\_\-file\_\-name}}
+\index{frontend\_\-file\_\-name@{frontend\_\-file\_\-name}!frontend.c@{frontend.c}}
+\paragraph[{frontend\_\-file\_\-name}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ {\bf frontend\_\-file\_\-name} = \_\-\_\-FILE\_\-\_\-}\hfill\label{frontend_8c_ac7fc683b5a25d9607abc270a54db6d97}
+
+
+Definition at line 33 of file frontend.c.
+
+Referenced by register\_\-equipment().\index{frontend.c@{frontend.c}!frontend\_\-name@{frontend\_\-name}}
+\index{frontend\_\-name@{frontend\_\-name}!frontend.c@{frontend.c}}
+\paragraph[{frontend\_\-name}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ {\bf frontend\_\-name} = \char`\"{}Sample Frontend\char`\"{}}\hfill\label{frontend_8c_ac1f0c6df66e35778b61c611107501ec4}
+
+
+Definition at line 31 of file frontend.c.
+
+Referenced by load\_\-fragment(), main(), odbReadUint32(), register\_\-equipment(), scan\_\-fragment(), source\_\-scan(), tr\_\-pause(), tr\_\-resume(), and tr\_\-start().\index{frontend.c@{frontend.c}!max\_\-event\_\-size@{max\_\-event\_\-size}}
+\index{max\_\-event\_\-size@{max\_\-event\_\-size}!frontend.c@{frontend.c}}
+\paragraph[{max\_\-event\_\-size}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} {\bf max\_\-event\_\-size} = 10000}\hfill\label{frontend_8c_a13adb6e6b95ca2a62bbfe2453d71a1cd}
+
+
+Definition at line 42 of file frontend.c.
+
+Referenced by check\_\-polled\_\-events(), handFlush(), initialize\_\-equipment(), load\_\-fragment(), main(), readout\_\-thread(), scheduler(), send\_\-event(), source\_\-booking(), and source\_\-scan().\index{frontend.c@{frontend.c}!max\_\-event\_\-size\_\-frag@{max\_\-event\_\-size\_\-frag}}
+\index{max\_\-event\_\-size\_\-frag@{max\_\-event\_\-size\_\-frag}!frontend.c@{frontend.c}}
+\paragraph[{max\_\-event\_\-size\_\-frag}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} {\bf max\_\-event\_\-size\_\-frag} = 5 $\ast$ 1024 $\ast$ 1024}\hfill\label{frontend_8c_a5593758d19398ebc7c3d58d7f05ec160}
+
+
+Definition at line 45 of file frontend.c.
+
+Referenced by check\_\-polled\_\-events(), main(), register\_\-equipment(), scheduler(), and send\_\-event().

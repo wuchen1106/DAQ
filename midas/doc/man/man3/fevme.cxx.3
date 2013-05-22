@@ -1,0 +1,188 @@
+.TH "fevme.cxx" 3 "31 May 2012" "Version 2.3.0-0" "Midas" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+fevme.cxx \- 
+.SH SYNOPSIS
+.br
+.PP
+.SH "Define Documentation"
+.PP 
+.SS "#define HAVE_V1190B"
+.PP
+Definition at line 24 of file fevme.cxx.
+.SS "#define HAVE_V792"
+.PP
+Definition at line 22 of file fevme.cxx.
+.SS "#define HAVE_V895"
+.PP
+Definition at line 23 of file fevme.cxx.
+.SH "Function Documentation"
+.PP 
+.SS "\fBINT\fP begin_of_run (\fBINT\fP run_number, char * error)"
+.PP
+Definition at line 284 of file fevme.cxx.
+.SS "int disable_trigger ()"
+.PP
+Definition at line 194 of file fevme.cxx.
+.PP
+Referenced by end_of_run(), frontend_exit(), frontend_init(), and pause_run().
+.SS "int enable_trigger ()"
+.PP
+Definition at line 185 of file fevme.cxx.
+.PP
+Referenced by begin_of_run(), and resume_run().
+.SS "void encodeU32 (char * pdata, uint32_t value)"
+.PP
+Definition at line 162 of file fevme.cxx.
+.SS "\fBINT\fP end_of_run (\fBINT\fP run_number, char * error)"
+.PP
+Definition at line 296 of file fevme.cxx.
+.SS "\fBINT\fP frontend_exit (void)"
+.PP
+Definition at line 272 of file fevme.cxx.
+.SS "\fBINT\fP frontend_init (void)"
+.PP
+Definition at line 251 of file fevme.cxx.
+.SS "\fBINT\fP frontend_loop (void)"
+.PP
+Definition at line 334 of file fevme.cxx.
+.SS "\fBINT\fP init_vme_modules ()"
+.PP
+Definition at line 202 of file fevme.cxx.
+.PP
+Referenced by begin_of_run(), and frontend_init().
+.SS "\fBINT\fP interrupt_configure (\fBINT\fP cmd, \fBINT\fP source, PTYPE adr)"
+.PP
+Definition at line 382 of file fevme.cxx.
+.SS "int mvme_read16 (int addr)"
+.PP
+Definition at line 150 of file fevme.cxx.
+.SS "int mvme_read32 (int addr)"
+.PP
+Definition at line 156 of file fevme.cxx.
+.SS "uint32_t odbReadUint32 (const char * name, int index, uint32_t defaultValue = \fC0\fP)"
+.PP
+Definition at line 170 of file fevme.cxx.
+.SS "\fBINT\fP pause_run (\fBINT\fP run_number, char * error)"
+.PP
+Definition at line 318 of file fevme.cxx.
+.SS "\fBINT\fP poll_event (\fBINT\fP source, \fBINT\fP count, \fBBOOL\fP test)"
+.PP
+Definition at line 348 of file fevme.cxx.
+.SS "\fBINT\fP read_event (char * pevent, \fBINT\fP off)"
+.PP
+Definition at line 550 of file fevme.cxx.
+.SS "int read_tdc (int base, char * pevent)"
+.PP
+Definition at line 437 of file fevme.cxx.
+.PP
+Referenced by read_event().
+.SS "int read_v792 (int base, const char * bname, char * pevent, int nchan)"
+.PP
+Definition at line 399 of file fevme.cxx.
+.PP
+Referenced by read_event().
+.SS "\fBINT\fP resume_run (\fBINT\fP run_number, char * error)"
+.PP
+Definition at line 326 of file fevme.cxx.
+.SH "Variable Documentation"
+.PP 
+.SS "\fBINT\fP \fBdisplay_period\fP = 000"
+.PP
+Definition at line 60 of file fevme.cxx.
+.SS "\fBEQUIPMENT\fP \fBequipment\fP[]"\fBInitial value:\fP
+.PP
+.nf
+ {
+
+    {'Trigger',               
+     {1, TRIGGER_ALL,         
+      'SYSTEM',               
+      EQ_POLLED,              
+      LAM_SOURCE(0, 0xFFFFFF),                      
+      'MIDAS',                
+      TRUE,                   
+      RO_RUNNING,             
+
+      500,                    
+      0,                      
+      0,                      
+      0,                      
+      '', '', '',}
+     ,
+     read_event,      
+     NULL, NULL,
+     NULL,       
+    }
+    ,
+
+    {''}
+  }
+.fi
+.PP
+Definition at line 88 of file fevme.cxx.
+.SS "\fBINT\fP \fBevent_buffer_size\fP = 200*1024"
+.PP
+Definition at line 69 of file fevme.cxx.
+.SS "\fBBOOL\fP \fBfrontend_call_loop\fP = FALSE"
+.PP
+Definition at line 57 of file fevme.cxx.
+.SS "char* \fBfrontend_file_name\fP = __FILE__"
+.PP
+Definition at line 54 of file fevme.cxx.
+.SS "char* \fBfrontend_name\fP = 'fevme'"
+.PP
+Definition at line 52 of file fevme.cxx.
+.SS "int \fBgAdcBase\fP = 0x110000"
+.PP
+Definition at line 145 of file fevme.cxx.
+.PP
+Referenced by init_vme_modules(), poll_event(), and read_event().
+.SS "int \fBgDisBase\fP[] = { 0xE00000, 0 }"
+.PP
+Definition at line 146 of file fevme.cxx.
+.PP
+Referenced by init_vme_modules().
+.SS "int \fBgHaveRun\fP = 0\fC [static]\fP"
+.PP
+Definition at line 268 of file fevme.cxx.
+.PP
+Referenced by begin_of_run(), end_of_run(), frontend_exit(), pause_run(), and resume_run().
+.SS "int \fBgTdcBase\fP = 0xf10000"
+.PP
+Definition at line 147 of file fevme.cxx.
+.PP
+Referenced by init_vme_modules(), and read_event().
+.SS "int \fBgVF48base\fP = 0xa00000"
+.PP
+Definition at line 148 of file fevme.cxx.
+.PP
+Referenced by init_vme_modules(), and read_event().
+.SS "\fBMVME_INTERFACE\fP* \fBgVme\fP = 0"
+.PP
+Definition at line 142 of file fevme.cxx.
+.SS "int \fBgVmeioBase\fP = 0x780000"
+.PP
+Definition at line 144 of file fevme.cxx.
+.PP
+Referenced by disable_trigger(), enable_trigger(), and init_vme_modules().
+.SS "HNDLE \fBhDB\fP"
+.PP
+Definition at line 71 of file mfe.c.
+.PP
+Referenced by ana_end_of_run(), analyzer_init(), begin_of_run(), cm_connect_client(), cm_connect_experiment1(), cm_disconnect_experiment(), cm_get_client_info(), cm_msg_log(), cm_msg_log1(), cm_msg_retrieve(), cm_set_watchdog_params(), el_submit(), frontend_init(), frontend_loop(), hv_read(), load_fragment(), logger_root(), main(), odbReadUint32(), register_equipment(), scheduler(), set_equipment_status(), tr_start(), and update_odb().
+.SS "\fBINT\fP \fBmax_event_size\fP = 100*1024"
+.PP
+Definition at line 63 of file fevme.cxx.
+.SS "\fBINT\fP \fBmax_event_size_frag\fP = 1024*1024"
+.PP
+Definition at line 66 of file fevme.cxx.
+.SS "\fBINT\fP \fBrun_state\fP"
+.PP
+Definition at line 52 of file mfe.c.
+.PP
+Referenced by close_buffers(), display(), handFlush(), main(), register_equipment(), scan_fragment(), scheduler(), tr_pause(), tr_resume(), tr_start(), and tr_stop().
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Midas from the source code.

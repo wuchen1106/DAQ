@@ -1,0 +1,224 @@
+.TH "vpc6.h" 3 "31 May 2012" "Version 2.3.0-0" "Midas" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+vpc6.h \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Data Structures"
+
+.in +1c
+.ti -1c
+.RI "union \fBvpc6_Reg\fP"
+.br
+.ti -1c
+.RI "struct \fBvpc6_Reg::Entry1\fP"
+.br
+.ti -1c
+.RI "struct \fBvpc6_Reg::Entry2\fP"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBvpc6_PATypeWrite\fP (\fBMVME_INTERFACE\fP *mvme, \fBDWORD\fP base, \fBWORD\fP data)"
+.br
+.ti -1c
+.RI "int \fBvpc6_PortTypeRead\fP (\fBMVME_INTERFACE\fP *mvme, \fBDWORD\fP base, \fBWORD\fP port)"
+.br
+.ti -1c
+.RI "int \fBvpc6_PATypeRead\fP (\fBMVME_INTERFACE\fP *mvme, \fBDWORD\fP base)"
+.br
+.ti -1c
+.RI "int \fBvpc6_CfgRetrieve\fP (\fBMVME_INTERFACE\fP *mvme, \fBDWORD\fP base, \fBWORD\fP port)"
+.br
+.ti -1c
+.RI "int \fBvpc6_PortRegRBRead\fP (\fBMVME_INTERFACE\fP *mvme, \fBDWORD\fP base, \fBWORD\fP port)"
+.br
+.ti -1c
+.RI "int \fBvpc6_PortRegRead\fP (\fBMVME_INTERFACE\fP *mvme, \fBDWORD\fP base, \fBWORD\fP port)"
+.br
+.ti -1c
+.RI "void \fBvpc6_PortDisplay\fP (\fBWORD\fP type, \fBWORD\fP port, \fBDWORD\fP *reg)"
+.br
+.ti -1c
+.RI "void \fBvpc6_EntryPrint\fP (\fBWORD\fP type, \fBWORD\fP chip, const \fBvpc6_Reg\fP *v)"
+.br
+.in -1c
+.SH "Define Documentation"
+.PP 
+.SS "#define ALL_CHANNELS   -1"
+.PP
+Definition at line 34 of file vpc6.h.
+.PP
+Referenced by vpc6_ASDModeSet().
+.SS "#define VPC6_3ASD_3BUCK   0x444"
+.PP
+Definition at line 32 of file vpc6.h.
+.PP
+Referenced by vpc6_Setup().
+.SS "#define VPC6_3BUCK_3ASD   0x111"
+.PP
+Definition at line 33 of file vpc6.h.
+.PP
+Referenced by vpc6_Setup().
+.SS "#define VPC6_ALL_ASD   0x000"
+.PP
+Definition at line 31 of file vpc6.h.
+.PP
+Referenced by vpc6_Setup().
+.SS "#define VPC6_ALL_BUCKEYE   0x555"
+.PP
+Definition at line 30 of file vpc6.h.
+.PP
+Referenced by vpc6_Setup().
+.SS "#define VPC6_ASD01   0"
+.PP
+Definition at line 29 of file vpc6.h.
+.PP
+Referenced by vpc6_EntryPrint(), and vpc6_PortDisplay().
+.SS "#define VPC6_BUCKEYE   1"
+.PP
+Definition at line 64 of file vpc6.h.
+.PP
+Referenced by vpc6_EntryPrint().
+.SS "#define VPC6_CFG_RW   (\fBWORD\fP) (0x0010)"
+.PP
+Definition at line 26 of file vpc6.h.
+.PP
+Referenced by vpc6_ASDHysteresisSet(), vpc6_ASDModeSet(), vpc6_ASDRegSet(), vpc6_ASDThresholdSet(), and vpc6_PortRegRead().
+.SS "#define VPC6_CMD_WO   (\fBWORD\fP) (0x000C)"
+.PP
+Definition at line 25 of file vpc6.h.
+.PP
+Referenced by vpc6_CfgRetrieve(), and vpc6_PortCfgLoad().
+.SS "#define VPC6_CR_RW   (\fBWORD\fP) (0x0004)"
+.PP
+Definition at line 24 of file vpc6.h.
+.PP
+Referenced by vpc6_PATypeRead(), vpc6_PATypeWrite(), vpc6_PortRegRBRead(), vpc6_PortRegRead(), and vpc6_PortTypeRead().
+.SS "#define VPC6_EXTERNALCAP   0x4"
+.PP
+Definition at line 69 of file vpc6.h.
+.SS "#define VPC6_KILL   0x7"
+.PP
+Definition at line 70 of file vpc6.h.
+.SS "#define VPC6_LARGECAP   0x3"
+.PP
+Definition at line 68 of file vpc6.h.
+.SS "#define VPC6_MEDIUMCAP   0x2"
+.PP
+Definition at line 67 of file vpc6.h.
+.SS "#define VPC6_NORMAL   0x0"
+.PP
+Definition at line 65 of file vpc6.h.
+.SS "#define VPC6_PARAM_ERROR   100"
+.PP
+Definition at line 22 of file vpc6.h.
+.PP
+Referenced by vpc6_PortCfgLoad().
+.SS "#define VPC6_RBCK_RO   (\fBWORD\fP) (0x0110)"
+.PP
+Definition at line 27 of file vpc6.h.
+.PP
+Referenced by vpc6_PortRegRBRead().
+.SS "#define VPC6_SMALLCAP   0x1"
+.PP
+Definition at line 66 of file vpc6.h.
+.SS "#define VPC6_SR_RO   (\fBWORD\fP) (0x0000)"
+.PP
+Definition at line 23 of file vpc6.h.
+.PP
+Referenced by vpc6_isPortBusy().
+.SS "#define VPC6_SUCCESS   1"
+.PP
+Definition at line 21 of file vpc6.h.
+.PP
+Referenced by vpc6_CfgRetrieve(), vpc6_PortCfgLoad(), vpc6_PortRegRBRead(), and vpc6_PortRegRead().
+.SH "Enumeration Type Documentation"
+.PP 
+.SS "enum \fBvpc6_ASDDataType\fP"
+.PP
+\fBEnumerator: \fP
+.in +1c
+.TP
+\fB\fIvpc6_asd_ch1_8 \fP\fP
+.TP
+\fB\fIvpc6_asd_ch9_16 \fP\fP
+
+.PP
+Definition at line 38 of file vpc6.h.
+.SH "Function Documentation"
+.PP 
+.SS "void vpc6_ASDDefaultLoad (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base, \fBWORD\fP port)"
+.PP
+Definition at line 344 of file vpc6.c.
+.SS "int vpc6_ASDHysteresisSet (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base, \fBWORD\fP port, float hysteresis)"
+.PP
+Definition at line 488 of file vpc6.c.
+.SS "int vpc6_ASDModeSet (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base, \fBWORD\fP port, int channel, int mode)"
+.PP
+Definition at line 397 of file vpc6.c.
+.SS "void vpc6_ASDRegSet (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base, \fBWORD\fP port, \fBWORD\fP reg, \fBvpc6_Reg\fP * Reg)"
+.PP
+Definition at line 382 of file vpc6.c.
+.PP
+Referenced by vpc6_ASDDefaultLoad(), vpc6_ASDHysteresisSet(), vpc6_ASDModeSet(), and vpc6_ASDThresholdSet().
+.SS "int vpc6_ASDThresholdSet (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base, \fBWORD\fP port, int threshold)"
+.PP
+Definition at line 452 of file vpc6.c.
+.SS "int vpc6_BuckeyeModeSet (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base, \fBWORD\fP port, int channel, int mode)"
+.PP
+Definition at line 524 of file vpc6.c.
+.SS "int vpc6_CfgLoad (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base, \fBWORD\fP port)"
+.SS "int vpc6_CfgRetrieve (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base, \fBWORD\fP port)"Retrieve bit string full configuration from a given port. Loads bit string into Readback registers that can then be read. the port is either ASD01 or Buckeye for now. 
+.PP
+Definition at line 121 of file vpc6.c.
+.PP
+Referenced by vpc6_ASDHysteresisSet(), vpc6_ASDModeSet(), and vpc6_ASDThresholdSet().
+.SS "void vpc6_EntryPrint (\fBWORD\fP type, \fBWORD\fP chip, const \fBvpc6_Reg\fP * v)"decoded printout of readout entry for ASD type preamp Not to be trusted for data decoding but acceptable for display purpose as its implementation is strongly compiler dependent and not flawless. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIv\fP 
+.RE
+.PP
+
+.PP
+Definition at line 238 of file vpc6.c.
+.PP
+Referenced by vpc6_PortDisplay().
+.SS "int vpc6_isPortBusy (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base, \fBWORD\fP port)"
+.PP
+Definition at line 19 of file vpc6.c.
+.PP
+Referenced by vpc6_CfgRetrieve(), vpc6_PortCfgLoad(), vpc6_PortRegRBRead(), and vpc6_Status().
+.SS "int vpc6_PATypeRead (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base)"Read the 6 AP type of the board (either ASD01 or Buckeye for now. 
+.PP
+Definition at line 51 of file vpc6.c.
+.SS "void vpc6_PATypeWrite (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base, \fBWORD\fP data)"Setup Preamp type of the board (2 bit per PA) 00 : ASD, 01 : Buckeye 
+.PP
+Definition at line 35 of file vpc6.c.
+.PP
+Referenced by vpc6_Setup().
+.SS "void vpc6_PortDisplay (\fBWORD\fP type, \fBWORD\fP port, \fBDWORD\fP * reg)"decoded printout of readout entry 
+.PP
+Definition at line 220 of file vpc6.c.
+.PP
+Referenced by vpc6_PortRegRBRead(), and vpc6_PortRegRead().
+.SS "int vpc6_PortRegRBRead (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base, \fBWORD\fP port)"Read the Readback and Display in a readable form the Port setting No action to the PA board 
+.PP
+Definition at line 155 of file vpc6.c.
+.SS "int vpc6_PortRegRead (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base, \fBWORD\fP port)"Read the Register and Display in a readable form the Port setting No action to the PA board 
+.PP
+Definition at line 192 of file vpc6.c.
+.SS "int vpc6_PortTypeRead (\fBMVME_INTERFACE\fP * mvme, \fBDWORD\fP base, \fBWORD\fP port)"Read Port type of the board (either ASD01 or Buckeye for now) return the type of the requested port 
+.PP
+Definition at line 67 of file vpc6.c.
+.PP
+Referenced by vpc6_Status().
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Midas from the source code.

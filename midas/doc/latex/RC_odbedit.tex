@@ -1,0 +1,2110 @@
+\paragraph{odbedit -\/ ODB Editor and run control utility}\label{RC_odbedit_utility}
+\label{RC_odbedit_utility_idx_odbedit-utility}
+\hypertarget{RC_odbedit_utility_idx_odbedit-utility}{}
+ \par
+ 
+
+\par
+
+
+\label{RC_odbedit_utility_idx_edit_ODB_using-odbedit}
+\hypertarget{RC_odbedit_utility_idx_edit_ODB_using-odbedit}{}
+ {\bfseries odbedit} is primarily an \hyperlink{F_MainElements_F_Online_Database_overview}{Online Database (ODB)} Editor. It also acts as a run control and has limited run monitoring features. It is an alternative to the web-\/based run control program \hyperlink{RC_mhttpd_utility}{The mhttpd daemon}.
+
+
+\begin{DoxyItemize}
+\item {\bfseries  Arguments }
+\begin{DoxyItemize}
+\item \mbox{[}-\/h hostname \mbox{]} :Specifies host to connect to. See \hyperlink{F_Utilities_List_F_utilities_params}{hostname} for details.
+\item \mbox{[}-\/e exptname \mbox{]} :Specifies the experiment to connect to. See \hyperlink{F_Utilities_List_F_utilities_params}{experiment} for details.
+\item \mbox{[}-\/c command \mbox{]} :Perform a single command
+\item \mbox{[}-\/c @commandFile \mbox{]} :Perform commands in sequence found in the commandFile. Can be used to perform operations in script files. See \hyperlink{RC_odbedit_examples_RC_odbedit_extcommand}{examples}.
+\item \mbox{[}-\/s size \mbox{]} : size in bytes (for \hyperlink{RC_odbedit_examples_RC_odbedit_create_ODB}{ODB creation}). Specify the size of the ODB file to be created when no shared file is present in the experiment directory (default 128KB).
+\item \mbox{[}-\/d ODB Subtree\mbox{]} :Specify the initial entry ODB path to go to.
+\item \mbox{[}-\/g\mbox{]} debug
+\item \mbox{[}-\/C \mbox{]} connect to corrupted ODB
+\end{DoxyItemize}
+\end{DoxyItemize}
+
+
+\begin{DoxyItemize}
+\item {\bfseries  Usage } ODBedit has a simple command line interface with command line editing similar to the UNIX tcsh shell. The following edit keys are implemented:
+\begin{DoxyItemize}
+\item \mbox{[}Backspace\mbox{]} Erase the character left from cursor
+\item \mbox{[}Delete/Ctrl-\/D\mbox{]} Erase the character under cursor
+\item \mbox{[}Ctrl-\/W/Ctrl-\/U\mbox{]} Erase the current line
+\item \mbox{[}Ctrl-\/K\mbox{]} Erase the line from cursor to end
+\item \mbox{[}Left arrow/Ctrl-\/B\mbox{]} Move cursor left
+\item \mbox{[}Right arrow/Ctrl-\/F\mbox{]} Move cursor right
+\item \mbox{[}Home/Ctrl-\/A\mbox{]} Move cursor to beginning of line
+\item \mbox{[}End/Ctrl-\/E\mbox{]} Move cursor to end of line
+\item \mbox{[}Up arrow/Ctrl-\/P\mbox{]} Recall previous command
+\item \mbox{[}Down arrow/Ctrl-\/N\mbox{]} Recall next command
+\item \mbox{[}Ctrl-\/F\mbox{]} Find most recent command which starts with current line
+\item \mbox{[}Tab/Ctrl-\/I\mbox{]} Complete directory. The command {\bfseries ls} /Sy $<$tab$>$ yields to {\bfseries ls} /System.
+\end{DoxyItemize}
+\end{DoxyItemize}
+
+
+\begin{DoxyItemize}
+\item {\bfseries  Remarks }
+\begin{DoxyItemize}
+\item ODBedit treats the hierarchical online database very much like a file system. Most commands are similar to UNIX file commands like ls, cd, chmod, ln etc. The help command displays a short description of all commands.
+\end{DoxyItemize}
+\end{DoxyItemize}
+
+The odbedit commands and mode of operation are described fully in the following sections.
+
+\label{RC_odbedit_utility_idx_odbedit-utility_command_list}
+\hypertarget{RC_odbedit_utility_idx_odbedit-utility_command_list}{}
+ \hypertarget{RC_odbedit_utility_RC_odbedit_help}{}\subsubsection{odbedit command list}\label{RC_odbedit_utility_RC_odbedit_help}
+Running \hyperlink{RC_odbedit_utility}{odbedit} and issuing the command \char`\"{}help\char`\"{} displays the list of commands: 
+\begin{DoxyCode}
+$ odbedit
+
+[local:pol:S]/>help
+Database commands ([] are options, <> are placeholders):
+
+alarm                   - reset all alarms
+cd <dir>                - change current directory
+chat                    - enter chat mode
+chmod <mode> <key>      - change access mode of a key
+                          1=read | 2=write | 4=delete
+cleanup [client] [-f]   - delete hanging clients [force]
+copy <src> <dest>       - copy a subtree to a new location
+create <type> <key>     - create a key of a certain type
+create <type> <key>[n]  - create an array of size [n]
+del/rm [-l] [-f] <key>  - delete a key and its subkeys
+  -l                      follow links
+  -f                      force deletion without asking
+exec <key>/<cmd>        - execute shell command (stored in key) on server
+export <key> <filename> - export key into ASCII file
+find <pattern>          - find a key with wildcard pattern
+help/? [command]        - print this help [for a specific command]
+hi [analyzer] [id]      - tell analyzer to clear histos
+import <filename> [key] - import ASCII file into string key
+ln <source> <linkname>  - create a link to <source> key
+load <file>             - load database from .ODB file at current position
+ls/dir [-lhvrp] [<pat>] - show database entries which match pattern
+  -l                      detailed info
+  -h                      hex format
+  -v                      only value
+  -r                      show database entries recursively
+  -p                      pause between screens
+make [analyzer name]    - create experim.h
+mem [-v]                - show memeory usage [verbose]
+mkdir <subdir>          - make new <subdir>
+move <key> [top/bottom/[n]] - move key to position in keylist
+msg [type] [user] <msg> - compose user message
+old [n]                 - display old n messages
+passwd                  - change MIDAS password
+pause                   - pause current run
+pwd                     - show current directory
+resume                  - resume current run
+rename <old> <new>      - rename key
+rewind [channel]        - rewind tapes in logger
+save [-c -s -x -cs] <file>  - save database at current position
+                          in ASCII format
+  -c                      as a C structure
+  -s                      as a #define'd string
+  -x                      as a XML file
+set <key> <value>       - set the value of a key
+set <key>[i] <value>    - set the value of index i
+set <key>[*] <value>    - set the value of all indices of a key
+set <key>[i..j] <value> - set the value of all indices i..j
+scl [-w]                - show all active clients [with watchdog info]
+shutdown <client>/all   - shutdown individual or all clients
+sor                     - show open records in current subtree
+start [number][now][-v] - start a run [with a specific number],
+                          [now] w/o asking parameters, [-v] debug output
+stop [-v]               - stop current run, [-v] debug output
+trunc <key> <index>     - truncate key to [index] values
+ver                     - show MIDAS library version
+webpasswd               - change WWW password for mhttpd
+wait <key>              - wait for key to get modified
+quit/exit               - exit
+\end{DoxyCode}
+
+
+\par
+ 
+
+\label{index_end}
+\hypertarget{index_end}{}
+ \paragraph{Using odbedit}\label{RC_odbedit_examples}
+\label{RC_odbedit_examples_idx_odbedit-utility_examples}
+\hypertarget{RC_odbedit_examples_idx_odbedit-utility_examples}{}
+ \par
+ 
+
+
+\begin{DoxyItemize}
+\item \hyperlink{RC_odbedit_examples_RC_odbedit_prompt}{Setting odbedit's prompt} 
+\begin{DoxyItemize}
+\item \hyperlink{RC_odbedit_examples_RC_odbedit_prompt_examples}{Examples of changing the odbedit prompt:} 
+\end{DoxyItemize}
+\item \hyperlink{RC_odbedit_examples_RC_odbedit_create_ODB}{ODB Creation} 
+\item \hyperlink{RC_odbedit_examples_RC_odbedit_keynames}{ODB Key names: UPPER/lower case, spaces in key names} 
+\item \hyperlink{RC_odbedit_examples_RC_odbedit_corrupted}{Corrupted ODB} 
+\item \hyperlink{RC_odbedit_examples_RC_odbedit_extcommand}{Using the external command (the -\/c argument)} 
+\begin{DoxyItemize}
+\item \hyperlink{RC_odbedit_examples_RC_odbedit_script_examples}{Examples of scripts sending odbedit commands} 
+\begin{DoxyItemize}
+\item \hyperlink{RC_odbedit_examples_RC_example_script_1}{Shell script run at end-\/of-\/run} 
+\item \hyperlink{RC_odbedit_examples_RC_example_script_2}{Shell script run at beginning of run} 
+\end{DoxyItemize}
+\end{DoxyItemize}
+\item \hyperlink{RC_odbedit_examples_RC_odbedit_cmd_examples}{Examples using odbedit commands} 
+\begin{DoxyItemize}
+\item \hyperlink{RC_odbedit_examples_RC_odbedit_cd}{cd -\/ change current directory} 
+\item \hyperlink{RC_odbedit_examples_RC_odbedit_chat}{chat -\/ enter chat mode} 
+\item \hyperlink{RC_odbedit_examples_RC_odbedit_chmod}{chmod -\/ change access mode} 
+\item \hyperlink{RC_odbedit_examples_RC_odbedit_cr}{create -\/ create a key of a certain type} 
+\item \hyperlink{RC_odbedit_examples_RC_odbedit_export}{export -\/ export ASCII file} 
+\item \hyperlink{RC_odbedit_utility_RC_odbedit_help}{help -\/ list of commands} 
+\item \hyperlink{RC_odbedit_examples_RC_odbedit_import}{import -\/ import ASCII file} 
+\item \hyperlink{RC_odbedit_examples_RC_odbedit_ln}{ln -\/ create a link} 
+\item \hyperlink{RC_odbedit_examples_RC_odbedit_load}{load -\/ load database from a saved file} 
+\item \hyperlink{RC_odbedit_examples_RC_odbedit_ls}{ls -\/ list the database entries} 
+\item \hyperlink{RC_odbedit_examples_RC_odbedit_make}{make -\/ create experim.h} 
+\item \hyperlink{RC_odbedit_examples_RC_odbedit_mkdir}{mkdir -\/ make new subdirectory} 
+\item \hyperlink{RC_odbedit_examples_RC_odbedit_move}{move -\/ move a key to a new position} 
+\item \hyperlink{RC_odbedit_examples_RC_odbedit_msg}{msg -\/ send a user message} 
+\item \hyperlink{RC_odbedit_examples_RC_odbedit_old}{old -\/ display old messages} 
+\item \hyperlink{RC_odbedit_examples_RC_odbedit_passwd}{passwd -\/ change/set up the MIDAS password} 
+\item \hyperlink{RC_odbedit_examples_RC_odbedit_pwd}{pwd -\/ show current directory} 
+\item \hyperlink{RC_odbedit_examples_RC_odbedit_rename}{rename -\/ rename a key} 
+\item \hyperlink{RC_odbedit_examples_RC_odbedit_rm}{rm/del -\/ delete a key and its subkeys} 
+\item \hyperlink{RC_odbedit_examples_RC_odbedit_set}{set -\/ set the value of a key} 
+\item \hyperlink{RC_odbedit_examples_RC_odbedit_sor}{sor -\/ show open records} 
+\item \hyperlink{RC_odbedit_examples_RC_odbedit_save}{save -\/ save database at current position} 
+\item \hyperlink{RC_odbedit_examples_RC_odbedit_scl}{scl -\/ show active clients} 
+\item \hyperlink{RC_odbedit_examples_RC_odbedit_sh}{sh -\/ shutdown a client} 
+\item \hyperlink{RC_odbedit_examples_RC_odbedit_start}{start -\/ start a run} 
+\item \hyperlink{RC_odbedit_examples_RC_odbedit_stop}{stop -\/ stop a run} 
+\item \hyperlink{RC_odbedit_examples_RC_odbedit_trunc}{trunc -\/ truncate a key} 
+\item \hyperlink{RC_odbedit_examples_RC_odbedit_webpasswd}{webpasswd -\/ change/set up the web password for mhttpd} 
+\end{DoxyItemize}
+\end{DoxyItemize}
+
+
+
+\hypertarget{RC_odbedit_examples_RC_odbedit_prompt}{}\subsubsection{Setting odbedit's prompt}\label{RC_odbedit_examples_RC_odbedit_prompt}
+When \char`\"{}odbedit\char`\"{} is entered on the command line, it returns a prompt, e.g. 
+\begin{DoxyCode}
+odbedit
+[local:midas:S]/>
+\end{DoxyCode}
+ The format of the {\bfseries prompt} (in the above example {\bfseries  \mbox{[}local:midas:S\mbox{]}/$>$ } ) is controlled in the ODB by the key {\bfseries  /System/Prompt }. The default value is shown below: 
+\begin{DoxyCode}
+odbedit
+[local:midas:S]/>cd /System/
+[local:midas:S]/System>ls
+Clients                         
+Tmp                             
+Client Notify                   0
+Prompt                          [%h:%e:%s]%p>
+\end{DoxyCode}
+ \par
+ where the meanings of the Prompt symbols are shown below:
+
+\begin{table}[h]\begin{TabularC}{2}
+\hline
+{\bfseries Symbol}  &{\bfseries Substitute}   \\\cline{1-2}
+\%{\bfseries h} &Host name  \\\cline{1-2}
+\%{\bfseries e}  &Experiment name  \\\cline{1-2}
+\%{\bfseries s}  &Run state symbols (U,S,P,R)  \\\cline{1-2}
+\%{\bfseries S}  &Run state long form (Unknown,Stopped,Pause,Running)  \\\cline{1-2}
+\%{\bfseries p}  &Current ODB Path  \\\cline{1-2}
+\%{\bfseries t}  &Current time  \\\cline{1-2}
+\end{TabularC}
+\centering
+\caption{Above: Meaning of Prompt symbols }
+\end{table}
+\hypertarget{RC_odbedit_examples_RC_odbedit_prompt_examples}{}\paragraph{Examples of changing the odbedit prompt:}\label{RC_odbedit_examples_RC_odbedit_prompt_examples}
+
+\begin{DoxyEnumerate}
+\item Set the prompt to show the {\bfseries  long-\/form of the run state } 
+\begin{DoxyCode}
+  [local:midas:S]/System>set Prompt "[%h:%e:%S]%p>"
+  [local:midas:Stopped]/System>
+\end{DoxyCode}
+ 
+\item Set the prompt to the phrase {\bfseries my\_\-prompt} 
+\begin{DoxyCode}
+    [local:midas:Stopped]/System>set Prompt my_prompt>
+    my_prompt>
+\end{DoxyCode}
+
+
+
+\item Set the prompt to {\bfseries  name the fields } (i.e. Host, Expt, State, Path) 
+\begin{DoxyCode}
+    my_prompt>set Prompt [Host:%h-Expt:%e:State:%s]Path:%p>
+    [Host:local-Expt:midas-State:S]Path:/System>
+\end{DoxyCode}
+
+
+
+\item Set the prompt to the {\bfseries current} {\bfseries time} 
+\begin{DoxyCode}
+    [Host:local-Expt:midas-State:S]Path:/System>set Prompt "%t>"
+    13:29:08>
+\end{DoxyCode}
+
+
+
+
+
+
+\label{RC_odbedit_examples_idx_ODB_create}
+\hypertarget{RC_odbedit_examples_idx_ODB_create}{}
+ 
+\end{DoxyEnumerate}\hypertarget{RC_odbedit_examples_RC_odbedit_create_ODB}{}\subsubsection{ODB Creation}\label{RC_odbedit_examples_RC_odbedit_create_ODB}
+After installation of MIDAS, before any other tasks are started, the ODB is created for the first time by starting the \hyperlink{RC_odbedit_utility}{odbedit utility}. This automatically creates all the shared-\/memory files needed for the experiment. By default, these files will be created in the area indicated in the \hyperlink{Q_Linux_Q_Linux_Exptab}{exptab file} for your experiment. \par
+ If MIDAS\_\-EXPT\_\-NAME is defined, this experiment will be used, unless superceded by the -\/e option (see \hyperlink{RC_odbedit_utility}{odbedit}). \par
+ 
+\begin{DoxyCode}
+[mpet@titan01 ~/online]$ ls .*.SHM
+ls: No match.
+[mpet@titan01 ~/online] odbedit
+[local:mpet:Stopped]/>quit
+[mpet@titan01 ~/online]$ ls .*.SHM
+.ALARM.SHM  .ELOG.SHM  .HISTORY.SHM  .MSG.SHM  .ODB.SHM  .SYSMSG.SHM  .SYSTEM.SHM
+      
+\end{DoxyCode}
+
+
+The default size of the ODB is 128KB. A different size can be specified by using the -\/s option (see \hyperlink{RC_odbedit_utility}{odbedit utility}) e.g. 
+\begin{DoxyCode}
+odbedit -s 204000
+\end{DoxyCode}
+
+
+The other shared memory files created are the system buffer .SYSTEM.SHM, the \hyperlink{F_Messaging}{system messaging} buffer .SYSMSG.SHM, the message buffer .MSG.SHM, \begin{Desc}
+\item[\hyperlink{todo__todo000016}{Todo}]( MSG.SHM what for? )\end{Desc}
+the \hyperlink{F_History_logging}{history} buffer .HISTORY.SHM, the \hyperlink{F_Elog}{Elog} buffer .ELOG.SHM, the alarm buffer .ALARM.SHM . \par
+
+
+{\bfseries Note:} \par
+to change the size of the event buffer(s) (e.g. SYSTEM buffer) see \hyperlink{FE_event_buffer_size}{Increase the Event Buffer Size(s)} . \par
+  Running odbedit for the first time creates the trees /Runinfo, /Experiment, /System in the ODB.  Each application will then add its own set of \hyperlink{structparameters}{parameters} to the database depending on its requirements. For example, starting the \hyperlink{F_Logging_F_mlogger_utility}{MIDAS logger} will cause the tree /Logger to be created.
+
+
+
+ \par
+ \label{RC_odbedit_examples_idx_ODB_key_names}
+\hypertarget{RC_odbedit_examples_idx_ODB_key_names}{}
+ \hypertarget{RC_odbedit_examples_RC_odbedit_keynames}{}\subsubsection{ODB Key names: UPPER/lower case, spaces in key names}\label{RC_odbedit_examples_RC_odbedit_keynames}
+{\bfseries ODB Key names are case-\/independent,} 
+\begin{DoxyCode}
+[mpet@titan01 ~/online] odbedit
+[local:mpet:Stopped]/>ls
+PerlRC
+[local:mpet:Stopped]/>ls perlrc
+ControlVariables
+RunControl
+Tunes
+[local:mpet:Stopped]/>ls PERLRC
+ControlVariables
+RunControl
+Tunes
+\end{DoxyCode}
+ {\bfseries Key names containing spaces must be enclosed in quotes} 
+\begin{DoxyCode}
+[local:mpet:Stopped]/>ls "/Equipment/TITAN_ACQ/ppg cycle/"
+transition_HV
+stdpulse_START
+begin_scan
+stdpulse_3
+\end{DoxyCode}
+ If the quotes are omitted 
+\begin{DoxyCode}
+[local:mpet:Stopped]/>ls /Equipment/TITAN_ACQ/ppg cycle
+key /Equipment/TITAN_ACQ/ppg not found
+\end{DoxyCode}
+ Using {\bfseries TAB completion,} one could write 
+\begin{DoxyCode}
+[local:mpet:Stopped]/>ls /Equipment/TITAN_ACQ/ppg  
+\end{DoxyCode}
+ then pressing the TAB key would replace the line above with that below 
+\begin{DoxyCode}
+[local:mpet:Stopped]/>ls "/Equipment/TITAN_ACQ/ppg cycle/ 
+\end{DoxyCode}
+ then press ENTER key to see the list 
+\begin{DoxyCode}
+transition_HV
+stdpulse_START
+begin_scan
+stdpulse_3
+\end{DoxyCode}
+
+
+\label{RC_odbedit_examples_idx_ODB_corrupted}
+\hypertarget{RC_odbedit_examples_idx_ODB_corrupted}{}
+ 
+
+\hypertarget{RC_odbedit_examples_RC_odbedit_corrupted}{}\subsubsection{Corrupted ODB}\label{RC_odbedit_examples_RC_odbedit_corrupted}
+If the \hyperlink{F_MainElements_F_Online_Database_overview}{Online Database} becomes corrupted, \hyperlink{RC_odbedit_utility}{odbedit} may no longer work, and other clients will also fail to open the database. In this case, the old ODB should be deleted and a new one created. The contents of the ODB can be reloaded from a \hyperlink{RC_odbedit_examples_RC_odbedit_save}{saved file}. Since the ODB may become corrupted, it is advisable to \hyperlink{F_Logging_Data_F_Logger_ODB_Dump}{save a copy automatically} at the end of each run. \par
+ To delete the corrupted ODB, delete the $\ast$.SHM files created in the area indicated in the \hyperlink{Q_Linux_Q_Linux_Exptab}{exptab file} for your experiment. 
+\begin{DoxyCode}
+[mpet@titan01 ~/online]$ ls .*.SHM
+.ALARM.SHM  .ELOG.SHM  .HISTORY.SHM  .MSG.SHM  .ODB.SHM  .SYSMSG.SHM  .SYSTEM.SHM
+      
+[mpet@titan01 ~/online]$ rm .*.SHM
+\end{DoxyCode}
+ Create new $\ast$.SHM files by running odbedit (see \hyperlink{RC_odbedit_examples_RC_odbedit_create_ODB}{ODB Creation}), then load a \hyperlink{RC_odbedit_examples_RC_odbedit_save}{saved file} containing the latest copy of the odb contents. 
+\begin{DoxyCode}
+[mpet@titan01 ~/online] odbedit
+[local:mpet:Stopped]/>load mpet.odb
+\end{DoxyCode}
+
+
+\par
+ 
+
+ \par
+
+
+\label{RC_odbedit_examples_idx_script_odbedit}
+\hypertarget{RC_odbedit_examples_idx_script_odbedit}{}
+ \label{RC_odbedit_examples_idx_odbedit_scripts}
+\hypertarget{RC_odbedit_examples_idx_odbedit_scripts}{}
+\hypertarget{RC_odbedit_examples_RC_odbedit_extcommand}{}\paragraph{Using the external command (the  -\/c argument)}\label{RC_odbedit_examples_RC_odbedit_extcommand}
+\hyperlink{RC_odbedit_utility}{odbedit -\/ ODB Editor and run control utility} -\/c argument In the simplest case, a single odbedit command can be entered on the command line, 
+\begin{DoxyCode}
+[pol@isdaq01 src]$ odbedit -c start
+Starting run #401
+Run #401 started
+[pol@isdaq01 src]$ odbedit -c stop
+Run #401 stopped
+\end{DoxyCode}
+ or a value can be set (note the use of the \hyperlink{RC_odbedit_utility}{odbedit} {\bfseries -\/d} argument) 
+\begin{DoxyCode}
+[pol@isdaq01 pol]$ odbedit -d /test -c "set testval 3"
+[pol@isdaq01 pol]$ odb
+[local:pol:S]/>ls test
+testval                         3
+
+[pol@isdaq01 pol]$ odbedit -d /test -c "ls testval"
+testval 
+\end{DoxyCode}
+
+
+Note that the syntax to create an ODB STRING array using the \char`\"{}-\/c\char`\"{} command is 
+\begin{DoxyCode}
+odbedit -c "create STRING Test[1][40]"
+odbedit -c "create STRING Test[8][40]"
+\end{DoxyCode}
+
+
+A filename containing a number of odbedit commands can also be entered, using the \hyperlink{RC_odbedit_utility}{odbedit} -\/c @commandfile argument e.g. 
+\begin{DoxyCode}
+[pol@isdaq01 pol]$ odbedit -d /test <b> -c @testfile.com </b>
+testval                         4
+Starting run #403
+Run #403 started
+Run #403 paused
+Run #403 stopped
+[pol@isdaq01 pol]$ 
+\end{DoxyCode}
+ where the file \char`\"{}testfile\char`\"{} contains odbedit commands, such as 
+\begin{DoxyCode}
+set testval 4
+ls testval
+start
+stop
+\end{DoxyCode}
+ This external command feature of odbedit allows for sophisticated scripts to be created that can manipulate the odb. \par
+Such scripts can for example
+\begin{DoxyItemize}
+\item check ODB \hyperlink{structparameters}{parameters} prior to beginning of run
+\item send run \hyperlink{structparameters}{parameters} to the electronic logbook
+\item act as a run controller, starting and stopping a series of runs with varying \hyperlink{structparameters}{parameters}
+\end{DoxyItemize}
+
+Some examples are shown below.\hypertarget{RC_odbedit_examples_RC_odbedit_script_examples}{}\paragraph{Examples of scripts sending odbedit commands}\label{RC_odbedit_examples_RC_odbedit_script_examples}
+
+\begin{DoxyItemize}
+\item \hyperlink{RC_odbedit_examples_RC_example_script_1}{Shell script run at end-\/of-\/run}
+\item \hyperlink{RC_odbedit_examples_RC_example_script_2}{Shell script run at beginning of run}
+\end{DoxyItemize}
+
+See also \hyperlink{RC_mhttpd_defining_script_buttons_RC_odb_script_ex2_perlscript}{MPET perlscripts to perform run control} .
+
+\label{RC_odbedit_examples_idx_script_end-of-run}
+\hypertarget{RC_odbedit_examples_idx_script_end-of-run}{}
+ \hypertarget{RC_odbedit_examples_RC_example_script_1}{}\subparagraph{Shell script run at end-\/of-\/run}\label{RC_odbedit_examples_RC_example_script_1}
+This script runs at the end of run, and reads some \hyperlink{structparameters}{parameters} from the odb and sends them to the elog by using the \hyperlink{F_Elog_F_melog_utility}{melog -\/ submits an entry to the Elog}. To make the script run at end of run, the name of the script is entered in the \char`\"{}Execute on stop run\char`\"{} key in the \hyperlink{RC_customize_ODB_RC_ODB_Programs_Tree}{The ODB /Programs tree} .
+
+
+\begin{DoxyCode}
+#!/bin/tcsh
+
+# This script is started at the end of each run. It takes some parameters
+# from the odb and creates an entry in the elog 
+#
+# Match to at_start_run.csh script
+# Check for input files
+if ($#argv == 1) then
+  if (-e $1) then
+    echo "Processing from file"
+    set cmd = `echo 'load '$1`
+    odb -e $MIDAS_EXPT_NAME -c "$cmd"
+  endif
+endif
+echo "exp:   $MIDAS_EXPT_NAME"
+
+# This is the file where the elog entry is saved temporarily
+set fin = "/home/$MIDAS_EXPT_NAME/tmp/info_for_elog.txt"
+if (-e $fin) then
+  rm -f $fin
+endif
+touch $fin
+
+# set port for mhttpd
+set port='8080'
+
+# Start collecting information from ODB first
+set Run_number = `odb -e $MIDAS_EXPT_NAME -c 'ls "/Runinfo/Run number"'`
+set number = `echo $Run_number | awk '{print $3}'`
+set sample = `odb -e $MIDAS_EXPT_NAME -c 'ls "/Experiment/Edit on Start/sample"'`
+      
+set Sample = `echo $sample | awk '{print $2}'`
+set temperature = `odb -e $MIDAS_EXPT_NAME -c 'ls "/Experiment/Edit on Start/temp
+      erature"'`
+set T = `echo $temperature | awk '{print $2}'`
+set field = `odb -e $MIDAS_EXPT_NAME -c 'ls "/Experiment/Edit on Start/field"'`
+set H = `echo $field | awk '{print $2}'`
+set RF = '??'
+set experimenter = `odb -e $MIDAS_EXPT_NAME -c 'ls "/Experiment/Edit on Start/exp
+      erimenter"'`
+set author = `echo $experimenter | awk '{print $2}'`
+set run_title = `odb -e $MIDAS_EXPT_NAME -c 'ls "/Experiment/Edit on Start/run_ti
+      tle"'`
+set title = `echo $run_title | awk -F'run_title' '{print $2}'`
+set experiment_number = `odb -e $MIDAS_EXPT_NAME -c 'ls "/Experiment/Edit on Star
+      t/experiment number"'`
+set exp_num = `echo $experiment_number | awk '{print $3}'`
+set Experiment_name = `odb -e $MIDAS_EXPT_NAME -c 'ls "/Equipment/FIFO_acq/sis mc
+      s/Input/Experiment name"'`
+set type = `echo $Experiment_name | awk '{print $3}'`
+set type_dir = `echo 'ls -r /PPG/PPG'$type`
+
+# Now create the temporary file to be sent to the elog
+echo "Run # $number" >> $fin
+odb -e $MIDAS_EXPT_NAME -c 'ls "/Runinfo/Start time"' >> $fin
+odb -e $MIDAS_EXPT_NAME -c 'ls "/Runinfo/Stop time"' >> $fin
+echo "$Sample at T = $T K, H = $H T and RF = $RF mW">> $fin
+echo "Run Title   : $title" >> $fin
+echo "Experimenter: $author" >> $fin
+echo "Experiment #: $exp_num" >> $fin
+echo "-------------------------------------------------------------" >>$fin
+odb -e $MIDAS_EXPT_NAME -c "$type_dir" >> $fin
+echo "-------------------------------------------------------------" >>$fin
+
+if ("x$Sample" == "x") then 
+   set Sample = 'none'
+endif
+
+if ("x$author" == "x") then 
+   set author = 'Auto'
+endif
+
+# Send information to the elog
+
+echo "about to send elog (expt $MIDAS_EXPT_NAME, port $port)"
+melog -h isdaq01 -p $port -l $MIDAS_EXPT_NAME -a author=$author -a Type="Automati
+      c Elog" -a System="Elog" -a Subject="$Sample"  -m $fin
+cat $fin
+
+# done
+\end{DoxyCode}
+ \label{RC_odbedit_examples_idx_script_start-of-run}
+\hypertarget{RC_odbedit_examples_idx_script_start-of-run}{}
+ 
+
+\hypertarget{RC_odbedit_examples_RC_example_script_2}{}\subparagraph{Shell script run at beginning of run}\label{RC_odbedit_examples_RC_example_script_2}
+The following example is part of a shell script run at the beginning of run for the TRIUMF BNMR experiment to check the status of various slow controls required for logging during the run. To make the script run at beginning of run, the name of the script is entered in the \char`\"{}Execute on start run\char`\"{} key in the \hyperlink{RC_customize_ODB_RC_ODB_Programs_Tree}{The ODB /Programs tree} .
+
+
+\begin{DoxyCode}
+#!/bin/csh
+#
+
+# Add an input parameter
+#  0 default
+#  1 (for redo camp slow controls from custom page) to stop statistics being zero
+      ed
+#  2 (redo epics slow controls from custom page)
+#
+#
+# NOTE: msg [type] [user] <msg> - compose user message
+#
+#  odb msg 1 -> error msg  (in black/red)
+#  odb msg 2 -> info msg   (in black/white)
+
+#echo "argv: $argv ; number of args: $#argv"
+set param = 0
+if  ($#argv > 0) then
+    set param = $argv[1];
+   endif
+#echo "param: $param ;  $MIDAS_EXPT_NAME"
+
+set my_path = "/home/$MIDAS_EXPT_NAME/online/$MIDAS_EXPT_NAME/bin"
+#echo "my_path:$my_path"
+
+odb -e $MIDAS_EXPT_NAME -c "msg 'at_start_run'  '(at start) starting with param= 
+      $param' "
+
+# clear elog (camp log) alarm flag
+odb -e $MIDAS_EXPT_NAME -c 'set "/equipment/fifo_acq/client flags/elog alarm" 0'
+# clear epicslog alarm flag
+odb -e $MIDAS_EXPT_NAME -c 'set "/equipment/fifo_acq/client flags/epicslog alarm"
+       0'
+
+if ($param == 1) then
+# redo CAMP only
+   odb -e $MIDAS_EXPT_NAME -c "msg 'at_start_run'  '(at start) sets camp ok to 4'
+      "
+   odb -e $MIDAS_EXPT_NAME -c "set '/equipment/camp/settings/camp ok' 4" # camp_o
+      k = 4 indicates redoing CAMP only
+else if  ($param == 2) then
+# redo EPICS only
+   odb -e $MIDAS_EXPT_NAME -c "msg 'at_start_run'  '(at start) sets epics ok to4'
+      "
+   odb -e $MIDAS_EXPT_NAME -c "set '/equipment/epicslog/settings/epics ok' 4" #ep
+      ics_ok =4 indicates redoing EPICS only
+else
+# run start - redo EPICS and CAMP
+   odb -e $MIDAS_EXPT_NAME  -c "msg 'at_start_run'  '(at start) sets epics ok and
+       camp ok to 2' "
+   odb -e $MIDAS_EXPT_NAME -c "set '/equipment/camp/settings/camp ok' 2"      #ca
+      mp_ok=2 indicates redoing CAMP
+   odb -e $MIDAS_EXPT_NAME -c "set '/equipment/epicslog/settings/epics ok' 2" #ep
+      ics_ok=2 indicates redoing EPICS
+endif
+
+if ($param == 0 || $param == 2) then
+#
+#  Check epics logged variables
+#
+   odb -e $MIDAS_EXPT_NAME -c "msg 'at_start_run' 'calling check_epics.csh' "
+   $my_path/check_epics.csh
+    set stat = $status
+    if ($stat != 0) then
+       echo "error return from check_epics.csh"
+       odb -e $MIDAS_EXPT_NAME -c "msg '1' 'at_start_run' 'error return from chec
+      k_epics.csh' "
+       odb -e $MIDAS_EXPT_NAME -c "set '/equipment/epicslog/settings/epics ok' 0
+" # EPICS failure
+    else
+       odb -e $MIDAS_EXPT_NAME -c "msg 'at_start_run' 'after check_epics.csh (suc
+      cess)' "
+       odb -e $MIDAS_EXPT_NAME -c "set '/equipment/epicslog/settings/epics ok' 1"
+       # EPICS success
+    endif
+
+else
+   odb -e $MIDAS_EXPT_NAME -c "msg 'at_start_run' '(at start) NOT calling check_e
+      pics.csh ($param)' "
+endif
+
+if ($param == 2) then  # checks epics only ; no camp
+  exit
+endif
+
+ ..............
+    etc.
+\end{DoxyCode}
+
+
+
+
+\hypertarget{RC_odbedit_examples_RC_odbedit_cmd_examples}{}\subsubsection{Examples using odbedit commands}\label{RC_odbedit_examples_RC_odbedit_cmd_examples}
+Here are some examples of the most commonly used \hyperlink{RC_odbedit_utility}{odbedit} commands:\hypertarget{RC_odbedit_examples_RC_odbedit_pwd}{}\paragraph{pwd -\/ show current directory}\label{RC_odbedit_examples_RC_odbedit_pwd}
+
+\footnotesize  One of the \hyperlink{RC_odbedit_utility}{odbedit} \hyperlink{RC_odbedit_utility_RC_odbedit_help}{commands} 
+\normalsize \par
+\par
+ 
+\begin{DoxyCode}
+$ odbedit
+[local:mpet:Stopped]/>
+[local:mpet:Stopped]/>pwd
+/
+\end{DoxyCode}
+
+
+
+
+\hypertarget{RC_odbedit_examples_RC_odbedit_cd}{}\paragraph{cd -\/ change current directory}\label{RC_odbedit_examples_RC_odbedit_cd}
+
+\footnotesize  One of the \hyperlink{RC_odbedit_utility}{odbedit} \hyperlink{RC_odbedit_utility_RC_odbedit_help}{commands} 
+\normalsize \par
+\par
+
+
+
+\begin{DoxyCode}
+cd <dir>                - change current directory
+\end{DoxyCode}
+ For example, 
+\begin{DoxyCode}
+[local:mpet:Stopped]/>cd system
+[local:mpet:Stopped]/>pwd
+/System
+\end{DoxyCode}
+
+
+
+
+\hypertarget{RC_odbedit_examples_RC_odbedit_chat}{}\paragraph{chat  -\/ enter chat mode}\label{RC_odbedit_examples_RC_odbedit_chat}
+This mode is used to communicate with another person also running odbedit on the same experiment. It is useful where a telephone connection is not available. e.g. \par
+ \begin{table}[h]\begin{TabularC}{2}
+\hline
+Anna's console &Fred's console \\\cline{1-2}
+
+\begin{DoxyCode}
+[anna@isdaq01 ~]$ odb -e bnmr -h dasdevpc
+[dasdevpc:bnmr:S]/>chat
+Your name> anna
+Exit chat mode with empty line.
+> hi
+12:46:12 [anna] hi
+12:46:51 [ODBEdit2] Program ODBEdit on host dasdevpc started
+12:47:21 [fred] hi
+> hi
+12:47:34 [anna] hi fred
+12:48:12 [fred] please cycle crate power now
+> done - all lights green
+12:48:21 [anna] done - all lights green
+> bye
+12:50:27 [anna] bye
+>
+[dasdevpc:bnmr:S]/>
+\end{DoxyCode}
+  &
+\begin{DoxyCode}
+odbedit -e bnmr
+[fred@dasdevpc ~]$ odb -e bnmr
+[local:bnmr:S]/>chat
+Your name> fred
+Exit chat mode with empty line.
+> hi
+12:47:21 [fred] hi
+12:47:34 [anna] hi fred
+> please cycle crate power now
+12:48:12 [fred] please cycle crate power now
+12:48:21 [anna] done - all lights green
+12:50:27 [anna] bye
+>
+[local:bnmr:S]/>  
+\end{DoxyCode}
+   \\\cline{1-2}
+\end{TabularC}
+\centering
+\caption{Two users communicate using {\bfseries chat} mode}
+\end{table}
+
+
+The chat conversation can also be heard over the speakers if \hyperlink{F_Messaging_F_mspeaker_utility}{m\mbox{[}lx\mbox{]}speaker -\/ audible messaging} is running.
+
+\label{RC_odbedit_examples_idx_access-control_ODB_keys}
+\hypertarget{RC_odbedit_examples_idx_access-control_ODB_keys}{}
+ 
+
+\hypertarget{RC_odbedit_examples_RC_odbedit_chmod}{}\paragraph{chmod -\/ change access mode}\label{RC_odbedit_examples_RC_odbedit_chmod}
+The access mode can be changed with the chmod command between
+
+
+\begin{DoxyItemize}
+\item 1 read R
+\item 2 write W
+\item 4 delete D
+\end{DoxyItemize}
+
+By default the access mode of ODB keys are RWD i.e. the permission is to Read, Write or Delete them. To avoid them being inadvertently changed or deleted the mode can be set to read-\/only, e.g 
+\begin{DoxyCode}
+[local:t2kgas:S]GasMain.gif>chmod 1 background
+Are you sure to change the mode of key
+  /Custom/Images/GasMain.gif/background
+and all its subkeys
+to mode [R]? (y/[n]) y
+[local:t2kgas:S]GasMain.gif>ls -lt
+Key name                        Type    #Val  Size  Last Opn Mode Value
+---------------------------------------------------------------------------
+refresh time (s)                DWORD   1     4     13h  0   RWD  10
+background                      STRING  1     256   13h  0   R    /home/suz/onlin
+      e/t2kgas/images/GasMain.gif
+labels                          DIR
+fills                           DIR
+\end{DoxyCode}
+ After setting the mode to read-\/only, the key cannot be written to: 
+\begin{DoxyCode}
+[local:t2kgas:S]GasMain.gif>set background dddd
+Write access not allowed
+\end{DoxyCode}
+ or deleted 
+\begin{DoxyCode}
+[local:t2kgas:S]GasMain.gif>rm background
+Are you sure to delete the key
+"/Custom/Images/GasMain.gif/background"
+(y/[n]) y
+deletion of key not allowed
+[local:t2kgas:S]GasMain.gif> 
+\end{DoxyCode}
+
+
+To restore the key to mode RWD, 
+\begin{DoxyCode}
+[local:t2kgas:S]GasMain.gif>chmod 7 background
+Are you sure to change the mode of key
+  /Custom/Images/GasMain.gif/background
+and all its subkeys
+to mode [RWD]? (y/[n]) y
+[local:t2kgas:S]GasMain.gif>ls -lt
+Key name                        Type    #Val  Size  Last Opn Mode Value
+---------------------------------------------------------------------------
+refresh time (s)                DWORD   1     4     13h  0   RWD  10
+background                      STRING  1     256   13h  0   RWD  /home/suz/onlin
+      e/t2kgas/images/GasMain.gif
+labels                          DIR
+fills                           DIR
+[local:t2kgas:S]GasMain.gif>
+\end{DoxyCode}
+
+
+
+
+\hypertarget{RC_odbedit_examples_RC_odbedit_ls}{}\paragraph{ls -\/ list the database entries}\label{RC_odbedit_examples_RC_odbedit_ls}
+
+\begin{DoxyCode}
+ls/dir [-lhvrp] [<pat>] - show database entries which match pattern
+  -l                      detailed info
+  -h                      hex format
+  -v                      only value
+  -r                      show database entries recursively
+  -p                      pause between screens
+\end{DoxyCode}
+ \par
+List the keys (\char`\"{}dir\char`\"{} is an alternative to \char`\"{}ls\char`\"{}). 
+\begin{DoxyCode}
+[local:mpet:Stopped]/System>ls
+Clients
+Tmp
+Client Notify                   0
+Prompt                          [%h:%e:%S]%p>
+[local:mpet:Stopped]/System>     
+\end{DoxyCode}
+ \par
+The \char`\"{}-\/l\char`\"{} option gives detailed information, such as the key type and size 
+\begin{DoxyCode}
+[local:mpet:Stopped]/>ls /experiment
+Name                            mpet
+Buffer sizes
+Variables
+Edit on start
+[local:mpet:Stopped]/>ls -lt  /experiment
+Key name                        Type    #Val  Size  Last Opn Mode Value
+---------------------------------------------------------------------------
+Name                            STRING  1     32    3m   0   RWD  mpet
+Buffer sizes                    DIR
+Variables                       DIR
+Edit on start                   DIR
+\end{DoxyCode}
+ \par
+The recursive option \char`\"{}-\/r\char`\"{} shows the database entries recursively 
+\begin{DoxyCode}
+[local:pol:S]/>ls -r ppg
+PPG
+    PPGcommon
+        Experiment name -> /Equipment/FIFO_acq/sis mcs/Input/Experiment name
+                                1h
+        CFG path -> /Equipment/FIFO_acq/sis mcs/Input/CFG path
+                                /home/pol/online/pol/ppcobj
+        PPG path -> /Equipment/FIFO_acq/sis mcs/Input/PPG path
+                                /home/pol/online/ppg-templates
+        Time slice (ms) -> /Equipment/FIFO_acq/sis mcs/Input/Time slice (ms)
+                                1e-04
+        Minimal delay (ms) -> /Equipment/FIFO_acq/sis mcs/Input/Minimal delay (ms
+      )
+                                0.0005
+        DAQ service time (ms) -> /Equipment/FIFO_acq/sis mcs/Input/DAQ service ti
+      me (ms)
+                                3000
+\end{DoxyCode}
+ \par
+The values can be displayed in hexadecimal using the \char`\"{}-\/h\char`\"{} option 
+\begin{DoxyCode}
+[local:pol:S]/>ls  "/Equipment/FIFO_acq/sis mcs/Input/e00 rf frequency (Hz)"
+e00 rf frequency (Hz)           22064585
+[local:pol:S]/>ls  -h "/Equipment/FIFO_acq/sis mcs/Input/e00 rf frequency (Hz)"
+e00 rf frequency (Hz)           0x150ADC9
+\end{DoxyCode}
+ \par
+or the value only displayed with the \char`\"{}-\/v\char`\"{} option 
+\begin{DoxyCode}
+[local:pol:S]/test>ls
+val                             5
+[local:pol:S]/test>ls -v
+5
+\end{DoxyCode}
+
+
+
+
+\hypertarget{RC_odbedit_examples_RC_odbedit_mkdir}{}\paragraph{mkdir -\/ make new subdirectory}\label{RC_odbedit_examples_RC_odbedit_mkdir}
+
+\begin{DoxyCode}
+mkdir <subdir>          - make new <subdir>
+\end{DoxyCode}
+ \par
+This example shows how to make a new subdirectory \char`\"{}/custom\char`\"{}. 
+\begin{DoxyCode}
+[mpet@titan01 ~/online] odbedit
+[local:mpet:Stopped]/>ls
+System
+Programs
+Experiment
+Runinfo
+Alarms
+
+[local:mpet:Stopped]/>mkdir custom
+[local:mpet:Stopped]/>ls
+System
+Programs
+Experiment
+Runinfo
+Alarms
+Custom
+\end{DoxyCode}
+
+
+More than one level of subdirectory can be made with one command 
+\begin{DoxyCode}
+[local:pol:S]/>mkdir /Equipment/test/settings
+[local:pol:S]/>ls /Equipment
+test
+[local:pol:S]/>ls /Equipment/test
+[local:pol:S]/>
+settings
+\end{DoxyCode}
+
+
+
+
+\hypertarget{RC_odbedit_examples_RC_odbedit_msg}{}\paragraph{msg -\/ send a user message}\label{RC_odbedit_examples_RC_odbedit_msg}
+This command can be used to send a message to any client that is receiving MIDAS messages, including the MIDAS message logger, e.g 
+\begin{DoxyCode}
+[local:cg:S]/>
+16:30:48 [fred] hi
+[local:cg:S]/>msg george "is there a problem?"
+[george,USER] is there a problem?
+16:30:48 [fred] power supply has failed
+\end{DoxyCode}
+
+
+The messages have gone into the MIDAS log (see \hyperlink{RC_odbedit_examples_RC_odbedit_old}{below}).
+
+
+
+\hypertarget{RC_odbedit_examples_RC_odbedit_old}{}\paragraph{old -\/ display old messages}\label{RC_odbedit_examples_RC_odbedit_old}
+This command displays the last N MIDAS messages, e.g. 
+\begin{DoxyCode}
+[local:customgas:S]/>old 9
+Fri May 21 13:36:27 2010 [ODBEdit,INFO] Program ODBEdit on host dasdevpc2 started
+      
+Fri May 21 13:36:40 2010 [ODBEdit,INFO] Program ODBEdit on host dasdevpc2 stopped
+      
+Mon May 31 15:56:28 2010 [ODBEdit,INFO] Program ODBEdit on host dasdevpc2 started
+      
+Wed Jun  9 20:49:42 2010 [mhttpd] Program mhttpd on host dasdevpc2 stopped
+Wed Jun  9 20:49:42 2010 [mhttpd] Program mhttpd on host dasdevpc2 started
+Wed Jun 16 16:27:51 2010 [fred] hi
+Wed Jun 16 16:29:15 2010 [fred] hi
+Wed Jun 16 16:30:10 2010 [george] is there a problem?
+Wed Jun 16 16:30:48 2010 [fred] power supply has failed
+\end{DoxyCode}
+
+
+
+
+\hypertarget{RC_odbedit_examples_RC_odbedit_passwd}{}\paragraph{passwd -\/ change/set up the MIDAS password}\label{RC_odbedit_examples_RC_odbedit_passwd}
+Example is shown \hyperlink{RC_customize_ODB_RC_Setup_Security}{here}.
+
+
+
+\hypertarget{RC_odbedit_examples_RC_odbedit_webpasswd}{}\paragraph{webpasswd -\/ change/set up the web password for mhttpd}\label{RC_odbedit_examples_RC_odbedit_webpasswd}
+Example is shown \hyperlink{RC_customize_ODB_RC_Setup_Web_Security}{here}.
+
+
+
+\hypertarget{RC_odbedit_examples_RC_odbedit_move}{}\paragraph{move -\/ move a key to a new position}\label{RC_odbedit_examples_RC_odbedit_move}
+
+\begin{DoxyCode}
+move <key> [top/bottom/[n]] - move key to position in keylist
+\end{DoxyCode}
+
+
+The \char`\"{}move\char`\"{} command provides a means of re-\/ordering the keys. 
+\begin{DoxyCode}
+[local:mpet:Stopped]/>ls
+System
+Programs
+Experiment
+Runinfo
+Alarms
+Custom
+\end{DoxyCode}
+
+
+The key \char`\"{}custom\char`\"{} can be moved to the top (or bottom) of the list, e.g. 
+\begin{DoxyCode}
+[local:mpet:Stopped]/>move custom top
+[local:mpet:Stopped]/>ls
+Custom
+System
+Programs
+Experiment
+Runinfo
+Alarms
+\end{DoxyCode}
+
+
+or to any position, e.g. 
+\begin{DoxyCode}
+[local:mpet:Stopped]/>move custom 1
+[local:mpet:Stopped]/>ls
+System
+Custom
+Programs
+Experiment
+Runinfo
+Alarms
+\end{DoxyCode}
+
+
+
+
+\hypertarget{RC_odbedit_examples_RC_odbedit_rename}{}\paragraph{rename -\/ rename a key}\label{RC_odbedit_examples_RC_odbedit_rename}
+
+\begin{DoxyCode}
+rename <old> <new>      - rename key
+\end{DoxyCode}
+ \par
+ 
+\begin{DoxyCode}
+[local:pol:S]/>ls "my string"
+my string                       this is a test string
+[local:pol:S]/>rename "my string" "your string"
+[local:pol:S]/>ls
+your string                       this is a test string
+\end{DoxyCode}
+
+
+
+
+\hypertarget{RC_odbedit_examples_RC_odbedit_copy}{}\paragraph{copy -\/ copy a subtree}\label{RC_odbedit_examples_RC_odbedit_copy}
+
+\begin{DoxyCode}
+copy <src> <dest>       - copy a subtree to a new location
+\code
+To make a copy of a subtree:
+\code
+[local:pol:S]/>ls test
+testval                         4
+[local:pol:S]/>copy test test1
+[local:pol:S]/>ls
+test
+test1
+[local:pol:S]/>ls test1
+testval       
+\end{DoxyCode}
+
+
+
+
+\hypertarget{RC_odbedit_examples_RC_odbedit_import}{}\paragraph{import -\/  import ASCII file}\label{RC_odbedit_examples_RC_odbedit_import}
+
+\begin{DoxyCode}
+import  <filename> [key]    - import ASCII file into string key 
+\end{DoxyCode}
+
+
+e.g. import an \hyperlink{RC_mhttpd_Internal}{Internal custom page} into a key, 
+\begin{DoxyCode}
+Tue> odbedit
+[local:midas:Stopped]>cd custom
+[local:midas:Stopped]/Custom>import mcustom.html   <-- import an html file
+  Key name: Test&  
+\end{DoxyCode}
+
+
+
+
+\hypertarget{RC_odbedit_examples_RC_odbedit_export}{}\paragraph{export -\/  export ASCII file}\label{RC_odbedit_examples_RC_odbedit_export}
+
+\begin{DoxyCode}
+export  <filename> [key]    - import ASCII file into string key 
+\end{DoxyCode}
+
+
+e.g. export an \hyperlink{RC_mhttpd_Internal}{Internal custom page} into a key,
+
+
+\begin{DoxyCode}
+  [local:midas:Stopped]/>cd Custom/
+  [local:midas:Stopped]/Custom>export test&
+  File name: mcustom.html
+  [local:midas:Stopped]/Custom>
+\end{DoxyCode}
+
+
+
+
+\hypertarget{RC_odbedit_examples_RC_odbedit_ln}{}\paragraph{ln -\/ create a link}\label{RC_odbedit_examples_RC_odbedit_ln}
+
+\begin{DoxyCode}
+ln <source> <linkname>  - create a link to <source> key
+\end{DoxyCode}
+
+
+The \hyperlink{RC_customize_ODB_RC_Edit_On_Start}{Edit on start} area often contains links to ODB \hyperlink{structparameters}{parameters} e.g. 
+\begin{DoxyCode}
+[local:mpet:Stopped]/Experiment>cd "/Experiment/Edit on start/
+[local:mpet:Stopped]Edit on start>ls
+num ppg cycles                  /Equipment/TITAN_acq/ppg cycle/begin_scan/loop co
+      unt -> 50
+Pedestals run                   n
+Write Data                      /Logger/Write data -> y
+Capture delay (ms)              /Equipment/TITAN_acq/ppg cycle/evset_2/time offse
+      t (ms) -> 0.0955
+PLT pulsedown delay (ms)        /Equipment/TITAN_acq/ppg cycle/pulse_1/time offse
+      t (ms) -> 0.0922
+Start Frequency in MHz          /Experiment/Variables/StartFreq (MHz) -> 1.458877
+      5
+End Frequency in MHz            /Experiment/Variables/EndFreq (MHz) -> 1.4588815
+Number of frequency steps       /Experiment/Variables/NFreq -> 41
+Feedbackfilename                /Feedback/fbfilename -> /home/mpet/online/mpetfee
+      dbackfnv1.txt
+\end{DoxyCode}
+
+
+These links were made using the \char`\"{}ln\char`\"{} command, e.g. 
+\begin{DoxyCode}
+[local:mpet:Stopped]Edit on start>ln  "/Equipment/TITAN_acq/ppg cycle/evset_2/tim
+      e offset (ms)" "Capture delay (ms)"
+\end{DoxyCode}
+
+
+
+
+\hypertarget{RC_odbedit_examples_RC_odbedit_cr}{}\paragraph{create -\/ create a key of a certain type}\label{RC_odbedit_examples_RC_odbedit_cr}
+
+\begin{DoxyCode}
+create <type> <key>     - create a key of a certain type
+create <type> <key>[n]  - create an array of size [n]
+\end{DoxyCode}
+
+
+Keys can be created of the types supported by MIDAS i.e. \par
+ INT DWORD BOOL FLOAT DOUBLE STRING
+
+
+\begin{DoxyCode}
+[local:pol:S]/test>create dword my_dword
+[local:pol:S]/test>create int my_int
+[local:pol:S]/test>create float my_float
+[local:pol:S]/test>create double my_double
+[local:pol:S]/test>create bool my_bool
+[local:pol:S]/>create string "my string"
+String length [32]: 64
+
+[local:pol:S]/test>ls
+my_dword                        0
+my_int                          0
+my_float                        0
+my_double                       0
+my_bool                         n
+my_string
+
+[local:pol:S]/test>ls -lt
+Key name                        Type    #Val  Size  Last Opn Mode Value
+---------------------------------------------------------------------------
+my_dword                        DWORD   1     4     >99d 0   RWD  0
+my_int                          INT     1     4     >99d 0   RWD  0
+my_float                        FLOAT   1     4     >99d 0   RWD  0
+my_double                       DOUBLE  1     8     >99d 0   RWD  0
+my_bool                         BOOL    1     4     >99d 0   RWD  n
+my_string                       STRING  1     62    9s   0   RWD
+[local:pol:S]/test>
+\end{DoxyCode}
+
+
+Arrays of all these types can also be created, e.g. 
+\begin{DoxyCode}
+[local:pol:S]/test>create int fred[5]
+[local:pol:S]/test>ls
+fred
+                                0
+                                0
+                                0
+                                0
+                                0
+\end{DoxyCode}
+
+
+The \hyperlink{RC_odbedit_examples_RC_odbedit_set}{set} command is used to assign values to the keys.
+
+
+
+\hypertarget{RC_odbedit_examples_RC_odbedit_set}{}\paragraph{set -\/ set the value of a key}\label{RC_odbedit_examples_RC_odbedit_set}
+
+\begin{DoxyCode}
+set <key> <value>       - set the value of a key
+set <key>[i] <value>    - set the value of index i
+set <key>[*] <value>    - set the value of all indices of a key
+set <key>[i..j] <value> - set the value of all indices i..j
+\end{DoxyCode}
+
+
+After keys are \hyperlink{RC_odbedit_examples_RC_odbedit_cr}{created}, they can be assigned values with the {\bfseries set} command: 
+\begin{DoxyCode}
+[pol@isdaq01 src]$ odb
+[local:pol:S]/>create string "my string"
+String length [32]: 64
+[local:pol:S]/>ls -lt "my string"
+Key name                        Type    #Val  Size  Last Opn Mode Value
+---------------------------------------------------------------------------
+my string                       STRING  1     64    9s   0   RWD
+[local:pol:S]/>set "my string" "this is a test string"
+[local:pol:S]/>ls "my string"
+my string                       this is a test string
+[local:pol:S]/>create INT ival
+[local:pol:S]/>set ival 8
+[local:pol:S]/>ls -lt ival
+Key name                        Type    #Val  Size  Last Opn Mode Value
+---------------------------------------------------------------------------
+ival                            INT     1     4     3s   0   RWD  8
+[local:pol:S]/>ls ival
+ival                            8
+[local:pol:S]/>   
+\end{DoxyCode}
+
+
+Values of {\bfseries arrays} can also be set:
+
+
+\begin{DoxyCode}
+[local:pol:S]/test>set fred[4] 6
+[local:pol:S]/test>ls
+fred
+                                0
+                                0
+                                0
+                                0
+                                6
+[local:pol:S]/test>set fred 2
+[local:pol:S]/test>ls
+fred
+                                2
+                                0
+                                0
+                                0
+                                6
+[local:pol:S]/test>set fred[*] 5
+[local:pol:S]/test>ls
+fred
+                                5
+                                5
+                                5
+                                5
+                                5
+[local:pol:S]/test>set fred[1..3] 6
+[local:pol:S]/test>ls
+fred
+                                5
+                                6
+                                6
+                                6
+                                5
+[local:pol:S]/test>           
+\end{DoxyCode}
+
+
+The array can easily be expanded (see also \hyperlink{RC_odbedit_examples_RC_odbedit_trunc}{trunc}) :
+
+
+\begin{DoxyCode}
+[local:pol:S]/test>set fred[8] 9
+[local:pol:S]/test>ls
+fred
+                                5
+                                6
+                                6
+                                6
+                                5
+                                0
+                                0
+                                0
+                                9
+\end{DoxyCode}
+
+
+\label{RC_odbedit_examples_RC_odbedit_set_wp}
+\hypertarget{RC_odbedit_examples_RC_odbedit_set_wp}{}
+ {\bfseries NOTE} that the \char`\"{}set\char`\"{} command may not work if the ODB parameter is {\bfseries write-\/protected}. See \hyperlink{RC_odbedit_examples_RC_odbedit_chmod}{chmod -\/ change access mode} and \hyperlink{RC_customize_ODB_RC_Lock_when_Running}{Lock when Running}.
+
+
+
+\hypertarget{RC_odbedit_examples_RC_odbedit_chmod}{}\paragraph{chmod -\/ change access mode}\label{RC_odbedit_examples_RC_odbedit_chmod}
+
+\begin{DoxyCode}
+chmod <mode> <key>       change access mode of a key
+                          1=read | 2=write | 3=RWD | 4=delete
+\end{DoxyCode}
+
+
+By default, a key is created in mode 3 (i.e. RWD read/write/delete). The {\bfseries chmod} command may be used to change the protection of the key. 
+\begin{DoxyCode}
+[local:bnmr:S]/>create int my_test
+[local:bnmr:S]/>set my_test 3
+[local:bnmr:S]/>ls -lt my_test
+Key name                        Type    #Val  Size  Last Opn Mode Value
+---------------------------------------------------------------------------
+my_test                         INT     1     4     20s  0   RWD  3
+[local:bnmr:S]/>chmod 1 my_test
+Are you sure to change the mode of key
+  /my_test
+and all its subkeys
+to mode [R]? (y/[n]) y
+[local:bnmr:S]/>ls -lt my_test
+Key name                        Type    #Val  Size  Last Opn Mode Value
+---------------------------------------------------------------------------
+my_test                         INT     1     4     46s  0   R    3
+[local:bnmr:S]/>set my_test 6
+Write access not allowed
+[local:bnmr:S]/> 
+\end{DoxyCode}
+
+
+{\bfseries NOTE:} \par
+ \par
+Write protection when running can also be performed -\/ see \hyperlink{RC_customize_ODB_RC_Lock_when_Running}{Lock when Running}.
+
+
+
+\hypertarget{RC_odbedit_examples_RC_odbedit_trunc}{}\paragraph{trunc  -\/ truncate a key}\label{RC_odbedit_examples_RC_odbedit_trunc}
+
+\begin{DoxyCode}
+trunc <key> <index>     - truncate key to [index] values
+\end{DoxyCode}
+
+
+This command is used to truncate or expand an array. 
+\begin{DoxyCode}
+[local:pol:S]/>ls fred 
+fred
+                                5
+                                6
+                                6
+                                6
+                                5
+                                0
+                                0
+                                0
+                                9
+[local:pol:S]/>trunc fred 4
+[local:pol:S]/>ls fred
+fred
+                                5
+                                6
+                                6
+                                6
+[local:pol:S]/>trunc fred 9
+[local:pol:S]/>ls fred
+fred
+                                5
+                                6
+                                6
+                                6
+                                0
+                                0
+                                0
+                                0
+                                0
+\end{DoxyCode}
+
+
+\par
+ 
+
+\hypertarget{RC_odbedit_examples_RC_odbedit_rm}{}\paragraph{rm/del -\/ delete a key and its subkeys}\label{RC_odbedit_examples_RC_odbedit_rm}
+
+\begin{DoxyCode}
+del/rm [-l] [-f] <key>  - delete a key and its subkeys
+  -l                      follow links
+  -f                      force deletion without asking
+\end{DoxyCode}
+ \par
+
+
+
+\begin{DoxyCode}
+[local:pol:S]/>rm ival
+Are you sure to delete the key
+"/ival"
+(y/[n]) y
+ 
+[local:pol:S]/>rm test/try
+Are you sure to delete the key "/test/try"
+and all its subkeys? (y/[n]) y
+[local:pol:S]/> 
+\end{DoxyCode}
+
+
+If you answer \char`\"{}n\char`\"{} the key will not be deleted.
+
+
+
+\hypertarget{RC_odbedit_examples_RC_odbedit_sor}{}\paragraph{sor -\/ show open records}\label{RC_odbedit_examples_RC_odbedit_sor}
+This shows which records are open, i.e. \hyperlink{RC_Hot_Link_RC_Hot_Link_Intro}{hot-\/linked} . 
+\begin{DoxyCode}
+[local:mpet:Stopped]/>sor
+/Runinfo/Requested transition open 1 times by fempet
+/Equipment/Trigger/Common open 1 times by fempet
+/Equipment/Trigger/Statistics open 1 times by fempet
+/Equipment/Trigger/Statistics/Events per sec. open 1 times by Logger
+/Equipment/Trigger/Statistics/kBytes per sec. open 1 times by Logger
+/Equipment/Trigger/Settings open 1 times by fempet
+/Equipment/Scaler/Common open 1 times by fempet
+/Equipment/Scaler/Statistics open 1 times by fempet
+/Equipment/SlowDac/Variables open 1 times by Logger
+/Equipment/SlowDac/Variables/Demand open 1 times by fesdac
+/Equipment/SlowDac/Common open 1 times by fesdac
+/Equipment/SlowDac/Statistics open 1 times by fesdac
+/Equipment/Beamline/Settings/Names open 1 times by scEpics
+/Equipment/Beamline/Settings/Update Threshold Measured open 1 times by scEpics
+/Equipment/Beamline/Common open 1 times by scEpics
+/Equipment/Beamline/Variables open 1 times by Logger
+/Equipment/Beamline/Variables/Demand open 1 times by scEpics
+/Equipment/Beamline/Statistics open 1 times by scEpics
+/Equipment/RF/Variables open 1 times by Logger
+/Equipment/TITAN_ACQ/Common open 1 times by fempet
+/Equipment/TITAN_ACQ/Statistics open 1 times by fempet
+[local:mpet:Stopped]/>    
+\end{DoxyCode}
+
+
+
+
+\hypertarget{RC_odbedit_examples_RC_odbedit_save}{}\paragraph{save -\/ save database at current position}\label{RC_odbedit_examples_RC_odbedit_save}
+
+\begin{DoxyCode}
+save [-c -s -x -cs] <file>  - save database at current position
+                          in ASCII format
+  -c                      as a C structure
+  -s                      as a #define'd string
+  -x                      as a XML file
+\end{DoxyCode}
+ Saving the database regularly is essential in case the database becomes corrupted (see \hyperlink{RC_odbedit_examples_RC_odbedit_corrupted}{Corrupted ODB}). To save the complete database into an ASCII file, 
+\begin{DoxyCode}
+[mpet@titan01 ~/online] odbedit
+[local:mpet:Stopped]/>save mpet.odb
+\end{DoxyCode}
+ \par
+ This example shows how to save part of the database in an {\bfseries ASCII} file 
+\begin{DoxyCode}
+[local:pol:S]>cd "/Equipment/Info ODB/"
+[local:pol:S]Info ODB>save info.odb
+\end{DoxyCode}
+ {\bfseries Contents} of info.odb : 
+\begin{DoxyCode}
+[/Equipment/Info ODB/Common]
+Event ID = WORD : 10
+Trigger mask = WORD : 0
+Buffer = STRING : [32] 
+Type = INT : 1
+Source = INT : 0
+Format = STRING : [8] FIXED
+Enabled = BOOL : y
+Read on = INT : 273
+Period = INT : 500
+Event limit = DOUBLE : 0
+Num subevents = DWORD : 0
+Log history = INT : 0
+Frontend host = STRING : [32] vwisac2
+Frontend name = STRING : [32] fePOL
+Frontend file name = STRING : [256] febnmr.c
+
+[/Equipment/Info ODB/Variables]
+helicity = DWORD : 0
+current cycle = DWORD : 2
+cancelled cycle = DWORD : 1
+current scan = DWORD : 1
+Ref P+ thr = DOUBLE : 0
+Ref Laser thr = DOUBLE : 10138
+Ref Fcup thr = DOUBLE : 0
+Current P+ thr = DOUBLE : 0
+Current Laser thr = DOUBLE : 10138
+Current Fcup thr = DOUBLE : 0
+RF state = DWORD : 0
+Fluor monitor counts = DWORD : 50010
+EpicsDev Set(V) = FLOAT : 0
+EpicsDev Read(V) = FLOAT : 0
+Campdev set = FLOAT : 0
+Campdev read = FLOAT : 0
+Pol DAC set = DOUBLE : 0
+Pol DAC read = DOUBLE : 0
+last failed thr test = DWORD : 0
+cycle when last failed thr = DWORD : 0
+
+[/Equipment/Info ODB/Statistics]
+Events sent = DOUBLE : 0
+Events per sec. = DOUBLE : 0
+kBytes per sec. = DOUBLE : 0
+\end{DoxyCode}
+
+
+\begin{TabularC}{2}
+\hline
+{\bfseries Save as a C structure} 
+\begin{DoxyCode}
+[local:pol:S]Info ODB>save  -c cfile.c
+\end{DoxyCode}
+  &{\bfseries Save as a \#defined structure } 
+\begin{DoxyCode}
+[local:pol:S]Info ODB>save  -s cfile.h
+\end{DoxyCode}
+  
+
+\\\cline{1-2}
+{\bfseries Contents} of cfile.c : &{\bfseries Contents} of cfile.h :   \\\cline{1-2}
+
+\begin{DoxyCode}
+typedef struct {
+  struct {
+    WORD      event_id;
+    WORD      trigger_mask;
+    char      buffer[32];
+    INT       type;
+    INT       source;
+    char      format[8];
+    BOOL      enabled;
+    INT       read_on;
+    INT       period;
+    double    event_limit;
+    DWORD     num_subevents;
+    INT       log_history;
+    char      frontend_host[32];
+    char      frontend_name[32];
+    char      frontend_file_name[256];
+  } common;
+  struct {
+    DWORD     helicity;
+    DWORD     current_cycle;
+    DWORD     cancelled_cycle;
+    DWORD     current_scan;
+    double    ref_p__thr;
+    double    ref_laser_thr;
+    double    ref_fcup_thr;
+    double    current_p__thr;
+ double    current_laser_thr;
+    double    current_fcup_thr;
+    DWORD     rf_state;
+    DWORD     fluor_monitor_counts;
+    float     epicsdev_set_v_;
+    float     epicsdev_read_v_;
+    float     campdev_set;
+    float     campdev_read;
+    double    pol_dac_set;
+    double    pol_dac_read;
+    DWORD     last_failed_thr_test;
+    DWORD     cycle_when_last_failed_thr;
+  } variables;
+  struct {
+    double    events_sent;
+    double    events_per_sec_;
+    double    kbytes_per_sec_;
+  } statistics;
+} INFO_ODB;
+\end{DoxyCode}
+ 
+
+&
+\begin{DoxyCode}
+#define INFO_ODB(_name) char *_name[] = {\
+"[Common]",\
+"Event ID = WORD : 10",\
+"Trigger mask = WORD : 0",\
+"Buffer = STRING : [32] ",\
+"Type = INT : 1",\
+"Source = INT : 0",\
+"Format = STRING : [8] FIXED",\
+"Enabled = BOOL : y",\
+"Read on = INT : 273",\
+"Period = INT : 500",\
+"Event limit = DOUBLE : 0",\
+"Num subevents = DWORD : 0",\
+"Log history = INT : 0",\
+"Frontend host = STRING : [32] vwisac2",\
+"Frontend name = STRING : [32] fePOL",\
+"Frontend file name = STRING : [256] febnmr.c",\
+"",\
+"[Variables]",\
+"helicity = DWORD : 0",\
+"current cycle = DWORD : 2",\
+"cancelled cycle = DWORD : 1",\
+"current scan = DWORD : 1",\
+"Ref P+ thr = DOUBLE : 0",\
+"Ref Laser thr = DOUBLE : 10138",\
+"Ref Fcup thr = DOUBLE : 0",\
+"Current P+ thr = DOUBLE : 0",\
+"Current Laser thr = DOUBLE : 10138",\
+"Current Fcup thr = DOUBLE : 0",\
+"RF state = DWORD : 0",\
+"Fluor monitor counts = DWORD : 50010",\
+"EpicsDev Set(V) = FLOAT : 0",\
+"EpicsDev Read(V) = FLOAT : 0",\
+"Campdev set = FLOAT : 0",\
+"Campdev read = FLOAT : 0",\
+"Pol DAC set = DOUBLE : 0",\
+"Pol DAC read = DOUBLE : 0",\
+"last failed thr test = DWORD : 0",\
+"cycle when last failed thr = DWORD : 0",\
+"",\
+"[Statistics]",\
+"Events sent = DOUBLE : 0",\
+"Events per sec. = DOUBLE : 0",\
+"kBytes per sec. = DOUBLE : 0",\
+"",\
+NULL }
+\end{DoxyCode}
+  \\\cline{1-2}
+\end{TabularC}
+
+
+{\bfseries  Save as an XML structure } 
+\begin{DoxyCode}
+[local:pol:S]Info ODB>save  -x xinfo.xml
+\end{DoxyCode}
+ {\bfseries Contents} of xinfo.xml : 
+\begin{DoxyCode}
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!-- created by MXML on Wed Sep 23 13:27:05 2009 -->
+<odb root="/Equipment/Info ODB" filename="xinfo.xml" xmlns:xsi="http://www.w3.org
+      /2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="/home/pol/packages/midas
+      /odb.xsd">
+  <dir name="Common">
+    <key name="Event ID" type="WORD">10</key>
+    <key name="Trigger mask" type="WORD">0</key>
+    <key name="Buffer" type="STRING" size="32"></key>
+    <key name="Type" type="INT">1</key>
+    <key name="Source" type="INT">0</key>
+    <key name="Format" type="STRING" size="8">FIXED</key>
+    <key name="Enabled" type="BOOL">y</key>
+    <key name="Read on" type="INT">273</key>
+    <key name="Period" type="INT">500</key>
+    <key name="Event limit" type="DOUBLE">0</key>
+    <key name="Num subevents" type="DWORD">0</key>
+    <key name="Log history" type="INT">0</key>
+    <key name="Frontend host" type="STRING" size="32">vwisac2</key>
+    <key name="Frontend name" type="STRING" size="32">fePOL</key>
+    <key name="Frontend file name" type="STRING" size="256">febnmr.c</key>
+  </dir>
+  <dir name="Variables">
+    <key name="helicity" type="DWORD">0</key>
+    <key name="current cycle" type="DWORD">2</key>
+    <key name="cancelled cycle" type="DWORD">1</key>
+    <key name="current scan" type="DWORD">1</key>
+    <key name="Ref P+ thr" type="DOUBLE">0</key>
+    <key name="Ref Laser thr" type="DOUBLE">10138</key>
+    <key name="Ref Fcup thr" type="DOUBLE">0</key>
+    <key name="Current P+ thr" type="DOUBLE">0</key>
+    <key name="Current Laser thr" type="DOUBLE">10138</key>
+    <key name="Current Fcup thr" type="DOUBLE">0</key>
+    <key name="RF state" type="DWORD">0</key>
+    <key name="Fluor monitor counts" type="DWORD">50010</key>
+    <key name="EpicsDev Set(V)" type="FLOAT">0</key>
+    <key name="EpicsDev Read(V)" type="FLOAT">0</key>
+    <key name="Campdev set" type="FLOAT">0</key>
+    <key name="Campdev read" type="FLOAT">0</key>
+    <key name="Pol DAC set" type="DOUBLE">0</key>
+    <key name="Pol DAC read" type="DOUBLE">0</key>
+    <key name="last failed thr test" type="DWORD">0</key>
+    <key name="cycle when last failed thr" type="DWORD">0</key>
+  </dir>
+  <dir name="Statistics">
+    <key name="Events sent" type="DOUBLE">0</key>
+    <key name="Events per sec." type="DOUBLE">0</key>
+    <key name="kBytes per sec." type="DOUBLE">0</key>
+  </dir>
+</odb>
+\end{DoxyCode}
+
+
+
+
+\hypertarget{RC_odbedit_examples_RC_odbedit_load}{}\paragraph{load -\/ load database from a saved file}\label{RC_odbedit_examples_RC_odbedit_load}
+
+\begin{DoxyCode}
+load <file>             - load database from .ODB file at current position
+\end{DoxyCode}
+ To load the {\bfseries complete} database from an ASCII file containing a previously \hyperlink{RC_odbedit_examples_RC_odbedit_save}{saved} database: 
+\begin{DoxyCode}
+[mpet@titan01 ~/online] odbedit
+[local:mpet:Stopped]/>load mpet.odb
+\end{DoxyCode}
+ The entire database need not be loaded. \hyperlink{RC_odbedit_examples_RC_odbedit_save}{Saved ASCII files} can be made of just a part of the database, and these can be reloaded into the database. Since the full path is given in the saved file, the file can be loaded from any position in the database. The saved ASCII file may of course be edited prior to loading, if keynames or values need to be changed. If the keys in the load file do not exist, they will be created. If they do exist, the values from the file will be loaded. 
+\begin{DoxyCode}
+[mpet@titan01 ~/online] odbedit
+[local:mpet:Stopped]/>load awg0.odb
+\end{DoxyCode}
+ \par
+
+
+\label{RC_odbedit_examples_idx_experim-dot-h_make}
+\hypertarget{RC_odbedit_examples_idx_experim-dot-h_make}{}
+ 
+
+\hypertarget{RC_odbedit_examples_RC_odbedit_make}{}\paragraph{make -\/ create experim.h}\label{RC_odbedit_examples_RC_odbedit_make}
+
+\begin{DoxyCode}
+make [analyzer name]    - create experim.h
+\end{DoxyCode}
+ The {\bfseries make} command creates in the current directory {\bfseries \hyperlink{experim_8h}{experim.h}}, a file containing C structures which can be included into frontend and analyzer code to enable easy access to the odb \hyperlink{structparameters}{parameters} (see also RC\_\-experim\_\-dot\_\-h \char`\"{}using experim.h with hot-\/links\char`\"{} \par
+ In order to include the \hyperlink{DataAnalysis_DA_analyzer_utility}{analyzer section}, the ODB key {\bfseries /$<$Analyzer$>$/Parameters} has to be present, where $<$Analyzer$>$ is the name of the analyzer. The command used is then \char`\"{}make $<$Analyzer$>$ \char`\"{} \par
+ The following example does not have an Analyzer key. 
+\begin{DoxyCode}
+[pol@isdaq01 pol]$ odbedit
+[local:pol:S]/>make
+Analyzer "Analyzer" not found in ODB, skipping analyzer parameters
+"experim.h" has been written to /home/pol/online/pol
+\end{DoxyCode}
+ Here is an part of \hyperlink{experim_8h}{experim.h} for an experiment, showing the \char`\"{}Experiment\char`\"{} tree and one of the \char`\"{}Equipment\char`\"{} trees 
+\begin{DoxyCode}
+/********************************************************************\
+
+  Name:         experim.h
+  Created by:   ODBedit program
+
+  Contents:     This file contains C structures for the "Experiment"
+                tree in the ODB and the "/Analyzer/Parameters" tree.
+
+
+                Additionally, it contains the "Settings" subtree for
+                all items listed under "/Equipment" as well as their
+                event definition.
+
+                It can be used by the frontend and analyzer to work
+                with these information.
+
+                All C structures are accompanied with a string represen-
+                tation which can be used in the db_create_record function
+                to setup an ODB structure which matches the C structure.
+
+  Created on:   Wed Sep 23 13:10:52 2009
+
+\********************************************************************/
+
+#define EXP_EDIT_DEFINED
+
+typedef struct {
+  char      run_title[88];
+  DWORD     experiment_number;
+  char      experimenter[32];
+  char      sample[15];
+  char      orientation[15];
+  char      temperature[15];
+  char      field[15];
+  char      element[24];
+  INT       mass;
+  INT       dc_offset_v_;
+  double    ion_source__kv_;
+  double    laser_wavelength__nm_;
+  BOOL      active;
+  INT       num_scans;
+  char      source_hv_bias[12];
+  BOOL      edit_run_number;
+} EXP_EDIT;
+
+#define EXP_EDIT_STR(_name) char *_name[] = {\
+"[.]",\
+"run_title = STRING : [88] test",\
+"experiment number = DWORD : 1",\
+"experimenter = STRING : [32] Matt ",\
+"sample = STRING : [15] test",\
+"orientation = STRING : [15] ",\
+"temperature = STRING : [15] ",\
+"field = STRING : [15] ",\
+"Element = STRING : [24] li",\
+"Mass = INT : 7",\
+"DC offset(V) = INT : 0",\
+"Ion source (kV) = DOUBLE : 30",\
+"Laser wavelength (nm) = DOUBLE : 123456789",\
+"write data = LINK : [35] /Logger/Channels/0/Settings/Active",\
+"Number of scans = LINK : [47] /Equipment/FIFO_acq/sis mcs/hardware/num scans",\
+"Source HV Bias = STRING : [12] OLIS",\
+"Edit run number = BOOL : y",\
+"",\
+NULL }
+
+
+
+
+#ifndef EXCL_CYCLE_SCALERS
+
+#define CYCLE_SCALERS_COMMON_DEFINED
+
+typedef struct {
+  WORD      event_id;
+  WORD      trigger_mask;
+  char      buffer[32];
+  INT       type;
+  INT       source;
+  char      format[8];
+  BOOL      enabled;
+  INT       read_on;
+  INT       period;
+  double    event_limit;
+  DWORD     num_subevents;
+  INT       log_history;
+  char      frontend_host[32];
+  char      frontend_name[32];
+  char      frontend_file_name[256];
+} CYCLE_SCALERS_COMMON;
+
+#define CYCLE_SCALERS_COMMON_STR(_name) char *_name[] = {\
+"[.]",\
+"Event ID = WORD : 3",\
+"Trigger mask = WORD : 1",\
+"Buffer = STRING : [32] SYSTEM",\
+"Type = INT : 1",\
+"Source = INT : 0",\
+"Format = STRING : [8] MIDAS",\
+"Enabled = BOOL : y",\
+"Read on = INT : 257",\
+"Period = INT : 100",\
+"Event limit = DOUBLE : 0",\
+"Num subevents = DWORD : 0",\
+"Log history = INT : 0",\
+"Frontend host = STRING : [32] vwisac2",\
+"Frontend name = STRING : [32] fePOL",\
+"Frontend file name = STRING : [256] febnmr.c",\
+"",\
+NULL }
+
+#define CYCLE_SCALERS_SETTINGS_DEFINED
+
+typedef struct {
+  char      names[6][32];
+} CYCLE_SCALERS_SETTINGS;
+
+#define CYCLE_SCALERS_SETTINGS_STR(_name) char *_name[] = {\
+"[.]",\
+"Names = STRING[6] :",\
+"[32] Scaler_B%SIS Ref pulse",\
+"[32] Scaler_B%Fluor. mon",\
+"[32] Scaler_B%P+ beam",\
+"[32] Scaler_B%Laser power",\
+"[32] Scaler_B%Faraday Cup 15",\
+"[32] Scaler_B%Locking Feedback",\
+"",\
+NULL }
+
+#endif
+
+...................
+
+etc.
+\end{DoxyCode}
+
+
+\label{RC_odbedit_examples_idx_clients_active_odbedit}
+\hypertarget{RC_odbedit_examples_idx_clients_active_odbedit}{}
+ 
+
+\hypertarget{RC_odbedit_examples_RC_odbedit_scl}{}\paragraph{scl -\/ show active clients}\label{RC_odbedit_examples_RC_odbedit_scl}
+
+\begin{DoxyCode}
+scl [-w]                - show all active clients [with watchdog info]
+\end{DoxyCode}
+ \par
+ 
+\begin{DoxyCode}
+[local:mpet:Stopped]/>scl
+Name                Host
+rucompet            titan01.triumf.ca
+Logger              titan01.triumf.ca
+scEpics             titan01.triumf.ca
+fesdac              lxmpet.triumf.ca
+fempet              lxmpet.triumf.ca
+mhttpd              titan01.triumf.ca
+ODBEdit             titan01.triumf.ca
+\end{DoxyCode}
+
+
+
+
+\hypertarget{RC_odbedit_examples_RC_odbedit_sh}{}\paragraph{sh -\/ shutdown a client}\label{RC_odbedit_examples_RC_odbedit_sh}
+
+\begin{DoxyCode}
+shutdown <client>/all   - shutdown individual or all clients
+\end{DoxyCode}
+ \par
+ 
+\begin{DoxyCode}
+[local:mpet:Stopped]/>sh rucompet
+[local:mpet:Stopped]/>scl
+Name                Host
+Logger              titan01.triumf.ca
+scEpics             titan01.triumf.ca
+fesdac              lxmpet.triumf.ca
+fempet              lxmpet.triumf.ca
+mhttpd              titan01.triumf.ca
+ODBEdit             titan01.triumf.ca
+\end{DoxyCode}
+
+
+\label{RC_odbedit_examples_idx_run_start}
+\hypertarget{RC_odbedit_examples_idx_run_start}{}
+ 
+
+\hypertarget{RC_odbedit_examples_RC_odbedit_start}{}\paragraph{start -\/ start a run}\label{RC_odbedit_examples_RC_odbedit_start}
+
+\begin{DoxyCode}
+start [number][now][-v] - start a run [with a specific number],
+                          [now] w/o asking parameters, [-v] debug output
+\end{DoxyCode}
+ \par
+
+
+The odbedit {\bfseries start} command is used to start a run.
+
+\par
+ \hypertarget{RC_odbedit_examples_RC_EOS_example1}{}\subparagraph{Run start examples}\label{RC_odbedit_examples_RC_EOS_example1}
+In the following example, the run number of the new run is supplied. 
+\begin{DoxyCode}
+[local:Default:S]/Experiment>start 503
+\end{DoxyCode}
+ \par
+
+
+In the example below, the run number is not specified. The system will start the next consecutive run. 
+\begin{DoxyCode}
+[local:Default:S]/Experiment>start
+Run number [30004]: 
+Are the above parameters correct? ([y]/n/q): y
+\end{DoxyCode}
+ The user may edit the run number before continuing by typing \char`\"{}n\char`\"{}. Typing \char`\"{}y\char`\"{} will start the run, and typing \char`\"{}q\char`\"{} will abort the run start. \par
+
+
+In the above example, there are no \hyperlink{RC_customize_ODB_RC_Edit_On_Start}{edit-\/on-\/start paramaters} defined by the user. If any are defined, the command \char`\"{}start\char`\"{} will display the \char`\"{}edit on start\char`\"{} \hyperlink{structparameters}{parameters} e.g.\hypertarget{RC_odbedit_examples_RC_EOS_example2}{}\subparagraph{Run Start example with \char`\"{}Edit on Start\char`\"{} parameters}\label{RC_odbedit_examples_RC_EOS_example2}
+Note that when using odbedit, Parameter comments are NOT visible, and the run number IS editable. 
+\begin{DoxyCode}
+[local:bnmr:S]/>start 
+run_title : 2e test
+experiment number : 9999
+experimenter : gdm
+sample : NA
+orientation : 
+temperature : 285.12K
+field : 0G
+Number of scans : 0
+write data : y
+Run number [30004]:
+\end{DoxyCode}
+
+
+\par
+ \hypertarget{RC_odbedit_examples_RC_EOS_example3}{}\subparagraph{Run Start Example with \char`\"{}start now\char`\"{}}\label{RC_odbedit_examples_RC_EOS_example3}
+\label{RC_odbedit_examples_RC_odbedit_start_now}
+\hypertarget{RC_odbedit_examples_RC_odbedit_start_now}{}
+ By entering the command {\bfseries \char`\"{}start now\char`\"{}}, all defined \hyperlink{RC_customize_ODB_RC_Edit_On_Start}{Edit-\/on-\/Start parameters} can be skipped. 
+\begin{DoxyCode}
+[local:bnmr:S]/>start now
+Starting run #30129
+Run #30129 started
+\end{DoxyCode}
+\hypertarget{RC_odbedit_examples_RC_EOS_example4}{}\subparagraph{Run Start Example with \char`\"{}-\/v\char`\"{} verbose option}\label{RC_odbedit_examples_RC_EOS_example4}
+\label{RC_odbedit_examples_RC_odbedit_start_v}
+\hypertarget{RC_odbedit_examples_RC_odbedit_start_v}{}
+ Using the {\bfseries \char`\"{}-\/v\char`\"{}} (verbose) option is useful for debugging. It prints messages as each client is started. 
+\begin{DoxyCode}
+[local:bnmr:S]/>start -v
+run_title : test
+experiment number : 1165
+experimenter : gdm
+sample : GaAs
+orientation : 100
+temperature : 286.01K
+field : 0.00G
+Number of cycles : 0
+write data : y
+Run number [30128]:
+Are the above parameters correct? ([y]/n/q): y
+\end{DoxyCode}
+ \label{RC_odbedit_examples_RC_transition_start}
+\hypertarget{RC_odbedit_examples_RC_transition_start}{}
+ 
+\begin{DoxyCode}
+Starting run #30128
+Setting run number 30128 in ODB
+---- Transition START started ----
+
+==== Found client "Logger" with sequence number 200
+Connecting to client "Logger" on host isdaq01...
+Connection established to client "Logger" on host isdaq01
+Executing RPC transition client "Logger" on host isdaq01...
+RPC transition finished client "Logger" on host isdaq01 with status 1
+
+==== Found client "mheader" with sequence number 200
+Connecting to client "mheader" on host isdaq01...
+Connection established to client "mheader" on host isdaq01
+Executing RPC transition client "mheader" on host isdaq01...
+RPC transition finished client "mheader" on host isdaq01 with status 1
+
+==== Found client "rf_config" with sequence number 350
+Connecting to client "rf_config" on host isdaq01...
+Connection established to client "rf_config" on host isdaq01
+Executing RPC transition client "rf_config" on host isdaq01...
+RPC transition finished client "rf_config" on host isdaq01 with status 1
+
+==== Found client "rf_config" with sequence number 400
+Connecting to client "rf_config" on host isdaq01...
+Connection established to client "rf_config" on host isdaq01
+Executing RPC transition client "rf_config" on host isdaq01...
+RPC transition finished client "rf_config" on host isdaq01 with status 1
+
+==== Found client "Mdarc" with sequence number 450
+Connecting to client "Mdarc" on host isdaq01...
+Connection established to client "Mdarc" on host isdaq01
+Executing RPC transition client "Mdarc" on host isdaq01...
+RPC transition finished client "Mdarc" on host isdaq01 with status 1
+
+==== Found client "Epics" with sequence number 500
+Connecting to client "Epics" on host isdaq01...
+Connection established to client "Epics" on host isdaq01
+Executing RPC transition client "Epics" on host isdaq01...
+RPC transition finished client "Epics" on host isdaq01 with status 1
+
+==== Found client "mheader" with sequence number 500
+Connecting to client "mheader" on host isdaq01...
+Connection established to client "mheader" on host isdaq01
+Executing RPC transition client "mheader" on host isdaq01...
+RPC transition finished client "mheader" on host isdaq01 with status 1
+
+==== Found client "Mdarc" with sequence number 500
+Connecting to client "Mdarc" on host isdaq01...
+Connection established to client "Mdarc" on host isdaq01
+Executing RPC transition client "Mdarc" on host isdaq01...
+RPC transition finished client "Mdarc" on host isdaq01 with status 1
+
+==== Found client "feBNMR" with sequence number 500
+Connecting to client "feBNMR" on host bnmrhmvw...
+Connection established to client "feBNMR" on host bnmrhmvw
+Executing RPC transition client "feBNMR" on host bnmrhmvw...
+RPC transition finished client "feBNMR" on host bnmrhmvw with status 1
+\end{DoxyCode}
+
+
+
+
+ \label{RC_odbedit_examples_idx_run_stop}
+\hypertarget{RC_odbedit_examples_idx_run_stop}{}
+ \hypertarget{RC_odbedit_examples_RC_odbedit_stop}{}\paragraph{stop -\/ stop a run}\label{RC_odbedit_examples_RC_odbedit_stop}
+
+\begin{DoxyCode}
+stop [-v]               - stop current run, [-v] debug output
+\end{DoxyCode}
+ \par
+ 
+\begin{DoxyCode}
+[local:pol:R]/>stop
+Run #399 stopped
+[local:pol:S]/>  
+\end{DoxyCode}
+ \label{RC_odbedit_examples_idx_run_stop_immediately}
+\hypertarget{RC_odbedit_examples_idx_run_stop_immediately}{}
+ \char`\"{}Stop now\char`\"{} can be used to force a stop if there is a deferred transition. If there is no deferred transition, the \char`\"{}stop now\char`\"{} is the same as \char`\"{}stop\char`\"{}. 
+\begin{DoxyCode}
+local:bnmr:R]/>stop now
+Run #30129 stopped
+\end{DoxyCode}
+ Using the \char`\"{}-\/v\char`\"{} (verbose) option is useful for debugging. It prints a message as each client is stopped.
+
+\label{RC_odbedit_examples_RC_transition_stop}
+\hypertarget{RC_odbedit_examples_RC_transition_stop}{}
+
+
+
+\begin{DoxyCode}
+[local:bnmr:R]/>stop -v
+---- Transition STOP started ----
+
+==== Found client "mheader" with sequence number 200
+Connecting to client "mheader" on host isdaq01...
+Connection established to client "mheader" on host isdaq01
+Executing RPC transition client "mheader" on host isdaq01...
+RPC transition finished client "mheader" on host isdaq01 with status 1
+
+==== Found client "Epics" with sequence number 500
+Connecting to client "Epics" on host isdaq01...
+Connection established to client "Epics" on host isdaq01
+Executing RPC transition client "Epics" on host isdaq01...
+RPC transition finished client "Epics" on host isdaq01 with status 1
+
+==== Found client "rf_config" with sequence number 500
+Connecting to client "rf_config" on host isdaq01...
+Connection established to client "rf_config" on host isdaq01
+Executing RPC transition client "rf_config" on host isdaq01...
+RPC transition finished client "rf_config" on host isdaq01 with status 1
+
+==== Found client "mheader" with sequence number 500
+Connecting to client "mheader" on host isdaq01...
+Connection established to client "mheader" on host isdaq01
+Executing RPC transition client "mheader" on host isdaq01...
+RPC transition finished client "mheader" on host isdaq01 with status 1
+
+==== Found client "feBNMR" with sequence number 500
+Connecting to client "feBNMR" on host bnmrhmvw...
+Connection established to client "feBNMR" on host bnmrhmvw
+Executing RPC transition client "feBNMR" on host bnmrhmvw...
+RPC transition finished client "feBNMR" on host bnmrhmvw with status 1
+
+==== Found client "mheader" with sequence number 600
+Connecting to client "mheader" on host isdaq01...
+Connection established to client "mheader" on host isdaq01
+Executing RPC transition client "mheader" on host isdaq01...
+RPC transition finished client "mheader" on host isdaq01 with status 1
+
+==== Found client "Mdarc" with sequence number 600
+Connecting to client "Mdarc" on host isdaq01...
+Connection established to client "Mdarc" on host isdaq01
+Executing RPC transition client "Mdarc" on host isdaq01...
+RPC transition finished client "Mdarc" on host isdaq01 with status 1
+
+==== Found client "feBNMR" with sequence number 750
+Connecting to client "feBNMR" on host bnmrhmvw...
+Connection established to client "feBNMR" on host bnmrhmvw
+Executing RPC transition client "feBNMR" on host bnmrhmvw...
+RPC transition finished client "feBNMR" on host bnmrhmvw with status 1
+
+==== Found client "Logger" with sequence number 800
+Connecting to client "Logger" on host isdaq01...
+Connection established to client "Logger" on host isdaq01
+Executing RPC transition client "Logger" on host isdaq01...
+RPC transition finished client "Logger" on host isdaq01 with status 1
+
+---- Transition STOP finished ----
+Run #30128 stopped
+\end{DoxyCode}
+
+
+\par
+ 
+
+\label{index_end}
+\hypertarget{index_end}{}
+ 

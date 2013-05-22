@@ -1,0 +1,7 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$a00042.html#a16a214efb3a723744f2425b05a5fc46e" title="Get the crate number." alt="" coords="231,5,401,35"/>
+<area shape="rect" id="node5" href="$a00042.html#ac0714849431b7a3eef36db455383e955" title="Get the event counter." alt="" coords="201,59,431,88"/>
+<area shape="rect" id="node7" href="$a00042.html#aa5fd9f16e0903c7f79a2ec98ec21f0e5" title="Get GEO address." alt="" coords="209,112,423,141"/>
+<area shape="rect" id="node9" href="$a00021.html#a66b4bb4135957c849d2989db6d1f0479" title="TGenericData::GetName" alt="" coords="220,165,412,195"/>
+<area shape="rect" id="node11" href="$a00042.html#ad5884beacf6a0e8470108d680612b6b2" title="Get the number of converted channels." alt="" coords="193,219,439,248"/>
+</map>

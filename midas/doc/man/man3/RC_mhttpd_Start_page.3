@@ -1,0 +1,222 @@
+.TH "RC_mhttpd_Start_page" 3 "31 May 2012" "Version 2.3.0-0" "Midas" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+RC_mhttpd_Start_page \- Start page 
+ 
+.br
+.PP
+.PP
+
+.br
+.PP
+To start a run, the \fBStart\fP button (\fBif present\fP) is pressed, and the user will be prompted for any defined experiment-specific \fBparameters\fP (i.e. \fBEdit on start\fP \fBparameters\fP) before starting the run. The minimum set of \fBparameters\fP is the \fB run number \fP, it will be incremented by one relative to the last value from the status page. The user may edit the run number except \fBwhere noted\fP before continuing.
+.PP
+
+.br
+
+.br
+
+.br
+   Start run request page. In this case the user defined no run \fBparameters\fP. 
+.br
+
+.br
+
+.br
+   
+.br
+
+.br
+
+.br
+.PP
+Once the \fBStart\fP \fBbutton\fP is pressed on the Start request page, the system will attempt to start the run.
+.PP
+ Since \fBJun 2009\fP , the mhttpd function for starting and stopping runs now spawns an external helper program to handle the transition sequencing. This helps with the old problem of looking at a blank screen for a long time if some frontends take a long time to process run transitions. mhttpd now returns immediately with a message \fBRun start/stop requested\fP until it detects that the helper program is started and sets a message \fBruninfo/transition in progress\fP (until/unless the run state has changed). Some aspects of this feature are present since rev 4473. 
+.PP
+
+.br
+.PP
+
+.br
+.SH "Run Start with defined /Experiment/Edit on Start tree"
+.PP
+If the user has defined \fBEdit on Start parameters\fP, when a run is started all the \fBparameters\fP in the ODB tree \fB /Experiment/Edit on Start \fP will be displayed  for possible modification.
+.IP "\(bu" 2
+Pressing the \fBOk\fP button will proceed to start of the run.
+.IP "\(bu" 2
+Pressing the \fBCancel\fP button will abort the start procedure, and return to the status page.
+.PP
+.PP
+
+.br
+
+.br
+
+.br
+  Start run request page. In this case the user has multiple \fBEdit-on-start parameters\fP defined. 
+.br
+
+.br
+
+.br
+   
+.br
+
+.br
+
+.br
+.PP
+The title of each field is the ODB key name itself. If the keyname is not self-explanatory, more explanation can be supplied by creating \fBEdit-on-start Parameter Comments\fP .
+.PP
+
+.br
+.PP
+
+.br
+.SS "Features available for mhttpd only"
+Several extra \fBEdit on start\fP features are available when using mhttpd to start the run, which are ignored by odbedit. These are described below:
+.PP
+.IP "\(bu" 2
+\fBEdit-on-start Parameter Comments\fP
+.IP "\(bu" 2
+\fBComment and Run Description\fP
+.IP "\(bu" 2
+\fBPrevent the run number being edited at Run Start\fP
+.PP
+.PP
+
+.br
+.PP
+
+.br
+.SS "Edit-on-start Parameter Comments"
+An optional subdirectory \fBParameter Comments\fP can be created under \fBThe ODB /Experiment tree\fP to display some extra text on the Start page under an \fBEdit on start\fP parameter. Usually the parameter names are self-explanatory, but the parameter name may not contain enough information. In this case, a \fBparameter comment\fP can be created by the user.
+.PP
+This 'parameter comment' option is visible \fBONLY\fP under the MIDAS web page (\fBmhttpd\fP ), the \fB odbedit start \fP command will not display this extra information.
+.PP
+The name of the parameter in the \fBParameter Comments\fP subdirectory must match that of the \fBEdit on Start\fP parameter. Comments may contain html tags if desired. 
+.br
+ 
+.PP
+\fBNote:\fP
+.RS 4
+If the parameter in Edit-on-start is a link which is named differently from the actual parameter, then the parameter name in \fBParameter Comments\fP must match the name of the actual parameter, rather than the link-name.
+.RE
+.PP
+This is illustrated below where the \fBEdit on Start\fP parameter is a link named \fB'number of channels'\fP, which links to the actual parameter \fB /sis/nchannels \fP. 
+.PP
+.nf
+number of channels              LINK    1     15    22m  0   RWD  /sis/nchannels
+
+.fi
+.PP
+ The parameter name in \fBParameter Comments \fP for this parameter is nchannels STRING 1 64 14m 0 RWD \fImaximum 1024\fP and NOT 'number of channels'.
+.PP
+.PP
+.nf
+[local:midas:S]/Experiment>ls -lr
+Key name                        Type   #Val  Size  Last Opn Mode Value
+---------------------------------------------------------------------------
+Experiment                      DIR
+    Name                        STRING  1     32    17s  0   RWD  midas
+    Edit on Start               DIR
+        Write data              BOOL    1     4     16m  0   RWD  y
+        enable                  BOOL    1     4     16m  0   RWD  n
+        nchannels               INT     1     4     16m  0   RWD  0
+        dwelling time (ns)      INT     1     4     16m  0   RWD  0
+
+
+    Parameter Comments          DIR
+        Write Data              STRING  1     64    44m  0   RWD  Enable logging
+        enable                  STRING  1     64    7m   0   RWD  Scaler for expt B1 only
+        nchannels               STRING  1     64    14m  0   RWD  <i>maximum 1024</i>
+        dwelling time (ns)      STRING  1     64    8m   0   RWD  <b>Check hardware now</b>
+
+[local:midas:S]Edit on Start>ls -l
+
+Key name                        Type   #Val  Size  Last Opn Mode Value
+---------------------------------------------------------------------------
+Write Data                      LINK    1     19    50m  0   RWD  /logger/Write data
+enable                          LINK    1     12    22m  0   RWD  /sis/enable
+number of channels              LINK    1     15    22m  0   RWD  /sis/nchannels
+dwelling time (ns)              LINK    1     24    12m  0   RWD  /sis/dwelling time (ns)
+.fi
+.PP
+.PP
+This results in a start run page as shown below.
+.PP
+.PP
+
+.br
+
+.br
+
+.br
+   Start run request page. Extra comment on the run condition is displayed below each entry. 
+.br
+
+.br
+
+.br
+   
+.br
+
+.br
+
+.br
+.PP
+.PP
+
+.br
+.SS "Prevent the run number being edited at Run Start"
+.PP
+By default, the user has the option to edit the run number at begin of run. To prevent this, the user may add an optional key \fBEdit run number\fP to the Edit on Start subdirectory in the \fBThe ODB /Experiment tree\fP. If this key is set to 'N', the user will not be able to edit the run number on the mhttpd start page at the begin of run.
+.PP
+This feature is required where the run number is strictly controlled with a custom run number checking system that assigns the run number automatically based on the type of run.
+.PP
+By creating the key /Experiment/Edit on Start/Edit run number as a boolean variable, the ability of editing the run number is enabled or disabled, e.g. 
+.PP
+.nf
+[local:Default:S]Edit on start>create BOOL 'Edit run number'
+
+.fi
+.PP
+.PP
+By default, if this key is NOT present the run number IS editable.
+.PP
+
+.br
+  Start run request page showing the run number write-protected. \fBEdit-on-start Parameter Comments\fP are also defined. 
+.br
+
+.br
+
+.br
+   
+.br
+
+.br
+
+.br
+ 
+.br
+.PP
+\fBNote:\fP
+.RS 4
+This feature is ignored by odbedit; regardless of whether the key Edit run number is present, the run number may be edited when starting a run using odbedit.
+.RE
+.PP
+
+.br
+
+.br
+
+.br
+.PP
+.PP
+
+.br
+.PP
+ 

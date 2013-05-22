@@ -1,0 +1,211 @@
+\subsection{midas.c File Reference}
+\label{midas_8c}\index{midas.c@{midas.c}}
+\subsubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structTR__CLIENT}{TR\_\-CLIENT}
+\end{DoxyCompactItemize}
+\subsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{group__msgfunctionc_ga42f4420ba3e5b4663f3fdd80a586841e}{cm\_\-get\_\-error} (\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} code, char $\ast$string)
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{group__msgfunctionc_gafe6ff62436845805cd87a7ea1bd3b4dd}{cm\_\-set\_\-msg\_\-print} (\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} system\_\-mask, \hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} user\_\-mask, int($\ast$func)(const char $\ast$))
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{group__msgfunctionc_gadac7f1f490117d6cdd4fc39bd7f9d0d5}{cm\_\-msg\_\-log} (\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} message\_\-type, const char $\ast$message)
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{group__msgfunctionc_gacc533051c0100cc554cd28314079e71c}{cm\_\-msg\_\-log1} (\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} message\_\-type, const char $\ast$message, const char $\ast$facility)
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{group__msgfunctionc_gaa28e2fd30622699b67e7b0116da2923c}{cm\_\-msg\_\-flush\_\-buffer} ()
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{group__msgfunctionc_gaac032ca2438c47466bfc9722de6746ea}{cm\_\-msg} (\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} message\_\-type, const char $\ast$filename, \hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} line, const char $\ast$routine, const char $\ast$format,...)
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{group__msgfunctionc_ga2dcad358d4ad50963cf2f34c56201f62}{cm\_\-msg1} (\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} message\_\-type, const char $\ast$filename, \hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} line, const char $\ast$facility, const char $\ast$routine, const char $\ast$format,...)
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{group__msgfunctionc_gab857885ee2ef24ddef12fb3ecf5c4c7e}{cm\_\-msg\_\-register} (void($\ast$func)(HNDLE, HNDLE, \hyperlink{structEVENT__HEADER}{EVENT\_\-HEADER} $\ast$, void $\ast$))
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{group__msgfunctionc_gad92636d84ec9438a25ca6b17c4e6760d}{cm\_\-msg\_\-retrieve} (\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} n\_\-message, char $\ast$message, \hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} buf\_\-size)
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{group__cmfunctionc_ga89d09a1a52a983be86ef502614fe555c}{cm\_\-synchronize} (\hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} $\ast$seconds)
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{group__cmfunctionc_gac340cbe250a502de8befa8c0beeac945}{cm\_\-asctime} (char $\ast$str, \hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} buf\_\-size)
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{group__cmfunctionc_gaf53e87e278dd31007a84cf643eddba2b}{cm\_\-time} (\hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} $\ast$t)
+\item 
+char $\ast$ \hyperlink{group__cmfunctionc_ga9e7d38eff9b9d85d57fc2f4b2aacc9ab}{cm\_\-get\_\-version} ()
+\item 
+int \hyperlink{group__cmfunctionc_ga2bdca42b13df835e667b9258cb41c7e2}{cm\_\-get\_\-revision} ()
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{group__cmfunctionc_ga006e27d46e2dd0eedde0a753f1b9ed67}{cm\_\-set\_\-path} (const char $\ast$path)
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{group__cmfunctionc_gacfe11e1f0404bc4112d749eb0793671e}{cm\_\-get\_\-path} (char $\ast$path)
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{group__cmfunctionc_gafe97f63815e3eacedd504bca6b22032a}{cm\_\-set\_\-experiment\_\-name} (const char $\ast$name)
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{group__cmfunctionc_ga0ca8a626fc6fbdbfde87294eb38ad94d}{cm\_\-get\_\-experiment\_\-name} (char $\ast$name, int name\_\-length)
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{group__cmfunctionc_gacd0316ccf242cd450281c5fd153a985b}{cm\_\-scan\_\-experiments} (void)
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{group__cmfunctionc_gace4f91b59217b2dc6216065cc41377a1}{cm\_\-delete\_\-client\_\-info} (HNDLE \hyperlink{mevb_8c_ab1f60c53f74e806a3b9f687af38d7421}{hDB}, \hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} pid)
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{group__cmfunctionc_ga43f5554b3e5296a0f92ec3d6aa15ed30}{cm\_\-check\_\-client} (HNDLE \hyperlink{mevb_8c_ab1f60c53f74e806a3b9f687af38d7421}{hDB}, HNDLE hKeyClient)
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{group__cmfunctionc_gae50ca92a705efaed76dd1204a3caa32e}{cm\_\-set\_\-client\_\-info} (HNDLE \hyperlink{mevb_8c_ab1f60c53f74e806a3b9f687af38d7421}{hDB}, HNDLE $\ast$hKeyClient, char $\ast$\hyperlink{mevb_8c_af65cc3664520b7cd0817adc7106f9624}{host\_\-name}, char $\ast$client\_\-name, \hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} hw\_\-type, char $\ast$password, \hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} watchdog\_\-timeout)
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{group__cmfunctionc_ga0aa3002f758a710360b90a50500fc784}{cm\_\-get\_\-client\_\-info} (char $\ast$client\_\-name)
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{group__cmfunctionc_gaa483e7c17ff962fd6cdfa581f4989f54}{cm\_\-get\_\-environment} (char $\ast$\hyperlink{mevb_8c_af65cc3664520b7cd0817adc7106f9624}{host\_\-name}, int host\_\-name\_\-size, char $\ast$\hyperlink{mfe_8c_a11eee1a5e2cef985b90bdfe0bfc8cf76}{exp\_\-name}, int exp\_\-name\_\-size)
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{group__cmfunctionc_ga1e96495bb5b89e4ea770a1ea7bc7787b}{cm\_\-connect\_\-experiment} (const char $\ast$\hyperlink{mevb_8c_af65cc3664520b7cd0817adc7106f9624}{host\_\-name}, const char $\ast$\hyperlink{mfe_8c_a11eee1a5e2cef985b90bdfe0bfc8cf76}{exp\_\-name}, const char $\ast$client\_\-name, void($\ast$func)(char $\ast$))
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{group__cmfunctionc_ga4dfbe7e4683c5f1e7f7cc1f6f998bdda}{cm\_\-connect\_\-experiment1} (const char $\ast$\hyperlink{mevb_8c_af65cc3664520b7cd0817adc7106f9624}{host\_\-name}, const char $\ast$\hyperlink{mfe_8c_a11eee1a5e2cef985b90bdfe0bfc8cf76}{exp\_\-name}, const char $\ast$client\_\-name, void($\ast$func)(char $\ast$), \hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{analyzer_8c_a7503268889a084b74a968787ffc025b7}{odb\_\-size}, \hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} watchdog\_\-timeout)
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{group__cmfunctionc_gad7e8e8d4f9d89c17133b09505539b351}{cm\_\-list\_\-experiments} (const char $\ast$\hyperlink{mevb_8c_af65cc3664520b7cd0817adc7106f9624}{host\_\-name}, char \hyperlink{mfe_8c_a11eee1a5e2cef985b90bdfe0bfc8cf76}{exp\_\-name}\mbox{[}MAX\_\-EXPERIMENT\mbox{]}\mbox{[}NAME\_\-LENGTH\mbox{]})
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{group__cmfunctionc_ga5b4ff6bff1fa714ea4697e317d39ea0f}{cm\_\-select\_\-experiment} (const char $\ast$\hyperlink{mevb_8c_af65cc3664520b7cd0817adc7106f9624}{host\_\-name}, char $\ast$\hyperlink{mfe_8c_a11eee1a5e2cef985b90bdfe0bfc8cf76}{exp\_\-name})
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{group__cmfunctionc_ga6a8a21234c7ce94bdf26bbcbcf778a39}{cm\_\-connect\_\-client} (char $\ast$client\_\-name, HNDLE $\ast$hConn)
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{group__cmfunctionc_ga084b807db46901ac411824a94f59645d}{cm\_\-disconnect\_\-client} (HNDLE hConn, \hyperlink{vt2_8h_a239c7f0d40651c3e419c5b9651507d14}{BOOL} bShutdown)
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{group__cmfunctionc_ga7d5a287821786e8dde3d2340826215b2}{cm\_\-disconnect\_\-experiment} (void)
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{group__cmfunctionc_gadf088255bf3e91f3efe83c7e5f0cd733}{cm\_\-set\_\-experiment\_\-database} (HNDLE \hyperlink{mevb_8c_ab1f60c53f74e806a3b9f687af38d7421}{hDB}, HNDLE hKeyClient)
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{group__cmfunctionc_ga16b33b70783a3f5ba98b4094149d12b7}{cm\_\-get\_\-experiment\_\-database} (HNDLE $\ast$\hyperlink{mevb_8c_ab1f60c53f74e806a3b9f687af38d7421}{hDB}, HNDLE $\ast$hKeyClient)
+\item 
+static int \hyperlink{group__cmfunctionc_gab85c5c492c0ebadafe7b08fde9a4e946}{bm\_\-validate\_\-client\_\-index} (const \hyperlink{structBUFFER}{BUFFER} $\ast$buf, \hyperlink{vt2_8h_a239c7f0d40651c3e419c5b9651507d14}{BOOL} abort\_\-if\_\-invalid)
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{group__cmfunctionc_gaf98a4288e4c02da7c75f3e0326ff0e72}{cm\_\-set\_\-watchdog\_\-params} (\hyperlink{vt2_8h_a239c7f0d40651c3e419c5b9651507d14}{BOOL} call\_\-watchdog, \hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} timeout)
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{group__cmfunctionc_ga1873a038ab84d2f812f92c02fed97eea}{cm\_\-get\_\-watchdog\_\-params} (\hyperlink{vt2_8h_a239c7f0d40651c3e419c5b9651507d14}{BOOL} $\ast$call\_\-watchdog, \hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} $\ast$timeout)
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{group__cmfunctionc_ga31688f905a1b4a3271dfea8b178e1108}{cm\_\-get\_\-watchdog\_\-info} (HNDLE \hyperlink{mevb_8c_ab1f60c53f74e806a3b9f687af38d7421}{hDB}, char $\ast$client\_\-name, \hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} $\ast$timeout, \hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} $\ast$last)
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{group__cmfunctionc_ga00950930acadf846be75239b6d0e80dc}{cm\_\-register\_\-transition} (\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} transition, \hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT}($\ast$func)(\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT}, char $\ast$), \hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} sequence\_\-number)
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{group__cmfunctionc_gac4b2b97d9cd12320b6f910f32e131aef}{cm\_\-set\_\-transition\_\-sequence} (\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} transition, \hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} sequence\_\-number)
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{group__cmfunctionc_gaa043c651932a8d63ce6104a9ad79f370}{cm\_\-register\_\-deferred\_\-transition} (\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} transition, \hyperlink{vt2_8h_a239c7f0d40651c3e419c5b9651507d14}{BOOL}($\ast$func)(\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT}, \hyperlink{vt2_8h_a239c7f0d40651c3e419c5b9651507d14}{BOOL}))
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{group__cmfunctionc_gabc9cc8ea21e435ffff94d359686897e3}{cm\_\-check\_\-deferred\_\-transition} ()
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{group__cmfunctionc_ga0dd9a488ef81843f8a64c7930ad40f06}{cm\_\-transition1} (\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} transition, \hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{mevb_8c_a16695ea2bfd19f294afe066d6007ab36}{run\_\-number}, char $\ast$errstr, \hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} errstr\_\-size, \hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} async\_\-flag, \hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} debug\_\-flag)
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{group__cmfunctionc_ga115565c5a1d9591fcabf844c1dd624f8}{cm\_\-yield} (\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} millisec)
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{group__cmfunctionc_ga609631cf55247d2e58069bae08419a86}{cm\_\-execute} (const char $\ast$command, char $\ast$result, \hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} bufsize)
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{group__bmfunctionc_ga181dcf462745127aa3d011a2e3fee805}{bm\_\-match\_\-event} (short int event\_\-id, short int trigger\_\-mask, \hyperlink{structEVENT__HEADER}{EVENT\_\-HEADER} $\ast$pevent)
+\item 
+void \hyperlink{group__bmfunctionc_gaf13b277e24b666918ee8aec0160f5288}{bm\_\-remove\_\-client\_\-locked} (\hyperlink{structBUFFER__HEADER}{BUFFER\_\-HEADER} $\ast$pheader, int j)
+\item 
+static void \hyperlink{group__bmfunctionc_ga6a2a39a8d4d4a0302ec443762e7a34b4}{bm\_\-cleanup\_\-buffer\_\-locked} (int i, const char $\ast$who, \hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} \hyperlink{mevb_8c_a6431147bd66aebfe3ca728d244da1253}{actual\_\-time})
+\item 
+static void \hyperlink{group__bmfunctionc_ga2109ffa213706ade60f0b054d6c39164}{cm\_\-update\_\-last\_\-activity} (\hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} \hyperlink{mevb_8c_a6431147bd66aebfe3ca728d244da1253}{actual\_\-time})
+\item 
+static void \hyperlink{group__bmfunctionc_ga7ea560e34b23fa5fbf9596c2cc9d156d}{bm\_\-cleanup} (const char $\ast$who, \hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} \hyperlink{mevb_8c_a6431147bd66aebfe3ca728d244da1253}{actual\_\-time}, \hyperlink{vt2_8h_a239c7f0d40651c3e419c5b9651507d14}{BOOL} wrong\_\-interval)
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{group__bmfunctionc_gae9636ff3e34ee94e31cb292bd07a679d}{bm\_\-open\_\-buffer} (char $\ast$\hyperlink{mevb_8c_a93bc09c1f5f9f26a081d11962971f301}{buffer\_\-name}, \hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} buffer\_\-size, \hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} $\ast$buffer\_\-handle)
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{group__bmfunctionc_ga7b2cbde6caa572dfc978c780d63ab6be}{bm\_\-close\_\-buffer} (\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} buffer\_\-handle)
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{group__bmfunctionc_ga3a2dae045156606fc157e01a82983a25}{bm\_\-close\_\-all\_\-buffers} (void)
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{group__cmfunctionc_ga01682993f1aa1d5a4ed22de45ecf45fe}{cm\_\-shutdown} (const char $\ast$name, \hyperlink{vt2_8h_a239c7f0d40651c3e419c5b9651507d14}{BOOL} bUnique)
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{group__cmfunctionc_gafb034d850f13190ba256f235fcea5298}{cm\_\-exist} (const char $\ast$name, \hyperlink{vt2_8h_a239c7f0d40651c3e419c5b9651507d14}{BOOL} bUnique)
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{group__cmfunctionc_ga6208deae04212a3f234d80fe3185f86d}{cm\_\-cleanup} (const char $\ast$client\_\-name, \hyperlink{vt2_8h_a239c7f0d40651c3e419c5b9651507d14}{BOOL} ignore\_\-timeout)
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{group__bmfunctionc_ga2689ca85c6d0023f1a02e6827a5eff6e}{bm\_\-set\_\-cache\_\-size} (\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} buffer\_\-handle, \hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} read\_\-size, \hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} write\_\-size)
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{group__bmfunctionc_gac5e3e469fb6721a502ebd80a35a328f5}{bm\_\-compose\_\-event} (\hyperlink{structEVENT__HEADER}{EVENT\_\-HEADER} $\ast$event\_\-header, short int event\_\-id, short int trigger\_\-mask, \hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} size, \hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} serial)
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{group__bmfunctionc_gabf663d96482aeede1846487a7ada8184}{bm\_\-request\_\-event} (HNDLE buffer\_\-handle, short int event\_\-id, short int trigger\_\-mask, \hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} sampling\_\-type, HNDLE $\ast$request\_\-id, void($\ast$func)(HNDLE, HNDLE, \hyperlink{structEVENT__HEADER}{EVENT\_\-HEADER} $\ast$, void $\ast$))
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{group__bmfunctionc_ga7810d29ac3894a4e299737bc7c7a2cf1}{bm\_\-remove\_\-event\_\-request} (\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} buffer\_\-handle, \hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} request\_\-id)
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{group__bmfunctionc_ga33221a55f8c90e411dea5eb34a2ee773}{bm\_\-delete\_\-request} (\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} request\_\-id)
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{group__bmfunctionc_ga499b14a246f8ab8d5a3b6ec77bfa9407}{bm\_\-send\_\-event} (\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} buffer\_\-handle, void $\ast$source, \hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} buf\_\-size, \hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} async\_\-flag)
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{group__bmfunctionc_ga9b74b8aa633c942682e642acba93c51d}{bm\_\-flush\_\-cache} (\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} buffer\_\-handle, \hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} async\_\-flag)
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{group__bmfunctionc_ga2fd8bb52ad5282be3ce076e84bc007fa}{bm\_\-receive\_\-event} (\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} buffer\_\-handle, void $\ast$destination, \hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} $\ast$buf\_\-size, \hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} async\_\-flag)
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{group__bmfunctionc_ga4a12567d843b2e1d20da58d8abfabb04}{bm\_\-skip\_\-event} (\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} buffer\_\-handle)
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{group__bmfunctionc_gabcc6bb732b720fcc3ffe859f732a07e0}{bm\_\-push\_\-event} (char $\ast$\hyperlink{mevb_8c_a93bc09c1f5f9f26a081d11962971f301}{buffer\_\-name})
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{group__bmfunctionc_ga6f72d4840fd9ca14a9864252fe5d8b3a}{bm\_\-check\_\-buffers} ()
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{group__bmfunctionc_ga516c50d818df89f466ac1fc135120fa6}{bm\_\-empty\_\-buffers} ()
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{group__rpcfunctionc_ga86593a38d88520b4cef9644b7fdc6d23}{rpc\_\-register\_\-client} (const char $\ast$name, RPC\_\-LIST $\ast$list)
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{group__rpcfunctionc_ga8503759d27477f8dd4558864dde5a687}{rpc\_\-register\_\-functions} (const RPC\_\-LIST $\ast$new\_\-list, \hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT}($\ast$func)(\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT}, void $\ast$$\ast$))
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{group__rpcfunctionc_gaab360e4fd185439b0913c723581115ea}{rpc\_\-set\_\-option} (HNDLE hConn, \hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} item, \hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} value)
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{group__rpcfunctionc_ga3191feb350dfa7289e8c7cf2f5993222}{rpc\_\-send\_\-event} (\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} buffer\_\-handle, void $\ast$source, \hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} buf\_\-size, \hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} async\_\-flag, \hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} mode)
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{group__rpcfunctionc_ga83d80e4f1e8d2a2d7f38e58dcfd3c711}{rpc\_\-flush\_\-event} ()
+\item 
+void \hyperlink{group__bkfunctionc_gac6fadde40824dbf7bd70abedd29be2bd}{bk\_\-init} (void $\ast$event)
+\item 
+void \hyperlink{group__bkfunctionc_gae7cbf587db63fcdf66dd18b29f08b6d2}{bk\_\-init32} (void $\ast$event)
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{group__bkfunctionc_ga8fc93de36e62c4328cb6581be7f42a0f}{bk\_\-size} (void $\ast$event)
+\item 
+void \hyperlink{group__bkfunctionc_ga4bb781187e18834136ed8ac368d53413}{bk\_\-create} (void $\ast$event, const char $\ast$name, \hyperlink{vt2_8h_a2b0e863dadf920709ec53d9088ee7c91}{WORD} type, void $\ast$pdata)
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{group__bkfunctionc_ga132dc71c8f74b478cdcc59bc1d9f6a26}{bk\_\-close} (void $\ast$event, void $\ast$pdata)
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{group__bkfunctionc_ga4d8a0ef23239ae478544fa96a0e98a33}{bk\_\-list} (void $\ast$event, char $\ast$bklist)
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{group__bkfunctionc_gafe085ddb11bdcff4ca461224254289ef}{bk\_\-locate} (void $\ast$event, const char $\ast$name, void $\ast$pdata)
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{group__bkfunctionc_ga5ecb1d77784b02c3f79684ab816d0ea7}{bk\_\-find} (\hyperlink{structBANK__HEADER}{BANK\_\-HEADER} $\ast$pbkh, const char $\ast$name, \hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} $\ast$bklen, \hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} $\ast$bktype, void $\ast$$\ast$pdata)
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{group__bkfunctionc_gab6012589013da85b128d8443501a4a44}{bk\_\-iterate} (void $\ast$event, \hyperlink{structBANK}{BANK} $\ast$$\ast$pbk, void $\ast$pdata)
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{group__bkfunctionc_ga44b7381af9b91fbdf2f6d59f55451ea1}{bk\_\-swap} (void $\ast$event, \hyperlink{vt2_8h_a239c7f0d40651c3e419c5b9651507d14}{BOOL} force)
+\item 
+int \hyperlink{group__rbfunctionc_gaabc49ab7300eae65b5cbdbaa00921a5d}{rb\_\-set\_\-nonblocking} ()
+\item 
+int \hyperlink{group__rbfunctionc_gae447c0770b51e5e0e173905f8700ce0f}{rb\_\-create} (int size, int \hyperlink{frontend_8c_a13adb6e6b95ca2a62bbfe2453d71a1cd}{max\_\-event\_\-size}, int $\ast$handle)
+\item 
+int \hyperlink{group__rbfunctionc_ga215007fcea0c4786c38091fd793f4c4e}{rb\_\-delete} (int handle)
+\item 
+int \hyperlink{group__rbfunctionc_ga26333526532b367bfacce172d6adcfa6}{rb\_\-get\_\-wp} (int handle, void $\ast$$\ast$\hyperlink{sis3803_8c_afcb0609a0beab248bb3994a3368bd9ff}{p}, int millisec)
+\item 
+int \hyperlink{group__rbfunctionc_gad79588efc047402f5264e3ae9dc3bacc}{rb\_\-increment\_\-wp} (int handle, int size)
+\item 
+int \hyperlink{group__rbfunctionc_ga0335381f2ef26fd5251bc7b30d6d1e90}{rb\_\-get\_\-rp} (int handle, void $\ast$$\ast$\hyperlink{sis3803_8c_afcb0609a0beab248bb3994a3368bd9ff}{p}, int millisec)
+\item 
+int \hyperlink{group__rbfunctionc_ga4d2d9f33813530718f4b1f3d423a3b7b}{rb\_\-increment\_\-rp} (int handle, int size)
+\item 
+int \hyperlink{group__rbfunctionc_gae92c348180d666240c295b7c334b4ebe}{rb\_\-get\_\-buffer\_\-level} (int handle, int $\ast$n\_\-bytes)
+\end{DoxyCompactItemize}
+\subsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+static HNDLE \hyperlink{group__midasincludecode_ga45b376d484f59dd1b1eaa1a2d9db5496}{\_\-hKeyClient} = 0
+\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+dox The main core C-\/code for Midas. 
+
+Definition in file \hyperlink{midas_8c_source}{midas.c}.
+
+\subsubsection{Variable Documentation}
+\index{midas.c@{midas.c}!svn\_\-revision@{svn\_\-revision}}
+\index{svn\_\-revision@{svn\_\-revision}!midas.c@{midas.c}}
+\paragraph[{svn\_\-revision}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ {\bf svn\_\-revision} = \char`\"{}\$Rev: 5256 \$\char`\"{}}\hfill\label{midas_8c_ad6220f03666933466bd5b36745b4aab1}
+
+
+Definition at line 22 of file midas.c.
+
+Referenced by cm\_\-get\_\-revision().

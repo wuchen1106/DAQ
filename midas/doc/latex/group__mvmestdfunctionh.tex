@@ -1,0 +1,236 @@
+\subsection{VME Functions (mvme\_\-xxx)}
+\label{group__mvmestdfunctionh}\index{VME Functions (mvme\_\-xxx)@{VME Functions (mvme\_\-xxx)}}
+\subsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int EXPRT \hyperlink{group__mvmestdfunctionh_ga13db7fc7c7c022e46fadd8fc4dc40047}{mvme\_\-open} (\hyperlink{structMVME__INTERFACE}{MVME\_\-INTERFACE} $\ast$$\ast$vme, int idx)
+\item 
+int EXPRT \hyperlink{group__mvmestdfunctionh_gab4010bb5ccbba1cdfb05307479b970b5}{mvme\_\-close} (\hyperlink{structMVME__INTERFACE}{MVME\_\-INTERFACE} $\ast$vme)
+\item 
+int EXPRT \hyperlink{group__mvmestdfunctionh_ga176cf77674a46bbef7ec446b4344bce2}{mvme\_\-sysreset} (\hyperlink{structMVME__INTERFACE}{MVME\_\-INTERFACE} $\ast$vme)
+\item 
+int EXPRT \hyperlink{group__mvmestdfunctionh_ga27a06319b3078fbabea16941721d7877}{mvme\_\-read} (\hyperlink{structMVME__INTERFACE}{MVME\_\-INTERFACE} $\ast$vme, void $\ast$dst, \hyperlink{group__mvmestdinclude_ga589085bbef4f3f52d4a39a316d743e05}{mvme\_\-addr\_\-t} vme\_\-addr, \hyperlink{group__mvmestdinclude_ga01d0cfb7d3dd7f89dee14b82d6cd4c3b}{mvme\_\-size\_\-t} n\_\-bytes)
+\item 
+unsigned int EXPRT \hyperlink{group__mvmestdfunctionh_ga5cab05257f96039738eec34ec330e0d8}{mvme\_\-read\_\-value} (\hyperlink{structMVME__INTERFACE}{MVME\_\-INTERFACE} $\ast$vme, \hyperlink{group__mvmestdinclude_ga589085bbef4f3f52d4a39a316d743e05}{mvme\_\-addr\_\-t} vme\_\-addr)
+\item 
+int EXPRT \hyperlink{group__mvmestdfunctionh_gab246e52895227ad3910ac7816801a73b}{mvme\_\-write} (\hyperlink{structMVME__INTERFACE}{MVME\_\-INTERFACE} $\ast$vme, \hyperlink{group__mvmestdinclude_ga589085bbef4f3f52d4a39a316d743e05}{mvme\_\-addr\_\-t} vme\_\-addr, void $\ast$src, \hyperlink{group__mvmestdinclude_ga01d0cfb7d3dd7f89dee14b82d6cd4c3b}{mvme\_\-size\_\-t} n\_\-bytes)
+\item 
+int EXPRT \hyperlink{group__mvmestdfunctionh_ga901e510ac4c207e424e944ee92c5ea65}{mvme\_\-write\_\-value} (\hyperlink{structMVME__INTERFACE}{MVME\_\-INTERFACE} $\ast$vme, \hyperlink{group__mvmestdinclude_ga589085bbef4f3f52d4a39a316d743e05}{mvme\_\-addr\_\-t} vme\_\-addr, unsigned int value)
+\item 
+int EXPRT \hyperlink{group__mvmestdfunctionh_gaf1529ef7e75316beebc1672840217bd0}{mvme\_\-set\_\-am} (\hyperlink{structMVME__INTERFACE}{MVME\_\-INTERFACE} $\ast$vme, int am)
+\item 
+int EXPRT \hyperlink{group__mvmestdfunctionh_gabc793acd31b43db639f2bfbf6dd21a3a}{mvme\_\-get\_\-am} (\hyperlink{structMVME__INTERFACE}{MVME\_\-INTERFACE} $\ast$vme, int $\ast$am)
+\item 
+int EXPRT \hyperlink{group__mvmestdfunctionh_gaaed1e33d2affe73c5afea1ce30b6c25b}{mvme\_\-set\_\-dmode} (\hyperlink{structMVME__INTERFACE}{MVME\_\-INTERFACE} $\ast$vme, int dmode)
+\item 
+int EXPRT \hyperlink{group__mvmestdfunctionh_ga0636883b22a2139b5882a933cf8bccd9}{mvme\_\-get\_\-dmode} (\hyperlink{structMVME__INTERFACE}{MVME\_\-INTERFACE} $\ast$vme, int $\ast$dmode)
+\item 
+int EXPRT \hyperlink{group__mvmestdfunctionh_ga21ab5a5c29da5830bf264d8fd5753a52}{mvme\_\-set\_\-blt} (\hyperlink{structMVME__INTERFACE}{MVME\_\-INTERFACE} $\ast$vme, int mode)
+\item 
+int EXPRT \hyperlink{group__mvmestdfunctionh_gaa3a42d774a391d5256c2280c9f81e720}{mvme\_\-get\_\-blt} (\hyperlink{structMVME__INTERFACE}{MVME\_\-INTERFACE} $\ast$vme, int $\ast$mode)
+\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+dox 
+
+\subsubsection{Function Documentation}
+\index{mvmestdfunctionh@{mvmestdfunctionh}!mvme\_\-close@{mvme\_\-close}}
+\index{mvme\_\-close@{mvme\_\-close}!mvmestdfunctionh@{mvmestdfunctionh}}
+\paragraph[{mvme\_\-close}]{\setlength{\rightskip}{0pt plus 5cm}int EXPRT mvme\_\-close ({\bf MVME\_\-INTERFACE} $\ast$ {\em vme})}\hfill\label{group__mvmestdfunctionh_gab4010bb5ccbba1cdfb05307479b970b5}
+Close and release ALL the opened VME channel. See example in \hyperlink{group__mvmestdfunctionh_ga13db7fc7c7c022e46fadd8fc4dc40047}{mvme\_\-open()} 
+\begin{DoxyParams}{Parameters}
+\item[{\em $\ast$vme}]VME structure. \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+MVME\_\-SUCCESS, MVME\_\-ACCESS\_\-ERROR 
+\end{DoxyReturn}
+
+
+Referenced by frontend\_\-exit().\index{mvmestdfunctionh@{mvmestdfunctionh}!mvme\_\-get\_\-am@{mvme\_\-get\_\-am}}
+\index{mvme\_\-get\_\-am@{mvme\_\-get\_\-am}!mvmestdfunctionh@{mvmestdfunctionh}}
+\paragraph[{mvme\_\-get\_\-am}]{\setlength{\rightskip}{0pt plus 5cm}int EXPRT mvme\_\-get\_\-am ({\bf MVME\_\-INTERFACE} $\ast$ {\em vme}, \/  int $\ast$ {\em am})}\hfill\label{group__mvmestdfunctionh_gabc793acd31b43db639f2bfbf6dd21a3a}
+Get Address Modifier. 
+\begin{DoxyParams}{Parameters}
+\item[{\em $\ast$vme}]VME structure \item[{\em $\ast$am}]returned address modifier \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+MVME\_\-SUCCESS 
+\end{DoxyReturn}
+
+
+Referenced by sis3820\_\-FifoRead(), VPPGRegRead(), and VPPGRegWrite().\index{mvmestdfunctionh@{mvmestdfunctionh}!mvme\_\-get\_\-blt@{mvme\_\-get\_\-blt}}
+\index{mvme\_\-get\_\-blt@{mvme\_\-get\_\-blt}!mvmestdfunctionh@{mvmestdfunctionh}}
+\paragraph[{mvme\_\-get\_\-blt}]{\setlength{\rightskip}{0pt plus 5cm}int EXPRT mvme\_\-get\_\-blt ({\bf MVME\_\-INTERFACE} $\ast$ {\em vme}, \/  int $\ast$ {\em mode})}\hfill\label{group__mvmestdfunctionh_gaa3a42d774a391d5256c2280c9f81e720}
+Get current Data mode. 
+\begin{DoxyParams}{Parameters}
+\item[{\em $\ast$vme}]VME structure \item[{\em $\ast$mode}]returned BLT mode \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+MVME\_\-SUCCESS 
+\end{DoxyReturn}
+\index{mvmestdfunctionh@{mvmestdfunctionh}!mvme\_\-get\_\-dmode@{mvme\_\-get\_\-dmode}}
+\index{mvme\_\-get\_\-dmode@{mvme\_\-get\_\-dmode}!mvmestdfunctionh@{mvmestdfunctionh}}
+\paragraph[{mvme\_\-get\_\-dmode}]{\setlength{\rightskip}{0pt plus 5cm}int EXPRT mvme\_\-get\_\-dmode ({\bf MVME\_\-INTERFACE} $\ast$ {\em vme}, \/  int $\ast$ {\em dmode})}\hfill\label{group__mvmestdfunctionh_ga0636883b22a2139b5882a933cf8bccd9}
+Get current Data mode. 
+\begin{DoxyParams}{Parameters}
+\item[{\em $\ast$vme}]VME structure \item[{\em $\ast$dmode}]returned address modifier \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+MVME\_\-SUCCESS 
+\end{DoxyReturn}
+
+
+Referenced by lrs1151\_\-Clear(), lrs1151\_\-Read(), lrs1190\_\-CountRead(), lrs1190\_\-Disable(), lrs1190\_\-Enable(), lrs1190\_\-H2Read(), lrs1190\_\-I4Read(), lrs1190\_\-L2Read(), lrs1190\_\-Reset(), sis3801\_\-channel\_\-enable(), sis3801\_\-CSR\_\-read(), sis3801\_\-CSR\_\-write(), sis3801\_\-dwell\_\-time(), sis3801\_\-FIFO\_\-clear(), sis3801\_\-FIFO\_\-flush(), sis3801\_\-HFIFO\_\-read(), sis3801\_\-input\_\-mode(), sis3801\_\-int\_\-attach(), sis3801\_\-int\_\-source(), sis3801\_\-int\_\-source\_\-disable(), sis3801\_\-int\_\-source\_\-enable(), sis3801\_\-IRQ\_\-REG\_\-read(), sis3801\_\-IRQ\_\-REG\_\-write(), sis3801\_\-module\_\-ID(), sis3801\_\-module\_\-reset(), sis3801\_\-next\_\-logic(), sis3801\_\-ref1(), sis3801\_\-Setup(), v1190\_\-AcqModeRead(), v1190\_\-ContinuousSet(), v1190\_\-DataRead(), v1190\_\-DataReady(), v1190\_\-EventRead(), v1190\_\-EvtCounter(), v1190\_\-EvtStored(), v1190\_\-GeoWrite(), v1190\_\-LEResolutionSet(), v1190\_\-MicroFlush(), v1190\_\-MicroRead(), v1190\_\-MicroWrite(), v1190\_\-OffsetSet(), v1190\_\-ResolutionRead(), v1190\_\-SetEdgeDetection(), v1190\_\-Setup(), v1190\_\-SoftClear(), v1190\_\-SoftReset(), v1190\_\-SoftTrigger(), v1190\_\-Status(), v1190\_\-TdcIdList(), v1190\_\-TriggerMatchingSet(), v1190\_\-WidthSet(), v1729\_\-AcqStart(), v1729\_\-ChannelSelect(), v1729\_\-DataRead(), v1729\_\-FrqSamplingSet(), v1729\_\-isTrigger(), v1729\_\-NColsGet(), v1729\_\-NColsSet(), v1729\_\-OrderData(), v1729\_\-PedestalRun(), v1729\_\-PostTrigSet(), v1729\_\-PreTrigSet(), v1729\_\-Reset(), v1729\_\-Setup(), v1729\_\-SoftTrigger(), v1729\_\-Status(), v1729\_\-TimeCalibrationRun(), v1729\_\-TriggerTypeSet(), v792\_\-BitSet2Clear(), v792\_\-BitSet2Read(), v792\_\-BitSet2Set(), v792\_\-ControlRegister1Read(), v792\_\-ControlRegister1Write(), v792\_\-CSR1Read(), v792\_\-CSR2Read(), v792\_\-DataClear(), v792\_\-DataRead(), v792\_\-DataReady(), v792\_\-EmptyEnable(), v792\_\-EventRead(), v792\_\-EvtCntRead(), v792\_\-EvtCntReset(), v792\_\-EvtTriggerSet(), v792\_\-IntDisable(), v792\_\-IntEnable(), v792\_\-IntSet(), v792\_\-isBusy(), v792\_\-isPresent(), v792\_\-LowThDisable(), v792\_\-LowThEnable(), v792\_\-OnlineSet(), v792\_\-Setup(), v792\_\-SingleShotReset(), v792\_\-SoftReset(), v792\_\-Status(), v792\_\-ThresholdRead(), v792\_\-ThresholdWrite(), v792\_\-Trigger(), vpc6\_\-ASDHysteresisSet(), vpc6\_\-ASDModeSet(), vpc6\_\-ASDRegSet(), vpc6\_\-ASDThresholdSet(), vpc6\_\-CfgRetrieve(), vpc6\_\-isPortBusy(), vpc6\_\-PATypeRead(), vpc6\_\-PATypeWrite(), vpc6\_\-PortCfgLoad(), vpc6\_\-PortRegRBRead(), vpc6\_\-PortRegRead(), vpc6\_\-PortTypeRead(), vpc6\_\-Setup(), vpc6\_\-Status(), VPPGRegRead(), VPPGRegWrite(), vt2\_\-CSRRead(), vt2\_\-CycleNumberRead(), vt2\_\-CycleReset(), vt2\_\-FifoLevelRead(), vt2\_\-FifoRead(), vt2\_\-IntEnable(), vt2\_\-KeepAlive(), vt2\_\-ManReset(), vt48\_\-EventRead(), vt48\_\-RegPrint(), vt48\_\-RegRead(), vt48\_\-RegWrite(), vt48\_\-Setup(), vt48\_\-Status(), vt48\_\-WindowOffsetSet(), and vt48\_\-WindowSet().\index{mvmestdfunctionh@{mvmestdfunctionh}!mvme\_\-interrupt\_\-attach@{mvme\_\-interrupt\_\-attach}}
+\index{mvme\_\-interrupt\_\-attach@{mvme\_\-interrupt\_\-attach}!mvmestdfunctionh@{mvmestdfunctionh}}
+\paragraph[{mvme\_\-interrupt\_\-attach}]{\setlength{\rightskip}{0pt plus 5cm}int EXPRT mvme\_\-interrupt\_\-attach ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  int {\em level}, \/  int {\em vector}, \/  void($\ast$)(int, void $\ast$, void $\ast$) {\em isr}, \/  void $\ast$ {\em info})}\hfill\label{group__mvmestdfunctionh_gae1e6cd30960647ba33cb1fc2e8d8cba8}
+
+
+Referenced by interrupt\_\-configure(), and sis3801\_\-int\_\-attach().\index{mvmestdfunctionh@{mvmestdfunctionh}!mvme\_\-interrupt\_\-detach@{mvme\_\-interrupt\_\-detach}}
+\index{mvme\_\-interrupt\_\-detach@{mvme\_\-interrupt\_\-detach}!mvmestdfunctionh@{mvmestdfunctionh}}
+\paragraph[{mvme\_\-interrupt\_\-detach}]{\setlength{\rightskip}{0pt plus 5cm}int EXPRT mvme\_\-interrupt\_\-detach ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  int {\em level}, \/  int {\em vector}, \/  void $\ast$ {\em info})}\hfill\label{group__mvmestdfunctionh_ga5c177a072044d62cccdc0c184e1fa806}
+\index{mvmestdfunctionh@{mvmestdfunctionh}!mvme\_\-interrupt\_\-disable@{mvme\_\-interrupt\_\-disable}}
+\index{mvme\_\-interrupt\_\-disable@{mvme\_\-interrupt\_\-disable}!mvmestdfunctionh@{mvmestdfunctionh}}
+\paragraph[{mvme\_\-interrupt\_\-disable}]{\setlength{\rightskip}{0pt plus 5cm}int EXPRT mvme\_\-interrupt\_\-disable ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  int {\em level}, \/  int {\em vector}, \/  void $\ast$ {\em info})}\hfill\label{group__mvmestdfunctionh_gadfd3c45ffc893aef499ed3358b07ddac}
+\index{mvmestdfunctionh@{mvmestdfunctionh}!mvme\_\-interrupt\_\-enable@{mvme\_\-interrupt\_\-enable}}
+\index{mvme\_\-interrupt\_\-enable@{mvme\_\-interrupt\_\-enable}!mvmestdfunctionh@{mvmestdfunctionh}}
+\paragraph[{mvme\_\-interrupt\_\-enable}]{\setlength{\rightskip}{0pt plus 5cm}int EXPRT mvme\_\-interrupt\_\-enable ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  int {\em level}, \/  int {\em vector}, \/  void $\ast$ {\em info})}\hfill\label{group__mvmestdfunctionh_ga1d5f339e96aefb7506a3f566e0dbff0b}
+\index{mvmestdfunctionh@{mvmestdfunctionh}!mvme\_\-interrupt\_\-generate@{mvme\_\-interrupt\_\-generate}}
+\index{mvme\_\-interrupt\_\-generate@{mvme\_\-interrupt\_\-generate}!mvmestdfunctionh@{mvmestdfunctionh}}
+\paragraph[{mvme\_\-interrupt\_\-generate}]{\setlength{\rightskip}{0pt plus 5cm}int EXPRT mvme\_\-interrupt\_\-generate ({\bf MVME\_\-INTERFACE} $\ast$ {\em mvme}, \/  int {\em level}, \/  int {\em vector}, \/  void $\ast$ {\em info})}\hfill\label{group__mvmestdfunctionh_gad5baac8397fe7332e74d5e35bc254ad9}
+\index{mvmestdfunctionh@{mvmestdfunctionh}!mvme\_\-open@{mvme\_\-open}}
+\index{mvme\_\-open@{mvme\_\-open}!mvmestdfunctionh@{mvmestdfunctionh}}
+\paragraph[{mvme\_\-open}]{\setlength{\rightskip}{0pt plus 5cm}int EXPRT mvme\_\-open ({\bf MVME\_\-INTERFACE} $\ast$$\ast$ {\em vme}, \/  int {\em idx})}\hfill\label{group__mvmestdfunctionh_ga13db7fc7c7c022e46fadd8fc4dc40047}
+VME open The code below summarize the use of most of the mvme calls included in this interface. 
+\begin{DoxyCode}
+#include "vmicvme.h"  // or other VME interface driver.
+
+int main () {
+  int i, status, vmeio_status, data;
+  MVME_INTERFACE *myvme;
+
+  // Open VME channel 
+  status = mvme_open(&myvme, 0);
+
+  // Reset VME 
+  // Under VMIC reboot CPU!!
+  //  status = mvme_sysreset(myvme);
+
+  // Setup AM 
+  status = mvme_set_am(myvme, MVME_AM_A24_ND);
+
+  // Setup Data size 
+  status = mvme_set_dmode(myvme, MVME_DMODE_D32);
+
+  // Read VMEIO status 
+  status = mvme_read(myvme, &vmeio_status, 0x78001C, 4); 
+  printf("VMEIO status : 0x%x\n", vmeio_status);
+
+  // Write Single value 
+  mvme_write_value(myvme, 0x780010, 0x3);
+
+  // Read Single Value 
+  printf("Value : 0x%x\n", mvme_read_value(myvme, 0x780018));
+
+  // Write to the VMEIO in latch mode 
+  for (i=0;i<10000;i++) {
+    data = 0xF;
+    status = mvme_write(myvme, 0x780010, &data, 4);
+    data = 0x0;
+    status = mvme_write(myvme, 0x780010, &data, 4);
+  }
+
+  // Close VME channel 
+  status = mvme_close(myvme);
+  return 1;
+}
+\end{DoxyCode}
+ 
+\begin{DoxyParams}{Parameters}
+\item[{\em $\ast$$\ast$vme}]user VME pointer to the interface \item[{\em index}]interface number should be used to distingush multiple VME interface access within the same program. \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+status MVME\_\-SUCCESS, MVME\_\-NO\_\-INTERFACE, MVME\_\-INVALID\_\-PARAM, MVME\_\-ACCESS\_\-ERROR 
+\end{DoxyReturn}
+
+
+Referenced by frontend\_\-init().\index{mvmestdfunctionh@{mvmestdfunctionh}!mvme\_\-read@{mvme\_\-read}}
+\index{mvme\_\-read@{mvme\_\-read}!mvmestdfunctionh@{mvmestdfunctionh}}
+\paragraph[{mvme\_\-read}]{\setlength{\rightskip}{0pt plus 5cm}int EXPRT mvme\_\-read ({\bf MVME\_\-INTERFACE} $\ast$ {\em vme}, \/  void $\ast$ {\em dst}, \/  {\bf mvme\_\-addr\_\-t} {\em vme\_\-addr}, \/  {\bf mvme\_\-size\_\-t} {\em n\_\-bytes})}\hfill\label{group__mvmestdfunctionh_ga27a06319b3078fbabea16941721d7877}
+Read from VME bus. Implementation of the read can include automatic DMA transfer based on the size of the data. See example in \hyperlink{group__mvmestdfunctionh_ga13db7fc7c7c022e46fadd8fc4dc40047}{mvme\_\-open()} 
+\begin{DoxyParams}{Parameters}
+\item[{\em $\ast$vme}]VME structure \item[{\em $\ast$dst}]destination pointer \item[{\em vme\_\-addr}]source address (VME location). \item[{\em n\_\-bytes}]requested transfer size. \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+MVME\_\-SUCCESS 
+\end{DoxyReturn}
+
+
+Referenced by sis3820\_\-FifoRead(), v1190\_\-DataRead(), v1720\_\-DataBlockRead(), v1740\_\-DataBlockRead(), and v792\_\-DataRead().\index{mvmestdfunctionh@{mvmestdfunctionh}!mvme\_\-read\_\-value@{mvme\_\-read\_\-value}}
+\index{mvme\_\-read\_\-value@{mvme\_\-read\_\-value}!mvmestdfunctionh@{mvmestdfunctionh}}
+\paragraph[{mvme\_\-read\_\-value}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int EXPRT mvme\_\-read\_\-value ({\bf MVME\_\-INTERFACE} $\ast$ {\em vme}, \/  {\bf mvme\_\-addr\_\-t} {\em vme\_\-addr})}\hfill\label{group__mvmestdfunctionh_ga5cab05257f96039738eec34ec330e0d8}
+Read single data from VME bus. Useful for register access. See example in \hyperlink{group__mvmestdfunctionh_ga13db7fc7c7c022e46fadd8fc4dc40047}{mvme\_\-open()} 
+\begin{DoxyParams}{Parameters}
+\item[{\em $\ast$vme}]VME structure \item[{\em vme\_\-addr}]source address (VME location). \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+MVME\_\-SUCCESS 
+\end{DoxyReturn}
+
+
+Referenced by begin\_\-of\_\-run(), interrupt\_\-configure(), lrs1151\_\-Read(), lrs1190\_\-CountRead(), lrs1190\_\-H2Read(), lrs1190\_\-I4Read(), lrs1190\_\-L2Read(), lrs1190\_\-Reset(), mesadc32\_\-ReadData(), mvme\_\-read16(), mvme\_\-read32(), regRead(), regReadFloat(), regReadReg(), sis3801\_\-CSR\_\-read(), sis3801\_\-dwell\_\-time(), sis3801\_\-FIFO\_\-flush(), sis3801\_\-HFIFO\_\-read(), sis3801\_\-input\_\-mode(), sis3801\_\-IRQ\_\-REG\_\-read(), sis3801\_\-IRQ\_\-REG\_\-write(), sis3801\_\-module\_\-ID(), sis3801\_\-next\_\-logic(), sis3801\_\-ref1(), v1190\_\-DataReady(), v1190\_\-EventRead(), v1190\_\-EvtCounter(), v1190\_\-EvtStored(), v1190\_\-GeoWrite(), v1190\_\-MicroRead(), v1190\_\-MicroWrite(), v1190\_\-Read16(), v1190\_\-Read32(), v1729\_\-DataRead(), v1729\_\-isTrigger(), v1729\_\-NColsGet(), v1729\_\-OrderData(), v1729\_\-PedestalRun(), v1729\_\-Status(), v1729\_\-TimeCalibrationRun(), v560\_\-Read(), v792\_\-BitSet2Read(), v792\_\-ControlRegister1Read(), v792\_\-CSR1Read(), v792\_\-CSR2Read(), v792\_\-DataReady(), v792\_\-EventRead(), v792\_\-EvtCntRead(), v792\_\-isBusy(), v792\_\-isPresent(), v792\_\-Read16(), v792\_\-Status(), v792\_\-ThresholdRead(), v792\_\-ThresholdWrite(), v895\_\-readReg16(), v895\_\-readReg8(), vmeio\_\-AsyncRead(), vmeio\_\-CsrRead(), vmeio\_\-SyncRead(), vpc6\_\-ASDHysteresisSet(), vpc6\_\-ASDModeSet(), vpc6\_\-ASDThresholdSet(), vpc6\_\-isPortBusy(), vpc6\_\-PATypeRead(), vpc6\_\-PortRegRBRead(), vpc6\_\-PortRegRead(), vpc6\_\-PortTypeRead(), VPPGRegRead(), VPPGRegWrite(), vt2\_\-CSRRead(), vt2\_\-CycleNumberRead(), vt2\_\-FifoLevelRead(), vt2\_\-FifoRead(), vt48\_\-EventRead(), and vt48\_\-RegRead().\index{mvmestdfunctionh@{mvmestdfunctionh}!mvme\_\-set\_\-am@{mvme\_\-set\_\-am}}
+\index{mvme\_\-set\_\-am@{mvme\_\-set\_\-am}!mvmestdfunctionh@{mvmestdfunctionh}}
+\paragraph[{mvme\_\-set\_\-am}]{\setlength{\rightskip}{0pt plus 5cm}int EXPRT mvme\_\-set\_\-am ({\bf MVME\_\-INTERFACE} $\ast$ {\em vme}, \/  int {\em am})}\hfill\label{group__mvmestdfunctionh_gaf1529ef7e75316beebc1672840217bd0}
+Set Address Modifier. 
+\begin{DoxyParams}{Parameters}
+\item[{\em $\ast$vme}]VME structure \item[{\em am}]address modifier \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+MVME\_\-SUCCESS 
+\end{DoxyReturn}
+
+
+Referenced by begin\_\-of\_\-run(), frontend\_\-init(), mesadc32\_\-ReadData(), regRead(), regReadFloat(), regReadReg(), regWrite(), regWriteFloat(), regWriteReg(), sis3820\_\-FifoRead(), v1190\_\-Read16(), v1190\_\-Read32(), v1190\_\-Write16(), v1720\_\-DataBlockRead(), v1740\_\-DataBlockRead(), v1740\_\-DataRead(), v560\_\-Read(), v895\_\-readReg16(), v895\_\-readReg8(), v895\_\-writeReg16(), v895\_\-writeReg8(), vmeio\_\-AsyncRead(), vmeio\_\-AsyncWrite(), vmeio\_\-CsrRead(), vmeio\_\-IntEnable(), vmeio\_\-IntRearm(), vmeio\_\-OutputSet(), vmeio\_\-StrobeClear(), vmeio\_\-SyncRead(), vmeio\_\-SyncWrite(), VPPGRegRead(), and VPPGRegWrite().\index{mvmestdfunctionh@{mvmestdfunctionh}!mvme\_\-set\_\-blt@{mvme\_\-set\_\-blt}}
+\index{mvme\_\-set\_\-blt@{mvme\_\-set\_\-blt}!mvmestdfunctionh@{mvmestdfunctionh}}
+\paragraph[{mvme\_\-set\_\-blt}]{\setlength{\rightskip}{0pt plus 5cm}int EXPRT mvme\_\-set\_\-blt ({\bf MVME\_\-INTERFACE} $\ast$ {\em vme}, \/  int {\em mode})}\hfill\label{group__mvmestdfunctionh_ga21ab5a5c29da5830bf264d8fd5753a52}
+Set Block Transfer mode. 
+\begin{DoxyParams}{Parameters}
+\item[{\em $\ast$vme}]VME structure \item[{\em mode}]BLT mode \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+MVME\_\-SUCCESS 
+\end{DoxyReturn}
+
+
+Referenced by sis3820\_\-FifoRead(), v1190\_\-DataRead(), v1720\_\-DataBlockRead(), and v1740\_\-DataBlockRead().\index{mvmestdfunctionh@{mvmestdfunctionh}!mvme\_\-set\_\-dmode@{mvme\_\-set\_\-dmode}}
+\index{mvme\_\-set\_\-dmode@{mvme\_\-set\_\-dmode}!mvmestdfunctionh@{mvmestdfunctionh}}
+\paragraph[{mvme\_\-set\_\-dmode}]{\setlength{\rightskip}{0pt plus 5cm}int EXPRT mvme\_\-set\_\-dmode ({\bf MVME\_\-INTERFACE} $\ast$ {\em vme}, \/  int {\em dmode})}\hfill\label{group__mvmestdfunctionh_gaaed1e33d2affe73c5afea1ce30b6c25b}
+Set Data mode. 
+\begin{DoxyParams}{Parameters}
+\item[{\em $\ast$vme}]VME structure \item[{\em dmode}]Data mode \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+MVME\_\-SUCCESS 
+\end{DoxyReturn}
+
+
+Referenced by begin\_\-of\_\-run(), frontend\_\-init(), interrupt\_\-configure(), lrs1151\_\-Clear(), lrs1151\_\-Read(), lrs1190\_\-CountRead(), lrs1190\_\-Disable(), lrs1190\_\-Enable(), lrs1190\_\-H2Read(), lrs1190\_\-I4Read(), lrs1190\_\-L2Read(), lrs1190\_\-Reset(), mesadc32\_\-ReadData(), mvme\_\-read16(), mvme\_\-read32(), regRead(), regReadFloat(), regReadReg(), regWrite(), regWriteFloat(), regWriteReg(), sis3801\_\-channel\_\-enable(), sis3801\_\-CSR\_\-read(), sis3801\_\-CSR\_\-write(), sis3801\_\-dwell\_\-time(), sis3801\_\-FIFO\_\-clear(), sis3801\_\-FIFO\_\-flush(), sis3801\_\-HFIFO\_\-read(), sis3801\_\-input\_\-mode(), sis3801\_\-int\_\-attach(), sis3801\_\-int\_\-source(), sis3801\_\-int\_\-source\_\-disable(), sis3801\_\-int\_\-source\_\-enable(), sis3801\_\-IRQ\_\-REG\_\-read(), sis3801\_\-IRQ\_\-REG\_\-write(), sis3801\_\-module\_\-ID(), sis3801\_\-module\_\-reset(), sis3801\_\-next\_\-logic(), sis3801\_\-ref1(), sis3801\_\-Setup(), v1190\_\-AcqModeRead(), v1190\_\-ContinuousSet(), v1190\_\-DataRead(), v1190\_\-DataReady(), v1190\_\-EventRead(), v1190\_\-EvtCounter(), v1190\_\-EvtStored(), v1190\_\-GeoWrite(), v1190\_\-LEResolutionSet(), v1190\_\-MicroFlush(), v1190\_\-MicroRead(), v1190\_\-MicroWrite(), v1190\_\-OffsetSet(), v1190\_\-Read16(), v1190\_\-Read32(), v1190\_\-ResolutionRead(), v1190\_\-SetEdgeDetection(), v1190\_\-Setup(), v1190\_\-SoftClear(), v1190\_\-SoftReset(), v1190\_\-SoftTrigger(), v1190\_\-Status(), v1190\_\-TdcIdList(), v1190\_\-TriggerMatchingSet(), v1190\_\-WidthSet(), v1190\_\-Write16(), v1720\_\-DataBlockRead(), v1729\_\-AcqStart(), v1729\_\-ChannelSelect(), v1729\_\-DataRead(), v1729\_\-FrqSamplingSet(), v1729\_\-isTrigger(), v1729\_\-NColsGet(), v1729\_\-NColsSet(), v1729\_\-OrderData(), v1729\_\-PedestalRun(), v1729\_\-PostTrigSet(), v1729\_\-PreTrigSet(), v1729\_\-Reset(), v1729\_\-Setup(), v1729\_\-SoftTrigger(), v1729\_\-Status(), v1729\_\-TimeCalibrationRun(), v1729\_\-TriggerTypeSet(), v1740\_\-DataBlockRead(), v1740\_\-DataRead(), v560\_\-Read(), v792\_\-BitSet2Clear(), v792\_\-BitSet2Read(), v792\_\-BitSet2Set(), v792\_\-ControlRegister1Read(), v792\_\-ControlRegister1Write(), v792\_\-CSR1Read(), v792\_\-CSR2Read(), v792\_\-DataClear(), v792\_\-DataRead(), v792\_\-DataReady(), v792\_\-EmptyEnable(), v792\_\-EventRead(), v792\_\-EvtCntRead(), v792\_\-EvtCntReset(), v792\_\-EvtTriggerSet(), v792\_\-IntDisable(), v792\_\-IntEnable(), v792\_\-IntSet(), v792\_\-isBusy(), v792\_\-isPresent(), v792\_\-LowThDisable(), v792\_\-LowThEnable(), v792\_\-OnlineSet(), v792\_\-Read16(), v792\_\-Setup(), v792\_\-SingleShotReset(), v792\_\-SoftReset(), v792\_\-Status(), v792\_\-ThresholdRead(), v792\_\-ThresholdWrite(), v792\_\-Trigger(), v792\_\-Write16(), v895\_\-readReg16(), v895\_\-readReg8(), v895\_\-writeReg16(), v895\_\-writeReg8(), vmeio\_\-AsyncRead(), vmeio\_\-AsyncWrite(), vmeio\_\-CsrRead(), vmeio\_\-IntEnable(), vmeio\_\-IntRearm(), vmeio\_\-OutputSet(), vmeio\_\-StrobeClear(), vmeio\_\-SyncRead(), vmeio\_\-SyncWrite(), vpc6\_\-ASDHysteresisSet(), vpc6\_\-ASDModeSet(), vpc6\_\-ASDRegSet(), vpc6\_\-ASDThresholdSet(), vpc6\_\-CfgRetrieve(), vpc6\_\-isPortBusy(), vpc6\_\-PATypeRead(), vpc6\_\-PATypeWrite(), vpc6\_\-PortCfgLoad(), vpc6\_\-PortRegRBRead(), vpc6\_\-PortRegRead(), vpc6\_\-PortTypeRead(), vpc6\_\-Setup(), vpc6\_\-Status(), VPPGRegRead(), VPPGRegWrite(), vt2\_\-CSRRead(), vt2\_\-CycleNumberRead(), vt2\_\-CycleReset(), vt2\_\-FifoLevelRead(), vt2\_\-FifoRead(), vt2\_\-IntEnable(), vt2\_\-KeepAlive(), vt2\_\-ManReset(), vt48\_\-EventRead(), vt48\_\-RegPrint(), vt48\_\-RegRead(), vt48\_\-RegWrite(), vt48\_\-Setup(), vt48\_\-Status(), vt48\_\-WindowOffsetSet(), and vt48\_\-WindowSet().\index{mvmestdfunctionh@{mvmestdfunctionh}!mvme\_\-sysreset@{mvme\_\-sysreset}}
+\index{mvme\_\-sysreset@{mvme\_\-sysreset}!mvmestdfunctionh@{mvmestdfunctionh}}
+\paragraph[{mvme\_\-sysreset}]{\setlength{\rightskip}{0pt plus 5cm}int EXPRT mvme\_\-sysreset ({\bf MVME\_\-INTERFACE} $\ast$ {\em vme})}\hfill\label{group__mvmestdfunctionh_ga176cf77674a46bbef7ec446b4344bce2}
+VME bus reset. Effect of the VME bus reset is dependent of the type of VME interface used. See example in \hyperlink{group__mvmestdfunctionh_ga13db7fc7c7c022e46fadd8fc4dc40047}{mvme\_\-open()} 
+\begin{DoxyParams}{Parameters}
+\item[{\em $\ast$vme}]VME structure. \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+MVME\_\-SUCCESS, MVME\_\-ACCESS\_\-ERROR 
+\end{DoxyReturn}
+\index{mvmestdfunctionh@{mvmestdfunctionh}!mvme\_\-write@{mvme\_\-write}}
+\index{mvme\_\-write@{mvme\_\-write}!mvmestdfunctionh@{mvmestdfunctionh}}
+\paragraph[{mvme\_\-write}]{\setlength{\rightskip}{0pt plus 5cm}int EXPRT mvme\_\-write ({\bf MVME\_\-INTERFACE} $\ast$ {\em vme}, \/  {\bf mvme\_\-addr\_\-t} {\em vme\_\-addr}, \/  void $\ast$ {\em src}, \/  {\bf mvme\_\-size\_\-t} {\em n\_\-bytes})}\hfill\label{group__mvmestdfunctionh_gab246e52895227ad3910ac7816801a73b}
+Write data to VME bus. Implementation of the write can include automatic DMA transfer based on the size of the data. See example in \hyperlink{group__mvmestdfunctionh_ga13db7fc7c7c022e46fadd8fc4dc40047}{mvme\_\-open()} 
+\begin{DoxyParams}{Parameters}
+\item[{\em $\ast$vme}]VME structure \item[{\em vme\_\-addr}]source address (VME location). \item[{\em $\ast$src}]source array \item[{\em n\_\-bytes}]size of the array in bytes \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+MVME\_\-SUCCESS 
+\end{DoxyReturn}
+\index{mvmestdfunctionh@{mvmestdfunctionh}!mvme\_\-write\_\-value@{mvme\_\-write\_\-value}}
+\index{mvme\_\-write\_\-value@{mvme\_\-write\_\-value}!mvmestdfunctionh@{mvmestdfunctionh}}
+\paragraph[{mvme\_\-write\_\-value}]{\setlength{\rightskip}{0pt plus 5cm}int EXPRT mvme\_\-write\_\-value ({\bf MVME\_\-INTERFACE} $\ast$ {\em vme}, \/  {\bf mvme\_\-addr\_\-t} {\em vme\_\-addr}, \/  unsigned int {\em value})}\hfill\label{group__mvmestdfunctionh_ga901e510ac4c207e424e944ee92c5ea65}
+Write single data to VME bus. Useful for register access. See example in \hyperlink{group__mvmestdfunctionh_ga13db7fc7c7c022e46fadd8fc4dc40047}{mvme\_\-open()} 
+\begin{DoxyParams}{Parameters}
+\item[{\em $\ast$vme}]VME structure \item[{\em vme\_\-addr}]source address (VME location). \item[{\em value}]Value to be written to the VME bus \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+MVME\_\-SUCCESS 
+\end{DoxyReturn}
+
+
+Referenced by end\_\-of\_\-run(), frontend\_\-loop(), interrupt\_\-configure(), lrs1151\_\-Clear(), lrs1190\_\-Disable(), lrs1190\_\-Enable(), lrs1190\_\-I4Read(), pause\_\-run(), regWrite(), regWriteFloat(), regWriteReg(), resume\_\-run(), sis3801\_\-channel\_\-enable(), sis3801\_\-CSR\_\-write(), sis3801\_\-dwell\_\-time(), sis3801\_\-FIFO\_\-clear(), sis3801\_\-input\_\-mode(), sis3801\_\-int\_\-attach(), sis3801\_\-int\_\-clear(), sis3801\_\-int\_\-source(), sis3801\_\-int\_\-source\_\-disable(), sis3801\_\-int\_\-source\_\-enable(), sis3801\_\-IRQ\_\-REG\_\-write(), sis3801\_\-module\_\-reset(), sis3801\_\-next\_\-logic(), sis3801\_\-ref1(), v1190\_\-GeoWrite(), v1190\_\-MicroWrite(), v1190\_\-SoftClear(), v1190\_\-SoftReset(), v1190\_\-SoftTrigger(), v1190\_\-Write16(), v1729\_\-AcqStart(), v1729\_\-ChannelSelect(), v1729\_\-FrqSamplingSet(), v1729\_\-NColsSet(), v1729\_\-PostTrigSet(), v1729\_\-PreTrigSet(), v1729\_\-Reset(), v1729\_\-Setup(), v1729\_\-SoftTrigger(), v1729\_\-TriggerTypeSet(), v792\_\-BitSet2Clear(), v792\_\-BitSet2Set(), v792\_\-ControlRegister1Write(), v792\_\-DataClear(), v792\_\-EmptyEnable(), v792\_\-EvtCntReset(), v792\_\-EvtTriggerSet(), v792\_\-IntDisable(), v792\_\-IntEnable(), v792\_\-IntSet(), v792\_\-LowThDisable(), v792\_\-LowThEnable(), v792\_\-OnlineSet(), v792\_\-SingleShotReset(), v792\_\-SoftReset(), v792\_\-ThresholdWrite(), v792\_\-Trigger(), v792\_\-Write16(), v895\_\-writeReg16(), v895\_\-writeReg8(), vmeio\_\-AsyncWrite(), vmeio\_\-IntEnable(), vmeio\_\-IntRearm(), vmeio\_\-OutputSet(), vmeio\_\-StrobeClear(), vmeio\_\-SyncWrite(), vpc6\_\-ASDRegSet(), vpc6\_\-CfgRetrieve(), vpc6\_\-PATypeWrite(), vpc6\_\-PortCfgLoad(), VPPGRegWrite(), vt2\_\-CycleReset(), vt2\_\-IntEnable(), vt2\_\-KeepAlive(), vt2\_\-ManReset(), and vt48\_\-RegWrite().

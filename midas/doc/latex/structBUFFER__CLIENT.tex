@@ -1,0 +1,162 @@
+\subsection{BUFFER\_\-CLIENT Struct Reference}
+\label{structBUFFER__CLIENT}\index{BUFFER\_\-CLIENT@{BUFFER\_\-CLIENT}}
+\subsubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+char \hyperlink{structBUFFER__CLIENT_aa626137fa4097c5a254a31d4f953a47f}{name} \mbox{[}NAME\_\-LENGTH\mbox{]}
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{structBUFFER__CLIENT_a44911884d209e2a4f90fb02033d8cb94}{pid}
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{structBUFFER__CLIENT_a0368d60206a1130f3ed93b9b84934738}{unused0}
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{structBUFFER__CLIENT_a1dfdc586ff9586685c8f3c57382e1e4d}{unused}
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{structBUFFER__CLIENT_ad8112ed9dd177230ff2a9acfd84c5429}{port}
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{structBUFFER__CLIENT_ae0c5c3a62b9dac568d8f45cf4bc951ab}{read\_\-pointer}
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{structBUFFER__CLIENT_ac7c61ec3f675c1a196751ec73baabb43}{max\_\-request\_\-index}
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{structBUFFER__CLIENT_ae39c03ec4a903372ec71538032204556}{num\_\-received\_\-events}
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{structBUFFER__CLIENT_a035eae26fbcb45b445c5efde3acfacf7}{num\_\-sent\_\-events}
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{structBUFFER__CLIENT_ae4c382bab7844d80089d2e6e0f1a83ce}{num\_\-waiting\_\-events}
+\item 
+float \hyperlink{structBUFFER__CLIENT_aab8057a2018cd46205253446a4e7cd3a}{data\_\-rate}
+\item 
+\hyperlink{vt2_8h_a239c7f0d40651c3e419c5b9651507d14}{BOOL} \hyperlink{structBUFFER__CLIENT_a896acd334d608006626fcca2a872a4a4}{read\_\-wait}
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{structBUFFER__CLIENT_a884b0a6395661ef9f711fa3ca7bc19b6}{write\_\-wait}
+\item 
+\hyperlink{vt2_8h_a239c7f0d40651c3e419c5b9651507d14}{BOOL} \hyperlink{structBUFFER__CLIENT_ab7cd08686cbc2ba474a623bffc174ac7}{wake\_\-up}
+\item 
+\hyperlink{vt2_8h_a239c7f0d40651c3e419c5b9651507d14}{BOOL} \hyperlink{structBUFFER__CLIENT_aaecb6333b24063b91eb403a11aa4ea53}{all\_\-flag}
+\item 
+\hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} \hyperlink{structBUFFER__CLIENT_a90d5bebe80eaf1d76dd2c97d54796efd}{last\_\-activity}
+\item 
+\hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} \hyperlink{structBUFFER__CLIENT_a7f9617db2284469ad91a33d3f3ae1447}{watchdog\_\-timeout}
+\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+
+
+Definition at line 853 of file midas.h.
+
+\subsubsection{Field Documentation}
+\index{BUFFER\_\-CLIENT@{BUFFER\_\-CLIENT}!all\_\-flag@{all\_\-flag}}
+\index{all\_\-flag@{all\_\-flag}!BUFFER_CLIENT@{BUFFER\_\-CLIENT}}
+\paragraph[{all\_\-flag}]{\setlength{\rightskip}{0pt plus 5cm}{\bf BOOL} {\bf BUFFER\_\-CLIENT::all\_\-flag}}\hfill\label{structBUFFER__CLIENT_aaecb6333b24063b91eb403a11aa4ea53}
+at least one GET\_\-ALL request 
+
+Definition at line 868 of file midas.h.
+
+Referenced by bm\_\-remove\_\-event\_\-request().\index{BUFFER\_\-CLIENT@{BUFFER\_\-CLIENT}!data\_\-rate@{data\_\-rate}}
+\index{data\_\-rate@{data\_\-rate}!BUFFER_CLIENT@{BUFFER\_\-CLIENT}}
+\paragraph[{data\_\-rate}]{\setlength{\rightskip}{0pt plus 5cm}float {\bf BUFFER\_\-CLIENT::data\_\-rate}}\hfill\label{structBUFFER__CLIENT_aab8057a2018cd46205253446a4e7cd3a}
+data rate in kB/sec 
+
+Definition at line 864 of file midas.h.\index{BUFFER\_\-CLIENT@{BUFFER\_\-CLIENT}!event\_\-request@{event\_\-request}}
+\index{event\_\-request@{event\_\-request}!BUFFER_CLIENT@{BUFFER\_\-CLIENT}}
+\paragraph[{event\_\-request}]{\setlength{\rightskip}{0pt plus 5cm}{\bf EVENT\_\-REQUEST} {\bf BUFFER\_\-CLIENT::event\_\-request}\mbox{[}MAX\_\-EVENT\_\-REQUESTS\mbox{]}}\hfill\label{structBUFFER__CLIENT_abc037ad8bce6896253754e3cbf8730b0}
+
+
+Definition at line 872 of file midas.h.
+
+Referenced by bm\_\-push\_\-event(), bm\_\-receive\_\-event(), bm\_\-remove\_\-event\_\-request(), bm\_\-send\_\-event(), and bm\_\-wait\_\-for\_\-free\_\-space().\index{BUFFER\_\-CLIENT@{BUFFER\_\-CLIENT}!last\_\-activity@{last\_\-activity}}
+\index{last\_\-activity@{last\_\-activity}!BUFFER_CLIENT@{BUFFER\_\-CLIENT}}
+\paragraph[{last\_\-activity}]{\setlength{\rightskip}{0pt plus 5cm}{\bf DWORD} {\bf BUFFER\_\-CLIENT::last\_\-activity}}\hfill\label{structBUFFER__CLIENT_a90d5bebe80eaf1d76dd2c97d54796efd}
+time of last activity 
+
+Definition at line 869 of file midas.h.
+
+Referenced by bm\_\-cleanup(), bm\_\-cleanup\_\-buffer\_\-locked(), bm\_\-open\_\-buffer(), cm\_\-cleanup(), cm\_\-set\_\-watchdog\_\-params(), and cm\_\-update\_\-last\_\-activity().\index{BUFFER\_\-CLIENT@{BUFFER\_\-CLIENT}!max\_\-request\_\-index@{max\_\-request\_\-index}}
+\index{max\_\-request\_\-index@{max\_\-request\_\-index}!BUFFER_CLIENT@{BUFFER\_\-CLIENT}}
+\paragraph[{max\_\-request\_\-index}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} {\bf BUFFER\_\-CLIENT::max\_\-request\_\-index}}\hfill\label{structBUFFER__CLIENT_ac7c61ec3f675c1a196751ec73baabb43}
+index of last request 
+
+Definition at line 860 of file midas.h.
+
+Referenced by bm\_\-push\_\-event(), bm\_\-receive\_\-event(), bm\_\-remove\_\-event\_\-request(), bm\_\-send\_\-event(), and bm\_\-wait\_\-for\_\-free\_\-space().\index{BUFFER\_\-CLIENT@{BUFFER\_\-CLIENT}!name@{name}}
+\index{name@{name}!BUFFER_CLIENT@{BUFFER\_\-CLIENT}}
+\paragraph[{name}]{\setlength{\rightskip}{0pt plus 5cm}char {\bf BUFFER\_\-CLIENT::name}\mbox{[}NAME\_\-LENGTH\mbox{]}}\hfill\label{structBUFFER__CLIENT_aa626137fa4097c5a254a31d4f953a47f}
+name of client 
+
+Definition at line 854 of file midas.h.
+
+Referenced by bm\_\-cleanup\_\-buffer\_\-locked(), bm\_\-open\_\-buffer(), bm\_\-validate\_\-client\_\-index(), bm\_\-validate\_\-client\_\-pointers(), and cm\_\-cleanup().\index{BUFFER\_\-CLIENT@{BUFFER\_\-CLIENT}!num\_\-received\_\-events@{num\_\-received\_\-events}}
+\index{num\_\-received\_\-events@{num\_\-received\_\-events}!BUFFER_CLIENT@{BUFFER\_\-CLIENT}}
+\paragraph[{num\_\-received\_\-events}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} {\bf BUFFER\_\-CLIENT::num\_\-received\_\-events}}\hfill\label{structBUFFER__CLIENT_ae39c03ec4a903372ec71538032204556}
+no of received events 
+
+Definition at line 861 of file midas.h.\index{BUFFER\_\-CLIENT@{BUFFER\_\-CLIENT}!num\_\-sent\_\-events@{num\_\-sent\_\-events}}
+\index{num\_\-sent\_\-events@{num\_\-sent\_\-events}!BUFFER_CLIENT@{BUFFER\_\-CLIENT}}
+\paragraph[{num\_\-sent\_\-events}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} {\bf BUFFER\_\-CLIENT::num\_\-sent\_\-events}}\hfill\label{structBUFFER__CLIENT_a035eae26fbcb45b445c5efde3acfacf7}
+no of sent events 
+
+Definition at line 862 of file midas.h.\index{BUFFER\_\-CLIENT@{BUFFER\_\-CLIENT}!num\_\-waiting\_\-events@{num\_\-waiting\_\-events}}
+\index{num\_\-waiting\_\-events@{num\_\-waiting\_\-events}!BUFFER_CLIENT@{BUFFER\_\-CLIENT}}
+\paragraph[{num\_\-waiting\_\-events}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} {\bf BUFFER\_\-CLIENT::num\_\-waiting\_\-events}}\hfill\label{structBUFFER__CLIENT_ae4c382bab7844d80089d2e6e0f1a83ce}
+no of waiting events 
+
+Definition at line 863 of file midas.h.
+
+Referenced by bm\_\-send\_\-event().\index{BUFFER\_\-CLIENT@{BUFFER\_\-CLIENT}!pid@{pid}}
+\index{pid@{pid}!BUFFER_CLIENT@{BUFFER\_\-CLIENT}}
+\paragraph[{pid}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} {\bf BUFFER\_\-CLIENT::pid}}\hfill\label{structBUFFER__CLIENT_a44911884d209e2a4f90fb02033d8cb94}
+process ID 
+
+Definition at line 855 of file midas.h.
+
+Referenced by bm\_\-cleanup\_\-buffer\_\-locked(), bm\_\-close\_\-buffer(), bm\_\-open\_\-buffer(), bm\_\-remove\_\-client\_\-locked(), bm\_\-validate\_\-client\_\-index(), bm\_\-wait\_\-for\_\-free\_\-space(), bm\_\-wakeup\_\-producers(), and cm\_\-cleanup().\index{BUFFER\_\-CLIENT@{BUFFER\_\-CLIENT}!port@{port}}
+\index{port@{port}!BUFFER_CLIENT@{BUFFER\_\-CLIENT}}
+\paragraph[{port}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} {\bf BUFFER\_\-CLIENT::port}}\hfill\label{structBUFFER__CLIENT_ad8112ed9dd177230ff2a9acfd84c5429}
+UDP port for wake up 
+
+Definition at line 858 of file midas.h.
+
+Referenced by bm\_\-close\_\-buffer(), bm\_\-open\_\-buffer(), bm\_\-remove\_\-client\_\-locked(), bm\_\-wait\_\-for\_\-free\_\-space(), and bm\_\-wakeup\_\-producers().\index{BUFFER\_\-CLIENT@{BUFFER\_\-CLIENT}!read\_\-pointer@{read\_\-pointer}}
+\index{read\_\-pointer@{read\_\-pointer}!BUFFER_CLIENT@{BUFFER\_\-CLIENT}}
+\paragraph[{read\_\-pointer}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} {\bf BUFFER\_\-CLIENT::read\_\-pointer}}\hfill\label{structBUFFER__CLIENT_ae0c5c3a62b9dac568d8f45cf4bc951ab}
+read pointer to buffer 
+
+Definition at line 859 of file midas.h.
+
+Referenced by bm\_\-empty\_\-buffers(), bm\_\-flush\_\-cache(), bm\_\-open\_\-buffer(), bm\_\-push\_\-event(), bm\_\-receive\_\-event(), bm\_\-send\_\-event(), bm\_\-skip\_\-event(), bm\_\-update\_\-read\_\-pointer(), bm\_\-validate\_\-client\_\-pointers(), bm\_\-wait\_\-for\_\-free\_\-space(), and bm\_\-wakeup\_\-producers().\index{BUFFER\_\-CLIENT@{BUFFER\_\-CLIENT}!read\_\-wait@{read\_\-wait}}
+\index{read\_\-wait@{read\_\-wait}!BUFFER_CLIENT@{BUFFER\_\-CLIENT}}
+\paragraph[{read\_\-wait}]{\setlength{\rightskip}{0pt plus 5cm}{\bf BOOL} {\bf BUFFER\_\-CLIENT::read\_\-wait}}\hfill\label{structBUFFER__CLIENT_a896acd334d608006626fcca2a872a4a4}
+wait for read -\/ flag 
+
+Definition at line 865 of file midas.h.
+
+Referenced by bm\_\-close\_\-buffer(), bm\_\-receive\_\-event(), bm\_\-remove\_\-client\_\-locked(), and bm\_\-wait\_\-for\_\-free\_\-space().\index{BUFFER\_\-CLIENT@{BUFFER\_\-CLIENT}!unused@{unused}}
+\index{unused@{unused}!BUFFER_CLIENT@{BUFFER\_\-CLIENT}}
+\paragraph[{unused}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} {\bf BUFFER\_\-CLIENT::unused}}\hfill\label{structBUFFER__CLIENT_a1dfdc586ff9586685c8f3c57382e1e4d}
+was thread handle 
+
+Definition at line 857 of file midas.h.\index{BUFFER\_\-CLIENT@{BUFFER\_\-CLIENT}!unused0@{unused0}}
+\index{unused0@{unused0}!BUFFER_CLIENT@{BUFFER\_\-CLIENT}}
+\paragraph[{unused0}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} {\bf BUFFER\_\-CLIENT::unused0}}\hfill\label{structBUFFER__CLIENT_a0368d60206a1130f3ed93b9b84934738}
+was thread ID 
+
+Definition at line 856 of file midas.h.\index{BUFFER\_\-CLIENT@{BUFFER\_\-CLIENT}!wake\_\-up@{wake\_\-up}}
+\index{wake\_\-up@{wake\_\-up}!BUFFER_CLIENT@{BUFFER\_\-CLIENT}}
+\paragraph[{wake\_\-up}]{\setlength{\rightskip}{0pt plus 5cm}{\bf BOOL} {\bf BUFFER\_\-CLIENT::wake\_\-up}}\hfill\label{structBUFFER__CLIENT_ab7cd08686cbc2ba474a623bffc174ac7}
+client got a wake-\/up msg 
+
+Definition at line 867 of file midas.h.\index{BUFFER\_\-CLIENT@{BUFFER\_\-CLIENT}!watchdog\_\-timeout@{watchdog\_\-timeout}}
+\index{watchdog\_\-timeout@{watchdog\_\-timeout}!BUFFER_CLIENT@{BUFFER\_\-CLIENT}}
+\paragraph[{watchdog\_\-timeout}]{\setlength{\rightskip}{0pt plus 5cm}{\bf DWORD} {\bf BUFFER\_\-CLIENT::watchdog\_\-timeout}}\hfill\label{structBUFFER__CLIENT_a7f9617db2284469ad91a33d3f3ae1447}
+timeout in ms 
+
+Definition at line 870 of file midas.h.
+
+Referenced by bm\_\-cleanup\_\-buffer\_\-locked(), bm\_\-open\_\-buffer(), cm\_\-cleanup(), and cm\_\-set\_\-watchdog\_\-params().\index{BUFFER\_\-CLIENT@{BUFFER\_\-CLIENT}!write\_\-wait@{write\_\-wait}}
+\index{write\_\-wait@{write\_\-wait}!BUFFER_CLIENT@{BUFFER\_\-CLIENT}}
+\paragraph[{write\_\-wait}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} {\bf BUFFER\_\-CLIENT::write\_\-wait}}\hfill\label{structBUFFER__CLIENT_a884b0a6395661ef9f711fa3ca7bc19b6}
+wait for write \# bytes 
+
+Definition at line 866 of file midas.h.
+
+Referenced by bm\_\-close\_\-buffer(), bm\_\-remove\_\-client\_\-locked(), bm\_\-wait\_\-for\_\-free\_\-space(), and bm\_\-wakeup\_\-producers().

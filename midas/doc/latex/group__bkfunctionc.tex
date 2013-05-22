@@ -1,0 +1,210 @@
+\subsection{Midas Bank Functions (bk\_\-xxx)}
+\label{group__bkfunctionc}\index{Midas Bank Functions (bk\_\-xxx)@{Midas Bank Functions (bk\_\-xxx)}}
+\subsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{group__bkfunctionc_gac6fadde40824dbf7bd70abedd29be2bd}{bk\_\-init} (void $\ast$event)
+\item 
+void \hyperlink{group__bkfunctionc_gae7cbf587db63fcdf66dd18b29f08b6d2}{bk\_\-init32} (void $\ast$event)
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{group__bkfunctionc_ga8fc93de36e62c4328cb6581be7f42a0f}{bk\_\-size} (void $\ast$event)
+\item 
+void \hyperlink{group__bkfunctionc_ga4bb781187e18834136ed8ac368d53413}{bk\_\-create} (void $\ast$event, const char $\ast$name, \hyperlink{vt2_8h_a2b0e863dadf920709ec53d9088ee7c91}{WORD} type, void $\ast$pdata)
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{group__bkfunctionc_ga132dc71c8f74b478cdcc59bc1d9f6a26}{bk\_\-close} (void $\ast$event, void $\ast$pdata)
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{group__bkfunctionc_ga4d8a0ef23239ae478544fa96a0e98a33}{bk\_\-list} (void $\ast$event, char $\ast$bklist)
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{group__bkfunctionc_gafe085ddb11bdcff4ca461224254289ef}{bk\_\-locate} (void $\ast$event, const char $\ast$name, void $\ast$pdata)
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{group__bkfunctionc_ga5ecb1d77784b02c3f79684ab816d0ea7}{bk\_\-find} (\hyperlink{structBANK__HEADER}{BANK\_\-HEADER} $\ast$pbkh, const char $\ast$name, \hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} $\ast$bklen, \hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} $\ast$bktype, void $\ast$$\ast$pdata)
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{group__bkfunctionc_gab6012589013da85b128d8443501a4a44}{bk\_\-iterate} (void $\ast$event, \hyperlink{structBANK}{BANK} $\ast$$\ast$pbk, void $\ast$pdata)
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{group__bkfunctionc_ga44b7381af9b91fbdf2f6d59f55451ea1}{bk\_\-swap} (void $\ast$event, \hyperlink{vt2_8h_a239c7f0d40651c3e419c5b9651507d14}{BOOL} force)
+\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+dox dox dox 
+
+\subsubsection{Function Documentation}
+\index{bkfunctionc@{bkfunctionc}!bk\_\-close@{bk\_\-close}}
+\index{bk\_\-close@{bk\_\-close}!bkfunctionc@{bkfunctionc}}
+\paragraph[{bk\_\-close}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} bk\_\-close (void $\ast$ {\em event}, \/  void $\ast$ {\em pdata})}\hfill\label{group__bkfunctionc_ga132dc71c8f74b478cdcc59bc1d9f6a26}
+dox Close the Midas bank priviously created by \hyperlink{group__bkfunctionc_ga4bb781187e18834136ed8ac368d53413}{bk\_\-create()}. The data pointer pdata must be obtained by \hyperlink{group__bkfunctionc_ga4bb781187e18834136ed8ac368d53413}{bk\_\-create()} and used as an address to fill a bank. It is incremented with every value written to the bank and finally points to a location just after the last byte of the bank. It is then passed to \hyperlink{group__bkfunctionc_ga132dc71c8f74b478cdcc59bc1d9f6a26}{bk\_\-close()} to finish the bank creation 
+\begin{DoxyParams}{Parameters}
+\item[{\em event}]pointer to current composed event \item[{\em pdata}]pointer to the data \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+number of bytes contained in bank 
+\end{DoxyReturn}
+
+
+Definition at line 13486 of file midas.c.
+
+Referenced by adc\_\-calib(), adc\_\-summing(), cd\_\-hv\_\-read(), eb\_\-user(), read\_\-scaler\_\-event(), read\_\-tdc(), read\_\-trigger\_\-event(), read\_\-v792(), and scaler\_\-accum().\index{bkfunctionc@{bkfunctionc}!bk\_\-create@{bk\_\-create}}
+\index{bk\_\-create@{bk\_\-create}!bkfunctionc@{bkfunctionc}}
+\paragraph[{bk\_\-create}]{\setlength{\rightskip}{0pt plus 5cm}void bk\_\-create (void $\ast$ {\em event}, \/  const char $\ast$ {\em name}, \/  {\bf WORD} {\em type}, \/  void $\ast$ {\em pdata})}\hfill\label{group__bkfunctionc_ga4bb781187e18834136ed8ac368d53413}
+Create a Midas bank. The data pointer pdata must be used as an address to fill a bank. It is incremented with every value written to the bank and finally points to a location just after the last byte of the bank. It is then passed to the function \hyperlink{group__bkfunctionc_ga132dc71c8f74b478cdcc59bc1d9f6a26}{bk\_\-close()} to finish the bank creation. 
+\begin{DoxyCode}
+INT *pdata;
+bk_init(pevent);
+bk_create(pevent, "ADC0", TID_INT, &pdata);
+*pdata++ = 123
+*pdata++ = 456
+bk_close(pevent, pdata);
+\end{DoxyCode}
+ 
+\begin{DoxyParams}{Parameters}
+\item[{\em event}]pointer to the data area \item[{\em name}]of the bank, must be exactly 4 charaters \item[{\em type}]type of bank, one of the \hyperlink{F_Midas_Code_and_Libraries_Midas_Data_Types}{Midas\_\-Data\_\-Types} values defined in \hyperlink{midas_8h}{midas.h} \item[{\em pdata}]pointer to the data area of the newly created bank \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 13310 of file midas.c.
+
+Referenced by adc\_\-calib(), adc\_\-summing(), cd\_\-hv\_\-read(), eb\_\-user(), read\_\-scaler\_\-event(), read\_\-tdc(), read\_\-trigger\_\-event(), read\_\-v792(), and scaler\_\-accum().\index{bkfunctionc@{bkfunctionc}!bk\_\-find@{bk\_\-find}}
+\index{bk\_\-find@{bk\_\-find}!bkfunctionc@{bkfunctionc}}
+\paragraph[{bk\_\-find}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} bk\_\-find ({\bf BANK\_\-HEADER} $\ast$ {\em pbkh}, \/  const char $\ast$ {\em name}, \/  {\bf DWORD} $\ast$ {\em bklen}, \/  {\bf DWORD} $\ast$ {\em bktype}, \/  void $\ast$$\ast$ {\em pdata})}\hfill\label{group__bkfunctionc_ga5ecb1d77784b02c3f79684ab816d0ea7}
+Finds a MIDAS bank of given name inside an event. 
+\begin{DoxyParams}{Parameters}
+\item[{\em pbkh}]pointer to current composed event \item[{\em name}]bank name to look for \item[{\em bklen}]number of elemtents in bank \item[{\em bktype}]bank type, one of TID\_\-xxx \item[{\em pdata}]pointer to data area of bank, NULL if bank not found \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 if bank found, 0 otherwise 
+\end{DoxyReturn}
+
+
+Definition at line 13630 of file midas.c.\index{bkfunctionc@{bkfunctionc}!bk\_\-init@{bk\_\-init}}
+\index{bk\_\-init@{bk\_\-init}!bkfunctionc@{bkfunctionc}}
+\paragraph[{bk\_\-init}]{\setlength{\rightskip}{0pt plus 5cm}void bk\_\-init (void $\ast$ {\em event})}\hfill\label{group__bkfunctionc_gac6fadde40824dbf7bd70abedd29be2bd}
+Initializes an event for Midas banks structure. Before banks can be created in an event, \hyperlink{group__bkfunctionc_gac6fadde40824dbf7bd70abedd29be2bd}{bk\_\-init()} has to be called first. 
+\begin{DoxyParams}{Parameters}
+\item[{\em event}]pointer to the area of event \end{DoxyParams}
+
+
+Definition at line 13228 of file midas.c.
+
+Referenced by cd\_\-hv\_\-read(), eb\_\-user(), read\_\-scaler\_\-event(), and read\_\-trigger\_\-event().\index{bkfunctionc@{bkfunctionc}!bk\_\-init32@{bk\_\-init32}}
+\index{bk\_\-init32@{bk\_\-init32}!bkfunctionc@{bkfunctionc}}
+\paragraph[{bk\_\-init32}]{\setlength{\rightskip}{0pt plus 5cm}void bk\_\-init32 (void $\ast$ {\em event})}\hfill\label{group__bkfunctionc_gae7cbf587db63fcdf66dd18b29f08b6d2}
+dox Initializes an event for Midas banks structure for large bank size ($>$ 32KBytes) Before banks can be created in an event, \hyperlink{group__bkfunctionc_gae7cbf587db63fcdf66dd18b29f08b6d2}{bk\_\-init32()} has to be called first. 
+\begin{DoxyParams}{Parameters}
+\item[{\em event}]pointer to the area of event \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 13269 of file midas.c.
+
+Referenced by read\_\-event(), and read\_\-trigger\_\-event().\index{bkfunctionc@{bkfunctionc}!bk\_\-iterate@{bk\_\-iterate}}
+\index{bk\_\-iterate@{bk\_\-iterate}!bkfunctionc@{bkfunctionc}}
+\paragraph[{bk\_\-iterate}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} bk\_\-iterate (void $\ast$ {\em event}, \/  {\bf BANK} $\ast$$\ast$ {\em pbk}, \/  void $\ast$ {\em pdata})}\hfill\label{group__bkfunctionc_gab6012589013da85b128d8443501a4a44}
+Iterates through banks inside an event. The function can be used to enumerate all banks of an event. The returned pointer to the bank header has following structure: 
+\begin{DoxyCode}
+typedef struct {
+char   name[4];
+WORD   type;
+WORD   data_size;
+} BANK;
+\end{DoxyCode}
+ where type is a TID\_\-xxx value and data\_\-size the size of the bank in bytes. 
+\begin{DoxyCode}
+BANK *pbk;
+INT  size;
+void *pdata;
+char name[5];
+pbk = NULL;
+do
+{
+ size = bk_iterate(event, &pbk, &pdata);
+ if (pbk == NULL)
+  break;
+ *((DWORD *)name) = *((DWORD *)(pbk)->name);
+ name[4] = 0;
+ printf("bank %s found\n", name);
+} while(TRUE);
+\end{DoxyCode}
+ 
+\begin{DoxyParams}{Parameters}
+\item[{\em event}]Pointer to data area of event. \item[{\em pbk}]pointer to the bank header, must be NULL for the first call to this function. \item[{\em pdata}]Pointer to the bank header, must be NULL for the first call to this function \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Size of bank in bytes 
+\end{DoxyReturn}
+
+
+Definition at line 13711 of file midas.c.
+
+Referenced by bk\_\-list(), md\_\-bank\_\-event\_\-display(), and update\_\-odb().\index{bkfunctionc@{bkfunctionc}!bk\_\-list@{bk\_\-list}}
+\index{bk\_\-list@{bk\_\-list}!bkfunctionc@{bkfunctionc}}
+\paragraph[{bk\_\-list}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} bk\_\-list (void $\ast$ {\em event}, \/  char $\ast$ {\em bklist})}\hfill\label{group__bkfunctionc_ga4d8a0ef23239ae478544fa96a0e98a33}
+Extract the MIDAS bank name listing of an event. The bklist should be dimensioned with STRING\_\-BANKLIST\_\-MAX which corresponds to a max of BANKLIST\_\-MAX banks (\hyperlink{midas_8h}{midas.h}: 32 banks max). 
+\begin{DoxyCode}
+INT adc_calib(EVENT_HEADER *pheader, void *pevent)
+{
+  INT    n_adc, nbanks;
+  WORD   *pdata;
+  char   banklist[STRING_BANKLIST_MAX];
+
+  // Display # of banks and list of banks in the event
+  nbanks = bk_list(pevent, banklist);
+  printf("#banks:%d List:%s\n", nbanks, banklist);
+
+  // look for ADC0 bank, return if not present
+  n_adc = bk_locate(pevent, "ADC0", &pdata);
+  ...
+}
+\end{DoxyCode}
+ 
+\begin{DoxyParams}{Parameters}
+\item[{\em event}]pointer to current composed event \item[{\em bklist}]returned ASCII string, has to be booked with STRING\_\-BANKLIST\_\-MAX. \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+number of bank found in this event. 
+\end{DoxyReturn}
+
+
+Definition at line 13536 of file midas.c.
+
+Referenced by md\_\-bank\_\-event\_\-display().\index{bkfunctionc@{bkfunctionc}!bk\_\-locate@{bk\_\-locate}}
+\index{bk\_\-locate@{bk\_\-locate}!bkfunctionc@{bkfunctionc}}
+\paragraph[{bk\_\-locate}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} bk\_\-locate (void $\ast$ {\em event}, \/  const char $\ast$ {\em name}, \/  void $\ast$ {\em pdata})}\hfill\label{group__bkfunctionc_gafe085ddb11bdcff4ca461224254289ef}
+Locates a MIDAS bank of given name inside an event. 
+\begin{DoxyParams}{Parameters}
+\item[{\em event}]pointer to current composed event \item[{\em name}]bank name to look for \item[{\em pdata}]pointer to data area of bank, NULL if bank not found \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+number of values inside the bank 
+\end{DoxyReturn}
+
+
+Definition at line 13580 of file midas.c.
+
+Referenced by adc\_\-calib(), adc\_\-summing(), md\_\-bank\_\-event\_\-display(), and scaler\_\-accum().\index{bkfunctionc@{bkfunctionc}!bk\_\-size@{bk\_\-size}}
+\index{bk\_\-size@{bk\_\-size}!bkfunctionc@{bkfunctionc}}
+\paragraph[{bk\_\-size}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} bk\_\-size (void $\ast$ {\em event})}\hfill\label{group__bkfunctionc_ga8fc93de36e62c4328cb6581be7f42a0f}
+Returns the size of an event containing banks. The total size of an event is the value returned by \hyperlink{group__bkfunctionc_ga8fc93de36e62c4328cb6581be7f42a0f}{bk\_\-size()} plus the size of the event header (sizeof(EVENT\_\-HEADER)). 
+\begin{DoxyParams}{Parameters}
+\item[{\em event}]pointer to the area of event \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+number of bytes contained in data area of event 
+\end{DoxyReturn}
+
+
+Definition at line 13283 of file midas.c.
+
+Referenced by cd\_\-hv\_\-read(), read\_\-event(), read\_\-scaler\_\-event(), and read\_\-trigger\_\-event().\index{bkfunctionc@{bkfunctionc}!bk\_\-swap@{bk\_\-swap}}
+\index{bk\_\-swap@{bk\_\-swap}!bkfunctionc@{bkfunctionc}}
+\paragraph[{bk\_\-swap}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} bk\_\-swap (void $\ast$ {\em event}, \/  {\bf BOOL} {\em force})}\hfill\label{group__bkfunctionc_ga44b7381af9b91fbdf2f6d59f55451ea1}
+dox Swaps bytes from little endian to big endian or vice versa for a whole event.
+
+An event contains a flag which is set by \hyperlink{group__bkfunctionc_gac6fadde40824dbf7bd70abedd29be2bd}{bk\_\-init()} to identify the endian format of an event. If force is FALSE, this flag is evaluated and the event is only swapped if it is in the \char`\"{}wrong\char`\"{} format for this system. An event can be swapped to the \char`\"{}wrong\char`\"{} format on purpose for example by a front-\/end which wants to produce events in a \char`\"{}right\char`\"{} format for a back-\/end analyzer which has different byte ordering. 
+\begin{DoxyParams}{Parameters}
+\item[{\em event}]pointer to data area of event \item[{\em force}]If TRUE, the event is always swapped, if FALSE, the event is only swapped if it is in the wrong format. \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1==event has been swap, 0==event has not been swapped. 
+\end{DoxyReturn}
+
+
+Definition at line 13786 of file midas.c.
+
+Referenced by eb\_\-mfragment\_\-add(), md\_\-event\_\-swap(), and source\_\-scan().

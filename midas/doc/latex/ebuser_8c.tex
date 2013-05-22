@@ -1,0 +1,212 @@
+\subsection{ebuser.c File Reference}
+\label{ebuser_8c}\index{ebuser.c@{ebuser.c}}
+\subsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{ebuser_8c_aac338f16c26978fda836e729d5c6e366}{eb\_\-begin\_\-of\_\-run} (\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT}, char $\ast$, char $\ast$)
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{ebuser_8c_a98d66006b73521032c8d02040f6cf4b8}{eb\_\-end\_\-of\_\-run} (\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT}, char $\ast$)
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{ebuser_8c_a1ed2952fe1f5feb08e6dddc94a26288b}{eb\_\-user} (\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} nfrag, \hyperlink{vt2_8h_a239c7f0d40651c3e419c5b9651507d14}{BOOL} mismatch, EBUILDER\_\-CHANNEL $\ast$\hyperlink{mevb_8c_a20754034bec49b7ee4e69ef89078443f}{ebch}, \hyperlink{structEVENT__HEADER}{EVENT\_\-HEADER} $\ast$pheader, void $\ast$pevent, \hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} $\ast$dest\_\-size)
+\end{DoxyCompactItemize}
+\subsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{ebuser_8c_a931a4ca265e2b03c9b59e773b628c1d2}{lModulo} = 100
+\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+The Event builder user file 
+
+Definition in file \hyperlink{ebuser_8c_source}{ebuser.c}.
+
+\subsubsection{Function Documentation}
+\index{ebuser.c@{ebuser.c}!eb\_\-begin\_\-of\_\-run@{eb\_\-begin\_\-of\_\-run}}
+\index{eb\_\-begin\_\-of\_\-run@{eb\_\-begin\_\-of\_\-run}!ebuser.c@{ebuser.c}}
+\paragraph[{eb\_\-begin\_\-of\_\-run}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} eb\_\-begin\_\-of\_\-run ({\bf INT} {\em rn}, \/  char $\ast$ {\em UserField}, \/  char $\ast$ {\em error})}\hfill\label{ebuser_8c_aac338f16c26978fda836e729d5c6e366}
+Hook to the event builder task at PreStart transition. 
+\begin{DoxyParams}{Parameters}
+\item[{\em rn}]run number \item[{\em UserField}]argument from /Ebuilder/Settings \item[{\em error}]error string to be passed back to the system. \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+EB\_\-SUCCESS 
+\end{DoxyReturn}
+
+
+Definition at line 108 of file ebuser.c.
+
+Referenced by tr\_\-start().\index{ebuser.c@{ebuser.c}!eb\_\-end\_\-of\_\-run@{eb\_\-end\_\-of\_\-run}}
+\index{eb\_\-end\_\-of\_\-run@{eb\_\-end\_\-of\_\-run}!ebuser.c@{ebuser.c}}
+\paragraph[{eb\_\-end\_\-of\_\-run}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} eb\_\-end\_\-of\_\-run ({\bf INT} {\em rn}, \/  char $\ast$ {\em error})}\hfill\label{ebuser_8c_a98d66006b73521032c8d02040f6cf4b8}
+Hook to the event builder task at completion of event collection after receiving the Stop transition. 
+\begin{DoxyParams}{Parameters}
+\item[{\em rn}]run number \item[{\em error}]error string to be passed back to the system. \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+EB\_\-SUCCESS 
+\end{DoxyReturn}
+
+
+Definition at line 123 of file ebuser.c.
+
+Referenced by close\_\-buffers().\index{ebuser.c@{ebuser.c}!eb\_\-user@{eb\_\-user}}
+\index{eb\_\-user@{eb\_\-user}!ebuser.c@{ebuser.c}}
+\paragraph[{eb\_\-user}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} eb\_\-user ({\bf INT} {\em nfrag}, \/  {\bf BOOL} {\em mismatch}, \/  EBUILDER\_\-CHANNEL $\ast$ {\em ebch}, \/  {\bf EVENT\_\-HEADER} $\ast$ {\em pheader}, \/  void $\ast$ {\em pevent}, \/  {\bf INT} $\ast$ {\em dest\_\-size})}\hfill\label{ebuser_8c_a1ed2952fe1f5feb08e6dddc94a26288b}
+Hook to the event builder task after the reception of all fragments of the same serial number. The destination event has already the final \hyperlink{structEVENT__HEADER}{EVENT\_\-HEADER} setup with the data size set to 0. It is than possible to add private data at this point using the proper bank calls. Therefore any new banks created within eb\_\-user will be appearing before the collected banks from the fragments. When using the eb\_\-user with the ODB flag \char`\"{}user build=y\char`\"{} (equipments/EB/settings) the automatic event builder is skipped. This allow the user to extract selectively from the different fragments the appropriate banks and compose the final destination event. In order to do so, the function \char`\"{}bk\_\-copy(pevent, ebch\mbox{[}i\mbox{]}.pfragment, bankname)\char`\"{} will copy a particular bank from a given fragment.
+
+{\bfseries Note:} It exists two Midas event format to address bank size less than 32KB and larger bank size $<$4GB. This distinction is done by the call bk\_\-init(pevent) for the small bank size and bk\_\-init32(pevent) for large bank size. Within an experiment, this declaration has to be consistant. Therefore the bk\_\-init in the eb\_\-user should follow as well the type of the frontends.
+
+The ebch\mbox{[}\mbox{]} array structure points to nfragment channel structure with the following content: 
+\begin{DoxyCode}
+typedef struct {
+    char  name[32];         // Fragment name (Buffer name).
+    DWORD serial;           // Serial fragment number.
+    char *pfragment;        // Pointer to fragment (EVENT_HEADER *)
+    ...
+} EBUILDER_CHANNEL;
+\end{DoxyCode}
+
+
+The correct code for including your own MIDAS bank is shown below where {\bfseries TID\_\-xxx} is one of the valid Bank type starting with {\bfseries TID\_\-} for midas format {\bfseries bank\_\-name} is a 4 character descriptor. {\bfseries pdata} has to be declared accordingly with the bank type. Refers to the \hyperlink{ebuser_8c}{ebuser.c} source code for further description.
+
+{\bfseries  It is not possible to mix within the same destination event different event format! No bk\_\-swap performed when user build is requested. }
+
+
+\begin{DoxyCode}
+  // Event is empty, fill it with BANK_HEADER
+  // If you need to add your own bank at this stage
+
+  // Need to match the decalration in the Frontends.
+  bk_init(pevent);  
+//  bk_init32(pevent);
+  bk_create(pevent, bank_name, TID_xxxx, &pdata);
+  *pdata++ = ...;
+  *dest_size = bk_close(pevent, pdata);
+  pheader->data_size = *dest_size + sizeof(EVENT_HEADER);
+\end{DoxyCode}
+
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em nfrag}]Number of fragment. \item[{\em mismatch}]Midas Serial number mismatch flag. \item[{\em ebch}]Structure to all the fragments. \item[{\em pheader}]Destination pointer to the header. \item[{\em pevent}]Destination pointer to the bank header. \item[{\em dest\_\-size}]Destination event size in bytes. \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+EB\_\-SUCCESS 
+\end{DoxyReturn}
+
+
+Definition at line 194 of file ebuser.c.
+
+Referenced by source\_\-scan().\index{ebuser.c@{ebuser.c}!ebuilder\_\-exit@{ebuilder\_\-exit}}
+\index{ebuilder\_\-exit@{ebuilder\_\-exit}!ebuser.c@{ebuser.c}}
+\paragraph[{ebuilder\_\-exit}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} ebuilder\_\-exit (void)}\hfill\label{ebuser_8c_ac141e2e56f0c36a7ae2b64184528830e}
+
+
+Definition at line 89 of file ebuser.c.
+
+Referenced by main().\index{ebuser.c@{ebuser.c}!ebuilder\_\-init@{ebuilder\_\-init}}
+\index{ebuilder\_\-init@{ebuilder\_\-init}!ebuser.c@{ebuser.c}}
+\paragraph[{ebuilder\_\-init}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} ebuilder\_\-init (void)}\hfill\label{ebuser_8c_ad14be4274aaeb6325015173e54e549b8}
+
+
+Definition at line 81 of file ebuser.c.
+
+Referenced by main().\index{ebuser.c@{ebuser.c}!ebuilder\_\-loop@{ebuilder\_\-loop}}
+\index{ebuilder\_\-loop@{ebuilder\_\-loop}!ebuser.c@{ebuser.c}}
+\paragraph[{ebuilder\_\-loop}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} ebuilder\_\-loop (void)}\hfill\label{ebuser_8c_a6d3cd4998154578032791c44c641fde0}
+
+
+Definition at line 95 of file ebuser.c.\index{ebuser.c@{ebuser.c}!ebuser@{ebuser}}
+\index{ebuser@{ebuser}!ebuser.c@{ebuser.c}}
+\paragraph[{ebuser}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} ebuser ({\bf INT}, \/  {\bf BOOL} {\em mismatch}, \/  EBUILDER\_\-CHANNEL $\ast$, \/  {\bf EVENT\_\-HEADER} $\ast$, \/  void $\ast$, \/  {\bf INT} $\ast$)}\hfill\label{ebuser_8c_a4ceddba3cdef617fb3491c07372aa69c}
+\index{ebuser.c@{ebuser.c}!read\_\-scaler\_\-event@{read\_\-scaler\_\-event}}
+\index{read\_\-scaler\_\-event@{read\_\-scaler\_\-event}!ebuser.c@{ebuser.c}}
+\paragraph[{read\_\-scaler\_\-event}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} read\_\-scaler\_\-event (char $\ast$ {\em pevent}, \/  {\bf INT} {\em off})}\hfill\label{ebuser_8c_af3ad062393c1437922bae26841d8927c}
+
+
+Definition at line 841 of file fevmemodules.c.
+
+\subsubsection{Variable Documentation}
+\index{ebuser.c@{ebuser.c}!debug@{debug}}
+\index{debug@{debug}!ebuser.c@{ebuser.c}}
+\paragraph[{debug}]{\setlength{\rightskip}{0pt plus 5cm}{\bf BOOL} {\bf debug}}\hfill\label{ebuser_8c_a81f0a890e023743f1b88d0cb7d4f74db}
+
+
+Definition at line 65 of file mfe.c.
+
+Referenced by eb\_\-user(), handFlush(), load\_\-fragment(), main(), scan\_\-fragment(), source\_\-booking(), source\_\-scan(), source\_\-unbooking(), tr\_\-start(), and tr\_\-stop().\index{ebuser.c@{ebuser.c}!display\_\-period@{display\_\-period}}
+\index{display\_\-period@{display\_\-period}!ebuser.c@{ebuser.c}}
+\paragraph[{display\_\-period}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} {\bf display\_\-period} = 3000}\hfill\label{ebuser_8c_ab9cdcefda91459091b0ed33011d0d18c}
+
+
+Definition at line 34 of file ebuser.c.\index{ebuser.c@{ebuser.c}!ebset@{ebset}}
+\index{ebset@{ebset}!ebuser.c@{ebuser.c}}
+\paragraph[{ebset}]{\setlength{\rightskip}{0pt plus 5cm}EBUILDER\_\-SETTINGS {\bf ebset}}\hfill\label{ebuser_8c_a70fcf09808475481c64facd46bd95dfc}
+
+
+Definition at line 33 of file mevb.c.
+
+Referenced by eb\_\-user(), handFlush(), main(), scan\_\-fragment(), source\_\-booking(), source\_\-scan(), and tr\_\-start().\index{ebuser.c@{ebuser.c}!ebuilder\_\-call\_\-loop@{ebuilder\_\-call\_\-loop}}
+\index{ebuilder\_\-call\_\-loop@{ebuilder\_\-call\_\-loop}!ebuser.c@{ebuser.c}}
+\paragraph[{ebuilder\_\-call\_\-loop}]{\setlength{\rightskip}{0pt plus 5cm}{\bf BOOL} {\bf ebuilder\_\-call\_\-loop} = FALSE}\hfill\label{ebuser_8c_a6547578efd20c2b6d77e2d896d6bf620}
+
+
+Definition at line 31 of file ebuser.c.\index{ebuser.c@{ebuser.c}!equipment@{equipment}}
+\index{equipment@{equipment}!ebuser.c@{ebuser.c}}
+\paragraph[{equipment}]{\setlength{\rightskip}{0pt plus 5cm}{\bf EQUIPMENT} {\bf equipment}\mbox{[}$\,$\mbox{]}}\hfill\label{ebuser_8c_aa86ef8764826784b74603ffb23852283}
+{\bfseries Initial value:}
+\begin{DoxyCode}
+ {
+   {"EB",                
+    {1, 0,                   
+     "SYSTEM",               
+     0,                      
+     0,                      
+     "MIDAS",                
+     TRUE,                   
+     },
+    },
+
+  {""}
+}
+\end{DoxyCode}
+
+
+Definition at line 61 of file ebuser.c.\index{ebuser.c@{ebuser.c}!event\_\-buffer\_\-size@{event\_\-buffer\_\-size}}
+\index{event\_\-buffer\_\-size@{event\_\-buffer\_\-size}!ebuser.c@{ebuser.c}}
+\paragraph[{event\_\-buffer\_\-size}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} {\bf event\_\-buffer\_\-size} = 20 $\ast$ 50000}\hfill\label{ebuser_8c_a4411d7db6f901c968b946ed659d202f6}
+
+
+Definition at line 43 of file ebuser.c.\index{ebuser.c@{ebuser.c}!frontend\_\-file\_\-name@{frontend\_\-file\_\-name}}
+\index{frontend\_\-file\_\-name@{frontend\_\-file\_\-name}!ebuser.c@{ebuser.c}}
+\paragraph[{frontend\_\-file\_\-name}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ {\bf frontend\_\-file\_\-name} = \_\-\_\-FILE\_\-\_\-}\hfill\label{ebuser_8c_ac7fc683b5a25d9607abc270a54db6d97}
+
+
+Definition at line 28 of file ebuser.c.\index{ebuser.c@{ebuser.c}!frontend\_\-name@{frontend\_\-name}}
+\index{frontend\_\-name@{frontend\_\-name}!ebuser.c@{ebuser.c}}
+\paragraph[{frontend\_\-name}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ {\bf frontend\_\-name} = \char`\"{}Ebuilder\char`\"{}}\hfill\label{ebuser_8c_ac1f0c6df66e35778b61c611107501ec4}
+
+
+Definition at line 25 of file ebuser.c.\index{ebuser.c@{ebuser.c}!lModulo@{lModulo}}
+\index{lModulo@{lModulo}!ebuser.c@{ebuser.c}}
+\paragraph[{lModulo}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} {\bf lModulo} = 100}\hfill\label{ebuser_8c_a931a4ca265e2b03c9b59e773b628c1d2}
+
+
+Global var for testing passed at BOR. Globals 
+
+Definition at line 47 of file ebuser.c.
+
+Referenced by eb\_\-begin\_\-of\_\-run().\index{ebuser.c@{ebuser.c}!max\_\-event\_\-size@{max\_\-event\_\-size}}
+\index{max\_\-event\_\-size@{max\_\-event\_\-size}!ebuser.c@{ebuser.c}}
+\paragraph[{max\_\-event\_\-size}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} {\bf max\_\-event\_\-size} = 500000}\hfill\label{ebuser_8c_a13adb6e6b95ca2a62bbfe2453d71a1cd}
+
+
+Definition at line 37 of file ebuser.c.\index{ebuser.c@{ebuser.c}!max\_\-event\_\-size\_\-frag@{max\_\-event\_\-size\_\-frag}}
+\index{max\_\-event\_\-size\_\-frag@{max\_\-event\_\-size\_\-frag}!ebuser.c@{ebuser.c}}
+\paragraph[{max\_\-event\_\-size\_\-frag}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} {\bf max\_\-event\_\-size\_\-frag} = 5 $\ast$ 1024 $\ast$ 1024}\hfill\label{ebuser_8c_a5593758d19398ebc7c3d58d7f05ec160}
+
+
+Definition at line 40 of file ebuser.c.\index{ebuser.c@{ebuser.c}!tid\_\-size@{tid\_\-size}}
+\index{tid\_\-size@{tid\_\-size}!ebuser.c@{ebuser.c}}
+\paragraph[{tid\_\-size}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} {\bf tid\_\-size}\mbox{[}$\,$\mbox{]}}\hfill\label{ebuser_8c_a97cc1898bd6240261b5418bcab5a6d35}
+
+
+Referenced by bk\_\-find(), and bk\_\-locate().

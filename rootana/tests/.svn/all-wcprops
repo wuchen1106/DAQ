@@ -1,0 +1,71 @@
+K 25
+svn:wc:ra_dav:version-url
+V 37
+/svn/rootana/!svn/ver/117/trunk/tests
+END
+odb02308.xml
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/rootana/!svn/ver/91/trunk/tests/odb02308.xml
+END
+odb.xml
+K 25
+svn:wc:ra_dav:version-url
+V 44
+/svn/rootana/!svn/ver/91/trunk/tests/odb.xml
+END
+odb02308.odb
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/rootana/!svn/ver/91/trunk/tests/odb02308.odb
+END
+test_midasServer.cxx
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/rootana/!svn/ver/117/trunk/tests/test_midasServer.cxx
+END
+testODB.cxx
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/rootana/!svn/ver/91/trunk/tests/testODB.cxx
+END
+odb01103.xml
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/rootana/!svn/ver/91/trunk/tests/odb01103.xml
+END
+test_ppc_oldodb.mid.gz
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/rootana/!svn/ver/91/trunk/tests/test_ppc_oldodb.mid.gz
+END
+test_xmlodb.mid.gz
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/rootana/!svn/ver/91/trunk/tests/test_xmlodb.mid.gz
+END
+odb01103.odb
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/rootana/!svn/ver/91/trunk/tests/odb01103.odb
+END
+odb00182.xml
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/rootana/!svn/ver/91/trunk/tests/odb00182.xml
+END
+test.xml
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/svn/rootana/!svn/ver/91/trunk/tests/test.xml
+END

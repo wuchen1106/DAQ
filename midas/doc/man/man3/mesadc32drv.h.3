@@ -1,0 +1,86 @@
+.TH "mesadc32drv.h" 3 "31 May 2012" "Version 2.3.0-0" "Midas" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+mesadc32drv.h \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "int \fBmesadc32_Setup\fP (\fBMVME_INTERFACE\fP *mvme, uint32_t a32base, int mode)"
+.br
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "void mesadc32_AcqCtl (\fBMVME_INTERFACE\fP * mvme, uint32_t a32base, uint32_t operation)"
+.PP
+Definition at line 119 of file mesadc32.c.
+.SS "uint32_t mesadc32_BufferFree (\fBMVME_INTERFACE\fP * mvme, uint32_t base, int nbuffer)"
+.SS "uint32_t mesadc32_BufferFreeRead (\fBMVME_INTERFACE\fP * mvme, uint32_t a32base)"
+.SS "uint32_t mesadc32_BufferOccupancy (\fBMVME_INTERFACE\fP * mvme, uint32_t a32base, uint32_t channel)"
+.SS "void mesadc32_ChannelCtl (\fBMVME_INTERFACE\fP * mvme, uint32_t a32base, uint32_t reg, uint32_t mask)"
+.SS "void mesadc32_info (\fBMVME_INTERFACE\fP * mvme, uint32_t a32base, int * nch, uint32_t * n32w)"
+.SS "uint32_t mesadc32_MSCF16_GainGet (\fBMVME_INTERFACE\fP * mvme, uint32_t base, uint32_t modAdd, int subAdd, uint32_t * data)"
+.PP
+Definition at line 224 of file mesadc32.c.
+.SS "uint32_t mesadc32_MSCF16_GainSet (\fBMVME_INTERFACE\fP * mvme, uint32_t base, uint32_t modAdd, int subAdd, int data)"
+.PP
+Definition at line 189 of file mesadc32.c.
+.SS "uint32_t mesadc32_MSCF16_IDC (\fBMVME_INTERFACE\fP * mvme, uint32_t base, uint32_t modAdd)"
+.PP
+Definition at line 162 of file mesadc32.c.
+.SS "uint32_t mesadc32_MSCF16_RCon (\fBMVME_INTERFACE\fP * mvme, uint32_t base, uint32_t modAdd)"
+.PP
+Definition at line 249 of file mesadc32.c.
+.SS "int mesadc32_ReadData (\fBMVME_INTERFACE\fP * mvme, uint32_t a32base, uint32_t * pdata, int * len)"
+.PP
+Definition at line 41 of file mesadc32.c.
+.SS "uint32_t mesadc32_RegisterRead (\fBMVME_INTERFACE\fP * mvme, uint32_t a32base, int offset)"
+.PP
+Definition at line 59 of file mesadc32.c.
+.SS "void mesadc32_RegisterWrite (\fBMVME_INTERFACE\fP * mvme, uint32_t base, int offset, uint32_t value)"
+.PP
+Definition at line 65 of file mesadc32.c.
+.SS "void mesadc32_Reset (\fBMVME_INTERFACE\fP * mvme, uint32_t a32base)"
+.PP
+Definition at line 71 of file mesadc32.c.
+.SS "int mesadc32_Setup (\fBMVME_INTERFACE\fP * mvme, uint32_t base, int mode)"Sets all the necessary paramters for a given configuration. The configuration is provided by the mode argument. Add your own configuration in the case statement. Let me know your setting if you want to include it in the distribution.
+.IP "\(bu" 2
+\fBMode 1\fP :
+.PP
+.PP
+\fBParameters:\fP
+.RS 4
+\fI*mvme\fP VME structure 
+.br
+\fIbase\fP Module base address 
+.br
+\fImode\fP Configuration mode number 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+0: OK. -1: Bad 
+.RE
+.PP
+
+.PP
+Definition at line 295 of file mesadc32.c.
+.SS "void mesadc32_Status (\fBMVME_INTERFACE\fP * mvme, uint32_t a32base)"
+.PP
+Definition at line 266 of file mesadc32.c.
+.PP
+Referenced by mesadc32_Setup().
+.SS "void mesadc32_ThresholdGet (\fBMVME_INTERFACE\fP * mvme, uint32_t base, uint32_t channel, uint32_t * thres)"
+.PP
+Definition at line 105 of file mesadc32.c.
+.SS "void mesadc32_ThresholdSet (\fBMVME_INTERFACE\fP * mvme, uint32_t base, uint32_t channel, uint32_t thres)"
+.PP
+Definition at line 90 of file mesadc32.c.
+.SS "void mesadc32_TrgCtl (\fBMVME_INTERFACE\fP * mvme, uint32_t a32base, uint32_t reg, uint32_t mask)"
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Midas from the source code.

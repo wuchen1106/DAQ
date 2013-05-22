@@ -1,0 +1,79 @@
+10
+
+dir
+5363
+svn+ssh://svn@savannah.psi.ch/afs/psi.ch/project/meg/svn/midas/trunk/examples
+svn+ssh://svn@savannah.psi.ch/afs/psi.ch/project/meg/svn/midas
+
+
+
+2013-05-10T17:31:11.335726Z
+5362
+olchanski
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+050218f5-8902-0410-8d0e-8a15d521e4f2
+
+experiment
+dir
+
+basic
+dir
+
+history1
+dir
+
+history2
+dir
+
+gui
+dir
+
+javascript1
+dir
+
+eventbuilder
+dir
+
+lowlevel
+dir
+
+mtfe
+dir
+
+macro
+dir
+
+epics
+dir
+
+hbookexpt
+dir
+
+Triumf
+dir
+
+slowcont
+dir
+
+miniexp
+dir
+
+custom
+dir
+
+ybosexpt
+dir
+

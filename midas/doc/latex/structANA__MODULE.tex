@@ -1,0 +1,86 @@
+\subsection{ANA\_\-MODULE Struct Reference}
+\label{structANA__MODULE}\index{ANA\_\-MODULE@{ANA\_\-MODULE}}
+\subsubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+char \hyperlink{structANA__MODULE_a2d2f552fa5363f29a073f6e474e2f4f2}{name} \mbox{[}NAME\_\-LENGTH\mbox{]}
+\item 
+char \hyperlink{structANA__MODULE_a870b8ee21be70063bc382c911b5f21d6}{author} \mbox{[}NAME\_\-LENGTH\mbox{]}
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT}($\ast$ \hyperlink{structANA__MODULE_af3d6511a274c1946ce0bf45e7000e756}{analyzer} )(\hyperlink{structEVENT__HEADER}{EVENT\_\-HEADER} $\ast$, void $\ast$)
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT}($\ast$ \hyperlink{structANA__MODULE_a288a69852e0bcf07f90f4f344c42801b}{bor} )(\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{mevb_8c_a16695ea2bfd19f294afe066d6007ab36}{run\_\-number})
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT}($\ast$ \hyperlink{structANA__MODULE_ab6b3f976d916f185922ed4ccfe6453c6}{eor} )(\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{mevb_8c_a16695ea2bfd19f294afe066d6007ab36}{run\_\-number})
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT}($\ast$ \hyperlink{structANA__MODULE_a8ae1120805260da00f37f34ed6d519c5}{init} )()
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT}($\ast$ \hyperlink{structANA__MODULE_af3b4cc4d6a12a8eadeea80d82866b780}{exit} )()
+\item 
+void $\ast$ \hyperlink{structANA__MODULE_afebe80244b239178fbb56c656b7520fc}{parameters}
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{structANA__MODULE_a7402c042e2f62ed82d997f74bcc28251}{param\_\-size}
+\item 
+char $\ast$$\ast$ \hyperlink{structANA__MODULE_a4b8d333bfed34726eca0311247b0ad4e}{init\_\-str}
+\item 
+\hyperlink{vt2_8h_a239c7f0d40651c3e419c5b9651507d14}{BOOL} \hyperlink{structANA__MODULE_a0d86abcfd4f421658176e51c24f7eb29}{enabled}
+\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+
+
+Definition at line 1087 of file midas.h.
+
+\subsubsection{Field Documentation}
+\index{ANA\_\-MODULE@{ANA\_\-MODULE}!analyzer@{analyzer}}
+\index{analyzer@{analyzer}!ANA_MODULE@{ANA\_\-MODULE}}
+\paragraph[{analyzer}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT}($\ast$ {\bf ANA\_\-MODULE::analyzer})({\bf EVENT\_\-HEADER} $\ast$, void $\ast$)}\hfill\label{structANA__MODULE_af3d6511a274c1946ce0bf45e7000e756}
+Pointer to user analyzer routine \index{ANA\_\-MODULE@{ANA\_\-MODULE}!author@{author}}
+\index{author@{author}!ANA_MODULE@{ANA\_\-MODULE}}
+\paragraph[{author}]{\setlength{\rightskip}{0pt plus 5cm}char {\bf ANA\_\-MODULE::author}\mbox{[}NAME\_\-LENGTH\mbox{]}}\hfill\label{structANA__MODULE_a870b8ee21be70063bc382c911b5f21d6}
+Author 
+
+Definition at line 1089 of file midas.h.\index{ANA\_\-MODULE@{ANA\_\-MODULE}!bor@{bor}}
+\index{bor@{bor}!ANA_MODULE@{ANA\_\-MODULE}}
+\paragraph[{bor}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT}($\ast$ {\bf ANA\_\-MODULE::bor})({\bf INT} {\bf run\_\-number})}\hfill\label{structANA__MODULE_a288a69852e0bcf07f90f4f344c42801b}
+Pointer to begin-\/of-\/run routine \index{ANA\_\-MODULE@{ANA\_\-MODULE}!enabled@{enabled}}
+\index{enabled@{enabled}!ANA_MODULE@{ANA\_\-MODULE}}
+\paragraph[{enabled}]{\setlength{\rightskip}{0pt plus 5cm}{\bf BOOL} {\bf ANA\_\-MODULE::enabled}}\hfill\label{structANA__MODULE_a0d86abcfd4f421658176e51c24f7eb29}
+Enabled flag 
+
+Definition at line 1099 of file midas.h.\index{ANA\_\-MODULE@{ANA\_\-MODULE}!eor@{eor}}
+\index{eor@{eor}!ANA_MODULE@{ANA\_\-MODULE}}
+\paragraph[{eor}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT}($\ast$ {\bf ANA\_\-MODULE::eor})({\bf INT} {\bf run\_\-number})}\hfill\label{structANA__MODULE_ab6b3f976d916f185922ed4ccfe6453c6}
+Pointer to end-\/of-\/run routine \index{ANA\_\-MODULE@{ANA\_\-MODULE}!exit@{exit}}
+\index{exit@{exit}!ANA_MODULE@{ANA\_\-MODULE}}
+\paragraph[{exit}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT}($\ast$ {\bf ANA\_\-MODULE::exit})()}\hfill\label{structANA__MODULE_af3b4cc4d6a12a8eadeea80d82866b780}
+Pointer to exit routine \index{ANA\_\-MODULE@{ANA\_\-MODULE}!histo\_\-folder@{histo\_\-folder}}
+\index{histo\_\-folder@{histo\_\-folder}!ANA_MODULE@{ANA\_\-MODULE}}
+\paragraph[{histo\_\-folder}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ {\bf ANA\_\-MODULE::histo\_\-folder}}\hfill\label{structANA__MODULE_ac8ee8336d73fa16f3e17a1192e1a6466}
+
+
+Definition at line 1100 of file midas.h.\index{ANA\_\-MODULE@{ANA\_\-MODULE}!init@{init}}
+\index{init@{init}!ANA_MODULE@{ANA\_\-MODULE}}
+\paragraph[{init}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT}($\ast$ {\bf ANA\_\-MODULE::init})()}\hfill\label{structANA__MODULE_a8ae1120805260da00f37f34ed6d519c5}
+Pointer to init routine \index{ANA\_\-MODULE@{ANA\_\-MODULE}!init\_\-str@{init\_\-str}}
+\index{init\_\-str@{init\_\-str}!ANA_MODULE@{ANA\_\-MODULE}}
+\paragraph[{init\_\-str}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$$\ast$ {\bf ANA\_\-MODULE::init\_\-str}}\hfill\label{structANA__MODULE_a4b8d333bfed34726eca0311247b0ad4e}
+Parameter init string 
+
+Definition at line 1098 of file midas.h.\index{ANA\_\-MODULE@{ANA\_\-MODULE}!name@{name}}
+\index{name@{name}!ANA_MODULE@{ANA\_\-MODULE}}
+\paragraph[{name}]{\setlength{\rightskip}{0pt plus 5cm}char {\bf ANA\_\-MODULE::name}\mbox{[}NAME\_\-LENGTH\mbox{]}}\hfill\label{structANA__MODULE_a2d2f552fa5363f29a073f6e474e2f4f2}
+Module name 
+
+Definition at line 1088 of file midas.h.\index{ANA\_\-MODULE@{ANA\_\-MODULE}!param\_\-size@{param\_\-size}}
+\index{param\_\-size@{param\_\-size}!ANA_MODULE@{ANA\_\-MODULE}}
+\paragraph[{param\_\-size}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} {\bf ANA\_\-MODULE::param\_\-size}}\hfill\label{structANA__MODULE_a7402c042e2f62ed82d997f74bcc28251}
+Size of parameter structure 
+
+Definition at line 1097 of file midas.h.\index{ANA\_\-MODULE@{ANA\_\-MODULE}!parameters@{parameters}}
+\index{parameters@{parameters}!ANA_MODULE@{ANA\_\-MODULE}}
+\paragraph[{parameters}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ {\bf ANA\_\-MODULE::parameters}}\hfill\label{structANA__MODULE_afebe80244b239178fbb56c656b7520fc}
+Pointer to parameter structure 
+
+Definition at line 1096 of file midas.h.

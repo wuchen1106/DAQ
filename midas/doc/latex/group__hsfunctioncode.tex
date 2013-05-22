@@ -1,0 +1,38 @@
+\subsection{Midas History Functions (hs\_\-xxx)}
+\label{group__hsfunctioncode}\index{Midas History Functions (hs\_\-xxx)@{Midas History Functions (hs\_\-xxx)}}
+\subsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{group__hsfunctioncode_gadd381765666fd1aa3395b63b86d44887}{hs\_\-set\_\-path} (char $\ast$path)
+\item 
+\hyperlink{vppg_8h_a392e62da233ed3e2f7c3fd4f487a3896}{INT} \hyperlink{group__hsfunctioncode_gaa0adfd626d570a1e37a01f2f8b8afdfd}{hs\_\-dump} (\hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} event\_\-id, \hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} start\_\-time, \hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} end\_\-time, \hyperlink{vt2_8h_a798af1e30bc65f319c1a246cecf59e39}{DWORD} interval, \hyperlink{vt2_8h_a239c7f0d40651c3e419c5b9651507d14}{BOOL} binary\_\-time)
+\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+dox 
+
+\subsubsection{Function Documentation}
+\index{hsfunctioncode@{hsfunctioncode}!hs\_\-dump@{hs\_\-dump}}
+\index{hs\_\-dump@{hs\_\-dump}!hsfunctioncode@{hsfunctioncode}}
+\paragraph[{hs\_\-dump}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} hs\_\-dump ({\bf DWORD} {\em event\_\-id}, \/  {\bf DWORD} {\em start\_\-time}, \/  {\bf DWORD} {\em end\_\-time}, \/  {\bf DWORD} {\em interval}, \/  {\bf BOOL} {\em binary\_\-time})}\hfill\label{group__hsfunctioncode_gaa0adfd626d570a1e37a01f2f8b8afdfd}
+dox Display history for a given event at stdout. The output can be redirected to be read by Excel for example. 
+\begin{DoxyParams}{Parameters}
+\item[{\em event\_\-id}]Event ID \item[{\em start\_\-time}]Starting Date/Time \item[{\em end\_\-time}]End Date/Time \item[{\em interval}]Minimum time in seconds between reported events. Can be used to skip events \item[{\em binary\_\-time}]Display DWORD time stamp \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+HS\_\-SUCCESS, HS\_\-FILE\_\-ERROR 
+\end{DoxyReturn}
+
+
+Definition at line 1747 of file history.c.\index{hsfunctioncode@{hsfunctioncode}!hs\_\-set\_\-path@{hs\_\-set\_\-path}}
+\index{hs\_\-set\_\-path@{hs\_\-set\_\-path}!hsfunctioncode@{hsfunctioncode}}
+\paragraph[{hs\_\-set\_\-path}]{\setlength{\rightskip}{0pt plus 5cm}{\bf INT} hs\_\-set\_\-path (char $\ast$ {\em path})}\hfill\label{group__hsfunctioncode_gadd381765666fd1aa3395b63b86d44887}
+dox Sets the path for future history file accesses. Should be called before any other history function is called. 
+\begin{DoxyParams}{Parameters}
+\item[{\em path}]Directory where history files reside \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+HS\_\-SUCCESS 
+\end{DoxyReturn}
+
+
+Definition at line 49 of file history.c.

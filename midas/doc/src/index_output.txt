@@ -1,0 +1,5 @@
+make_index is starting
+
+ make_index.pl starting... making index (docindex.dox) 
+Can't exec "index_add.pl": No such file or directory at ./make_index.pl line 35.
+Missing file index_add.txt  at ./make_index.pl line 36.

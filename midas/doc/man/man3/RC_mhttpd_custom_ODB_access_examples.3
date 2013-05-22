@@ -1,0 +1,292 @@
+.TH "RC_mhttpd_custom_ODB_access_examples" 3 "31 May 2012" "Version 2.3.0-0" "Midas" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+RC_mhttpd_custom_ODB_access_examples \- Examples of accessing ODB from a Custom page 
+
+.br
+.PP
+.PP
+
+.br
+ 
+.SH "Example of ODB access with HTML and JavaScript equivalent"
+.PP
+The following simple HTML code shows ODB access using JavaScript (ODBGet, ODBEdit) and using the HTML  <odb> tag . The output produced by this code is shown below. 
+.PP
+.nf
+<!DOCTYPE HTML PUBLIC '-//W3C//DTD HTML 4.0 TRANSITIONAL//EN'>
+<html><head>
+<title> ODBEdit test</title>
+<!-- include the mhttpd JS library -->
+\htmlonly <script src='/js/mhttpd.js' type='text/javascript'></script> \endhtmlonly
+
+\htmlonly <script type='text/javascript'>
+var my_action = ''/CS/try&''
+var rn
+var path
+var my_expt='midas';
+
+document.write('</head><body>')
+document.write('<form method='get' name='form2' action='+my_action+'> ')
+document.write('<input name='exp' value=''+my_expt+'' type='hidden'>');
+
+document.write('Using Javascript and ODBEdit:<br>')
+path='/runinfo/run number'
+rn = ODBGet(path,'Run Number with format: %d')
+document.writeln('Run Number: '+rn+'<br>')
+document.writeln('Edit Run Number:')
+document.writeln('<a href='#' onclick='ODBEdit(path)' >')
+document.writeln(rn)
+document.writeln('</a>');
+</script> \endhtmlonly
+<br>
+Using HTML :
+<br>
+Using edit=2 ...  Run Number:
+<odb src='/runinfo/run number' edit=2>
+<br>
+Using edit=1 ...  Run Number:
+<odb src='/runinfo/run number' edit=1>
+<br>
+</form>
+</html>
+
+.fi
+.PP
+ 
+.br
+.PP
+This code produces the output shown in Figures 1 and 2 below. In Figure 1, a value has been entered using the hyperlink created by the \fBJavascript\fP function ODBEdit. A \fBpopup\fP box appears in which the user may enter a new value.
+.PP
+
+.br
+
+.br
+
+.br
+  Figure 1: ODB tags under html and javascript - entering an ODB value using Javascript 
+.br
+
+.br
+
+.br
+   
+.br
+
+.br
+
+.br
+.PP
+Figure 2 shows entering a value using the \fBHTML\fP tags. The two different styles are shown.
+.IP "\(bu" 2
+\fBedit=2\fP type produces a pop-up box as in the Javascript version
+.IP "\(bu" 2
+\fBedit=1\fP type produces an in-line input box
+.PP
+.PP
+
+.br
+
+.br
+
+.br
+  Figure 2: ODB tags under html and javascript - entering an ODB value using HTML 
+.br
+
+.br
+
+.br
+  
+.br
+
+.br
+
+.br
+ 
+.SH "Example of ODB access with JavaScript functions ODBSet and ODBKey"
+.PP
+The following HTML code shows an example using the JavaScript functions ODBSet and ODBKey. There is no equivalent to these functions available in HTML. The output from this example is shown in Figure 3.
+.PP
+.PP
+.nf
+<!DOCTYPE HTML PUBLIC '-//W3C//DTD HTML 4.0 TRANSITIONAL//EN'>
+<html><head>
+<title> ODBEdit test</title>
+\htmlonly <script src='/js/mhttpd.js' type='text/javascript'></script> \endhtmlonly
+
+\htmlonly <script type='text/javascript'>
+var my_action = ''/CS/try&''
+var rn,ival,irn
+var path='/runinfo/run number';
+var my_expt='midas';
+var message;
+
+function test(path,value)
+{
+var pattern=/DB_NO_KEY/;
+var ival,key
+
+document.write('Function test starting with path: '+path+' value: '+value+'<br>');
+document.write('ODBGet with a format parameter:  <br>');
+ival = ODBGet(path,'read:%4.4d');
+document.write(ival+'<br>');
+
+document.write('<br>Now using ODBSet to set a value: <br>');
+document.write('Setting '+path+' to '+value+' with ODBSet<br>') ;
+ODBSet(path,value);
+ival = ODBGet(path)
+document.writeln('Value: '+ival+'<br>')
+
+document.write('<br>Now using ODBKey to get a key using path: '+path+' <br>');
+key = ODBKey(path);
+document.write('<br>Testing response for the pattern: '+pattern+'...');
+ if ( pattern.test(key))
+      document.write('test is TRUE <br>');
+ else
+      document.write('test is FALSE<br>');
+document.write('key array : '+key+'<br>');
+document.write('done<br>');
+return;
+}
+
+
+document.write('</head><body>')
+document.write('<form method='get' name='form2' action='+my_action+'> ')
+document.write('<input name='exp' value=''+my_expt+'' type='hidden'>');
+
+irn=ODBGet(path); // remember initial run number
+ODBSet(path,70); // initialize the run number to 70
+
+document.write('Example showing use of ODBGet, ODBSet, ODBKey, ODBGetMsg <br>');
+document.write('First with a good path...<br>');
+document.write('<span style= 'color: green;'>')
+test('/runinfo/run number', 76);
+document.write('</span>')
+document.write('<br>Then with bad path to show the difference....<br>');
+document.write('<span style= 'color: red;'>')
+test('/nopath/nokey', 79);
+document.write('</span>')
+message= ODBGetMsg(1);
+document.write('Last message:'+message+'<br>');
+
+ODBSet(path,irn); // rewrite initial run number
+</script> \endhtmlonly
+</form>
+</html>
+.fi
+.PP
+.PP
+
+.br
+
+.br
+
+.br
+  Figure 3 Output from above example code showing ODB access with JS built-in functions 
+.br
+
+.br
+
+.br
+  
+.br
+
+.br
+
+.br
+ 
+.SH "Example of ODB access with arrays"
+.PP
+Accessing ODB values can slow the page update considerably where there are many values to access. The access time can be cut considerably by having most of the input and output data in arrays.
+.PP
+ Note that writing arrays with ODBSet has been supported since \fBMay 2010\fP . 
+.PP
+In the following example, the raw data is provided in two large arrays. Some of this data is used in logical calculations (done in JavaScript) to determine the state of various devices, and the result is output into an array in the ODB in order to colour various items with the use of 'fills' on the image pages. 
+.br
+ In this example, the arrays PLCR,PLCA in the odb are read into arrays in JavaScript in the function get_PLC_arrays in the file custom_functions.js. Calculated data stored as an array in the odb are read into an array CAL. 
+.PP
+.nf
+// custom_fuctions.js
+// globals
+var equipment_path='/Equipment/TpcGasPlc/';
+var gascalc_array = equipment_path + 'GasCalc/Variables/Calculated[*]';
+var variables_path = equipment_path + 'Variables/';
+var plcr_path = variables_path + 'PLCR'; // indices of these PLC arrays are in names.js
+var plca_path = variables_path + 'PLCA';
+
+var PLCR=[];
+var PLCA=[];
+var CAL=[];
+
+function get_PLC_arrays()
+{  // get the arrays in one go
+   // returns 0=success or 1=failure
+ 
+  var pattern1=/DB_NO_KEY/;
+  var pattern2=/undefined/;
+
+  var i,idx;
+    
+  PLCR =     ODBGet(plcr_path+ '[*]');
+  if ( pattern1.test(PLCR) ||  pattern2.test(PLCR)  )
+  {
+      alert ('get_PLCR_array: ERROR '+PLCR+' from ODBGet('+plcr_path+'[*])' );
+      return 1;
+  } 
+  
+   PLCA = ODBGet(plca_path+ '[*]', '%9.5f'); // the required values are float
+   if ( pattern1.test(PLCA) ||  pattern2.test(PLCA)  )
+   {
+      alert ('get_PLCA_array: ERROR '+PLCA+' from ODBGet('+plca_path+'[*])' );
+      return 1;
+   }
+              
+// get Calculated array
+   CAL = ODBGet(gascalc_array, '%d'); // the required values are INT
+   if ( pattern1.test(CAL) ||  pattern2.test(CAL)  )
+   {
+      alert ('get_CAL_array: ERROR '+CAL+' from ODBGet('+gascalc_array+')' );
+      return 1;
+   }
+
+   return 0; // success
+}
+
+..........
+
+.fi
+.PP
+.PP
+For each of the gas pages, various items are calculated and the CAL array is updated for each item. At the end of all calculations, the CAL array is written back into the ODB.
+.PP
+.PP
+.nf
+<!-- GasPage.html -->
+.......
+
+<!-- js_functions!   custom_functions.js defined by  ODB key  /custom/js_functions!  -->
+\htmlonly <script type='text/javascript'  src='js_functions!'>
+</script> \endhtmlonly
+</head><body>
+
+
+\htmlonly <script>
+//Read all the arrays from the ODB
+var plc_error = get_PLC_arrays();
+.....
+calculate_device(G2VA1_STAT,G2VA1,plc_error); // saves result to CAL array
+......
+calculate_logical(17,PU_Box,plc_error); // saves result to CAL array
+......
+ODBSet(gascalc_array, CAL); // write CAL array into ODB after all calculations
+</script> \endhtmlonly
+</body>
+</html>
+.fi
+.PP
+.PP
+.PP
+
+.br
+  
