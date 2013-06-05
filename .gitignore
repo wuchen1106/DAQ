@@ -11,3 +11,25 @@
 *.lai
 *.la
 *.a
+
+# automatically generated files
+midas/linux/bin/
+midas/bin/
+roody/bin/
+roody/doxfiles/latex/
+roody/html/
+roody/doxfiles/man/man3/
+midas/Makefile
+Makefile.depends
+roody/include/rootsys.h
+roody/src/MTGListTreeDict.h
+roody/src/RoodyDict.h
+roody/src/TAxisLimitsDialogDict.h
+roody/src/TGTextDialogDict.h
+roody/src/TPeakFindPanelDict.h
+roody/doxfiles/roodydox.log
+rootana/*.exe
+rootana/libAnalyzer/*.exe
+rootana/libAnalyzerDisplay/*.exe
+rootana/tests/*.exe
+rootana/libAnalyzerDisplay/*Dict.h
